@@ -18,7 +18,7 @@ func astTransformOverloads(parsed *CppParsedHeader) {
 		existing := map[string]struct{}{}
 		for j, m := range c.Methods {
 
-			originalProposal := m.SafeMethodName()
+			originalProposal := m.safeMethodName()
 			proposedName := originalProposal
 
 			if _, ok := existing[proposedName]; !ok {
