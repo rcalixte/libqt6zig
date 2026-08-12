@@ -79,16 +79,24 @@ pub const KTextEditor__ConfigPage = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new KTextEditor::ConfigPage object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KTextEditor::ConfigPage object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) KTextEditor__ConfigPage {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KTextEditor__ConfigPage_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) KTextEditor__ConfigPage {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KTextEditor__ConfigPage_new(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -96,9 +104,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn MetaObject(self: KTextEditor__ConfigPage) QMetaObject {
+    pub fn metaObject(self: KTextEditor__ConfigPage) QMetaObject {
         return .{ .ptr = qtc.KTextEditor__ConfigPage_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -110,13 +122,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KTextEditor__ConfigPage_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -126,9 +138,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn SuperMetaObject(self: KTextEditor__ConfigPage) QMetaObject {
+    pub fn superMetaObject(self: KTextEditor__ConfigPage) QMetaObject {
         return .{ .ptr = qtc.KTextEditor__ConfigPage_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -136,10 +152,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KTextEditor__ConfigPage, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KTextEditor__ConfigPage, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KTextEditor__ConfigPage_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -149,13 +169,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KTextEditor__ConfigPage_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -165,10 +185,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KTextEditor__ConfigPage, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KTextEditor__ConfigPage, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KTextEditor__ConfigPage_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -180,9 +204,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KTextEditor__ConfigPage, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KTextEditor__ConfigPage, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KTextEditor__ConfigPage_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -192,13 +220,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KTextEditor__ConfigPage_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -212,9 +240,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KTextEditor__ConfigPage, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KTextEditor__ConfigPage, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KTextEditor__ConfigPage_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -224,14 +256,18 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__ConfigPage.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__ConfigPage.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-configpage.html#name)
     ///
@@ -241,13 +277,17 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: KTextEditor__ConfigPage, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: KTextEditor__ConfigPage, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KTextEditor__ConfigPage_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__ConfigPage.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__ConfigPage.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onName` instead
+    ///
+    pub const OnName = onName;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-configpage.html#name)
     ///
@@ -259,13 +299,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnName(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onName(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) [*:0]const u8) void {
         qtc.KTextEditor__ConfigPage_OnName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperName` instead
+    /// ### DEPRECATED: Use `superName` instead
     ///
-    pub const QBaseName = SuperName;
+    pub const SuperName = superName;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-configpage.html#name)
     ///
@@ -277,13 +317,17 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperName(self: KTextEditor__ConfigPage, allocator: std.mem.Allocator) []const u8 {
+    pub fn superName(self: KTextEditor__ConfigPage, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KTextEditor__ConfigPage_SuperName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__ConfigPage.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__ConfigPage.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `fullName` instead
+    ///
+    pub const FullName = fullName;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-configpage.html#fullName)
     ///
@@ -293,13 +337,17 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FullName(self: KTextEditor__ConfigPage, allocator: std.mem.Allocator) []const u8 {
+    pub fn fullName(self: KTextEditor__ConfigPage, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KTextEditor__ConfigPage_FullName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__ConfigPage.FullName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__ConfigPage.fullName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onFullName` instead
+    ///
+    pub const OnFullName = onFullName;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-configpage.html#fullName)
     ///
@@ -311,13 +359,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnFullName(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onFullName(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) [*:0]const u8) void {
         qtc.KTextEditor__ConfigPage_OnFullName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperFullName` instead
+    /// ### DEPRECATED: Use `superFullName` instead
     ///
-    pub const QBaseFullName = SuperFullName;
+    pub const SuperFullName = superFullName;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-configpage.html#fullName)
     ///
@@ -329,13 +377,17 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperFullName(self: KTextEditor__ConfigPage, allocator: std.mem.Allocator) []const u8 {
+    pub fn superFullName(self: KTextEditor__ConfigPage, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KTextEditor__ConfigPage_SuperFullName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__ConfigPage.FullName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__ConfigPage.fullName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `icon` instead
+    ///
+    pub const Icon = icon;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-configpage.html#icon)
     ///
@@ -343,9 +395,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn Icon(self: KTextEditor__ConfigPage) QIcon {
+    pub fn icon(self: KTextEditor__ConfigPage) QIcon {
         return .{ .ptr = qtc.KTextEditor__ConfigPage_Icon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onIcon` instead
+    ///
+    pub const OnIcon = onIcon;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-configpage.html#icon)
     ///
@@ -359,13 +415,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnIcon(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) QIcon) void {
+    pub fn onIcon(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) QIcon) void {
         qtc.KTextEditor__ConfigPage_OnIcon(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperIcon` instead
+    /// ### DEPRECATED: Use `superIcon` instead
     ///
-    pub const QBaseIcon = SuperIcon;
+    pub const SuperIcon = superIcon;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-configpage.html#icon)
     ///
@@ -375,20 +431,28 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn SuperIcon(self: KTextEditor__ConfigPage) QIcon {
+    pub fn superIcon(self: KTextEditor__ConfigPage) QIcon {
         return .{ .ptr = qtc.KTextEditor__ConfigPage_SuperIcon(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `apply` instead
+    ///
+    pub const Apply = apply;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-configpage.html#apply)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn Apply(self: KTextEditor__ConfigPage) void {
+    pub fn apply(self: KTextEditor__ConfigPage) void {
         qtc.KTextEditor__ConfigPage_Apply(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onApply` instead
+    ///
+    pub const OnApply = onApply;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-configpage.html#apply)
     ///
     /// Allows for overriding the related default method
@@ -399,13 +463,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnApply(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) void) void {
+    pub fn onApply(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) void) void {
         qtc.KTextEditor__ConfigPage_OnApply(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperApply` instead
+    /// ### DEPRECATED: Use `superApply` instead
     ///
-    pub const QBaseApply = SuperApply;
+    pub const SuperApply = superApply;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-configpage.html#apply)
     ///
@@ -415,20 +479,28 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn SuperApply(self: KTextEditor__ConfigPage) void {
+    pub fn superApply(self: KTextEditor__ConfigPage) void {
         qtc.KTextEditor__ConfigPage_SuperApply(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `reset` instead
+    ///
+    pub const Reset = reset;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-configpage.html#reset)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn Reset(self: KTextEditor__ConfigPage) void {
+    pub fn reset(self: KTextEditor__ConfigPage) void {
         qtc.KTextEditor__ConfigPage_Reset(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onReset` instead
+    ///
+    pub const OnReset = onReset;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-configpage.html#reset)
     ///
     /// Allows for overriding the related default method
@@ -439,13 +511,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnReset(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) void) void {
+    pub fn onReset(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) void) void {
         qtc.KTextEditor__ConfigPage_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperReset` instead
+    /// ### DEPRECATED: Use `superReset` instead
     ///
-    pub const QBaseReset = SuperReset;
+    pub const SuperReset = superReset;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-configpage.html#reset)
     ///
@@ -455,9 +527,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn SuperReset(self: KTextEditor__ConfigPage) void {
+    pub fn superReset(self: KTextEditor__ConfigPage) void {
         qtc.KTextEditor__ConfigPage_SuperReset(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `defaults` instead
+    ///
+    pub const Defaults = defaults;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-configpage.html#defaults)
     ///
@@ -465,9 +541,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn Defaults(self: KTextEditor__ConfigPage) void {
+    pub fn defaults(self: KTextEditor__ConfigPage) void {
         qtc.KTextEditor__ConfigPage_Defaults(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDefaults` instead
+    ///
+    pub const OnDefaults = onDefaults;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-configpage.html#defaults)
     ///
@@ -479,13 +559,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDefaults(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) void) void {
+    pub fn onDefaults(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) void) void {
         qtc.KTextEditor__ConfigPage_OnDefaults(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDefaults` instead
+    /// ### DEPRECATED: Use `superDefaults` instead
     ///
-    pub const QBaseDefaults = SuperDefaults;
+    pub const SuperDefaults = superDefaults;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-configpage.html#defaults)
     ///
@@ -495,9 +575,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn SuperDefaults(self: KTextEditor__ConfigPage) void {
+    pub fn superDefaults(self: KTextEditor__ConfigPage) void {
         qtc.KTextEditor__ConfigPage_SuperDefaults(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `changed` instead
+    ///
+    pub const Changed = changed;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-configpage.html#changed)
     ///
@@ -505,9 +589,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn Changed(self: KTextEditor__ConfigPage) void {
+    pub fn changed(self: KTextEditor__ConfigPage) void {
         qtc.KTextEditor__ConfigPage_Changed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChanged` instead
+    ///
+    pub const OnChanged = onChanged;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-configpage.html#changed)
     ///
@@ -517,9 +605,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage) callconv(.c) void `
     ///
-    pub fn OnChanged(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage) callconv(.c) void) void {
+    pub fn onChanged(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage) callconv(.c) void) void {
         qtc.KTextEditor__ConfigPage_Connect_Changed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -531,15 +623,19 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__ConfigPage.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__ConfigPage.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -553,15 +649,19 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__ConfigPage.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__ConfigPage.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -571,9 +671,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn WinId(self: KTextEditor__ConfigPage) usize {
+    pub fn winId(self: KTextEditor__ConfigPage) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -583,9 +687,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn CreateWinId(self: KTextEditor__ConfigPage) void {
+    pub fn createWinId(self: KTextEditor__ConfigPage) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -595,9 +703,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn InternalWinId(self: KTextEditor__ConfigPage) usize {
+    pub fn internalWinId(self: KTextEditor__ConfigPage) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -607,9 +719,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn EffectiveWinId(self: KTextEditor__ConfigPage) usize {
+    pub fn effectiveWinId(self: KTextEditor__ConfigPage) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -619,9 +735,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn Style(self: KTextEditor__ConfigPage) QStyle {
+    pub fn style(self: KTextEditor__ConfigPage) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -631,12 +751,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: KTextEditor__ConfigPage, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: KTextEditor__ConfigPage, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -646,9 +770,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn IsTopLevel(self: KTextEditor__ConfigPage) bool {
+    pub fn isTopLevel(self: KTextEditor__ConfigPage) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -658,9 +786,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn IsWindow(self: KTextEditor__ConfigPage) bool {
+    pub fn isWindow(self: KTextEditor__ConfigPage) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -670,9 +802,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn IsModal(self: KTextEditor__ConfigPage) bool {
+    pub fn isModal(self: KTextEditor__ConfigPage) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -686,9 +822,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: KTextEditor__ConfigPage) i32 {
+    pub fn windowModality(self: KTextEditor__ConfigPage) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -698,11 +838,15 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: KTextEditor__ConfigPage, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: KTextEditor__ConfigPage, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -712,9 +856,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn IsEnabled(self: KTextEditor__ConfigPage) bool {
+    pub fn isEnabled(self: KTextEditor__ConfigPage) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -726,10 +874,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: KTextEditor__ConfigPage, param1: anytype) bool {
+    pub fn isEnabledTo(self: KTextEditor__ConfigPage, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -741,9 +893,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: KTextEditor__ConfigPage, enabled: bool) void {
+    pub fn setEnabled(self: KTextEditor__ConfigPage, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -755,9 +911,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: KTextEditor__ConfigPage, disabled: bool) void {
+    pub fn setDisabled(self: KTextEditor__ConfigPage, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -769,9 +929,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: KTextEditor__ConfigPage, windowModified: bool) void {
+    pub fn setWindowModified(self: KTextEditor__ConfigPage, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -781,9 +945,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn FrameGeometry(self: KTextEditor__ConfigPage) QRect {
+    pub fn frameGeometry(self: KTextEditor__ConfigPage) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -793,9 +961,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn Geometry(self: KTextEditor__ConfigPage) QRect {
+    pub fn geometry(self: KTextEditor__ConfigPage) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -805,9 +977,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn NormalGeometry(self: KTextEditor__ConfigPage) QRect {
+    pub fn normalGeometry(self: KTextEditor__ConfigPage) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -817,9 +993,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn X(self: KTextEditor__ConfigPage) i32 {
+    pub fn x(self: KTextEditor__ConfigPage) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -829,9 +1009,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn Y(self: KTextEditor__ConfigPage) i32 {
+    pub fn y(self: KTextEditor__ConfigPage) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -841,9 +1025,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn Pos(self: KTextEditor__ConfigPage) QPoint {
+    pub fn pos(self: KTextEditor__ConfigPage) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -853,9 +1041,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn FrameSize(self: KTextEditor__ConfigPage) QSize {
+    pub fn frameSize(self: KTextEditor__ConfigPage) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -865,9 +1057,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn Size(self: KTextEditor__ConfigPage) QSize {
+    pub fn size(self: KTextEditor__ConfigPage) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -877,9 +1073,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn Width(self: KTextEditor__ConfigPage) i32 {
+    pub fn width(self: KTextEditor__ConfigPage) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -889,9 +1089,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn Height(self: KTextEditor__ConfigPage) i32 {
+    pub fn height(self: KTextEditor__ConfigPage) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -901,9 +1105,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn Rect(self: KTextEditor__ConfigPage) QRect {
+    pub fn rect(self: KTextEditor__ConfigPage) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -913,9 +1121,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn ChildrenRect(self: KTextEditor__ConfigPage) QRect {
+    pub fn childrenRect(self: KTextEditor__ConfigPage) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -925,9 +1137,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn ChildrenRegion(self: KTextEditor__ConfigPage) QRegion {
+    pub fn childrenRegion(self: KTextEditor__ConfigPage) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -937,9 +1153,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn MinimumSize(self: KTextEditor__ConfigPage) QSize {
+    pub fn minimumSize(self: KTextEditor__ConfigPage) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -949,9 +1169,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn MaximumSize(self: KTextEditor__ConfigPage) QSize {
+    pub fn maximumSize(self: KTextEditor__ConfigPage) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -961,9 +1185,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn MinimumWidth(self: KTextEditor__ConfigPage) i32 {
+    pub fn minimumWidth(self: KTextEditor__ConfigPage) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -973,9 +1201,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn MinimumHeight(self: KTextEditor__ConfigPage) i32 {
+    pub fn minimumHeight(self: KTextEditor__ConfigPage) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -985,9 +1217,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn MaximumWidth(self: KTextEditor__ConfigPage) i32 {
+    pub fn maximumWidth(self: KTextEditor__ConfigPage) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -997,9 +1233,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn MaximumHeight(self: KTextEditor__ConfigPage) i32 {
+    pub fn maximumHeight(self: KTextEditor__ConfigPage) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1009,12 +1249,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: KTextEditor__ConfigPage, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: KTextEditor__ConfigPage, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1028,9 +1272,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: KTextEditor__ConfigPage, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: KTextEditor__ConfigPage, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1040,12 +1288,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: KTextEditor__ConfigPage, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: KTextEditor__ConfigPage, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1059,9 +1311,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: KTextEditor__ConfigPage, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: KTextEditor__ConfigPage, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1073,9 +1329,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: KTextEditor__ConfigPage, minw: i32) void {
+    pub fn setMinimumWidth(self: KTextEditor__ConfigPage, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1087,9 +1347,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: KTextEditor__ConfigPage, minh: i32) void {
+    pub fn setMinimumHeight(self: KTextEditor__ConfigPage, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1101,9 +1365,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: KTextEditor__ConfigPage, maxw: i32) void {
+    pub fn setMaximumWidth(self: KTextEditor__ConfigPage, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1115,9 +1383,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: KTextEditor__ConfigPage, maxh: i32) void {
+    pub fn setMaximumHeight(self: KTextEditor__ConfigPage, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1127,9 +1399,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn SizeIncrement(self: KTextEditor__ConfigPage) QSize {
+    pub fn sizeIncrement(self: KTextEditor__ConfigPage) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1139,12 +1415,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: KTextEditor__ConfigPage, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: KTextEditor__ConfigPage, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -1158,9 +1438,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: KTextEditor__ConfigPage, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: KTextEditor__ConfigPage, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -1170,9 +1454,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn BaseSize(self: KTextEditor__ConfigPage) QSize {
+    pub fn baseSize(self: KTextEditor__ConfigPage) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -1182,12 +1470,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: KTextEditor__ConfigPage, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: KTextEditor__ConfigPage, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -1201,9 +1493,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: KTextEditor__ConfigPage, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: KTextEditor__ConfigPage, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -1215,10 +1511,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: KTextEditor__ConfigPage, fixedSize: anytype) void {
+    pub fn setFixedSize(self: KTextEditor__ConfigPage, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -1232,9 +1532,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: KTextEditor__ConfigPage, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: KTextEditor__ConfigPage, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -1246,9 +1550,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: KTextEditor__ConfigPage, w: i32) void {
+    pub fn setFixedWidth(self: KTextEditor__ConfigPage, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -1260,9 +1568,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: KTextEditor__ConfigPage, h: i32) void {
+    pub fn setFixedHeight(self: KTextEditor__ConfigPage, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -1274,11 +1586,15 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: KTextEditor__ConfigPage, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: KTextEditor__ConfigPage, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -1289,11 +1605,15 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: KTextEditor__ConfigPage, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: KTextEditor__ConfigPage, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1304,11 +1624,15 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: KTextEditor__ConfigPage, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: KTextEditor__ConfigPage, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1319,11 +1643,15 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: KTextEditor__ConfigPage, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: KTextEditor__ConfigPage, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1334,11 +1662,15 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: KTextEditor__ConfigPage, param1: anytype) QPointF {
+    pub fn mapToParent(self: KTextEditor__ConfigPage, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1349,10 +1681,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: KTextEditor__ConfigPage, param1: anytype) QPoint {
+    pub fn mapToParent2(self: KTextEditor__ConfigPage, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -1364,10 +1700,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: KTextEditor__ConfigPage, param1: anytype) QPointF {
+    pub fn mapFromParent(self: KTextEditor__ConfigPage, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -1379,10 +1719,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: KTextEditor__ConfigPage, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: KTextEditor__ConfigPage, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -1396,12 +1740,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: KTextEditor__ConfigPage, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: KTextEditor__ConfigPage, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -1414,11 +1762,15 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: KTextEditor__ConfigPage, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: KTextEditor__ConfigPage, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -1432,11 +1784,15 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: KTextEditor__ConfigPage, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: KTextEditor__ConfigPage, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -1450,11 +1806,15 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: KTextEditor__ConfigPage, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: KTextEditor__ConfigPage, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -1464,9 +1824,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn Window(self: KTextEditor__ConfigPage) QWidget {
+    pub fn window(self: KTextEditor__ConfigPage) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -1476,9 +1840,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn NativeParentWidget(self: KTextEditor__ConfigPage) QWidget {
+    pub fn nativeParentWidget(self: KTextEditor__ConfigPage) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -1488,9 +1856,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn TopLevelWidget(self: KTextEditor__ConfigPage) QWidget {
+    pub fn topLevelWidget(self: KTextEditor__ConfigPage) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -1500,9 +1872,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn Palette(self: KTextEditor__ConfigPage) QPalette {
+    pub fn palette(self: KTextEditor__ConfigPage) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -1512,12 +1888,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: KTextEditor__ConfigPage, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: KTextEditor__ConfigPage, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1527,11 +1907,15 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: KTextEditor__ConfigPage, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: KTextEditor__ConfigPage, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1545,9 +1929,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: KTextEditor__ConfigPage) i32 {
+    pub fn backgroundRole(self: KTextEditor__ConfigPage) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1557,11 +1945,15 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: KTextEditor__ConfigPage, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: KTextEditor__ConfigPage, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1575,9 +1967,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: KTextEditor__ConfigPage) i32 {
+    pub fn foregroundRole(self: KTextEditor__ConfigPage) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -1587,9 +1983,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn Font(self: KTextEditor__ConfigPage) QFont {
+    pub fn font(self: KTextEditor__ConfigPage) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -1599,12 +1999,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: KTextEditor__ConfigPage, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: KTextEditor__ConfigPage, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -1614,9 +2018,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn FontMetrics(self: KTextEditor__ConfigPage) QFontMetrics {
+    pub fn fontMetrics(self: KTextEditor__ConfigPage) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -1626,9 +2034,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn FontInfo(self: KTextEditor__ConfigPage) QFontInfo {
+    pub fn fontInfo(self: KTextEditor__ConfigPage) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -1638,9 +2050,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn Cursor(self: KTextEditor__ConfigPage) QCursor {
+    pub fn cursor(self: KTextEditor__ConfigPage) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -1650,12 +2066,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: KTextEditor__ConfigPage, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: KTextEditor__ConfigPage, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -1665,9 +2085,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn UnsetCursor(self: KTextEditor__ConfigPage) void {
+    pub fn unsetCursor(self: KTextEditor__ConfigPage) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -1679,9 +2103,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: KTextEditor__ConfigPage, enable: bool) void {
+    pub fn setMouseTracking(self: KTextEditor__ConfigPage, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -1691,9 +2119,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn HasMouseTracking(self: KTextEditor__ConfigPage) bool {
+    pub fn hasMouseTracking(self: KTextEditor__ConfigPage) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -1703,9 +2135,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn UnderMouse(self: KTextEditor__ConfigPage) bool {
+    pub fn underMouse(self: KTextEditor__ConfigPage) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -1717,9 +2153,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: KTextEditor__ConfigPage, enable: bool) void {
+    pub fn setTabletTracking(self: KTextEditor__ConfigPage, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -1729,24 +2169,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn HasTabletTracking(self: KTextEditor__ConfigPage) bool {
+    pub fn hasTabletTracking(self: KTextEditor__ConfigPage) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTextEditor__ConfigPage `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: KTextEditor__ConfigPage, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -1756,12 +2185,35 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: KTextEditor__ConfigPage, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: KTextEditor__ConfigPage, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KTextEditor__ConfigPage `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: KTextEditor__ConfigPage, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -1771,9 +2223,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn Mask(self: KTextEditor__ConfigPage) QRegion {
+    pub fn mask(self: KTextEditor__ConfigPage) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -1783,9 +2239,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn ClearMask(self: KTextEditor__ConfigPage) void {
+    pub fn clearMask(self: KTextEditor__ConfigPage) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -1797,10 +2257,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: KTextEditor__ConfigPage, target: anytype) void {
+    pub fn render(self: KTextEditor__ConfigPage, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -1812,10 +2276,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: KTextEditor__ConfigPage, painter: anytype) void {
+    pub fn render2(self: KTextEditor__ConfigPage, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -1825,9 +2293,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn Grab(self: KTextEditor__ConfigPage) QPixmap {
+    pub fn grab(self: KTextEditor__ConfigPage) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -1837,9 +2309,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn GraphicsEffect(self: KTextEditor__ConfigPage) QGraphicsEffect {
+    pub fn graphicsEffect(self: KTextEditor__ConfigPage) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -1851,10 +2327,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: KTextEditor__ConfigPage, effect: anytype) void {
+    pub fn setGraphicsEffect(self: KTextEditor__ConfigPage, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -1866,9 +2346,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: KTextEditor__ConfigPage, typeVal: i32) void {
+    pub fn grabGesture(self: KTextEditor__ConfigPage, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -1880,9 +2364,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: KTextEditor__ConfigPage, typeVal: i32) void {
+    pub fn ungrabGesture(self: KTextEditor__ConfigPage, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -1892,15 +2380,19 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: KTextEditor__ConfigPage, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: KTextEditor__ConfigPage, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -1910,15 +2402,19 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: KTextEditor__ConfigPage, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: KTextEditor__ConfigPage, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -1930,13 +2426,17 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: KTextEditor__ConfigPage, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: KTextEditor__ConfigPage, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__ConfigPage.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__ConfigPage.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -1948,13 +2448,17 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: KTextEditor__ConfigPage, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: KTextEditor__ConfigPage, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__ConfigPage.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__ConfigPage.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -1964,12 +2468,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: KTextEditor__ConfigPage, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn setWindowIcon(self: KTextEditor__ConfigPage, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -1979,9 +2487,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn WindowIcon(self: KTextEditor__ConfigPage) QIcon {
+    pub fn windowIcon(self: KTextEditor__ConfigPage) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -1991,15 +2503,19 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: KTextEditor__ConfigPage, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: KTextEditor__ConfigPage, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2011,13 +2527,17 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: KTextEditor__ConfigPage, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: KTextEditor__ConfigPage, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__ConfigPage.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__ConfigPage.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -2027,15 +2547,19 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: KTextEditor__ConfigPage, windowRole: []const u8) void {
+    pub fn setWindowRole(self: KTextEditor__ConfigPage, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -2047,13 +2571,17 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: KTextEditor__ConfigPage, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: KTextEditor__ConfigPage, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__ConfigPage.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__ConfigPage.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2065,13 +2593,17 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: KTextEditor__ConfigPage, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: KTextEditor__ConfigPage, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2083,13 +2615,17 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: KTextEditor__ConfigPage, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: KTextEditor__ConfigPage, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__ConfigPage.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__ConfigPage.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2101,9 +2637,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: KTextEditor__ConfigPage, level: f64) void {
+    pub fn setWindowOpacity(self: KTextEditor__ConfigPage, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2113,9 +2653,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn WindowOpacity(self: KTextEditor__ConfigPage) f64 {
+    pub fn windowOpacity(self: KTextEditor__ConfigPage) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -2125,9 +2669,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn IsWindowModified(self: KTextEditor__ConfigPage) bool {
+    pub fn isWindowModified(self: KTextEditor__ConfigPage) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -2137,15 +2685,19 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: KTextEditor__ConfigPage, toolTip: []const u8) void {
+    pub fn setToolTip(self: KTextEditor__ConfigPage, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -2157,13 +2709,17 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: KTextEditor__ConfigPage, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: KTextEditor__ConfigPage, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__ConfigPage.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__ConfigPage.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2175,9 +2731,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: KTextEditor__ConfigPage, msec: i32) void {
+    pub fn setToolTipDuration(self: KTextEditor__ConfigPage, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2187,9 +2747,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn ToolTipDuration(self: KTextEditor__ConfigPage) i32 {
+    pub fn toolTipDuration(self: KTextEditor__ConfigPage) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -2199,15 +2763,19 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: KTextEditor__ConfigPage, statusTip: []const u8) void {
+    pub fn setStatusTip(self: KTextEditor__ConfigPage, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -2219,13 +2787,17 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: KTextEditor__ConfigPage, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: KTextEditor__ConfigPage, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__ConfigPage.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__ConfigPage.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2235,15 +2807,19 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: KTextEditor__ConfigPage, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: KTextEditor__ConfigPage, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2255,13 +2831,17 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: KTextEditor__ConfigPage, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: KTextEditor__ConfigPage, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__ConfigPage.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__ConfigPage.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2273,13 +2853,17 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: KTextEditor__ConfigPage, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: KTextEditor__ConfigPage, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__ConfigPage.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__ConfigPage.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2289,15 +2873,19 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: KTextEditor__ConfigPage, name: []const u8) void {
+    pub fn setAccessibleName(self: KTextEditor__ConfigPage, _name: []const u8) void {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2309,13 +2897,17 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: KTextEditor__ConfigPage, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: KTextEditor__ConfigPage, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__ConfigPage.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__ConfigPage.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2327,13 +2919,17 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: KTextEditor__ConfigPage, description: []const u8) void {
+    pub fn setAccessibleDescription(self: KTextEditor__ConfigPage, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2345,9 +2941,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: KTextEditor__ConfigPage, direction: i32) void {
+    pub fn setLayoutDirection(self: KTextEditor__ConfigPage, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2361,9 +2961,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: KTextEditor__ConfigPage) i32 {
+    pub fn layoutDirection(self: KTextEditor__ConfigPage) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2373,9 +2977,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn UnsetLayoutDirection(self: KTextEditor__ConfigPage) void {
+    pub fn unsetLayoutDirection(self: KTextEditor__ConfigPage) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -2385,12 +2993,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: KTextEditor__ConfigPage, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: KTextEditor__ConfigPage, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -2400,9 +3012,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn Locale(self: KTextEditor__ConfigPage) QLocale {
+    pub fn locale(self: KTextEditor__ConfigPage) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -2412,9 +3028,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn UnsetLocale(self: KTextEditor__ConfigPage) void {
+    pub fn unsetLocale(self: KTextEditor__ConfigPage) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -2424,9 +3044,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn IsRightToLeft(self: KTextEditor__ConfigPage) bool {
+    pub fn isRightToLeft(self: KTextEditor__ConfigPage) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -2436,9 +3060,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn IsLeftToRight(self: KTextEditor__ConfigPage) bool {
+    pub fn isLeftToRight(self: KTextEditor__ConfigPage) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -2448,9 +3076,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn SetFocus(self: KTextEditor__ConfigPage) void {
+    pub fn setFocus(self: KTextEditor__ConfigPage) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -2460,9 +3092,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn IsActiveWindow(self: KTextEditor__ConfigPage) bool {
+    pub fn isActiveWindow(self: KTextEditor__ConfigPage) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -2472,9 +3108,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn ActivateWindow(self: KTextEditor__ConfigPage) void {
+    pub fn activateWindow(self: KTextEditor__ConfigPage) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -2484,9 +3124,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn ClearFocus(self: KTextEditor__ConfigPage) void {
+    pub fn clearFocus(self: KTextEditor__ConfigPage) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -2498,9 +3142,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: KTextEditor__ConfigPage, reason: i32) void {
+    pub fn setFocus2(self: KTextEditor__ConfigPage, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2514,9 +3162,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: KTextEditor__ConfigPage) i32 {
+    pub fn focusPolicy(self: KTextEditor__ConfigPage) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2528,9 +3180,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: KTextEditor__ConfigPage, policy: i32) void {
+    pub fn setFocusPolicy(self: KTextEditor__ConfigPage, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -2540,9 +3196,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn HasFocus(self: KTextEditor__ConfigPage) bool {
+    pub fn hasFocus(self: KTextEditor__ConfigPage) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -2554,11 +3214,15 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2568,12 +3232,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: KTextEditor__ConfigPage, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: KTextEditor__ConfigPage, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2583,9 +3251,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn FocusProxy(self: KTextEditor__ConfigPage) QWidget {
+    pub fn focusProxy(self: KTextEditor__ConfigPage) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2599,9 +3271,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: KTextEditor__ConfigPage) i32 {
+    pub fn contextMenuPolicy(self: KTextEditor__ConfigPage) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2613,9 +3289,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: KTextEditor__ConfigPage, policy: i32) void {
+    pub fn setContextMenuPolicy(self: KTextEditor__ConfigPage, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -2625,9 +3305,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn GrabMouse(self: KTextEditor__ConfigPage) void {
+    pub fn grabMouse(self: KTextEditor__ConfigPage) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -2639,10 +3323,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: KTextEditor__ConfigPage, param1: anytype) void {
+    pub fn grabMouse2(self: KTextEditor__ConfigPage, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -2652,9 +3340,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn ReleaseMouse(self: KTextEditor__ConfigPage) void {
+    pub fn releaseMouse(self: KTextEditor__ConfigPage) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -2664,9 +3356,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn GrabKeyboard(self: KTextEditor__ConfigPage) void {
+    pub fn grabKeyboard(self: KTextEditor__ConfigPage) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -2676,9 +3372,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn ReleaseKeyboard(self: KTextEditor__ConfigPage) void {
+    pub fn releaseKeyboard(self: KTextEditor__ConfigPage) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -2690,10 +3390,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: KTextEditor__ConfigPage, key: anytype) i32 {
+    pub fn grabShortcut(self: KTextEditor__ConfigPage, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -2705,9 +3409,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: KTextEditor__ConfigPage, id: i32) void {
+    pub fn releaseShortcut(self: KTextEditor__ConfigPage, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2719,9 +3427,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: KTextEditor__ConfigPage, id: i32) void {
+    pub fn setShortcutEnabled(self: KTextEditor__ConfigPage, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -2733,25 +3445,37 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: KTextEditor__ConfigPage, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: KTextEditor__ConfigPage, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2761,9 +3485,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn UpdatesEnabled(self: KTextEditor__ConfigPage) bool {
+    pub fn updatesEnabled(self: KTextEditor__ConfigPage) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2775,9 +3503,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: KTextEditor__ConfigPage, enable: bool) void {
+    pub fn setUpdatesEnabled(self: KTextEditor__ConfigPage, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -2787,9 +3519,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn GraphicsProxyWidget(self: KTextEditor__ConfigPage) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: KTextEditor__ConfigPage) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -2799,9 +3535,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn Update(self: KTextEditor__ConfigPage) void {
+    pub fn update(self: KTextEditor__ConfigPage) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -2811,9 +3551,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn Repaint(self: KTextEditor__ConfigPage) void {
+    pub fn repaint(self: KTextEditor__ConfigPage) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -2823,17 +3567,21 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: KTextEditor__ConfigPage, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: KTextEditor__ConfigPage, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -2845,11 +3593,15 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: KTextEditor__ConfigPage, param1: anytype) void {
+    pub fn update3(self: KTextEditor__ConfigPage, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -2860,10 +3612,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: KTextEditor__ConfigPage, param1: anytype) void {
+    pub fn update4(self: KTextEditor__ConfigPage, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -2873,17 +3629,21 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: KTextEditor__ConfigPage, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: KTextEditor__ConfigPage, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -2895,10 +3655,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: KTextEditor__ConfigPage, param1: anytype) void {
+    pub fn repaint3(self: KTextEditor__ConfigPage, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -2910,10 +3674,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: KTextEditor__ConfigPage, param1: anytype) void {
+    pub fn repaint4(self: KTextEditor__ConfigPage, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -2925,9 +3693,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: KTextEditor__ConfigPage, hidden: bool) void {
+    pub fn setHidden(self: KTextEditor__ConfigPage, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -2937,9 +3709,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn Show(self: KTextEditor__ConfigPage) void {
+    pub fn show(self: KTextEditor__ConfigPage) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -2949,9 +3725,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn Hide(self: KTextEditor__ConfigPage) void {
+    pub fn hide(self: KTextEditor__ConfigPage) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -2961,9 +3741,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn ShowMinimized(self: KTextEditor__ConfigPage) void {
+    pub fn showMinimized(self: KTextEditor__ConfigPage) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -2973,9 +3757,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn ShowMaximized(self: KTextEditor__ConfigPage) void {
+    pub fn showMaximized(self: KTextEditor__ConfigPage) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -2985,9 +3773,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn ShowFullScreen(self: KTextEditor__ConfigPage) void {
+    pub fn showFullScreen(self: KTextEditor__ConfigPage) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -2997,9 +3789,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn ShowNormal(self: KTextEditor__ConfigPage) void {
+    pub fn showNormal(self: KTextEditor__ConfigPage) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -3009,9 +3805,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn Close(self: KTextEditor__ConfigPage) bool {
+    pub fn close(self: KTextEditor__ConfigPage) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -3021,9 +3821,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn Raise(self: KTextEditor__ConfigPage) void {
+    pub fn raise(self: KTextEditor__ConfigPage) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -3033,9 +3837,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn Lower(self: KTextEditor__ConfigPage) void {
+    pub fn lower(self: KTextEditor__ConfigPage) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -3047,10 +3855,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: KTextEditor__ConfigPage, param1: anytype) void {
+    pub fn stackUnder(self: KTextEditor__ConfigPage, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -3060,13 +3872,17 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: KTextEditor__ConfigPage, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: KTextEditor__ConfigPage, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -3078,10 +3894,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: KTextEditor__ConfigPage, param1: anytype) void {
+    pub fn move2(self: KTextEditor__ConfigPage, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -3095,9 +3915,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: KTextEditor__ConfigPage, w: i32, h: i32) void {
+    pub fn resize(self: KTextEditor__ConfigPage, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -3109,10 +3933,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: KTextEditor__ConfigPage, param1: anytype) void {
+    pub fn resize2(self: KTextEditor__ConfigPage, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3122,17 +3950,21 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: KTextEditor__ConfigPage, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: KTextEditor__ConfigPage, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -3142,12 +3974,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: KTextEditor__ConfigPage, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: KTextEditor__ConfigPage, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3159,13 +3995,17 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: KTextEditor__ConfigPage, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: KTextEditor__ConfigPage, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KTextEditor__ConfigPage.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KTextEditor__ConfigPage.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3175,15 +4015,19 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: KTextEditor__ConfigPage, geometry: []u8) bool {
+    pub fn restoreGeometry(self: KTextEditor__ConfigPage, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -3193,9 +4037,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn AdjustSize(self: KTextEditor__ConfigPage) void {
+    pub fn adjustSize(self: KTextEditor__ConfigPage) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -3205,9 +4053,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn IsVisible(self: KTextEditor__ConfigPage) bool {
+    pub fn isVisible(self: KTextEditor__ConfigPage) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -3219,10 +4071,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: KTextEditor__ConfigPage, param1: anytype) bool {
+    pub fn isVisibleTo(self: KTextEditor__ConfigPage, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -3232,9 +4088,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn IsHidden(self: KTextEditor__ConfigPage) bool {
+    pub fn isHidden(self: KTextEditor__ConfigPage) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3244,9 +4104,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn IsMinimized(self: KTextEditor__ConfigPage) bool {
+    pub fn isMinimized(self: KTextEditor__ConfigPage) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3256,9 +4120,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn IsMaximized(self: KTextEditor__ConfigPage) bool {
+    pub fn isMaximized(self: KTextEditor__ConfigPage) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3268,9 +4136,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn IsFullScreen(self: KTextEditor__ConfigPage) bool {
+    pub fn isFullScreen(self: KTextEditor__ConfigPage) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -3284,9 +4156,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: KTextEditor__ConfigPage) i32 {
+    pub fn windowState(self: KTextEditor__ConfigPage) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3298,9 +4174,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: KTextEditor__ConfigPage, state: i32) void {
+    pub fn setWindowState(self: KTextEditor__ConfigPage, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3312,9 +4192,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: KTextEditor__ConfigPage, state: i32) void {
+    pub fn overrideWindowState(self: KTextEditor__ConfigPage, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3324,9 +4208,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn SizePolicy(self: KTextEditor__ConfigPage) QSizePolicy {
+    pub fn sizePolicy(self: KTextEditor__ConfigPage) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3336,12 +4224,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: KTextEditor__ConfigPage, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: KTextEditor__ConfigPage, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -3355,9 +4247,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: KTextEditor__ConfigPage, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: KTextEditor__ConfigPage, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -3367,9 +4263,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn VisibleRegion(self: KTextEditor__ConfigPage) QRegion {
+    pub fn visibleRegion(self: KTextEditor__ConfigPage) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3387,9 +4287,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: KTextEditor__ConfigPage, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: KTextEditor__ConfigPage, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -3401,10 +4305,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: KTextEditor__ConfigPage, margins: anytype) void {
+    pub fn setContentsMargins2(self: KTextEditor__ConfigPage, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3414,9 +4322,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn ContentsMargins(self: KTextEditor__ConfigPage) QMargins {
+    pub fn contentsMargins(self: KTextEditor__ConfigPage) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -3426,9 +4338,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn ContentsRect(self: KTextEditor__ConfigPage) QRect {
+    pub fn contentsRect(self: KTextEditor__ConfigPage) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -3438,9 +4354,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn Layout(self: KTextEditor__ConfigPage) QLayout {
+    pub fn layout(self: KTextEditor__ConfigPage) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -3450,12 +4370,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: KTextEditor__ConfigPage, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: KTextEditor__ConfigPage, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3465,24 +4389,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn UpdateGeometry(self: KTextEditor__ConfigPage) void {
+    pub fn updateGeometry(self: KTextEditor__ConfigPage) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTextEditor__ConfigPage `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: KTextEditor__ConfigPage, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -3492,14 +4405,37 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: KTextEditor__ConfigPage, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KTextEditor__ConfigPage `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: KTextEditor__ConfigPage, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: KTextEditor__ConfigPage, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -3513,9 +4449,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: KTextEditor__ConfigPage, dx: i32, dy: i32) void {
+    pub fn scroll(self: KTextEditor__ConfigPage, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -3531,10 +4471,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: KTextEditor__ConfigPage, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: KTextEditor__ConfigPage, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -3544,9 +4488,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn FocusWidget(self: KTextEditor__ConfigPage) QWidget {
+    pub fn focusWidget(self: KTextEditor__ConfigPage) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3556,9 +4504,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn NextInFocusChain(self: KTextEditor__ConfigPage) QWidget {
+    pub fn nextInFocusChain(self: KTextEditor__ConfigPage) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3568,9 +4520,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn PreviousInFocusChain(self: KTextEditor__ConfigPage) QWidget {
+    pub fn previousInFocusChain(self: KTextEditor__ConfigPage) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3580,9 +4536,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn AcceptDrops(self: KTextEditor__ConfigPage) bool {
+    pub fn acceptDrops(self: KTextEditor__ConfigPage) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3594,9 +4554,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: KTextEditor__ConfigPage, on: bool) void {
+    pub fn setAcceptDrops(self: KTextEditor__ConfigPage, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -3608,10 +4572,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: KTextEditor__ConfigPage, action: anytype) void {
+    pub fn addAction(self: KTextEditor__ConfigPage, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -3621,15 +4589,19 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: KTextEditor__ConfigPage, actions: []QAction) void {
+    pub fn addActions(self: KTextEditor__ConfigPage, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -3641,16 +4613,20 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: KTextEditor__ConfigPage, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: KTextEditor__ConfigPage, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -3664,11 +4640,15 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: KTextEditor__ConfigPage, before: anytype, action: anytype) void {
+    pub fn insertAction(self: KTextEditor__ConfigPage, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -3680,10 +4660,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: KTextEditor__ConfigPage, action: anytype) void {
+    pub fn removeAction(self: KTextEditor__ConfigPage, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -3695,15 +4679,19 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: KTextEditor__ConfigPage, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: KTextEditor__ConfigPage, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KTextEditor__ConfigPage.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KTextEditor__ConfigPage.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -3715,7 +4703,7 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: KTextEditor__ConfigPage, text: []const u8) QAction {
+    pub fn addAction2(self: KTextEditor__ConfigPage, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -3723,6 +4711,10 @@ pub const KTextEditor__ConfigPage = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -3731,18 +4723,22 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: KTextEditor__ConfigPage, icon: anytype, text: []const u8) QAction {
-        comptime _ = @TypeOf(icon)._is_QIcon;
+    pub fn addAction3(self: KTextEditor__ConfigPage, _icon: anytype, text: []const u8) QAction {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
+        return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(_icon.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
 
     /// Inherited from QWidget
     ///
@@ -3756,7 +4752,7 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: KTextEditor__ConfigPage, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: KTextEditor__ConfigPage, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -3765,6 +4761,10 @@ pub const KTextEditor__ConfigPage = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -3773,21 +4773,25 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: KTextEditor__ConfigPage, icon: anytype, text: []const u8, shortcut: anytype) QAction {
-        comptime _ = @TypeOf(icon)._is_QIcon;
+    pub fn addAction5(self: KTextEditor__ConfigPage, _icon: anytype, text: []const u8, shortcut: anytype) QAction {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
-        return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
+        return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(_icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
 
     /// Inherited from QWidget
     ///
@@ -3797,9 +4801,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn ParentWidget(self: KTextEditor__ConfigPage) QWidget {
+    pub fn parentWidget(self: KTextEditor__ConfigPage) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -3811,9 +4819,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: KTextEditor__ConfigPage, typeVal: i32) void {
+    pub fn setWindowFlags(self: KTextEditor__ConfigPage, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -3827,9 +4839,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: KTextEditor__ConfigPage) i32 {
+    pub fn windowFlags(self: KTextEditor__ConfigPage) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -3841,9 +4857,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: KTextEditor__ConfigPage, param1: i32) void {
+    pub fn setWindowFlag(self: KTextEditor__ConfigPage, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -3855,9 +4875,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: KTextEditor__ConfigPage, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: KTextEditor__ConfigPage, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -3871,9 +4895,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: KTextEditor__ConfigPage) i32 {
+    pub fn windowType(self: KTextEditor__ConfigPage) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -3883,9 +4911,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -3895,13 +4927,17 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: KTextEditor__ConfigPage, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: KTextEditor__ConfigPage, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -3913,10 +4949,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: KTextEditor__ConfigPage, p: anytype) QWidget {
+    pub fn childAt2(self: KTextEditor__ConfigPage, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -3928,10 +4968,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: KTextEditor__ConfigPage, p: anytype) QWidget {
+    pub fn childAt3(self: KTextEditor__ConfigPage, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -3943,9 +4987,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: KTextEditor__ConfigPage, param1: i32) void {
+    pub fn setAttribute(self: KTextEditor__ConfigPage, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -3957,9 +5005,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: KTextEditor__ConfigPage, param1: i32) bool {
+    pub fn testAttribute(self: KTextEditor__ConfigPage, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -3969,9 +5021,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn EnsurePolished(self: KTextEditor__ConfigPage) void {
+    pub fn ensurePolished(self: KTextEditor__ConfigPage) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -3983,10 +5039,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: KTextEditor__ConfigPage, child: anytype) bool {
+    pub fn isAncestorOf(self: KTextEditor__ConfigPage, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -3996,9 +5056,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn AutoFillBackground(self: KTextEditor__ConfigPage) bool {
+    pub fn autoFillBackground(self: KTextEditor__ConfigPage) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4010,9 +5074,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: KTextEditor__ConfigPage, enabled: bool) void {
+    pub fn setAutoFillBackground(self: KTextEditor__ConfigPage, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -4022,9 +5090,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn BackingStore(self: KTextEditor__ConfigPage) QBackingStore {
+    pub fn backingStore(self: KTextEditor__ConfigPage) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -4034,9 +5106,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn WindowHandle(self: KTextEditor__ConfigPage) QWindow {
+    pub fn windowHandle(self: KTextEditor__ConfigPage) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -4046,9 +5122,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn Screen(self: KTextEditor__ConfigPage) QScreen {
+    pub fn screen(self: KTextEditor__ConfigPage) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -4058,12 +5138,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: KTextEditor__ConfigPage, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: KTextEditor__ConfigPage, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -4071,12 +5155,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4088,13 +5176,17 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: KTextEditor__ConfigPage, title: []const u8) void {
+    pub fn windowTitleChanged(self: KTextEditor__ConfigPage, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4106,9 +5198,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4118,12 +5214,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: KTextEditor__ConfigPage, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn windowIconChanged(self: KTextEditor__ConfigPage, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4135,9 +5235,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4149,13 +5253,17 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: KTextEditor__ConfigPage, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: KTextEditor__ConfigPage, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4167,9 +5275,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4179,12 +5291,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: KTextEditor__ConfigPage, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: KTextEditor__ConfigPage, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4196,9 +5312,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4212,9 +5332,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: KTextEditor__ConfigPage) i32 {
+    pub fn inputMethodHints(self: KTextEditor__ConfigPage) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4226,9 +5350,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: KTextEditor__ConfigPage, hints: i32) void {
+    pub fn setInputMethodHints(self: KTextEditor__ConfigPage, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -4242,11 +5370,15 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: KTextEditor__ConfigPage, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: KTextEditor__ConfigPage, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -4262,13 +5394,17 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: KTextEditor__ConfigPage, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: KTextEditor__ConfigPage, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -4285,12 +5421,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: KTextEditor__ConfigPage, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: KTextEditor__ConfigPage, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -4304,11 +5444,15 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: KTextEditor__ConfigPage, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: KTextEditor__ConfigPage, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -4324,12 +5468,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: KTextEditor__ConfigPage, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: KTextEditor__ConfigPage, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -4347,12 +5495,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: KTextEditor__ConfigPage, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: KTextEditor__ConfigPage, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -4364,10 +5516,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: KTextEditor__ConfigPage, rectangle: anytype) QPixmap {
+    pub fn grab1(self: KTextEditor__ConfigPage, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -4381,9 +5537,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: KTextEditor__ConfigPage, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: KTextEditor__ConfigPage, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -4397,10 +5557,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: KTextEditor__ConfigPage, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: KTextEditor__ConfigPage, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -4414,9 +5578,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: KTextEditor__ConfigPage, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: KTextEditor__ConfigPage, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -4430,9 +5598,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: KTextEditor__ConfigPage, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: KTextEditor__ConfigPage, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -4446,9 +5618,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: KTextEditor__ConfigPage, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: KTextEditor__ConfigPage, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -4462,25 +5638,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: KTextEditor__ConfigPage, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: KTextEditor__ConfigPage, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -4488,17 +5652,41 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -4510,13 +5698,17 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KTextEditor__ConfigPage, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KTextEditor__ConfigPage, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__ConfigPage.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__ConfigPage.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -4526,15 +5718,19 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn SetObjectName(self: KTextEditor__ConfigPage, name: []const u8) void {
+    pub fn setObjectName(self: KTextEditor__ConfigPage, _name: []const u8) void {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -4544,9 +5740,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn IsWidgetType(self: KTextEditor__ConfigPage) bool {
+    pub fn isWidgetType(self: KTextEditor__ConfigPage) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -4556,9 +5756,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn IsWindowType(self: KTextEditor__ConfigPage) bool {
+    pub fn isWindowType(self: KTextEditor__ConfigPage) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -4568,9 +5772,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn IsQuickItemType(self: KTextEditor__ConfigPage) bool {
+    pub fn isQuickItemType(self: KTextEditor__ConfigPage) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -4580,9 +5788,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn SignalsBlocked(self: KTextEditor__ConfigPage) bool {
+    pub fn signalsBlocked(self: KTextEditor__ConfigPage) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -4594,9 +5806,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KTextEditor__ConfigPage, b: bool) bool {
+    pub fn blockSignals(self: KTextEditor__ConfigPage, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -4606,9 +5822,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn Thread(self: KTextEditor__ConfigPage) QThread {
+    pub fn thread(self: KTextEditor__ConfigPage) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -4618,12 +5838,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KTextEditor__ConfigPage, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KTextEditor__ConfigPage, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -4635,9 +5859,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KTextEditor__ConfigPage, interval: i32) i32 {
+    pub fn startTimer(self: KTextEditor__ConfigPage, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -4649,9 +5877,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KTextEditor__ConfigPage, time: i64) i32 {
+    pub fn startTimer2(self: KTextEditor__ConfigPage, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -4663,9 +5895,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KTextEditor__ConfigPage, id: i32) void {
+    pub fn killTimer(self: KTextEditor__ConfigPage, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -4677,9 +5913,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KTextEditor__ConfigPage, id: i32) void {
+    pub fn killTimer2(self: KTextEditor__ConfigPage, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -4691,15 +5931,19 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KTextEditor__ConfigPage, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KTextEditor__ConfigPage, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KTextEditor__ConfigPage.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KTextEditor__ConfigPage.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4711,10 +5955,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KTextEditor__ConfigPage, filterObj: anytype) void {
+    pub fn installEventFilter(self: KTextEditor__ConfigPage, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4726,10 +5974,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KTextEditor__ConfigPage, obj: anytype) void {
+    pub fn removeEventFilter(self: KTextEditor__ConfigPage, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -4737,7 +5989,7 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4745,13 +5997,17 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -4759,7 +6015,7 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -4767,13 +6023,17 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -4783,18 +6043,22 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KTextEditor__ConfigPage, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KTextEditor__ConfigPage, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -4802,7 +6066,7 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4810,13 +6074,17 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -4824,7 +6092,7 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -4832,13 +6100,17 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -4848,9 +6120,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn Disconnect3(self: KTextEditor__ConfigPage) bool {
+    pub fn disconnect3(self: KTextEditor__ConfigPage) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -4862,10 +6138,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KTextEditor__ConfigPage, receiver: anytype) bool {
+    pub fn disconnect4(self: KTextEditor__ConfigPage, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -4875,10 +6155,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -4888,9 +6172,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn DumpObjectTree(self: KTextEditor__ConfigPage) void {
+    pub fn dumpObjectTree(self: KTextEditor__ConfigPage) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -4900,9 +6188,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn DumpObjectInfo(self: KTextEditor__ConfigPage) void {
+    pub fn dumpObjectInfo(self: KTextEditor__ConfigPage) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -4912,15 +6204,19 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` name: [:0]const u8 `
+    /// ` _name: [:0]const u8 `
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KTextEditor__ConfigPage, name: [:0]const u8, value: anytype) bool {
-        const name_Cstring = name.ptr;
+    pub fn setProperty(self: KTextEditor__ConfigPage, _name: [:0]const u8, value: anytype) bool {
+        const name_Cstring = _name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -4930,12 +6226,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` name: [:0]const u8 `
+    /// ` _name: [:0]const u8 `
     ///
-    pub fn Property(self: KTextEditor__ConfigPage, name: [:0]const u8) QVariant {
-        const name_Cstring = name.ptr;
+    pub fn property(self: KTextEditor__ConfigPage, _name: [:0]const u8) QVariant {
+        const name_Cstring = _name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -4947,7 +6247,7 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KTextEditor__ConfigPage, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KTextEditor__ConfigPage, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -4955,27 +6255,19 @@ pub const KTextEditor__ConfigPage = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KTextEditor__ConfigPage.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KTextEditor__ConfigPage.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KTextEditor__ConfigPage.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KTextEditor__ConfigPage.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTextEditor__ConfigPage `
-    ///
-    pub fn BindingStorage(self: KTextEditor__ConfigPage) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -4985,9 +6277,29 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn BindingStorage2(self: KTextEditor__ConfigPage) QBindingStorage {
+    pub fn bindingStorage(self: KTextEditor__ConfigPage) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KTextEditor__ConfigPage `
+    ///
+    pub fn bindingStorage2(self: KTextEditor__ConfigPage) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -4997,9 +6309,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn Destroyed(self: KTextEditor__ConfigPage) void {
+    pub fn destroyed(self: KTextEditor__ConfigPage) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -5011,9 +6327,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage) callconv(.c) void) void {
+    pub fn onDestroyed(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -5023,9 +6343,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn Parent(self: KTextEditor__ConfigPage) QObject {
+    pub fn parent(self: KTextEditor__ConfigPage) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -5037,10 +6361,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KTextEditor__ConfigPage, classname: [:0]const u8) bool {
+    pub fn inherits(self: KTextEditor__ConfigPage, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -5050,9 +6378,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn DeleteLater(self: KTextEditor__ConfigPage) void {
+    pub fn deleteLater(self: KTextEditor__ConfigPage) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -5066,9 +6398,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KTextEditor__ConfigPage, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KTextEditor__ConfigPage, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -5082,9 +6418,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KTextEditor__ConfigPage, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KTextEditor__ConfigPage, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -5092,7 +6432,7 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5102,13 +6442,17 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -5116,7 +6460,7 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5126,13 +6470,17 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -5142,7 +6490,7 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5150,12 +6498,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KTextEditor__ConfigPage, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KTextEditor__ConfigPage, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -5167,10 +6519,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KTextEditor__ConfigPage, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KTextEditor__ConfigPage, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -5184,11 +6540,15 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KTextEditor__ConfigPage, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KTextEditor__ConfigPage, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -5204,13 +6564,17 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KTextEditor__ConfigPage, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KTextEditor__ConfigPage, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -5223,11 +6587,15 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KTextEditor__ConfigPage, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KTextEditor__ConfigPage, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -5239,10 +6607,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KTextEditor__ConfigPage, param1: anytype) void {
+    pub fn destroyed1(self: KTextEditor__ConfigPage, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -5254,9 +6626,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -5266,9 +6642,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn PaintingActive(self: KTextEditor__ConfigPage) bool {
+    pub fn paintingActive(self: KTextEditor__ConfigPage) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5278,9 +6658,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn WidthMM(self: KTextEditor__ConfigPage) i32 {
+    pub fn widthMM(self: KTextEditor__ConfigPage) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5290,9 +6674,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn HeightMM(self: KTextEditor__ConfigPage) i32 {
+    pub fn heightMM(self: KTextEditor__ConfigPage) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5302,9 +6690,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn LogicalDpiX(self: KTextEditor__ConfigPage) i32 {
+    pub fn logicalDpiX(self: KTextEditor__ConfigPage) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5314,9 +6706,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn LogicalDpiY(self: KTextEditor__ConfigPage) i32 {
+    pub fn logicalDpiY(self: KTextEditor__ConfigPage) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5326,9 +6722,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn PhysicalDpiX(self: KTextEditor__ConfigPage) i32 {
+    pub fn physicalDpiX(self: KTextEditor__ConfigPage) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5338,9 +6738,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn PhysicalDpiY(self: KTextEditor__ConfigPage) i32 {
+    pub fn physicalDpiY(self: KTextEditor__ConfigPage) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -5350,9 +6754,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn DevicePixelRatio(self: KTextEditor__ConfigPage) f64 {
+    pub fn devicePixelRatio(self: KTextEditor__ConfigPage) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5362,9 +6770,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn DevicePixelRatioF(self: KTextEditor__ConfigPage) f64 {
+    pub fn devicePixelRatioF(self: KTextEditor__ConfigPage) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -5374,9 +6786,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn ColorCount(self: KTextEditor__ConfigPage) i32 {
+    pub fn colorCount(self: KTextEditor__ConfigPage) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -5386,17 +6802,25 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn Depth(self: KTextEditor__ConfigPage) i32 {
+    pub fn depth(self: KTextEditor__ConfigPage) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5404,13 +6828,17 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -5422,13 +6850,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn DevType(self: KTextEditor__ConfigPage) i32 {
+    pub fn devType(self: KTextEditor__ConfigPage) i32 {
         return qtc.KTextEditor__ConfigPage_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -5440,9 +6868,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn SuperDevType(self: KTextEditor__ConfigPage) i32 {
+    pub fn superDevType(self: KTextEditor__ConfigPage) i32 {
         return qtc.KTextEditor__ConfigPage_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -5456,9 +6888,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) i32) void {
         qtc.KTextEditor__ConfigPage_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -5472,13 +6908,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: KTextEditor__ConfigPage, visible: bool) void {
+    pub fn setVisible(self: KTextEditor__ConfigPage, visible: bool) void {
         qtc.KTextEditor__ConfigPage_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -5492,9 +6928,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: KTextEditor__ConfigPage, visible: bool) void {
+    pub fn superSetVisible(self: KTextEditor__ConfigPage, visible: bool) void {
         qtc.KTextEditor__ConfigPage_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -5508,10 +6948,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, bool) callconv(.c) void) void {
         qtc.KTextEditor__ConfigPage_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
@@ -5522,13 +6966,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn SizeHint(self: KTextEditor__ConfigPage) QSize {
+    pub fn sizeHint(self: KTextEditor__ConfigPage) QSize {
         return .{ .ptr = qtc.KTextEditor__ConfigPage_SizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5540,10 +6984,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn SuperSizeHint(self: KTextEditor__ConfigPage) QSize {
+    pub fn superSizeHint(self: KTextEditor__ConfigPage) QSize {
         return .{ .ptr = qtc.KTextEditor__ConfigPage_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
@@ -5558,9 +7006,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) QSize) void {
         qtc.KTextEditor__ConfigPage_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5572,13 +7024,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn MinimumSizeHint(self: KTextEditor__ConfigPage) QSize {
+    pub fn minimumSizeHint(self: KTextEditor__ConfigPage) QSize {
         return .{ .ptr = qtc.KTextEditor__ConfigPage_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5590,9 +7042,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn SuperMinimumSizeHint(self: KTextEditor__ConfigPage) QSize {
+    pub fn superMinimumSizeHint(self: KTextEditor__ConfigPage) QSize {
         return .{ .ptr = qtc.KTextEditor__ConfigPage_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5608,9 +7064,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) QSize) void {
         qtc.KTextEditor__ConfigPage_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5624,13 +7084,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: KTextEditor__ConfigPage, param1: i32) i32 {
+    pub fn heightForWidth(self: KTextEditor__ConfigPage, param1: i32) i32 {
         return qtc.KTextEditor__ConfigPage_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5644,9 +7104,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: KTextEditor__ConfigPage, param1: i32) i32 {
+    pub fn superHeightForWidth(self: KTextEditor__ConfigPage, param1: i32) i32 {
         return qtc.KTextEditor__ConfigPage_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5660,9 +7124,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, i32) callconv(.c) i32) void {
         qtc.KTextEditor__ConfigPage_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5674,13 +7142,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn HasHeightForWidth(self: KTextEditor__ConfigPage) bool {
+    pub fn hasHeightForWidth(self: KTextEditor__ConfigPage) bool {
         return qtc.KTextEditor__ConfigPage_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5692,9 +7160,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn SuperHasHeightForWidth(self: KTextEditor__ConfigPage) bool {
+    pub fn superHasHeightForWidth(self: KTextEditor__ConfigPage) bool {
         return qtc.KTextEditor__ConfigPage_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5708,9 +7180,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) bool) void {
         qtc.KTextEditor__ConfigPage_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -5722,13 +7198,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn PaintEngine(self: KTextEditor__ConfigPage) QPaintEngine {
+    pub fn paintEngine(self: KTextEditor__ConfigPage) QPaintEngine {
         return .{ .ptr = qtc.KTextEditor__ConfigPage_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -5740,9 +7216,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn SuperPaintEngine(self: KTextEditor__ConfigPage) QPaintEngine {
+    pub fn superPaintEngine(self: KTextEditor__ConfigPage) QPaintEngine {
         return .{ .ptr = qtc.KTextEditor__ConfigPage_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -5756,9 +7236,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.KTextEditor__ConfigPage_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QWidget
     ///
@@ -5770,16 +7254,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: KTextEditor__ConfigPage, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KTextEditor__ConfigPage_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: KTextEditor__ConfigPage, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KTextEditor__ConfigPage_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QWidget
     ///
@@ -5791,12 +7275,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: KTextEditor__ConfigPage, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KTextEditor__ConfigPage_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: KTextEditor__ConfigPage, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KTextEditor__ConfigPage_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QWidget
     ///
@@ -5810,10 +7298,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QEvent) callconv(.c) bool) void {
         qtc.KTextEditor__ConfigPage_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
@@ -5824,16 +7316,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KTextEditor__ConfigPage_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mousePressEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KTextEditor__ConfigPage_MousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -5845,12 +7337,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KTextEditor__ConfigPage_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMousePressEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KTextEditor__ConfigPage_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -5864,10 +7360,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QMouseEvent) callconv(.c) void) void {
         qtc.KTextEditor__ConfigPage_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
@@ -5878,16 +7378,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KTextEditor__ConfigPage_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseReleaseEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KTextEditor__ConfigPage_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -5899,12 +7399,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KTextEditor__ConfigPage_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseReleaseEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KTextEditor__ConfigPage_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -5918,10 +7422,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QMouseEvent) callconv(.c) void) void {
         qtc.KTextEditor__ConfigPage_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -5932,16 +7440,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KTextEditor__ConfigPage_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KTextEditor__ConfigPage_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -5953,12 +7461,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KTextEditor__ConfigPage_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KTextEditor__ConfigPage_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -5972,10 +7484,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QMouseEvent) callconv(.c) void) void {
         qtc.KTextEditor__ConfigPage_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -5986,16 +7502,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KTextEditor__ConfigPage_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KTextEditor__ConfigPage_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6007,12 +7523,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KTextEditor__ConfigPage_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KTextEditor__ConfigPage_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6026,9 +7546,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QMouseEvent) callconv(.c) void) void {
         qtc.KTextEditor__ConfigPage_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6040,16 +7564,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KTextEditor__ConfigPage_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KTextEditor__ConfigPage_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6061,12 +7585,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KTextEditor__ConfigPage_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KTextEditor__ConfigPage_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6080,10 +7608,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QWheelEvent) callconv(.c) void) void {
         qtc.KTextEditor__ConfigPage_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyPressEvent)
@@ -6094,16 +7626,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KTextEditor__ConfigPage_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyPressEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KTextEditor__ConfigPage_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6115,12 +7647,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KTextEditor__ConfigPage_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyPressEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KTextEditor__ConfigPage_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6134,10 +7670,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QKeyEvent) callconv(.c) void) void {
         qtc.KTextEditor__ConfigPage_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
@@ -6148,16 +7688,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KTextEditor__ConfigPage_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KTextEditor__ConfigPage_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6169,12 +7709,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KTextEditor__ConfigPage_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KTextEditor__ConfigPage_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6188,10 +7732,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QKeyEvent) callconv(.c) void) void {
         qtc.KTextEditor__ConfigPage_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -6202,16 +7750,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KTextEditor__ConfigPage_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KTextEditor__ConfigPage_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6223,12 +7771,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KTextEditor__ConfigPage_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KTextEditor__ConfigPage_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6242,10 +7794,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QFocusEvent) callconv(.c) void) void {
         qtc.KTextEditor__ConfigPage_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -6256,16 +7812,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KTextEditor__ConfigPage_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KTextEditor__ConfigPage_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6277,12 +7833,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KTextEditor__ConfigPage_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KTextEditor__ConfigPage_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6296,9 +7856,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QFocusEvent) callconv(.c) void) void {
         qtc.KTextEditor__ConfigPage_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6310,16 +7874,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KTextEditor__ConfigPage_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KTextEditor__ConfigPage_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6331,12 +7895,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KTextEditor__ConfigPage_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KTextEditor__ConfigPage_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6350,9 +7918,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QEnterEvent) callconv(.c) void) void {
         qtc.KTextEditor__ConfigPage_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6364,16 +7936,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KTextEditor__ConfigPage_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KTextEditor__ConfigPage_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6385,12 +7957,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KTextEditor__ConfigPage_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KTextEditor__ConfigPage_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6404,9 +7980,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QEvent) callconv(.c) void) void {
         qtc.KTextEditor__ConfigPage_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6418,16 +7998,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn PaintEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.KTextEditor__ConfigPage_PaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn paintEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.KTextEditor__ConfigPage_PaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6439,12 +8019,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.KTextEditor__ConfigPage_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superPaintEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.KTextEditor__ConfigPage_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6458,9 +8042,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, event: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QPaintEvent) callconv(.c) void) void {
         qtc.KTextEditor__ConfigPage_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6472,16 +8060,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KTextEditor__ConfigPage_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KTextEditor__ConfigPage_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6493,12 +8081,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KTextEditor__ConfigPage_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KTextEditor__ConfigPage_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6512,9 +8104,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QMoveEvent) callconv(.c) void) void {
         qtc.KTextEditor__ConfigPage_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6526,16 +8122,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.KTextEditor__ConfigPage_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn resizeEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.KTextEditor__ConfigPage_ResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6547,12 +8143,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.KTextEditor__ConfigPage_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superResizeEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.KTextEditor__ConfigPage_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6566,9 +8166,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QResizeEvent) callconv(.c) void) void {
         qtc.KTextEditor__ConfigPage_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6580,16 +8184,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KTextEditor__ConfigPage_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KTextEditor__ConfigPage_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6601,12 +8205,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KTextEditor__ConfigPage_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KTextEditor__ConfigPage_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6620,9 +8228,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QCloseEvent) callconv(.c) void) void {
         qtc.KTextEditor__ConfigPage_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -6634,16 +8246,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.KTextEditor__ConfigPage_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn contextMenuEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.KTextEditor__ConfigPage_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -6655,12 +8267,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.KTextEditor__ConfigPage_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superContextMenuEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.KTextEditor__ConfigPage_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -6674,9 +8290,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, event: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QContextMenuEvent) callconv(.c) void) void {
         qtc.KTextEditor__ConfigPage_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6688,16 +8308,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KTextEditor__ConfigPage_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KTextEditor__ConfigPage_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6709,12 +8329,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KTextEditor__ConfigPage_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KTextEditor__ConfigPage_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6728,9 +8352,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QTabletEvent) callconv(.c) void) void {
         qtc.KTextEditor__ConfigPage_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -6742,16 +8370,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KTextEditor__ConfigPage_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KTextEditor__ConfigPage_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -6763,12 +8391,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KTextEditor__ConfigPage_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KTextEditor__ConfigPage_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -6782,9 +8414,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QActionEvent) callconv(.c) void) void {
         qtc.KTextEditor__ConfigPage_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6796,16 +8432,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KTextEditor__ConfigPage_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KTextEditor__ConfigPage_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6817,12 +8453,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KTextEditor__ConfigPage_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KTextEditor__ConfigPage_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6836,9 +8476,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QDragEnterEvent) callconv(.c) void) void {
         qtc.KTextEditor__ConfigPage_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6850,16 +8494,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KTextEditor__ConfigPage_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KTextEditor__ConfigPage_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6871,12 +8515,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KTextEditor__ConfigPage_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KTextEditor__ConfigPage_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6890,9 +8538,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QDragMoveEvent) callconv(.c) void) void {
         qtc.KTextEditor__ConfigPage_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6904,16 +8556,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KTextEditor__ConfigPage_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KTextEditor__ConfigPage_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6925,12 +8577,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KTextEditor__ConfigPage_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KTextEditor__ConfigPage_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6944,9 +8600,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QDragLeaveEvent) callconv(.c) void) void {
         qtc.KTextEditor__ConfigPage_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -6958,16 +8618,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KTextEditor__ConfigPage_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KTextEditor__ConfigPage_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -6979,12 +8639,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KTextEditor__ConfigPage_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KTextEditor__ConfigPage_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -6998,9 +8662,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QDropEvent) callconv(.c) void) void {
         qtc.KTextEditor__ConfigPage_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QWidget
     ///
@@ -7012,16 +8680,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn ShowEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KTextEditor__ConfigPage_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn showEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KTextEditor__ConfigPage_ShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -7033,12 +8701,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KTextEditor__ConfigPage_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superShowEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KTextEditor__ConfigPage_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -7052,9 +8724,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QShowEvent) callconv(.c) void) void {
         qtc.KTextEditor__ConfigPage_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7066,16 +8742,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KTextEditor__ConfigPage_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KTextEditor__ConfigPage_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7087,12 +8763,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KTextEditor__ConfigPage_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KTextEditor__ConfigPage_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7106,9 +8786,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QHideEvent) callconv(.c) void) void {
         qtc.KTextEditor__ConfigPage_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7126,7 +8810,7 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: KTextEditor__ConfigPage, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: KTextEditor__ConfigPage, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -7134,9 +8818,9 @@ pub const KTextEditor__ConfigPage = extern struct {
         return qtc.KTextEditor__ConfigPage_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7154,13 +8838,17 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: KTextEditor__ConfigPage, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: KTextEditor__ConfigPage, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.KTextEditor__ConfigPage_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7174,9 +8862,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KTextEditor__ConfigPage_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7190,14 +8882,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: KTextEditor__ConfigPage, param1: anytype) void {
+    pub fn changeEvent(self: KTextEditor__ConfigPage, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KTextEditor__ConfigPage_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7211,10 +8903,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: KTextEditor__ConfigPage, param1: anytype) void {
+    pub fn superChangeEvent(self: KTextEditor__ConfigPage, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KTextEditor__ConfigPage_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7228,9 +8924,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QEvent) callconv(.c) void) void {
         qtc.KTextEditor__ConfigPage_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -7244,13 +8944,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: KTextEditor__ConfigPage, param1: i32) i32 {
+    pub fn metric(self: KTextEditor__ConfigPage, param1: i32) i32 {
         return qtc.KTextEditor__ConfigPage_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -7264,9 +8964,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: KTextEditor__ConfigPage, param1: i32) i32 {
+    pub fn superMetric(self: KTextEditor__ConfigPage, param1: i32) i32 {
         return qtc.KTextEditor__ConfigPage_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -7280,9 +8984,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, i32) callconv(.c) i32) void {
         qtc.KTextEditor__ConfigPage_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -7296,14 +9004,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: KTextEditor__ConfigPage, painter: anytype) void {
+    pub fn initPainter(self: KTextEditor__ConfigPage, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KTextEditor__ConfigPage_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7317,10 +9025,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: KTextEditor__ConfigPage, painter: anytype) void {
+    pub fn superInitPainter(self: KTextEditor__ConfigPage, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KTextEditor__ConfigPage_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7334,9 +9046,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QPainter) callconv(.c) void) void {
         qtc.KTextEditor__ConfigPage_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -7350,14 +9066,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: KTextEditor__ConfigPage, offset: anytype) QPaintDevice {
+    pub fn redirected(self: KTextEditor__ConfigPage, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KTextEditor__ConfigPage_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7371,10 +9087,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: KTextEditor__ConfigPage, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: KTextEditor__ConfigPage, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KTextEditor__ConfigPage_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7388,9 +9108,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QPoint) callconv(.c) QPaintDevice) void {
         qtc.KTextEditor__ConfigPage_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7402,13 +9126,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn SharedPainter(self: KTextEditor__ConfigPage) QPainter {
+    pub fn sharedPainter(self: KTextEditor__ConfigPage) QPainter {
         return .{ .ptr = qtc.KTextEditor__ConfigPage_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7420,9 +9144,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn SuperSharedPainter(self: KTextEditor__ConfigPage) QPainter {
+    pub fn superSharedPainter(self: KTextEditor__ConfigPage) QPainter {
         return .{ .ptr = qtc.KTextEditor__ConfigPage_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7436,9 +9164,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) QPainter) void {
         qtc.KTextEditor__ConfigPage_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7452,14 +9184,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: KTextEditor__ConfigPage, param1: anytype) void {
+    pub fn inputMethodEvent(self: KTextEditor__ConfigPage, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KTextEditor__ConfigPage_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7473,10 +9205,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: KTextEditor__ConfigPage, param1: anytype) void {
+    pub fn superInputMethodEvent(self: KTextEditor__ConfigPage, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KTextEditor__ConfigPage_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7490,9 +9226,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QInputMethodEvent) callconv(.c) void) void {
         qtc.KTextEditor__ConfigPage_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7506,13 +9246,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: KTextEditor__ConfigPage, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: KTextEditor__ConfigPage, param1: i32) QVariant {
         return .{ .ptr = qtc.KTextEditor__ConfigPage_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7526,9 +9266,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: KTextEditor__ConfigPage, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: KTextEditor__ConfigPage, param1: i32) QVariant {
         return .{ .ptr = qtc.KTextEditor__ConfigPage_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7544,9 +9288,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, i32) callconv(.c) QVariant) void {
         qtc.KTextEditor__ConfigPage_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7560,13 +9308,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: KTextEditor__ConfigPage, next: bool) bool {
+    pub fn focusNextPrevChild(self: KTextEditor__ConfigPage, next: bool) bool {
         return qtc.KTextEditor__ConfigPage_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7580,9 +9328,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: KTextEditor__ConfigPage, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: KTextEditor__ConfigPage, next: bool) bool {
         return qtc.KTextEditor__ConfigPage_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7596,9 +9348,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, bool) callconv(.c) bool) void {
         qtc.KTextEditor__ConfigPage_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -7612,17 +9368,17 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KTextEditor__ConfigPage, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KTextEditor__ConfigPage, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KTextEditor__ConfigPage_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KTextEditor__ConfigPage_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -7636,13 +9392,17 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: KTextEditor__ConfigPage, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: KTextEditor__ConfigPage, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KTextEditor__ConfigPage_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KTextEditor__ConfigPage_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -7656,9 +9416,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QObject, QEvent) callconv(.c) bool) void {
         qtc.KTextEditor__ConfigPage_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -7670,16 +9434,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KTextEditor__ConfigPage_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KTextEditor__ConfigPage_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -7691,12 +9455,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KTextEditor__ConfigPage_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KTextEditor__ConfigPage_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -7710,9 +9478,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QTimerEvent) callconv(.c) void) void {
         qtc.KTextEditor__ConfigPage_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -7724,16 +9496,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KTextEditor__ConfigPage_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KTextEditor__ConfigPage_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -7745,12 +9517,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KTextEditor__ConfigPage_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KTextEditor__ConfigPage_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -7764,9 +9540,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QChildEvent) callconv(.c) void) void {
         qtc.KTextEditor__ConfigPage_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -7778,16 +9558,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KTextEditor__ConfigPage_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KTextEditor__ConfigPage_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -7799,12 +9579,16 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KTextEditor__ConfigPage, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KTextEditor__ConfigPage_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KTextEditor__ConfigPage, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KTextEditor__ConfigPage_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -7818,9 +9602,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QEvent) callconv(.c) void) void {
         qtc.KTextEditor__ConfigPage_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -7834,14 +9622,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KTextEditor__ConfigPage, signal: anytype) void {
+    pub fn connectNotify(self: KTextEditor__ConfigPage, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KTextEditor__ConfigPage_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7855,11 +9643,15 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KTextEditor__ConfigPage, signal: anytype) void {
+    pub fn superConnectNotify(self: KTextEditor__ConfigPage, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KTextEditor__ConfigPage_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -7872,9 +9664,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QMetaMethod) callconv(.c) void) void {
         qtc.KTextEditor__ConfigPage_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7888,14 +9684,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KTextEditor__ConfigPage, signal: anytype) void {
+    pub fn disconnectNotify(self: KTextEditor__ConfigPage, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KTextEditor__ConfigPage_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7909,10 +9705,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KTextEditor__ConfigPage, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KTextEditor__ConfigPage, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KTextEditor__ConfigPage_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7926,10 +9726,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QMetaMethod) callconv(.c) void) void {
         qtc.KTextEditor__ConfigPage_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -7940,13 +9744,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn UpdateMicroFocus(self: KTextEditor__ConfigPage) void {
+    pub fn updateMicroFocus(self: KTextEditor__ConfigPage) void {
         qtc.KTextEditor__ConfigPage_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -7958,10 +9762,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn SuperUpdateMicroFocus(self: KTextEditor__ConfigPage) void {
+    pub fn superUpdateMicroFocus(self: KTextEditor__ConfigPage) void {
         qtc.KTextEditor__ConfigPage_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -7974,10 +9782,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) void) void {
         qtc.KTextEditor__ConfigPage_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -7988,13 +9800,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn Create(self: KTextEditor__ConfigPage) void {
+    pub fn create(self: KTextEditor__ConfigPage) void {
         qtc.KTextEditor__ConfigPage_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -8006,10 +9818,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn SuperCreate(self: KTextEditor__ConfigPage) void {
+    pub fn superCreate(self: KTextEditor__ConfigPage) void {
         qtc.KTextEditor__ConfigPage_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8022,9 +9838,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) void) void {
         qtc.KTextEditor__ConfigPage_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -8036,13 +9856,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn Destroy(self: KTextEditor__ConfigPage) void {
+    pub fn destroy(self: KTextEditor__ConfigPage) void {
         qtc.KTextEditor__ConfigPage_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8054,9 +9874,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn SuperDestroy(self: KTextEditor__ConfigPage) void {
+    pub fn superDestroy(self: KTextEditor__ConfigPage) void {
         qtc.KTextEditor__ConfigPage_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8070,10 +9894,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) void) void {
         qtc.KTextEditor__ConfigPage_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8084,13 +9912,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn FocusNextChild(self: KTextEditor__ConfigPage) bool {
+    pub fn focusNextChild(self: KTextEditor__ConfigPage) bool {
         return qtc.KTextEditor__ConfigPage_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -8102,10 +9930,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn SuperFocusNextChild(self: KTextEditor__ConfigPage) bool {
+    pub fn superFocusNextChild(self: KTextEditor__ConfigPage) bool {
         return qtc.KTextEditor__ConfigPage_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8118,9 +9950,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) bool) void {
         qtc.KTextEditor__ConfigPage_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8132,13 +9968,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn FocusPreviousChild(self: KTextEditor__ConfigPage) bool {
+    pub fn focusPreviousChild(self: KTextEditor__ConfigPage) bool {
         return qtc.KTextEditor__ConfigPage_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8150,9 +9986,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn SuperFocusPreviousChild(self: KTextEditor__ConfigPage) bool {
+    pub fn superFocusPreviousChild(self: KTextEditor__ConfigPage) bool {
         return qtc.KTextEditor__ConfigPage_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8166,9 +10006,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) bool) void {
         qtc.KTextEditor__ConfigPage_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -8180,13 +10024,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn Sender(self: KTextEditor__ConfigPage) QObject {
+    pub fn sender(self: KTextEditor__ConfigPage) QObject {
         return .{ .ptr = qtc.KTextEditor__ConfigPage_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -8198,9 +10042,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn SuperSender(self: KTextEditor__ConfigPage) QObject {
+    pub fn superSender(self: KTextEditor__ConfigPage) QObject {
         return .{ .ptr = qtc.KTextEditor__ConfigPage_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -8214,9 +10062,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) QObject) void {
         qtc.KTextEditor__ConfigPage_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8228,13 +10080,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn SenderSignalIndex(self: KTextEditor__ConfigPage) i32 {
+    pub fn senderSignalIndex(self: KTextEditor__ConfigPage) i32 {
         return qtc.KTextEditor__ConfigPage_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8246,9 +10098,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn SuperSenderSignalIndex(self: KTextEditor__ConfigPage) i32 {
+    pub fn superSenderSignalIndex(self: KTextEditor__ConfigPage) i32 {
         return qtc.KTextEditor__ConfigPage_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8262,9 +10118,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) i32) void {
         qtc.KTextEditor__ConfigPage_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -8278,14 +10138,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KTextEditor__ConfigPage, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KTextEditor__ConfigPage, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KTextEditor__ConfigPage_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -8299,10 +10159,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KTextEditor__ConfigPage, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KTextEditor__ConfigPage, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KTextEditor__ConfigPage_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -8316,9 +10180,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, [*:0]const u8) callconv(.c) i32) void {
         qtc.KTextEditor__ConfigPage_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8332,14 +10200,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KTextEditor__ConfigPage, signal: anytype) bool {
+    pub fn isSignalConnected(self: KTextEditor__ConfigPage, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KTextEditor__ConfigPage_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8353,10 +10221,14 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KTextEditor__ConfigPage, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KTextEditor__ConfigPage, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KTextEditor__ConfigPage_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8370,9 +10242,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, QMetaMethod) callconv(.c) bool) void {
         qtc.KTextEditor__ConfigPage_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8388,13 +10264,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: KTextEditor__ConfigPage, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: KTextEditor__ConfigPage, metricA: i32, metricB: i32) f64 {
         return qtc.KTextEditor__ConfigPage_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8410,9 +10286,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: KTextEditor__ConfigPage, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: KTextEditor__ConfigPage, metricA: i32, metricB: i32) f64 {
         return qtc.KTextEditor__ConfigPage_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8426,9 +10306,13 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, i32, i32) callconv(.c) f64) void {
         qtc.KTextEditor__ConfigPage_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -8442,21 +10326,21 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KTextEditor__ConfigPage `
     ///
-    pub fn Delete(self: KTextEditor__ConfigPage) void {
+    pub fn delete(self: KTextEditor__ConfigPage) void {
         qtc.KTextEditor__ConfigPage_Delete(@ptrCast(self.ptr));
     }
 };

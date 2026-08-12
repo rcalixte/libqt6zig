@@ -15,18 +15,9 @@ pub const QsciCommandSet = extern struct {
 
     pub const _is_QsciCommandSet = {};
 
-    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommandSet.html)
+    /// ### DEPRECATED: Use `readSettings` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciCommandSet `
-    ///
-    /// ` qs: QSettings `
-    ///
-    pub fn ReadSettings(self: QsciCommandSet, qs: anytype) bool {
-        comptime _ = @TypeOf(qs)._is_QSettings;
-        return qtc.QsciCommandSet_ReadSettings(@ptrCast(self.ptr), @ptrCast(qs.ptr));
-    }
+    pub const ReadSettings = readSettings;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommandSet.html)
     ///
@@ -36,10 +27,31 @@ pub const QsciCommandSet = extern struct {
     ///
     /// ` qs: QSettings `
     ///
-    pub fn WriteSettings(self: QsciCommandSet, qs: anytype) bool {
+    pub fn readSettings(self: QsciCommandSet, qs: anytype) bool {
+        comptime _ = @TypeOf(qs)._is_QSettings;
+        return qtc.QsciCommandSet_ReadSettings(@ptrCast(self.ptr), @ptrCast(qs.ptr));
+    }
+
+    /// ### DEPRECATED: Use `writeSettings` instead
+    ///
+    pub const WriteSettings = writeSettings;
+
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommandSet.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QsciCommandSet `
+    ///
+    /// ` qs: QSettings `
+    ///
+    pub fn writeSettings(self: QsciCommandSet, qs: anytype) bool {
         comptime _ = @TypeOf(qs)._is_QSettings;
         return qtc.QsciCommandSet_WriteSettings(@ptrCast(self.ptr), @ptrCast(qs.ptr));
     }
+
+    /// ### DEPRECATED: Use `commands` instead
+    ///
+    pub const Commands = commands;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommandSet.html)
     ///
@@ -49,25 +61,19 @@ pub const QsciCommandSet = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Commands(self: QsciCommandSet, allocator: std.mem.Allocator) []QsciCommand {
+    pub fn commands(self: QsciCommandSet, allocator: std.mem.Allocator) []QsciCommand {
         const _arr: qtc.libqt_list = qtc.QsciCommandSet_Commands(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QsciCommand, _arr.len) catch @panic("QsciCommandSet.Commands: Memory allocation failed");
-        const _data: [*]QtC.QsciCommand = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QsciCommand, _arr.len) catch @panic("QsciCommandSet.commands: Memory allocation failed");
+        const _data_val: [*]QtC.QsciCommand = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
-    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommandSet.html)
+    /// ### DEPRECATED: Use `clearKeys` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciCommandSet `
-    ///
-    pub fn ClearKeys(self: QsciCommandSet) void {
-        qtc.QsciCommandSet_ClearKeys(@ptrCast(self.ptr));
-    }
+    pub const ClearKeys = clearKeys;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommandSet.html)
     ///
@@ -75,9 +81,27 @@ pub const QsciCommandSet = extern struct {
     ///
     /// ` self: QsciCommandSet `
     ///
-    pub fn ClearAlternateKeys(self: QsciCommandSet) void {
+    pub fn clearKeys(self: QsciCommandSet) void {
+        qtc.QsciCommandSet_ClearKeys(@ptrCast(self.ptr));
+    }
+
+    /// ### DEPRECATED: Use `clearAlternateKeys` instead
+    ///
+    pub const ClearAlternateKeys = clearAlternateKeys;
+
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommandSet.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QsciCommandSet `
+    ///
+    pub fn clearAlternateKeys(self: QsciCommandSet) void {
         qtc.QsciCommandSet_ClearAlternateKeys(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `boundTo` instead
+    ///
+    pub const BoundTo = boundTo;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommandSet.html)
     ///
@@ -87,9 +111,13 @@ pub const QsciCommandSet = extern struct {
     ///
     /// ` key: i32 `
     ///
-    pub fn BoundTo(self: QsciCommandSet, key: i32) QsciCommand {
+    pub fn boundTo(self: QsciCommandSet, key: i32) QsciCommand {
         return .{ .ptr = qtc.QsciCommandSet_BoundTo(@ptrCast(self.ptr), @bitCast(key)) };
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommandSet.html)
     ///
@@ -99,9 +127,13 @@ pub const QsciCommandSet = extern struct {
     ///
     /// ` command: qscicommand_enums.Command `
     ///
-    pub fn Find(self: QsciCommandSet, command: i32) QsciCommand {
+    pub fn find(self: QsciCommandSet, command: i32) QsciCommand {
         return .{ .ptr = qtc.QsciCommandSet_Find(@ptrCast(self.ptr), @bitCast(command)) };
     }
+
+    /// ### DEPRECATED: Use `readSettings2` instead
+    ///
+    pub const ReadSettings2 = readSettings2;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommandSet.html)
     ///
@@ -113,12 +145,16 @@ pub const QsciCommandSet = extern struct {
     ///
     /// ` prefix: [:0]const u8 `
     ///
-    pub fn ReadSettings2(self: QsciCommandSet, qs: anytype, prefix: [:0]const u8) bool {
+    pub fn readSettings2(self: QsciCommandSet, qs: anytype, prefix: [:0]const u8) bool {
         comptime _ = @TypeOf(qs)._is_QSettings;
         const prefix_Cstring = prefix.ptr;
         return qtc.QsciCommandSet_ReadSettings2(@ptrCast(self.ptr), @ptrCast(qs.ptr), prefix_Cstring);
     }
 
+    /// ### DEPRECATED: Use `writeSettings2` instead
+    ///
+    pub const WriteSettings2 = writeSettings2;
+
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommandSet.html)
     ///
     /// ## Parameter(s):
@@ -129,7 +165,7 @@ pub const QsciCommandSet = extern struct {
     ///
     /// ` prefix: [:0]const u8 `
     ///
-    pub fn WriteSettings2(self: QsciCommandSet, qs: anytype, prefix: [:0]const u8) bool {
+    pub fn writeSettings2(self: QsciCommandSet, qs: anytype, prefix: [:0]const u8) bool {
         comptime _ = @TypeOf(qs)._is_QSettings;
         const prefix_Cstring = prefix.ptr;
         return qtc.QsciCommandSet_WriteSettings2(@ptrCast(self.ptr), @ptrCast(qs.ptr), prefix_Cstring);

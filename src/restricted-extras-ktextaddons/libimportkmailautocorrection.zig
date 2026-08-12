@@ -17,22 +17,34 @@ pub const TextAutoCorrectionCore__ImportKMailAutocorrection = extern struct {
     pub const _is_TextAutoCorrectionCore__ImportKMailAutocorrection = {};
     pub const _is_TextAutoCorrectionCore__ImportAbstractAutocorrection = {};
 
-    /// New constructs a new TextAutoCorrectionCore::ImportKMailAutocorrection object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() TextAutoCorrectionCore__ImportKMailAutocorrection {
+    pub const New = new;
+
+    /// Allocate a new TextAutoCorrectionCore::ImportKMailAutocorrection object in C++ memory
+    ///
+    pub fn new() TextAutoCorrectionCore__ImportKMailAutocorrection {
         return .{ .ptr = qtc.TextAutoCorrectionCore__ImportKMailAutocorrection_new() };
     }
 
-    /// New2 constructs a new TextAutoCorrectionCore::ImportKMailAutocorrection object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new TextAutoCorrectionCore::ImportKMailAutocorrection object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: TextAutoCorrectionCore__ImportKMailAutocorrection `
     ///
-    pub fn New2(param1: anytype) TextAutoCorrectionCore__ImportKMailAutocorrection {
+    pub fn new2(param1: anytype) TextAutoCorrectionCore__ImportKMailAutocorrection {
         comptime _ = @TypeOf(param1)._is_TextAutoCorrectionCore__ImportKMailAutocorrection;
         return .{ .ptr = qtc.TextAutoCorrectionCore__ImportKMailAutocorrection_new2(@ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `import` instead
+    ///
+    pub const Import = import;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1ImportKMailAutocorrection.html)
     ///
@@ -46,7 +58,7 @@ pub const TextAutoCorrectionCore__ImportKMailAutocorrection = extern struct {
     ///
     /// ` loadAttribute: importabstractautocorrection_enums.LoadAttribute `
     ///
-    pub fn Import(self: TextAutoCorrectionCore__ImportKMailAutocorrection, fileName: []const u8, errorMessage: []const u8, loadAttribute: i32) bool {
+    pub fn import(self: TextAutoCorrectionCore__ImportKMailAutocorrection, fileName: []const u8, errorMessage: []const u8, loadAttribute: i32) bool {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -58,6 +70,10 @@ pub const TextAutoCorrectionCore__ImportKMailAutocorrection = extern struct {
         return qtc.TextAutoCorrectionCore__ImportKMailAutocorrection_Import(@ptrCast(self.ptr), fileName_str, errorMessage_str, @bitCast(loadAttribute));
     }
 
+    /// ### DEPRECATED: Use `onImport` instead
+    ///
+    pub const OnImport = onImport;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1ImportKMailAutocorrection.html)
     ///
     /// Allows for overriding the related default method
@@ -68,13 +84,13 @@ pub const TextAutoCorrectionCore__ImportKMailAutocorrection = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionCore__ImportKMailAutocorrection, fileName: [*:0]const u8, errorMessage: [*:0]const u8, loadAttribute: importabstractautocorrection_enums.LoadAttribute) callconv(.c) bool `
     ///
-    pub fn OnImport(self: TextAutoCorrectionCore__ImportKMailAutocorrection, callback: *const fn (TextAutoCorrectionCore__ImportKMailAutocorrection, [*:0]const u8, [*:0]const u8, i32) callconv(.c) bool) void {
+    pub fn onImport(self: TextAutoCorrectionCore__ImportKMailAutocorrection, callback: *const fn (TextAutoCorrectionCore__ImportKMailAutocorrection, [*:0]const u8, [*:0]const u8, i32) callconv(.c) bool) void {
         qtc.TextAutoCorrectionCore__ImportKMailAutocorrection_OnImport(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperImport` instead
+    /// ### DEPRECATED: Use `superImport` instead
     ///
-    pub const QBaseImport = SuperImport;
+    pub const SuperImport = superImport;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1ImportKMailAutocorrection.html)
     ///
@@ -90,7 +106,7 @@ pub const TextAutoCorrectionCore__ImportKMailAutocorrection = extern struct {
     ///
     /// ` loadAttribute: importabstractautocorrection_enums.LoadAttribute `
     ///
-    pub fn SuperImport(self: TextAutoCorrectionCore__ImportKMailAutocorrection, fileName: []const u8, errorMessage: []const u8, loadAttribute: i32) bool {
+    pub fn superImport(self: TextAutoCorrectionCore__ImportKMailAutocorrection, fileName: []const u8, errorMessage: []const u8, loadAttribute: i32) bool {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -102,6 +118,10 @@ pub const TextAutoCorrectionCore__ImportKMailAutocorrection = extern struct {
         return qtc.TextAutoCorrectionCore__ImportKMailAutocorrection_SuperImport(@ptrCast(self.ptr), fileName_str, errorMessage_str, @bitCast(loadAttribute));
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1ImportKMailAutocorrection.html)
     ///
     /// ## Parameter(s):
@@ -110,11 +130,15 @@ pub const TextAutoCorrectionCore__ImportKMailAutocorrection = extern struct {
     ///
     /// ` param1: TextAutoCorrectionCore__ImportKMailAutocorrection `
     ///
-    pub fn OperatorAssign(self: TextAutoCorrectionCore__ImportKMailAutocorrection, param1: anytype) void {
+    pub fn operatorAssign(self: TextAutoCorrectionCore__ImportKMailAutocorrection, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_TextAutoCorrectionCore__ImportKMailAutocorrection;
         qtc.TextAutoCorrectionCore__ImportKMailAutocorrection_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `upperCaseExceptions` instead
+    ///
+    pub const UpperCaseExceptions = upperCaseExceptions;
+
     /// Inherited from TextAutoCorrectionCore::ImportAbstractAutocorrection
     ///
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1ImportAbstractAutocorrection.html)
@@ -125,15 +149,19 @@ pub const TextAutoCorrectionCore__ImportKMailAutocorrection = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UpperCaseExceptions(self: TextAutoCorrectionCore__ImportKMailAutocorrection, allocator: std.mem.Allocator) Set_constu8 {
+    pub fn upperCaseExceptions(self: TextAutoCorrectionCore__ImportKMailAutocorrection, allocator: std.mem.Allocator) Set_constu8 {
         const _set: qtc.libqt_list = qtc.TextAutoCorrectionCore__ImportAbstractAutocorrection_UpperCaseExceptions(@ptrCast(self.ptr));
         var _ret: Set_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_set.len)) catch @panic("TextAutoCorrectionCore__ImportKMailAutocorrection.UpperCaseExceptions: Total capacity allocation failed");
-        const _data: [*]qtc.libqt_string = @ptrCast(@alignCast(_set.data));
+        _ret.ensureTotalCapacity(allocator, @intCast(_set.len)) catch @panic("TextAutoCorrectionCore__ImportKMailAutocorrection.upperCaseExceptions: Total capacity allocation failed");
+        const _data_val: [*]qtc.libqt_string = @ptrCast(@alignCast(_set.data));
         for (0.._set.len) |i|
-            _ret.putAssumeCapacity(_data[i].data[0.._data[i].len], {});
+            _ret.putAssumeCapacity(_data_val[i].data[0.._data_val[i].len], {});
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `twoUpperLetterExceptions` instead
+    ///
+    pub const TwoUpperLetterExceptions = twoUpperLetterExceptions;
 
     /// Inherited from TextAutoCorrectionCore::ImportAbstractAutocorrection
     ///
@@ -145,15 +173,19 @@ pub const TextAutoCorrectionCore__ImportKMailAutocorrection = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TwoUpperLetterExceptions(self: TextAutoCorrectionCore__ImportKMailAutocorrection, allocator: std.mem.Allocator) Set_constu8 {
+    pub fn twoUpperLetterExceptions(self: TextAutoCorrectionCore__ImportKMailAutocorrection, allocator: std.mem.Allocator) Set_constu8 {
         const _set: qtc.libqt_list = qtc.TextAutoCorrectionCore__ImportAbstractAutocorrection_TwoUpperLetterExceptions(@ptrCast(self.ptr));
         var _ret: Set_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_set.len)) catch @panic("TextAutoCorrectionCore__ImportKMailAutocorrection.TwoUpperLetterExceptions: Total capacity allocation failed");
-        const _data: [*]qtc.libqt_string = @ptrCast(@alignCast(_set.data));
+        _ret.ensureTotalCapacity(allocator, @intCast(_set.len)) catch @panic("TextAutoCorrectionCore__ImportKMailAutocorrection.twoUpperLetterExceptions: Total capacity allocation failed");
+        const _data_val: [*]qtc.libqt_string = @ptrCast(@alignCast(_set.data));
         for (0.._set.len) |i|
-            _ret.putAssumeCapacity(_data[i].data[0.._data[i].len], {});
+            _ret.putAssumeCapacity(_data_val[i].data[0.._data_val[i].len], {});
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `autocorrectEntries` instead
+    ///
+    pub const AutocorrectEntries = autocorrectEntries;
 
     /// Inherited from TextAutoCorrectionCore::ImportAbstractAutocorrection
     ///
@@ -165,10 +197,10 @@ pub const TextAutoCorrectionCore__ImportKMailAutocorrection = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AutocorrectEntries(self: TextAutoCorrectionCore__ImportKMailAutocorrection, allocator: std.mem.Allocator) Map_constu8_constu8 {
+    pub fn autocorrectEntries(self: TextAutoCorrectionCore__ImportKMailAutocorrection, allocator: std.mem.Allocator) Map_constu8_constu8 {
         const _map: qtc.libqt_map = qtc.TextAutoCorrectionCore__ImportAbstractAutocorrection_AutocorrectEntries(@ptrCast(self.ptr));
         var _ret: Map_constu8_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("TextAutoCorrectionCore__ImportKMailAutocorrection.AutocorrectEntries: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("TextAutoCorrectionCore__ImportKMailAutocorrection.autocorrectEntries: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -184,15 +216,19 @@ pub const TextAutoCorrectionCore__ImportKMailAutocorrection = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("TextAutoCorrectionCore__ImportKMailAutocorrection.AutocorrectEntries: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("TextAutoCorrectionCore__ImportKMailAutocorrection.autocorrectEntries: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("TextAutoCorrectionCore__ImportKMailAutocorrection.AutocorrectEntries: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("TextAutoCorrectionCore__ImportKMailAutocorrection.autocorrectEntries: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_entry_slice, _value_slice);
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `superScriptEntries` instead
+    ///
+    pub const SuperScriptEntries = superScriptEntries;
 
     /// Inherited from TextAutoCorrectionCore::ImportAbstractAutocorrection
     ///
@@ -204,10 +240,10 @@ pub const TextAutoCorrectionCore__ImportKMailAutocorrection = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperScriptEntries(self: TextAutoCorrectionCore__ImportKMailAutocorrection, allocator: std.mem.Allocator) Map_constu8_constu8 {
+    pub fn superScriptEntries(self: TextAutoCorrectionCore__ImportKMailAutocorrection, allocator: std.mem.Allocator) Map_constu8_constu8 {
         const _map: qtc.libqt_map = qtc.TextAutoCorrectionCore__ImportAbstractAutocorrection_SuperScriptEntries(@ptrCast(self.ptr));
         var _ret: Map_constu8_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("TextAutoCorrectionCore__ImportKMailAutocorrection.SuperScriptEntries: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("TextAutoCorrectionCore__ImportKMailAutocorrection.superScriptEntries: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -223,15 +259,19 @@ pub const TextAutoCorrectionCore__ImportKMailAutocorrection = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("TextAutoCorrectionCore__ImportKMailAutocorrection.SuperScriptEntries: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("TextAutoCorrectionCore__ImportKMailAutocorrection.superScriptEntries: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("TextAutoCorrectionCore__ImportKMailAutocorrection.SuperScriptEntries: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("TextAutoCorrectionCore__ImportKMailAutocorrection.superScriptEntries: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_entry_slice, _value_slice);
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `typographicSingleQuotes` instead
+    ///
+    pub const TypographicSingleQuotes = typographicSingleQuotes;
 
     /// Inherited from TextAutoCorrectionCore::ImportAbstractAutocorrection
     ///
@@ -241,10 +281,14 @@ pub const TextAutoCorrectionCore__ImportKMailAutocorrection = extern struct {
     ///
     /// ` self: TextAutoCorrectionCore__ImportKMailAutocorrection `
     ///
-    pub fn TypographicSingleQuotes(self: TextAutoCorrectionCore__ImportKMailAutocorrection) TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes {
+    pub fn typographicSingleQuotes(self: TextAutoCorrectionCore__ImportKMailAutocorrection) TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes {
         return .{ .ptr = qtc.TextAutoCorrectionCore__ImportAbstractAutocorrection_TypographicSingleQuotes(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `typographicDoubleQuotes` instead
+    ///
+    pub const TypographicDoubleQuotes = typographicDoubleQuotes;
+
     /// Inherited from TextAutoCorrectionCore::ImportAbstractAutocorrection
     ///
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1ImportAbstractAutocorrection.html)
@@ -253,10 +297,14 @@ pub const TextAutoCorrectionCore__ImportKMailAutocorrection = extern struct {
     ///
     /// ` self: TextAutoCorrectionCore__ImportKMailAutocorrection `
     ///
-    pub fn TypographicDoubleQuotes(self: TextAutoCorrectionCore__ImportKMailAutocorrection) TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes {
+    pub fn typographicDoubleQuotes(self: TextAutoCorrectionCore__ImportKMailAutocorrection) TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes {
         return .{ .ptr = qtc.TextAutoCorrectionCore__ImportAbstractAutocorrection_TypographicDoubleQuotes(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `maxFindStringLenght` instead
+    ///
+    pub const MaxFindStringLenght = maxFindStringLenght;
+
     /// Inherited from TextAutoCorrectionCore::ImportAbstractAutocorrection
     ///
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1ImportAbstractAutocorrection.html)
@@ -265,10 +313,14 @@ pub const TextAutoCorrectionCore__ImportKMailAutocorrection = extern struct {
     ///
     /// ` self: TextAutoCorrectionCore__ImportKMailAutocorrection `
     ///
-    pub fn MaxFindStringLenght(self: TextAutoCorrectionCore__ImportKMailAutocorrection) i32 {
+    pub fn maxFindStringLenght(self: TextAutoCorrectionCore__ImportKMailAutocorrection) i32 {
         return qtc.TextAutoCorrectionCore__ImportAbstractAutocorrection_MaxFindStringLenght(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `minFindStringLenght` instead
+    ///
+    pub const MinFindStringLenght = minFindStringLenght;
+
     /// Inherited from TextAutoCorrectionCore::ImportAbstractAutocorrection
     ///
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1ImportAbstractAutocorrection.html)
@@ -277,23 +329,23 @@ pub const TextAutoCorrectionCore__ImportKMailAutocorrection = extern struct {
     ///
     /// ` self: TextAutoCorrectionCore__ImportKMailAutocorrection `
     ///
-    pub fn MinFindStringLenght(self: TextAutoCorrectionCore__ImportKMailAutocorrection) i32 {
+    pub fn minFindStringLenght(self: TextAutoCorrectionCore__ImportKMailAutocorrection) i32 {
         return qtc.TextAutoCorrectionCore__ImportAbstractAutocorrection_MinFindStringLenght(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1ImportKMailAutocorrection.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: TextAutoCorrectionCore__ImportKMailAutocorrection `
     ///
-    pub fn Delete(self: TextAutoCorrectionCore__ImportKMailAutocorrection) void {
+    pub fn delete(self: TextAutoCorrectionCore__ImportKMailAutocorrection) void {
         qtc.TextAutoCorrectionCore__ImportKMailAutocorrection_Delete(@ptrCast(self.ptr));
     }
 };

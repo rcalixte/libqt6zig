@@ -30,13 +30,17 @@ pub const KTerminalLauncherJob = extern struct {
     pub const _is_KJob = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new KTerminalLauncherJob object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KTerminalLauncherJob object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` command: []const u8 `
     ///
-    pub fn New(command: []const u8) KTerminalLauncherJob {
+    pub fn new(command: []const u8) KTerminalLauncherJob {
         const command_str = qtc.libqt_string{
             .len = command.len,
             .data = command.ptr,
@@ -44,22 +48,30 @@ pub const KTerminalLauncherJob = extern struct {
         return .{ .ptr = qtc.KTerminalLauncherJob_new(command_str) };
     }
 
-    /// New2 constructs a new KTerminalLauncherJob object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KTerminalLauncherJob object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` command: []const u8 `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(command: []const u8, parent: anytype) KTerminalLauncherJob {
+    pub fn new2(command: []const u8, _parent: anytype) KTerminalLauncherJob {
         const command_str = qtc.libqt_string{
             .len = command.len,
             .data = command.ptr,
         };
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.KTerminalLauncherJob_new2(command_str, @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.KTerminalLauncherJob_new2(command_str, @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -67,9 +79,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    pub fn MetaObject(self: KTerminalLauncherJob) QMetaObject {
+    pub fn metaObject(self: KTerminalLauncherJob) QMetaObject {
         return .{ .ptr = qtc.KTerminalLauncherJob_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -81,13 +97,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KTerminalLauncherJob, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KTerminalLauncherJob, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KTerminalLauncherJob_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -97,9 +113,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    pub fn SuperMetaObject(self: KTerminalLauncherJob) QMetaObject {
+    pub fn superMetaObject(self: KTerminalLauncherJob) QMetaObject {
         return .{ .ptr = qtc.KTerminalLauncherJob_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -107,10 +127,14 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KTerminalLauncherJob, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KTerminalLauncherJob, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KTerminalLauncherJob_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -120,13 +144,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` callback: *const fn (self: KTerminalLauncherJob, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KTerminalLauncherJob_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -136,10 +160,14 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KTerminalLauncherJob, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KTerminalLauncherJob, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KTerminalLauncherJob_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -151,9 +179,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KTerminalLauncherJob, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KTerminalLauncherJob, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KTerminalLauncherJob_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -163,13 +195,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` callback: *const fn (self: KTerminalLauncherJob, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KTerminalLauncherJob_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -183,9 +215,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KTerminalLauncherJob, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KTerminalLauncherJob, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KTerminalLauncherJob_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -195,14 +231,18 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTerminalLauncherJob.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTerminalLauncherJob.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWorkingDirectory` instead
+    ///
+    pub const SetWorkingDirectory = setWorkingDirectory;
 
     /// ### [Upstream resources](https://api.kde.org/kterminallauncherjob.html#setWorkingDirectory)
     ///
@@ -212,13 +252,17 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` workingDirectory: []const u8 `
     ///
-    pub fn SetWorkingDirectory(self: KTerminalLauncherJob, workingDirectory: []const u8) void {
+    pub fn setWorkingDirectory(self: KTerminalLauncherJob, workingDirectory: []const u8) void {
         const workingDirectory_str = qtc.libqt_string{
             .len = workingDirectory.len,
             .data = workingDirectory.ptr,
         };
         qtc.KTerminalLauncherJob_SetWorkingDirectory(@ptrCast(self.ptr), workingDirectory_str);
     }
+
+    /// ### DEPRECATED: Use `setStartupId` instead
+    ///
+    pub const SetStartupId = setStartupId;
 
     /// ### [Upstream resources](https://api.kde.org/kterminallauncherjob.html#setStartupId)
     ///
@@ -228,13 +272,17 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` startupId: []u8 `
     ///
-    pub fn SetStartupId(self: KTerminalLauncherJob, startupId: []u8) void {
+    pub fn setStartupId(self: KTerminalLauncherJob, startupId: []u8) void {
         const startupId_str = qtc.libqt_string{
             .len = startupId.len,
             .data = startupId.ptr,
         };
         qtc.KTerminalLauncherJob_SetStartupId(@ptrCast(self.ptr), startupId_str);
     }
+
+    /// ### DEPRECATED: Use `setProcessEnvironment` instead
+    ///
+    pub const SetProcessEnvironment = setProcessEnvironment;
 
     /// ### [Upstream resources](https://api.kde.org/kterminallauncherjob.html#setProcessEnvironment)
     ///
@@ -244,10 +292,14 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` environment: QProcessEnvironment `
     ///
-    pub fn SetProcessEnvironment(self: KTerminalLauncherJob, environment: anytype) void {
+    pub fn setProcessEnvironment(self: KTerminalLauncherJob, environment: anytype) void {
         comptime _ = @TypeOf(environment)._is_QProcessEnvironment;
         qtc.KTerminalLauncherJob_SetProcessEnvironment(@ptrCast(self.ptr), @ptrCast(environment.ptr));
     }
+
+    /// ### DEPRECATED: Use `start` instead
+    ///
+    pub const Start = start;
 
     /// ### [Upstream resources](https://api.kde.org/kterminallauncherjob.html#start)
     ///
@@ -255,9 +307,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    pub fn Start(self: KTerminalLauncherJob) void {
+    pub fn start(self: KTerminalLauncherJob) void {
         qtc.KTerminalLauncherJob_Start(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onStart` instead
+    ///
+    pub const OnStart = onStart;
 
     /// ### [Upstream resources](https://api.kde.org/kterminallauncherjob.html#start)
     ///
@@ -269,13 +325,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnStart(self: KTerminalLauncherJob, callback: *const fn () callconv(.c) void) void {
+    pub fn onStart(self: KTerminalLauncherJob, callback: *const fn () callconv(.c) void) void {
         qtc.KTerminalLauncherJob_OnStart(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperStart` instead
+    /// ### DEPRECATED: Use `superStart` instead
     ///
-    pub const QBaseStart = SuperStart;
+    pub const SuperStart = superStart;
 
     /// ### [Upstream resources](https://api.kde.org/kterminallauncherjob.html#start)
     ///
@@ -285,9 +341,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    pub fn SuperStart(self: KTerminalLauncherJob) void {
+    pub fn superStart(self: KTerminalLauncherJob) void {
         qtc.KTerminalLauncherJob_SuperStart(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -299,15 +359,19 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTerminalLauncherJob.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTerminalLauncherJob.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -321,15 +385,19 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTerminalLauncherJob.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTerminalLauncherJob.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setUiDelegate` instead
+    ///
+    pub const SetUiDelegate = setUiDelegate;
 
     /// Inherited from KJob
     ///
@@ -341,10 +409,14 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` delegate: KJobUiDelegate `
     ///
-    pub fn SetUiDelegate(self: KTerminalLauncherJob, delegate: anytype) void {
+    pub fn setUiDelegate(self: KTerminalLauncherJob, delegate: anytype) void {
         comptime _ = @TypeOf(delegate)._is_KJobUiDelegate;
         qtc.KJob_SetUiDelegate(@ptrCast(self.ptr), @ptrCast(delegate.ptr));
     }
+
+    /// ### DEPRECATED: Use `uiDelegate` instead
+    ///
+    pub const UiDelegate = uiDelegate;
 
     /// Inherited from KJob
     ///
@@ -354,9 +426,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    pub fn UiDelegate(self: KTerminalLauncherJob) KJobUiDelegate {
+    pub fn uiDelegate(self: KTerminalLauncherJob) KJobUiDelegate {
         return .{ .ptr = qtc.KJob_UiDelegate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `capabilities` instead
+    ///
+    pub const Capabilities = capabilities;
 
     /// Inherited from KJob
     ///
@@ -370,9 +446,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` flag of kjob_enums.Capability `
     ///
-    pub fn Capabilities(self: KTerminalLauncherJob) i32 {
+    pub fn capabilities(self: KTerminalLauncherJob) i32 {
         return qtc.KJob_Capabilities(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSuspended` instead
+    ///
+    pub const IsSuspended = isSuspended;
 
     /// Inherited from KJob
     ///
@@ -382,9 +462,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    pub fn IsSuspended(self: KTerminalLauncherJob) bool {
+    pub fn isSuspended(self: KTerminalLauncherJob) bool {
         return qtc.KJob_IsSuspended(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `kill` instead
+    ///
+    pub const Kill = kill;
 
     /// Inherited from KJob
     ///
@@ -394,9 +478,15 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    pub fn Kill(self: KTerminalLauncherJob) bool {
+    pub fn kill(self: KTerminalLauncherJob) bool {
         return qtc.KJob_Kill(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `suspend0` instead
+    ///
+    pub const Suspend = suspend0;
+
+    pub const @"suspend" = suspend0;
 
     /// Inherited from KJob
     ///
@@ -406,9 +496,15 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    pub fn Suspend(self: KTerminalLauncherJob) bool {
+    pub fn suspend0(self: KTerminalLauncherJob) bool {
         return qtc.KJob_Suspend(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `resume0` instead
+    ///
+    pub const Resume = resume0;
+
+    pub const @"resume" = resume0;
 
     /// Inherited from KJob
     ///
@@ -418,9 +514,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    pub fn Resume(self: KTerminalLauncherJob) bool {
+    pub fn resume0(self: KTerminalLauncherJob) bool {
         return qtc.KJob_Resume(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `exec` instead
+    ///
+    pub const Exec = exec;
 
     /// Inherited from KJob
     ///
@@ -430,9 +530,15 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    pub fn Exec(self: KTerminalLauncherJob) bool {
+    pub fn exec(self: KTerminalLauncherJob) bool {
         return qtc.KJob_Exec(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `error0` instead
+    ///
+    pub const Error = error0;
+
+    pub const @"error" = error0;
 
     /// Inherited from KJob
     ///
@@ -442,9 +548,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    pub fn Error(self: KTerminalLauncherJob) i32 {
+    pub fn error0(self: KTerminalLauncherJob) i32 {
         return qtc.KJob_Error(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `errorText` instead
+    ///
+    pub const ErrorText = errorText;
 
     /// Inherited from KJob
     ///
@@ -456,13 +566,17 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorText(self: KTerminalLauncherJob, allocator: std.mem.Allocator) []const u8 {
+    pub fn errorText(self: KTerminalLauncherJob, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KJob_ErrorText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTerminalLauncherJob.ErrorText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTerminalLauncherJob.errorText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `processedAmount` instead
+    ///
+    pub const ProcessedAmount = processedAmount;
 
     /// Inherited from KJob
     ///
@@ -474,9 +588,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` unit: kjob_enums.Unit `
     ///
-    pub fn ProcessedAmount(self: KTerminalLauncherJob, unit: i32) usize {
+    pub fn processedAmount(self: KTerminalLauncherJob, unit: i32) usize {
         return qtc.KJob_ProcessedAmount(@ptrCast(self.ptr), @bitCast(unit));
     }
+
+    /// ### DEPRECATED: Use `totalAmount` instead
+    ///
+    pub const TotalAmount = totalAmount;
 
     /// Inherited from KJob
     ///
@@ -488,9 +606,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` unit: kjob_enums.Unit `
     ///
-    pub fn TotalAmount(self: KTerminalLauncherJob, unit: i32) usize {
+    pub fn totalAmount(self: KTerminalLauncherJob, unit: i32) usize {
         return qtc.KJob_TotalAmount(@ptrCast(self.ptr), @bitCast(unit));
     }
+
+    /// ### DEPRECATED: Use `percent` instead
+    ///
+    pub const Percent = percent;
 
     /// Inherited from KJob
     ///
@@ -500,9 +622,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    pub fn Percent(self: KTerminalLauncherJob) usize {
+    pub fn percent(self: KTerminalLauncherJob) usize {
         return qtc.KJob_Percent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoDelete` instead
+    ///
+    pub const SetAutoDelete = setAutoDelete;
 
     /// Inherited from KJob
     ///
@@ -514,9 +640,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` autodelete: bool `
     ///
-    pub fn SetAutoDelete(self: KTerminalLauncherJob, autodelete: bool) void {
+    pub fn setAutoDelete(self: KTerminalLauncherJob, autodelete: bool) void {
         qtc.KJob_SetAutoDelete(@ptrCast(self.ptr), autodelete);
     }
+
+    /// ### DEPRECATED: Use `isAutoDelete` instead
+    ///
+    pub const IsAutoDelete = isAutoDelete;
 
     /// Inherited from KJob
     ///
@@ -526,9 +656,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    pub fn IsAutoDelete(self: KTerminalLauncherJob) bool {
+    pub fn isAutoDelete(self: KTerminalLauncherJob) bool {
         return qtc.KJob_IsAutoDelete(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFinishedNotificationHidden` instead
+    ///
+    pub const SetFinishedNotificationHidden = setFinishedNotificationHidden;
 
     /// Inherited from KJob
     ///
@@ -538,9 +672,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    pub fn SetFinishedNotificationHidden(self: KTerminalLauncherJob) void {
+    pub fn setFinishedNotificationHidden(self: KTerminalLauncherJob) void {
         qtc.KJob_SetFinishedNotificationHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFinishedNotificationHidden` instead
+    ///
+    pub const IsFinishedNotificationHidden = isFinishedNotificationHidden;
 
     /// Inherited from KJob
     ///
@@ -550,9 +688,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    pub fn IsFinishedNotificationHidden(self: KTerminalLauncherJob) bool {
+    pub fn isFinishedNotificationHidden(self: KTerminalLauncherJob) bool {
         return qtc.KJob_IsFinishedNotificationHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isStartedWithExec` instead
+    ///
+    pub const IsStartedWithExec = isStartedWithExec;
 
     /// Inherited from KJob
     ///
@@ -562,9 +704,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    pub fn IsStartedWithExec(self: KTerminalLauncherJob) bool {
+    pub fn isStartedWithExec(self: KTerminalLauncherJob) bool {
         return qtc.KJob_IsStartedWithExec(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `elapsedTime` instead
+    ///
+    pub const ElapsedTime = elapsedTime;
 
     /// Inherited from KJob
     ///
@@ -574,9 +720,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    pub fn ElapsedTime(self: KTerminalLauncherJob) i64 {
+    pub fn elapsedTime(self: KTerminalLauncherJob) i64 {
         return qtc.KJob_ElapsedTime(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `infoMessage` instead
+    ///
+    pub const InfoMessage = infoMessage;
 
     /// Inherited from KJob
     ///
@@ -590,7 +740,7 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` message: []const u8 `
     ///
-    pub fn InfoMessage(self: KTerminalLauncherJob, job: anytype, message: []const u8) void {
+    pub fn infoMessage(self: KTerminalLauncherJob, job: anytype, message: []const u8) void {
         comptime _ = @TypeOf(job)._is_KJob;
         const message_str = qtc.libqt_string{
             .len = message.len,
@@ -599,6 +749,10 @@ pub const KTerminalLauncherJob = extern struct {
         qtc.KJob_InfoMessage(@ptrCast(self.ptr), @ptrCast(job.ptr), message_str);
     }
 
+    /// ### DEPRECATED: Use `onInfoMessage` instead
+    ///
+    pub const OnInfoMessage = onInfoMessage;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#infoMessage)
@@ -609,9 +763,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` callback: *const fn (self: KTerminalLauncherJob, job: KJob, message: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnInfoMessage(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, KJob, [*:0]const u8) callconv(.c) void) void {
+    pub fn onInfoMessage(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, KJob, [*:0]const u8) callconv(.c) void) void {
         qtc.KJob_Connect_InfoMessage(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `warning` instead
+    ///
+    pub const Warning = warning;
 
     /// Inherited from KJob
     ///
@@ -625,7 +783,7 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` message: []const u8 `
     ///
-    pub fn Warning(self: KTerminalLauncherJob, job: anytype, message: []const u8) void {
+    pub fn warning(self: KTerminalLauncherJob, job: anytype, message: []const u8) void {
         comptime _ = @TypeOf(job)._is_KJob;
         const message_str = qtc.libqt_string{
             .len = message.len,
@@ -633,6 +791,10 @@ pub const KTerminalLauncherJob = extern struct {
         };
         qtc.KJob_Warning(@ptrCast(self.ptr), @ptrCast(job.ptr), message_str);
     }
+
+    /// ### DEPRECATED: Use `onWarning` instead
+    ///
+    pub const OnWarning = onWarning;
 
     /// Inherited from KJob
     ///
@@ -644,9 +806,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` callback: *const fn (self: KTerminalLauncherJob, job: KJob, message: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWarning(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, KJob, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWarning(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, KJob, [*:0]const u8) callconv(.c) void) void {
         qtc.KJob_Connect_Warning(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `totalSize` instead
+    ///
+    pub const TotalSize = totalSize;
 
     /// Inherited from KJob
     ///
@@ -660,11 +826,15 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` size: usize `
     ///
-    pub fn TotalSize(self: KTerminalLauncherJob, job: anytype, size: usize) void {
+    pub fn totalSize(self: KTerminalLauncherJob, job: anytype, size: usize) void {
         comptime _ = @TypeOf(job)._is_KJob;
         qtc.KJob_TotalSize(@ptrCast(self.ptr), @ptrCast(job.ptr), @bitCast(size));
     }
 
+    /// ### DEPRECATED: Use `onTotalSize` instead
+    ///
+    pub const OnTotalSize = onTotalSize;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#totalSize)
@@ -675,9 +845,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` callback: *const fn (self: KTerminalLauncherJob, job: KJob, size: usize) callconv(.c) void `
     ///
-    pub fn OnTotalSize(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, KJob, usize) callconv(.c) void) void {
+    pub fn onTotalSize(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, KJob, usize) callconv(.c) void) void {
         qtc.KJob_Connect_TotalSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `processedSize` instead
+    ///
+    pub const ProcessedSize = processedSize;
 
     /// Inherited from KJob
     ///
@@ -691,10 +865,14 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` size: usize `
     ///
-    pub fn ProcessedSize(self: KTerminalLauncherJob, job: anytype, size: usize) void {
+    pub fn processedSize(self: KTerminalLauncherJob, job: anytype, size: usize) void {
         comptime _ = @TypeOf(job)._is_KJob;
         qtc.KJob_ProcessedSize(@ptrCast(self.ptr), @ptrCast(job.ptr), @bitCast(size));
     }
+
+    /// ### DEPRECATED: Use `onProcessedSize` instead
+    ///
+    pub const OnProcessedSize = onProcessedSize;
 
     /// Inherited from KJob
     ///
@@ -706,9 +884,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` callback: *const fn (self: KTerminalLauncherJob, job: KJob, size: usize) callconv(.c) void `
     ///
-    pub fn OnProcessedSize(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, KJob, usize) callconv(.c) void) void {
+    pub fn onProcessedSize(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, KJob, usize) callconv(.c) void) void {
         qtc.KJob_Connect_ProcessedSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `speed` instead
+    ///
+    pub const Speed = speed;
 
     /// Inherited from KJob
     ///
@@ -720,12 +902,16 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` job: KJob `
     ///
-    /// ` speed: usize `
+    /// ` _speed: usize `
     ///
-    pub fn Speed(self: KTerminalLauncherJob, job: anytype, speed: usize) void {
+    pub fn speed(self: KTerminalLauncherJob, job: anytype, _speed: usize) void {
         comptime _ = @TypeOf(job)._is_KJob;
-        qtc.KJob_Speed(@ptrCast(self.ptr), @ptrCast(job.ptr), @bitCast(speed));
+        qtc.KJob_Speed(@ptrCast(self.ptr), @ptrCast(job.ptr), @bitCast(_speed));
     }
+
+    /// ### DEPRECATED: Use `onSpeed` instead
+    ///
+    pub const OnSpeed = onSpeed;
 
     /// Inherited from KJob
     ///
@@ -737,9 +923,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` callback: *const fn (self: KTerminalLauncherJob, job: KJob, speed: usize) callconv(.c) void `
     ///
-    pub fn OnSpeed(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, KJob, usize) callconv(.c) void) void {
+    pub fn onSpeed(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, KJob, usize) callconv(.c) void) void {
         qtc.KJob_Connect_Speed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `kill1` instead
+    ///
+    pub const Kill1 = kill1;
 
     /// Inherited from KJob
     ///
@@ -751,9 +941,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` verbosity: kjob_enums.KillVerbosity `
     ///
-    pub fn Kill1(self: KTerminalLauncherJob, verbosity: i32) bool {
+    pub fn kill1(self: KTerminalLauncherJob, verbosity: i32) bool {
         return qtc.KJob_Kill1(@ptrCast(self.ptr), @bitCast(verbosity));
     }
+
+    /// ### DEPRECATED: Use `setFinishedNotificationHidden1` instead
+    ///
+    pub const SetFinishedNotificationHidden1 = setFinishedNotificationHidden1;
 
     /// Inherited from KJob
     ///
@@ -765,9 +959,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` hide: bool `
     ///
-    pub fn SetFinishedNotificationHidden1(self: KTerminalLauncherJob, hide: bool) void {
+    pub fn setFinishedNotificationHidden1(self: KTerminalLauncherJob, hide: bool) void {
         qtc.KJob_SetFinishedNotificationHidden1(@ptrCast(self.ptr), hide);
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -779,13 +977,17 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KTerminalLauncherJob, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KTerminalLauncherJob, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTerminalLauncherJob.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTerminalLauncherJob.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -797,13 +999,17 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KTerminalLauncherJob, name: []const u8) void {
+    pub fn setObjectName(self: KTerminalLauncherJob, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -813,9 +1019,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    pub fn IsWidgetType(self: KTerminalLauncherJob) bool {
+    pub fn isWidgetType(self: KTerminalLauncherJob) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -825,9 +1035,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    pub fn IsWindowType(self: KTerminalLauncherJob) bool {
+    pub fn isWindowType(self: KTerminalLauncherJob) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -837,9 +1051,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    pub fn IsQuickItemType(self: KTerminalLauncherJob) bool {
+    pub fn isQuickItemType(self: KTerminalLauncherJob) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -849,9 +1067,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    pub fn SignalsBlocked(self: KTerminalLauncherJob) bool {
+    pub fn signalsBlocked(self: KTerminalLauncherJob) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -863,9 +1085,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KTerminalLauncherJob, b: bool) bool {
+    pub fn blockSignals(self: KTerminalLauncherJob, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -875,9 +1101,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    pub fn Thread(self: KTerminalLauncherJob) QThread {
+    pub fn thread(self: KTerminalLauncherJob) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -887,12 +1117,16 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KTerminalLauncherJob, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KTerminalLauncherJob, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -904,9 +1138,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KTerminalLauncherJob, interval: i32) i32 {
+    pub fn startTimer(self: KTerminalLauncherJob, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -918,9 +1156,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KTerminalLauncherJob, time: i64) i32 {
+    pub fn startTimer2(self: KTerminalLauncherJob, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -932,9 +1174,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KTerminalLauncherJob, id: i32) void {
+    pub fn killTimer(self: KTerminalLauncherJob, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -946,9 +1192,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KTerminalLauncherJob, id: i32) void {
+    pub fn killTimer2(self: KTerminalLauncherJob, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -960,15 +1210,19 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KTerminalLauncherJob, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KTerminalLauncherJob, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KTerminalLauncherJob.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KTerminalLauncherJob.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -978,12 +1232,16 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: KTerminalLauncherJob, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: KTerminalLauncherJob, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -995,10 +1253,14 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KTerminalLauncherJob, filterObj: anytype) void {
+    pub fn installEventFilter(self: KTerminalLauncherJob, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1010,10 +1272,14 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KTerminalLauncherJob, obj: anytype) void {
+    pub fn removeEventFilter(self: KTerminalLauncherJob, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -1021,7 +1287,7 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1029,13 +1295,17 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -1043,7 +1313,7 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1051,13 +1321,17 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1067,18 +1341,22 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KTerminalLauncherJob, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KTerminalLauncherJob, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1086,7 +1364,7 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1094,13 +1372,17 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1108,7 +1390,7 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1116,13 +1398,17 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1132,9 +1418,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    pub fn Disconnect3(self: KTerminalLauncherJob) bool {
+    pub fn disconnect3(self: KTerminalLauncherJob) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1146,10 +1436,14 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KTerminalLauncherJob, receiver: anytype) bool {
+    pub fn disconnect4(self: KTerminalLauncherJob, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1159,10 +1453,14 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1172,9 +1470,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    pub fn DumpObjectTree(self: KTerminalLauncherJob) void {
+    pub fn dumpObjectTree(self: KTerminalLauncherJob) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1184,9 +1486,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    pub fn DumpObjectInfo(self: KTerminalLauncherJob) void {
+    pub fn dumpObjectInfo(self: KTerminalLauncherJob) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1200,11 +1506,15 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KTerminalLauncherJob, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KTerminalLauncherJob, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1216,10 +1526,14 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KTerminalLauncherJob, name: [:0]const u8) QVariant {
+    pub fn property(self: KTerminalLauncherJob, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1231,7 +1545,7 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KTerminalLauncherJob, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KTerminalLauncherJob, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1239,27 +1553,19 @@ pub const KTerminalLauncherJob = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KTerminalLauncherJob.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KTerminalLauncherJob.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KTerminalLauncherJob.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KTerminalLauncherJob.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTerminalLauncherJob `
-    ///
-    pub fn BindingStorage(self: KTerminalLauncherJob) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1269,9 +1575,29 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    pub fn BindingStorage2(self: KTerminalLauncherJob) QBindingStorage {
+    pub fn bindingStorage(self: KTerminalLauncherJob) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KTerminalLauncherJob `
+    ///
+    pub fn bindingStorage2(self: KTerminalLauncherJob) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1281,9 +1607,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    pub fn Destroyed(self: KTerminalLauncherJob) void {
+    pub fn destroyed(self: KTerminalLauncherJob) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1295,9 +1625,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` callback: *const fn (self: KTerminalLauncherJob) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob) callconv(.c) void) void {
+    pub fn onDestroyed(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1307,9 +1641,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    pub fn Parent(self: KTerminalLauncherJob) QObject {
+    pub fn parent(self: KTerminalLauncherJob) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1321,10 +1659,14 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KTerminalLauncherJob, classname: [:0]const u8) bool {
+    pub fn inherits(self: KTerminalLauncherJob, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1334,9 +1676,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    pub fn DeleteLater(self: KTerminalLauncherJob) void {
+    pub fn deleteLater(self: KTerminalLauncherJob) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1350,9 +1696,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KTerminalLauncherJob, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KTerminalLauncherJob, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1366,9 +1716,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KTerminalLauncherJob, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KTerminalLauncherJob, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1376,7 +1730,7 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1386,13 +1740,17 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1400,7 +1758,7 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1410,13 +1768,17 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1426,7 +1788,7 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1434,12 +1796,16 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KTerminalLauncherJob, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KTerminalLauncherJob, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1451,10 +1817,14 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KTerminalLauncherJob, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KTerminalLauncherJob, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1468,11 +1838,15 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KTerminalLauncherJob, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KTerminalLauncherJob, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1488,13 +1862,17 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KTerminalLauncherJob, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KTerminalLauncherJob, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1507,11 +1885,15 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KTerminalLauncherJob, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KTerminalLauncherJob, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1523,10 +1905,14 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KTerminalLauncherJob, param1: anytype) void {
+    pub fn destroyed1(self: KTerminalLauncherJob, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1538,10 +1924,14 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` callback: *const fn (self: KTerminalLauncherJob, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `doKill` instead
+    ///
+    pub const DoKill = doKill;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#doKill)
@@ -1552,13 +1942,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    pub fn DoKill(self: KTerminalLauncherJob) bool {
+    pub fn doKill(self: KTerminalLauncherJob) bool {
         return qtc.KTerminalLauncherJob_DoKill(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDoKill` instead
+    /// ### DEPRECATED: Use `superDoKill` instead
     ///
-    pub const QBaseDoKill = SuperDoKill;
+    pub const SuperDoKill = superDoKill;
 
     /// Inherited from KJob
     ///
@@ -1570,10 +1960,14 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    pub fn SuperDoKill(self: KTerminalLauncherJob) bool {
+    pub fn superDoKill(self: KTerminalLauncherJob) bool {
         return qtc.KTerminalLauncherJob_SuperDoKill(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onDoKill` instead
+    ///
+    pub const OnDoKill = onDoKill;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#doKill)
@@ -1586,10 +1980,14 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnDoKill(self: KTerminalLauncherJob, callback: *const fn () callconv(.c) bool) void {
+    pub fn onDoKill(self: KTerminalLauncherJob, callback: *const fn () callconv(.c) bool) void {
         qtc.KTerminalLauncherJob_OnDoKill(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `doSuspend` instead
+    ///
+    pub const DoSuspend = doSuspend;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#doSuspend)
@@ -1600,13 +1998,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    pub fn DoSuspend(self: KTerminalLauncherJob) bool {
+    pub fn doSuspend(self: KTerminalLauncherJob) bool {
         return qtc.KTerminalLauncherJob_DoSuspend(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDoSuspend` instead
+    /// ### DEPRECATED: Use `superDoSuspend` instead
     ///
-    pub const QBaseDoSuspend = SuperDoSuspend;
+    pub const SuperDoSuspend = superDoSuspend;
 
     /// Inherited from KJob
     ///
@@ -1618,10 +2016,14 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    pub fn SuperDoSuspend(self: KTerminalLauncherJob) bool {
+    pub fn superDoSuspend(self: KTerminalLauncherJob) bool {
         return qtc.KTerminalLauncherJob_SuperDoSuspend(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onDoSuspend` instead
+    ///
+    pub const OnDoSuspend = onDoSuspend;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#doSuspend)
@@ -1634,9 +2036,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnDoSuspend(self: KTerminalLauncherJob, callback: *const fn () callconv(.c) bool) void {
+    pub fn onDoSuspend(self: KTerminalLauncherJob, callback: *const fn () callconv(.c) bool) void {
         qtc.KTerminalLauncherJob_OnDoSuspend(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `doResume` instead
+    ///
+    pub const DoResume = doResume;
 
     /// Inherited from KJob
     ///
@@ -1648,13 +2054,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    pub fn DoResume(self: KTerminalLauncherJob) bool {
+    pub fn doResume(self: KTerminalLauncherJob) bool {
         return qtc.KTerminalLauncherJob_DoResume(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDoResume` instead
+    /// ### DEPRECATED: Use `superDoResume` instead
     ///
-    pub const QBaseDoResume = SuperDoResume;
+    pub const SuperDoResume = superDoResume;
 
     /// Inherited from KJob
     ///
@@ -1666,9 +2072,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    pub fn SuperDoResume(self: KTerminalLauncherJob) bool {
+    pub fn superDoResume(self: KTerminalLauncherJob) bool {
         return qtc.KTerminalLauncherJob_SuperDoResume(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDoResume` instead
+    ///
+    pub const OnDoResume = onDoResume;
 
     /// Inherited from KJob
     ///
@@ -1682,9 +2092,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnDoResume(self: KTerminalLauncherJob, callback: *const fn () callconv(.c) bool) void {
+    pub fn onDoResume(self: KTerminalLauncherJob, callback: *const fn () callconv(.c) bool) void {
         qtc.KTerminalLauncherJob_OnDoResume(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `errorString` instead
+    ///
+    pub const ErrorString = errorString;
 
     /// Inherited from KJob
     ///
@@ -1698,17 +2112,17 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorString(self: KTerminalLauncherJob, allocator: std.mem.Allocator) []const u8 {
+    pub fn errorString(self: KTerminalLauncherJob, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KTerminalLauncherJob_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTerminalLauncherJob.ErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTerminalLauncherJob.errorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `SuperErrorString` instead
+    /// ### DEPRECATED: Use `superErrorString` instead
     ///
-    pub const QBaseErrorString = SuperErrorString;
+    pub const SuperErrorString = superErrorString;
 
     /// Inherited from KJob
     ///
@@ -1722,13 +2136,17 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperErrorString(self: KTerminalLauncherJob, allocator: std.mem.Allocator) []const u8 {
+    pub fn superErrorString(self: KTerminalLauncherJob, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KTerminalLauncherJob_SuperErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTerminalLauncherJob.ErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTerminalLauncherJob.errorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onErrorString` instead
+    ///
+    pub const OnErrorString = onErrorString;
 
     /// Inherited from KJob
     ///
@@ -1742,9 +2160,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnErrorString(self: KTerminalLauncherJob, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onErrorString(self: KTerminalLauncherJob, callback: *const fn () callconv(.c) [*:0]const u8) void {
         qtc.KTerminalLauncherJob_OnErrorString(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1756,16 +2178,16 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: KTerminalLauncherJob, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KTerminalLauncherJob_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: KTerminalLauncherJob, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KTerminalLauncherJob_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1777,12 +2199,16 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: KTerminalLauncherJob, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KTerminalLauncherJob_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: KTerminalLauncherJob, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KTerminalLauncherJob_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -1796,9 +2222,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` callback: *const fn (self: KTerminalLauncherJob, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, QEvent) callconv(.c) bool) void {
         qtc.KTerminalLauncherJob_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1812,17 +2242,17 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KTerminalLauncherJob, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KTerminalLauncherJob, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KTerminalLauncherJob_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KTerminalLauncherJob_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1836,13 +2266,17 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: KTerminalLauncherJob, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: KTerminalLauncherJob, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KTerminalLauncherJob_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KTerminalLauncherJob_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1856,9 +2290,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` callback: *const fn (self: KTerminalLauncherJob, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, QObject, QEvent) callconv(.c) bool) void {
         qtc.KTerminalLauncherJob_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1870,16 +2308,16 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KTerminalLauncherJob, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KTerminalLauncherJob_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KTerminalLauncherJob, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KTerminalLauncherJob_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1891,12 +2329,16 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KTerminalLauncherJob, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KTerminalLauncherJob_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KTerminalLauncherJob, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KTerminalLauncherJob_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1910,9 +2352,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` callback: *const fn (self: KTerminalLauncherJob, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, QTimerEvent) callconv(.c) void) void {
         qtc.KTerminalLauncherJob_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -1924,16 +2370,16 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KTerminalLauncherJob, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KTerminalLauncherJob_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KTerminalLauncherJob, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KTerminalLauncherJob_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1945,12 +2391,16 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KTerminalLauncherJob, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KTerminalLauncherJob_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KTerminalLauncherJob, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KTerminalLauncherJob_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1964,9 +2414,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` callback: *const fn (self: KTerminalLauncherJob, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, QChildEvent) callconv(.c) void) void {
         qtc.KTerminalLauncherJob_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -1978,16 +2432,16 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KTerminalLauncherJob, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KTerminalLauncherJob_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KTerminalLauncherJob, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KTerminalLauncherJob_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1999,12 +2453,16 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KTerminalLauncherJob, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KTerminalLauncherJob_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KTerminalLauncherJob, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KTerminalLauncherJob_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2018,9 +2476,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` callback: *const fn (self: KTerminalLauncherJob, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, QEvent) callconv(.c) void) void {
         qtc.KTerminalLauncherJob_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -2034,14 +2496,14 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KTerminalLauncherJob, signal: anytype) void {
+    pub fn connectNotify(self: KTerminalLauncherJob, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KTerminalLauncherJob_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2055,11 +2517,15 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KTerminalLauncherJob, signal: anytype) void {
+    pub fn superConnectNotify(self: KTerminalLauncherJob, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KTerminalLauncherJob_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -2072,9 +2538,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` callback: *const fn (self: KTerminalLauncherJob, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, QMetaMethod) callconv(.c) void) void {
         qtc.KTerminalLauncherJob_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2088,14 +2558,14 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KTerminalLauncherJob, signal: anytype) void {
+    pub fn disconnectNotify(self: KTerminalLauncherJob, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KTerminalLauncherJob_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2109,10 +2579,14 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KTerminalLauncherJob, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KTerminalLauncherJob, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KTerminalLauncherJob_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2126,9 +2600,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` callback: *const fn (self: KTerminalLauncherJob, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, QMetaMethod) callconv(.c) void) void {
         qtc.KTerminalLauncherJob_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setCapabilities` instead
+    ///
+    pub const SetCapabilities = setCapabilities;
 
     /// Inherited from KJob
     ///
@@ -2140,15 +2618,15 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    /// ` capabilities: flag of kjob_enums.Capability `
+    /// ` _capabilities: flag of kjob_enums.Capability `
     ///
-    pub fn SetCapabilities(self: KTerminalLauncherJob, capabilities: i32) void {
-        qtc.KTerminalLauncherJob_SetCapabilities(@ptrCast(self.ptr), @bitCast(capabilities));
+    pub fn setCapabilities(self: KTerminalLauncherJob, _capabilities: i32) void {
+        qtc.KTerminalLauncherJob_SetCapabilities(@ptrCast(self.ptr), @bitCast(_capabilities));
     }
 
-    /// ### DEPRECATED: Use `SuperSetCapabilities` instead
+    /// ### DEPRECATED: Use `superSetCapabilities` instead
     ///
-    pub const QBaseSetCapabilities = SuperSetCapabilities;
+    pub const SuperSetCapabilities = superSetCapabilities;
 
     /// Inherited from KJob
     ///
@@ -2160,11 +2638,15 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    /// ` capabilities: flag of kjob_enums.Capability `
+    /// ` _capabilities: flag of kjob_enums.Capability `
     ///
-    pub fn SuperSetCapabilities(self: KTerminalLauncherJob, capabilities: i32) void {
-        qtc.KTerminalLauncherJob_SuperSetCapabilities(@ptrCast(self.ptr), @bitCast(capabilities));
+    pub fn superSetCapabilities(self: KTerminalLauncherJob, _capabilities: i32) void {
+        qtc.KTerminalLauncherJob_SuperSetCapabilities(@ptrCast(self.ptr), @bitCast(_capabilities));
     }
+
+    /// ### DEPRECATED: Use `onSetCapabilities` instead
+    ///
+    pub const OnSetCapabilities = onSetCapabilities;
 
     /// Inherited from KJob
     ///
@@ -2178,9 +2660,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` callback: *const fn (self: KTerminalLauncherJob, capabilities: flag of kjob_enums.Capability) callconv(.c) void `
     ///
-    pub fn OnSetCapabilities(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, i32) callconv(.c) void) void {
+    pub fn onSetCapabilities(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, i32) callconv(.c) void) void {
         qtc.KTerminalLauncherJob_OnSetCapabilities(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isFinished` instead
+    ///
+    pub const IsFinished = isFinished;
 
     /// Inherited from KJob
     ///
@@ -2192,13 +2678,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    pub fn IsFinished(self: KTerminalLauncherJob) bool {
+    pub fn isFinished(self: KTerminalLauncherJob) bool {
         return qtc.KTerminalLauncherJob_IsFinished(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsFinished` instead
+    /// ### DEPRECATED: Use `superIsFinished` instead
     ///
-    pub const QBaseIsFinished = SuperIsFinished;
+    pub const SuperIsFinished = superIsFinished;
 
     /// Inherited from KJob
     ///
@@ -2210,9 +2696,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    pub fn SuperIsFinished(self: KTerminalLauncherJob) bool {
+    pub fn superIsFinished(self: KTerminalLauncherJob) bool {
         return qtc.KTerminalLauncherJob_SuperIsFinished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsFinished` instead
+    ///
+    pub const OnIsFinished = onIsFinished;
 
     /// Inherited from KJob
     ///
@@ -2226,9 +2716,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnIsFinished(self: KTerminalLauncherJob, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsFinished(self: KTerminalLauncherJob, callback: *const fn () callconv(.c) bool) void {
         qtc.KTerminalLauncherJob_OnIsFinished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setError` instead
+    ///
+    pub const SetError = setError;
 
     /// Inherited from KJob
     ///
@@ -2242,13 +2736,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` errorCode: i32 `
     ///
-    pub fn SetError(self: KTerminalLauncherJob, errorCode: i32) void {
+    pub fn setError(self: KTerminalLauncherJob, errorCode: i32) void {
         qtc.KTerminalLauncherJob_SetError(@ptrCast(self.ptr), @bitCast(errorCode));
     }
 
-    /// ### DEPRECATED: Use `SuperSetError` instead
+    /// ### DEPRECATED: Use `superSetError` instead
     ///
-    pub const QBaseSetError = SuperSetError;
+    pub const SuperSetError = superSetError;
 
     /// Inherited from KJob
     ///
@@ -2262,9 +2756,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` errorCode: i32 `
     ///
-    pub fn SuperSetError(self: KTerminalLauncherJob, errorCode: i32) void {
+    pub fn superSetError(self: KTerminalLauncherJob, errorCode: i32) void {
         qtc.KTerminalLauncherJob_SuperSetError(@ptrCast(self.ptr), @bitCast(errorCode));
     }
+
+    /// ### DEPRECATED: Use `onSetError` instead
+    ///
+    pub const OnSetError = onSetError;
 
     /// Inherited from KJob
     ///
@@ -2278,9 +2776,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` callback: *const fn (self: KTerminalLauncherJob, errorCode: i32) callconv(.c) void `
     ///
-    pub fn OnSetError(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, i32) callconv(.c) void) void {
+    pub fn onSetError(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, i32) callconv(.c) void) void {
         qtc.KTerminalLauncherJob_OnSetError(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setErrorText` instead
+    ///
+    pub const SetErrorText = setErrorText;
 
     /// Inherited from KJob
     ///
@@ -2292,19 +2794,19 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    /// ` errorText: []const u8 `
+    /// ` _errorText: []const u8 `
     ///
-    pub fn SetErrorText(self: KTerminalLauncherJob, errorText: []const u8) void {
+    pub fn setErrorText(self: KTerminalLauncherJob, _errorText: []const u8) void {
         const errorText_str = qtc.libqt_string{
-            .len = errorText.len,
-            .data = errorText.ptr,
+            .len = _errorText.len,
+            .data = _errorText.ptr,
         };
         qtc.KTerminalLauncherJob_SetErrorText(@ptrCast(self.ptr), errorText_str);
     }
 
-    /// ### DEPRECATED: Use `SuperSetErrorText` instead
+    /// ### DEPRECATED: Use `superSetErrorText` instead
     ///
-    pub const QBaseSetErrorText = SuperSetErrorText;
+    pub const SuperSetErrorText = superSetErrorText;
 
     /// Inherited from KJob
     ///
@@ -2316,15 +2818,19 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    /// ` errorText: []const u8 `
+    /// ` _errorText: []const u8 `
     ///
-    pub fn SuperSetErrorText(self: KTerminalLauncherJob, errorText: []const u8) void {
+    pub fn superSetErrorText(self: KTerminalLauncherJob, _errorText: []const u8) void {
         const errorText_str = qtc.libqt_string{
-            .len = errorText.len,
-            .data = errorText.ptr,
+            .len = _errorText.len,
+            .data = _errorText.ptr,
         };
         qtc.KTerminalLauncherJob_SuperSetErrorText(@ptrCast(self.ptr), errorText_str);
     }
+
+    /// ### DEPRECATED: Use `onSetErrorText` instead
+    ///
+    pub const OnSetErrorText = onSetErrorText;
 
     /// Inherited from KJob
     ///
@@ -2338,10 +2844,14 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` callback: *const fn (self: KTerminalLauncherJob, errorText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetErrorText(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, [*:0]const u8) callconv(.c) void) void {
+    pub fn onSetErrorText(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, [*:0]const u8) callconv(.c) void) void {
         qtc.KTerminalLauncherJob_OnSetErrorText(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `setProcessedAmount` instead
+    ///
+    pub const SetProcessedAmount = setProcessedAmount;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#setProcessedAmount)
@@ -2356,13 +2866,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` amount: usize `
     ///
-    pub fn SetProcessedAmount(self: KTerminalLauncherJob, unit: i32, amount: usize) void {
+    pub fn setProcessedAmount(self: KTerminalLauncherJob, unit: i32, amount: usize) void {
         qtc.KTerminalLauncherJob_SetProcessedAmount(@ptrCast(self.ptr), @bitCast(unit), @bitCast(amount));
     }
 
-    /// ### DEPRECATED: Use `SuperSetProcessedAmount` instead
+    /// ### DEPRECATED: Use `superSetProcessedAmount` instead
     ///
-    pub const QBaseSetProcessedAmount = SuperSetProcessedAmount;
+    pub const SuperSetProcessedAmount = superSetProcessedAmount;
 
     /// Inherited from KJob
     ///
@@ -2378,10 +2888,14 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` amount: usize `
     ///
-    pub fn SuperSetProcessedAmount(self: KTerminalLauncherJob, unit: i32, amount: usize) void {
+    pub fn superSetProcessedAmount(self: KTerminalLauncherJob, unit: i32, amount: usize) void {
         qtc.KTerminalLauncherJob_SuperSetProcessedAmount(@ptrCast(self.ptr), @bitCast(unit), @bitCast(amount));
     }
 
+    /// ### DEPRECATED: Use `onSetProcessedAmount` instead
+    ///
+    pub const OnSetProcessedAmount = onSetProcessedAmount;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#setProcessedAmount)
@@ -2394,9 +2908,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` callback: *const fn (self: KTerminalLauncherJob, unit: kjob_enums.Unit, amount: usize) callconv(.c) void `
     ///
-    pub fn OnSetProcessedAmount(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, i32, usize) callconv(.c) void) void {
+    pub fn onSetProcessedAmount(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, i32, usize) callconv(.c) void) void {
         qtc.KTerminalLauncherJob_OnSetProcessedAmount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setTotalAmount` instead
+    ///
+    pub const SetTotalAmount = setTotalAmount;
 
     /// Inherited from KJob
     ///
@@ -2412,13 +2930,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` amount: usize `
     ///
-    pub fn SetTotalAmount(self: KTerminalLauncherJob, unit: i32, amount: usize) void {
+    pub fn setTotalAmount(self: KTerminalLauncherJob, unit: i32, amount: usize) void {
         qtc.KTerminalLauncherJob_SetTotalAmount(@ptrCast(self.ptr), @bitCast(unit), @bitCast(amount));
     }
 
-    /// ### DEPRECATED: Use `SuperSetTotalAmount` instead
+    /// ### DEPRECATED: Use `superSetTotalAmount` instead
     ///
-    pub const QBaseSetTotalAmount = SuperSetTotalAmount;
+    pub const SuperSetTotalAmount = superSetTotalAmount;
 
     /// Inherited from KJob
     ///
@@ -2434,9 +2952,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` amount: usize `
     ///
-    pub fn SuperSetTotalAmount(self: KTerminalLauncherJob, unit: i32, amount: usize) void {
+    pub fn superSetTotalAmount(self: KTerminalLauncherJob, unit: i32, amount: usize) void {
         qtc.KTerminalLauncherJob_SuperSetTotalAmount(@ptrCast(self.ptr), @bitCast(unit), @bitCast(amount));
     }
+
+    /// ### DEPRECATED: Use `onSetTotalAmount` instead
+    ///
+    pub const OnSetTotalAmount = onSetTotalAmount;
 
     /// Inherited from KJob
     ///
@@ -2450,9 +2972,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` callback: *const fn (self: KTerminalLauncherJob, unit: kjob_enums.Unit, amount: usize) callconv(.c) void `
     ///
-    pub fn OnSetTotalAmount(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, i32, usize) callconv(.c) void) void {
+    pub fn onSetTotalAmount(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, i32, usize) callconv(.c) void) void {
         qtc.KTerminalLauncherJob_OnSetTotalAmount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setProgressUnit` instead
+    ///
+    pub const SetProgressUnit = setProgressUnit;
 
     /// Inherited from KJob
     ///
@@ -2466,13 +2992,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` unit: kjob_enums.Unit `
     ///
-    pub fn SetProgressUnit(self: KTerminalLauncherJob, unit: i32) void {
+    pub fn setProgressUnit(self: KTerminalLauncherJob, unit: i32) void {
         qtc.KTerminalLauncherJob_SetProgressUnit(@ptrCast(self.ptr), @bitCast(unit));
     }
 
-    /// ### DEPRECATED: Use `SuperSetProgressUnit` instead
+    /// ### DEPRECATED: Use `superSetProgressUnit` instead
     ///
-    pub const QBaseSetProgressUnit = SuperSetProgressUnit;
+    pub const SuperSetProgressUnit = superSetProgressUnit;
 
     /// Inherited from KJob
     ///
@@ -2486,9 +3012,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` unit: kjob_enums.Unit `
     ///
-    pub fn SuperSetProgressUnit(self: KTerminalLauncherJob, unit: i32) void {
+    pub fn superSetProgressUnit(self: KTerminalLauncherJob, unit: i32) void {
         qtc.KTerminalLauncherJob_SuperSetProgressUnit(@ptrCast(self.ptr), @bitCast(unit));
     }
+
+    /// ### DEPRECATED: Use `onSetProgressUnit` instead
+    ///
+    pub const OnSetProgressUnit = onSetProgressUnit;
 
     /// Inherited from KJob
     ///
@@ -2502,9 +3032,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` callback: *const fn (self: KTerminalLauncherJob, unit: kjob_enums.Unit) callconv(.c) void `
     ///
-    pub fn OnSetProgressUnit(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, i32) callconv(.c) void) void {
+    pub fn onSetProgressUnit(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, i32) callconv(.c) void) void {
         qtc.KTerminalLauncherJob_OnSetProgressUnit(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setPercent` instead
+    ///
+    pub const SetPercent = setPercent;
 
     /// Inherited from KJob
     ///
@@ -2518,13 +3052,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` percentage: usize `
     ///
-    pub fn SetPercent(self: KTerminalLauncherJob, percentage: usize) void {
+    pub fn setPercent(self: KTerminalLauncherJob, percentage: usize) void {
         qtc.KTerminalLauncherJob_SetPercent(@ptrCast(self.ptr), @bitCast(percentage));
     }
 
-    /// ### DEPRECATED: Use `SuperSetPercent` instead
+    /// ### DEPRECATED: Use `superSetPercent` instead
     ///
-    pub const QBaseSetPercent = SuperSetPercent;
+    pub const SuperSetPercent = superSetPercent;
 
     /// Inherited from KJob
     ///
@@ -2538,9 +3072,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` percentage: usize `
     ///
-    pub fn SuperSetPercent(self: KTerminalLauncherJob, percentage: usize) void {
+    pub fn superSetPercent(self: KTerminalLauncherJob, percentage: usize) void {
         qtc.KTerminalLauncherJob_SuperSetPercent(@ptrCast(self.ptr), @bitCast(percentage));
     }
+
+    /// ### DEPRECATED: Use `onSetPercent` instead
+    ///
+    pub const OnSetPercent = onSetPercent;
 
     /// Inherited from KJob
     ///
@@ -2554,9 +3092,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` callback: *const fn (self: KTerminalLauncherJob, percentage: usize) callconv(.c) void `
     ///
-    pub fn OnSetPercent(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, usize) callconv(.c) void) void {
+    pub fn onSetPercent(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, usize) callconv(.c) void) void {
         qtc.KTerminalLauncherJob_OnSetPercent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `emitResult` instead
+    ///
+    pub const EmitResult = emitResult;
 
     /// Inherited from KJob
     ///
@@ -2568,13 +3110,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    pub fn EmitResult(self: KTerminalLauncherJob) void {
+    pub fn emitResult(self: KTerminalLauncherJob) void {
         qtc.KTerminalLauncherJob_EmitResult(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEmitResult` instead
+    /// ### DEPRECATED: Use `superEmitResult` instead
     ///
-    pub const QBaseEmitResult = SuperEmitResult;
+    pub const SuperEmitResult = superEmitResult;
 
     /// Inherited from KJob
     ///
@@ -2586,9 +3128,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    pub fn SuperEmitResult(self: KTerminalLauncherJob) void {
+    pub fn superEmitResult(self: KTerminalLauncherJob) void {
         qtc.KTerminalLauncherJob_SuperEmitResult(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEmitResult` instead
+    ///
+    pub const OnEmitResult = onEmitResult;
 
     /// Inherited from KJob
     ///
@@ -2602,9 +3148,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEmitResult(self: KTerminalLauncherJob, callback: *const fn () callconv(.c) void) void {
+    pub fn onEmitResult(self: KTerminalLauncherJob, callback: *const fn () callconv(.c) void) void {
         qtc.KTerminalLauncherJob_OnEmitResult(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `emitPercent` instead
+    ///
+    pub const EmitPercent = emitPercent;
 
     /// Inherited from KJob
     ///
@@ -2616,17 +3166,17 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    /// ` processedAmount: usize `
+    /// ` _processedAmount: usize `
     ///
-    /// ` totalAmount: usize `
+    /// ` _totalAmount: usize `
     ///
-    pub fn EmitPercent(self: KTerminalLauncherJob, processedAmount: usize, totalAmount: usize) void {
-        qtc.KTerminalLauncherJob_EmitPercent(@ptrCast(self.ptr), @bitCast(processedAmount), @bitCast(totalAmount));
+    pub fn emitPercent(self: KTerminalLauncherJob, _processedAmount: usize, _totalAmount: usize) void {
+        qtc.KTerminalLauncherJob_EmitPercent(@ptrCast(self.ptr), @bitCast(_processedAmount), @bitCast(_totalAmount));
     }
 
-    /// ### DEPRECATED: Use `SuperEmitPercent` instead
+    /// ### DEPRECATED: Use `superEmitPercent` instead
     ///
-    pub const QBaseEmitPercent = SuperEmitPercent;
+    pub const SuperEmitPercent = superEmitPercent;
 
     /// Inherited from KJob
     ///
@@ -2638,13 +3188,17 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    /// ` processedAmount: usize `
+    /// ` _processedAmount: usize `
     ///
-    /// ` totalAmount: usize `
+    /// ` _totalAmount: usize `
     ///
-    pub fn SuperEmitPercent(self: KTerminalLauncherJob, processedAmount: usize, totalAmount: usize) void {
-        qtc.KTerminalLauncherJob_SuperEmitPercent(@ptrCast(self.ptr), @bitCast(processedAmount), @bitCast(totalAmount));
+    pub fn superEmitPercent(self: KTerminalLauncherJob, _processedAmount: usize, _totalAmount: usize) void {
+        qtc.KTerminalLauncherJob_SuperEmitPercent(@ptrCast(self.ptr), @bitCast(_processedAmount), @bitCast(_totalAmount));
     }
+
+    /// ### DEPRECATED: Use `onEmitPercent` instead
+    ///
+    pub const OnEmitPercent = onEmitPercent;
 
     /// Inherited from KJob
     ///
@@ -2658,9 +3212,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` callback: *const fn (self: KTerminalLauncherJob, processedAmount: usize, totalAmount: usize) callconv(.c) void `
     ///
-    pub fn OnEmitPercent(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, usize, usize) callconv(.c) void) void {
+    pub fn onEmitPercent(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, usize, usize) callconv(.c) void) void {
         qtc.KTerminalLauncherJob_OnEmitPercent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `emitSpeed` instead
+    ///
+    pub const EmitSpeed = emitSpeed;
 
     /// Inherited from KJob
     ///
@@ -2672,15 +3230,15 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    /// ` speed: usize `
+    /// ` _speed: usize `
     ///
-    pub fn EmitSpeed(self: KTerminalLauncherJob, speed: usize) void {
-        qtc.KTerminalLauncherJob_EmitSpeed(@ptrCast(self.ptr), @bitCast(speed));
+    pub fn emitSpeed(self: KTerminalLauncherJob, _speed: usize) void {
+        qtc.KTerminalLauncherJob_EmitSpeed(@ptrCast(self.ptr), @bitCast(_speed));
     }
 
-    /// ### DEPRECATED: Use `SuperEmitSpeed` instead
+    /// ### DEPRECATED: Use `superEmitSpeed` instead
     ///
-    pub const QBaseEmitSpeed = SuperEmitSpeed;
+    pub const SuperEmitSpeed = superEmitSpeed;
 
     /// Inherited from KJob
     ///
@@ -2692,11 +3250,15 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    /// ` speed: usize `
+    /// ` _speed: usize `
     ///
-    pub fn SuperEmitSpeed(self: KTerminalLauncherJob, speed: usize) void {
-        qtc.KTerminalLauncherJob_SuperEmitSpeed(@ptrCast(self.ptr), @bitCast(speed));
+    pub fn superEmitSpeed(self: KTerminalLauncherJob, _speed: usize) void {
+        qtc.KTerminalLauncherJob_SuperEmitSpeed(@ptrCast(self.ptr), @bitCast(_speed));
     }
+
+    /// ### DEPRECATED: Use `onEmitSpeed` instead
+    ///
+    pub const OnEmitSpeed = onEmitSpeed;
 
     /// Inherited from KJob
     ///
@@ -2710,9 +3272,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` callback: *const fn (self: KTerminalLauncherJob, speed: usize) callconv(.c) void `
     ///
-    pub fn OnEmitSpeed(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, usize) callconv(.c) void) void {
+    pub fn onEmitSpeed(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, usize) callconv(.c) void) void {
         qtc.KTerminalLauncherJob_OnEmitSpeed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `startElapsedTimer` instead
+    ///
+    pub const StartElapsedTimer = startElapsedTimer;
 
     /// Inherited from KJob
     ///
@@ -2724,13 +3290,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    pub fn StartElapsedTimer(self: KTerminalLauncherJob) void {
+    pub fn startElapsedTimer(self: KTerminalLauncherJob) void {
         qtc.KTerminalLauncherJob_StartElapsedTimer(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperStartElapsedTimer` instead
+    /// ### DEPRECATED: Use `superStartElapsedTimer` instead
     ///
-    pub const QBaseStartElapsedTimer = SuperStartElapsedTimer;
+    pub const SuperStartElapsedTimer = superStartElapsedTimer;
 
     /// Inherited from KJob
     ///
@@ -2742,9 +3308,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    pub fn SuperStartElapsedTimer(self: KTerminalLauncherJob) void {
+    pub fn superStartElapsedTimer(self: KTerminalLauncherJob) void {
         qtc.KTerminalLauncherJob_SuperStartElapsedTimer(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onStartElapsedTimer` instead
+    ///
+    pub const OnStartElapsedTimer = onStartElapsedTimer;
 
     /// Inherited from KJob
     ///
@@ -2758,9 +3328,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnStartElapsedTimer(self: KTerminalLauncherJob, callback: *const fn () callconv(.c) void) void {
+    pub fn onStartElapsedTimer(self: KTerminalLauncherJob, callback: *const fn () callconv(.c) void) void {
         qtc.KTerminalLauncherJob_OnStartElapsedTimer(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -2772,13 +3346,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    pub fn Sender(self: KTerminalLauncherJob) QObject {
+    pub fn sender(self: KTerminalLauncherJob) QObject {
         return .{ .ptr = qtc.KTerminalLauncherJob_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -2790,9 +3364,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    pub fn SuperSender(self: KTerminalLauncherJob) QObject {
+    pub fn superSender(self: KTerminalLauncherJob) QObject {
         return .{ .ptr = qtc.KTerminalLauncherJob_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -2806,9 +3384,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KTerminalLauncherJob, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KTerminalLauncherJob, callback: *const fn () callconv(.c) QObject) void {
         qtc.KTerminalLauncherJob_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2820,13 +3402,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    pub fn SenderSignalIndex(self: KTerminalLauncherJob) i32 {
+    pub fn senderSignalIndex(self: KTerminalLauncherJob) i32 {
         return qtc.KTerminalLauncherJob_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2838,9 +3420,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    pub fn SuperSenderSignalIndex(self: KTerminalLauncherJob) i32 {
+    pub fn superSenderSignalIndex(self: KTerminalLauncherJob) i32 {
         return qtc.KTerminalLauncherJob_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2854,9 +3440,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KTerminalLauncherJob, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KTerminalLauncherJob, callback: *const fn () callconv(.c) i32) void {
         qtc.KTerminalLauncherJob_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -2870,14 +3460,14 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KTerminalLauncherJob, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KTerminalLauncherJob, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KTerminalLauncherJob_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -2891,10 +3481,14 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KTerminalLauncherJob, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KTerminalLauncherJob, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KTerminalLauncherJob_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -2908,9 +3502,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` callback: *const fn (self: KTerminalLauncherJob, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, [*:0]const u8) callconv(.c) i32) void {
         qtc.KTerminalLauncherJob_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2924,14 +3522,14 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KTerminalLauncherJob, signal: anytype) bool {
+    pub fn isSignalConnected(self: KTerminalLauncherJob, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KTerminalLauncherJob_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2945,10 +3543,14 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KTerminalLauncherJob, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KTerminalLauncherJob, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KTerminalLauncherJob_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2962,9 +3564,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` callback: *const fn (self: KTerminalLauncherJob, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, QMetaMethod) callconv(.c) bool) void {
         qtc.KTerminalLauncherJob_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onFinished` instead
+    ///
+    pub const OnFinished = onFinished;
 
     /// Inherited from KJob
     ///
@@ -2978,9 +3584,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` callback: *const fn (self: KTerminalLauncherJob, job: KJob) callconv(.c) void `
     ///
-    pub fn OnFinished(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, KJob) callconv(.c) void) void {
+    pub fn onFinished(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, KJob) callconv(.c) void) void {
         qtc.KJob_Connect_Finished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onSuspended` instead
+    ///
+    pub const OnSuspended = onSuspended;
 
     /// Inherited from KJob
     ///
@@ -2994,9 +3604,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` callback: *const fn (self: KTerminalLauncherJob, job: KJob) callconv(.c) void `
     ///
-    pub fn OnSuspended(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, KJob) callconv(.c) void) void {
+    pub fn onSuspended(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, KJob) callconv(.c) void) void {
         qtc.KJob_Connect_Suspended(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onResumed` instead
+    ///
+    pub const OnResumed = onResumed;
 
     /// Inherited from KJob
     ///
@@ -3010,9 +3624,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` callback: *const fn (self: KTerminalLauncherJob, job: KJob) callconv(.c) void `
     ///
-    pub fn OnResumed(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, KJob) callconv(.c) void) void {
+    pub fn onResumed(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, KJob) callconv(.c) void) void {
         qtc.KJob_Connect_Resumed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onResult` instead
+    ///
+    pub const OnResult = onResult;
 
     /// Inherited from KJob
     ///
@@ -3026,9 +3644,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` callback: *const fn (self: KTerminalLauncherJob, job: KJob) callconv(.c) void `
     ///
-    pub fn OnResult(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, KJob) callconv(.c) void) void {
+    pub fn onResult(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, KJob) callconv(.c) void) void {
         qtc.KJob_Connect_Result(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onTotalAmountChanged` instead
+    ///
+    pub const OnTotalAmountChanged = onTotalAmountChanged;
 
     /// Inherited from KJob
     ///
@@ -3042,9 +3664,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` callback: *const fn (self: KTerminalLauncherJob, job: KJob, unit: kjob_enums.Unit, amount: usize) callconv(.c) void `
     ///
-    pub fn OnTotalAmountChanged(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, KJob, i32, usize) callconv(.c) void) void {
+    pub fn onTotalAmountChanged(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, KJob, i32, usize) callconv(.c) void) void {
         qtc.KJob_Connect_TotalAmountChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onProcessedAmountChanged` instead
+    ///
+    pub const OnProcessedAmountChanged = onProcessedAmountChanged;
 
     /// Inherited from KJob
     ///
@@ -3058,9 +3684,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` callback: *const fn (self: KTerminalLauncherJob, job: KJob, unit: kjob_enums.Unit, amount: usize) callconv(.c) void `
     ///
-    pub fn OnProcessedAmountChanged(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, KJob, i32, usize) callconv(.c) void) void {
+    pub fn onProcessedAmountChanged(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, KJob, i32, usize) callconv(.c) void) void {
         qtc.KJob_Connect_ProcessedAmountChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onPercentChanged` instead
+    ///
+    pub const OnPercentChanged = onPercentChanged;
 
     /// Inherited from KJob
     ///
@@ -3074,9 +3704,13 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` callback: *const fn (self: KTerminalLauncherJob, job: KJob, percent: usize) callconv(.c) void `
     ///
-    pub fn OnPercentChanged(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, KJob, usize) callconv(.c) void) void {
+    pub fn onPercentChanged(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, KJob, usize) callconv(.c) void) void {
         qtc.KJob_Connect_PercentChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -3090,23 +3724,23 @@ pub const KTerminalLauncherJob = extern struct {
     ///
     /// ` callback: *const fn (self: KTerminalLauncherJob, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KTerminalLauncherJob, callback: *const fn (KTerminalLauncherJob, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kterminallauncherjob.html#dtor.KTerminalLauncherJob)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KTerminalLauncherJob `
     ///
-    pub fn Delete(self: KTerminalLauncherJob) void {
+    pub fn delete(self: KTerminalLauncherJob) void {
         qtc.KTerminalLauncherJob_Delete(@ptrCast(self.ptr));
     }
 };

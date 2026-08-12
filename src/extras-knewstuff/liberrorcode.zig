@@ -6,15 +6,23 @@ const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/knscore-errorcode.html)
 pub const KNSCore__ErrorCode = extern struct {
+    /// ### DEPRECATED: Use `getEnumMetaObject` instead
+    ///
+    pub const GetEnumMetaObject = getEnumMetaObject;
+
     /// ### [Upstream resources](https://api.kde.org/knscore-errorcode.html#qt_getEnumMetaObject)
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: errorcode_enums.ErrorCode `
     ///
-    pub fn GetEnumMetaObject(param1: i32) QMetaObject {
+    pub fn getEnumMetaObject(param1: i32) QMetaObject {
         return .{ .ptr = qtc.KNSCore__ErrorCode_GetEnumMetaObject(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `getEnumName` instead
+    ///
+    pub const GetEnumName = getEnumName;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-errorcode.html#qt_getEnumName)
     ///
@@ -22,7 +30,7 @@ pub const KNSCore__ErrorCode = extern struct {
     ///
     /// ` param1: errorcode_enums.ErrorCode `
     ///
-    pub fn GetEnumName(param1: i32) [:0]const u8 {
+    pub fn getEnumName(param1: i32) [:0]const u8 {
         const _ret = qtc.KNSCore__ErrorCode_GetEnumName(@bitCast(param1));
         return std.mem.span(_ret);
     }

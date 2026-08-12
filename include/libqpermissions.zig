@@ -14,22 +14,34 @@ pub const QPermission = extern struct {
 
     pub const _is_QPermission = {};
 
-    /// New constructs a new QPermission object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QPermission {
+    pub const New = new;
+
+    /// Allocate a new QPermission object in C++ memory
+    ///
+    pub fn new() QPermission {
         return .{ .ptr = qtc.QPermission_new() };
     }
 
-    /// New2 constructs a new QPermission object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QPermission object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QPermission `
     ///
-    pub fn New2(param1: anytype) QPermission {
+    pub fn new2(param1: anytype) QPermission {
         comptime _ = @TypeOf(param1)._is_QPermission;
         return .{ .ptr = qtc.QPermission_new2(@ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `status` instead
+    ///
+    pub const Status = status;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpermission.html#status)
     ///
@@ -41,9 +53,15 @@ pub const QPermission = extern struct {
     ///
     /// ` qnamespace_enums.PermissionStatus `
     ///
-    pub fn Status(self: QPermission) i32 {
+    pub fn status(self: QPermission) i32 {
         return qtc.QPermission_Status(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpermission.html#type)
     ///
@@ -51,23 +69,23 @@ pub const QPermission = extern struct {
     ///
     /// ` self: QPermission `
     ///
-    pub fn Type(self: QPermission) QMetaType {
+    pub fn type0(self: QPermission) QMetaType {
         return .{ .ptr = qtc.QPermission_Type(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpermission.html#dtor.QPermission)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QPermission `
     ///
-    pub fn Delete(self: QPermission) void {
+    pub fn delete(self: QPermission) void {
         qtc.QPermission_Delete(@ptrCast(self.ptr));
     }
 };
@@ -82,22 +100,34 @@ pub const QLocationPermission = extern struct {
 
     pub const _is_QLocationPermission = {};
 
-    /// New constructs a new QLocationPermission object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QLocationPermission {
+    pub const New = new;
+
+    /// Allocate a new QLocationPermission object in C++ memory
+    ///
+    pub fn new() QLocationPermission {
         return .{ .ptr = qtc.QLocationPermission_new() };
     }
 
-    /// New2 constructs a new QLocationPermission object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QLocationPermission object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QLocationPermission `
     ///
-    pub fn New2(other: anytype) QLocationPermission {
+    pub fn new2(other: anytype) QLocationPermission {
         comptime _ = @TypeOf(other)._is_QLocationPermission;
         return .{ .ptr = qtc.QLocationPermission_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAccuracy` instead
+    ///
+    pub const SetAccuracy = setAccuracy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocationpermission.html#setAccuracy)
     ///
@@ -105,11 +135,15 @@ pub const QLocationPermission = extern struct {
     ///
     /// ` self: QLocationPermission `
     ///
-    /// ` accuracy: qpermissions_enums.Accuracy `
+    /// ` _accuracy: qpermissions_enums.Accuracy `
     ///
-    pub fn SetAccuracy(self: QLocationPermission, accuracy: u8) void {
-        qtc.QLocationPermission_SetAccuracy(@ptrCast(self.ptr), @bitCast(accuracy));
+    pub fn setAccuracy(self: QLocationPermission, _accuracy: u8) void {
+        qtc.QLocationPermission_SetAccuracy(@ptrCast(self.ptr), @bitCast(_accuracy));
     }
+
+    /// ### DEPRECATED: Use `accuracy` instead
+    ///
+    pub const Accuracy = accuracy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocationpermission.html#accuracy)
     ///
@@ -121,9 +155,13 @@ pub const QLocationPermission = extern struct {
     ///
     /// ` qpermissions_enums.Accuracy `
     ///
-    pub fn Accuracy(self: QLocationPermission) u8 {
+    pub fn accuracy(self: QLocationPermission) u8 {
         return qtc.QLocationPermission_Accuracy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAvailability` instead
+    ///
+    pub const SetAvailability = setAvailability;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocationpermission.html#setAvailability)
     ///
@@ -131,11 +169,15 @@ pub const QLocationPermission = extern struct {
     ///
     /// ` self: QLocationPermission `
     ///
-    /// ` availability: qpermissions_enums.Availability `
+    /// ` _availability: qpermissions_enums.Availability `
     ///
-    pub fn SetAvailability(self: QLocationPermission, availability: u8) void {
-        qtc.QLocationPermission_SetAvailability(@ptrCast(self.ptr), @bitCast(availability));
+    pub fn setAvailability(self: QLocationPermission, _availability: u8) void {
+        qtc.QLocationPermission_SetAvailability(@ptrCast(self.ptr), @bitCast(_availability));
     }
+
+    /// ### DEPRECATED: Use `availability` instead
+    ///
+    pub const Availability = availability;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocationpermission.html#availability)
     ///
@@ -147,9 +189,13 @@ pub const QLocationPermission = extern struct {
     ///
     /// ` qpermissions_enums.Availability `
     ///
-    pub fn Availability(self: QLocationPermission) u8 {
+    pub fn availability(self: QLocationPermission) u8 {
         return qtc.QLocationPermission_Availability(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocationpermission.html#operator-eq)
     ///
@@ -159,10 +205,14 @@ pub const QLocationPermission = extern struct {
     ///
     /// ` other: QLocationPermission `
     ///
-    pub fn OperatorAssign(self: QLocationPermission, other: anytype) void {
+    pub fn operatorAssign(self: QLocationPermission, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QLocationPermission;
         qtc.QLocationPermission_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocationpermission.html#swap)
     ///
@@ -172,24 +222,24 @@ pub const QLocationPermission = extern struct {
     ///
     /// ` other: QLocationPermission `
     ///
-    pub fn Swap(self: QLocationPermission, other: anytype) void {
+    pub fn swap(self: QLocationPermission, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QLocationPermission;
         qtc.QLocationPermission_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocationpermission.html#dtor.QLocationPermission)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QLocationPermission `
     ///
-    pub fn Delete(self: QLocationPermission) void {
+    pub fn delete(self: QLocationPermission) void {
         qtc.QLocationPermission_Delete(@ptrCast(self.ptr));
     }
 };
@@ -204,22 +254,34 @@ pub const QCalendarPermission = extern struct {
 
     pub const _is_QCalendarPermission = {};
 
-    /// New constructs a new QCalendarPermission object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QCalendarPermission {
+    pub const New = new;
+
+    /// Allocate a new QCalendarPermission object in C++ memory
+    ///
+    pub fn new() QCalendarPermission {
         return .{ .ptr = qtc.QCalendarPermission_new() };
     }
 
-    /// New2 constructs a new QCalendarPermission object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QCalendarPermission object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QCalendarPermission `
     ///
-    pub fn New2(other: anytype) QCalendarPermission {
+    pub fn new2(other: anytype) QCalendarPermission {
         comptime _ = @TypeOf(other)._is_QCalendarPermission;
         return .{ .ptr = qtc.QCalendarPermission_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAccessMode` instead
+    ///
+    pub const SetAccessMode = setAccessMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarpermission.html#setAccessMode)
     ///
@@ -229,9 +291,13 @@ pub const QCalendarPermission = extern struct {
     ///
     /// ` mode: qpermissions_enums.AccessMode `
     ///
-    pub fn SetAccessMode(self: QCalendarPermission, mode: u8) void {
+    pub fn setAccessMode(self: QCalendarPermission, mode: u8) void {
         qtc.QCalendarPermission_SetAccessMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `accessMode` instead
+    ///
+    pub const AccessMode = accessMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarpermission.html#accessMode)
     ///
@@ -243,9 +309,13 @@ pub const QCalendarPermission = extern struct {
     ///
     /// ` qpermissions_enums.AccessMode `
     ///
-    pub fn AccessMode(self: QCalendarPermission) u8 {
+    pub fn accessMode(self: QCalendarPermission) u8 {
         return qtc.QCalendarPermission_AccessMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarpermission.html#operator-eq)
     ///
@@ -255,10 +325,14 @@ pub const QCalendarPermission = extern struct {
     ///
     /// ` other: QCalendarPermission `
     ///
-    pub fn OperatorAssign(self: QCalendarPermission, other: anytype) void {
+    pub fn operatorAssign(self: QCalendarPermission, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QCalendarPermission;
         qtc.QCalendarPermission_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarpermission.html#swap)
     ///
@@ -268,24 +342,24 @@ pub const QCalendarPermission = extern struct {
     ///
     /// ` other: QCalendarPermission `
     ///
-    pub fn Swap(self: QCalendarPermission, other: anytype) void {
+    pub fn swap(self: QCalendarPermission, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QCalendarPermission;
         qtc.QCalendarPermission_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarpermission.html#dtor.QCalendarPermission)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QCalendarPermission `
     ///
-    pub fn Delete(self: QCalendarPermission) void {
+    pub fn delete(self: QCalendarPermission) void {
         qtc.QCalendarPermission_Delete(@ptrCast(self.ptr));
     }
 };
@@ -300,22 +374,34 @@ pub const QContactsPermission = extern struct {
 
     pub const _is_QContactsPermission = {};
 
-    /// New constructs a new QContactsPermission object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QContactsPermission {
+    pub const New = new;
+
+    /// Allocate a new QContactsPermission object in C++ memory
+    ///
+    pub fn new() QContactsPermission {
         return .{ .ptr = qtc.QContactsPermission_new() };
     }
 
-    /// New2 constructs a new QContactsPermission object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QContactsPermission object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QContactsPermission `
     ///
-    pub fn New2(other: anytype) QContactsPermission {
+    pub fn new2(other: anytype) QContactsPermission {
         comptime _ = @TypeOf(other)._is_QContactsPermission;
         return .{ .ptr = qtc.QContactsPermission_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAccessMode` instead
+    ///
+    pub const SetAccessMode = setAccessMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcontactspermission.html#setAccessMode)
     ///
@@ -325,9 +411,13 @@ pub const QContactsPermission = extern struct {
     ///
     /// ` mode: qpermissions_enums.AccessMode `
     ///
-    pub fn SetAccessMode(self: QContactsPermission, mode: u8) void {
+    pub fn setAccessMode(self: QContactsPermission, mode: u8) void {
         qtc.QContactsPermission_SetAccessMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `accessMode` instead
+    ///
+    pub const AccessMode = accessMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcontactspermission.html#accessMode)
     ///
@@ -339,9 +429,13 @@ pub const QContactsPermission = extern struct {
     ///
     /// ` qpermissions_enums.AccessMode `
     ///
-    pub fn AccessMode(self: QContactsPermission) u8 {
+    pub fn accessMode(self: QContactsPermission) u8 {
         return qtc.QContactsPermission_AccessMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcontactspermission.html#operator-eq)
     ///
@@ -351,10 +445,14 @@ pub const QContactsPermission = extern struct {
     ///
     /// ` other: QContactsPermission `
     ///
-    pub fn OperatorAssign(self: QContactsPermission, other: anytype) void {
+    pub fn operatorAssign(self: QContactsPermission, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QContactsPermission;
         qtc.QContactsPermission_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcontactspermission.html#swap)
     ///
@@ -364,24 +462,24 @@ pub const QContactsPermission = extern struct {
     ///
     /// ` other: QContactsPermission `
     ///
-    pub fn Swap(self: QContactsPermission, other: anytype) void {
+    pub fn swap(self: QContactsPermission, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QContactsPermission;
         qtc.QContactsPermission_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcontactspermission.html#dtor.QContactsPermission)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QContactsPermission `
     ///
-    pub fn Delete(self: QContactsPermission) void {
+    pub fn delete(self: QContactsPermission) void {
         qtc.QContactsPermission_Delete(@ptrCast(self.ptr));
     }
 };
@@ -396,22 +494,34 @@ pub const QBluetoothPermission = extern struct {
 
     pub const _is_QBluetoothPermission = {};
 
-    /// New constructs a new QBluetoothPermission object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QBluetoothPermission {
+    pub const New = new;
+
+    /// Allocate a new QBluetoothPermission object in C++ memory
+    ///
+    pub fn new() QBluetoothPermission {
         return .{ .ptr = qtc.QBluetoothPermission_new() };
     }
 
-    /// New2 constructs a new QBluetoothPermission object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QBluetoothPermission object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QBluetoothPermission `
     ///
-    pub fn New2(other: anytype) QBluetoothPermission {
+    pub fn new2(other: anytype) QBluetoothPermission {
         comptime _ = @TypeOf(other)._is_QBluetoothPermission;
         return .{ .ptr = qtc.QBluetoothPermission_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCommunicationModes` instead
+    ///
+    pub const SetCommunicationModes = setCommunicationModes;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothpermission.html#setCommunicationModes)
     ///
@@ -421,9 +531,13 @@ pub const QBluetoothPermission = extern struct {
     ///
     /// ` modes: flag of qpermissions_enums.CommunicationMode `
     ///
-    pub fn SetCommunicationModes(self: QBluetoothPermission, modes: u8) void {
+    pub fn setCommunicationModes(self: QBluetoothPermission, modes: u8) void {
         qtc.QBluetoothPermission_SetCommunicationModes(@ptrCast(self.ptr), @bitCast(modes));
     }
+
+    /// ### DEPRECATED: Use `communicationModes` instead
+    ///
+    pub const CommunicationModes = communicationModes;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothpermission.html#communicationModes)
     ///
@@ -435,9 +549,13 @@ pub const QBluetoothPermission = extern struct {
     ///
     /// ` flag of qpermissions_enums.CommunicationMode `
     ///
-    pub fn CommunicationModes(self: QBluetoothPermission) u8 {
+    pub fn communicationModes(self: QBluetoothPermission) u8 {
         return qtc.QBluetoothPermission_CommunicationModes(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothpermission.html#operator-eq)
     ///
@@ -447,10 +565,14 @@ pub const QBluetoothPermission = extern struct {
     ///
     /// ` other: QBluetoothPermission `
     ///
-    pub fn OperatorAssign(self: QBluetoothPermission, other: anytype) void {
+    pub fn operatorAssign(self: QBluetoothPermission, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QBluetoothPermission;
         qtc.QBluetoothPermission_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothpermission.html#swap)
     ///
@@ -460,24 +582,24 @@ pub const QBluetoothPermission = extern struct {
     ///
     /// ` other: QBluetoothPermission `
     ///
-    pub fn Swap(self: QBluetoothPermission, other: anytype) void {
+    pub fn swap(self: QBluetoothPermission, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QBluetoothPermission;
         qtc.QBluetoothPermission_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothpermission.html#dtor.QBluetoothPermission)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QBluetoothPermission `
     ///
-    pub fn Delete(self: QBluetoothPermission) void {
+    pub fn delete(self: QBluetoothPermission) void {
         qtc.QBluetoothPermission_Delete(@ptrCast(self.ptr));
     }
 };
@@ -492,22 +614,34 @@ pub const QCameraPermission = extern struct {
 
     pub const _is_QCameraPermission = {};
 
-    /// New constructs a new QCameraPermission object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QCameraPermission {
+    pub const New = new;
+
+    /// Allocate a new QCameraPermission object in C++ memory
+    ///
+    pub fn new() QCameraPermission {
         return .{ .ptr = qtc.QCameraPermission_new() };
     }
 
-    /// New2 constructs a new QCameraPermission object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QCameraPermission object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QCameraPermission `
     ///
-    pub fn New2(other: anytype) QCameraPermission {
+    pub fn new2(other: anytype) QCameraPermission {
         comptime _ = @TypeOf(other)._is_QCameraPermission;
         return .{ .ptr = qtc.QCameraPermission_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamerapermission.html#operator-eq)
     ///
@@ -517,10 +651,14 @@ pub const QCameraPermission = extern struct {
     ///
     /// ` other: QCameraPermission `
     ///
-    pub fn OperatorAssign(self: QCameraPermission, other: anytype) void {
+    pub fn operatorAssign(self: QCameraPermission, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QCameraPermission;
         qtc.QCameraPermission_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamerapermission.html#swap)
     ///
@@ -530,24 +668,24 @@ pub const QCameraPermission = extern struct {
     ///
     /// ` other: QCameraPermission `
     ///
-    pub fn Swap(self: QCameraPermission, other: anytype) void {
+    pub fn swap(self: QCameraPermission, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QCameraPermission;
         qtc.QCameraPermission_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamerapermission.html#dtor.QCameraPermission)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QCameraPermission `
     ///
-    pub fn Delete(self: QCameraPermission) void {
+    pub fn delete(self: QCameraPermission) void {
         qtc.QCameraPermission_Delete(@ptrCast(self.ptr));
     }
 };
@@ -562,22 +700,34 @@ pub const QMicrophonePermission = extern struct {
 
     pub const _is_QMicrophonePermission = {};
 
-    /// New constructs a new QMicrophonePermission object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QMicrophonePermission {
+    pub const New = new;
+
+    /// Allocate a new QMicrophonePermission object in C++ memory
+    ///
+    pub fn new() QMicrophonePermission {
         return .{ .ptr = qtc.QMicrophonePermission_new() };
     }
 
-    /// New2 constructs a new QMicrophonePermission object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QMicrophonePermission object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QMicrophonePermission `
     ///
-    pub fn New2(other: anytype) QMicrophonePermission {
+    pub fn new2(other: anytype) QMicrophonePermission {
         comptime _ = @TypeOf(other)._is_QMicrophonePermission;
         return .{ .ptr = qtc.QMicrophonePermission_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmicrophonepermission.html#operator-eq)
     ///
@@ -587,10 +737,14 @@ pub const QMicrophonePermission = extern struct {
     ///
     /// ` other: QMicrophonePermission `
     ///
-    pub fn OperatorAssign(self: QMicrophonePermission, other: anytype) void {
+    pub fn operatorAssign(self: QMicrophonePermission, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QMicrophonePermission;
         qtc.QMicrophonePermission_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmicrophonepermission.html#swap)
     ///
@@ -600,24 +754,24 @@ pub const QMicrophonePermission = extern struct {
     ///
     /// ` other: QMicrophonePermission `
     ///
-    pub fn Swap(self: QMicrophonePermission, other: anytype) void {
+    pub fn swap(self: QMicrophonePermission, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QMicrophonePermission;
         qtc.QMicrophonePermission_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmicrophonepermission.html#dtor.QMicrophonePermission)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QMicrophonePermission `
     ///
-    pub fn Delete(self: QMicrophonePermission) void {
+    pub fn delete(self: QMicrophonePermission) void {
         qtc.QMicrophonePermission_Delete(@ptrCast(self.ptr));
     }
 };

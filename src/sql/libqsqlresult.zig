@@ -12,29 +12,33 @@ pub const QSqlResult = extern struct {
 
     pub const _is_QSqlResult = {};
 
+    /// ### DEPRECATED: Use `handle` instead
+    ///
+    pub const Handle = handle;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlresult.html#handle)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QSqlResult `
     ///
-    pub fn Handle(self: QSqlResult) QVariant {
+    pub fn handle(self: QSqlResult) QVariant {
         return .{ .ptr = qtc.QSqlResult_Handle(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlresult.html#dtor.QSqlResult)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QSqlResult `
     ///
-    pub fn Delete(self: QSqlResult) void {
+    pub fn delete(self: QSqlResult) void {
         qtc.QSqlResult_Delete(@ptrCast(self.ptr));
     }
 };

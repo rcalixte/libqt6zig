@@ -13,22 +13,34 @@ pub const QWebEnginePermission = extern struct {
 
     pub const _is_QWebEnginePermission = {};
 
-    /// New constructs a new QWebEnginePermission object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QWebEnginePermission {
+    pub const New = new;
+
+    /// Allocate a new QWebEnginePermission object in C++ memory
+    ///
+    pub fn new() QWebEnginePermission {
         return .{ .ptr = qtc.QWebEnginePermission_new() };
     }
 
-    /// New2 constructs a new QWebEnginePermission object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QWebEnginePermission object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QWebEnginePermission `
     ///
-    pub fn New2(other: anytype) QWebEnginePermission {
+    pub fn new2(other: anytype) QWebEnginePermission {
         comptime _ = @TypeOf(other)._is_QWebEnginePermission;
         return .{ .ptr = qtc.QWebEnginePermission_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#operator-eq)
     ///
@@ -38,10 +50,14 @@ pub const QWebEnginePermission = extern struct {
     ///
     /// ` other: QWebEnginePermission `
     ///
-    pub fn OperatorAssign(self: QWebEnginePermission, other: anytype) void {
+    pub fn operatorAssign(self: QWebEnginePermission, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QWebEnginePermission;
         qtc.QWebEnginePermission_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#swap)
     ///
@@ -51,10 +67,14 @@ pub const QWebEnginePermission = extern struct {
     ///
     /// ` other: QWebEnginePermission `
     ///
-    pub fn Swap(self: QWebEnginePermission, other: anytype) void {
+    pub fn swap(self: QWebEnginePermission, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QWebEnginePermission;
         qtc.QWebEnginePermission_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `origin` instead
+    ///
+    pub const Origin = origin;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#origin)
     ///
@@ -62,9 +82,13 @@ pub const QWebEnginePermission = extern struct {
     ///
     /// ` self: QWebEnginePermission `
     ///
-    pub fn Origin(self: QWebEnginePermission) QUrl {
+    pub fn origin(self: QWebEnginePermission) QUrl {
         return .{ .ptr = qtc.QWebEnginePermission_Origin(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `permissionType` instead
+    ///
+    pub const PermissionType = permissionType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#permissionType)
     ///
@@ -76,9 +100,13 @@ pub const QWebEnginePermission = extern struct {
     ///
     /// ` qwebenginepermission_enums.PermissionType `
     ///
-    pub fn PermissionType(self: QWebEnginePermission) u8 {
+    pub fn permissionType(self: QWebEnginePermission) u8 {
         return qtc.QWebEnginePermission_PermissionType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `state` instead
+    ///
+    pub const State = state;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#state)
     ///
@@ -90,9 +118,13 @@ pub const QWebEnginePermission = extern struct {
     ///
     /// ` qwebenginepermission_enums.State `
     ///
-    pub fn State(self: QWebEnginePermission) u8 {
+    pub fn state(self: QWebEnginePermission) u8 {
         return qtc.QWebEnginePermission_State(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#isValid)
     ///
@@ -100,9 +132,13 @@ pub const QWebEnginePermission = extern struct {
     ///
     /// ` self: QWebEnginePermission `
     ///
-    pub fn IsValid(self: QWebEnginePermission) bool {
+    pub fn isValid(self: QWebEnginePermission) bool {
         return qtc.QWebEnginePermission_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grant` instead
+    ///
+    pub const Grant = grant;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#grant)
     ///
@@ -110,9 +146,13 @@ pub const QWebEnginePermission = extern struct {
     ///
     /// ` self: QWebEnginePermission `
     ///
-    pub fn Grant(self: QWebEnginePermission) void {
+    pub fn grant(self: QWebEnginePermission) void {
         qtc.QWebEnginePermission_Grant(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `deny` instead
+    ///
+    pub const Deny = deny;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#deny)
     ///
@@ -120,9 +160,13 @@ pub const QWebEnginePermission = extern struct {
     ///
     /// ` self: QWebEnginePermission `
     ///
-    pub fn Deny(self: QWebEnginePermission) void {
+    pub fn deny(self: QWebEnginePermission) void {
         qtc.QWebEnginePermission_Deny(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `reset` instead
+    ///
+    pub const Reset = reset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#reset)
     ///
@@ -130,33 +174,37 @@ pub const QWebEnginePermission = extern struct {
     ///
     /// ` self: QWebEnginePermission `
     ///
-    pub fn Reset(self: QWebEnginePermission) void {
+    pub fn reset(self: QWebEnginePermission) void {
         qtc.QWebEnginePermission_Reset(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isPersistent` instead
+    ///
+    pub const IsPersistent = isPersistent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#isPersistent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` permissionType: qwebenginepermission_enums.PermissionType `
+    /// ` _permissionType: qwebenginepermission_enums.PermissionType `
     ///
-    pub fn IsPersistent(permissionType: u8) bool {
-        return qtc.QWebEnginePermission_IsPersistent(@bitCast(permissionType));
+    pub fn isPersistent(_permissionType: u8) bool {
+        return qtc.QWebEnginePermission_IsPersistent(@bitCast(_permissionType));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#dtor.QWebEnginePermission)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QWebEnginePermission `
     ///
-    pub fn Delete(self: QWebEnginePermission) void {
+    pub fn delete(self: QWebEnginePermission) void {
         qtc.QWebEnginePermission_Delete(@ptrCast(self.ptr));
     }
 };

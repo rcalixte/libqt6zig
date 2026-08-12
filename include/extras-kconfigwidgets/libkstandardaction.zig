@@ -21,6 +21,10 @@ pub const KStandardAction = extern struct {
 
     pub const _is_KStandardAction = {};
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#create)
     ///
     /// ## Parameter(s):
@@ -33,7 +37,7 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn Create(id: i32, recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn create(id: i32, recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
@@ -53,6 +57,10 @@ pub const KStandardAction = extern struct {
         return .{ .ptr = qtc.KStandardAction_KCreateInternal(@bitCast(id), @ptrCast(parent.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
+
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#name)
     ///
     /// ## Parameter(s):
@@ -61,13 +69,17 @@ pub const KStandardAction = extern struct {
     ///
     /// ` id: kstandardaction_enums.StandardAction `
     ///
-    pub fn Name(allocator: std.mem.Allocator, id: i32) []const u8 {
+    pub fn name(allocator: std.mem.Allocator, id: i32) []const u8 {
         var _str = qtc.KStandardAction_Name(@bitCast(id));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KStandardAction.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KStandardAction.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `stdNames` instead
+    ///
+    pub const StdNames = stdNames;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#stdNames)
     ///
@@ -75,7 +87,7 @@ pub const KStandardAction = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StdNames(allocator: std.mem.Allocator) []const []const u8 {
+    pub fn stdNames(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KStandardAction_StdNames();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -83,15 +95,19 @@ pub const KStandardAction = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KStandardAction.StdNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KStandardAction.stdNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KStandardAction.StdNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KStandardAction.stdNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `actionIds` instead
+    ///
+    pub const ActionIds = actionIds;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#actionIds)
     ///
@@ -103,14 +119,18 @@ pub const KStandardAction = extern struct {
     ///
     /// ` []kstandardaction_enums.StandardAction `
     ///
-    pub fn ActionIds(allocator: std.mem.Allocator) []i32 {
+    pub fn actionIds(allocator: std.mem.Allocator) []i32 {
         const _arr: qtc.libqt_list = qtc.KStandardAction_ActionIds();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("KStandardAction.ActionIds: Memory allocation failed");
-        const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("KStandardAction.actionIds: Memory allocation failed");
+        const _data_val: [*]i32 = @ptrCast(@alignCast(_arr.data));
+        @memcpy(_ret, _data_val[0.._arr.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `shortcutForActionId` instead
+    ///
+    pub const ShortcutForActionId = shortcutForActionId;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#shortcutForActionId)
     ///
@@ -122,9 +142,13 @@ pub const KStandardAction = extern struct {
     ///
     /// ` kstandardshortcut_enums.StandardShortcut `
     ///
-    pub fn ShortcutForActionId(id: i32) i32 {
+    pub fn shortcutForActionId(id: i32) i32 {
         return qtc.KStandardAction_ShortcutForActionId(@bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `openNew` instead
+    ///
+    pub const OpenNew = openNew;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#openNew)
     ///
@@ -136,12 +160,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn OpenNew(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn openNew(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_OpenNew(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `open` instead
+    ///
+    pub const Open = open;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#open)
     ///
@@ -153,12 +181,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn Open(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn open(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_Open(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `openRecent` instead
+    ///
+    pub const OpenRecent = openRecent;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#openRecent)
     ///
@@ -170,12 +202,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn OpenRecent(recvr: anytype, slot: [:0]const u8, parent: anytype) KRecentFilesAction {
+    pub fn openRecent(recvr: anytype, slot: [:0]const u8, parent: anytype) KRecentFilesAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_OpenRecent(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `save` instead
+    ///
+    pub const Save = save;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#save)
     ///
@@ -187,12 +223,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn Save(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn save(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_Save(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `saveAs` instead
+    ///
+    pub const SaveAs = saveAs;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#saveAs)
     ///
@@ -204,12 +244,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn SaveAs(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn saveAs(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_SaveAs(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `revert` instead
+    ///
+    pub const Revert = revert;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#revert)
     ///
@@ -221,12 +265,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn Revert(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn revert(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_Revert(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#close)
     ///
@@ -238,12 +286,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn Close(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn close(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_Close(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `print` instead
+    ///
+    pub const Print = print;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#print)
     ///
@@ -255,12 +307,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn Print(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn print(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_Print(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `printPreview` instead
+    ///
+    pub const PrintPreview = printPreview;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#printPreview)
     ///
@@ -272,12 +328,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn PrintPreview(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn printPreview(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_PrintPreview(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mail` instead
+    ///
+    pub const Mail = mail;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#mail)
     ///
@@ -289,12 +349,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn Mail(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn mail(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_Mail(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `quit` instead
+    ///
+    pub const Quit = quit;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#quit)
     ///
@@ -306,12 +370,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn Quit(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn quit(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_Quit(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `undo` instead
+    ///
+    pub const Undo = undo;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#undo)
     ///
@@ -323,12 +391,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn Undo(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn undo(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_Undo(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `redo` instead
+    ///
+    pub const Redo = redo;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#redo)
     ///
@@ -340,23 +412,31 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn Redo(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn redo(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_Redo(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `cut` instead
+    ///
+    pub const Cut = cut;
+
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#cut)
     ///
     /// ## Parameter(s):
     ///
     /// ` parent: QObject `
     ///
-    pub fn Cut(parent: anytype) QAction {
+    pub fn cut(parent: anytype) QAction {
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_Cut(@ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `copy` instead
+    ///
+    pub const Copy = copy;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#copy)
     ///
@@ -364,10 +444,14 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn Copy(parent: anytype) QAction {
+    pub fn copy(parent: anytype) QAction {
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_Copy(@ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `paste` instead
+    ///
+    pub const Paste = paste;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#paste)
     ///
@@ -375,10 +459,14 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn Paste(parent: anytype) QAction {
+    pub fn paste(parent: anytype) QAction {
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_Paste(@ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#clear)
     ///
@@ -386,10 +474,14 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn Clear(parent: anytype) QAction {
+    pub fn clear(parent: anytype) QAction {
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_Clear(@ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `selectAll` instead
+    ///
+    pub const SelectAll = selectAll;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#selectAll)
     ///
@@ -397,10 +489,14 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn SelectAll(parent: anytype) QAction {
+    pub fn selectAll(parent: anytype) QAction {
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_SelectAll(@ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cut2` instead
+    ///
+    pub const Cut2 = cut2;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#cut)
     ///
@@ -412,13 +508,17 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn Cut2(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn cut2(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_Cut2(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `copy2` instead
+    ///
+    pub const Copy2 = copy2;
+
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#copy)
     ///
     /// ## Parameter(s):
@@ -429,12 +529,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn Copy2(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn copy2(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_Copy2(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `paste2` instead
+    ///
+    pub const Paste2 = paste2;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#paste)
     ///
@@ -446,12 +550,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn Paste2(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn paste2(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_Paste2(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clear2` instead
+    ///
+    pub const Clear2 = clear2;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#clear)
     ///
@@ -463,12 +571,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn Clear2(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn clear2(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_Clear2(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `selectAll2` instead
+    ///
+    pub const SelectAll2 = selectAll2;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#selectAll)
     ///
@@ -480,12 +592,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn SelectAll2(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn selectAll2(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_SelectAll2(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `deselect` instead
+    ///
+    pub const Deselect = deselect;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#deselect)
     ///
@@ -497,12 +613,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn Deselect(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn deselect(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_Deselect(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#find)
     ///
@@ -514,12 +634,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn Find(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn find(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_Find(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `findNext` instead
+    ///
+    pub const FindNext = findNext;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#findNext)
     ///
@@ -531,12 +655,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn FindNext(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn findNext(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_FindNext(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `findPrev` instead
+    ///
+    pub const FindPrev = findPrev;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#findPrev)
     ///
@@ -548,12 +676,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn FindPrev(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn findPrev(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_FindPrev(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `replace` instead
+    ///
+    pub const Replace = replace;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#replace)
     ///
@@ -565,12 +697,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn Replace(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn replace(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_Replace(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `actualSize` instead
+    ///
+    pub const ActualSize = actualSize;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#actualSize)
     ///
@@ -582,12 +718,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn ActualSize(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn actualSize(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_ActualSize(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fitToPage` instead
+    ///
+    pub const FitToPage = fitToPage;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#fitToPage)
     ///
@@ -599,12 +739,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn FitToPage(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn fitToPage(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_FitToPage(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fitToWidth` instead
+    ///
+    pub const FitToWidth = fitToWidth;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#fitToWidth)
     ///
@@ -616,12 +760,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn FitToWidth(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn fitToWidth(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_FitToWidth(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fitToHeight` instead
+    ///
+    pub const FitToHeight = fitToHeight;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#fitToHeight)
     ///
@@ -633,12 +781,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn FitToHeight(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn fitToHeight(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_FitToHeight(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `zoomIn` instead
+    ///
+    pub const ZoomIn = zoomIn;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#zoomIn)
     ///
@@ -650,12 +802,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn ZoomIn(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn zoomIn(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_ZoomIn(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `zoomOut` instead
+    ///
+    pub const ZoomOut = zoomOut;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#zoomOut)
     ///
@@ -667,12 +823,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn ZoomOut(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn zoomOut(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_ZoomOut(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `zoom` instead
+    ///
+    pub const Zoom = zoom;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#zoom)
     ///
@@ -684,12 +844,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn Zoom(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn zoom(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_Zoom(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `redisplay` instead
+    ///
+    pub const Redisplay = redisplay;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#redisplay)
     ///
@@ -701,12 +865,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn Redisplay(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn redisplay(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_Redisplay(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `up` instead
+    ///
+    pub const Up = up;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#up)
     ///
@@ -718,12 +886,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn Up(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn up(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_Up(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `back` instead
+    ///
+    pub const Back = back;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#back)
     ///
@@ -735,12 +907,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn Back(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn back(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_Back(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `forward` instead
+    ///
+    pub const Forward = forward;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#forward)
     ///
@@ -752,12 +928,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn Forward(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn forward(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_Forward(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `home` instead
+    ///
+    pub const Home = home;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#home)
     ///
@@ -769,12 +949,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn Home(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn home(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_Home(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `prior` instead
+    ///
+    pub const Prior = prior;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#prior)
     ///
@@ -786,12 +970,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn Prior(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn prior(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_Prior(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `next` instead
+    ///
+    pub const Next = next;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#next)
     ///
@@ -803,12 +991,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn Next(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn next(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_Next(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `goTo` instead
+    ///
+    pub const GoTo = goTo;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#goTo)
     ///
@@ -820,12 +1012,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn GoTo(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn goTo(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_GoTo(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `gotoPage` instead
+    ///
+    pub const GotoPage = gotoPage;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#gotoPage)
     ///
@@ -837,12 +1033,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn GotoPage(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn gotoPage(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_GotoPage(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `gotoLine` instead
+    ///
+    pub const GotoLine = gotoLine;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#gotoLine)
     ///
@@ -854,12 +1054,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn GotoLine(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn gotoLine(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_GotoLine(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `firstPage` instead
+    ///
+    pub const FirstPage = firstPage;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#firstPage)
     ///
@@ -871,12 +1075,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn FirstPage(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn firstPage(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_FirstPage(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lastPage` instead
+    ///
+    pub const LastPage = lastPage;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#lastPage)
     ///
@@ -888,12 +1096,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn LastPage(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn lastPage(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_LastPage(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `documentBack` instead
+    ///
+    pub const DocumentBack = documentBack;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#documentBack)
     ///
@@ -905,12 +1117,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn DocumentBack(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn documentBack(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_DocumentBack(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `documentForward` instead
+    ///
+    pub const DocumentForward = documentForward;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#documentForward)
     ///
@@ -922,12 +1138,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn DocumentForward(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn documentForward(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_DocumentForward(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addBookmark` instead
+    ///
+    pub const AddBookmark = addBookmark;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#addBookmark)
     ///
@@ -939,12 +1159,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn AddBookmark(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn addBookmark(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_AddBookmark(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `editBookmarks` instead
+    ///
+    pub const EditBookmarks = editBookmarks;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#editBookmarks)
     ///
@@ -956,12 +1180,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn EditBookmarks(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn editBookmarks(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_EditBookmarks(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `spelling` instead
+    ///
+    pub const Spelling = spelling;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#spelling)
     ///
@@ -973,12 +1201,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn Spelling(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn spelling(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_Spelling(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `showMenubar` instead
+    ///
+    pub const ShowMenubar = showMenubar;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#showMenubar)
     ///
@@ -990,12 +1222,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn ShowMenubar(recvr: anytype, slot: [:0]const u8, parent: anytype) KToggleAction {
+    pub fn showMenubar(recvr: anytype, slot: [:0]const u8, parent: anytype) KToggleAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_ShowMenubar(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `showStatusbar` instead
+    ///
+    pub const ShowStatusbar = showStatusbar;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#showStatusbar)
     ///
@@ -1007,12 +1243,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn ShowStatusbar(recvr: anytype, slot: [:0]const u8, parent: anytype) KToggleAction {
+    pub fn showStatusbar(recvr: anytype, slot: [:0]const u8, parent: anytype) KToggleAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_ShowStatusbar(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fullScreen` instead
+    ///
+    pub const FullScreen = fullScreen;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#fullScreen)
     ///
@@ -1026,13 +1266,17 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn FullScreen(recvr: anytype, slot: [:0]const u8, window: anytype, parent: anytype) KToggleFullScreenAction {
+    pub fn fullScreen(recvr: anytype, slot: [:0]const u8, window: anytype, parent: anytype) KToggleFullScreenAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(window)._is_QWidget;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_FullScreen(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(window.ptr), @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `keyBindings` instead
+    ///
+    pub const KeyBindings = keyBindings;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#keyBindings)
     ///
@@ -1044,12 +1288,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn KeyBindings(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn keyBindings(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_KeyBindings(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `preferences` instead
+    ///
+    pub const Preferences = preferences;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#preferences)
     ///
@@ -1061,12 +1309,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn Preferences(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn preferences(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_Preferences(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `configureToolbars` instead
+    ///
+    pub const ConfigureToolbars = configureToolbars;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#configureToolbars)
     ///
@@ -1078,12 +1330,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn ConfigureToolbars(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn configureToolbars(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_ConfigureToolbars(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `configureNotifications` instead
+    ///
+    pub const ConfigureNotifications = configureNotifications;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#configureNotifications)
     ///
@@ -1095,12 +1351,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn ConfigureNotifications(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn configureNotifications(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_ConfigureNotifications(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `switchApplicationLanguage` instead
+    ///
+    pub const SwitchApplicationLanguage = switchApplicationLanguage;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#switchApplicationLanguage)
     ///
@@ -1112,12 +1372,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn SwitchApplicationLanguage(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn switchApplicationLanguage(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_SwitchApplicationLanguage(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `helpContents` instead
+    ///
+    pub const HelpContents = helpContents;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#helpContents)
     ///
@@ -1129,12 +1393,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn HelpContents(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn helpContents(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_HelpContents(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#whatsThis)
     ///
@@ -1146,12 +1414,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn WhatsThis(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn whatsThis(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_WhatsThis(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `reportBug` instead
+    ///
+    pub const ReportBug = reportBug;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#reportBug)
     ///
@@ -1163,12 +1435,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn ReportBug(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn reportBug(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_ReportBug(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `aboutApp` instead
+    ///
+    pub const AboutApp = aboutApp;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#aboutApp)
     ///
@@ -1180,12 +1456,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn AboutApp(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn aboutApp(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_AboutApp(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `aboutKDE` instead
+    ///
+    pub const AboutKDE = aboutKDE;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#aboutKDE)
     ///
@@ -1197,12 +1477,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn AboutKDE(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn aboutKDE(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_AboutKDE(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `deleteFile` instead
+    ///
+    pub const DeleteFile = deleteFile;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#deleteFile)
     ///
@@ -1214,12 +1498,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn DeleteFile(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn deleteFile(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_DeleteFile(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `renameFile` instead
+    ///
+    pub const RenameFile = renameFile;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#renameFile)
     ///
@@ -1231,12 +1519,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn RenameFile(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn renameFile(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_RenameFile(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToTrash` instead
+    ///
+    pub const MoveToTrash = moveToTrash;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#moveToTrash)
     ///
@@ -1248,12 +1540,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn MoveToTrash(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn moveToTrash(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_MoveToTrash(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `donate` instead
+    ///
+    pub const Donate = donate;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#donate)
     ///
@@ -1265,12 +1561,16 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn Donate(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
+    pub fn donate(recvr: anytype, slot: [:0]const u8, parent: anytype) QAction {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KStandardAction_Donate(@ptrCast(recvr.ptr), slot_Cstring, @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `hamburgerMenu` instead
+    ///
+    pub const HamburgerMenu = hamburgerMenu;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#hamburgerMenu)
     ///
@@ -1282,7 +1582,7 @@ pub const KStandardAction = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn HamburgerMenu(recvr: anytype, slot: [:0]const u8, parent: anytype) KHamburgerMenu {
+    pub fn hamburgerMenu(recvr: anytype, slot: [:0]const u8, parent: anytype) KHamburgerMenu {
         comptime _ = @TypeOf(recvr)._is_QObject;
         const slot_Cstring = slot.ptr;
         comptime _ = @TypeOf(parent)._is_QObject;

@@ -18,19 +18,27 @@ pub const QGeoPolygon = extern struct {
     pub const _is_QGeoPolygon = {};
     pub const _is_QGeoShape = {};
 
-    /// New constructs a new QGeoPolygon object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QGeoPolygon {
+    pub const New = new;
+
+    /// Allocate a new QGeoPolygon object in C++ memory
+    ///
+    pub fn new() QGeoPolygon {
         return .{ .ptr = qtc.QGeoPolygon_new() };
     }
 
-    /// New2 constructs a new QGeoPolygon object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QGeoPolygon object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` path: []QGeoCoordinate `
     ///
-    pub fn New2(path: []QGeoCoordinate) QGeoPolygon {
+    pub fn new2(path: []QGeoCoordinate) QGeoPolygon {
         const path_list = qtc.libqt_list{
             .len = path.len,
             .data = @ptrCast(path.ptr),
@@ -38,27 +46,39 @@ pub const QGeoPolygon = extern struct {
         return .{ .ptr = qtc.QGeoPolygon_new2(path_list) };
     }
 
-    /// New3 constructs a new QGeoPolygon object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QGeoPolygon object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QGeoPolygon `
     ///
-    pub fn New3(other: anytype) QGeoPolygon {
+    pub fn new3(other: anytype) QGeoPolygon {
         comptime _ = @TypeOf(other)._is_QGeoPolygon;
         return .{ .ptr = qtc.QGeoPolygon_new3(@ptrCast(other.ptr)) };
     }
 
-    /// New4 constructs a new QGeoPolygon object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QGeoPolygon object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QGeoShape `
     ///
-    pub fn New4(other: anytype) QGeoPolygon {
+    pub fn new4(other: anytype) QGeoPolygon {
         comptime _ = @TypeOf(other)._is_QGeoShape;
         return .{ .ptr = qtc.QGeoPolygon_new4(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopolygon.html#operator-eq)
     ///
@@ -68,10 +88,14 @@ pub const QGeoPolygon = extern struct {
     ///
     /// ` other: QGeoPolygon `
     ///
-    pub fn OperatorAssign(self: QGeoPolygon, other: anytype) void {
+    pub fn operatorAssign(self: QGeoPolygon, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QGeoPolygon;
         qtc.QGeoPolygon_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPerimeter` instead
+    ///
+    pub const SetPerimeter = setPerimeter;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopolygon.html#setPerimeter)
     ///
@@ -81,13 +105,17 @@ pub const QGeoPolygon = extern struct {
     ///
     /// ` path: []QGeoCoordinate `
     ///
-    pub fn SetPerimeter(self: QGeoPolygon, path: []QGeoCoordinate) void {
+    pub fn setPerimeter(self: QGeoPolygon, path: []QGeoCoordinate) void {
         const path_list = qtc.libqt_list{
             .len = path.len,
             .data = @ptrCast(path.ptr),
         };
         qtc.QGeoPolygon_SetPerimeter(@ptrCast(self.ptr), path_list);
     }
+
+    /// ### DEPRECATED: Use `perimeter` instead
+    ///
+    pub const Perimeter = perimeter;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopolygon.html#perimeter)
     ///
@@ -97,28 +125,19 @@ pub const QGeoPolygon = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Perimeter(self: QGeoPolygon, allocator: std.mem.Allocator) []QGeoCoordinate {
+    pub fn perimeter(self: QGeoPolygon, allocator: std.mem.Allocator) []QGeoCoordinate {
         const _arr: qtc.libqt_list = qtc.QGeoPolygon_Perimeter(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGeoCoordinate, _arr.len) catch @panic("QGeoPolygon.Perimeter: Memory allocation failed");
-        const _data: [*]QtC.QGeoCoordinate = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QGeoCoordinate, _arr.len) catch @panic("QGeoPolygon.perimeter: Memory allocation failed");
+        const _data_val: [*]QtC.QGeoCoordinate = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopolygon.html#addHole)
+    /// ### DEPRECATED: Use `addHole` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoPolygon `
-    ///
-    /// ` holePath: QVariant `
-    ///
-    pub fn AddHole(self: QGeoPolygon, holePath: anytype) void {
-        comptime _ = @TypeOf(holePath)._is_QVariant;
-        qtc.QGeoPolygon_AddHole(@ptrCast(self.ptr), @ptrCast(holePath.ptr));
-    }
+    pub const AddHole = addHole;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopolygon.html#addHole)
     ///
@@ -126,15 +145,36 @@ pub const QGeoPolygon = extern struct {
     ///
     /// ` self: QGeoPolygon `
     ///
-    /// ` holePath: []QGeoCoordinate `
+    /// ` _holePath: QVariant `
     ///
-    pub fn AddHole2(self: QGeoPolygon, holePath: []QGeoCoordinate) void {
+    pub fn addHole(self: QGeoPolygon, _holePath: anytype) void {
+        comptime _ = @TypeOf(_holePath)._is_QVariant;
+        qtc.QGeoPolygon_AddHole(@ptrCast(self.ptr), @ptrCast(_holePath.ptr));
+    }
+
+    /// ### DEPRECATED: Use `addHole2` instead
+    ///
+    pub const AddHole2 = addHole2;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopolygon.html#addHole)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGeoPolygon `
+    ///
+    /// ` _holePath: []QGeoCoordinate `
+    ///
+    pub fn addHole2(self: QGeoPolygon, _holePath: []QGeoCoordinate) void {
         const holePath_list = qtc.libqt_list{
-            .len = holePath.len,
-            .data = @ptrCast(holePath.ptr),
+            .len = _holePath.len,
+            .data = @ptrCast(_holePath.ptr),
         };
         qtc.QGeoPolygon_AddHole2(@ptrCast(self.ptr), holePath_list);
     }
+
+    /// ### DEPRECATED: Use `hole` instead
+    ///
+    pub const Hole = hole;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopolygon.html#hole)
     ///
@@ -146,15 +186,19 @@ pub const QGeoPolygon = extern struct {
     ///
     /// ` index: isize `
     ///
-    pub fn Hole(self: QGeoPolygon, allocator: std.mem.Allocator, index: isize) []QVariant {
+    pub fn hole(self: QGeoPolygon, allocator: std.mem.Allocator, index: isize) []QVariant {
         const _arr: qtc.libqt_list = qtc.QGeoPolygon_Hole(@ptrCast(self.ptr), @bitCast(index));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QVariant, _arr.len) catch @panic("QGeoPolygon.Hole: Memory allocation failed");
-        const _data: [*]QtC.QVariant = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QVariant, _arr.len) catch @panic("QGeoPolygon.hole: Memory allocation failed");
+        const _data_val: [*]QtC.QVariant = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `holePath` instead
+    ///
+    pub const HolePath = holePath;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopolygon.html#holePath)
     ///
@@ -166,15 +210,19 @@ pub const QGeoPolygon = extern struct {
     ///
     /// ` index: isize `
     ///
-    pub fn HolePath(self: QGeoPolygon, allocator: std.mem.Allocator, index: isize) []QGeoCoordinate {
+    pub fn holePath(self: QGeoPolygon, allocator: std.mem.Allocator, index: isize) []QGeoCoordinate {
         const _arr: qtc.libqt_list = qtc.QGeoPolygon_HolePath(@ptrCast(self.ptr), @bitCast(index));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGeoCoordinate, _arr.len) catch @panic("QGeoPolygon.HolePath: Memory allocation failed");
-        const _data: [*]QtC.QGeoCoordinate = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QGeoCoordinate, _arr.len) catch @panic("QGeoPolygon.holePath: Memory allocation failed");
+        const _data_val: [*]QtC.QGeoCoordinate = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `removeHole` instead
+    ///
+    pub const RemoveHole = removeHole;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopolygon.html#removeHole)
     ///
@@ -184,9 +232,13 @@ pub const QGeoPolygon = extern struct {
     ///
     /// ` index: isize `
     ///
-    pub fn RemoveHole(self: QGeoPolygon, index: isize) void {
+    pub fn removeHole(self: QGeoPolygon, index: isize) void {
         qtc.QGeoPolygon_RemoveHole(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `holesCount` instead
+    ///
+    pub const HolesCount = holesCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopolygon.html#holesCount)
     ///
@@ -194,9 +246,13 @@ pub const QGeoPolygon = extern struct {
     ///
     /// ` self: QGeoPolygon `
     ///
-    pub fn HolesCount(self: QGeoPolygon) isize {
+    pub fn holesCount(self: QGeoPolygon) isize {
         return qtc.QGeoPolygon_HolesCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `translate` instead
+    ///
+    pub const Translate = translate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopolygon.html#translate)
     ///
@@ -208,9 +264,13 @@ pub const QGeoPolygon = extern struct {
     ///
     /// ` degreesLongitude: f64 `
     ///
-    pub fn Translate(self: QGeoPolygon, degreesLatitude: f64, degreesLongitude: f64) void {
+    pub fn translate(self: QGeoPolygon, degreesLatitude: f64, degreesLongitude: f64) void {
         qtc.QGeoPolygon_Translate(@ptrCast(self.ptr), @bitCast(degreesLatitude), @bitCast(degreesLongitude));
     }
+
+    /// ### DEPRECATED: Use `translated` instead
+    ///
+    pub const Translated = translated;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopolygon.html#translated)
     ///
@@ -222,9 +282,13 @@ pub const QGeoPolygon = extern struct {
     ///
     /// ` degreesLongitude: f64 `
     ///
-    pub fn Translated(self: QGeoPolygon, degreesLatitude: f64, degreesLongitude: f64) QGeoPolygon {
+    pub fn translated(self: QGeoPolygon, degreesLatitude: f64, degreesLongitude: f64) QGeoPolygon {
         return .{ .ptr = qtc.QGeoPolygon_Translated(@ptrCast(self.ptr), @bitCast(degreesLatitude), @bitCast(degreesLongitude)) };
     }
+
+    /// ### DEPRECATED: Use `length` instead
+    ///
+    pub const Length = length;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopolygon.html#length)
     ///
@@ -232,9 +296,13 @@ pub const QGeoPolygon = extern struct {
     ///
     /// ` self: QGeoPolygon `
     ///
-    pub fn Length(self: QGeoPolygon) f64 {
+    pub fn length(self: QGeoPolygon) f64 {
         return qtc.QGeoPolygon_Length(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopolygon.html#size)
     ///
@@ -242,9 +310,13 @@ pub const QGeoPolygon = extern struct {
     ///
     /// ` self: QGeoPolygon `
     ///
-    pub fn Size(self: QGeoPolygon) isize {
+    pub fn size(self: QGeoPolygon) isize {
         return qtc.QGeoPolygon_Size(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `addCoordinate` instead
+    ///
+    pub const AddCoordinate = addCoordinate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopolygon.html#addCoordinate)
     ///
@@ -254,10 +326,14 @@ pub const QGeoPolygon = extern struct {
     ///
     /// ` coordinate: QGeoCoordinate `
     ///
-    pub fn AddCoordinate(self: QGeoPolygon, coordinate: anytype) void {
+    pub fn addCoordinate(self: QGeoPolygon, coordinate: anytype) void {
         comptime _ = @TypeOf(coordinate)._is_QGeoCoordinate;
         qtc.QGeoPolygon_AddCoordinate(@ptrCast(self.ptr), @ptrCast(coordinate.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertCoordinate` instead
+    ///
+    pub const InsertCoordinate = insertCoordinate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopolygon.html#insertCoordinate)
     ///
@@ -269,10 +345,14 @@ pub const QGeoPolygon = extern struct {
     ///
     /// ` coordinate: QGeoCoordinate `
     ///
-    pub fn InsertCoordinate(self: QGeoPolygon, index: isize, coordinate: anytype) void {
+    pub fn insertCoordinate(self: QGeoPolygon, index: isize, coordinate: anytype) void {
         comptime _ = @TypeOf(coordinate)._is_QGeoCoordinate;
         qtc.QGeoPolygon_InsertCoordinate(@ptrCast(self.ptr), @bitCast(index), @ptrCast(coordinate.ptr));
     }
+
+    /// ### DEPRECATED: Use `replaceCoordinate` instead
+    ///
+    pub const ReplaceCoordinate = replaceCoordinate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopolygon.html#replaceCoordinate)
     ///
@@ -284,10 +364,14 @@ pub const QGeoPolygon = extern struct {
     ///
     /// ` coordinate: QGeoCoordinate `
     ///
-    pub fn ReplaceCoordinate(self: QGeoPolygon, index: isize, coordinate: anytype) void {
+    pub fn replaceCoordinate(self: QGeoPolygon, index: isize, coordinate: anytype) void {
         comptime _ = @TypeOf(coordinate)._is_QGeoCoordinate;
         qtc.QGeoPolygon_ReplaceCoordinate(@ptrCast(self.ptr), @bitCast(index), @ptrCast(coordinate.ptr));
     }
+
+    /// ### DEPRECATED: Use `coordinateAt` instead
+    ///
+    pub const CoordinateAt = coordinateAt;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopolygon.html#coordinateAt)
     ///
@@ -297,9 +381,13 @@ pub const QGeoPolygon = extern struct {
     ///
     /// ` index: isize `
     ///
-    pub fn CoordinateAt(self: QGeoPolygon, index: isize) QGeoCoordinate {
+    pub fn coordinateAt(self: QGeoPolygon, index: isize) QGeoCoordinate {
         return .{ .ptr = qtc.QGeoPolygon_CoordinateAt(@ptrCast(self.ptr), @bitCast(index)) };
     }
+
+    /// ### DEPRECATED: Use `containsCoordinate` instead
+    ///
+    pub const ContainsCoordinate = containsCoordinate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopolygon.html#containsCoordinate)
     ///
@@ -309,10 +397,14 @@ pub const QGeoPolygon = extern struct {
     ///
     /// ` coordinate: QGeoCoordinate `
     ///
-    pub fn ContainsCoordinate(self: QGeoPolygon, coordinate: anytype) bool {
+    pub fn containsCoordinate(self: QGeoPolygon, coordinate: anytype) bool {
         comptime _ = @TypeOf(coordinate)._is_QGeoCoordinate;
         return qtc.QGeoPolygon_ContainsCoordinate(@ptrCast(self.ptr), @ptrCast(coordinate.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeCoordinate` instead
+    ///
+    pub const RemoveCoordinate = removeCoordinate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopolygon.html#removeCoordinate)
     ///
@@ -322,10 +414,14 @@ pub const QGeoPolygon = extern struct {
     ///
     /// ` coordinate: QGeoCoordinate `
     ///
-    pub fn RemoveCoordinate(self: QGeoPolygon, coordinate: anytype) void {
+    pub fn removeCoordinate(self: QGeoPolygon, coordinate: anytype) void {
         comptime _ = @TypeOf(coordinate)._is_QGeoCoordinate;
         qtc.QGeoPolygon_RemoveCoordinate(@ptrCast(self.ptr), @ptrCast(coordinate.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeCoordinate2` instead
+    ///
+    pub const RemoveCoordinate2 = removeCoordinate2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopolygon.html#removeCoordinate)
     ///
@@ -335,9 +431,13 @@ pub const QGeoPolygon = extern struct {
     ///
     /// ` index: isize `
     ///
-    pub fn RemoveCoordinate2(self: QGeoPolygon, index: isize) void {
+    pub fn removeCoordinate2(self: QGeoPolygon, index: isize) void {
         qtc.QGeoPolygon_RemoveCoordinate2(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `toString` instead
+    ///
+    pub const ToString = toString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopolygon.html#toString)
     ///
@@ -347,13 +447,17 @@ pub const QGeoPolygon = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToString(self: QGeoPolygon, allocator: std.mem.Allocator) []const u8 {
+    pub fn toString(self: QGeoPolygon, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGeoPolygon_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoPolygon.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoPolygon.toString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `length1` instead
+    ///
+    pub const Length1 = length1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopolygon.html#length)
     ///
@@ -363,9 +467,13 @@ pub const QGeoPolygon = extern struct {
     ///
     /// ` indexFrom: isize `
     ///
-    pub fn Length1(self: QGeoPolygon, indexFrom: isize) f64 {
+    pub fn length1(self: QGeoPolygon, indexFrom: isize) f64 {
         return qtc.QGeoPolygon_Length1(@ptrCast(self.ptr), @bitCast(indexFrom));
     }
+
+    /// ### DEPRECATED: Use `length2` instead
+    ///
+    pub const Length2 = length2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopolygon.html#length)
     ///
@@ -377,9 +485,15 @@ pub const QGeoPolygon = extern struct {
     ///
     /// ` indexTo: isize `
     ///
-    pub fn Length2(self: QGeoPolygon, indexFrom: isize, indexTo: isize) f64 {
+    pub fn length2(self: QGeoPolygon, indexFrom: isize, indexTo: isize) f64 {
         return qtc.QGeoPolygon_Length2(@ptrCast(self.ptr), @bitCast(indexFrom), @bitCast(indexTo));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QGeoShape
     ///
@@ -393,9 +507,13 @@ pub const QGeoPolygon = extern struct {
     ///
     /// ` qgeoshape_enums.ShapeType `
     ///
-    pub fn Type(self: QGeoPolygon) i32 {
+    pub fn type0(self: QGeoPolygon) i32 {
         return qtc.QGeoShape_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// Inherited from QGeoShape
     ///
@@ -405,9 +523,13 @@ pub const QGeoPolygon = extern struct {
     ///
     /// ` self: QGeoPolygon `
     ///
-    pub fn IsValid(self: QGeoPolygon) bool {
+    pub fn isValid(self: QGeoPolygon) bool {
         return qtc.QGeoShape_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEmpty` instead
+    ///
+    pub const IsEmpty = isEmpty;
 
     /// Inherited from QGeoShape
     ///
@@ -417,9 +539,13 @@ pub const QGeoPolygon = extern struct {
     ///
     /// ` self: QGeoPolygon `
     ///
-    pub fn IsEmpty(self: QGeoPolygon) bool {
+    pub fn isEmpty(self: QGeoPolygon) bool {
         return qtc.QGeoShape_IsEmpty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `contains` instead
+    ///
+    pub const Contains = contains;
 
     /// Inherited from QGeoShape
     ///
@@ -431,10 +557,14 @@ pub const QGeoPolygon = extern struct {
     ///
     /// ` coordinate: QGeoCoordinate `
     ///
-    pub fn Contains(self: QGeoPolygon, coordinate: anytype) bool {
+    pub fn contains(self: QGeoPolygon, coordinate: anytype) bool {
         comptime _ = @TypeOf(coordinate)._is_QGeoCoordinate;
         return qtc.QGeoShape_Contains(@ptrCast(self.ptr), @ptrCast(coordinate.ptr));
     }
+
+    /// ### DEPRECATED: Use `boundingGeoRectangle` instead
+    ///
+    pub const BoundingGeoRectangle = boundingGeoRectangle;
 
     /// Inherited from QGeoShape
     ///
@@ -444,9 +574,13 @@ pub const QGeoPolygon = extern struct {
     ///
     /// ` self: QGeoPolygon `
     ///
-    pub fn BoundingGeoRectangle(self: QGeoPolygon) QGeoRectangle {
+    pub fn boundingGeoRectangle(self: QGeoPolygon) QGeoRectangle {
         return .{ .ptr = qtc.QGeoShape_BoundingGeoRectangle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `center` instead
+    ///
+    pub const Center = center;
 
     /// Inherited from QGeoShape
     ///
@@ -456,23 +590,23 @@ pub const QGeoPolygon = extern struct {
     ///
     /// ` self: QGeoPolygon `
     ///
-    pub fn Center(self: QGeoPolygon) QGeoCoordinate {
+    pub fn center(self: QGeoPolygon) QGeoCoordinate {
         return .{ .ptr = qtc.QGeoShape_Center(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopolygon.html#dtor.QGeoPolygon)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QGeoPolygon `
     ///
-    pub fn Delete(self: QGeoPolygon) void {
+    pub fn delete(self: QGeoPolygon) void {
         qtc.QGeoPolygon_Delete(@ptrCast(self.ptr));
     }
 };

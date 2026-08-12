@@ -84,53 +84,73 @@ pub const KRecentFilesMenu = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new KRecentFilesMenu object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KRecentFilesMenu object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) KRecentFilesMenu {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KRecentFilesMenu_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) KRecentFilesMenu {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KRecentFilesMenu_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new KRecentFilesMenu object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KRecentFilesMenu object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` title: []const u8 `
+    /// ` _title: []const u8 `
     ///
-    pub fn New2(title: []const u8) KRecentFilesMenu {
+    pub fn new2(_title: []const u8) KRecentFilesMenu {
         const title_str = qtc.libqt_string{
-            .len = title.len,
-            .data = title.ptr,
+            .len = _title.len,
+            .data = _title.ptr,
         };
         return .{ .ptr = qtc.KRecentFilesMenu_new2(title_str) };
     }
 
-    /// New3 constructs a new KRecentFilesMenu object.
+    /// ### DEPRECATED: Use `new3` instead
     ///
-    pub fn New3() KRecentFilesMenu {
+    pub const New3 = new3;
+
+    /// Allocate a new KRecentFilesMenu object in C++ memory
+    ///
+    pub fn new3() KRecentFilesMenu {
         return .{ .ptr = qtc.KRecentFilesMenu_new3() };
     }
 
-    /// New4 constructs a new KRecentFilesMenu object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new KRecentFilesMenu object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` title: []const u8 `
+    /// ` _title: []const u8 `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New4(title: []const u8, parent: anytype) KRecentFilesMenu {
+    pub fn new4(_title: []const u8, _parent: anytype) KRecentFilesMenu {
         const title_str = qtc.libqt_string{
-            .len = title.len,
-            .data = title.ptr,
+            .len = _title.len,
+            .data = _title.ptr,
         };
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KRecentFilesMenu_new4(title_str, @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KRecentFilesMenu_new4(title_str, @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -138,9 +158,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn MetaObject(self: KRecentFilesMenu) QMetaObject {
+    pub fn metaObject(self: KRecentFilesMenu) QMetaObject {
         return .{ .ptr = qtc.KRecentFilesMenu_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -152,13 +176,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KRecentFilesMenu, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KRecentFilesMenu, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KRecentFilesMenu_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -168,9 +192,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn SuperMetaObject(self: KRecentFilesMenu) QMetaObject {
+    pub fn superMetaObject(self: KRecentFilesMenu) QMetaObject {
         return .{ .ptr = qtc.KRecentFilesMenu_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -178,10 +206,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KRecentFilesMenu, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KRecentFilesMenu, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KRecentFilesMenu_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -191,13 +223,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KRecentFilesMenu_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -207,10 +239,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KRecentFilesMenu, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KRecentFilesMenu, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KRecentFilesMenu_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -222,9 +258,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KRecentFilesMenu, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KRecentFilesMenu, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KRecentFilesMenu_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -234,13 +274,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KRecentFilesMenu_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -254,9 +294,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KRecentFilesMenu, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KRecentFilesMenu, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KRecentFilesMenu_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -266,14 +310,18 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRecentFilesMenu.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRecentFilesMenu.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `group` instead
+    ///
+    pub const Group = group;
 
     /// ### [Upstream resources](https://api.kde.org/krecentfilesmenu.html#group)
     ///
@@ -283,13 +331,17 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Group(self: KRecentFilesMenu, allocator: std.mem.Allocator) []const u8 {
+    pub fn group(self: KRecentFilesMenu, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KRecentFilesMenu_Group(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRecentFilesMenu.Group: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRecentFilesMenu.group: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setGroup` instead
+    ///
+    pub const SetGroup = setGroup;
 
     /// ### [Upstream resources](https://api.kde.org/krecentfilesmenu.html#setGroup)
     ///
@@ -297,15 +349,19 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` group: []const u8 `
+    /// ` _group: []const u8 `
     ///
-    pub fn SetGroup(self: KRecentFilesMenu, group: []const u8) void {
+    pub fn setGroup(self: KRecentFilesMenu, _group: []const u8) void {
         const group_str = qtc.libqt_string{
-            .len = group.len,
-            .data = group.ptr,
+            .len = _group.len,
+            .data = _group.ptr,
         };
         qtc.KRecentFilesMenu_SetGroup(@ptrCast(self.ptr), group_str);
     }
+
+    /// ### DEPRECATED: Use `addUrl` instead
+    ///
+    pub const AddUrl = addUrl;
 
     /// ### [Upstream resources](https://api.kde.org/krecentfilesmenu.html#addUrl)
     ///
@@ -315,10 +371,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn AddUrl(self: KRecentFilesMenu, url: anytype) void {
+    pub fn addUrl(self: KRecentFilesMenu, url: anytype) void {
         comptime _ = @TypeOf(url)._is_QUrl;
         qtc.KRecentFilesMenu_AddUrl(@ptrCast(self.ptr), @ptrCast(url.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeUrl` instead
+    ///
+    pub const RemoveUrl = removeUrl;
 
     /// ### [Upstream resources](https://api.kde.org/krecentfilesmenu.html#removeUrl)
     ///
@@ -328,10 +388,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn RemoveUrl(self: KRecentFilesMenu, url: anytype) void {
+    pub fn removeUrl(self: KRecentFilesMenu, url: anytype) void {
         comptime _ = @TypeOf(url)._is_QUrl;
         qtc.KRecentFilesMenu_RemoveUrl(@ptrCast(self.ptr), @ptrCast(url.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumItems` instead
+    ///
+    pub const MaximumItems = maximumItems;
 
     /// ### [Upstream resources](https://api.kde.org/krecentfilesmenu.html#maximumItems)
     ///
@@ -339,9 +403,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn MaximumItems(self: KRecentFilesMenu) i32 {
+    pub fn maximumItems(self: KRecentFilesMenu) i32 {
         return qtc.KRecentFilesMenu_MaximumItems(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumItems` instead
+    ///
+    pub const SetMaximumItems = setMaximumItems;
 
     /// ### [Upstream resources](https://api.kde.org/krecentfilesmenu.html#setMaximumItems)
     ///
@@ -349,11 +417,15 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` maximumItems: usize `
+    /// ` _maximumItems: usize `
     ///
-    pub fn SetMaximumItems(self: KRecentFilesMenu, maximumItems: usize) void {
-        qtc.KRecentFilesMenu_SetMaximumItems(@ptrCast(self.ptr), @bitCast(maximumItems));
+    pub fn setMaximumItems(self: KRecentFilesMenu, _maximumItems: usize) void {
+        qtc.KRecentFilesMenu_SetMaximumItems(@ptrCast(self.ptr), @bitCast(_maximumItems));
     }
+
+    /// ### DEPRECATED: Use `recentFiles` instead
+    ///
+    pub const RecentFiles = recentFiles;
 
     /// ### [Upstream resources](https://api.kde.org/krecentfilesmenu.html#recentFiles)
     ///
@@ -363,15 +435,19 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn RecentFiles(self: KRecentFilesMenu, allocator: std.mem.Allocator) []QUrl {
+    pub fn recentFiles(self: KRecentFilesMenu, allocator: std.mem.Allocator) []QUrl {
         const _arr: qtc.libqt_list = qtc.KRecentFilesMenu_RecentFiles(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("KRecentFilesMenu.RecentFiles: Memory allocation failed");
-        const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("KRecentFilesMenu.recentFiles: Memory allocation failed");
+        const _data_val: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `clearRecentFiles` instead
+    ///
+    pub const ClearRecentFiles = clearRecentFiles;
 
     /// ### [Upstream resources](https://api.kde.org/krecentfilesmenu.html#clearRecentFiles)
     ///
@@ -379,9 +455,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn ClearRecentFiles(self: KRecentFilesMenu) void {
+    pub fn clearRecentFiles(self: KRecentFilesMenu) void {
         qtc.KRecentFilesMenu_ClearRecentFiles(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `urlTriggered` instead
+    ///
+    pub const UrlTriggered = urlTriggered;
 
     /// ### [Upstream resources](https://api.kde.org/krecentfilesmenu.html#urlTriggered)
     ///
@@ -391,10 +471,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn UrlTriggered(self: KRecentFilesMenu, url: anytype) void {
+    pub fn urlTriggered(self: KRecentFilesMenu, url: anytype) void {
         comptime _ = @TypeOf(url)._is_QUrl;
         qtc.KRecentFilesMenu_UrlTriggered(@ptrCast(self.ptr), @ptrCast(url.ptr));
     }
+
+    /// ### DEPRECATED: Use `onUrlTriggered` instead
+    ///
+    pub const OnUrlTriggered = onUrlTriggered;
 
     /// ### [Upstream resources](https://api.kde.org/krecentfilesmenu.html#urlTriggered)
     ///
@@ -404,9 +488,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, url: QUrl) callconv(.c) void `
     ///
-    pub fn OnUrlTriggered(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QUrl) callconv(.c) void) void {
+    pub fn onUrlTriggered(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QUrl) callconv(.c) void) void {
         qtc.KRecentFilesMenu_Connect_UrlTriggered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `recentFilesChanged` instead
+    ///
+    pub const RecentFilesChanged = recentFilesChanged;
 
     /// ### [Upstream resources](https://api.kde.org/krecentfilesmenu.html#recentFilesChanged)
     ///
@@ -414,9 +502,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn RecentFilesChanged(self: KRecentFilesMenu) void {
+    pub fn recentFilesChanged(self: KRecentFilesMenu) void {
         qtc.KRecentFilesMenu_RecentFilesChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onRecentFilesChanged` instead
+    ///
+    pub const OnRecentFilesChanged = onRecentFilesChanged;
 
     /// ### [Upstream resources](https://api.kde.org/krecentfilesmenu.html#recentFilesChanged)
     ///
@@ -426,9 +518,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu) callconv(.c) void `
     ///
-    pub fn OnRecentFilesChanged(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu) callconv(.c) void) void {
+    pub fn onRecentFilesChanged(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu) callconv(.c) void) void {
         qtc.KRecentFilesMenu_Connect_RecentFilesChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -440,15 +536,19 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRecentFilesMenu.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRecentFilesMenu.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -462,15 +562,19 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRecentFilesMenu.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRecentFilesMenu.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addUrl2` instead
+    ///
+    pub const AddUrl2 = addUrl2;
 
     /// ### [Upstream resources](https://api.kde.org/krecentfilesmenu.html#addUrl)
     ///
@@ -482,7 +586,7 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn AddUrl2(self: KRecentFilesMenu, url: anytype, name: []const u8) void {
+    pub fn addUrl2(self: KRecentFilesMenu, url: anytype, name: []const u8) void {
         comptime _ = @TypeOf(url)._is_QUrl;
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -490,6 +594,10 @@ pub const KRecentFilesMenu = extern struct {
         };
         qtc.KRecentFilesMenu_AddUrl2(@ptrCast(self.ptr), @ptrCast(url.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `addMenu` instead
+    ///
+    pub const AddMenu = addMenu;
 
     /// Inherited from QMenu
     ///
@@ -501,28 +609,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` menu: QMenu `
     ///
-    pub fn AddMenu(self: KRecentFilesMenu, menu: anytype) QAction {
+    pub fn addMenu(self: KRecentFilesMenu, menu: anytype) QAction {
         comptime _ = @TypeOf(menu)._is_QMenu;
         return .{ .ptr = qtc.QMenu_AddMenu(@ptrCast(self.ptr), @ptrCast(menu.ptr)) };
     }
 
-    /// Inherited from QMenu
+    /// ### DEPRECATED: Use `addMenu2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#addMenu)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KRecentFilesMenu `
-    ///
-    /// ` title: []const u8 `
-    ///
-    pub fn AddMenu2(self: KRecentFilesMenu, title: []const u8) QMenu {
-        const title_str = qtc.libqt_string{
-            .len = title.len,
-            .data = title.ptr,
-        };
-        return .{ .ptr = qtc.QMenu_AddMenu2(@ptrCast(self.ptr), title_str) };
-    }
+    pub const AddMenu2 = addMenu2;
 
     /// Inherited from QMenu
     ///
@@ -532,18 +626,44 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` icon: QIcon `
+    /// ` _title: []const u8 `
     ///
-    /// ` title: []const u8 `
-    ///
-    pub fn AddMenu3(self: KRecentFilesMenu, icon: anytype, title: []const u8) QMenu {
-        comptime _ = @TypeOf(icon)._is_QIcon;
+    pub fn addMenu2(self: KRecentFilesMenu, _title: []const u8) QMenu {
         const title_str = qtc.libqt_string{
-            .len = title.len,
-            .data = title.ptr,
+            .len = _title.len,
+            .data = _title.ptr,
         };
-        return .{ .ptr = qtc.QMenu_AddMenu3(@ptrCast(self.ptr), @ptrCast(icon.ptr), title_str) };
+        return .{ .ptr = qtc.QMenu_AddMenu2(@ptrCast(self.ptr), title_str) };
     }
+
+    /// ### DEPRECATED: Use `addMenu3` instead
+    ///
+    pub const AddMenu3 = addMenu3;
+
+    /// Inherited from QMenu
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#addMenu)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KRecentFilesMenu `
+    ///
+    /// ` _icon: QIcon `
+    ///
+    /// ` _title: []const u8 `
+    ///
+    pub fn addMenu3(self: KRecentFilesMenu, _icon: anytype, _title: []const u8) QMenu {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        const title_str = qtc.libqt_string{
+            .len = _title.len,
+            .data = _title.ptr,
+        };
+        return .{ .ptr = qtc.QMenu_AddMenu3(@ptrCast(self.ptr), @ptrCast(_icon.ptr), title_str) };
+    }
+
+    /// ### DEPRECATED: Use `addSeparator` instead
+    ///
+    pub const AddSeparator = addSeparator;
 
     /// Inherited from QMenu
     ///
@@ -553,9 +673,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn AddSeparator(self: KRecentFilesMenu) QAction {
+    pub fn addSeparator(self: KRecentFilesMenu) QAction {
         return .{ .ptr = qtc.QMenu_AddSeparator(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addSection` instead
+    ///
+    pub const AddSection = addSection;
 
     /// Inherited from QMenu
     ///
@@ -567,7 +691,7 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddSection(self: KRecentFilesMenu, text: []const u8) QAction {
+    pub fn addSection(self: KRecentFilesMenu, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -575,6 +699,10 @@ pub const KRecentFilesMenu = extern struct {
         return .{ .ptr = qtc.QMenu_AddSection(@ptrCast(self.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addSection2` instead
+    ///
+    pub const AddSection2 = addSection2;
+
     /// Inherited from QMenu
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#addSection)
@@ -583,18 +711,22 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddSection2(self: KRecentFilesMenu, icon: anytype, text: []const u8) QAction {
-        comptime _ = @TypeOf(icon)._is_QIcon;
+    pub fn addSection2(self: KRecentFilesMenu, _icon: anytype, text: []const u8) QAction {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return .{ .ptr = qtc.QMenu_AddSection2(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
+        return .{ .ptr = qtc.QMenu_AddSection2(@ptrCast(self.ptr), @ptrCast(_icon.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `insertMenu` instead
+    ///
+    pub const InsertMenu = insertMenu;
 
     /// Inherited from QMenu
     ///
@@ -608,11 +740,15 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` menu: QMenu `
     ///
-    pub fn InsertMenu(self: KRecentFilesMenu, before: anytype, menu: anytype) QAction {
+    pub fn insertMenu(self: KRecentFilesMenu, before: anytype, menu: anytype) QAction {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(menu)._is_QMenu;
         return .{ .ptr = qtc.QMenu_InsertMenu(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(menu.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `insertSeparator` instead
+    ///
+    pub const InsertSeparator = insertSeparator;
 
     /// Inherited from QMenu
     ///
@@ -624,10 +760,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` before: QAction `
     ///
-    pub fn InsertSeparator(self: KRecentFilesMenu, before: anytype) QAction {
+    pub fn insertSeparator(self: KRecentFilesMenu, before: anytype) QAction {
         comptime _ = @TypeOf(before)._is_QAction;
         return .{ .ptr = qtc.QMenu_InsertSeparator(@ptrCast(self.ptr), @ptrCast(before.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `insertSection` instead
+    ///
+    pub const InsertSection = insertSection;
 
     /// Inherited from QMenu
     ///
@@ -641,7 +781,7 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn InsertSection(self: KRecentFilesMenu, before: anytype, text: []const u8) QAction {
+    pub fn insertSection(self: KRecentFilesMenu, before: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(before)._is_QAction;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -650,6 +790,10 @@ pub const KRecentFilesMenu = extern struct {
         return .{ .ptr = qtc.QMenu_InsertSection(@ptrCast(self.ptr), @ptrCast(before.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `insertSection2` instead
+    ///
+    pub const InsertSection2 = insertSection2;
+
     /// Inherited from QMenu
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#insertSection)
@@ -660,19 +804,23 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn InsertSection2(self: KRecentFilesMenu, before: anytype, icon: anytype, text: []const u8) QAction {
+    pub fn insertSection2(self: KRecentFilesMenu, before: anytype, _icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(before)._is_QAction;
-        comptime _ = @TypeOf(icon)._is_QIcon;
+        comptime _ = @TypeOf(_icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return .{ .ptr = qtc.QMenu_InsertSection2(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(icon.ptr), text_str) };
+        return .{ .ptr = qtc.QMenu_InsertSection2(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(_icon.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `isEmpty` instead
+    ///
+    pub const IsEmpty = isEmpty;
 
     /// Inherited from QMenu
     ///
@@ -682,9 +830,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn IsEmpty(self: KRecentFilesMenu) bool {
+    pub fn isEmpty(self: KRecentFilesMenu) bool {
         return qtc.QMenu_IsEmpty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// Inherited from QMenu
     ///
@@ -694,9 +846,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn Clear(self: KRecentFilesMenu) void {
+    pub fn clear(self: KRecentFilesMenu) void {
         qtc.QMenu_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTearOffEnabled` instead
+    ///
+    pub const SetTearOffEnabled = setTearOffEnabled;
 
     /// Inherited from QMenu
     ///
@@ -708,9 +864,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` tearOffEnabled: bool `
     ///
-    pub fn SetTearOffEnabled(self: KRecentFilesMenu, tearOffEnabled: bool) void {
+    pub fn setTearOffEnabled(self: KRecentFilesMenu, tearOffEnabled: bool) void {
         qtc.QMenu_SetTearOffEnabled(@ptrCast(self.ptr), tearOffEnabled);
     }
+
+    /// ### DEPRECATED: Use `isTearOffEnabled` instead
+    ///
+    pub const IsTearOffEnabled = isTearOffEnabled;
 
     /// Inherited from QMenu
     ///
@@ -720,9 +880,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn IsTearOffEnabled(self: KRecentFilesMenu) bool {
+    pub fn isTearOffEnabled(self: KRecentFilesMenu) bool {
         return qtc.QMenu_IsTearOffEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTearOffMenuVisible` instead
+    ///
+    pub const IsTearOffMenuVisible = isTearOffMenuVisible;
 
     /// Inherited from QMenu
     ///
@@ -732,21 +896,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn IsTearOffMenuVisible(self: KRecentFilesMenu) bool {
+    pub fn isTearOffMenuVisible(self: KRecentFilesMenu) bool {
         return qtc.QMenu_IsTearOffMenuVisible(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QMenu
+    /// ### DEPRECATED: Use `showTearOffMenu` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#showTearOffMenu)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KRecentFilesMenu `
-    ///
-    pub fn ShowTearOffMenu(self: KRecentFilesMenu) void {
-        qtc.QMenu_ShowTearOffMenu(@ptrCast(self.ptr));
-    }
+    pub const ShowTearOffMenu = showTearOffMenu;
 
     /// Inherited from QMenu
     ///
@@ -756,12 +912,32 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` pos: QPoint `
-    ///
-    pub fn ShowTearOffMenu2(self: KRecentFilesMenu, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QMenu_ShowTearOffMenu2(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn showTearOffMenu(self: KRecentFilesMenu) void {
+        qtc.QMenu_ShowTearOffMenu(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showTearOffMenu2` instead
+    ///
+    pub const ShowTearOffMenu2 = showTearOffMenu2;
+
+    /// Inherited from QMenu
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#showTearOffMenu)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KRecentFilesMenu `
+    ///
+    /// ` _pos: QPoint `
+    ///
+    pub fn showTearOffMenu2(self: KRecentFilesMenu, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QMenu_ShowTearOffMenu2(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
+    }
+
+    /// ### DEPRECATED: Use `hideTearOffMenu` instead
+    ///
+    pub const HideTearOffMenu = hideTearOffMenu;
 
     /// Inherited from QMenu
     ///
@@ -771,9 +947,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn HideTearOffMenu(self: KRecentFilesMenu) void {
+    pub fn hideTearOffMenu(self: KRecentFilesMenu) void {
         qtc.QMenu_HideTearOffMenu(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDefaultAction` instead
+    ///
+    pub const SetDefaultAction = setDefaultAction;
 
     /// Inherited from QMenu
     ///
@@ -783,12 +963,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` defaultAction: QAction `
+    /// ` _defaultAction: QAction `
     ///
-    pub fn SetDefaultAction(self: KRecentFilesMenu, defaultAction: anytype) void {
-        comptime _ = @TypeOf(defaultAction)._is_QAction;
-        qtc.QMenu_SetDefaultAction(@ptrCast(self.ptr), @ptrCast(defaultAction.ptr));
+    pub fn setDefaultAction(self: KRecentFilesMenu, _defaultAction: anytype) void {
+        comptime _ = @TypeOf(_defaultAction)._is_QAction;
+        qtc.QMenu_SetDefaultAction(@ptrCast(self.ptr), @ptrCast(_defaultAction.ptr));
     }
+
+    /// ### DEPRECATED: Use `defaultAction` instead
+    ///
+    pub const DefaultAction = defaultAction;
 
     /// Inherited from QMenu
     ///
@@ -798,9 +982,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn DefaultAction(self: KRecentFilesMenu) QAction {
+    pub fn defaultAction(self: KRecentFilesMenu) QAction {
         return .{ .ptr = qtc.QMenu_DefaultAction(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setActiveAction` instead
+    ///
+    pub const SetActiveAction = setActiveAction;
 
     /// Inherited from QMenu
     ///
@@ -812,10 +1000,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` act: QAction `
     ///
-    pub fn SetActiveAction(self: KRecentFilesMenu, act: anytype) void {
+    pub fn setActiveAction(self: KRecentFilesMenu, act: anytype) void {
         comptime _ = @TypeOf(act)._is_QAction;
         qtc.QMenu_SetActiveAction(@ptrCast(self.ptr), @ptrCast(act.ptr));
     }
+
+    /// ### DEPRECATED: Use `activeAction` instead
+    ///
+    pub const ActiveAction = activeAction;
 
     /// Inherited from QMenu
     ///
@@ -825,9 +1017,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn ActiveAction(self: KRecentFilesMenu) QAction {
+    pub fn activeAction(self: KRecentFilesMenu) QAction {
         return .{ .ptr = qtc.QMenu_ActiveAction(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `popup` instead
+    ///
+    pub const Popup = popup;
 
     /// Inherited from QMenu
     ///
@@ -837,12 +1033,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn Popup(self: KRecentFilesMenu, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QMenu_Popup(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn popup(self: KRecentFilesMenu, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QMenu_Popup(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `exec` instead
+    ///
+    pub const Exec = exec;
 
     /// Inherited from QMenu
     ///
@@ -852,10 +1052,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn Exec(self: KRecentFilesMenu) QAction {
+    pub fn exec(self: KRecentFilesMenu) QAction {
         return .{ .ptr = qtc.QMenu_Exec(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `exec2` instead
+    ///
+    pub const Exec2 = exec2;
+
     /// Inherited from QMenu
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#exec)
@@ -864,12 +1068,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn Exec2(self: KRecentFilesMenu, pos: anytype) QAction {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        return .{ .ptr = qtc.QMenu_Exec2(@ptrCast(self.ptr), @ptrCast(pos.ptr)) };
+    pub fn exec2(self: KRecentFilesMenu, _pos: anytype) QAction {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        return .{ .ptr = qtc.QMenu_Exec2(@ptrCast(self.ptr), @ptrCast(_pos.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `exec3` instead
+    ///
+    pub const Exec3 = exec3;
 
     /// Inherited from QMenu
     ///
@@ -877,18 +1085,22 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn Exec3(actions: []QAction, pos: anytype) QAction {
+    pub fn exec3(_actions: []QAction, _pos: anytype) QAction {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        return .{ .ptr = qtc.QMenu_Exec3(actions_list, @ptrCast(pos.ptr)) };
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        return .{ .ptr = qtc.QMenu_Exec3(actions_list, @ptrCast(_pos.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `actionGeometry` instead
+    ///
+    pub const ActionGeometry = actionGeometry;
 
     /// Inherited from QMenu
     ///
@@ -900,10 +1112,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QAction `
     ///
-    pub fn ActionGeometry(self: KRecentFilesMenu, param1: anytype) QRect {
+    pub fn actionGeometry(self: KRecentFilesMenu, param1: anytype) QRect {
         comptime _ = @TypeOf(param1)._is_QAction;
         return .{ .ptr = qtc.QMenu_ActionGeometry(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `actionAt` instead
+    ///
+    pub const ActionAt = actionAt;
 
     /// Inherited from QMenu
     ///
@@ -915,10 +1131,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn ActionAt(self: KRecentFilesMenu, param1: anytype) QAction {
+    pub fn actionAt(self: KRecentFilesMenu, param1: anytype) QAction {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QMenu_ActionAt(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `menuAction` instead
+    ///
+    pub const MenuAction = menuAction;
 
     /// Inherited from QMenu
     ///
@@ -928,9 +1148,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn MenuAction(self: KRecentFilesMenu) QAction {
+    pub fn menuAction(self: KRecentFilesMenu) QAction {
         return .{ .ptr = qtc.QMenu_MenuAction(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `menuInAction` instead
+    ///
+    pub const MenuInAction = menuInAction;
 
     /// Inherited from QMenu
     ///
@@ -940,10 +1164,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn MenuInAction(action: anytype) QMenu {
+    pub fn menuInAction(action: anytype) QMenu {
         comptime _ = @TypeOf(action)._is_QAction;
         return .{ .ptr = qtc.QMenu_MenuInAction(@ptrCast(action.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `title` instead
+    ///
+    pub const Title = title;
 
     /// Inherited from QMenu
     ///
@@ -955,13 +1183,17 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Title(self: KRecentFilesMenu, allocator: std.mem.Allocator) []const u8 {
+    pub fn title(self: KRecentFilesMenu, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QMenu_Title(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRecentFilesMenu.Title: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRecentFilesMenu.title: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setTitle` instead
+    ///
+    pub const SetTitle = setTitle;
 
     /// Inherited from QMenu
     ///
@@ -971,15 +1203,19 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` title: []const u8 `
+    /// ` _title: []const u8 `
     ///
-    pub fn SetTitle(self: KRecentFilesMenu, title: []const u8) void {
+    pub fn setTitle(self: KRecentFilesMenu, _title: []const u8) void {
         const title_str = qtc.libqt_string{
-            .len = title.len,
-            .data = title.ptr,
+            .len = _title.len,
+            .data = _title.ptr,
         };
         qtc.QMenu_SetTitle(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `icon` instead
+    ///
+    pub const Icon = icon;
 
     /// Inherited from QMenu
     ///
@@ -989,9 +1225,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn Icon(self: KRecentFilesMenu) QIcon {
+    pub fn icon(self: KRecentFilesMenu) QIcon {
         return .{ .ptr = qtc.QMenu_Icon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setIcon` instead
+    ///
+    pub const SetIcon = setIcon;
 
     /// Inherited from QMenu
     ///
@@ -1001,12 +1241,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    pub fn SetIcon(self: KRecentFilesMenu, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        qtc.QMenu_SetIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn setIcon(self: KRecentFilesMenu, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        qtc.QMenu_SetIcon(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `setNoReplayFor` instead
+    ///
+    pub const SetNoReplayFor = setNoReplayFor;
 
     /// Inherited from QMenu
     ///
@@ -1018,10 +1262,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn SetNoReplayFor(self: KRecentFilesMenu, widget: anytype) void {
+    pub fn setNoReplayFor(self: KRecentFilesMenu, widget: anytype) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QMenu_SetNoReplayFor(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAsDockMenu` instead
+    ///
+    pub const SetAsDockMenu = setAsDockMenu;
 
     /// Inherited from QMenu
     ///
@@ -1031,11 +1279,15 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn SetAsDockMenu(self: KRecentFilesMenu) void {
+    pub fn setAsDockMenu(self: KRecentFilesMenu) void {
         if (builtin.is_test and builtin.target.os.tag != .macos) return;
         if (builtin.target.os.tag != .macos) @compileError("Unsupported operating system");
         qtc.QMenu_SetAsDockMenu(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `separatorsCollapsible` instead
+    ///
+    pub const SeparatorsCollapsible = separatorsCollapsible;
 
     /// Inherited from QMenu
     ///
@@ -1045,9 +1297,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn SeparatorsCollapsible(self: KRecentFilesMenu) bool {
+    pub fn separatorsCollapsible(self: KRecentFilesMenu) bool {
         return qtc.QMenu_SeparatorsCollapsible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSeparatorsCollapsible` instead
+    ///
+    pub const SetSeparatorsCollapsible = setSeparatorsCollapsible;
 
     /// Inherited from QMenu
     ///
@@ -1059,9 +1315,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` collapse: bool `
     ///
-    pub fn SetSeparatorsCollapsible(self: KRecentFilesMenu, collapse: bool) void {
+    pub fn setSeparatorsCollapsible(self: KRecentFilesMenu, collapse: bool) void {
         qtc.QMenu_SetSeparatorsCollapsible(@ptrCast(self.ptr), collapse);
     }
+
+    /// ### DEPRECATED: Use `toolTipsVisible` instead
+    ///
+    pub const ToolTipsVisible = toolTipsVisible;
 
     /// Inherited from QMenu
     ///
@@ -1071,9 +1331,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn ToolTipsVisible(self: KRecentFilesMenu) bool {
+    pub fn toolTipsVisible(self: KRecentFilesMenu) bool {
         return qtc.QMenu_ToolTipsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTipsVisible` instead
+    ///
+    pub const SetToolTipsVisible = setToolTipsVisible;
 
     /// Inherited from QMenu
     ///
@@ -1085,10 +1349,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetToolTipsVisible(self: KRecentFilesMenu, visible: bool) void {
+    pub fn setToolTipsVisible(self: KRecentFilesMenu, visible: bool) void {
         qtc.QMenu_SetToolTipsVisible(@ptrCast(self.ptr), visible);
     }
 
+    /// ### DEPRECATED: Use `aboutToShow` instead
+    ///
+    pub const AboutToShow = aboutToShow;
+
     /// Inherited from QMenu
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#aboutToShow)
@@ -1097,10 +1365,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn AboutToShow(self: KRecentFilesMenu) void {
+    pub fn aboutToShow(self: KRecentFilesMenu) void {
         qtc.QMenu_AboutToShow(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onAboutToShow` instead
+    ///
+    pub const OnAboutToShow = onAboutToShow;
+
     /// Inherited from QMenu
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#aboutToShow)
@@ -1111,9 +1383,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu) callconv(.c) void `
     ///
-    pub fn OnAboutToShow(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu) callconv(.c) void) void {
+    pub fn onAboutToShow(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu) callconv(.c) void) void {
         qtc.QMenu_Connect_AboutToShow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `aboutToHide` instead
+    ///
+    pub const AboutToHide = aboutToHide;
 
     /// Inherited from QMenu
     ///
@@ -1123,9 +1399,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn AboutToHide(self: KRecentFilesMenu) void {
+    pub fn aboutToHide(self: KRecentFilesMenu) void {
         qtc.QMenu_AboutToHide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onAboutToHide` instead
+    ///
+    pub const OnAboutToHide = onAboutToHide;
 
     /// Inherited from QMenu
     ///
@@ -1137,9 +1417,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu) callconv(.c) void `
     ///
-    pub fn OnAboutToHide(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu) callconv(.c) void) void {
+    pub fn onAboutToHide(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu) callconv(.c) void) void {
         qtc.QMenu_Connect_AboutToHide(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `triggered` instead
+    ///
+    pub const Triggered = triggered;
 
     /// Inherited from QMenu
     ///
@@ -1151,11 +1435,15 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn Triggered(self: KRecentFilesMenu, action: anytype) void {
+    pub fn triggered(self: KRecentFilesMenu, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QMenu_Triggered(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
+    /// ### DEPRECATED: Use `onTriggered` instead
+    ///
+    pub const OnTriggered = onTriggered;
+
     /// Inherited from QMenu
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#triggered)
@@ -1166,9 +1454,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, action: QAction) callconv(.c) void `
     ///
-    pub fn OnTriggered(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QAction) callconv(.c) void) void {
+    pub fn onTriggered(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QAction) callconv(.c) void) void {
         qtc.QMenu_Connect_Triggered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hovered` instead
+    ///
+    pub const Hovered = hovered;
 
     /// Inherited from QMenu
     ///
@@ -1180,10 +1472,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn Hovered(self: KRecentFilesMenu, action: anytype) void {
+    pub fn hovered(self: KRecentFilesMenu, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QMenu_Hovered(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHovered` instead
+    ///
+    pub const OnHovered = onHovered;
 
     /// Inherited from QMenu
     ///
@@ -1195,9 +1491,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, action: QAction) callconv(.c) void `
     ///
-    pub fn OnHovered(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QAction) callconv(.c) void) void {
+    pub fn onHovered(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QAction) callconv(.c) void) void {
         qtc.QMenu_Connect_Hovered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `popup2` instead
+    ///
+    pub const Popup2 = popup2;
 
     /// Inherited from QMenu
     ///
@@ -1207,15 +1507,19 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
     /// ` at: QAction `
     ///
-    pub fn Popup2(self: KRecentFilesMenu, pos: anytype, at: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
+    pub fn popup2(self: KRecentFilesMenu, _pos: anytype, at: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
         comptime _ = @TypeOf(at)._is_QAction;
-        qtc.QMenu_Popup2(@ptrCast(self.ptr), @ptrCast(pos.ptr), @ptrCast(at.ptr));
+        qtc.QMenu_Popup2(@ptrCast(self.ptr), @ptrCast(_pos.ptr), @ptrCast(at.ptr));
     }
+
+    /// ### DEPRECATED: Use `exec22` instead
+    ///
+    pub const Exec22 = exec22;
 
     /// Inherited from QMenu
     ///
@@ -1225,15 +1529,19 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
     /// ` at: QAction `
     ///
-    pub fn Exec22(self: KRecentFilesMenu, pos: anytype, at: anytype) QAction {
-        comptime _ = @TypeOf(pos)._is_QPoint;
+    pub fn exec22(self: KRecentFilesMenu, _pos: anytype, at: anytype) QAction {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
         comptime _ = @TypeOf(at)._is_QAction;
-        return .{ .ptr = qtc.QMenu_Exec22(@ptrCast(self.ptr), @ptrCast(pos.ptr), @ptrCast(at.ptr)) };
+        return .{ .ptr = qtc.QMenu_Exec22(@ptrCast(self.ptr), @ptrCast(_pos.ptr), @ptrCast(at.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `exec32` instead
+    ///
+    pub const Exec32 = exec32;
 
     /// Inherited from QMenu
     ///
@@ -1241,21 +1549,25 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
     /// ` at: QAction `
     ///
-    pub fn Exec32(actions: []QAction, pos: anytype, at: anytype) QAction {
+    pub fn exec32(_actions: []QAction, _pos: anytype, at: anytype) QAction {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
-        comptime _ = @TypeOf(pos)._is_QPoint;
+        comptime _ = @TypeOf(_pos)._is_QPoint;
         comptime _ = @TypeOf(at)._is_QAction;
-        return .{ .ptr = qtc.QMenu_Exec32(actions_list, @ptrCast(pos.ptr), @ptrCast(at.ptr)) };
+        return .{ .ptr = qtc.QMenu_Exec32(actions_list, @ptrCast(_pos.ptr), @ptrCast(at.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `exec4` instead
+    ///
+    pub const Exec4 = exec4;
 
     /// Inherited from QMenu
     ///
@@ -1263,24 +1575,28 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
     /// ` at: QAction `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn Exec4(actions: []QAction, pos: anytype, at: anytype, parent: anytype) QAction {
+    pub fn exec4(_actions: []QAction, _pos: anytype, at: anytype, _parent: anytype) QAction {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
-        comptime _ = @TypeOf(pos)._is_QPoint;
+        comptime _ = @TypeOf(_pos)._is_QPoint;
         comptime _ = @TypeOf(at)._is_QAction;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QMenu_Exec4(actions_list, @ptrCast(pos.ptr), @ptrCast(at.ptr), @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QMenu_Exec4(actions_list, @ptrCast(_pos.ptr), @ptrCast(at.ptr), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -1290,9 +1606,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn WinId(self: KRecentFilesMenu) usize {
+    pub fn winId(self: KRecentFilesMenu) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -1302,9 +1622,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn CreateWinId(self: KRecentFilesMenu) void {
+    pub fn createWinId(self: KRecentFilesMenu) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -1314,9 +1638,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn InternalWinId(self: KRecentFilesMenu) usize {
+    pub fn internalWinId(self: KRecentFilesMenu) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -1326,9 +1654,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn EffectiveWinId(self: KRecentFilesMenu) usize {
+    pub fn effectiveWinId(self: KRecentFilesMenu) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -1338,9 +1670,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn Style(self: KRecentFilesMenu) QStyle {
+    pub fn style(self: KRecentFilesMenu) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -1350,12 +1686,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: KRecentFilesMenu, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: KRecentFilesMenu, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -1365,9 +1705,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn IsTopLevel(self: KRecentFilesMenu) bool {
+    pub fn isTopLevel(self: KRecentFilesMenu) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -1377,9 +1721,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn IsWindow(self: KRecentFilesMenu) bool {
+    pub fn isWindow(self: KRecentFilesMenu) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -1389,9 +1737,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn IsModal(self: KRecentFilesMenu) bool {
+    pub fn isModal(self: KRecentFilesMenu) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -1405,9 +1757,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: KRecentFilesMenu) i32 {
+    pub fn windowModality(self: KRecentFilesMenu) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -1417,11 +1773,15 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: KRecentFilesMenu, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: KRecentFilesMenu, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1431,9 +1791,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn IsEnabled(self: KRecentFilesMenu) bool {
+    pub fn isEnabled(self: KRecentFilesMenu) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -1445,10 +1809,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: KRecentFilesMenu, param1: anytype) bool {
+    pub fn isEnabledTo(self: KRecentFilesMenu, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1460,9 +1828,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: KRecentFilesMenu, enabled: bool) void {
+    pub fn setEnabled(self: KRecentFilesMenu, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -1474,9 +1846,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: KRecentFilesMenu, disabled: bool) void {
+    pub fn setDisabled(self: KRecentFilesMenu, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -1488,9 +1864,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: KRecentFilesMenu, windowModified: bool) void {
+    pub fn setWindowModified(self: KRecentFilesMenu, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1500,9 +1880,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn FrameGeometry(self: KRecentFilesMenu) QRect {
+    pub fn frameGeometry(self: KRecentFilesMenu) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -1512,9 +1896,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn Geometry(self: KRecentFilesMenu) QRect {
+    pub fn geometry(self: KRecentFilesMenu) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1524,9 +1912,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn NormalGeometry(self: KRecentFilesMenu) QRect {
+    pub fn normalGeometry(self: KRecentFilesMenu) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -1536,9 +1928,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn X(self: KRecentFilesMenu) i32 {
+    pub fn x(self: KRecentFilesMenu) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -1548,9 +1944,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn Y(self: KRecentFilesMenu) i32 {
+    pub fn y(self: KRecentFilesMenu) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -1560,9 +1960,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn Pos(self: KRecentFilesMenu) QPoint {
+    pub fn pos(self: KRecentFilesMenu) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -1572,9 +1976,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn FrameSize(self: KRecentFilesMenu) QSize {
+    pub fn frameSize(self: KRecentFilesMenu) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -1584,9 +1992,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn Size(self: KRecentFilesMenu) QSize {
+    pub fn size(self: KRecentFilesMenu) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -1596,9 +2008,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn Width(self: KRecentFilesMenu) i32 {
+    pub fn width(self: KRecentFilesMenu) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -1608,9 +2024,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn Height(self: KRecentFilesMenu) i32 {
+    pub fn height(self: KRecentFilesMenu) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -1620,9 +2040,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn Rect(self: KRecentFilesMenu) QRect {
+    pub fn rect(self: KRecentFilesMenu) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -1632,9 +2056,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn ChildrenRect(self: KRecentFilesMenu) QRect {
+    pub fn childrenRect(self: KRecentFilesMenu) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -1644,9 +2072,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn ChildrenRegion(self: KRecentFilesMenu) QRegion {
+    pub fn childrenRegion(self: KRecentFilesMenu) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1656,9 +2088,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn MinimumSize(self: KRecentFilesMenu) QSize {
+    pub fn minimumSize(self: KRecentFilesMenu) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1668,9 +2104,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn MaximumSize(self: KRecentFilesMenu) QSize {
+    pub fn maximumSize(self: KRecentFilesMenu) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1680,9 +2120,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn MinimumWidth(self: KRecentFilesMenu) i32 {
+    pub fn minimumWidth(self: KRecentFilesMenu) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1692,9 +2136,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn MinimumHeight(self: KRecentFilesMenu) i32 {
+    pub fn minimumHeight(self: KRecentFilesMenu) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1704,9 +2152,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn MaximumWidth(self: KRecentFilesMenu) i32 {
+    pub fn maximumWidth(self: KRecentFilesMenu) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1716,9 +2168,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn MaximumHeight(self: KRecentFilesMenu) i32 {
+    pub fn maximumHeight(self: KRecentFilesMenu) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1728,12 +2184,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: KRecentFilesMenu, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: KRecentFilesMenu, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1747,9 +2207,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: KRecentFilesMenu, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: KRecentFilesMenu, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1759,12 +2223,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: KRecentFilesMenu, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: KRecentFilesMenu, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1778,9 +2246,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: KRecentFilesMenu, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: KRecentFilesMenu, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1792,9 +2264,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: KRecentFilesMenu, minw: i32) void {
+    pub fn setMinimumWidth(self: KRecentFilesMenu, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1806,9 +2282,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: KRecentFilesMenu, minh: i32) void {
+    pub fn setMinimumHeight(self: KRecentFilesMenu, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1820,9 +2300,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: KRecentFilesMenu, maxw: i32) void {
+    pub fn setMaximumWidth(self: KRecentFilesMenu, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1834,9 +2318,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: KRecentFilesMenu, maxh: i32) void {
+    pub fn setMaximumHeight(self: KRecentFilesMenu, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1846,9 +2334,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn SizeIncrement(self: KRecentFilesMenu) QSize {
+    pub fn sizeIncrement(self: KRecentFilesMenu) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1858,12 +2350,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: KRecentFilesMenu, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: KRecentFilesMenu, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -1877,9 +2373,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: KRecentFilesMenu, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: KRecentFilesMenu, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -1889,9 +2389,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn BaseSize(self: KRecentFilesMenu) QSize {
+    pub fn baseSize(self: KRecentFilesMenu) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -1901,12 +2405,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: KRecentFilesMenu, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: KRecentFilesMenu, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -1920,9 +2428,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: KRecentFilesMenu, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: KRecentFilesMenu, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -1934,10 +2446,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: KRecentFilesMenu, fixedSize: anytype) void {
+    pub fn setFixedSize(self: KRecentFilesMenu, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -1951,9 +2467,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: KRecentFilesMenu, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: KRecentFilesMenu, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -1965,9 +2485,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: KRecentFilesMenu, w: i32) void {
+    pub fn setFixedWidth(self: KRecentFilesMenu, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -1979,9 +2503,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: KRecentFilesMenu, h: i32) void {
+    pub fn setFixedHeight(self: KRecentFilesMenu, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -1993,11 +2521,15 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: KRecentFilesMenu, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: KRecentFilesMenu, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -2008,11 +2540,15 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: KRecentFilesMenu, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: KRecentFilesMenu, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -2023,11 +2559,15 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: KRecentFilesMenu, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: KRecentFilesMenu, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -2038,11 +2578,15 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: KRecentFilesMenu, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: KRecentFilesMenu, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -2053,11 +2597,15 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: KRecentFilesMenu, param1: anytype) QPointF {
+    pub fn mapToParent(self: KRecentFilesMenu, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -2068,10 +2616,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: KRecentFilesMenu, param1: anytype) QPoint {
+    pub fn mapToParent2(self: KRecentFilesMenu, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -2083,10 +2635,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: KRecentFilesMenu, param1: anytype) QPointF {
+    pub fn mapFromParent(self: KRecentFilesMenu, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -2098,10 +2654,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: KRecentFilesMenu, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: KRecentFilesMenu, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -2115,12 +2675,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: KRecentFilesMenu, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: KRecentFilesMenu, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -2133,11 +2697,15 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: KRecentFilesMenu, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: KRecentFilesMenu, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -2151,11 +2719,15 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: KRecentFilesMenu, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: KRecentFilesMenu, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -2169,11 +2741,15 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: KRecentFilesMenu, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: KRecentFilesMenu, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -2183,9 +2759,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn Window(self: KRecentFilesMenu) QWidget {
+    pub fn window(self: KRecentFilesMenu) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -2195,9 +2775,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn NativeParentWidget(self: KRecentFilesMenu) QWidget {
+    pub fn nativeParentWidget(self: KRecentFilesMenu) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -2207,9 +2791,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn TopLevelWidget(self: KRecentFilesMenu) QWidget {
+    pub fn topLevelWidget(self: KRecentFilesMenu) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -2219,9 +2807,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn Palette(self: KRecentFilesMenu) QPalette {
+    pub fn palette(self: KRecentFilesMenu) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -2231,12 +2823,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: KRecentFilesMenu, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: KRecentFilesMenu, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2246,11 +2842,15 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: KRecentFilesMenu, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: KRecentFilesMenu, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2264,9 +2864,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: KRecentFilesMenu) i32 {
+    pub fn backgroundRole(self: KRecentFilesMenu) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2276,11 +2880,15 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: KRecentFilesMenu, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: KRecentFilesMenu, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2294,9 +2902,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: KRecentFilesMenu) i32 {
+    pub fn foregroundRole(self: KRecentFilesMenu) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -2306,9 +2918,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn Font(self: KRecentFilesMenu) QFont {
+    pub fn font(self: KRecentFilesMenu) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -2318,12 +2934,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: KRecentFilesMenu, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: KRecentFilesMenu, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -2333,9 +2953,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn FontMetrics(self: KRecentFilesMenu) QFontMetrics {
+    pub fn fontMetrics(self: KRecentFilesMenu) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -2345,9 +2969,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn FontInfo(self: KRecentFilesMenu) QFontInfo {
+    pub fn fontInfo(self: KRecentFilesMenu) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -2357,9 +2985,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn Cursor(self: KRecentFilesMenu) QCursor {
+    pub fn cursor(self: KRecentFilesMenu) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -2369,12 +3001,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: KRecentFilesMenu, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: KRecentFilesMenu, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -2384,9 +3020,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn UnsetCursor(self: KRecentFilesMenu) void {
+    pub fn unsetCursor(self: KRecentFilesMenu) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2398,9 +3038,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: KRecentFilesMenu, enable: bool) void {
+    pub fn setMouseTracking(self: KRecentFilesMenu, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2410,9 +3054,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn HasMouseTracking(self: KRecentFilesMenu) bool {
+    pub fn hasMouseTracking(self: KRecentFilesMenu) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -2422,9 +3070,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn UnderMouse(self: KRecentFilesMenu) bool {
+    pub fn underMouse(self: KRecentFilesMenu) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2436,9 +3088,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: KRecentFilesMenu, enable: bool) void {
+    pub fn setTabletTracking(self: KRecentFilesMenu, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2448,24 +3104,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn HasTabletTracking(self: KRecentFilesMenu) bool {
+    pub fn hasTabletTracking(self: KRecentFilesMenu) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KRecentFilesMenu `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: KRecentFilesMenu, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -2475,12 +3120,35 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: KRecentFilesMenu, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: KRecentFilesMenu, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KRecentFilesMenu `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: KRecentFilesMenu, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -2490,9 +3158,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn Mask(self: KRecentFilesMenu) QRegion {
+    pub fn mask(self: KRecentFilesMenu) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -2502,9 +3174,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn ClearMask(self: KRecentFilesMenu) void {
+    pub fn clearMask(self: KRecentFilesMenu) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -2516,10 +3192,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: KRecentFilesMenu, target: anytype) void {
+    pub fn render(self: KRecentFilesMenu, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -2531,10 +3211,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: KRecentFilesMenu, painter: anytype) void {
+    pub fn render2(self: KRecentFilesMenu, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -2544,9 +3228,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn Grab(self: KRecentFilesMenu) QPixmap {
+    pub fn grab(self: KRecentFilesMenu) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2556,9 +3244,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn GraphicsEffect(self: KRecentFilesMenu) QGraphicsEffect {
+    pub fn graphicsEffect(self: KRecentFilesMenu) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2570,10 +3262,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: KRecentFilesMenu, effect: anytype) void {
+    pub fn setGraphicsEffect(self: KRecentFilesMenu, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2585,9 +3281,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: KRecentFilesMenu, typeVal: i32) void {
+    pub fn grabGesture(self: KRecentFilesMenu, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2599,9 +3299,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: KRecentFilesMenu, typeVal: i32) void {
+    pub fn ungrabGesture(self: KRecentFilesMenu, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2611,15 +3315,19 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: KRecentFilesMenu, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: KRecentFilesMenu, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2629,15 +3337,19 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: KRecentFilesMenu, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: KRecentFilesMenu, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2649,13 +3361,17 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: KRecentFilesMenu, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: KRecentFilesMenu, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRecentFilesMenu.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRecentFilesMenu.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2667,13 +3383,17 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: KRecentFilesMenu, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: KRecentFilesMenu, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRecentFilesMenu.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRecentFilesMenu.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2683,12 +3403,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: KRecentFilesMenu, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn setWindowIcon(self: KRecentFilesMenu, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2698,9 +3422,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn WindowIcon(self: KRecentFilesMenu) QIcon {
+    pub fn windowIcon(self: KRecentFilesMenu) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2710,15 +3438,19 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: KRecentFilesMenu, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: KRecentFilesMenu, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2730,13 +3462,17 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: KRecentFilesMenu, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: KRecentFilesMenu, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRecentFilesMenu.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRecentFilesMenu.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -2746,15 +3482,19 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: KRecentFilesMenu, windowRole: []const u8) void {
+    pub fn setWindowRole(self: KRecentFilesMenu, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -2766,13 +3506,17 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: KRecentFilesMenu, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: KRecentFilesMenu, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRecentFilesMenu.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRecentFilesMenu.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2784,13 +3528,17 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: KRecentFilesMenu, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: KRecentFilesMenu, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2802,13 +3550,17 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: KRecentFilesMenu, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: KRecentFilesMenu, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRecentFilesMenu.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRecentFilesMenu.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2820,9 +3572,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: KRecentFilesMenu, level: f64) void {
+    pub fn setWindowOpacity(self: KRecentFilesMenu, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2832,9 +3588,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn WindowOpacity(self: KRecentFilesMenu) f64 {
+    pub fn windowOpacity(self: KRecentFilesMenu) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -2844,9 +3604,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn IsWindowModified(self: KRecentFilesMenu) bool {
+    pub fn isWindowModified(self: KRecentFilesMenu) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -2856,15 +3620,19 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: KRecentFilesMenu, toolTip: []const u8) void {
+    pub fn setToolTip(self: KRecentFilesMenu, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -2876,13 +3644,17 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: KRecentFilesMenu, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: KRecentFilesMenu, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRecentFilesMenu.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRecentFilesMenu.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2894,9 +3666,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: KRecentFilesMenu, msec: i32) void {
+    pub fn setToolTipDuration(self: KRecentFilesMenu, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2906,9 +3682,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn ToolTipDuration(self: KRecentFilesMenu) i32 {
+    pub fn toolTipDuration(self: KRecentFilesMenu) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -2918,15 +3698,19 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: KRecentFilesMenu, statusTip: []const u8) void {
+    pub fn setStatusTip(self: KRecentFilesMenu, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -2938,13 +3722,17 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: KRecentFilesMenu, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: KRecentFilesMenu, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRecentFilesMenu.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRecentFilesMenu.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2954,15 +3742,19 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: KRecentFilesMenu, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: KRecentFilesMenu, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2974,13 +3766,17 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: KRecentFilesMenu, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: KRecentFilesMenu, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRecentFilesMenu.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRecentFilesMenu.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2992,13 +3788,17 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: KRecentFilesMenu, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: KRecentFilesMenu, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRecentFilesMenu.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRecentFilesMenu.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -3010,13 +3810,17 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: KRecentFilesMenu, name: []const u8) void {
+    pub fn setAccessibleName(self: KRecentFilesMenu, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -3028,13 +3832,17 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: KRecentFilesMenu, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: KRecentFilesMenu, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRecentFilesMenu.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRecentFilesMenu.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -3046,13 +3854,17 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: KRecentFilesMenu, description: []const u8) void {
+    pub fn setAccessibleDescription(self: KRecentFilesMenu, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3064,9 +3876,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: KRecentFilesMenu, direction: i32) void {
+    pub fn setLayoutDirection(self: KRecentFilesMenu, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3080,9 +3896,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: KRecentFilesMenu) i32 {
+    pub fn layoutDirection(self: KRecentFilesMenu) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3092,9 +3912,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn UnsetLayoutDirection(self: KRecentFilesMenu) void {
+    pub fn unsetLayoutDirection(self: KRecentFilesMenu) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -3104,12 +3928,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: KRecentFilesMenu, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: KRecentFilesMenu, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -3119,9 +3947,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn Locale(self: KRecentFilesMenu) QLocale {
+    pub fn locale(self: KRecentFilesMenu) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -3131,9 +3963,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn UnsetLocale(self: KRecentFilesMenu) void {
+    pub fn unsetLocale(self: KRecentFilesMenu) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -3143,9 +3979,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn IsRightToLeft(self: KRecentFilesMenu) bool {
+    pub fn isRightToLeft(self: KRecentFilesMenu) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -3155,9 +3995,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn IsLeftToRight(self: KRecentFilesMenu) bool {
+    pub fn isLeftToRight(self: KRecentFilesMenu) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -3167,9 +4011,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn SetFocus(self: KRecentFilesMenu) void {
+    pub fn setFocus(self: KRecentFilesMenu) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -3179,9 +4027,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn IsActiveWindow(self: KRecentFilesMenu) bool {
+    pub fn isActiveWindow(self: KRecentFilesMenu) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -3191,9 +4043,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn ActivateWindow(self: KRecentFilesMenu) void {
+    pub fn activateWindow(self: KRecentFilesMenu) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -3203,9 +4059,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn ClearFocus(self: KRecentFilesMenu) void {
+    pub fn clearFocus(self: KRecentFilesMenu) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -3217,9 +4077,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: KRecentFilesMenu, reason: i32) void {
+    pub fn setFocus2(self: KRecentFilesMenu, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3233,9 +4097,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: KRecentFilesMenu) i32 {
+    pub fn focusPolicy(self: KRecentFilesMenu) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3247,9 +4115,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: KRecentFilesMenu, policy: i32) void {
+    pub fn setFocusPolicy(self: KRecentFilesMenu, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -3259,9 +4131,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn HasFocus(self: KRecentFilesMenu) bool {
+    pub fn hasFocus(self: KRecentFilesMenu) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -3273,11 +4149,15 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3287,12 +4167,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: KRecentFilesMenu, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: KRecentFilesMenu, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3302,9 +4186,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn FocusProxy(self: KRecentFilesMenu) QWidget {
+    pub fn focusProxy(self: KRecentFilesMenu) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3318,9 +4206,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: KRecentFilesMenu) i32 {
+    pub fn contextMenuPolicy(self: KRecentFilesMenu) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3332,9 +4224,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: KRecentFilesMenu, policy: i32) void {
+    pub fn setContextMenuPolicy(self: KRecentFilesMenu, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -3344,9 +4240,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn GrabMouse(self: KRecentFilesMenu) void {
+    pub fn grabMouse(self: KRecentFilesMenu) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -3358,10 +4258,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: KRecentFilesMenu, param1: anytype) void {
+    pub fn grabMouse2(self: KRecentFilesMenu, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -3371,9 +4275,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn ReleaseMouse(self: KRecentFilesMenu) void {
+    pub fn releaseMouse(self: KRecentFilesMenu) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3383,9 +4291,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn GrabKeyboard(self: KRecentFilesMenu) void {
+    pub fn grabKeyboard(self: KRecentFilesMenu) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3395,9 +4307,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn ReleaseKeyboard(self: KRecentFilesMenu) void {
+    pub fn releaseKeyboard(self: KRecentFilesMenu) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3409,10 +4325,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: KRecentFilesMenu, key: anytype) i32 {
+    pub fn grabShortcut(self: KRecentFilesMenu, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3424,9 +4344,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: KRecentFilesMenu, id: i32) void {
+    pub fn releaseShortcut(self: KRecentFilesMenu, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3438,9 +4362,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: KRecentFilesMenu, id: i32) void {
+    pub fn setShortcutEnabled(self: KRecentFilesMenu, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -3452,25 +4380,37 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: KRecentFilesMenu, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: KRecentFilesMenu, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3480,9 +4420,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn UpdatesEnabled(self: KRecentFilesMenu) bool {
+    pub fn updatesEnabled(self: KRecentFilesMenu) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3494,9 +4438,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: KRecentFilesMenu, enable: bool) void {
+    pub fn setUpdatesEnabled(self: KRecentFilesMenu, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -3506,9 +4454,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn GraphicsProxyWidget(self: KRecentFilesMenu) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: KRecentFilesMenu) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -3518,9 +4470,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn Update(self: KRecentFilesMenu) void {
+    pub fn update(self: KRecentFilesMenu) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -3530,9 +4486,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn Repaint(self: KRecentFilesMenu) void {
+    pub fn repaint(self: KRecentFilesMenu) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -3542,17 +4502,21 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: KRecentFilesMenu, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: KRecentFilesMenu, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -3564,11 +4528,15 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: KRecentFilesMenu, param1: anytype) void {
+    pub fn update3(self: KRecentFilesMenu, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -3579,10 +4547,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: KRecentFilesMenu, param1: anytype) void {
+    pub fn update4(self: KRecentFilesMenu, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -3592,17 +4564,21 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: KRecentFilesMenu, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: KRecentFilesMenu, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -3614,10 +4590,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: KRecentFilesMenu, param1: anytype) void {
+    pub fn repaint3(self: KRecentFilesMenu, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -3629,10 +4609,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: KRecentFilesMenu, param1: anytype) void {
+    pub fn repaint4(self: KRecentFilesMenu, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -3644,9 +4628,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: KRecentFilesMenu, hidden: bool) void {
+    pub fn setHidden(self: KRecentFilesMenu, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -3656,9 +4644,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn Show(self: KRecentFilesMenu) void {
+    pub fn show(self: KRecentFilesMenu) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -3668,9 +4660,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn Hide(self: KRecentFilesMenu) void {
+    pub fn hide(self: KRecentFilesMenu) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3680,9 +4676,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn ShowMinimized(self: KRecentFilesMenu) void {
+    pub fn showMinimized(self: KRecentFilesMenu) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3692,9 +4692,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn ShowMaximized(self: KRecentFilesMenu) void {
+    pub fn showMaximized(self: KRecentFilesMenu) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3704,9 +4708,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn ShowFullScreen(self: KRecentFilesMenu) void {
+    pub fn showFullScreen(self: KRecentFilesMenu) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -3716,9 +4724,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn ShowNormal(self: KRecentFilesMenu) void {
+    pub fn showNormal(self: KRecentFilesMenu) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -3728,9 +4740,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn Close(self: KRecentFilesMenu) bool {
+    pub fn close(self: KRecentFilesMenu) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -3740,9 +4756,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn Raise(self: KRecentFilesMenu) void {
+    pub fn raise(self: KRecentFilesMenu) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -3752,9 +4772,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn Lower(self: KRecentFilesMenu) void {
+    pub fn lower(self: KRecentFilesMenu) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -3766,10 +4790,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: KRecentFilesMenu, param1: anytype) void {
+    pub fn stackUnder(self: KRecentFilesMenu, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -3779,13 +4807,17 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: KRecentFilesMenu, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: KRecentFilesMenu, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -3797,10 +4829,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: KRecentFilesMenu, param1: anytype) void {
+    pub fn move2(self: KRecentFilesMenu, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -3814,9 +4850,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: KRecentFilesMenu, w: i32, h: i32) void {
+    pub fn resize(self: KRecentFilesMenu, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -3828,10 +4868,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: KRecentFilesMenu, param1: anytype) void {
+    pub fn resize2(self: KRecentFilesMenu, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3841,17 +4885,21 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: KRecentFilesMenu, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: KRecentFilesMenu, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -3861,12 +4909,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: KRecentFilesMenu, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: KRecentFilesMenu, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3878,13 +4930,17 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: KRecentFilesMenu, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: KRecentFilesMenu, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KRecentFilesMenu.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KRecentFilesMenu.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3894,15 +4950,19 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: KRecentFilesMenu, geometry: []u8) bool {
+    pub fn restoreGeometry(self: KRecentFilesMenu, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -3912,9 +4972,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn AdjustSize(self: KRecentFilesMenu) void {
+    pub fn adjustSize(self: KRecentFilesMenu) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -3924,9 +4988,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn IsVisible(self: KRecentFilesMenu) bool {
+    pub fn isVisible(self: KRecentFilesMenu) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -3938,10 +5006,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: KRecentFilesMenu, param1: anytype) bool {
+    pub fn isVisibleTo(self: KRecentFilesMenu, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -3951,9 +5023,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn IsHidden(self: KRecentFilesMenu) bool {
+    pub fn isHidden(self: KRecentFilesMenu) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3963,9 +5039,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn IsMinimized(self: KRecentFilesMenu) bool {
+    pub fn isMinimized(self: KRecentFilesMenu) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3975,9 +5055,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn IsMaximized(self: KRecentFilesMenu) bool {
+    pub fn isMaximized(self: KRecentFilesMenu) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3987,9 +5071,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn IsFullScreen(self: KRecentFilesMenu) bool {
+    pub fn isFullScreen(self: KRecentFilesMenu) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -4003,9 +5091,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: KRecentFilesMenu) i32 {
+    pub fn windowState(self: KRecentFilesMenu) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -4017,9 +5109,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: KRecentFilesMenu, state: i32) void {
+    pub fn setWindowState(self: KRecentFilesMenu, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -4031,9 +5127,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: KRecentFilesMenu, state: i32) void {
+    pub fn overrideWindowState(self: KRecentFilesMenu, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -4043,9 +5143,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn SizePolicy(self: KRecentFilesMenu) QSizePolicy {
+    pub fn sizePolicy(self: KRecentFilesMenu) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -4055,12 +5159,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: KRecentFilesMenu, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: KRecentFilesMenu, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -4074,9 +5182,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: KRecentFilesMenu, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: KRecentFilesMenu, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -4086,9 +5198,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn VisibleRegion(self: KRecentFilesMenu) QRegion {
+    pub fn visibleRegion(self: KRecentFilesMenu) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -4106,9 +5222,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: KRecentFilesMenu, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: KRecentFilesMenu, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -4120,10 +5240,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: KRecentFilesMenu, margins: anytype) void {
+    pub fn setContentsMargins2(self: KRecentFilesMenu, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -4133,9 +5257,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn ContentsMargins(self: KRecentFilesMenu) QMargins {
+    pub fn contentsMargins(self: KRecentFilesMenu) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -4145,9 +5273,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn ContentsRect(self: KRecentFilesMenu) QRect {
+    pub fn contentsRect(self: KRecentFilesMenu) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -4157,9 +5289,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn Layout(self: KRecentFilesMenu) QLayout {
+    pub fn layout(self: KRecentFilesMenu) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -4169,12 +5305,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: KRecentFilesMenu, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: KRecentFilesMenu, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4184,24 +5324,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn UpdateGeometry(self: KRecentFilesMenu) void {
+    pub fn updateGeometry(self: KRecentFilesMenu) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KRecentFilesMenu `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: KRecentFilesMenu, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -4211,14 +5340,37 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: KRecentFilesMenu, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KRecentFilesMenu `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: KRecentFilesMenu, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: KRecentFilesMenu, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -4232,9 +5384,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: KRecentFilesMenu, dx: i32, dy: i32) void {
+    pub fn scroll(self: KRecentFilesMenu, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -4250,10 +5406,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: KRecentFilesMenu, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: KRecentFilesMenu, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -4263,9 +5423,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn FocusWidget(self: KRecentFilesMenu) QWidget {
+    pub fn focusWidget(self: KRecentFilesMenu) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4275,9 +5439,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn NextInFocusChain(self: KRecentFilesMenu) QWidget {
+    pub fn nextInFocusChain(self: KRecentFilesMenu) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4287,9 +5455,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn PreviousInFocusChain(self: KRecentFilesMenu) QWidget {
+    pub fn previousInFocusChain(self: KRecentFilesMenu) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4299,9 +5471,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn AcceptDrops(self: KRecentFilesMenu) bool {
+    pub fn acceptDrops(self: KRecentFilesMenu) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4313,9 +5489,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: KRecentFilesMenu, on: bool) void {
+    pub fn setAcceptDrops(self: KRecentFilesMenu, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -4327,10 +5507,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: KRecentFilesMenu, action: anytype) void {
+    pub fn addAction(self: KRecentFilesMenu, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -4340,15 +5524,19 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: KRecentFilesMenu, actions: []QAction) void {
+    pub fn addActions(self: KRecentFilesMenu, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -4360,16 +5548,20 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: KRecentFilesMenu, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: KRecentFilesMenu, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -4383,11 +5575,15 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: KRecentFilesMenu, before: anytype, action: anytype) void {
+    pub fn insertAction(self: KRecentFilesMenu, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -4399,10 +5595,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: KRecentFilesMenu, action: anytype) void {
+    pub fn removeAction(self: KRecentFilesMenu, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -4414,15 +5614,19 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: KRecentFilesMenu, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: KRecentFilesMenu, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KRecentFilesMenu.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KRecentFilesMenu.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -4434,7 +5638,7 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: KRecentFilesMenu, text: []const u8) QAction {
+    pub fn addAction2(self: KRecentFilesMenu, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -4442,6 +5646,10 @@ pub const KRecentFilesMenu = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -4450,18 +5658,22 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: KRecentFilesMenu, icon: anytype, text: []const u8) QAction {
-        comptime _ = @TypeOf(icon)._is_QIcon;
+    pub fn addAction3(self: KRecentFilesMenu, _icon: anytype, text: []const u8) QAction {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
+        return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(_icon.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
 
     /// Inherited from QWidget
     ///
@@ -4475,7 +5687,7 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: KRecentFilesMenu, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: KRecentFilesMenu, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -4484,6 +5696,10 @@ pub const KRecentFilesMenu = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -4492,21 +5708,25 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: KRecentFilesMenu, icon: anytype, text: []const u8, shortcut: anytype) QAction {
-        comptime _ = @TypeOf(icon)._is_QIcon;
+    pub fn addAction5(self: KRecentFilesMenu, _icon: anytype, text: []const u8, shortcut: anytype) QAction {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
-        return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
+        return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(_icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
 
     /// Inherited from QWidget
     ///
@@ -4516,9 +5736,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn ParentWidget(self: KRecentFilesMenu) QWidget {
+    pub fn parentWidget(self: KRecentFilesMenu) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4530,9 +5754,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: KRecentFilesMenu, typeVal: i32) void {
+    pub fn setWindowFlags(self: KRecentFilesMenu, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4546,9 +5774,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: KRecentFilesMenu) i32 {
+    pub fn windowFlags(self: KRecentFilesMenu) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -4560,9 +5792,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: KRecentFilesMenu, param1: i32) void {
+    pub fn setWindowFlag(self: KRecentFilesMenu, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4574,9 +5810,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: KRecentFilesMenu, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: KRecentFilesMenu, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -4590,9 +5830,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: KRecentFilesMenu) i32 {
+    pub fn windowType(self: KRecentFilesMenu) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -4602,9 +5846,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -4614,13 +5862,17 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: KRecentFilesMenu, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: KRecentFilesMenu, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -4632,10 +5884,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: KRecentFilesMenu, p: anytype) QWidget {
+    pub fn childAt2(self: KRecentFilesMenu, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -4647,10 +5903,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: KRecentFilesMenu, p: anytype) QWidget {
+    pub fn childAt3(self: KRecentFilesMenu, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4662,9 +5922,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: KRecentFilesMenu, param1: i32) void {
+    pub fn setAttribute(self: KRecentFilesMenu, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4676,9 +5940,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: KRecentFilesMenu, param1: i32) bool {
+    pub fn testAttribute(self: KRecentFilesMenu, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -4688,9 +5956,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn EnsurePolished(self: KRecentFilesMenu) void {
+    pub fn ensurePolished(self: KRecentFilesMenu) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -4702,10 +5974,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: KRecentFilesMenu, child: anytype) bool {
+    pub fn isAncestorOf(self: KRecentFilesMenu, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4715,9 +5991,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn AutoFillBackground(self: KRecentFilesMenu) bool {
+    pub fn autoFillBackground(self: KRecentFilesMenu) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4729,9 +6009,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: KRecentFilesMenu, enabled: bool) void {
+    pub fn setAutoFillBackground(self: KRecentFilesMenu, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -4741,9 +6025,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn BackingStore(self: KRecentFilesMenu) QBackingStore {
+    pub fn backingStore(self: KRecentFilesMenu) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -4753,9 +6041,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn WindowHandle(self: KRecentFilesMenu) QWindow {
+    pub fn windowHandle(self: KRecentFilesMenu) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -4765,9 +6057,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn Screen(self: KRecentFilesMenu) QScreen {
+    pub fn screen(self: KRecentFilesMenu) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -4777,12 +6073,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: KRecentFilesMenu, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: KRecentFilesMenu, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -4790,12 +6090,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4805,15 +6109,19 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` title: []const u8 `
+    /// ` _title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: KRecentFilesMenu, title: []const u8) void {
+    pub fn windowTitleChanged(self: KRecentFilesMenu, _title: []const u8) void {
         const title_str = qtc.libqt_string{
-            .len = title.len,
-            .data = title.ptr,
+            .len = _title.len,
+            .data = _title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4825,9 +6133,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4837,12 +6149,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: KRecentFilesMenu, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn windowIconChanged(self: KRecentFilesMenu, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4854,9 +6170,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4868,13 +6188,17 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: KRecentFilesMenu, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: KRecentFilesMenu, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4886,9 +6210,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4898,12 +6226,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: KRecentFilesMenu, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: KRecentFilesMenu, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4915,9 +6247,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4931,9 +6267,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: KRecentFilesMenu) i32 {
+    pub fn inputMethodHints(self: KRecentFilesMenu) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4945,9 +6285,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: KRecentFilesMenu, hints: i32) void {
+    pub fn setInputMethodHints(self: KRecentFilesMenu, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -4961,11 +6305,15 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: KRecentFilesMenu, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: KRecentFilesMenu, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -4981,13 +6329,17 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: KRecentFilesMenu, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: KRecentFilesMenu, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -5004,12 +6356,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: KRecentFilesMenu, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: KRecentFilesMenu, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -5023,11 +6379,15 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: KRecentFilesMenu, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: KRecentFilesMenu, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -5043,12 +6403,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: KRecentFilesMenu, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: KRecentFilesMenu, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -5066,12 +6430,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: KRecentFilesMenu, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: KRecentFilesMenu, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -5083,10 +6451,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: KRecentFilesMenu, rectangle: anytype) QPixmap {
+    pub fn grab1(self: KRecentFilesMenu, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -5100,9 +6472,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: KRecentFilesMenu, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: KRecentFilesMenu, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -5116,10 +6492,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: KRecentFilesMenu, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: KRecentFilesMenu, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -5133,9 +6513,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: KRecentFilesMenu, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: KRecentFilesMenu, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -5149,9 +6533,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: KRecentFilesMenu, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: KRecentFilesMenu, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -5165,9 +6553,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: KRecentFilesMenu, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: KRecentFilesMenu, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -5181,25 +6573,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: KRecentFilesMenu, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: KRecentFilesMenu, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -5207,17 +6587,41 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -5229,13 +6633,17 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KRecentFilesMenu, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KRecentFilesMenu, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRecentFilesMenu.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRecentFilesMenu.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -5247,13 +6655,17 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KRecentFilesMenu, name: []const u8) void {
+    pub fn setObjectName(self: KRecentFilesMenu, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -5263,9 +6675,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn IsWidgetType(self: KRecentFilesMenu) bool {
+    pub fn isWidgetType(self: KRecentFilesMenu) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -5275,9 +6691,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn IsWindowType(self: KRecentFilesMenu) bool {
+    pub fn isWindowType(self: KRecentFilesMenu) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -5287,9 +6707,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn IsQuickItemType(self: KRecentFilesMenu) bool {
+    pub fn isQuickItemType(self: KRecentFilesMenu) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -5299,9 +6723,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn SignalsBlocked(self: KRecentFilesMenu) bool {
+    pub fn signalsBlocked(self: KRecentFilesMenu) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -5313,9 +6741,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KRecentFilesMenu, b: bool) bool {
+    pub fn blockSignals(self: KRecentFilesMenu, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -5325,9 +6757,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn Thread(self: KRecentFilesMenu) QThread {
+    pub fn thread(self: KRecentFilesMenu) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -5337,12 +6773,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KRecentFilesMenu, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KRecentFilesMenu, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -5354,9 +6794,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KRecentFilesMenu, interval: i32) i32 {
+    pub fn startTimer(self: KRecentFilesMenu, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -5368,9 +6812,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KRecentFilesMenu, time: i64) i32 {
+    pub fn startTimer2(self: KRecentFilesMenu, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -5382,9 +6830,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KRecentFilesMenu, id: i32) void {
+    pub fn killTimer(self: KRecentFilesMenu, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -5396,9 +6848,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KRecentFilesMenu, id: i32) void {
+    pub fn killTimer2(self: KRecentFilesMenu, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -5410,15 +6866,19 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KRecentFilesMenu, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KRecentFilesMenu, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KRecentFilesMenu.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KRecentFilesMenu.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5430,10 +6890,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KRecentFilesMenu, filterObj: anytype) void {
+    pub fn installEventFilter(self: KRecentFilesMenu, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5445,10 +6909,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KRecentFilesMenu, obj: anytype) void {
+    pub fn removeEventFilter(self: KRecentFilesMenu, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -5456,7 +6924,7 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5464,13 +6932,17 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -5478,7 +6950,7 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5486,13 +6958,17 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -5502,18 +6978,22 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KRecentFilesMenu, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KRecentFilesMenu, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -5521,7 +7001,7 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5529,13 +7009,17 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -5543,7 +7027,7 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5551,13 +7035,17 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -5567,9 +7055,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn Disconnect3(self: KRecentFilesMenu) bool {
+    pub fn disconnect3(self: KRecentFilesMenu) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -5581,10 +7073,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KRecentFilesMenu, receiver: anytype) bool {
+    pub fn disconnect4(self: KRecentFilesMenu, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -5594,10 +7090,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -5607,9 +7107,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn DumpObjectTree(self: KRecentFilesMenu) void {
+    pub fn dumpObjectTree(self: KRecentFilesMenu) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -5619,9 +7123,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn DumpObjectInfo(self: KRecentFilesMenu) void {
+    pub fn dumpObjectInfo(self: KRecentFilesMenu) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -5635,11 +7143,15 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KRecentFilesMenu, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KRecentFilesMenu, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -5651,10 +7163,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KRecentFilesMenu, name: [:0]const u8) QVariant {
+    pub fn property(self: KRecentFilesMenu, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -5666,7 +7182,7 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KRecentFilesMenu, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KRecentFilesMenu, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -5674,27 +7190,19 @@ pub const KRecentFilesMenu = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KRecentFilesMenu.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KRecentFilesMenu.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KRecentFilesMenu.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KRecentFilesMenu.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KRecentFilesMenu `
-    ///
-    pub fn BindingStorage(self: KRecentFilesMenu) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -5704,9 +7212,29 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn BindingStorage2(self: KRecentFilesMenu) QBindingStorage {
+    pub fn bindingStorage(self: KRecentFilesMenu) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KRecentFilesMenu `
+    ///
+    pub fn bindingStorage2(self: KRecentFilesMenu) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -5716,9 +7244,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn Destroyed(self: KRecentFilesMenu) void {
+    pub fn destroyed(self: KRecentFilesMenu) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -5730,9 +7262,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu) callconv(.c) void) void {
+    pub fn onDestroyed(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -5742,9 +7278,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn Parent(self: KRecentFilesMenu) QObject {
+    pub fn parent(self: KRecentFilesMenu) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -5756,10 +7296,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KRecentFilesMenu, classname: [:0]const u8) bool {
+    pub fn inherits(self: KRecentFilesMenu, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -5769,9 +7313,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn DeleteLater(self: KRecentFilesMenu) void {
+    pub fn deleteLater(self: KRecentFilesMenu) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -5785,9 +7333,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KRecentFilesMenu, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KRecentFilesMenu, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -5801,9 +7353,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KRecentFilesMenu, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KRecentFilesMenu, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -5811,7 +7367,7 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5821,13 +7377,17 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -5835,7 +7395,7 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5845,13 +7405,17 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -5861,7 +7425,7 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5869,12 +7433,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KRecentFilesMenu, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KRecentFilesMenu, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -5886,10 +7454,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KRecentFilesMenu, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KRecentFilesMenu, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -5903,11 +7475,15 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KRecentFilesMenu, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KRecentFilesMenu, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -5923,13 +7499,17 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KRecentFilesMenu, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KRecentFilesMenu, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -5942,11 +7522,15 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KRecentFilesMenu, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KRecentFilesMenu, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -5958,10 +7542,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KRecentFilesMenu, param1: anytype) void {
+    pub fn destroyed1(self: KRecentFilesMenu, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -5973,9 +7561,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -5985,9 +7577,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn PaintingActive(self: KRecentFilesMenu) bool {
+    pub fn paintingActive(self: KRecentFilesMenu) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5997,9 +7593,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn WidthMM(self: KRecentFilesMenu) i32 {
+    pub fn widthMM(self: KRecentFilesMenu) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -6009,9 +7609,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn HeightMM(self: KRecentFilesMenu) i32 {
+    pub fn heightMM(self: KRecentFilesMenu) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -6021,9 +7625,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn LogicalDpiX(self: KRecentFilesMenu) i32 {
+    pub fn logicalDpiX(self: KRecentFilesMenu) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -6033,9 +7641,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn LogicalDpiY(self: KRecentFilesMenu) i32 {
+    pub fn logicalDpiY(self: KRecentFilesMenu) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -6045,9 +7657,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn PhysicalDpiX(self: KRecentFilesMenu) i32 {
+    pub fn physicalDpiX(self: KRecentFilesMenu) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -6057,9 +7673,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn PhysicalDpiY(self: KRecentFilesMenu) i32 {
+    pub fn physicalDpiY(self: KRecentFilesMenu) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -6069,9 +7689,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn DevicePixelRatio(self: KRecentFilesMenu) f64 {
+    pub fn devicePixelRatio(self: KRecentFilesMenu) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -6081,9 +7705,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn DevicePixelRatioF(self: KRecentFilesMenu) f64 {
+    pub fn devicePixelRatioF(self: KRecentFilesMenu) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -6093,9 +7721,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn ColorCount(self: KRecentFilesMenu) i32 {
+    pub fn colorCount(self: KRecentFilesMenu) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -6105,17 +7737,25 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn Depth(self: KRecentFilesMenu) i32 {
+    pub fn depth(self: KRecentFilesMenu) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -6123,13 +7763,17 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
 
     /// Inherited from QMenu
     ///
@@ -6141,13 +7785,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn SizeHint(self: KRecentFilesMenu) QSize {
+    pub fn sizeHint(self: KRecentFilesMenu) QSize {
         return .{ .ptr = qtc.KRecentFilesMenu_SizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// Inherited from QMenu
     ///
@@ -6159,9 +7803,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn SuperSizeHint(self: KRecentFilesMenu) QSize {
+    pub fn superSizeHint(self: KRecentFilesMenu) QSize {
         return .{ .ptr = qtc.KRecentFilesMenu_SuperSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
 
     /// Inherited from QMenu
     ///
@@ -6177,9 +7825,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: KRecentFilesMenu, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KRecentFilesMenu, callback: *const fn () callconv(.c) QSize) void {
         qtc.KRecentFilesMenu_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QMenu
     ///
@@ -6193,14 +7845,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: KRecentFilesMenu, param1: anytype) void {
+    pub fn changeEvent(self: KRecentFilesMenu, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KRecentFilesMenu_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QMenu
     ///
@@ -6214,10 +7866,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: KRecentFilesMenu, param1: anytype) void {
+    pub fn superChangeEvent(self: KRecentFilesMenu, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KRecentFilesMenu_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QMenu
     ///
@@ -6231,9 +7887,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QEvent) callconv(.c) void) void {
         qtc.KRecentFilesMenu_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
 
     /// Inherited from QMenu
     ///
@@ -6247,14 +7907,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: KRecentFilesMenu, param1: anytype) void {
+    pub fn keyPressEvent(self: KRecentFilesMenu, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QKeyEvent;
         qtc.KRecentFilesMenu_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QMenu
     ///
@@ -6268,10 +7928,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: KRecentFilesMenu, param1: anytype) void {
+    pub fn superKeyPressEvent(self: KRecentFilesMenu, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QKeyEvent;
         qtc.KRecentFilesMenu_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// Inherited from QMenu
     ///
@@ -6285,9 +7949,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, param1: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QKeyEvent) callconv(.c) void) void {
         qtc.KRecentFilesMenu_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
 
     /// Inherited from QMenu
     ///
@@ -6301,14 +7969,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: KRecentFilesMenu, param1: anytype) void {
+    pub fn mouseReleaseEvent(self: KRecentFilesMenu, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMouseEvent;
         qtc.KRecentFilesMenu_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QMenu
     ///
@@ -6322,11 +7990,15 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: KRecentFilesMenu, param1: anytype) void {
+    pub fn superMouseReleaseEvent(self: KRecentFilesMenu, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMouseEvent;
         qtc.KRecentFilesMenu_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
+
     /// Inherited from QMenu
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#mouseReleaseEvent)
@@ -6339,9 +8011,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, param1: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QMouseEvent) callconv(.c) void) void {
         qtc.KRecentFilesMenu_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
 
     /// Inherited from QMenu
     ///
@@ -6355,14 +8031,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: KRecentFilesMenu, param1: anytype) void {
+    pub fn mousePressEvent(self: KRecentFilesMenu, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMouseEvent;
         qtc.KRecentFilesMenu_MousePressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QMenu
     ///
@@ -6376,11 +8052,15 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: KRecentFilesMenu, param1: anytype) void {
+    pub fn superMousePressEvent(self: KRecentFilesMenu, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMouseEvent;
         qtc.KRecentFilesMenu_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
+
     /// Inherited from QMenu
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#mousePressEvent)
@@ -6393,9 +8073,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, param1: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QMouseEvent) callconv(.c) void) void {
         qtc.KRecentFilesMenu_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
 
     /// Inherited from QMenu
     ///
@@ -6409,14 +8093,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: KRecentFilesMenu, param1: anytype) void {
+    pub fn mouseMoveEvent(self: KRecentFilesMenu, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMouseEvent;
         qtc.KRecentFilesMenu_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QMenu
     ///
@@ -6430,10 +8114,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: KRecentFilesMenu, param1: anytype) void {
+    pub fn superMouseMoveEvent(self: KRecentFilesMenu, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMouseEvent;
         qtc.KRecentFilesMenu_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QMenu
     ///
@@ -6447,9 +8135,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, param1: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QMouseEvent) callconv(.c) void) void {
         qtc.KRecentFilesMenu_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QMenu
     ///
@@ -6463,14 +8155,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QWheelEvent `
     ///
-    pub fn WheelEvent(self: KRecentFilesMenu, param1: anytype) void {
+    pub fn wheelEvent(self: KRecentFilesMenu, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWheelEvent;
         qtc.KRecentFilesMenu_WheelEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QMenu
     ///
@@ -6484,10 +8176,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: KRecentFilesMenu, param1: anytype) void {
+    pub fn superWheelEvent(self: KRecentFilesMenu, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWheelEvent;
         qtc.KRecentFilesMenu_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QMenu
     ///
@@ -6501,9 +8197,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, param1: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QWheelEvent) callconv(.c) void) void {
         qtc.KRecentFilesMenu_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QMenu
     ///
@@ -6517,14 +8217,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QEnterEvent `
     ///
-    pub fn EnterEvent(self: KRecentFilesMenu, param1: anytype) void {
+    pub fn enterEvent(self: KRecentFilesMenu, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEnterEvent;
         qtc.KRecentFilesMenu_EnterEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QMenu
     ///
@@ -6538,10 +8238,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: KRecentFilesMenu, param1: anytype) void {
+    pub fn superEnterEvent(self: KRecentFilesMenu, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEnterEvent;
         qtc.KRecentFilesMenu_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QMenu
     ///
@@ -6555,9 +8259,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, param1: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QEnterEvent) callconv(.c) void) void {
         qtc.KRecentFilesMenu_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QMenu
     ///
@@ -6571,14 +8279,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn LeaveEvent(self: KRecentFilesMenu, param1: anytype) void {
+    pub fn leaveEvent(self: KRecentFilesMenu, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KRecentFilesMenu_LeaveEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QMenu
     ///
@@ -6592,10 +8300,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: KRecentFilesMenu, param1: anytype) void {
+    pub fn superLeaveEvent(self: KRecentFilesMenu, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KRecentFilesMenu_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QMenu
     ///
@@ -6609,9 +8321,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QEvent) callconv(.c) void) void {
         qtc.KRecentFilesMenu_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QMenu
     ///
@@ -6625,14 +8341,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QHideEvent `
     ///
-    pub fn HideEvent(self: KRecentFilesMenu, param1: anytype) void {
+    pub fn hideEvent(self: KRecentFilesMenu, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QHideEvent;
         qtc.KRecentFilesMenu_HideEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QMenu
     ///
@@ -6646,10 +8362,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: KRecentFilesMenu, param1: anytype) void {
+    pub fn superHideEvent(self: KRecentFilesMenu, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QHideEvent;
         qtc.KRecentFilesMenu_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QMenu
     ///
@@ -6663,9 +8383,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, param1: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QHideEvent) callconv(.c) void) void {
         qtc.KRecentFilesMenu_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QMenu
     ///
@@ -6679,14 +8403,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QPaintEvent `
     ///
-    pub fn PaintEvent(self: KRecentFilesMenu, param1: anytype) void {
+    pub fn paintEvent(self: KRecentFilesMenu, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPaintEvent;
         qtc.KRecentFilesMenu_PaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QMenu
     ///
@@ -6700,10 +8424,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: KRecentFilesMenu, param1: anytype) void {
+    pub fn superPaintEvent(self: KRecentFilesMenu, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPaintEvent;
         qtc.KRecentFilesMenu_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QMenu
     ///
@@ -6717,9 +8445,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, param1: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QPaintEvent) callconv(.c) void) void {
         qtc.KRecentFilesMenu_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QMenu
     ///
@@ -6733,14 +8465,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QActionEvent `
     ///
-    pub fn ActionEvent(self: KRecentFilesMenu, param1: anytype) void {
+    pub fn actionEvent(self: KRecentFilesMenu, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QActionEvent;
         qtc.KRecentFilesMenu_ActionEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QMenu
     ///
@@ -6754,10 +8486,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: KRecentFilesMenu, param1: anytype) void {
+    pub fn superActionEvent(self: KRecentFilesMenu, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QActionEvent;
         qtc.KRecentFilesMenu_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QMenu
     ///
@@ -6771,9 +8507,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, param1: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QActionEvent) callconv(.c) void) void {
         qtc.KRecentFilesMenu_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QMenu
     ///
@@ -6787,14 +8527,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KRecentFilesMenu, param1: anytype) void {
+    pub fn timerEvent(self: KRecentFilesMenu, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QTimerEvent;
         qtc.KRecentFilesMenu_TimerEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QMenu
     ///
@@ -6808,10 +8548,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KRecentFilesMenu, param1: anytype) void {
+    pub fn superTimerEvent(self: KRecentFilesMenu, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QTimerEvent;
         qtc.KRecentFilesMenu_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QMenu
     ///
@@ -6825,9 +8569,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, param1: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QTimerEvent) callconv(.c) void) void {
         qtc.KRecentFilesMenu_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QMenu
     ///
@@ -6841,14 +8589,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn Event(self: KRecentFilesMenu, param1: anytype) bool {
+    pub fn event(self: KRecentFilesMenu, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QEvent;
         return qtc.KRecentFilesMenu_Event(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QMenu
     ///
@@ -6862,10 +8610,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperEvent(self: KRecentFilesMenu, param1: anytype) bool {
+    pub fn superEvent(self: KRecentFilesMenu, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QEvent;
         return qtc.KRecentFilesMenu_SuperEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QMenu
     ///
@@ -6879,9 +8631,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, param1: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QEvent) callconv(.c) bool) void {
         qtc.KRecentFilesMenu_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QMenu
     ///
@@ -6895,13 +8651,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: KRecentFilesMenu, next: bool) bool {
+    pub fn focusNextPrevChild(self: KRecentFilesMenu, next: bool) bool {
         return qtc.KRecentFilesMenu_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QMenu
     ///
@@ -6915,9 +8671,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: KRecentFilesMenu, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: KRecentFilesMenu, next: bool) bool {
         return qtc.KRecentFilesMenu_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QMenu
     ///
@@ -6931,9 +8691,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, bool) callconv(.c) bool) void {
         qtc.KRecentFilesMenu_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initStyleOption` instead
+    ///
+    pub const InitStyleOption = initStyleOption;
 
     /// Inherited from QMenu
     ///
@@ -6949,15 +8713,15 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InitStyleOption(self: KRecentFilesMenu, option: anytype, action: anytype) void {
+    pub fn initStyleOption(self: KRecentFilesMenu, option: anytype, action: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionMenuItem;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.KRecentFilesMenu_InitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr), @ptrCast(action.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    /// ### DEPRECATED: Use `superInitStyleOption` instead
     ///
-    pub const QBaseInitStyleOption = SuperInitStyleOption;
+    pub const SuperInitStyleOption = superInitStyleOption;
 
     /// Inherited from QMenu
     ///
@@ -6973,11 +8737,15 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn SuperInitStyleOption(self: KRecentFilesMenu, option: anytype, action: anytype) void {
+    pub fn superInitStyleOption(self: KRecentFilesMenu, option: anytype, action: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionMenuItem;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.KRecentFilesMenu_SuperInitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitStyleOption` instead
+    ///
+    pub const OnInitStyleOption = onInitStyleOption;
 
     /// Inherited from QMenu
     ///
@@ -6991,9 +8759,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, option: QStyleOptionMenuItem, action: QAction) callconv(.c) void `
     ///
-    pub fn OnInitStyleOption(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QStyleOptionMenuItem, QAction) callconv(.c) void) void {
+    pub fn onInitStyleOption(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QStyleOptionMenuItem, QAction) callconv(.c) void) void {
         qtc.KRecentFilesMenu_OnInitStyleOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -7005,13 +8777,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn DevType(self: KRecentFilesMenu) i32 {
+    pub fn devType(self: KRecentFilesMenu) i32 {
         return qtc.KRecentFilesMenu_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -7023,9 +8795,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn SuperDevType(self: KRecentFilesMenu) i32 {
+    pub fn superDevType(self: KRecentFilesMenu) i32 {
         return qtc.KRecentFilesMenu_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -7039,9 +8815,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: KRecentFilesMenu, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KRecentFilesMenu, callback: *const fn () callconv(.c) i32) void {
         qtc.KRecentFilesMenu_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -7055,13 +8835,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: KRecentFilesMenu, visible: bool) void {
+    pub fn setVisible(self: KRecentFilesMenu, visible: bool) void {
         qtc.KRecentFilesMenu_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -7075,9 +8855,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: KRecentFilesMenu, visible: bool) void {
+    pub fn superSetVisible(self: KRecentFilesMenu, visible: bool) void {
         qtc.KRecentFilesMenu_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -7091,9 +8875,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, bool) callconv(.c) void) void {
         qtc.KRecentFilesMenu_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -7105,13 +8893,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn MinimumSizeHint(self: KRecentFilesMenu) QSize {
+    pub fn minimumSizeHint(self: KRecentFilesMenu) QSize {
         return .{ .ptr = qtc.KRecentFilesMenu_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -7123,9 +8911,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn SuperMinimumSizeHint(self: KRecentFilesMenu) QSize {
+    pub fn superMinimumSizeHint(self: KRecentFilesMenu) QSize {
         return .{ .ptr = qtc.KRecentFilesMenu_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -7141,9 +8933,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: KRecentFilesMenu, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KRecentFilesMenu, callback: *const fn () callconv(.c) QSize) void {
         qtc.KRecentFilesMenu_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7157,13 +8953,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: KRecentFilesMenu, param1: i32) i32 {
+    pub fn heightForWidth(self: KRecentFilesMenu, param1: i32) i32 {
         return qtc.KRecentFilesMenu_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7177,9 +8973,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: KRecentFilesMenu, param1: i32) i32 {
+    pub fn superHeightForWidth(self: KRecentFilesMenu, param1: i32) i32 {
         return qtc.KRecentFilesMenu_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7193,9 +8993,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, i32) callconv(.c) i32) void {
         qtc.KRecentFilesMenu_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7207,13 +9011,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn HasHeightForWidth(self: KRecentFilesMenu) bool {
+    pub fn hasHeightForWidth(self: KRecentFilesMenu) bool {
         return qtc.KRecentFilesMenu_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7225,9 +9029,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn SuperHasHeightForWidth(self: KRecentFilesMenu) bool {
+    pub fn superHasHeightForWidth(self: KRecentFilesMenu) bool {
         return qtc.KRecentFilesMenu_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7241,9 +9049,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: KRecentFilesMenu, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KRecentFilesMenu, callback: *const fn () callconv(.c) bool) void {
         qtc.KRecentFilesMenu_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -7255,13 +9067,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn PaintEngine(self: KRecentFilesMenu) QPaintEngine {
+    pub fn paintEngine(self: KRecentFilesMenu) QPaintEngine {
         return .{ .ptr = qtc.KRecentFilesMenu_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -7273,9 +9085,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn SuperPaintEngine(self: KRecentFilesMenu) QPaintEngine {
+    pub fn superPaintEngine(self: KRecentFilesMenu) QPaintEngine {
         return .{ .ptr = qtc.KRecentFilesMenu_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -7289,9 +9105,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: KRecentFilesMenu, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KRecentFilesMenu, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.KRecentFilesMenu_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -7303,16 +9123,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: KRecentFilesMenu, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KRecentFilesMenu_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: KRecentFilesMenu, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KRecentFilesMenu_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -7324,12 +9144,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: KRecentFilesMenu, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KRecentFilesMenu_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: KRecentFilesMenu, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KRecentFilesMenu_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -7343,9 +9167,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QMouseEvent) callconv(.c) void) void {
         qtc.KRecentFilesMenu_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7357,16 +9185,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: KRecentFilesMenu, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KRecentFilesMenu_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: KRecentFilesMenu, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KRecentFilesMenu_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7378,12 +9206,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: KRecentFilesMenu, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KRecentFilesMenu_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: KRecentFilesMenu, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KRecentFilesMenu_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7397,10 +9229,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QKeyEvent) callconv(.c) void) void {
         qtc.KRecentFilesMenu_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -7411,16 +9247,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: KRecentFilesMenu, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KRecentFilesMenu_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: KRecentFilesMenu, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KRecentFilesMenu_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -7432,12 +9268,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: KRecentFilesMenu, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KRecentFilesMenu_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: KRecentFilesMenu, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KRecentFilesMenu_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -7451,10 +9291,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QFocusEvent) callconv(.c) void) void {
         qtc.KRecentFilesMenu_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -7465,16 +9309,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: KRecentFilesMenu, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KRecentFilesMenu_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: KRecentFilesMenu, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KRecentFilesMenu_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -7486,12 +9330,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: KRecentFilesMenu, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KRecentFilesMenu_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: KRecentFilesMenu, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KRecentFilesMenu_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -7505,9 +9353,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QFocusEvent) callconv(.c) void) void {
         qtc.KRecentFilesMenu_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7519,16 +9371,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: KRecentFilesMenu, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KRecentFilesMenu_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: KRecentFilesMenu, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KRecentFilesMenu_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7540,12 +9392,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: KRecentFilesMenu, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KRecentFilesMenu_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: KRecentFilesMenu, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KRecentFilesMenu_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7559,9 +9415,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QMoveEvent) callconv(.c) void) void {
         qtc.KRecentFilesMenu_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7573,16 +9433,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: KRecentFilesMenu, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.KRecentFilesMenu_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn resizeEvent(self: KRecentFilesMenu, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.KRecentFilesMenu_ResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7594,12 +9454,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: KRecentFilesMenu, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.KRecentFilesMenu_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superResizeEvent(self: KRecentFilesMenu, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.KRecentFilesMenu_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7613,9 +9477,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QResizeEvent) callconv(.c) void) void {
         qtc.KRecentFilesMenu_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7627,16 +9495,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: KRecentFilesMenu, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KRecentFilesMenu_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: KRecentFilesMenu, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KRecentFilesMenu_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7648,12 +9516,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: KRecentFilesMenu, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KRecentFilesMenu_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: KRecentFilesMenu, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KRecentFilesMenu_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7667,9 +9539,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QCloseEvent) callconv(.c) void) void {
         qtc.KRecentFilesMenu_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -7681,16 +9557,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: KRecentFilesMenu, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.KRecentFilesMenu_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn contextMenuEvent(self: KRecentFilesMenu, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.KRecentFilesMenu_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -7702,12 +9578,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: KRecentFilesMenu, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.KRecentFilesMenu_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superContextMenuEvent(self: KRecentFilesMenu, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.KRecentFilesMenu_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -7721,9 +9601,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, event: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QContextMenuEvent) callconv(.c) void) void {
         qtc.KRecentFilesMenu_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7735,16 +9619,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: KRecentFilesMenu, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KRecentFilesMenu_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: KRecentFilesMenu, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KRecentFilesMenu_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7756,12 +9640,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: KRecentFilesMenu, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KRecentFilesMenu_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: KRecentFilesMenu, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KRecentFilesMenu_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7775,9 +9663,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QTabletEvent) callconv(.c) void) void {
         qtc.KRecentFilesMenu_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7789,16 +9681,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: KRecentFilesMenu, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KRecentFilesMenu_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: KRecentFilesMenu, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KRecentFilesMenu_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7810,12 +9702,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: KRecentFilesMenu, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KRecentFilesMenu_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: KRecentFilesMenu, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KRecentFilesMenu_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7829,9 +9725,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QDragEnterEvent) callconv(.c) void) void {
         qtc.KRecentFilesMenu_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7843,16 +9743,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: KRecentFilesMenu, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KRecentFilesMenu_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: KRecentFilesMenu, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KRecentFilesMenu_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7864,12 +9764,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: KRecentFilesMenu, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KRecentFilesMenu_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: KRecentFilesMenu, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KRecentFilesMenu_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7883,9 +9787,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QDragMoveEvent) callconv(.c) void) void {
         qtc.KRecentFilesMenu_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7897,16 +9805,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: KRecentFilesMenu, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KRecentFilesMenu_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: KRecentFilesMenu, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KRecentFilesMenu_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7918,12 +9826,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: KRecentFilesMenu, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KRecentFilesMenu_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: KRecentFilesMenu, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KRecentFilesMenu_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7937,9 +9849,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QDragLeaveEvent) callconv(.c) void) void {
         qtc.KRecentFilesMenu_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7951,16 +9867,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: KRecentFilesMenu, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KRecentFilesMenu_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: KRecentFilesMenu, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KRecentFilesMenu_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7972,12 +9888,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: KRecentFilesMenu, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KRecentFilesMenu_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: KRecentFilesMenu, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KRecentFilesMenu_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7991,9 +9911,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QDropEvent) callconv(.c) void) void {
         qtc.KRecentFilesMenu_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QWidget
     ///
@@ -8005,16 +9929,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn ShowEvent(self: KRecentFilesMenu, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KRecentFilesMenu_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn showEvent(self: KRecentFilesMenu, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KRecentFilesMenu_ShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -8026,12 +9950,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: KRecentFilesMenu, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KRecentFilesMenu_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superShowEvent(self: KRecentFilesMenu, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KRecentFilesMenu_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -8045,9 +9973,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QShowEvent) callconv(.c) void) void {
         qtc.KRecentFilesMenu_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -8065,7 +9997,7 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: KRecentFilesMenu, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: KRecentFilesMenu, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -8073,9 +10005,9 @@ pub const KRecentFilesMenu = extern struct {
         return qtc.KRecentFilesMenu_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -8093,13 +10025,17 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: KRecentFilesMenu, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: KRecentFilesMenu, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.KRecentFilesMenu_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -8113,9 +10049,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KRecentFilesMenu_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -8129,13 +10069,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: KRecentFilesMenu, param1: i32) i32 {
+    pub fn metric(self: KRecentFilesMenu, param1: i32) i32 {
         return qtc.KRecentFilesMenu_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -8149,9 +10089,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: KRecentFilesMenu, param1: i32) i32 {
+    pub fn superMetric(self: KRecentFilesMenu, param1: i32) i32 {
         return qtc.KRecentFilesMenu_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -8165,9 +10109,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, i32) callconv(.c) i32) void {
         qtc.KRecentFilesMenu_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -8181,14 +10129,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: KRecentFilesMenu, painter: anytype) void {
+    pub fn initPainter(self: KRecentFilesMenu, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KRecentFilesMenu_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -8202,10 +10150,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: KRecentFilesMenu, painter: anytype) void {
+    pub fn superInitPainter(self: KRecentFilesMenu, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KRecentFilesMenu_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -8219,9 +10171,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QPainter) callconv(.c) void) void {
         qtc.KRecentFilesMenu_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -8235,14 +10191,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: KRecentFilesMenu, offset: anytype) QPaintDevice {
+    pub fn redirected(self: KRecentFilesMenu, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KRecentFilesMenu_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -8256,10 +10212,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: KRecentFilesMenu, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: KRecentFilesMenu, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KRecentFilesMenu_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -8273,9 +10233,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QPoint) callconv(.c) QPaintDevice) void {
         qtc.KRecentFilesMenu_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8287,13 +10251,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn SharedPainter(self: KRecentFilesMenu) QPainter {
+    pub fn sharedPainter(self: KRecentFilesMenu) QPainter {
         return .{ .ptr = qtc.KRecentFilesMenu_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8305,9 +10269,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn SuperSharedPainter(self: KRecentFilesMenu) QPainter {
+    pub fn superSharedPainter(self: KRecentFilesMenu) QPainter {
         return .{ .ptr = qtc.KRecentFilesMenu_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8321,9 +10289,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: KRecentFilesMenu, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KRecentFilesMenu, callback: *const fn () callconv(.c) QPainter) void {
         qtc.KRecentFilesMenu_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -8337,14 +10309,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: KRecentFilesMenu, param1: anytype) void {
+    pub fn inputMethodEvent(self: KRecentFilesMenu, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KRecentFilesMenu_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -8358,10 +10330,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: KRecentFilesMenu, param1: anytype) void {
+    pub fn superInputMethodEvent(self: KRecentFilesMenu, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KRecentFilesMenu_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -8375,9 +10351,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QInputMethodEvent) callconv(.c) void) void {
         qtc.KRecentFilesMenu_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -8391,13 +10371,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: KRecentFilesMenu, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: KRecentFilesMenu, param1: i32) QVariant {
         return .{ .ptr = qtc.KRecentFilesMenu_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -8411,9 +10391,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: KRecentFilesMenu, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: KRecentFilesMenu, param1: i32) QVariant {
         return .{ .ptr = qtc.KRecentFilesMenu_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -8429,9 +10413,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, i32) callconv(.c) QVariant) void {
         qtc.KRecentFilesMenu_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -8445,17 +10433,17 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KRecentFilesMenu, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KRecentFilesMenu, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KRecentFilesMenu_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KRecentFilesMenu_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -8469,13 +10457,17 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: KRecentFilesMenu, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: KRecentFilesMenu, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KRecentFilesMenu_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KRecentFilesMenu_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -8489,9 +10481,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QObject, QEvent) callconv(.c) bool) void {
         qtc.KRecentFilesMenu_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -8503,16 +10499,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KRecentFilesMenu, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KRecentFilesMenu_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KRecentFilesMenu, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KRecentFilesMenu_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8524,12 +10520,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KRecentFilesMenu, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KRecentFilesMenu_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KRecentFilesMenu, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KRecentFilesMenu_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8543,9 +10543,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QChildEvent) callconv(.c) void) void {
         qtc.KRecentFilesMenu_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -8557,16 +10561,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KRecentFilesMenu, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KRecentFilesMenu_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KRecentFilesMenu, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KRecentFilesMenu_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8578,12 +10582,16 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KRecentFilesMenu, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KRecentFilesMenu_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KRecentFilesMenu, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KRecentFilesMenu_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8597,9 +10605,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QEvent) callconv(.c) void) void {
         qtc.KRecentFilesMenu_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -8613,14 +10625,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KRecentFilesMenu, signal: anytype) void {
+    pub fn connectNotify(self: KRecentFilesMenu, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KRecentFilesMenu_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8634,11 +10646,15 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KRecentFilesMenu, signal: anytype) void {
+    pub fn superConnectNotify(self: KRecentFilesMenu, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KRecentFilesMenu_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -8651,9 +10667,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QMetaMethod) callconv(.c) void) void {
         qtc.KRecentFilesMenu_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8667,14 +10687,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KRecentFilesMenu, signal: anytype) void {
+    pub fn disconnectNotify(self: KRecentFilesMenu, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KRecentFilesMenu_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8688,10 +10708,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KRecentFilesMenu, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KRecentFilesMenu, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KRecentFilesMenu_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8705,9 +10729,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QMetaMethod) callconv(.c) void) void {
         qtc.KRecentFilesMenu_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `columnCount` instead
+    ///
+    pub const ColumnCount = columnCount;
 
     /// Inherited from QMenu
     ///
@@ -8719,13 +10747,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn ColumnCount(self: KRecentFilesMenu) i32 {
+    pub fn columnCount(self: KRecentFilesMenu) i32 {
         return qtc.KRecentFilesMenu_ColumnCount(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperColumnCount` instead
+    /// ### DEPRECATED: Use `superColumnCount` instead
     ///
-    pub const QBaseColumnCount = SuperColumnCount;
+    pub const SuperColumnCount = superColumnCount;
 
     /// Inherited from QMenu
     ///
@@ -8737,9 +10765,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn SuperColumnCount(self: KRecentFilesMenu) i32 {
+    pub fn superColumnCount(self: KRecentFilesMenu) i32 {
         return qtc.KRecentFilesMenu_SuperColumnCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onColumnCount` instead
+    ///
+    pub const OnColumnCount = onColumnCount;
 
     /// Inherited from QMenu
     ///
@@ -8753,10 +10785,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnColumnCount(self: KRecentFilesMenu, callback: *const fn () callconv(.c) i32) void {
+    pub fn onColumnCount(self: KRecentFilesMenu, callback: *const fn () callconv(.c) i32) void {
         qtc.KRecentFilesMenu_OnColumnCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8767,13 +10803,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn UpdateMicroFocus(self: KRecentFilesMenu) void {
+    pub fn updateMicroFocus(self: KRecentFilesMenu) void {
         qtc.KRecentFilesMenu_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -8785,10 +10821,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn SuperUpdateMicroFocus(self: KRecentFilesMenu) void {
+    pub fn superUpdateMicroFocus(self: KRecentFilesMenu) void {
         qtc.KRecentFilesMenu_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8801,10 +10841,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: KRecentFilesMenu, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: KRecentFilesMenu, callback: *const fn () callconv(.c) void) void {
         qtc.KRecentFilesMenu_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8815,13 +10859,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn Create(self: KRecentFilesMenu) void {
+    pub fn create(self: KRecentFilesMenu) void {
         qtc.KRecentFilesMenu_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -8833,10 +10877,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn SuperCreate(self: KRecentFilesMenu) void {
+    pub fn superCreate(self: KRecentFilesMenu) void {
         qtc.KRecentFilesMenu_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8849,9 +10897,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: KRecentFilesMenu, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: KRecentFilesMenu, callback: *const fn () callconv(.c) void) void {
         qtc.KRecentFilesMenu_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -8863,13 +10915,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn Destroy(self: KRecentFilesMenu) void {
+    pub fn destroy(self: KRecentFilesMenu) void {
         qtc.KRecentFilesMenu_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8881,9 +10933,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn SuperDestroy(self: KRecentFilesMenu) void {
+    pub fn superDestroy(self: KRecentFilesMenu) void {
         qtc.KRecentFilesMenu_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8897,10 +10953,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: KRecentFilesMenu, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: KRecentFilesMenu, callback: *const fn () callconv(.c) void) void {
         qtc.KRecentFilesMenu_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8911,13 +10971,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn FocusNextChild(self: KRecentFilesMenu) bool {
+    pub fn focusNextChild(self: KRecentFilesMenu) bool {
         return qtc.KRecentFilesMenu_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -8929,10 +10989,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn SuperFocusNextChild(self: KRecentFilesMenu) bool {
+    pub fn superFocusNextChild(self: KRecentFilesMenu) bool {
         return qtc.KRecentFilesMenu_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8945,9 +11009,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: KRecentFilesMenu, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: KRecentFilesMenu, callback: *const fn () callconv(.c) bool) void {
         qtc.KRecentFilesMenu_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8959,13 +11027,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn FocusPreviousChild(self: KRecentFilesMenu) bool {
+    pub fn focusPreviousChild(self: KRecentFilesMenu) bool {
         return qtc.KRecentFilesMenu_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8977,9 +11045,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn SuperFocusPreviousChild(self: KRecentFilesMenu) bool {
+    pub fn superFocusPreviousChild(self: KRecentFilesMenu) bool {
         return qtc.KRecentFilesMenu_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8993,9 +11065,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: KRecentFilesMenu, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: KRecentFilesMenu, callback: *const fn () callconv(.c) bool) void {
         qtc.KRecentFilesMenu_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -9007,13 +11083,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn Sender(self: KRecentFilesMenu) QObject {
+    pub fn sender(self: KRecentFilesMenu) QObject {
         return .{ .ptr = qtc.KRecentFilesMenu_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -9025,9 +11101,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn SuperSender(self: KRecentFilesMenu) QObject {
+    pub fn superSender(self: KRecentFilesMenu) QObject {
         return .{ .ptr = qtc.KRecentFilesMenu_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -9041,9 +11121,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KRecentFilesMenu, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KRecentFilesMenu, callback: *const fn () callconv(.c) QObject) void {
         qtc.KRecentFilesMenu_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -9055,13 +11139,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn SenderSignalIndex(self: KRecentFilesMenu) i32 {
+    pub fn senderSignalIndex(self: KRecentFilesMenu) i32 {
         return qtc.KRecentFilesMenu_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -9073,9 +11157,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn SuperSenderSignalIndex(self: KRecentFilesMenu) i32 {
+    pub fn superSenderSignalIndex(self: KRecentFilesMenu) i32 {
         return qtc.KRecentFilesMenu_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -9089,9 +11177,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KRecentFilesMenu, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KRecentFilesMenu, callback: *const fn () callconv(.c) i32) void {
         qtc.KRecentFilesMenu_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -9105,14 +11197,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KRecentFilesMenu, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KRecentFilesMenu, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KRecentFilesMenu_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -9126,10 +11218,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KRecentFilesMenu, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KRecentFilesMenu, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KRecentFilesMenu_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -9143,9 +11239,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, [*:0]const u8) callconv(.c) i32) void {
         qtc.KRecentFilesMenu_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -9159,14 +11259,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KRecentFilesMenu, signal: anytype) bool {
+    pub fn isSignalConnected(self: KRecentFilesMenu, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KRecentFilesMenu_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -9180,10 +11280,14 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KRecentFilesMenu, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KRecentFilesMenu, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KRecentFilesMenu_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -9197,9 +11301,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, QMetaMethod) callconv(.c) bool) void {
         qtc.KRecentFilesMenu_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9215,13 +11323,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: KRecentFilesMenu, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: KRecentFilesMenu, metricA: i32, metricB: i32) f64 {
         return qtc.KRecentFilesMenu_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9237,9 +11345,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: KRecentFilesMenu, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: KRecentFilesMenu, metricA: i32, metricB: i32) f64 {
         return qtc.KRecentFilesMenu_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9253,9 +11365,13 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, i32, i32) callconv(.c) f64) void {
         qtc.KRecentFilesMenu_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -9269,23 +11385,23 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/krecentfilesmenu.html#dtor.KRecentFilesMenu)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KRecentFilesMenu `
     ///
-    pub fn Delete(self: KRecentFilesMenu) void {
+    pub fn delete(self: KRecentFilesMenu) void {
         qtc.KRecentFilesMenu_Delete(@ptrCast(self.ptr));
     }
 };

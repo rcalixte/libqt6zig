@@ -12,23 +12,31 @@ pub const KCoreAddons = extern struct {
 
     pub const _is_KCoreAddons = {};
 
+    /// ### DEPRECATED: Use `versionString` instead
+    ///
+    pub const VersionString = versionString;
+
     /// ### [Upstream resources](https://api.kde.org/kcoreaddons.html#versionString)
     ///
     /// ## Parameter(s):
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn VersionString(allocator: std.mem.Allocator) []const u8 {
+    pub fn versionString(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KCoreAddons_VersionString();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCoreAddons.VersionString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCoreAddons.versionString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `version` instead
+    ///
+    pub const Version = version;
+
     /// ### [Upstream resources](https://api.kde.org/kcoreaddons.html#version)
     ///
-    pub fn Version() u32 {
+    pub fn version() u32 {
         return qtc.KCoreAddons_Version();
     }
 };

@@ -16,22 +16,34 @@ pub const QJsonArray = extern struct {
 
     pub const _is_QJsonArray = {};
 
-    /// New constructs a new QJsonArray object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QJsonArray {
+    pub const New = new;
+
+    /// Allocate a new QJsonArray object in C++ memory
+    ///
+    pub fn new() QJsonArray {
         return .{ .ptr = qtc.QJsonArray_new() };
     }
 
-    /// New2 constructs a new QJsonArray object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QJsonArray object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QJsonArray `
     ///
-    pub fn New2(other: anytype) QJsonArray {
+    pub fn new2(other: anytype) QJsonArray {
         comptime _ = @TypeOf(other)._is_QJsonArray;
         return .{ .ptr = qtc.QJsonArray_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray.html#operator-eq)
     ///
@@ -41,10 +53,14 @@ pub const QJsonArray = extern struct {
     ///
     /// ` other: QJsonArray `
     ///
-    pub fn OperatorAssign(self: QJsonArray, other: anytype) void {
+    pub fn operatorAssign(self: QJsonArray, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QJsonArray;
         qtc.QJsonArray_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `fromStringList` instead
+    ///
+    pub const FromStringList = fromStringList;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray.html#fromStringList)
     ///
@@ -54,13 +70,13 @@ pub const QJsonArray = extern struct {
     ///
     /// ` list: []const []const u8 `
     ///
-    pub fn FromStringList(allocator: std.mem.Allocator, list: []const []const u8) QJsonArray {
-        const list_arr = allocator.alloc(qtc.libqt_string, list.len) catch @panic("QJsonArray.FromStringList: Memory allocation failed");
+    pub fn fromStringList(allocator: std.mem.Allocator, list: []const []const u8) QJsonArray {
+        const list_arr = allocator.alloc(qtc.libqt_string, list.len) catch @panic("QJsonArray.fromStringList: Memory allocation failed");
         defer allocator.free(list_arr);
-        for (list, 0..list.len) |item, i|
+        for (list, 0..list.len) |str_item, i|
             list_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const list_list = qtc.libqt_list{
             .len = list.len,
@@ -69,19 +85,27 @@ pub const QJsonArray = extern struct {
         return .{ .ptr = qtc.QJsonArray_FromStringList(list_list) };
     }
 
+    /// ### DEPRECATED: Use `fromVariantList` instead
+    ///
+    pub const FromVariantList = fromVariantList;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray.html#fromVariantList)
     ///
     /// ## Parameter(s):
     ///
     /// ` list: []QVariant `
     ///
-    pub fn FromVariantList(list: []QVariant) QJsonArray {
+    pub fn fromVariantList(list: []QVariant) QJsonArray {
         const list_list = qtc.libqt_list{
             .len = list.len,
             .data = @ptrCast(list.ptr),
         };
         return .{ .ptr = qtc.QJsonArray_FromVariantList(list_list) };
     }
+
+    /// ### DEPRECATED: Use `toVariantList` instead
+    ///
+    pub const ToVariantList = toVariantList;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray.html#toVariantList)
     ///
@@ -91,15 +115,19 @@ pub const QJsonArray = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToVariantList(self: QJsonArray, allocator: std.mem.Allocator) []QVariant {
+    pub fn toVariantList(self: QJsonArray, allocator: std.mem.Allocator) []QVariant {
         const _arr: qtc.libqt_list = qtc.QJsonArray_ToVariantList(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QVariant, _arr.len) catch @panic("QJsonArray.ToVariantList: Memory allocation failed");
-        const _data: [*]QtC.QVariant = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QVariant, _arr.len) catch @panic("QJsonArray.toVariantList: Memory allocation failed");
+        const _data_val: [*]QtC.QVariant = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray.html#size)
     ///
@@ -107,9 +135,13 @@ pub const QJsonArray = extern struct {
     ///
     /// ` self: QJsonArray `
     ///
-    pub fn Size(self: QJsonArray) isize {
+    pub fn size(self: QJsonArray) isize {
         return qtc.QJsonArray_Size(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `count` instead
+    ///
+    pub const Count = count;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray.html#count)
     ///
@@ -117,9 +149,13 @@ pub const QJsonArray = extern struct {
     ///
     /// ` self: QJsonArray `
     ///
-    pub fn Count(self: QJsonArray) isize {
+    pub fn count(self: QJsonArray) isize {
         return qtc.QJsonArray_Count(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEmpty` instead
+    ///
+    pub const IsEmpty = isEmpty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray.html#isEmpty)
     ///
@@ -127,9 +163,13 @@ pub const QJsonArray = extern struct {
     ///
     /// ` self: QJsonArray `
     ///
-    pub fn IsEmpty(self: QJsonArray) bool {
+    pub fn isEmpty(self: QJsonArray) bool {
         return qtc.QJsonArray_IsEmpty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `at` instead
+    ///
+    pub const At = at;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray.html#at)
     ///
@@ -139,9 +179,13 @@ pub const QJsonArray = extern struct {
     ///
     /// ` i: isize `
     ///
-    pub fn At(self: QJsonArray, i: isize) QJsonValue {
+    pub fn at(self: QJsonArray, i: isize) QJsonValue {
         return .{ .ptr = qtc.QJsonArray_At(@ptrCast(self.ptr), @bitCast(i)) };
     }
+
+    /// ### DEPRECATED: Use `first` instead
+    ///
+    pub const First = first;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray.html#first)
     ///
@@ -149,9 +193,13 @@ pub const QJsonArray = extern struct {
     ///
     /// ` self: QJsonArray `
     ///
-    pub fn First(self: QJsonArray) QJsonValue {
+    pub fn first(self: QJsonArray) QJsonValue {
         return .{ .ptr = qtc.QJsonArray_First(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `last` instead
+    ///
+    pub const Last = last;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray.html#last)
     ///
@@ -159,9 +207,13 @@ pub const QJsonArray = extern struct {
     ///
     /// ` self: QJsonArray `
     ///
-    pub fn Last(self: QJsonArray) QJsonValue {
+    pub fn last(self: QJsonArray) QJsonValue {
         return .{ .ptr = qtc.QJsonArray_Last(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `prepend` instead
+    ///
+    pub const Prepend = prepend;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray.html#prepend)
     ///
@@ -171,10 +223,14 @@ pub const QJsonArray = extern struct {
     ///
     /// ` value: QJsonValue `
     ///
-    pub fn Prepend(self: QJsonArray, value: anytype) void {
+    pub fn prepend(self: QJsonArray, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QJsonValue;
         qtc.QJsonArray_Prepend(@ptrCast(self.ptr), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `append` instead
+    ///
+    pub const Append = append;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray.html#append)
     ///
@@ -184,10 +240,14 @@ pub const QJsonArray = extern struct {
     ///
     /// ` value: QJsonValue `
     ///
-    pub fn Append(self: QJsonArray, value: anytype) void {
+    pub fn append(self: QJsonArray, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QJsonValue;
         qtc.QJsonArray_Append(@ptrCast(self.ptr), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAt` instead
+    ///
+    pub const RemoveAt = removeAt;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray.html#removeAt)
     ///
@@ -197,9 +257,13 @@ pub const QJsonArray = extern struct {
     ///
     /// ` i: isize `
     ///
-    pub fn RemoveAt(self: QJsonArray, i: isize) void {
+    pub fn removeAt(self: QJsonArray, i: isize) void {
         qtc.QJsonArray_RemoveAt(@ptrCast(self.ptr), @bitCast(i));
     }
+
+    /// ### DEPRECATED: Use `takeAt` instead
+    ///
+    pub const TakeAt = takeAt;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray.html#takeAt)
     ///
@@ -209,9 +273,13 @@ pub const QJsonArray = extern struct {
     ///
     /// ` i: isize `
     ///
-    pub fn TakeAt(self: QJsonArray, i: isize) QJsonValue {
+    pub fn takeAt(self: QJsonArray, i: isize) QJsonValue {
         return .{ .ptr = qtc.QJsonArray_TakeAt(@ptrCast(self.ptr), @bitCast(i)) };
     }
+
+    /// ### DEPRECATED: Use `removeFirst` instead
+    ///
+    pub const RemoveFirst = removeFirst;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray.html#removeFirst)
     ///
@@ -219,9 +287,13 @@ pub const QJsonArray = extern struct {
     ///
     /// ` self: QJsonArray `
     ///
-    pub fn RemoveFirst(self: QJsonArray) void {
+    pub fn removeFirst(self: QJsonArray) void {
         qtc.QJsonArray_RemoveFirst(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeLast` instead
+    ///
+    pub const RemoveLast = removeLast;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray.html#removeLast)
     ///
@@ -229,9 +301,13 @@ pub const QJsonArray = extern struct {
     ///
     /// ` self: QJsonArray `
     ///
-    pub fn RemoveLast(self: QJsonArray) void {
+    pub fn removeLast(self: QJsonArray) void {
         qtc.QJsonArray_RemoveLast(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `insert` instead
+    ///
+    pub const Insert = insert;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray.html#insert)
     ///
@@ -243,10 +319,14 @@ pub const QJsonArray = extern struct {
     ///
     /// ` value: QJsonValue `
     ///
-    pub fn Insert(self: QJsonArray, i: isize, value: anytype) void {
+    pub fn insert(self: QJsonArray, i: isize, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QJsonValue;
         qtc.QJsonArray_Insert(@ptrCast(self.ptr), @bitCast(i), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `replace` instead
+    ///
+    pub const Replace = replace;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray.html#replace)
     ///
@@ -258,10 +338,14 @@ pub const QJsonArray = extern struct {
     ///
     /// ` value: QJsonValue `
     ///
-    pub fn Replace(self: QJsonArray, i: isize, value: anytype) void {
+    pub fn replace(self: QJsonArray, i: isize, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QJsonValue;
         qtc.QJsonArray_Replace(@ptrCast(self.ptr), @bitCast(i), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `contains` instead
+    ///
+    pub const Contains = contains;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray.html#contains)
     ///
@@ -271,22 +355,14 @@ pub const QJsonArray = extern struct {
     ///
     /// ` element: QJsonValue `
     ///
-    pub fn Contains(self: QJsonArray, element: anytype) bool {
+    pub fn contains(self: QJsonArray, element: anytype) bool {
         comptime _ = @TypeOf(element)._is_QJsonValue;
         return qtc.QJsonArray_Contains(@ptrCast(self.ptr), @ptrCast(element.ptr));
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray.html#operator-5b-5d)
+    /// ### DEPRECATED: Use `operatorSubscript` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QJsonArray `
-    ///
-    /// ` i: isize `
-    ///
-    pub fn OperatorSubscript(self: QJsonArray, i: isize) QJsonValueRef {
-        return .{ .ptr = qtc.QJsonArray_OperatorSubscript(@ptrCast(self.ptr), @bitCast(i)) };
-    }
+    pub const OperatorSubscript = operatorSubscript;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray.html#operator-5b-5d)
     ///
@@ -296,9 +372,29 @@ pub const QJsonArray = extern struct {
     ///
     /// ` i: isize `
     ///
-    pub fn OperatorSubscript2(self: QJsonArray, i: isize) QJsonValue {
+    pub fn operatorSubscript(self: QJsonArray, i: isize) QJsonValueRef {
+        return .{ .ptr = qtc.QJsonArray_OperatorSubscript(@ptrCast(self.ptr), @bitCast(i)) };
+    }
+
+    /// ### DEPRECATED: Use `operatorSubscript2` instead
+    ///
+    pub const OperatorSubscript2 = operatorSubscript2;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray.html#operator-5b-5d)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QJsonArray `
+    ///
+    /// ` i: isize `
+    ///
+    pub fn operatorSubscript2(self: QJsonArray, i: isize) QJsonValue {
         return .{ .ptr = qtc.QJsonArray_OperatorSubscript2(@ptrCast(self.ptr), @bitCast(i)) };
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray.html#swap)
     ///
@@ -308,20 +404,14 @@ pub const QJsonArray = extern struct {
     ///
     /// ` other: QJsonArray `
     ///
-    pub fn Swap(self: QJsonArray, other: anytype) void {
+    pub fn swap(self: QJsonArray, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QJsonArray;
         qtc.QJsonArray_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray.html#begin)
+    /// ### DEPRECATED: Use `begin` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QJsonArray `
-    ///
-    pub fn Begin(self: QJsonArray) QJsonArray__iterator {
-        return .{ .ptr = qtc.QJsonArray_Begin(@ptrCast(self.ptr)) };
-    }
+    pub const Begin = begin;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray.html#begin)
     ///
@@ -329,9 +419,27 @@ pub const QJsonArray = extern struct {
     ///
     /// ` self: QJsonArray `
     ///
-    pub fn Begin2(self: QJsonArray) QJsonArray__const_iterator {
+    pub fn begin(self: QJsonArray) QJsonArray__iterator {
+        return .{ .ptr = qtc.QJsonArray_Begin(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `begin2` instead
+    ///
+    pub const Begin2 = begin2;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray.html#begin)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QJsonArray `
+    ///
+    pub fn begin2(self: QJsonArray) QJsonArray__const_iterator {
         return .{ .ptr = qtc.QJsonArray_Begin2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `constBegin` instead
+    ///
+    pub const ConstBegin = constBegin;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray.html#constBegin)
     ///
@@ -339,9 +447,13 @@ pub const QJsonArray = extern struct {
     ///
     /// ` self: QJsonArray `
     ///
-    pub fn ConstBegin(self: QJsonArray) QJsonArray__const_iterator {
+    pub fn constBegin(self: QJsonArray) QJsonArray__const_iterator {
         return .{ .ptr = qtc.QJsonArray_ConstBegin(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cbegin` instead
+    ///
+    pub const Cbegin = cbegin;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray.html#cbegin)
     ///
@@ -349,19 +461,13 @@ pub const QJsonArray = extern struct {
     ///
     /// ` self: QJsonArray `
     ///
-    pub fn Cbegin(self: QJsonArray) QJsonArray__const_iterator {
+    pub fn cbegin(self: QJsonArray) QJsonArray__const_iterator {
         return .{ .ptr = qtc.QJsonArray_Cbegin(@ptrCast(self.ptr)) };
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray.html#end)
+    /// ### DEPRECATED: Use `end` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QJsonArray `
-    ///
-    pub fn End(self: QJsonArray) QJsonArray__iterator {
-        return .{ .ptr = qtc.QJsonArray_End(@ptrCast(self.ptr)) };
-    }
+    pub const End = end;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray.html#end)
     ///
@@ -369,9 +475,27 @@ pub const QJsonArray = extern struct {
     ///
     /// ` self: QJsonArray `
     ///
-    pub fn End2(self: QJsonArray) QJsonArray__const_iterator {
+    pub fn end(self: QJsonArray) QJsonArray__iterator {
+        return .{ .ptr = qtc.QJsonArray_End(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `end2` instead
+    ///
+    pub const End2 = end2;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray.html#end)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QJsonArray `
+    ///
+    pub fn end2(self: QJsonArray) QJsonArray__const_iterator {
         return .{ .ptr = qtc.QJsonArray_End2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `constEnd` instead
+    ///
+    pub const ConstEnd = constEnd;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray.html#constEnd)
     ///
@@ -379,9 +503,13 @@ pub const QJsonArray = extern struct {
     ///
     /// ` self: QJsonArray `
     ///
-    pub fn ConstEnd(self: QJsonArray) QJsonArray__const_iterator {
+    pub fn constEnd(self: QJsonArray) QJsonArray__const_iterator {
         return .{ .ptr = qtc.QJsonArray_ConstEnd(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cend` instead
+    ///
+    pub const Cend = cend;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray.html#cend)
     ///
@@ -389,9 +517,13 @@ pub const QJsonArray = extern struct {
     ///
     /// ` self: QJsonArray `
     ///
-    pub fn Cend(self: QJsonArray) QJsonArray__const_iterator {
+    pub fn cend(self: QJsonArray) QJsonArray__const_iterator {
         return .{ .ptr = qtc.QJsonArray_Cend(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `insert2` instead
+    ///
+    pub const Insert2 = insert2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray.html#insert)
     ///
@@ -403,11 +535,15 @@ pub const QJsonArray = extern struct {
     ///
     /// ` value: QJsonValue `
     ///
-    pub fn Insert2(self: QJsonArray, before: anytype, value: anytype) QJsonArray__iterator {
+    pub fn insert2(self: QJsonArray, before: anytype, value: anytype) QJsonArray__iterator {
         comptime _ = @TypeOf(before)._is_QJsonArray__iterator;
         comptime _ = @TypeOf(value)._is_QJsonValue;
         return .{ .ptr = qtc.QJsonArray_Insert2(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(value.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `erase` instead
+    ///
+    pub const Erase = erase;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray.html#erase)
     ///
@@ -417,10 +553,14 @@ pub const QJsonArray = extern struct {
     ///
     /// ` it: QJsonArray__iterator `
     ///
-    pub fn Erase(self: QJsonArray, it: anytype) QJsonArray__iterator {
+    pub fn erase(self: QJsonArray, it: anytype) QJsonArray__iterator {
         comptime _ = @TypeOf(it)._is_QJsonArray__iterator;
         return .{ .ptr = qtc.QJsonArray_Erase(@ptrCast(self.ptr), @ptrCast(it.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorPlus` instead
+    ///
+    pub const OperatorPlus = operatorPlus;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray.html#operator-2b)
     ///
@@ -430,10 +570,14 @@ pub const QJsonArray = extern struct {
     ///
     /// ` v: QJsonValue `
     ///
-    pub fn OperatorPlus(self: QJsonArray, v: anytype) QJsonArray {
+    pub fn operatorPlus(self: QJsonArray, v: anytype) QJsonArray {
         comptime _ = @TypeOf(v)._is_QJsonValue;
         return .{ .ptr = qtc.QJsonArray_OperatorPlus(@ptrCast(self.ptr), @ptrCast(v.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorPlusAssign` instead
+    ///
+    pub const OperatorPlusAssign = operatorPlusAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray.html#operator-2b-eq)
     ///
@@ -443,10 +587,14 @@ pub const QJsonArray = extern struct {
     ///
     /// ` v: QJsonValue `
     ///
-    pub fn OperatorPlusAssign(self: QJsonArray, v: anytype) QJsonArray {
+    pub fn operatorPlusAssign(self: QJsonArray, v: anytype) QJsonArray {
         comptime _ = @TypeOf(v)._is_QJsonValue;
         return .{ .ptr = qtc.QJsonArray_OperatorPlusAssign(@ptrCast(self.ptr), @ptrCast(v.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftLeft` instead
+    ///
+    pub const OperatorShiftLeft = operatorShiftLeft;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray.html#operator-lt-lt)
     ///
@@ -456,10 +604,14 @@ pub const QJsonArray = extern struct {
     ///
     /// ` v: QJsonValue `
     ///
-    pub fn OperatorShiftLeft(self: QJsonArray, v: anytype) QJsonArray {
+    pub fn operatorShiftLeft(self: QJsonArray, v: anytype) QJsonArray {
         comptime _ = @TypeOf(v)._is_QJsonValue;
         return .{ .ptr = qtc.QJsonArray_OperatorShiftLeft(@ptrCast(self.ptr), @ptrCast(v.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `pushBack` instead
+    ///
+    pub const PushBack = pushBack;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray.html#push_back)
     ///
@@ -469,10 +621,14 @@ pub const QJsonArray = extern struct {
     ///
     /// ` t: QJsonValue `
     ///
-    pub fn PushBack(self: QJsonArray, t: anytype) void {
+    pub fn pushBack(self: QJsonArray, t: anytype) void {
         comptime _ = @TypeOf(t)._is_QJsonValue;
         qtc.QJsonArray_PushBack(@ptrCast(self.ptr), @ptrCast(t.ptr));
     }
+
+    /// ### DEPRECATED: Use `pushFront` instead
+    ///
+    pub const PushFront = pushFront;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray.html#push_front)
     ///
@@ -482,10 +638,14 @@ pub const QJsonArray = extern struct {
     ///
     /// ` t: QJsonValue `
     ///
-    pub fn PushFront(self: QJsonArray, t: anytype) void {
+    pub fn pushFront(self: QJsonArray, t: anytype) void {
         comptime _ = @TypeOf(t)._is_QJsonValue;
         qtc.QJsonArray_PushFront(@ptrCast(self.ptr), @ptrCast(t.ptr));
     }
+
+    /// ### DEPRECATED: Use `popFront` instead
+    ///
+    pub const PopFront = popFront;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray.html#pop_front)
     ///
@@ -493,9 +653,13 @@ pub const QJsonArray = extern struct {
     ///
     /// ` self: QJsonArray `
     ///
-    pub fn PopFront(self: QJsonArray) void {
+    pub fn popFront(self: QJsonArray) void {
         qtc.QJsonArray_PopFront(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `popBack` instead
+    ///
+    pub const PopBack = popBack;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray.html#pop_back)
     ///
@@ -503,9 +667,13 @@ pub const QJsonArray = extern struct {
     ///
     /// ` self: QJsonArray `
     ///
-    pub fn PopBack(self: QJsonArray) void {
+    pub fn popBack(self: QJsonArray) void {
         qtc.QJsonArray_PopBack(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `empty` instead
+    ///
+    pub const Empty = empty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray.html#empty)
     ///
@@ -513,23 +681,23 @@ pub const QJsonArray = extern struct {
     ///
     /// ` self: QJsonArray `
     ///
-    pub fn Empty(self: QJsonArray) bool {
+    pub fn empty(self: QJsonArray) bool {
         return qtc.QJsonArray_Empty(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray.html#dtor.QJsonArray)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QJsonArray `
     ///
-    pub fn Delete(self: QJsonArray) void {
+    pub fn delete(self: QJsonArray) void {
         qtc.QJsonArray_Delete(@ptrCast(self.ptr));
     }
 };
@@ -544,24 +712,36 @@ pub const QJsonArray__iterator = extern struct {
 
     pub const _is_QJsonArray__iterator = {};
 
-    /// New constructs a new QJsonArray::iterator object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QJsonArray::iterator object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QJsonArray__iterator `
     ///
-    pub fn New(other: anytype) QJsonArray__iterator {
+    pub fn new(other: anytype) QJsonArray__iterator {
         comptime _ = @TypeOf(other)._is_QJsonArray__iterator;
         return .{ .ptr = qtc.QJsonArray__iterator_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new QJsonArray::iterator object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() QJsonArray__iterator {
+    pub const New2 = new2;
+
+    /// Allocate a new QJsonArray::iterator object in C++ memory
+    ///
+    pub fn new2() QJsonArray__iterator {
         return .{ .ptr = qtc.QJsonArray__iterator_new2() };
     }
 
-    /// New3 constructs a new QJsonArray::iterator object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QJsonArray::iterator object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -569,21 +749,29 @@ pub const QJsonArray__iterator = extern struct {
     ///
     /// ` index: isize `
     ///
-    pub fn New3(array: anytype, index: isize) QJsonArray__iterator {
+    pub fn new3(array: anytype, index: isize) QJsonArray__iterator {
         comptime _ = @TypeOf(array)._is_QJsonArray;
         return .{ .ptr = qtc.QJsonArray__iterator_new3(@ptrCast(array.ptr), @bitCast(index)) };
     }
 
-    /// New4 constructs a new QJsonArray::iterator object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QJsonArray::iterator object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QJsonArray__iterator `
     ///
-    pub fn New4(other: anytype) QJsonArray__iterator {
+    pub fn new4(other: anytype) QJsonArray__iterator {
         comptime _ = @TypeOf(other)._is_QJsonArray__iterator;
         return .{ .ptr = qtc.QJsonArray__iterator_new4(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray-iterator.html#operator-eq)
     ///
@@ -593,10 +781,14 @@ pub const QJsonArray__iterator = extern struct {
     ///
     /// ` other: QJsonArray__iterator `
     ///
-    pub fn OperatorAssign(self: QJsonArray__iterator, other: anytype) void {
+    pub fn operatorAssign(self: QJsonArray__iterator, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QJsonArray__iterator;
         qtc.QJsonArray__iterator_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorMultiply` instead
+    ///
+    pub const OperatorMultiply = operatorMultiply;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray-iterator.html#operator-2a)
     ///
@@ -604,19 +796,13 @@ pub const QJsonArray__iterator = extern struct {
     ///
     /// ` self: QJsonArray__iterator `
     ///
-    pub fn OperatorMultiply(self: QJsonArray__iterator) QJsonValueRef {
+    pub fn operatorMultiply(self: QJsonArray__iterator) QJsonValueRef {
         return .{ .ptr = qtc.QJsonArray__iterator_OperatorMultiply(@ptrCast(self.ptr)) };
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray-iterator.html#operator--gt)
+    /// ### DEPRECATED: Use `operatorMinusGreater` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QJsonArray__iterator `
-    ///
-    pub fn OperatorMinusGreater(self: QJsonArray__iterator) QJsonValueConstRef {
-        return .{ .ptr = qtc.QJsonArray__iterator_OperatorMinusGreater(@ptrCast(self.ptr)) };
-    }
+    pub const OperatorMinusGreater = operatorMinusGreater;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray-iterator.html#operator--gt)
     ///
@@ -624,9 +810,27 @@ pub const QJsonArray__iterator = extern struct {
     ///
     /// ` self: QJsonArray__iterator `
     ///
-    pub fn OperatorMinusGreater2(self: QJsonArray__iterator) QJsonValueRef {
+    pub fn operatorMinusGreater(self: QJsonArray__iterator) QJsonValueConstRef {
+        return .{ .ptr = qtc.QJsonArray__iterator_OperatorMinusGreater(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `operatorMinusGreater2` instead
+    ///
+    pub const OperatorMinusGreater2 = operatorMinusGreater2;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray-iterator.html#operator--gt)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QJsonArray__iterator `
+    ///
+    pub fn operatorMinusGreater2(self: QJsonArray__iterator) QJsonValueRef {
         return .{ .ptr = qtc.QJsonArray__iterator_OperatorMinusGreater2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorSubscript` instead
+    ///
+    pub const OperatorSubscript = operatorSubscript;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray-iterator.html#operator-5b-5d)
     ///
@@ -636,20 +840,28 @@ pub const QJsonArray__iterator = extern struct {
     ///
     /// ` j: isize `
     ///
-    pub fn OperatorSubscript(self: QJsonArray__iterator, j: isize) QJsonValueRef {
+    pub fn operatorSubscript(self: QJsonArray__iterator, j: isize) QJsonValueRef {
         return .{ .ptr = qtc.QJsonArray__iterator_OperatorSubscript(@ptrCast(self.ptr), @bitCast(j)) };
     }
 
+    /// ### DEPRECATED: Use `operatorPlusPlus` instead
+    ///
+    pub const OperatorPlusPlus = operatorPlusPlus;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray-iterator.html#operator-2b-2b)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QJsonArray__iterator `
     ///
-    pub fn OperatorPlusPlus(self: QJsonArray__iterator) QJsonArray__iterator {
+    pub fn operatorPlusPlus(self: QJsonArray__iterator) QJsonArray__iterator {
         return .{ .ptr = qtc.QJsonArray__iterator_OperatorPlusPlus(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `operatorPlusPlus2` instead
+    ///
+    pub const OperatorPlusPlus2 = operatorPlusPlus2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray-iterator.html#operator-2b-2b)
     ///
     /// ## Parameter(s):
@@ -658,9 +870,13 @@ pub const QJsonArray__iterator = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn OperatorPlusPlus2(self: QJsonArray__iterator, param1: i32) QJsonArray__iterator {
+    pub fn operatorPlusPlus2(self: QJsonArray__iterator, param1: i32) QJsonArray__iterator {
         return .{ .ptr = qtc.QJsonArray__iterator_OperatorPlusPlus2(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMinusMinus` instead
+    ///
+    pub const OperatorMinusMinus = operatorMinusMinus;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray-iterator.html#operator--)
     ///
@@ -668,9 +884,13 @@ pub const QJsonArray__iterator = extern struct {
     ///
     /// ` self: QJsonArray__iterator `
     ///
-    pub fn OperatorMinusMinus(self: QJsonArray__iterator) QJsonArray__iterator {
+    pub fn operatorMinusMinus(self: QJsonArray__iterator) QJsonArray__iterator {
         return .{ .ptr = qtc.QJsonArray__iterator_OperatorMinusMinus(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMinusMinus2` instead
+    ///
+    pub const OperatorMinusMinus2 = operatorMinusMinus2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray-iterator.html#operator--)
     ///
@@ -680,9 +900,13 @@ pub const QJsonArray__iterator = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn OperatorMinusMinus2(self: QJsonArray__iterator, param1: i32) QJsonArray__iterator {
+    pub fn operatorMinusMinus2(self: QJsonArray__iterator, param1: i32) QJsonArray__iterator {
         return .{ .ptr = qtc.QJsonArray__iterator_OperatorMinusMinus2(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `operatorPlusAssign` instead
+    ///
+    pub const OperatorPlusAssign = operatorPlusAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray-iterator.html#operator-2b-eq)
     ///
@@ -692,9 +916,13 @@ pub const QJsonArray__iterator = extern struct {
     ///
     /// ` j: isize `
     ///
-    pub fn OperatorPlusAssign(self: QJsonArray__iterator, j: isize) QJsonArray__iterator {
+    pub fn operatorPlusAssign(self: QJsonArray__iterator, j: isize) QJsonArray__iterator {
         return .{ .ptr = qtc.QJsonArray__iterator_OperatorPlusAssign(@ptrCast(self.ptr), @bitCast(j)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMinusAssign` instead
+    ///
+    pub const OperatorMinusAssign = operatorMinusAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray-iterator.html#operator--eq)
     ///
@@ -704,9 +932,13 @@ pub const QJsonArray__iterator = extern struct {
     ///
     /// ` j: isize `
     ///
-    pub fn OperatorMinusAssign(self: QJsonArray__iterator, j: isize) QJsonArray__iterator {
+    pub fn operatorMinusAssign(self: QJsonArray__iterator, j: isize) QJsonArray__iterator {
         return .{ .ptr = qtc.QJsonArray__iterator_OperatorMinusAssign(@ptrCast(self.ptr), @bitCast(j)) };
     }
+
+    /// ### DEPRECATED: Use `operatorPlus` instead
+    ///
+    pub const OperatorPlus = operatorPlus;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray-iterator.html#operator-2b)
     ///
@@ -716,9 +948,13 @@ pub const QJsonArray__iterator = extern struct {
     ///
     /// ` j: isize `
     ///
-    pub fn OperatorPlus(self: QJsonArray__iterator, j: isize) QJsonArray__iterator {
+    pub fn operatorPlus(self: QJsonArray__iterator, j: isize) QJsonArray__iterator {
         return .{ .ptr = qtc.QJsonArray__iterator_OperatorPlus(@ptrCast(self.ptr), @bitCast(j)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMinus` instead
+    ///
+    pub const OperatorMinus = operatorMinus;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray-iterator.html#operator-)
     ///
@@ -728,9 +964,13 @@ pub const QJsonArray__iterator = extern struct {
     ///
     /// ` j: isize `
     ///
-    pub fn OperatorMinus(self: QJsonArray__iterator, j: isize) QJsonArray__iterator {
+    pub fn operatorMinus(self: QJsonArray__iterator, j: isize) QJsonArray__iterator {
         return .{ .ptr = qtc.QJsonArray__iterator_OperatorMinus(@ptrCast(self.ptr), @bitCast(j)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMinus2` instead
+    ///
+    pub const OperatorMinus2 = operatorMinus2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray-iterator.html#operator-)
     ///
@@ -740,22 +980,22 @@ pub const QJsonArray__iterator = extern struct {
     ///
     /// ` j: QJsonArray__iterator `
     ///
-    pub fn OperatorMinus2(self: QJsonArray__iterator, j: anytype) isize {
+    pub fn operatorMinus2(self: QJsonArray__iterator, j: anytype) isize {
         comptime _ = @TypeOf(j)._is_QJsonArray__iterator;
         return qtc.QJsonArray__iterator_OperatorMinus2(@ptrCast(self.ptr), @ptrCast(j.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QJsonArray__iterator `
     ///
-    pub fn Delete(self: QJsonArray__iterator) void {
+    pub fn delete(self: QJsonArray__iterator) void {
         qtc.QJsonArray__iterator_Delete(@ptrCast(self.ptr));
     }
 };
@@ -770,24 +1010,36 @@ pub const QJsonArray__const_iterator = extern struct {
 
     pub const _is_QJsonArray__const_iterator = {};
 
-    /// New constructs a new QJsonArray::const_iterator object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QJsonArray::const_iterator object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QJsonArray__const_iterator `
     ///
-    pub fn New(other: anytype) QJsonArray__const_iterator {
+    pub fn new(other: anytype) QJsonArray__const_iterator {
         comptime _ = @TypeOf(other)._is_QJsonArray__const_iterator;
         return .{ .ptr = qtc.QJsonArray__const_iterator_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new QJsonArray::const_iterator object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() QJsonArray__const_iterator {
+    pub const New2 = new2;
+
+    /// Allocate a new QJsonArray::const_iterator object in C++ memory
+    ///
+    pub fn new2() QJsonArray__const_iterator {
         return .{ .ptr = qtc.QJsonArray__const_iterator_new2() };
     }
 
-    /// New3 constructs a new QJsonArray::const_iterator object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QJsonArray::const_iterator object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -795,32 +1047,44 @@ pub const QJsonArray__const_iterator = extern struct {
     ///
     /// ` index: isize `
     ///
-    pub fn New3(array: anytype, index: isize) QJsonArray__const_iterator {
+    pub fn new3(array: anytype, index: isize) QJsonArray__const_iterator {
         comptime _ = @TypeOf(array)._is_QJsonArray;
         return .{ .ptr = qtc.QJsonArray__const_iterator_new3(@ptrCast(array.ptr), @bitCast(index)) };
     }
 
-    /// New4 constructs a new QJsonArray::const_iterator object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QJsonArray::const_iterator object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` o: QJsonArray__iterator `
     ///
-    pub fn New4(o: anytype) QJsonArray__const_iterator {
+    pub fn new4(o: anytype) QJsonArray__const_iterator {
         comptime _ = @TypeOf(o)._is_QJsonArray__iterator;
         return .{ .ptr = qtc.QJsonArray__const_iterator_new4(@ptrCast(o.ptr)) };
     }
 
-    /// New5 constructs a new QJsonArray::const_iterator object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QJsonArray::const_iterator object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QJsonArray__const_iterator `
     ///
-    pub fn New5(other: anytype) QJsonArray__const_iterator {
+    pub fn new5(other: anytype) QJsonArray__const_iterator {
         comptime _ = @TypeOf(other)._is_QJsonArray__const_iterator;
         return .{ .ptr = qtc.QJsonArray__const_iterator_new5(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray-const-iterator.html#operator-eq)
     ///
@@ -830,10 +1094,14 @@ pub const QJsonArray__const_iterator = extern struct {
     ///
     /// ` other: QJsonArray__const_iterator `
     ///
-    pub fn OperatorAssign(self: QJsonArray__const_iterator, other: anytype) void {
+    pub fn operatorAssign(self: QJsonArray__const_iterator, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QJsonArray__const_iterator;
         qtc.QJsonArray__const_iterator_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorMultiply` instead
+    ///
+    pub const OperatorMultiply = operatorMultiply;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray-const-iterator.html#operator-2a)
     ///
@@ -841,9 +1109,13 @@ pub const QJsonArray__const_iterator = extern struct {
     ///
     /// ` self: QJsonArray__const_iterator `
     ///
-    pub fn OperatorMultiply(self: QJsonArray__const_iterator) QJsonValueConstRef {
+    pub fn operatorMultiply(self: QJsonArray__const_iterator) QJsonValueConstRef {
         return .{ .ptr = qtc.QJsonArray__const_iterator_OperatorMultiply(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMinusGreater` instead
+    ///
+    pub const OperatorMinusGreater = operatorMinusGreater;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray-const-iterator.html#operator--gt)
     ///
@@ -851,9 +1123,13 @@ pub const QJsonArray__const_iterator = extern struct {
     ///
     /// ` self: QJsonArray__const_iterator `
     ///
-    pub fn OperatorMinusGreater(self: QJsonArray__const_iterator) QJsonValueConstRef {
+    pub fn operatorMinusGreater(self: QJsonArray__const_iterator) QJsonValueConstRef {
         return .{ .ptr = qtc.QJsonArray__const_iterator_OperatorMinusGreater(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorSubscript` instead
+    ///
+    pub const OperatorSubscript = operatorSubscript;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray-const-iterator.html#operator-5b-5d)
     ///
@@ -863,20 +1139,28 @@ pub const QJsonArray__const_iterator = extern struct {
     ///
     /// ` j: isize `
     ///
-    pub fn OperatorSubscript(self: QJsonArray__const_iterator, j: isize) QJsonValueConstRef {
+    pub fn operatorSubscript(self: QJsonArray__const_iterator, j: isize) QJsonValueConstRef {
         return .{ .ptr = qtc.QJsonArray__const_iterator_OperatorSubscript(@ptrCast(self.ptr), @bitCast(j)) };
     }
 
+    /// ### DEPRECATED: Use `operatorPlusPlus` instead
+    ///
+    pub const OperatorPlusPlus = operatorPlusPlus;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray-const-iterator.html#operator-2b-2b)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QJsonArray__const_iterator `
     ///
-    pub fn OperatorPlusPlus(self: QJsonArray__const_iterator) QJsonArray__const_iterator {
+    pub fn operatorPlusPlus(self: QJsonArray__const_iterator) QJsonArray__const_iterator {
         return .{ .ptr = qtc.QJsonArray__const_iterator_OperatorPlusPlus(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `operatorPlusPlus2` instead
+    ///
+    pub const OperatorPlusPlus2 = operatorPlusPlus2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray-const-iterator.html#operator-2b-2b)
     ///
     /// ## Parameter(s):
@@ -885,9 +1169,13 @@ pub const QJsonArray__const_iterator = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn OperatorPlusPlus2(self: QJsonArray__const_iterator, param1: i32) QJsonArray__const_iterator {
+    pub fn operatorPlusPlus2(self: QJsonArray__const_iterator, param1: i32) QJsonArray__const_iterator {
         return .{ .ptr = qtc.QJsonArray__const_iterator_OperatorPlusPlus2(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMinusMinus` instead
+    ///
+    pub const OperatorMinusMinus = operatorMinusMinus;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray-const-iterator.html#operator--)
     ///
@@ -895,9 +1183,13 @@ pub const QJsonArray__const_iterator = extern struct {
     ///
     /// ` self: QJsonArray__const_iterator `
     ///
-    pub fn OperatorMinusMinus(self: QJsonArray__const_iterator) QJsonArray__const_iterator {
+    pub fn operatorMinusMinus(self: QJsonArray__const_iterator) QJsonArray__const_iterator {
         return .{ .ptr = qtc.QJsonArray__const_iterator_OperatorMinusMinus(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMinusMinus2` instead
+    ///
+    pub const OperatorMinusMinus2 = operatorMinusMinus2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray-const-iterator.html#operator--)
     ///
@@ -907,9 +1199,13 @@ pub const QJsonArray__const_iterator = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn OperatorMinusMinus2(self: QJsonArray__const_iterator, param1: i32) QJsonArray__const_iterator {
+    pub fn operatorMinusMinus2(self: QJsonArray__const_iterator, param1: i32) QJsonArray__const_iterator {
         return .{ .ptr = qtc.QJsonArray__const_iterator_OperatorMinusMinus2(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `operatorPlusAssign` instead
+    ///
+    pub const OperatorPlusAssign = operatorPlusAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray-const-iterator.html#operator-2b-eq)
     ///
@@ -919,9 +1215,13 @@ pub const QJsonArray__const_iterator = extern struct {
     ///
     /// ` j: isize `
     ///
-    pub fn OperatorPlusAssign(self: QJsonArray__const_iterator, j: isize) QJsonArray__const_iterator {
+    pub fn operatorPlusAssign(self: QJsonArray__const_iterator, j: isize) QJsonArray__const_iterator {
         return .{ .ptr = qtc.QJsonArray__const_iterator_OperatorPlusAssign(@ptrCast(self.ptr), @bitCast(j)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMinusAssign` instead
+    ///
+    pub const OperatorMinusAssign = operatorMinusAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray-const-iterator.html#operator--eq)
     ///
@@ -931,9 +1231,13 @@ pub const QJsonArray__const_iterator = extern struct {
     ///
     /// ` j: isize `
     ///
-    pub fn OperatorMinusAssign(self: QJsonArray__const_iterator, j: isize) QJsonArray__const_iterator {
+    pub fn operatorMinusAssign(self: QJsonArray__const_iterator, j: isize) QJsonArray__const_iterator {
         return .{ .ptr = qtc.QJsonArray__const_iterator_OperatorMinusAssign(@ptrCast(self.ptr), @bitCast(j)) };
     }
+
+    /// ### DEPRECATED: Use `operatorPlus` instead
+    ///
+    pub const OperatorPlus = operatorPlus;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray-const-iterator.html#operator-2b)
     ///
@@ -943,9 +1247,13 @@ pub const QJsonArray__const_iterator = extern struct {
     ///
     /// ` j: isize `
     ///
-    pub fn OperatorPlus(self: QJsonArray__const_iterator, j: isize) QJsonArray__const_iterator {
+    pub fn operatorPlus(self: QJsonArray__const_iterator, j: isize) QJsonArray__const_iterator {
         return .{ .ptr = qtc.QJsonArray__const_iterator_OperatorPlus(@ptrCast(self.ptr), @bitCast(j)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMinus` instead
+    ///
+    pub const OperatorMinus = operatorMinus;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray-const-iterator.html#operator-)
     ///
@@ -955,9 +1263,13 @@ pub const QJsonArray__const_iterator = extern struct {
     ///
     /// ` j: isize `
     ///
-    pub fn OperatorMinus(self: QJsonArray__const_iterator, j: isize) QJsonArray__const_iterator {
+    pub fn operatorMinus(self: QJsonArray__const_iterator, j: isize) QJsonArray__const_iterator {
         return .{ .ptr = qtc.QJsonArray__const_iterator_OperatorMinus(@ptrCast(self.ptr), @bitCast(j)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMinus2` instead
+    ///
+    pub const OperatorMinus2 = operatorMinus2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray-const-iterator.html#operator-)
     ///
@@ -967,22 +1279,22 @@ pub const QJsonArray__const_iterator = extern struct {
     ///
     /// ` j: QJsonArray__const_iterator `
     ///
-    pub fn OperatorMinus2(self: QJsonArray__const_iterator, j: anytype) isize {
+    pub fn operatorMinus2(self: QJsonArray__const_iterator, j: anytype) isize {
         comptime _ = @TypeOf(j)._is_QJsonArray__const_iterator;
         return qtc.QJsonArray__const_iterator_OperatorMinus2(@ptrCast(self.ptr), @ptrCast(j.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QJsonArray__const_iterator `
     ///
-    pub fn Delete(self: QJsonArray__const_iterator) void {
+    pub fn delete(self: QJsonArray__const_iterator) void {
         qtc.QJsonArray__const_iterator_Delete(@ptrCast(self.ptr));
     }
 };

@@ -15,21 +15,29 @@ pub const KServiceGroup = extern struct {
     pub const _is_KSycocaEntry = {};
     pub const _is_QSharedData = {};
 
-    /// New constructs a new KServiceGroup object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KServiceGroup object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn New(name: []const u8) KServiceGroup {
+    pub fn new(_name: []const u8) KServiceGroup {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         return .{ .ptr = qtc.KServiceGroup_new(name_str) };
     }
 
-    /// New2 constructs a new KServiceGroup object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KServiceGroup object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -37,7 +45,7 @@ pub const KServiceGroup = extern struct {
     ///
     /// ` _relpath: []const u8 `
     ///
-    pub fn New2(_fullpath: []const u8, _relpath: []const u8) KServiceGroup {
+    pub fn new2(_fullpath: []const u8, _relpath: []const u8) KServiceGroup {
         const _fullpath_str = qtc.libqt_string{
             .len = _fullpath.len,
             .data = _fullpath.ptr,
@@ -49,6 +57,10 @@ pub const KServiceGroup = extern struct {
         return .{ .ptr = qtc.KServiceGroup_new2(_fullpath_str, _relpath_str) };
     }
 
+    /// ### DEPRECATED: Use `relPath` instead
+    ///
+    pub const RelPath = relPath;
+
     /// ### [Upstream resources](https://api.kde.org/kservicegroup.html#relPath)
     ///
     /// ## Parameter(s):
@@ -57,13 +69,17 @@ pub const KServiceGroup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn RelPath(self: KServiceGroup, allocator: std.mem.Allocator) []const u8 {
+    pub fn relPath(self: KServiceGroup, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KServiceGroup_RelPath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KServiceGroup.RelPath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KServiceGroup.relPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `caption` instead
+    ///
+    pub const Caption = caption;
 
     /// ### [Upstream resources](https://api.kde.org/kservicegroup.html#caption)
     ///
@@ -73,13 +89,17 @@ pub const KServiceGroup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Caption(self: KServiceGroup, allocator: std.mem.Allocator) []const u8 {
+    pub fn caption(self: KServiceGroup, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KServiceGroup_Caption(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KServiceGroup.Caption: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KServiceGroup.caption: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `icon` instead
+    ///
+    pub const Icon = icon;
 
     /// ### [Upstream resources](https://api.kde.org/kservicegroup.html#icon)
     ///
@@ -89,13 +109,17 @@ pub const KServiceGroup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Icon(self: KServiceGroup, allocator: std.mem.Allocator) []const u8 {
+    pub fn icon(self: KServiceGroup, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KServiceGroup_Icon(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KServiceGroup.Icon: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KServiceGroup.icon: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `comment` instead
+    ///
+    pub const Comment = comment;
 
     /// ### [Upstream resources](https://api.kde.org/kservicegroup.html#comment)
     ///
@@ -105,13 +129,17 @@ pub const KServiceGroup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Comment(self: KServiceGroup, allocator: std.mem.Allocator) []const u8 {
+    pub fn comment(self: KServiceGroup, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KServiceGroup_Comment(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KServiceGroup.Comment: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KServiceGroup.comment: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `childCount` instead
+    ///
+    pub const ChildCount = childCount;
 
     /// ### [Upstream resources](https://api.kde.org/kservicegroup.html#childCount)
     ///
@@ -119,9 +147,13 @@ pub const KServiceGroup = extern struct {
     ///
     /// ` self: KServiceGroup `
     ///
-    pub fn ChildCount(self: KServiceGroup) i32 {
+    pub fn childCount(self: KServiceGroup) i32 {
         return qtc.KServiceGroup_ChildCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `noDisplay` instead
+    ///
+    pub const NoDisplay = noDisplay;
 
     /// ### [Upstream resources](https://api.kde.org/kservicegroup.html#noDisplay)
     ///
@@ -129,9 +161,13 @@ pub const KServiceGroup = extern struct {
     ///
     /// ` self: KServiceGroup `
     ///
-    pub fn NoDisplay(self: KServiceGroup) bool {
+    pub fn noDisplay(self: KServiceGroup) bool {
         return qtc.KServiceGroup_NoDisplay(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showEmptyMenu` instead
+    ///
+    pub const ShowEmptyMenu = showEmptyMenu;
 
     /// ### [Upstream resources](https://api.kde.org/kservicegroup.html#showEmptyMenu)
     ///
@@ -139,9 +175,13 @@ pub const KServiceGroup = extern struct {
     ///
     /// ` self: KServiceGroup `
     ///
-    pub fn ShowEmptyMenu(self: KServiceGroup) bool {
+    pub fn showEmptyMenu(self: KServiceGroup) bool {
         return qtc.KServiceGroup_ShowEmptyMenu(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setShowEmptyMenu` instead
+    ///
+    pub const SetShowEmptyMenu = setShowEmptyMenu;
 
     /// ### [Upstream resources](https://api.kde.org/kservicegroup.html#setShowEmptyMenu)
     ///
@@ -151,9 +191,13 @@ pub const KServiceGroup = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetShowEmptyMenu(self: KServiceGroup, b: bool) void {
+    pub fn setShowEmptyMenu(self: KServiceGroup, b: bool) void {
         qtc.KServiceGroup_SetShowEmptyMenu(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `showInlineHeader` instead
+    ///
+    pub const ShowInlineHeader = showInlineHeader;
 
     /// ### [Upstream resources](https://api.kde.org/kservicegroup.html#showInlineHeader)
     ///
@@ -161,9 +205,13 @@ pub const KServiceGroup = extern struct {
     ///
     /// ` self: KServiceGroup `
     ///
-    pub fn ShowInlineHeader(self: KServiceGroup) bool {
+    pub fn showInlineHeader(self: KServiceGroup) bool {
         return qtc.KServiceGroup_ShowInlineHeader(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setShowInlineHeader` instead
+    ///
+    pub const SetShowInlineHeader = setShowInlineHeader;
 
     /// ### [Upstream resources](https://api.kde.org/kservicegroup.html#setShowInlineHeader)
     ///
@@ -173,9 +221,13 @@ pub const KServiceGroup = extern struct {
     ///
     /// ` _b: bool `
     ///
-    pub fn SetShowInlineHeader(self: KServiceGroup, _b: bool) void {
+    pub fn setShowInlineHeader(self: KServiceGroup, _b: bool) void {
         qtc.KServiceGroup_SetShowInlineHeader(@ptrCast(self.ptr), _b);
     }
+
+    /// ### DEPRECATED: Use `inlineAlias` instead
+    ///
+    pub const InlineAlias = inlineAlias;
 
     /// ### [Upstream resources](https://api.kde.org/kservicegroup.html#inlineAlias)
     ///
@@ -183,9 +235,13 @@ pub const KServiceGroup = extern struct {
     ///
     /// ` self: KServiceGroup `
     ///
-    pub fn InlineAlias(self: KServiceGroup) bool {
+    pub fn inlineAlias(self: KServiceGroup) bool {
         return qtc.KServiceGroup_InlineAlias(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInlineAlias` instead
+    ///
+    pub const SetInlineAlias = setInlineAlias;
 
     /// ### [Upstream resources](https://api.kde.org/kservicegroup.html#setInlineAlias)
     ///
@@ -195,9 +251,13 @@ pub const KServiceGroup = extern struct {
     ///
     /// ` _b: bool `
     ///
-    pub fn SetInlineAlias(self: KServiceGroup, _b: bool) void {
+    pub fn setInlineAlias(self: KServiceGroup, _b: bool) void {
         qtc.KServiceGroup_SetInlineAlias(@ptrCast(self.ptr), _b);
     }
+
+    /// ### DEPRECATED: Use `allowInline` instead
+    ///
+    pub const AllowInline = allowInline;
 
     /// ### [Upstream resources](https://api.kde.org/kservicegroup.html#allowInline)
     ///
@@ -205,9 +265,13 @@ pub const KServiceGroup = extern struct {
     ///
     /// ` self: KServiceGroup `
     ///
-    pub fn AllowInline(self: KServiceGroup) bool {
+    pub fn allowInline(self: KServiceGroup) bool {
         return qtc.KServiceGroup_AllowInline(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAllowInline` instead
+    ///
+    pub const SetAllowInline = setAllowInline;
 
     /// ### [Upstream resources](https://api.kde.org/kservicegroup.html#setAllowInline)
     ///
@@ -217,9 +281,13 @@ pub const KServiceGroup = extern struct {
     ///
     /// ` _b: bool `
     ///
-    pub fn SetAllowInline(self: KServiceGroup, _b: bool) void {
+    pub fn setAllowInline(self: KServiceGroup, _b: bool) void {
         qtc.KServiceGroup_SetAllowInline(@ptrCast(self.ptr), _b);
     }
+
+    /// ### DEPRECATED: Use `inlineValue` instead
+    ///
+    pub const InlineValue = inlineValue;
 
     /// ### [Upstream resources](https://api.kde.org/kservicegroup.html#inlineValue)
     ///
@@ -227,9 +295,13 @@ pub const KServiceGroup = extern struct {
     ///
     /// ` self: KServiceGroup `
     ///
-    pub fn InlineValue(self: KServiceGroup) i32 {
+    pub fn inlineValue(self: KServiceGroup) i32 {
         return qtc.KServiceGroup_InlineValue(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInlineValue` instead
+    ///
+    pub const SetInlineValue = setInlineValue;
 
     /// ### [Upstream resources](https://api.kde.org/kservicegroup.html#setInlineValue)
     ///
@@ -239,9 +311,13 @@ pub const KServiceGroup = extern struct {
     ///
     /// ` _val: i32 `
     ///
-    pub fn SetInlineValue(self: KServiceGroup, _val: i32) void {
+    pub fn setInlineValue(self: KServiceGroup, _val: i32) void {
         qtc.KServiceGroup_SetInlineValue(@ptrCast(self.ptr), @bitCast(_val));
     }
+
+    /// ### DEPRECATED: Use `suppressGenericNames` instead
+    ///
+    pub const SuppressGenericNames = suppressGenericNames;
 
     /// ### [Upstream resources](https://api.kde.org/kservicegroup.html#suppressGenericNames)
     ///
@@ -251,7 +327,7 @@ pub const KServiceGroup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuppressGenericNames(self: KServiceGroup, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn suppressGenericNames(self: KServiceGroup, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KServiceGroup_SuppressGenericNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -259,15 +335,19 @@ pub const KServiceGroup = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KServiceGroup.SuppressGenericNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KServiceGroup.suppressGenericNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KServiceGroup.SuppressGenericNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KServiceGroup.suppressGenericNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setLayoutInfo` instead
+    ///
+    pub const SetLayoutInfo = setLayoutInfo;
 
     /// ### [Upstream resources](https://api.kde.org/kservicegroup.html#setLayoutInfo)
     ///
@@ -279,13 +359,13 @@ pub const KServiceGroup = extern struct {
     ///
     /// ` layout: []const []const u8 `
     ///
-    pub fn SetLayoutInfo(self: KServiceGroup, allocator: std.mem.Allocator, layout: []const []const u8) void {
-        const layout_arr = allocator.alloc(qtc.libqt_string, layout.len) catch @panic("KServiceGroup.SetLayoutInfo: Memory allocation failed");
+    pub fn setLayoutInfo(self: KServiceGroup, allocator: std.mem.Allocator, layout: []const []const u8) void {
+        const layout_arr = allocator.alloc(qtc.libqt_string, layout.len) catch @panic("KServiceGroup.setLayoutInfo: Memory allocation failed");
         defer allocator.free(layout_arr);
-        for (layout, 0..layout.len) |item, i|
+        for (layout, 0..layout.len) |str_item, i|
             layout_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const layout_list = qtc.libqt_list{
             .len = layout.len,
@@ -293,6 +373,10 @@ pub const KServiceGroup = extern struct {
         };
         qtc.KServiceGroup_SetLayoutInfo(@ptrCast(self.ptr), layout_list);
     }
+
+    /// ### DEPRECATED: Use `layoutInfo` instead
+    ///
+    pub const LayoutInfo = layoutInfo;
 
     /// ### [Upstream resources](https://api.kde.org/kservicegroup.html#layoutInfo)
     ///
@@ -302,7 +386,7 @@ pub const KServiceGroup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LayoutInfo(self: KServiceGroup, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn layoutInfo(self: KServiceGroup, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KServiceGroup_LayoutInfo(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -310,15 +394,19 @@ pub const KServiceGroup = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KServiceGroup.LayoutInfo: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KServiceGroup.layoutInfo: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KServiceGroup.LayoutInfo: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KServiceGroup.layoutInfo: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `baseGroupName` instead
+    ///
+    pub const BaseGroupName = baseGroupName;
 
     /// ### [Upstream resources](https://api.kde.org/kservicegroup.html#baseGroupName)
     ///
@@ -328,13 +416,17 @@ pub const KServiceGroup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn BaseGroupName(self: KServiceGroup, allocator: std.mem.Allocator) []const u8 {
+    pub fn baseGroupName(self: KServiceGroup, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KServiceGroup_BaseGroupName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KServiceGroup.BaseGroupName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KServiceGroup.baseGroupName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `directoryEntryPath` instead
+    ///
+    pub const DirectoryEntryPath = directoryEntryPath;
 
     /// ### [Upstream resources](https://api.kde.org/kservicegroup.html#directoryEntryPath)
     ///
@@ -344,13 +436,17 @@ pub const KServiceGroup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DirectoryEntryPath(self: KServiceGroup, allocator: std.mem.Allocator) []const u8 {
+    pub fn directoryEntryPath(self: KServiceGroup, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KServiceGroup_DirectoryEntryPath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KServiceGroup.DirectoryEntryPath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KServiceGroup.directoryEntryPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isType` instead
+    ///
+    pub const IsType = isType;
 
     /// Inherited from KSycocaEntry
     ///
@@ -362,9 +458,13 @@ pub const KServiceGroup = extern struct {
     ///
     /// ` t: ksycocatype_enums.KSycocaType `
     ///
-    pub fn IsType(self: KServiceGroup, t: i32) bool {
+    pub fn isType(self: KServiceGroup, t: i32) bool {
         return qtc.KSycocaEntry_IsType(@ptrCast(self.ptr), @bitCast(t));
     }
+
+    /// ### DEPRECATED: Use `sycocaType` instead
+    ///
+    pub const SycocaType = sycocaType;
 
     /// Inherited from KSycocaEntry
     ///
@@ -378,9 +478,13 @@ pub const KServiceGroup = extern struct {
     ///
     /// ` ksycocatype_enums.KSycocaType `
     ///
-    pub fn SycocaType(self: KServiceGroup) i32 {
+    pub fn sycocaType(self: KServiceGroup) i32 {
         return qtc.KSycocaEntry_SycocaType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// Inherited from KSycocaEntry
     ///
@@ -392,13 +496,17 @@ pub const KServiceGroup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: KServiceGroup, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: KServiceGroup, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KSycocaEntry_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KServiceGroup.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KServiceGroup.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `entryPath` instead
+    ///
+    pub const EntryPath = entryPath;
 
     /// Inherited from KSycocaEntry
     ///
@@ -410,13 +518,17 @@ pub const KServiceGroup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn EntryPath(self: KServiceGroup, allocator: std.mem.Allocator) []const u8 {
+    pub fn entryPath(self: KServiceGroup, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KSycocaEntry_EntryPath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KServiceGroup.EntryPath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KServiceGroup.entryPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `storageId` instead
+    ///
+    pub const StorageId = storageId;
 
     /// Inherited from KSycocaEntry
     ///
@@ -428,13 +540,17 @@ pub const KServiceGroup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StorageId(self: KServiceGroup, allocator: std.mem.Allocator) []const u8 {
+    pub fn storageId(self: KServiceGroup, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KSycocaEntry_StorageId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KServiceGroup.StorageId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KServiceGroup.storageId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// Inherited from KSycocaEntry
     ///
@@ -444,9 +560,13 @@ pub const KServiceGroup = extern struct {
     ///
     /// ` self: KServiceGroup `
     ///
-    pub fn IsValid(self: KServiceGroup) bool {
+    pub fn isValid(self: KServiceGroup) bool {
         return qtc.KSycocaEntry_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDeleted` instead
+    ///
+    pub const IsDeleted = isDeleted;
 
     /// Inherited from KSycocaEntry
     ///
@@ -456,9 +576,13 @@ pub const KServiceGroup = extern struct {
     ///
     /// ` self: KServiceGroup `
     ///
-    pub fn IsDeleted(self: KServiceGroup) bool {
+    pub fn isDeleted(self: KServiceGroup) bool {
         return qtc.KSycocaEntry_IsDeleted(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDeleted` instead
+    ///
+    pub const SetDeleted = setDeleted;
 
     /// Inherited from KSycocaEntry
     ///
@@ -470,9 +594,13 @@ pub const KServiceGroup = extern struct {
     ///
     /// ` deleted: bool `
     ///
-    pub fn SetDeleted(self: KServiceGroup, deleted: bool) void {
+    pub fn setDeleted(self: KServiceGroup, deleted: bool) void {
         qtc.KSycocaEntry_SetDeleted(@ptrCast(self.ptr), deleted);
     }
+
+    /// ### DEPRECATED: Use `isSeparator` instead
+    ///
+    pub const IsSeparator = isSeparator;
 
     /// Inherited from KSycocaEntry
     ///
@@ -482,23 +610,23 @@ pub const KServiceGroup = extern struct {
     ///
     /// ` self: KServiceGroup `
     ///
-    pub fn IsSeparator(self: KServiceGroup) bool {
+    pub fn isSeparator(self: KServiceGroup) bool {
         return qtc.KSycocaEntry_IsSeparator(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kservicegroup.html#dtor.KServiceGroup)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KServiceGroup `
     ///
-    pub fn Delete(self: KServiceGroup) void {
+    pub fn delete(self: KServiceGroup) void {
         qtc.KServiceGroup_Delete(@ptrCast(self.ptr));
     }
 };

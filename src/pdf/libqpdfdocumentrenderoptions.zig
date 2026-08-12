@@ -14,46 +14,65 @@ pub const QPdfDocumentRenderOptions = extern struct {
 
     pub const _is_QPdfDocumentRenderOptions = {};
 
-    /// New constructs a new QPdfDocumentRenderOptions object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QPdfDocumentRenderOptions object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QPdfDocumentRenderOptions `
     ///
-    pub fn New(other: anytype) QPdfDocumentRenderOptions {
+    pub fn new(other: anytype) QPdfDocumentRenderOptions {
         comptime _ = @TypeOf(other)._is_QPdfDocumentRenderOptions;
         return .{ .ptr = qtc.QPdfDocumentRenderOptions_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new QPdfDocumentRenderOptions object and invalidates the source QPdfDocumentRenderOptions object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QPdfDocumentRenderOptions object and invalidate the source QPdfDocumentRenderOptions object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QPdfDocumentRenderOptions `
     ///
-    pub fn New2(other: anytype) QPdfDocumentRenderOptions {
+    pub fn new2(other: anytype) QPdfDocumentRenderOptions {
         comptime _ = @TypeOf(other)._is_QPdfDocumentRenderOptions;
         return .{ .ptr = qtc.QPdfDocumentRenderOptions_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QPdfDocumentRenderOptions object.
+    /// ### DEPRECATED: Use `new3` instead
     ///
-    pub fn New3() QPdfDocumentRenderOptions {
+    pub const New3 = new3;
+
+    /// Allocate a new QPdfDocumentRenderOptions object in C++ memory
+    ///
+    pub fn new3() QPdfDocumentRenderOptions {
         return .{ .ptr = qtc.QPdfDocumentRenderOptions_new3() };
     }
 
-    /// New4 constructs a new QPdfDocumentRenderOptions object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QPdfDocumentRenderOptions object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QPdfDocumentRenderOptions `
     ///
-    pub fn New4(param1: anytype) QPdfDocumentRenderOptions {
+    pub fn new4(param1: anytype) QPdfDocumentRenderOptions {
         comptime _ = @TypeOf(param1)._is_QPdfDocumentRenderOptions;
         return .{ .ptr = qtc.QPdfDocumentRenderOptions_new4(@ptrCast(param1.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -61,11 +80,14 @@ pub const QPdfDocumentRenderOptions = extern struct {
     ///
     /// ` other: QPdfDocumentRenderOptions `
     ///
-    pub fn CopyAssign(self: QPdfDocumentRenderOptions, other: QPdfDocumentRenderOptions) void {
+    pub fn copyAssign(self: QPdfDocumentRenderOptions, other: QPdfDocumentRenderOptions) void {
         qtc.QPdfDocumentRenderOptions_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -73,9 +95,13 @@ pub const QPdfDocumentRenderOptions = extern struct {
     ///
     /// ` other: QPdfDocumentRenderOptions `
     ///
-    pub fn MoveAssign(self: QPdfDocumentRenderOptions, other: QPdfDocumentRenderOptions) void {
+    pub fn moveAssign(self: QPdfDocumentRenderOptions, other: QPdfDocumentRenderOptions) void {
         qtc.QPdfDocumentRenderOptions_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `rotation` instead
+    ///
+    pub const Rotation = rotation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfdocumentrenderoptions.html#rotation)
     ///
@@ -87,9 +113,13 @@ pub const QPdfDocumentRenderOptions = extern struct {
     ///
     /// ` qpdfdocumentrenderoptions_enums.Rotation `
     ///
-    pub fn Rotation(self: QPdfDocumentRenderOptions) i32 {
+    pub fn rotation(self: QPdfDocumentRenderOptions) i32 {
         return qtc.QPdfDocumentRenderOptions_Rotation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setRotation` instead
+    ///
+    pub const SetRotation = setRotation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfdocumentrenderoptions.html#setRotation)
     ///
@@ -99,9 +129,13 @@ pub const QPdfDocumentRenderOptions = extern struct {
     ///
     /// ` r: qpdfdocumentrenderoptions_enums.Rotation `
     ///
-    pub fn SetRotation(self: QPdfDocumentRenderOptions, r: i32) void {
+    pub fn setRotation(self: QPdfDocumentRenderOptions, r: i32) void {
         qtc.QPdfDocumentRenderOptions_SetRotation(@ptrCast(self.ptr), @bitCast(r));
     }
+
+    /// ### DEPRECATED: Use `renderFlags` instead
+    ///
+    pub const RenderFlags = renderFlags;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfdocumentrenderoptions.html#renderFlags)
     ///
@@ -113,9 +147,13 @@ pub const QPdfDocumentRenderOptions = extern struct {
     ///
     /// ` flag of qpdfdocumentrenderoptions_enums.RenderFlag `
     ///
-    pub fn RenderFlags(self: QPdfDocumentRenderOptions) i32 {
+    pub fn renderFlags(self: QPdfDocumentRenderOptions) i32 {
         return qtc.QPdfDocumentRenderOptions_RenderFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setRenderFlags` instead
+    ///
+    pub const SetRenderFlags = setRenderFlags;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfdocumentrenderoptions.html#setRenderFlags)
     ///
@@ -125,9 +163,13 @@ pub const QPdfDocumentRenderOptions = extern struct {
     ///
     /// ` r: flag of qpdfdocumentrenderoptions_enums.RenderFlag `
     ///
-    pub fn SetRenderFlags(self: QPdfDocumentRenderOptions, r: i32) void {
+    pub fn setRenderFlags(self: QPdfDocumentRenderOptions, r: i32) void {
         qtc.QPdfDocumentRenderOptions_SetRenderFlags(@ptrCast(self.ptr), @bitCast(r));
     }
+
+    /// ### DEPRECATED: Use `scaledClipRect` instead
+    ///
+    pub const ScaledClipRect = scaledClipRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfdocumentrenderoptions.html#scaledClipRect)
     ///
@@ -135,9 +177,13 @@ pub const QPdfDocumentRenderOptions = extern struct {
     ///
     /// ` self: QPdfDocumentRenderOptions `
     ///
-    pub fn ScaledClipRect(self: QPdfDocumentRenderOptions) QRect {
+    pub fn scaledClipRect(self: QPdfDocumentRenderOptions) QRect {
         return .{ .ptr = qtc.QPdfDocumentRenderOptions_ScaledClipRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScaledClipRect` instead
+    ///
+    pub const SetScaledClipRect = setScaledClipRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfdocumentrenderoptions.html#setScaledClipRect)
     ///
@@ -147,10 +193,14 @@ pub const QPdfDocumentRenderOptions = extern struct {
     ///
     /// ` r: QRect `
     ///
-    pub fn SetScaledClipRect(self: QPdfDocumentRenderOptions, r: anytype) void {
+    pub fn setScaledClipRect(self: QPdfDocumentRenderOptions, r: anytype) void {
         comptime _ = @TypeOf(r)._is_QRect;
         qtc.QPdfDocumentRenderOptions_SetScaledClipRect(@ptrCast(self.ptr), @ptrCast(r.ptr));
     }
+
+    /// ### DEPRECATED: Use `scaledSize` instead
+    ///
+    pub const ScaledSize = scaledSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfdocumentrenderoptions.html#scaledSize)
     ///
@@ -158,9 +208,13 @@ pub const QPdfDocumentRenderOptions = extern struct {
     ///
     /// ` self: QPdfDocumentRenderOptions `
     ///
-    pub fn ScaledSize(self: QPdfDocumentRenderOptions) QSize {
+    pub fn scaledSize(self: QPdfDocumentRenderOptions) QSize {
         return .{ .ptr = qtc.QPdfDocumentRenderOptions_ScaledSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScaledSize` instead
+    ///
+    pub const SetScaledSize = setScaledSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfdocumentrenderoptions.html#setScaledSize)
     ///
@@ -170,24 +224,24 @@ pub const QPdfDocumentRenderOptions = extern struct {
     ///
     /// ` s: QSize `
     ///
-    pub fn SetScaledSize(self: QPdfDocumentRenderOptions, s: anytype) void {
+    pub fn setScaledSize(self: QPdfDocumentRenderOptions, s: anytype) void {
         comptime _ = @TypeOf(s)._is_QSize;
         qtc.QPdfDocumentRenderOptions_SetScaledSize(@ptrCast(self.ptr), @ptrCast(s.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfdocumentrenderoptions.html#dtor.QPdfDocumentRenderOptions)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QPdfDocumentRenderOptions `
     ///
-    pub fn Delete(self: QPdfDocumentRenderOptions) void {
+    pub fn delete(self: QPdfDocumentRenderOptions) void {
         qtc.QPdfDocumentRenderOptions_Delete(@ptrCast(self.ptr));
     }
 };

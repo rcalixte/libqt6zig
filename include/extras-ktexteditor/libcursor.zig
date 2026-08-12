@@ -12,58 +12,81 @@ pub const KTextEditor__Cursor = extern struct {
 
     pub const _is_KTextEditor__Cursor = {};
 
-    /// New constructs a new KTextEditor::Cursor object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KTextEditor__Cursor {
+    pub const New = new;
+
+    /// Allocate a new KTextEditor::Cursor object in C++ memory
+    ///
+    pub fn new() KTextEditor__Cursor {
         return .{ .ptr = qtc.KTextEditor__Cursor_new() };
     }
 
-    /// New2 constructs a new KTextEditor::Cursor object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KTextEditor::Cursor object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: KTextEditor__Cursor `
     ///
-    pub fn New2(other: anytype) KTextEditor__Cursor {
+    pub fn new2(other: anytype) KTextEditor__Cursor {
         comptime _ = @TypeOf(other)._is_KTextEditor__Cursor;
         return .{ .ptr = qtc.KTextEditor__Cursor_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new KTextEditor::Cursor object and invalidates the source KTextEditor::Cursor object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new KTextEditor::Cursor object and invalidate the source KTextEditor::Cursor object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: KTextEditor__Cursor `
     ///
-    pub fn New3(other: anytype) KTextEditor__Cursor {
+    pub fn new3(other: anytype) KTextEditor__Cursor {
         comptime _ = @TypeOf(other)._is_KTextEditor__Cursor;
         return .{ .ptr = qtc.KTextEditor__Cursor_new3(@ptrCast(other.ptr)) };
     }
 
-    /// New4 constructs a new KTextEditor::Cursor object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new KTextEditor::Cursor object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` line: i32 `
+    /// ` _line: i32 `
     ///
-    /// ` column: i32 `
+    /// ` _column: i32 `
     ///
-    pub fn New4(line: i32, column: i32) KTextEditor__Cursor {
-        return .{ .ptr = qtc.KTextEditor__Cursor_new4(@bitCast(line), @bitCast(column)) };
+    pub fn new4(_line: i32, _column: i32) KTextEditor__Cursor {
+        return .{ .ptr = qtc.KTextEditor__Cursor_new4(@bitCast(_line), @bitCast(_column)) };
     }
 
-    /// New5 constructs a new KTextEditor::Cursor object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new KTextEditor::Cursor object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: KTextEditor__Cursor `
     ///
-    pub fn New5(param1: anytype) KTextEditor__Cursor {
+    pub fn new5(param1: anytype) KTextEditor__Cursor {
         comptime _ = @TypeOf(param1)._is_KTextEditor__Cursor;
         return .{ .ptr = qtc.KTextEditor__Cursor_new5(@ptrCast(param1.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -71,11 +94,14 @@ pub const KTextEditor__Cursor = extern struct {
     ///
     /// ` other: KTextEditor__Cursor `
     ///
-    pub fn CopyAssign(self: KTextEditor__Cursor, other: KTextEditor__Cursor) void {
+    pub fn copyAssign(self: KTextEditor__Cursor, other: KTextEditor__Cursor) void {
         qtc.KTextEditor__Cursor_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -83,9 +109,13 @@ pub const KTextEditor__Cursor = extern struct {
     ///
     /// ` other: KTextEditor__Cursor `
     ///
-    pub fn MoveAssign(self: KTextEditor__Cursor, other: KTextEditor__Cursor) void {
+    pub fn moveAssign(self: KTextEditor__Cursor, other: KTextEditor__Cursor) void {
         qtc.KTextEditor__Cursor_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-cursor.html#isValid)
     ///
@@ -93,21 +123,33 @@ pub const KTextEditor__Cursor = extern struct {
     ///
     /// ` self: KTextEditor__Cursor `
     ///
-    pub fn IsValid(self: KTextEditor__Cursor) bool {
+    pub fn isValid(self: KTextEditor__Cursor) bool {
         return qtc.KTextEditor__Cursor_IsValid(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `invalid` instead
+    ///
+    pub const Invalid = invalid;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-cursor.html#invalid)
     ///
-    pub fn Invalid() KTextEditor__Cursor {
+    pub fn invalid() KTextEditor__Cursor {
         return .{ .ptr = qtc.KTextEditor__Cursor_Invalid() };
     }
 
+    /// ### DEPRECATED: Use `start` instead
+    ///
+    pub const Start = start;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-cursor.html#start)
     ///
-    pub fn Start() KTextEditor__Cursor {
+    pub fn start() KTextEditor__Cursor {
         return .{ .ptr = qtc.KTextEditor__Cursor_Start() };
     }
+
+    /// ### DEPRECATED: Use `toString` instead
+    ///
+    pub const ToString = toString;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-cursor.html#toString)
     ///
@@ -117,13 +159,17 @@ pub const KTextEditor__Cursor = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToString(self: KTextEditor__Cursor, allocator: std.mem.Allocator) []const u8 {
+    pub fn toString(self: KTextEditor__Cursor, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KTextEditor__Cursor_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Cursor.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Cursor.toString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `fromString` instead
+    ///
+    pub const FromString = fromString;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-cursor.html#fromString)
     ///
@@ -131,7 +177,7 @@ pub const KTextEditor__Cursor = extern struct {
     ///
     /// ` str: []const u8 `
     ///
-    pub fn FromString(str: []const u8) KTextEditor__Cursor {
+    pub fn fromString(str: []const u8) KTextEditor__Cursor {
         const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
@@ -139,18 +185,9 @@ pub const KTextEditor__Cursor = extern struct {
         return .{ .ptr = qtc.KTextEditor__Cursor_FromString(str_str) };
     }
 
-    /// ### [Upstream resources](https://api.kde.org/ktexteditor-cursor.html#setPosition)
+    /// ### DEPRECATED: Use `setPosition` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTextEditor__Cursor `
-    ///
-    /// ` position: KTextEditor__Cursor `
-    ///
-    pub fn SetPosition(self: KTextEditor__Cursor, position: anytype) void {
-        comptime _ = @TypeOf(position)._is_KTextEditor__Cursor;
-        qtc.KTextEditor__Cursor_SetPosition(@ptrCast(self.ptr), @ptrCast(position.ptr));
-    }
+    pub const SetPosition = setPosition;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-cursor.html#setPosition)
     ///
@@ -158,13 +195,34 @@ pub const KTextEditor__Cursor = extern struct {
     ///
     /// ` self: KTextEditor__Cursor `
     ///
-    /// ` line: i32 `
+    /// ` _position: KTextEditor__Cursor `
     ///
-    /// ` column: i32 `
-    ///
-    pub fn SetPosition2(self: KTextEditor__Cursor, line: i32, column: i32) void {
-        qtc.KTextEditor__Cursor_SetPosition2(@ptrCast(self.ptr), @bitCast(line), @bitCast(column));
+    pub fn setPosition(self: KTextEditor__Cursor, _position: anytype) void {
+        comptime _ = @TypeOf(_position)._is_KTextEditor__Cursor;
+        qtc.KTextEditor__Cursor_SetPosition(@ptrCast(self.ptr), @ptrCast(_position.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPosition2` instead
+    ///
+    pub const SetPosition2 = setPosition2;
+
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-cursor.html#setPosition)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KTextEditor__Cursor `
+    ///
+    /// ` _line: i32 `
+    ///
+    /// ` _column: i32 `
+    ///
+    pub fn setPosition2(self: KTextEditor__Cursor, _line: i32, _column: i32) void {
+        qtc.KTextEditor__Cursor_SetPosition2(@ptrCast(self.ptr), @bitCast(_line), @bitCast(_column));
+    }
+
+    /// ### DEPRECATED: Use `line` instead
+    ///
+    pub const Line = line;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-cursor.html#line)
     ///
@@ -172,9 +230,13 @@ pub const KTextEditor__Cursor = extern struct {
     ///
     /// ` self: KTextEditor__Cursor `
     ///
-    pub fn Line(self: KTextEditor__Cursor) i32 {
+    pub fn line(self: KTextEditor__Cursor) i32 {
         return qtc.KTextEditor__Cursor_Line(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLine` instead
+    ///
+    pub const SetLine = setLine;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-cursor.html#setLine)
     ///
@@ -182,11 +244,15 @@ pub const KTextEditor__Cursor = extern struct {
     ///
     /// ` self: KTextEditor__Cursor `
     ///
-    /// ` line: i32 `
+    /// ` _line: i32 `
     ///
-    pub fn SetLine(self: KTextEditor__Cursor, line: i32) void {
-        qtc.KTextEditor__Cursor_SetLine(@ptrCast(self.ptr), @bitCast(line));
+    pub fn setLine(self: KTextEditor__Cursor, _line: i32) void {
+        qtc.KTextEditor__Cursor_SetLine(@ptrCast(self.ptr), @bitCast(_line));
     }
+
+    /// ### DEPRECATED: Use `column` instead
+    ///
+    pub const Column = column;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-cursor.html#column)
     ///
@@ -194,9 +260,13 @@ pub const KTextEditor__Cursor = extern struct {
     ///
     /// ` self: KTextEditor__Cursor `
     ///
-    pub fn Column(self: KTextEditor__Cursor) i32 {
+    pub fn column(self: KTextEditor__Cursor) i32 {
         return qtc.KTextEditor__Cursor_Column(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setColumn` instead
+    ///
+    pub const SetColumn = setColumn;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-cursor.html#setColumn)
     ///
@@ -204,11 +274,15 @@ pub const KTextEditor__Cursor = extern struct {
     ///
     /// ` self: KTextEditor__Cursor `
     ///
-    /// ` column: i32 `
+    /// ` _column: i32 `
     ///
-    pub fn SetColumn(self: KTextEditor__Cursor, column: i32) void {
-        qtc.KTextEditor__Cursor_SetColumn(@ptrCast(self.ptr), @bitCast(column));
+    pub fn setColumn(self: KTextEditor__Cursor, _column: i32) void {
+        qtc.KTextEditor__Cursor_SetColumn(@ptrCast(self.ptr), @bitCast(_column));
     }
+
+    /// ### DEPRECATED: Use `atStartOfLine` instead
+    ///
+    pub const AtStartOfLine = atStartOfLine;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-cursor.html#atStartOfLine)
     ///
@@ -216,9 +290,13 @@ pub const KTextEditor__Cursor = extern struct {
     ///
     /// ` self: KTextEditor__Cursor `
     ///
-    pub fn AtStartOfLine(self: KTextEditor__Cursor) bool {
+    pub fn atStartOfLine(self: KTextEditor__Cursor) bool {
         return qtc.KTextEditor__Cursor_AtStartOfLine(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `atStartOfDocument` instead
+    ///
+    pub const AtStartOfDocument = atStartOfDocument;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-cursor.html#atStartOfDocument)
     ///
@@ -226,9 +304,13 @@ pub const KTextEditor__Cursor = extern struct {
     ///
     /// ` self: KTextEditor__Cursor `
     ///
-    pub fn AtStartOfDocument(self: KTextEditor__Cursor) bool {
+    pub fn atStartOfDocument(self: KTextEditor__Cursor) bool {
         return qtc.KTextEditor__Cursor_AtStartOfDocument(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `position` instead
+    ///
+    pub const Position = position;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-cursor.html#position)
     ///
@@ -236,25 +318,25 @@ pub const KTextEditor__Cursor = extern struct {
     ///
     /// ` self: KTextEditor__Cursor `
     ///
-    /// ` line: *i32 `
+    /// ` _line: *i32 `
     ///
-    /// ` column: *i32 `
+    /// ` _column: *i32 `
     ///
-    pub fn Position(self: KTextEditor__Cursor, line: *i32, column: *i32) void {
-        qtc.KTextEditor__Cursor_Position(@ptrCast(self.ptr), @ptrCast(line), @ptrCast(column));
+    pub fn position(self: KTextEditor__Cursor, _line: *i32, _column: *i32) void {
+        qtc.KTextEditor__Cursor_Position(@ptrCast(self.ptr), @ptrCast(_line), @ptrCast(_column));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KTextEditor__Cursor `
     ///
-    pub fn Delete(self: KTextEditor__Cursor) void {
+    pub fn delete(self: KTextEditor__Cursor) void {
         qtc.KTextEditor__Cursor_Delete(@ptrCast(self.ptr));
     }
 };

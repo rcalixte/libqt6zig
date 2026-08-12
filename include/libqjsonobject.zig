@@ -18,22 +18,34 @@ pub const QJsonObject = extern struct {
 
     pub const _is_QJsonObject = {};
 
-    /// New constructs a new QJsonObject object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QJsonObject {
+    pub const New = new;
+
+    /// Allocate a new QJsonObject object in C++ memory
+    ///
+    pub fn new() QJsonObject {
         return .{ .ptr = qtc.QJsonObject_new() };
     }
 
-    /// New2 constructs a new QJsonObject object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QJsonObject object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QJsonObject `
     ///
-    pub fn New2(other: anytype) QJsonObject {
+    pub fn new2(other: anytype) QJsonObject {
         comptime _ = @TypeOf(other)._is_QJsonObject;
         return .{ .ptr = qtc.QJsonObject_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#operator-eq)
     ///
@@ -43,10 +55,14 @@ pub const QJsonObject = extern struct {
     ///
     /// ` other: QJsonObject `
     ///
-    pub fn OperatorAssign(self: QJsonObject, other: anytype) void {
+    pub fn operatorAssign(self: QJsonObject, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QJsonObject;
         qtc.QJsonObject_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#swap)
     ///
@@ -56,10 +72,14 @@ pub const QJsonObject = extern struct {
     ///
     /// ` other: QJsonObject `
     ///
-    pub fn Swap(self: QJsonObject, other: anytype) void {
+    pub fn swap(self: QJsonObject, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QJsonObject;
         qtc.QJsonObject_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `fromVariantMap` instead
+    ///
+    pub const FromVariantMap = fromVariantMap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#fromVariantMap)
     ///
@@ -69,11 +89,11 @@ pub const QJsonObject = extern struct {
     ///
     /// ` map: ArrayMap_constu8_QVariant `
     ///
-    pub fn FromVariantMap(allocator: std.mem.Allocator, map: ArrayMap_constu8_QVariant) QJsonObject {
+    pub fn fromVariantMap(allocator: std.mem.Allocator, map: ArrayMap_constu8_QVariant) QJsonObject {
         const map_count = map.count();
-        const map_keys = allocator.alloc(qtc.libqt_string, map_count) catch @panic("QJsonObject.FromVariantMap: Memory allocation failed");
+        const map_keys = allocator.alloc(qtc.libqt_string, map_count) catch @panic("QJsonObject.fromVariantMap: Memory allocation failed");
         defer allocator.free(map_keys);
-        const map_values = allocator.alloc(QtC.QVariant, map_count) catch @panic("QJsonObject.FromVariantMap: Memory allocation failed");
+        const map_values = allocator.alloc(QtC.QVariant, map_count) catch @panic("QJsonObject.fromVariantMap: Memory allocation failed");
         defer allocator.free(map_values);
         var i: usize = 0;
         var map_it = map.iterator();
@@ -93,6 +113,10 @@ pub const QJsonObject = extern struct {
         return .{ .ptr = qtc.QJsonObject_FromVariantMap(map_map) };
     }
 
+    /// ### DEPRECATED: Use `toVariantMap` instead
+    ///
+    pub const ToVariantMap = toVariantMap;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#toVariantMap)
     ///
     /// ## Parameter(s):
@@ -101,10 +125,10 @@ pub const QJsonObject = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToVariantMap(self: QJsonObject, allocator: std.mem.Allocator) ArrayMap_constu8_QVariant {
+    pub fn toVariantMap(self: QJsonObject, allocator: std.mem.Allocator) ArrayMap_constu8_QVariant {
         const _map: qtc.libqt_map = qtc.QJsonObject_ToVariantMap(@ptrCast(self.ptr));
         var _ret: ArrayMap_constu8_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QJsonObject.ToVariantMap: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QJsonObject.toVariantMap: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
@@ -118,13 +142,17 @@ pub const QJsonObject = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("QJsonObject.ToVariantMap: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("QJsonObject.toVariantMap: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
             _ret.putAssumeCapacity(_entry_slice, .{ .ptr = @ptrCast(_value) });
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `fromVariantHash` instead
+    ///
+    pub const FromVariantHash = fromVariantHash;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#fromVariantHash)
     ///
@@ -134,11 +162,11 @@ pub const QJsonObject = extern struct {
     ///
     /// ` map: Map_constu8_QVariant `
     ///
-    pub fn FromVariantHash(allocator: std.mem.Allocator, map: Map_constu8_QVariant) QJsonObject {
+    pub fn fromVariantHash(allocator: std.mem.Allocator, map: Map_constu8_QVariant) QJsonObject {
         const map_count = map.count();
-        const map_keys = allocator.alloc(qtc.libqt_string, map_count) catch @panic("QJsonObject.FromVariantHash: Memory allocation failed");
+        const map_keys = allocator.alloc(qtc.libqt_string, map_count) catch @panic("QJsonObject.fromVariantHash: Memory allocation failed");
         defer allocator.free(map_keys);
-        const map_values = allocator.alloc(QtC.QVariant, map_count) catch @panic("QJsonObject.FromVariantHash: Memory allocation failed");
+        const map_values = allocator.alloc(QtC.QVariant, map_count) catch @panic("QJsonObject.fromVariantHash: Memory allocation failed");
         defer allocator.free(map_values);
         var i: usize = 0;
         var map_it = map.iterator();
@@ -158,6 +186,10 @@ pub const QJsonObject = extern struct {
         return .{ .ptr = qtc.QJsonObject_FromVariantHash(map_map) };
     }
 
+    /// ### DEPRECATED: Use `toVariantHash` instead
+    ///
+    pub const ToVariantHash = toVariantHash;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#toVariantHash)
     ///
     /// ## Parameter(s):
@@ -166,10 +198,10 @@ pub const QJsonObject = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToVariantHash(self: QJsonObject, allocator: std.mem.Allocator) Map_constu8_QVariant {
+    pub fn toVariantHash(self: QJsonObject, allocator: std.mem.Allocator) Map_constu8_QVariant {
         const _map: qtc.libqt_map = qtc.QJsonObject_ToVariantHash(@ptrCast(self.ptr));
         var _ret: Map_constu8_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QJsonObject.ToVariantHash: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QJsonObject.toVariantHash: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
@@ -183,13 +215,17 @@ pub const QJsonObject = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("QJsonObject.ToVariantHash: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("QJsonObject.toVariantHash: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
             _ret.putAssumeCapacity(_entry_slice, .{ .ptr = @ptrCast(_value) });
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `keys` instead
+    ///
+    pub const Keys = keys;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#keys)
     ///
@@ -199,7 +235,7 @@ pub const QJsonObject = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Keys(self: QJsonObject, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn keys(self: QJsonObject, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QJsonObject_Keys(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -207,15 +243,19 @@ pub const QJsonObject = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QJsonObject.Keys: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QJsonObject.keys: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QJsonObject.Keys: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QJsonObject.keys: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#size)
     ///
@@ -223,9 +263,13 @@ pub const QJsonObject = extern struct {
     ///
     /// ` self: QJsonObject `
     ///
-    pub fn Size(self: QJsonObject) isize {
+    pub fn size(self: QJsonObject) isize {
         return qtc.QJsonObject_Size(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `count` instead
+    ///
+    pub const Count = count;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#count)
     ///
@@ -233,9 +277,13 @@ pub const QJsonObject = extern struct {
     ///
     /// ` self: QJsonObject `
     ///
-    pub fn Count(self: QJsonObject) isize {
+    pub fn count(self: QJsonObject) isize {
         return qtc.QJsonObject_Count(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `length` instead
+    ///
+    pub const Length = length;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#length)
     ///
@@ -243,9 +291,13 @@ pub const QJsonObject = extern struct {
     ///
     /// ` self: QJsonObject `
     ///
-    pub fn Length(self: QJsonObject) isize {
+    pub fn length(self: QJsonObject) isize {
         return qtc.QJsonObject_Length(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEmpty` instead
+    ///
+    pub const IsEmpty = isEmpty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#isEmpty)
     ///
@@ -253,9 +305,13 @@ pub const QJsonObject = extern struct {
     ///
     /// ` self: QJsonObject `
     ///
-    pub fn IsEmpty(self: QJsonObject) bool {
+    pub fn isEmpty(self: QJsonObject) bool {
         return qtc.QJsonObject_IsEmpty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `value` instead
+    ///
+    pub const Value = value;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#value)
     ///
@@ -265,7 +321,7 @@ pub const QJsonObject = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn Value(self: QJsonObject, key: []const u8) QJsonValue {
+    pub fn value(self: QJsonObject, key: []const u8) QJsonValue {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -273,6 +329,10 @@ pub const QJsonObject = extern struct {
         return .{ .ptr = qtc.QJsonObject_Value(@ptrCast(self.ptr), key_str) };
     }
 
+    /// ### DEPRECATED: Use `operatorSubscript` instead
+    ///
+    pub const OperatorSubscript = operatorSubscript;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#operator-5b-5d)
     ///
     /// ## Parameter(s):
@@ -281,7 +341,7 @@ pub const QJsonObject = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn OperatorSubscript(self: QJsonObject, key: []const u8) QJsonValue {
+    pub fn operatorSubscript(self: QJsonObject, key: []const u8) QJsonValue {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -289,6 +349,10 @@ pub const QJsonObject = extern struct {
         return .{ .ptr = qtc.QJsonObject_OperatorSubscript(@ptrCast(self.ptr), key_str) };
     }
 
+    /// ### DEPRECATED: Use `operatorSubscript2` instead
+    ///
+    pub const OperatorSubscript2 = operatorSubscript2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#operator-5b-5d)
     ///
     /// ## Parameter(s):
@@ -297,7 +361,7 @@ pub const QJsonObject = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn OperatorSubscript2(self: QJsonObject, key: []const u8) QJsonValueRef {
+    pub fn operatorSubscript2(self: QJsonObject, key: []const u8) QJsonValueRef {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -305,6 +369,10 @@ pub const QJsonObject = extern struct {
         return .{ .ptr = qtc.QJsonObject_OperatorSubscript2(@ptrCast(self.ptr), key_str) };
     }
 
+    /// ### DEPRECATED: Use `value2` instead
+    ///
+    pub const Value2 = value2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#value)
     ///
     /// ## Parameter(s):
@@ -313,7 +381,7 @@ pub const QJsonObject = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn Value2(self: QJsonObject, key: []const u8) QJsonValue {
+    pub fn value2(self: QJsonObject, key: []const u8) QJsonValue {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -321,6 +389,10 @@ pub const QJsonObject = extern struct {
         return .{ .ptr = qtc.QJsonObject_Value2(@ptrCast(self.ptr), key_str) };
     }
 
+    /// ### DEPRECATED: Use `value3` instead
+    ///
+    pub const Value3 = value3;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#value)
     ///
     /// ## Parameter(s):
@@ -329,7 +401,7 @@ pub const QJsonObject = extern struct {
     ///
     /// ` key: []u8 `
     ///
-    pub fn Value3(self: QJsonObject, key: []u8) QJsonValue {
+    pub fn value3(self: QJsonObject, key: []u8) QJsonValue {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -337,6 +409,10 @@ pub const QJsonObject = extern struct {
         return .{ .ptr = qtc.QJsonObject_Value3(@ptrCast(self.ptr), key_str) };
     }
 
+    /// ### DEPRECATED: Use `operatorSubscript3` instead
+    ///
+    pub const OperatorSubscript3 = operatorSubscript3;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#operator-5b-5d)
     ///
     /// ## Parameter(s):
@@ -345,7 +421,7 @@ pub const QJsonObject = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn OperatorSubscript3(self: QJsonObject, key: []const u8) QJsonValue {
+    pub fn operatorSubscript3(self: QJsonObject, key: []const u8) QJsonValue {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -353,6 +429,10 @@ pub const QJsonObject = extern struct {
         return .{ .ptr = qtc.QJsonObject_OperatorSubscript3(@ptrCast(self.ptr), key_str) };
     }
 
+    /// ### DEPRECATED: Use `operatorSubscript4` instead
+    ///
+    pub const OperatorSubscript4 = operatorSubscript4;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#operator-5b-5d)
     ///
     /// ## Parameter(s):
@@ -361,7 +441,7 @@ pub const QJsonObject = extern struct {
     ///
     /// ` key: []u8 `
     ///
-    pub fn OperatorSubscript4(self: QJsonObject, key: []u8) QJsonValue {
+    pub fn operatorSubscript4(self: QJsonObject, key: []u8) QJsonValue {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -369,6 +449,10 @@ pub const QJsonObject = extern struct {
         return .{ .ptr = qtc.QJsonObject_OperatorSubscript4(@ptrCast(self.ptr), key_str) };
     }
 
+    /// ### DEPRECATED: Use `operatorSubscript5` instead
+    ///
+    pub const OperatorSubscript5 = operatorSubscript5;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#operator-5b-5d)
     ///
     /// ## Parameter(s):
@@ -377,7 +461,7 @@ pub const QJsonObject = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn OperatorSubscript5(self: QJsonObject, key: []const u8) QJsonValueRef {
+    pub fn operatorSubscript5(self: QJsonObject, key: []const u8) QJsonValueRef {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -385,6 +469,10 @@ pub const QJsonObject = extern struct {
         return .{ .ptr = qtc.QJsonObject_OperatorSubscript5(@ptrCast(self.ptr), key_str) };
     }
 
+    /// ### DEPRECATED: Use `operatorSubscript6` instead
+    ///
+    pub const OperatorSubscript6 = operatorSubscript6;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#operator-5b-5d)
     ///
     /// ## Parameter(s):
@@ -393,7 +481,7 @@ pub const QJsonObject = extern struct {
     ///
     /// ` key: []u8 `
     ///
-    pub fn OperatorSubscript6(self: QJsonObject, key: []u8) QJsonValueRef {
+    pub fn operatorSubscript6(self: QJsonObject, key: []u8) QJsonValueRef {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -401,6 +489,10 @@ pub const QJsonObject = extern struct {
         return .{ .ptr = qtc.QJsonObject_OperatorSubscript6(@ptrCast(self.ptr), key_str) };
     }
 
+    /// ### DEPRECATED: Use `remove` instead
+    ///
+    pub const Remove = remove;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#remove)
     ///
     /// ## Parameter(s):
@@ -409,7 +501,7 @@ pub const QJsonObject = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn Remove(self: QJsonObject, key: []const u8) void {
+    pub fn remove(self: QJsonObject, key: []const u8) void {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -417,6 +509,10 @@ pub const QJsonObject = extern struct {
         qtc.QJsonObject_Remove(@ptrCast(self.ptr), key_str);
     }
 
+    /// ### DEPRECATED: Use `take` instead
+    ///
+    pub const Take = take;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#take)
     ///
     /// ## Parameter(s):
@@ -425,7 +521,7 @@ pub const QJsonObject = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn Take(self: QJsonObject, key: []const u8) QJsonValue {
+    pub fn take(self: QJsonObject, key: []const u8) QJsonValue {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -433,6 +529,10 @@ pub const QJsonObject = extern struct {
         return .{ .ptr = qtc.QJsonObject_Take(@ptrCast(self.ptr), key_str) };
     }
 
+    /// ### DEPRECATED: Use `contains` instead
+    ///
+    pub const Contains = contains;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#contains)
     ///
     /// ## Parameter(s):
@@ -441,7 +541,7 @@ pub const QJsonObject = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn Contains(self: QJsonObject, key: []const u8) bool {
+    pub fn contains(self: QJsonObject, key: []const u8) bool {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -449,6 +549,10 @@ pub const QJsonObject = extern struct {
         return qtc.QJsonObject_Contains(@ptrCast(self.ptr), key_str);
     }
 
+    /// ### DEPRECATED: Use `remove2` instead
+    ///
+    pub const Remove2 = remove2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#remove)
     ///
     /// ## Parameter(s):
@@ -457,7 +561,7 @@ pub const QJsonObject = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn Remove2(self: QJsonObject, key: []const u8) void {
+    pub fn remove2(self: QJsonObject, key: []const u8) void {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -465,6 +569,10 @@ pub const QJsonObject = extern struct {
         qtc.QJsonObject_Remove2(@ptrCast(self.ptr), key_str);
     }
 
+    /// ### DEPRECATED: Use `remove3` instead
+    ///
+    pub const Remove3 = remove3;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#remove)
     ///
     /// ## Parameter(s):
@@ -473,7 +581,7 @@ pub const QJsonObject = extern struct {
     ///
     /// ` key: []u8 `
     ///
-    pub fn Remove3(self: QJsonObject, key: []u8) void {
+    pub fn remove3(self: QJsonObject, key: []u8) void {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -481,6 +589,10 @@ pub const QJsonObject = extern struct {
         qtc.QJsonObject_Remove3(@ptrCast(self.ptr), key_str);
     }
 
+    /// ### DEPRECATED: Use `take2` instead
+    ///
+    pub const Take2 = take2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#take)
     ///
     /// ## Parameter(s):
@@ -489,7 +601,7 @@ pub const QJsonObject = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn Take2(self: QJsonObject, key: []const u8) QJsonValue {
+    pub fn take2(self: QJsonObject, key: []const u8) QJsonValue {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -497,6 +609,10 @@ pub const QJsonObject = extern struct {
         return .{ .ptr = qtc.QJsonObject_Take2(@ptrCast(self.ptr), key_str) };
     }
 
+    /// ### DEPRECATED: Use `take3` instead
+    ///
+    pub const Take3 = take3;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#take)
     ///
     /// ## Parameter(s):
@@ -505,13 +621,17 @@ pub const QJsonObject = extern struct {
     ///
     /// ` key: []u8 `
     ///
-    pub fn Take3(self: QJsonObject, key: []u8) QJsonValue {
+    pub fn take3(self: QJsonObject, key: []u8) QJsonValue {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
         return .{ .ptr = qtc.QJsonObject_Take3(@ptrCast(self.ptr), key_str) };
     }
+
+    /// ### DEPRECATED: Use `contains2` instead
+    ///
+    pub const Contains2 = contains2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#contains)
     ///
@@ -521,13 +641,17 @@ pub const QJsonObject = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn Contains2(self: QJsonObject, key: []const u8) bool {
+    pub fn contains2(self: QJsonObject, key: []const u8) bool {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
         return qtc.QJsonObject_Contains2(@ptrCast(self.ptr), key_str);
     }
+
+    /// ### DEPRECATED: Use `contains3` instead
+    ///
+    pub const Contains3 = contains3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#contains)
     ///
@@ -537,7 +661,7 @@ pub const QJsonObject = extern struct {
     ///
     /// ` key: []u8 `
     ///
-    pub fn Contains3(self: QJsonObject, key: []u8) bool {
+    pub fn contains3(self: QJsonObject, key: []u8) bool {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -545,15 +669,9 @@ pub const QJsonObject = extern struct {
         return qtc.QJsonObject_Contains3(@ptrCast(self.ptr), key_str);
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#begin)
+    /// ### DEPRECATED: Use `begin` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QJsonObject `
-    ///
-    pub fn Begin(self: QJsonObject) QJsonObject__iterator {
-        return .{ .ptr = qtc.QJsonObject_Begin(@ptrCast(self.ptr)) };
-    }
+    pub const Begin = begin;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#begin)
     ///
@@ -561,9 +679,27 @@ pub const QJsonObject = extern struct {
     ///
     /// ` self: QJsonObject `
     ///
-    pub fn Begin2(self: QJsonObject) QJsonObject__const_iterator {
+    pub fn begin(self: QJsonObject) QJsonObject__iterator {
+        return .{ .ptr = qtc.QJsonObject_Begin(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `begin2` instead
+    ///
+    pub const Begin2 = begin2;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#begin)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QJsonObject `
+    ///
+    pub fn begin2(self: QJsonObject) QJsonObject__const_iterator {
         return .{ .ptr = qtc.QJsonObject_Begin2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `constBegin` instead
+    ///
+    pub const ConstBegin = constBegin;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#constBegin)
     ///
@@ -571,19 +707,13 @@ pub const QJsonObject = extern struct {
     ///
     /// ` self: QJsonObject `
     ///
-    pub fn ConstBegin(self: QJsonObject) QJsonObject__const_iterator {
+    pub fn constBegin(self: QJsonObject) QJsonObject__const_iterator {
         return .{ .ptr = qtc.QJsonObject_ConstBegin(@ptrCast(self.ptr)) };
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#end)
+    /// ### DEPRECATED: Use `end` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QJsonObject `
-    ///
-    pub fn End(self: QJsonObject) QJsonObject__iterator {
-        return .{ .ptr = qtc.QJsonObject_End(@ptrCast(self.ptr)) };
-    }
+    pub const End = end;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#end)
     ///
@@ -591,9 +721,27 @@ pub const QJsonObject = extern struct {
     ///
     /// ` self: QJsonObject `
     ///
-    pub fn End2(self: QJsonObject) QJsonObject__const_iterator {
+    pub fn end(self: QJsonObject) QJsonObject__iterator {
+        return .{ .ptr = qtc.QJsonObject_End(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `end2` instead
+    ///
+    pub const End2 = end2;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#end)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QJsonObject `
+    ///
+    pub fn end2(self: QJsonObject) QJsonObject__const_iterator {
         return .{ .ptr = qtc.QJsonObject_End2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `constEnd` instead
+    ///
+    pub const ConstEnd = constEnd;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#constEnd)
     ///
@@ -601,9 +749,13 @@ pub const QJsonObject = extern struct {
     ///
     /// ` self: QJsonObject `
     ///
-    pub fn ConstEnd(self: QJsonObject) QJsonObject__const_iterator {
+    pub fn constEnd(self: QJsonObject) QJsonObject__const_iterator {
         return .{ .ptr = qtc.QJsonObject_ConstEnd(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `erase` instead
+    ///
+    pub const Erase = erase;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#erase)
     ///
@@ -613,10 +765,14 @@ pub const QJsonObject = extern struct {
     ///
     /// ` it: QJsonObject__iterator `
     ///
-    pub fn Erase(self: QJsonObject, it: anytype) QJsonObject__iterator {
+    pub fn erase(self: QJsonObject, it: anytype) QJsonObject__iterator {
         comptime _ = @TypeOf(it)._is_QJsonObject__iterator;
         return .{ .ptr = qtc.QJsonObject_Erase(@ptrCast(self.ptr), @ptrCast(it.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#find)
     ///
@@ -626,7 +782,7 @@ pub const QJsonObject = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn Find(self: QJsonObject, key: []const u8) QJsonObject__iterator {
+    pub fn find(self: QJsonObject, key: []const u8) QJsonObject__iterator {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -634,6 +790,10 @@ pub const QJsonObject = extern struct {
         return .{ .ptr = qtc.QJsonObject_Find(@ptrCast(self.ptr), key_str) };
     }
 
+    /// ### DEPRECATED: Use `find2` instead
+    ///
+    pub const Find2 = find2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#find)
     ///
     /// ## Parameter(s):
@@ -642,7 +802,7 @@ pub const QJsonObject = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn Find2(self: QJsonObject, key: []const u8) QJsonObject__const_iterator {
+    pub fn find2(self: QJsonObject, key: []const u8) QJsonObject__const_iterator {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -650,6 +810,10 @@ pub const QJsonObject = extern struct {
         return .{ .ptr = qtc.QJsonObject_Find2(@ptrCast(self.ptr), key_str) };
     }
 
+    /// ### DEPRECATED: Use `constFind` instead
+    ///
+    pub const ConstFind = constFind;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#constFind)
     ///
     /// ## Parameter(s):
@@ -658,7 +822,7 @@ pub const QJsonObject = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn ConstFind(self: QJsonObject, key: []const u8) QJsonObject__const_iterator {
+    pub fn constFind(self: QJsonObject, key: []const u8) QJsonObject__const_iterator {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -666,6 +830,10 @@ pub const QJsonObject = extern struct {
         return .{ .ptr = qtc.QJsonObject_ConstFind(@ptrCast(self.ptr), key_str) };
     }
 
+    /// ### DEPRECATED: Use `insert` instead
+    ///
+    pub const Insert = insert;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#insert)
     ///
     /// ## Parameter(s):
@@ -674,16 +842,20 @@ pub const QJsonObject = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    /// ` value: QJsonValue `
+    /// ` _value: QJsonValue `
     ///
-    pub fn Insert(self: QJsonObject, key: []const u8, value: anytype) QJsonObject__iterator {
+    pub fn insert(self: QJsonObject, key: []const u8, _value: anytype) QJsonObject__iterator {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
-        comptime _ = @TypeOf(value)._is_QJsonValue;
-        return .{ .ptr = qtc.QJsonObject_Insert(@ptrCast(self.ptr), key_str, @ptrCast(value.ptr)) };
+        comptime _ = @TypeOf(_value)._is_QJsonValue;
+        return .{ .ptr = qtc.QJsonObject_Insert(@ptrCast(self.ptr), key_str, @ptrCast(_value.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `find3` instead
+    ///
+    pub const Find3 = find3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#find)
     ///
@@ -693,7 +865,7 @@ pub const QJsonObject = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn Find3(self: QJsonObject, key: []const u8) QJsonObject__iterator {
+    pub fn find3(self: QJsonObject, key: []const u8) QJsonObject__iterator {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -701,6 +873,10 @@ pub const QJsonObject = extern struct {
         return .{ .ptr = qtc.QJsonObject_Find3(@ptrCast(self.ptr), key_str) };
     }
 
+    /// ### DEPRECATED: Use `find4` instead
+    ///
+    pub const Find4 = find4;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#find)
     ///
     /// ## Parameter(s):
@@ -709,7 +885,7 @@ pub const QJsonObject = extern struct {
     ///
     /// ` key: []u8 `
     ///
-    pub fn Find4(self: QJsonObject, key: []u8) QJsonObject__iterator {
+    pub fn find4(self: QJsonObject, key: []u8) QJsonObject__iterator {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -717,6 +893,10 @@ pub const QJsonObject = extern struct {
         return .{ .ptr = qtc.QJsonObject_Find4(@ptrCast(self.ptr), key_str) };
     }
 
+    /// ### DEPRECATED: Use `find5` instead
+    ///
+    pub const Find5 = find5;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#find)
     ///
     /// ## Parameter(s):
@@ -725,7 +905,7 @@ pub const QJsonObject = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn Find5(self: QJsonObject, key: []const u8) QJsonObject__const_iterator {
+    pub fn find5(self: QJsonObject, key: []const u8) QJsonObject__const_iterator {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -733,6 +913,10 @@ pub const QJsonObject = extern struct {
         return .{ .ptr = qtc.QJsonObject_Find5(@ptrCast(self.ptr), key_str) };
     }
 
+    /// ### DEPRECATED: Use `find6` instead
+    ///
+    pub const Find6 = find6;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#find)
     ///
     /// ## Parameter(s):
@@ -741,7 +925,7 @@ pub const QJsonObject = extern struct {
     ///
     /// ` key: []u8 `
     ///
-    pub fn Find6(self: QJsonObject, key: []u8) QJsonObject__const_iterator {
+    pub fn find6(self: QJsonObject, key: []u8) QJsonObject__const_iterator {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -749,6 +933,10 @@ pub const QJsonObject = extern struct {
         return .{ .ptr = qtc.QJsonObject_Find6(@ptrCast(self.ptr), key_str) };
     }
 
+    /// ### DEPRECATED: Use `constFind2` instead
+    ///
+    pub const ConstFind2 = constFind2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#constFind)
     ///
     /// ## Parameter(s):
@@ -757,7 +945,7 @@ pub const QJsonObject = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn ConstFind2(self: QJsonObject, key: []const u8) QJsonObject__const_iterator {
+    pub fn constFind2(self: QJsonObject, key: []const u8) QJsonObject__const_iterator {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -765,6 +953,10 @@ pub const QJsonObject = extern struct {
         return .{ .ptr = qtc.QJsonObject_ConstFind2(@ptrCast(self.ptr), key_str) };
     }
 
+    /// ### DEPRECATED: Use `constFind3` instead
+    ///
+    pub const ConstFind3 = constFind3;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#constFind)
     ///
     /// ## Parameter(s):
@@ -773,13 +965,17 @@ pub const QJsonObject = extern struct {
     ///
     /// ` key: []u8 `
     ///
-    pub fn ConstFind3(self: QJsonObject, key: []u8) QJsonObject__const_iterator {
+    pub fn constFind3(self: QJsonObject, key: []u8) QJsonObject__const_iterator {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
         return .{ .ptr = qtc.QJsonObject_ConstFind3(@ptrCast(self.ptr), key_str) };
     }
+
+    /// ### DEPRECATED: Use `insert2` instead
+    ///
+    pub const Insert2 = insert2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#insert)
     ///
@@ -789,16 +985,20 @@ pub const QJsonObject = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    /// ` value: QJsonValue `
+    /// ` _value: QJsonValue `
     ///
-    pub fn Insert2(self: QJsonObject, key: []const u8, value: anytype) QJsonObject__iterator {
+    pub fn insert2(self: QJsonObject, key: []const u8, _value: anytype) QJsonObject__iterator {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
-        comptime _ = @TypeOf(value)._is_QJsonValue;
-        return .{ .ptr = qtc.QJsonObject_Insert2(@ptrCast(self.ptr), key_str, @ptrCast(value.ptr)) };
+        comptime _ = @TypeOf(_value)._is_QJsonValue;
+        return .{ .ptr = qtc.QJsonObject_Insert2(@ptrCast(self.ptr), key_str, @ptrCast(_value.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `insert3` instead
+    ///
+    pub const Insert3 = insert3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#insert)
     ///
@@ -808,16 +1008,20 @@ pub const QJsonObject = extern struct {
     ///
     /// ` key: []u8 `
     ///
-    /// ` value: QJsonValue `
+    /// ` _value: QJsonValue `
     ///
-    pub fn Insert3(self: QJsonObject, key: []u8, value: anytype) QJsonObject__iterator {
+    pub fn insert3(self: QJsonObject, key: []u8, _value: anytype) QJsonObject__iterator {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
-        comptime _ = @TypeOf(value)._is_QJsonValue;
-        return .{ .ptr = qtc.QJsonObject_Insert3(@ptrCast(self.ptr), key_str, @ptrCast(value.ptr)) };
+        comptime _ = @TypeOf(_value)._is_QJsonValue;
+        return .{ .ptr = qtc.QJsonObject_Insert3(@ptrCast(self.ptr), key_str, @ptrCast(_value.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `empty` instead
+    ///
+    pub const Empty = empty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#empty)
     ///
@@ -825,23 +1029,23 @@ pub const QJsonObject = extern struct {
     ///
     /// ` self: QJsonObject `
     ///
-    pub fn Empty(self: QJsonObject) bool {
+    pub fn empty(self: QJsonObject) bool {
         return qtc.QJsonObject_Empty(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#dtor.QJsonObject)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QJsonObject `
     ///
-    pub fn Delete(self: QJsonObject) void {
+    pub fn delete(self: QJsonObject) void {
         qtc.QJsonObject_Delete(@ptrCast(self.ptr));
     }
 };
@@ -856,24 +1060,36 @@ pub const QJsonObject__iterator = extern struct {
 
     pub const _is_QJsonObject__iterator = {};
 
-    /// New constructs a new QJsonObject::iterator object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QJsonObject::iterator object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QJsonObject__iterator `
     ///
-    pub fn New(other: anytype) QJsonObject__iterator {
+    pub fn new(other: anytype) QJsonObject__iterator {
         comptime _ = @TypeOf(other)._is_QJsonObject__iterator;
         return .{ .ptr = qtc.QJsonObject__iterator_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new QJsonObject::iterator object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() QJsonObject__iterator {
+    pub const New2 = new2;
+
+    /// Allocate a new QJsonObject::iterator object in C++ memory
+    ///
+    pub fn new2() QJsonObject__iterator {
         return .{ .ptr = qtc.QJsonObject__iterator_new2() };
     }
 
-    /// New3 constructs a new QJsonObject::iterator object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QJsonObject::iterator object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -881,21 +1097,29 @@ pub const QJsonObject__iterator = extern struct {
     ///
     /// ` index: isize `
     ///
-    pub fn New3(obj: anytype, index: isize) QJsonObject__iterator {
+    pub fn new3(obj: anytype, index: isize) QJsonObject__iterator {
         comptime _ = @TypeOf(obj)._is_QJsonObject;
         return .{ .ptr = qtc.QJsonObject__iterator_new3(@ptrCast(obj.ptr), @bitCast(index)) };
     }
 
-    /// New4 constructs a new QJsonObject::iterator object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QJsonObject::iterator object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QJsonObject__iterator `
     ///
-    pub fn New4(other: anytype) QJsonObject__iterator {
+    pub fn new4(other: anytype) QJsonObject__iterator {
         comptime _ = @TypeOf(other)._is_QJsonObject__iterator;
         return .{ .ptr = qtc.QJsonObject__iterator_new4(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject-iterator.html#operator-eq)
     ///
@@ -905,10 +1129,14 @@ pub const QJsonObject__iterator = extern struct {
     ///
     /// ` other: QJsonObject__iterator `
     ///
-    pub fn OperatorAssign(self: QJsonObject__iterator, other: anytype) void {
+    pub fn operatorAssign(self: QJsonObject__iterator, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QJsonObject__iterator;
         qtc.QJsonObject__iterator_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `key` instead
+    ///
+    pub const Key = key;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject-iterator.html#key)
     ///
@@ -918,13 +1146,17 @@ pub const QJsonObject__iterator = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Key(self: QJsonObject__iterator, allocator: std.mem.Allocator) []const u8 {
+    pub fn key(self: QJsonObject__iterator, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QJsonObject__iterator_Key(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QJsonObject__iterator.Key: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QJsonObject__iterator.key: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `value` instead
+    ///
+    pub const Value = value;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject-iterator.html#value)
     ///
@@ -932,9 +1164,13 @@ pub const QJsonObject__iterator = extern struct {
     ///
     /// ` self: QJsonObject__iterator `
     ///
-    pub fn Value(self: QJsonObject__iterator) QJsonValueRef {
+    pub fn value(self: QJsonObject__iterator) QJsonValueRef {
         return .{ .ptr = qtc.QJsonObject__iterator_Value(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMultiply` instead
+    ///
+    pub const OperatorMultiply = operatorMultiply;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject-iterator.html#operator-2a)
     ///
@@ -942,19 +1178,13 @@ pub const QJsonObject__iterator = extern struct {
     ///
     /// ` self: QJsonObject__iterator `
     ///
-    pub fn OperatorMultiply(self: QJsonObject__iterator) QJsonValueRef {
+    pub fn operatorMultiply(self: QJsonObject__iterator) QJsonValueRef {
         return .{ .ptr = qtc.QJsonObject__iterator_OperatorMultiply(@ptrCast(self.ptr)) };
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject-iterator.html#operator--gt)
+    /// ### DEPRECATED: Use `operatorMinusGreater` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QJsonObject__iterator `
-    ///
-    pub fn OperatorMinusGreater(self: QJsonObject__iterator) QJsonValueConstRef {
-        return .{ .ptr = qtc.QJsonObject__iterator_OperatorMinusGreater(@ptrCast(self.ptr)) };
-    }
+    pub const OperatorMinusGreater = operatorMinusGreater;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject-iterator.html#operator--gt)
     ///
@@ -962,9 +1192,27 @@ pub const QJsonObject__iterator = extern struct {
     ///
     /// ` self: QJsonObject__iterator `
     ///
-    pub fn OperatorMinusGreater2(self: QJsonObject__iterator) QJsonValueRef {
+    pub fn operatorMinusGreater(self: QJsonObject__iterator) QJsonValueConstRef {
+        return .{ .ptr = qtc.QJsonObject__iterator_OperatorMinusGreater(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `operatorMinusGreater2` instead
+    ///
+    pub const OperatorMinusGreater2 = operatorMinusGreater2;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject-iterator.html#operator--gt)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QJsonObject__iterator `
+    ///
+    pub fn operatorMinusGreater2(self: QJsonObject__iterator) QJsonValueRef {
         return .{ .ptr = qtc.QJsonObject__iterator_OperatorMinusGreater2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorSubscript` instead
+    ///
+    pub const OperatorSubscript = operatorSubscript;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject-iterator.html#operator-5b-5d)
     ///
@@ -974,20 +1222,28 @@ pub const QJsonObject__iterator = extern struct {
     ///
     /// ` j: isize `
     ///
-    pub fn OperatorSubscript(self: QJsonObject__iterator, j: isize) QJsonValueRef {
+    pub fn operatorSubscript(self: QJsonObject__iterator, j: isize) QJsonValueRef {
         return .{ .ptr = qtc.QJsonObject__iterator_OperatorSubscript(@ptrCast(self.ptr), @bitCast(j)) };
     }
 
+    /// ### DEPRECATED: Use `operatorPlusPlus` instead
+    ///
+    pub const OperatorPlusPlus = operatorPlusPlus;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject-iterator.html#operator-2b-2b)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QJsonObject__iterator `
     ///
-    pub fn OperatorPlusPlus(self: QJsonObject__iterator) QJsonObject__iterator {
+    pub fn operatorPlusPlus(self: QJsonObject__iterator) QJsonObject__iterator {
         return .{ .ptr = qtc.QJsonObject__iterator_OperatorPlusPlus(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `operatorPlusPlus2` instead
+    ///
+    pub const OperatorPlusPlus2 = operatorPlusPlus2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject-iterator.html#operator-2b-2b)
     ///
     /// ## Parameter(s):
@@ -996,9 +1252,13 @@ pub const QJsonObject__iterator = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn OperatorPlusPlus2(self: QJsonObject__iterator, param1: i32) QJsonObject__iterator {
+    pub fn operatorPlusPlus2(self: QJsonObject__iterator, param1: i32) QJsonObject__iterator {
         return .{ .ptr = qtc.QJsonObject__iterator_OperatorPlusPlus2(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMinusMinus` instead
+    ///
+    pub const OperatorMinusMinus = operatorMinusMinus;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject-iterator.html#operator--)
     ///
@@ -1006,9 +1266,13 @@ pub const QJsonObject__iterator = extern struct {
     ///
     /// ` self: QJsonObject__iterator `
     ///
-    pub fn OperatorMinusMinus(self: QJsonObject__iterator) QJsonObject__iterator {
+    pub fn operatorMinusMinus(self: QJsonObject__iterator) QJsonObject__iterator {
         return .{ .ptr = qtc.QJsonObject__iterator_OperatorMinusMinus(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMinusMinus2` instead
+    ///
+    pub const OperatorMinusMinus2 = operatorMinusMinus2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject-iterator.html#operator--)
     ///
@@ -1018,9 +1282,13 @@ pub const QJsonObject__iterator = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn OperatorMinusMinus2(self: QJsonObject__iterator, param1: i32) QJsonObject__iterator {
+    pub fn operatorMinusMinus2(self: QJsonObject__iterator, param1: i32) QJsonObject__iterator {
         return .{ .ptr = qtc.QJsonObject__iterator_OperatorMinusMinus2(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `operatorPlus` instead
+    ///
+    pub const OperatorPlus = operatorPlus;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject-iterator.html#operator-2b)
     ///
@@ -1030,9 +1298,13 @@ pub const QJsonObject__iterator = extern struct {
     ///
     /// ` j: isize `
     ///
-    pub fn OperatorPlus(self: QJsonObject__iterator, j: isize) QJsonObject__iterator {
+    pub fn operatorPlus(self: QJsonObject__iterator, j: isize) QJsonObject__iterator {
         return .{ .ptr = qtc.QJsonObject__iterator_OperatorPlus(@ptrCast(self.ptr), @bitCast(j)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMinus` instead
+    ///
+    pub const OperatorMinus = operatorMinus;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject-iterator.html#operator-)
     ///
@@ -1042,9 +1314,13 @@ pub const QJsonObject__iterator = extern struct {
     ///
     /// ` j: isize `
     ///
-    pub fn OperatorMinus(self: QJsonObject__iterator, j: isize) QJsonObject__iterator {
+    pub fn operatorMinus(self: QJsonObject__iterator, j: isize) QJsonObject__iterator {
         return .{ .ptr = qtc.QJsonObject__iterator_OperatorMinus(@ptrCast(self.ptr), @bitCast(j)) };
     }
+
+    /// ### DEPRECATED: Use `operatorPlusAssign` instead
+    ///
+    pub const OperatorPlusAssign = operatorPlusAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject-iterator.html#operator-2b-eq)
     ///
@@ -1054,9 +1330,13 @@ pub const QJsonObject__iterator = extern struct {
     ///
     /// ` j: isize `
     ///
-    pub fn OperatorPlusAssign(self: QJsonObject__iterator, j: isize) QJsonObject__iterator {
+    pub fn operatorPlusAssign(self: QJsonObject__iterator, j: isize) QJsonObject__iterator {
         return .{ .ptr = qtc.QJsonObject__iterator_OperatorPlusAssign(@ptrCast(self.ptr), @bitCast(j)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMinusAssign` instead
+    ///
+    pub const OperatorMinusAssign = operatorMinusAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject-iterator.html#operator--eq)
     ///
@@ -1066,9 +1346,13 @@ pub const QJsonObject__iterator = extern struct {
     ///
     /// ` j: isize `
     ///
-    pub fn OperatorMinusAssign(self: QJsonObject__iterator, j: isize) QJsonObject__iterator {
+    pub fn operatorMinusAssign(self: QJsonObject__iterator, j: isize) QJsonObject__iterator {
         return .{ .ptr = qtc.QJsonObject__iterator_OperatorMinusAssign(@ptrCast(self.ptr), @bitCast(j)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMinus2` instead
+    ///
+    pub const OperatorMinus2 = operatorMinus2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject-iterator.html#operator-)
     ///
@@ -1078,22 +1362,22 @@ pub const QJsonObject__iterator = extern struct {
     ///
     /// ` j: QJsonObject__iterator `
     ///
-    pub fn OperatorMinus2(self: QJsonObject__iterator, j: anytype) isize {
+    pub fn operatorMinus2(self: QJsonObject__iterator, j: anytype) isize {
         comptime _ = @TypeOf(j)._is_QJsonObject__iterator;
         return qtc.QJsonObject__iterator_OperatorMinus2(@ptrCast(self.ptr), @ptrCast(j.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QJsonObject__iterator `
     ///
-    pub fn Delete(self: QJsonObject__iterator) void {
+    pub fn delete(self: QJsonObject__iterator) void {
         qtc.QJsonObject__iterator_Delete(@ptrCast(self.ptr));
     }
 };
@@ -1108,24 +1392,36 @@ pub const QJsonObject__const_iterator = extern struct {
 
     pub const _is_QJsonObject__const_iterator = {};
 
-    /// New constructs a new QJsonObject::const_iterator object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QJsonObject::const_iterator object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QJsonObject__const_iterator `
     ///
-    pub fn New(other: anytype) QJsonObject__const_iterator {
+    pub fn new(other: anytype) QJsonObject__const_iterator {
         comptime _ = @TypeOf(other)._is_QJsonObject__const_iterator;
         return .{ .ptr = qtc.QJsonObject__const_iterator_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new QJsonObject::const_iterator object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() QJsonObject__const_iterator {
+    pub const New2 = new2;
+
+    /// Allocate a new QJsonObject::const_iterator object in C++ memory
+    ///
+    pub fn new2() QJsonObject__const_iterator {
         return .{ .ptr = qtc.QJsonObject__const_iterator_new2() };
     }
 
-    /// New3 constructs a new QJsonObject::const_iterator object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QJsonObject::const_iterator object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -1133,32 +1429,44 @@ pub const QJsonObject__const_iterator = extern struct {
     ///
     /// ` index: isize `
     ///
-    pub fn New3(obj: anytype, index: isize) QJsonObject__const_iterator {
+    pub fn new3(obj: anytype, index: isize) QJsonObject__const_iterator {
         comptime _ = @TypeOf(obj)._is_QJsonObject;
         return .{ .ptr = qtc.QJsonObject__const_iterator_new3(@ptrCast(obj.ptr), @bitCast(index)) };
     }
 
-    /// New4 constructs a new QJsonObject::const_iterator object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QJsonObject::const_iterator object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QJsonObject__iterator `
     ///
-    pub fn New4(other: anytype) QJsonObject__const_iterator {
+    pub fn new4(other: anytype) QJsonObject__const_iterator {
         comptime _ = @TypeOf(other)._is_QJsonObject__iterator;
         return .{ .ptr = qtc.QJsonObject__const_iterator_new4(@ptrCast(other.ptr)) };
     }
 
-    /// New5 constructs a new QJsonObject::const_iterator object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QJsonObject::const_iterator object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QJsonObject__const_iterator `
     ///
-    pub fn New5(other: anytype) QJsonObject__const_iterator {
+    pub fn new5(other: anytype) QJsonObject__const_iterator {
         comptime _ = @TypeOf(other)._is_QJsonObject__const_iterator;
         return .{ .ptr = qtc.QJsonObject__const_iterator_new5(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject-const-iterator.html#operator-eq)
     ///
@@ -1168,10 +1476,14 @@ pub const QJsonObject__const_iterator = extern struct {
     ///
     /// ` other: QJsonObject__const_iterator `
     ///
-    pub fn OperatorAssign(self: QJsonObject__const_iterator, other: anytype) void {
+    pub fn operatorAssign(self: QJsonObject__const_iterator, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QJsonObject__const_iterator;
         qtc.QJsonObject__const_iterator_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `key` instead
+    ///
+    pub const Key = key;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject-const-iterator.html#key)
     ///
@@ -1181,13 +1493,17 @@ pub const QJsonObject__const_iterator = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Key(self: QJsonObject__const_iterator, allocator: std.mem.Allocator) []const u8 {
+    pub fn key(self: QJsonObject__const_iterator, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QJsonObject__const_iterator_Key(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QJsonObject__const_iterator.Key: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QJsonObject__const_iterator.key: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `value` instead
+    ///
+    pub const Value = value;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject-const-iterator.html#value)
     ///
@@ -1195,9 +1511,13 @@ pub const QJsonObject__const_iterator = extern struct {
     ///
     /// ` self: QJsonObject__const_iterator `
     ///
-    pub fn Value(self: QJsonObject__const_iterator) QJsonValueConstRef {
+    pub fn value(self: QJsonObject__const_iterator) QJsonValueConstRef {
         return .{ .ptr = qtc.QJsonObject__const_iterator_Value(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMultiply` instead
+    ///
+    pub const OperatorMultiply = operatorMultiply;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject-const-iterator.html#operator-2a)
     ///
@@ -1205,9 +1525,13 @@ pub const QJsonObject__const_iterator = extern struct {
     ///
     /// ` self: QJsonObject__const_iterator `
     ///
-    pub fn OperatorMultiply(self: QJsonObject__const_iterator) QJsonValueConstRef {
+    pub fn operatorMultiply(self: QJsonObject__const_iterator) QJsonValueConstRef {
         return .{ .ptr = qtc.QJsonObject__const_iterator_OperatorMultiply(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMinusGreater` instead
+    ///
+    pub const OperatorMinusGreater = operatorMinusGreater;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject-const-iterator.html#operator--gt)
     ///
@@ -1215,9 +1539,13 @@ pub const QJsonObject__const_iterator = extern struct {
     ///
     /// ` self: QJsonObject__const_iterator `
     ///
-    pub fn OperatorMinusGreater(self: QJsonObject__const_iterator) QJsonValueConstRef {
+    pub fn operatorMinusGreater(self: QJsonObject__const_iterator) QJsonValueConstRef {
         return .{ .ptr = qtc.QJsonObject__const_iterator_OperatorMinusGreater(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorSubscript` instead
+    ///
+    pub const OperatorSubscript = operatorSubscript;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject-const-iterator.html#operator-5b-5d)
     ///
@@ -1227,20 +1555,28 @@ pub const QJsonObject__const_iterator = extern struct {
     ///
     /// ` j: isize `
     ///
-    pub fn OperatorSubscript(self: QJsonObject__const_iterator, j: isize) QJsonValueConstRef {
+    pub fn operatorSubscript(self: QJsonObject__const_iterator, j: isize) QJsonValueConstRef {
         return .{ .ptr = qtc.QJsonObject__const_iterator_OperatorSubscript(@ptrCast(self.ptr), @bitCast(j)) };
     }
 
+    /// ### DEPRECATED: Use `operatorPlusPlus` instead
+    ///
+    pub const OperatorPlusPlus = operatorPlusPlus;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject-const-iterator.html#operator-2b-2b)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QJsonObject__const_iterator `
     ///
-    pub fn OperatorPlusPlus(self: QJsonObject__const_iterator) QJsonObject__const_iterator {
+    pub fn operatorPlusPlus(self: QJsonObject__const_iterator) QJsonObject__const_iterator {
         return .{ .ptr = qtc.QJsonObject__const_iterator_OperatorPlusPlus(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `operatorPlusPlus2` instead
+    ///
+    pub const OperatorPlusPlus2 = operatorPlusPlus2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject-const-iterator.html#operator-2b-2b)
     ///
     /// ## Parameter(s):
@@ -1249,9 +1585,13 @@ pub const QJsonObject__const_iterator = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn OperatorPlusPlus2(self: QJsonObject__const_iterator, param1: i32) QJsonObject__const_iterator {
+    pub fn operatorPlusPlus2(self: QJsonObject__const_iterator, param1: i32) QJsonObject__const_iterator {
         return .{ .ptr = qtc.QJsonObject__const_iterator_OperatorPlusPlus2(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMinusMinus` instead
+    ///
+    pub const OperatorMinusMinus = operatorMinusMinus;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject-const-iterator.html#operator--)
     ///
@@ -1259,9 +1599,13 @@ pub const QJsonObject__const_iterator = extern struct {
     ///
     /// ` self: QJsonObject__const_iterator `
     ///
-    pub fn OperatorMinusMinus(self: QJsonObject__const_iterator) QJsonObject__const_iterator {
+    pub fn operatorMinusMinus(self: QJsonObject__const_iterator) QJsonObject__const_iterator {
         return .{ .ptr = qtc.QJsonObject__const_iterator_OperatorMinusMinus(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMinusMinus2` instead
+    ///
+    pub const OperatorMinusMinus2 = operatorMinusMinus2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject-const-iterator.html#operator--)
     ///
@@ -1271,9 +1615,13 @@ pub const QJsonObject__const_iterator = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn OperatorMinusMinus2(self: QJsonObject__const_iterator, param1: i32) QJsonObject__const_iterator {
+    pub fn operatorMinusMinus2(self: QJsonObject__const_iterator, param1: i32) QJsonObject__const_iterator {
         return .{ .ptr = qtc.QJsonObject__const_iterator_OperatorMinusMinus2(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `operatorPlus` instead
+    ///
+    pub const OperatorPlus = operatorPlus;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject-const-iterator.html#operator-2b)
     ///
@@ -1283,9 +1631,13 @@ pub const QJsonObject__const_iterator = extern struct {
     ///
     /// ` j: isize `
     ///
-    pub fn OperatorPlus(self: QJsonObject__const_iterator, j: isize) QJsonObject__const_iterator {
+    pub fn operatorPlus(self: QJsonObject__const_iterator, j: isize) QJsonObject__const_iterator {
         return .{ .ptr = qtc.QJsonObject__const_iterator_OperatorPlus(@ptrCast(self.ptr), @bitCast(j)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMinus` instead
+    ///
+    pub const OperatorMinus = operatorMinus;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject-const-iterator.html#operator-)
     ///
@@ -1295,9 +1647,13 @@ pub const QJsonObject__const_iterator = extern struct {
     ///
     /// ` j: isize `
     ///
-    pub fn OperatorMinus(self: QJsonObject__const_iterator, j: isize) QJsonObject__const_iterator {
+    pub fn operatorMinus(self: QJsonObject__const_iterator, j: isize) QJsonObject__const_iterator {
         return .{ .ptr = qtc.QJsonObject__const_iterator_OperatorMinus(@ptrCast(self.ptr), @bitCast(j)) };
     }
+
+    /// ### DEPRECATED: Use `operatorPlusAssign` instead
+    ///
+    pub const OperatorPlusAssign = operatorPlusAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject-const-iterator.html#operator-2b-eq)
     ///
@@ -1307,9 +1663,13 @@ pub const QJsonObject__const_iterator = extern struct {
     ///
     /// ` j: isize `
     ///
-    pub fn OperatorPlusAssign(self: QJsonObject__const_iterator, j: isize) QJsonObject__const_iterator {
+    pub fn operatorPlusAssign(self: QJsonObject__const_iterator, j: isize) QJsonObject__const_iterator {
         return .{ .ptr = qtc.QJsonObject__const_iterator_OperatorPlusAssign(@ptrCast(self.ptr), @bitCast(j)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMinusAssign` instead
+    ///
+    pub const OperatorMinusAssign = operatorMinusAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject-const-iterator.html#operator--eq)
     ///
@@ -1319,9 +1679,13 @@ pub const QJsonObject__const_iterator = extern struct {
     ///
     /// ` j: isize `
     ///
-    pub fn OperatorMinusAssign(self: QJsonObject__const_iterator, j: isize) QJsonObject__const_iterator {
+    pub fn operatorMinusAssign(self: QJsonObject__const_iterator, j: isize) QJsonObject__const_iterator {
         return .{ .ptr = qtc.QJsonObject__const_iterator_OperatorMinusAssign(@ptrCast(self.ptr), @bitCast(j)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMinus2` instead
+    ///
+    pub const OperatorMinus2 = operatorMinus2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject-const-iterator.html#operator-)
     ///
@@ -1331,22 +1695,22 @@ pub const QJsonObject__const_iterator = extern struct {
     ///
     /// ` j: QJsonObject__const_iterator `
     ///
-    pub fn OperatorMinus2(self: QJsonObject__const_iterator, j: anytype) isize {
+    pub fn operatorMinus2(self: QJsonObject__const_iterator, j: anytype) isize {
         comptime _ = @TypeOf(j)._is_QJsonObject__const_iterator;
         return qtc.QJsonObject__const_iterator_OperatorMinus2(@ptrCast(self.ptr), @ptrCast(j.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QJsonObject__const_iterator `
     ///
-    pub fn Delete(self: QJsonObject__const_iterator) void {
+    pub fn delete(self: QJsonObject__const_iterator) void {
         qtc.QJsonObject__const_iterator_Delete(@ptrCast(self.ptr));
     }
 };

@@ -13,11 +13,19 @@ pub const KMessageBoxNotifyInterface = extern struct {
 
     pub const _is_KMessageBoxNotifyInterface = {};
 
-    /// New constructs a new KMessageBoxNotifyInterface object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KMessageBoxNotifyInterface {
+    pub const New = new;
+
+    /// Allocate a new KMessageBoxNotifyInterface object in C++ memory
+    ///
+    pub fn new() KMessageBoxNotifyInterface {
         return .{ .ptr = qtc.KMessageBoxNotifyInterface_new() };
     }
+
+    /// ### DEPRECATED: Use `sendNotification` instead
+    ///
+    pub const SendNotification = sendNotification;
 
     /// ### [Upstream resources](https://api.kde.org/kmessageboxnotifyinterface.html#sendNotification)
     ///
@@ -31,7 +39,7 @@ pub const KMessageBoxNotifyInterface = extern struct {
     ///
     /// ` parent: QWidget `
     ///
-    pub fn SendNotification(self: KMessageBoxNotifyInterface, notificationType: i32, message: []const u8, parent: anytype) void {
+    pub fn sendNotification(self: KMessageBoxNotifyInterface, notificationType: i32, message: []const u8, parent: anytype) void {
         const message_str = qtc.libqt_string{
             .len = message.len,
             .data = message.ptr,
@@ -39,6 +47,10 @@ pub const KMessageBoxNotifyInterface = extern struct {
         comptime _ = @TypeOf(parent)._is_QWidget;
         qtc.KMessageBoxNotifyInterface_SendNotification(@ptrCast(self.ptr), @bitCast(notificationType), message_str, @ptrCast(parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSendNotification` instead
+    ///
+    pub const OnSendNotification = onSendNotification;
 
     /// ### [Upstream resources](https://api.kde.org/kmessageboxnotifyinterface.html#sendNotification)
     ///
@@ -50,13 +62,13 @@ pub const KMessageBoxNotifyInterface = extern struct {
     ///
     /// ` callback: *const fn (self: KMessageBoxNotifyInterface, notificationType: qmessagebox_enums.Icon, message: [*:0]const u8, parent: QWidget) callconv(.c) void `
     ///
-    pub fn OnSendNotification(self: KMessageBoxNotifyInterface, callback: *const fn (KMessageBoxNotifyInterface, i32, [*:0]const u8, QWidget) callconv(.c) void) void {
+    pub fn onSendNotification(self: KMessageBoxNotifyInterface, callback: *const fn (KMessageBoxNotifyInterface, i32, [*:0]const u8, QWidget) callconv(.c) void) void {
         qtc.KMessageBoxNotifyInterface_OnSendNotification(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSendNotification` instead
+    /// ### DEPRECATED: Use `superSendNotification` instead
     ///
-    pub const QBaseSendNotification = SuperSendNotification;
+    pub const SuperSendNotification = superSendNotification;
 
     /// ### [Upstream resources](https://api.kde.org/kmessageboxnotifyinterface.html#sendNotification)
     ///
@@ -72,7 +84,7 @@ pub const KMessageBoxNotifyInterface = extern struct {
     ///
     /// ` parent: QWidget `
     ///
-    pub fn SuperSendNotification(self: KMessageBoxNotifyInterface, notificationType: i32, message: []const u8, parent: anytype) void {
+    pub fn superSendNotification(self: KMessageBoxNotifyInterface, notificationType: i32, message: []const u8, parent: anytype) void {
         const message_str = qtc.libqt_string{
             .len = message.len,
             .data = message.ptr,
@@ -80,6 +92,10 @@ pub const KMessageBoxNotifyInterface = extern struct {
         comptime _ = @TypeOf(parent)._is_QWidget;
         qtc.KMessageBoxNotifyInterface_SuperSendNotification(@ptrCast(self.ptr), @bitCast(notificationType), message_str, @ptrCast(parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://api.kde.org/kmessageboxnotifyinterface.html#operator-eq)
     ///
@@ -89,24 +105,24 @@ pub const KMessageBoxNotifyInterface = extern struct {
     ///
     /// ` param1: KMessageBoxNotifyInterface `
     ///
-    pub fn OperatorAssign(self: KMessageBoxNotifyInterface, param1: anytype) void {
+    pub fn operatorAssign(self: KMessageBoxNotifyInterface, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_KMessageBoxNotifyInterface;
         qtc.KMessageBoxNotifyInterface_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kmessageboxnotifyinterface.html#dtor.KMessageBoxNotifyInterface)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KMessageBoxNotifyInterface `
     ///
-    pub fn Delete(self: KMessageBoxNotifyInterface) void {
+    pub fn delete(self: KMessageBoxNotifyInterface) void {
         qtc.KMessageBoxNotifyInterface_Delete(@ptrCast(self.ptr));
     }
 };

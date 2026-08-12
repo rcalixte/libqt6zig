@@ -27,22 +27,34 @@ pub const QUndoGroup = extern struct {
     pub const _is_QUndoGroup = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QUndoGroup object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QUndoGroup {
+    pub const New = new;
+
+    /// Allocate a new QUndoGroup object in C++ memory
+    ///
+    pub fn new() QUndoGroup {
         return .{ .ptr = qtc.QUndoGroup_new() };
     }
 
-    /// New2 constructs a new QUndoGroup object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QUndoGroup object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) QUndoGroup {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QUndoGroup_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) QUndoGroup {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QUndoGroup_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -50,9 +62,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` self: QUndoGroup `
     ///
-    pub fn MetaObject(self: QUndoGroup) QMetaObject {
+    pub fn metaObject(self: QUndoGroup) QMetaObject {
         return .{ .ptr = qtc.QUndoGroup_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -64,13 +80,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QUndoGroup, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QUndoGroup, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QUndoGroup_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -80,9 +96,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` self: QUndoGroup `
     ///
-    pub fn SuperMetaObject(self: QUndoGroup) QMetaObject {
+    pub fn superMetaObject(self: QUndoGroup) QMetaObject {
         return .{ .ptr = qtc.QUndoGroup_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -90,10 +110,14 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QUndoGroup, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QUndoGroup, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QUndoGroup_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -103,13 +127,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QUndoGroup, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QUndoGroup, callback: *const fn (QUndoGroup, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QUndoGroup, callback: *const fn (QUndoGroup, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QUndoGroup_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -119,10 +143,14 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QUndoGroup, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QUndoGroup, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QUndoGroup_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -134,9 +162,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QUndoGroup, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QUndoGroup, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QUndoGroup_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -146,13 +178,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QUndoGroup, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QUndoGroup, callback: *const fn (QUndoGroup, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QUndoGroup, callback: *const fn (QUndoGroup, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QUndoGroup_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -166,9 +198,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QUndoGroup, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QUndoGroup, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QUndoGroup_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -178,14 +214,18 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QUndoGroup.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QUndoGroup.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addStack` instead
+    ///
+    pub const AddStack = addStack;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qundogroup.html#addStack)
     ///
@@ -195,10 +235,14 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` stack: QUndoStack `
     ///
-    pub fn AddStack(self: QUndoGroup, stack: anytype) void {
+    pub fn addStack(self: QUndoGroup, stack: anytype) void {
         comptime _ = @TypeOf(stack)._is_QUndoStack;
         qtc.QUndoGroup_AddStack(@ptrCast(self.ptr), @ptrCast(stack.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeStack` instead
+    ///
+    pub const RemoveStack = removeStack;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qundogroup.html#removeStack)
     ///
@@ -208,10 +252,14 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` stack: QUndoStack `
     ///
-    pub fn RemoveStack(self: QUndoGroup, stack: anytype) void {
+    pub fn removeStack(self: QUndoGroup, stack: anytype) void {
         comptime _ = @TypeOf(stack)._is_QUndoStack;
         qtc.QUndoGroup_RemoveStack(@ptrCast(self.ptr), @ptrCast(stack.ptr));
     }
+
+    /// ### DEPRECATED: Use `stacks` instead
+    ///
+    pub const Stacks = stacks;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qundogroup.html#stacks)
     ///
@@ -221,15 +269,19 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Stacks(self: QUndoGroup, allocator: std.mem.Allocator) []QUndoStack {
+    pub fn stacks(self: QUndoGroup, allocator: std.mem.Allocator) []QUndoStack {
         const _arr: qtc.libqt_list = qtc.QUndoGroup_Stacks(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QUndoStack, _arr.len) catch @panic("QUndoGroup.Stacks: Memory allocation failed");
-        const _data: [*]QtC.QUndoStack = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QUndoStack, _arr.len) catch @panic("QUndoGroup.stacks: Memory allocation failed");
+        const _data_val: [*]QtC.QUndoStack = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `activeStack` instead
+    ///
+    pub const ActiveStack = activeStack;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qundogroup.html#activeStack)
     ///
@@ -237,9 +289,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` self: QUndoGroup `
     ///
-    pub fn ActiveStack(self: QUndoGroup) QUndoStack {
+    pub fn activeStack(self: QUndoGroup) QUndoStack {
         return .{ .ptr = qtc.QUndoGroup_ActiveStack(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `createUndoAction` instead
+    ///
+    pub const CreateUndoAction = createUndoAction;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qundogroup.html#createUndoAction)
     ///
@@ -247,12 +303,16 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` self: QUndoGroup `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn CreateUndoAction(self: QUndoGroup, parent: anytype) QAction {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QUndoGroup_CreateUndoAction(@ptrCast(self.ptr), @ptrCast(parent.ptr)) };
+    pub fn createUndoAction(self: QUndoGroup, _parent: anytype) QAction {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QUndoGroup_CreateUndoAction(@ptrCast(self.ptr), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `createRedoAction` instead
+    ///
+    pub const CreateRedoAction = createRedoAction;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qundogroup.html#createRedoAction)
     ///
@@ -260,12 +320,16 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` self: QUndoGroup `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn CreateRedoAction(self: QUndoGroup, parent: anytype) QAction {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QUndoGroup_CreateRedoAction(@ptrCast(self.ptr), @ptrCast(parent.ptr)) };
+    pub fn createRedoAction(self: QUndoGroup, _parent: anytype) QAction {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QUndoGroup_CreateRedoAction(@ptrCast(self.ptr), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `canUndo` instead
+    ///
+    pub const CanUndo = canUndo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qundogroup.html#canUndo)
     ///
@@ -273,9 +337,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` self: QUndoGroup `
     ///
-    pub fn CanUndo(self: QUndoGroup) bool {
+    pub fn canUndo(self: QUndoGroup) bool {
         return qtc.QUndoGroup_CanUndo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `canRedo` instead
+    ///
+    pub const CanRedo = canRedo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qundogroup.html#canRedo)
     ///
@@ -283,9 +351,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` self: QUndoGroup `
     ///
-    pub fn CanRedo(self: QUndoGroup) bool {
+    pub fn canRedo(self: QUndoGroup) bool {
         return qtc.QUndoGroup_CanRedo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `undoText` instead
+    ///
+    pub const UndoText = undoText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qundogroup.html#undoText)
     ///
@@ -295,13 +367,17 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UndoText(self: QUndoGroup, allocator: std.mem.Allocator) []const u8 {
+    pub fn undoText(self: QUndoGroup, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QUndoGroup_UndoText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QUndoGroup.UndoText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QUndoGroup.undoText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `redoText` instead
+    ///
+    pub const RedoText = redoText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qundogroup.html#redoText)
     ///
@@ -311,13 +387,17 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn RedoText(self: QUndoGroup, allocator: std.mem.Allocator) []const u8 {
+    pub fn redoText(self: QUndoGroup, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QUndoGroup_RedoText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QUndoGroup.RedoText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QUndoGroup.redoText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isClean` instead
+    ///
+    pub const IsClean = isClean;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qundogroup.html#isClean)
     ///
@@ -325,9 +405,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` self: QUndoGroup `
     ///
-    pub fn IsClean(self: QUndoGroup) bool {
+    pub fn isClean(self: QUndoGroup) bool {
         return qtc.QUndoGroup_IsClean(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `undo` instead
+    ///
+    pub const Undo = undo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qundogroup.html#undo)
     ///
@@ -335,9 +419,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` self: QUndoGroup `
     ///
-    pub fn Undo(self: QUndoGroup) void {
+    pub fn undo(self: QUndoGroup) void {
         qtc.QUndoGroup_Undo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `redo` instead
+    ///
+    pub const Redo = redo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qundogroup.html#redo)
     ///
@@ -345,9 +433,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` self: QUndoGroup `
     ///
-    pub fn Redo(self: QUndoGroup) void {
+    pub fn redo(self: QUndoGroup) void {
         qtc.QUndoGroup_Redo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setActiveStack` instead
+    ///
+    pub const SetActiveStack = setActiveStack;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qundogroup.html#setActiveStack)
     ///
@@ -357,10 +449,14 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` stack: QUndoStack `
     ///
-    pub fn SetActiveStack(self: QUndoGroup, stack: anytype) void {
+    pub fn setActiveStack(self: QUndoGroup, stack: anytype) void {
         comptime _ = @TypeOf(stack)._is_QUndoStack;
         qtc.QUndoGroup_SetActiveStack(@ptrCast(self.ptr), @ptrCast(stack.ptr));
     }
+
+    /// ### DEPRECATED: Use `activeStackChanged` instead
+    ///
+    pub const ActiveStackChanged = activeStackChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qundogroup.html#activeStackChanged)
     ///
@@ -370,10 +466,14 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` stack: QUndoStack `
     ///
-    pub fn ActiveStackChanged(self: QUndoGroup, stack: anytype) void {
+    pub fn activeStackChanged(self: QUndoGroup, stack: anytype) void {
         comptime _ = @TypeOf(stack)._is_QUndoStack;
         qtc.QUndoGroup_ActiveStackChanged(@ptrCast(self.ptr), @ptrCast(stack.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActiveStackChanged` instead
+    ///
+    pub const OnActiveStackChanged = onActiveStackChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qundogroup.html#activeStackChanged)
     ///
@@ -383,9 +483,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QUndoGroup, stack: QUndoStack) callconv(.c) void `
     ///
-    pub fn OnActiveStackChanged(self: QUndoGroup, callback: *const fn (QUndoGroup, QUndoStack) callconv(.c) void) void {
+    pub fn onActiveStackChanged(self: QUndoGroup, callback: *const fn (QUndoGroup, QUndoStack) callconv(.c) void) void {
         qtc.QUndoGroup_Connect_ActiveStackChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `indexChanged` instead
+    ///
+    pub const IndexChanged = indexChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qundogroup.html#indexChanged)
     ///
@@ -395,9 +499,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` idx: i32 `
     ///
-    pub fn IndexChanged(self: QUndoGroup, idx: i32) void {
+    pub fn indexChanged(self: QUndoGroup, idx: i32) void {
         qtc.QUndoGroup_IndexChanged(@ptrCast(self.ptr), @bitCast(idx));
     }
+
+    /// ### DEPRECATED: Use `onIndexChanged` instead
+    ///
+    pub const OnIndexChanged = onIndexChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qundogroup.html#indexChanged)
     ///
@@ -407,9 +515,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QUndoGroup, idx: i32) callconv(.c) void `
     ///
-    pub fn OnIndexChanged(self: QUndoGroup, callback: *const fn (QUndoGroup, i32) callconv(.c) void) void {
+    pub fn onIndexChanged(self: QUndoGroup, callback: *const fn (QUndoGroup, i32) callconv(.c) void) void {
         qtc.QUndoGroup_Connect_IndexChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `cleanChanged` instead
+    ///
+    pub const CleanChanged = cleanChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qundogroup.html#cleanChanged)
     ///
@@ -419,9 +531,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` clean: bool `
     ///
-    pub fn CleanChanged(self: QUndoGroup, clean: bool) void {
+    pub fn cleanChanged(self: QUndoGroup, clean: bool) void {
         qtc.QUndoGroup_CleanChanged(@ptrCast(self.ptr), clean);
     }
+
+    /// ### DEPRECATED: Use `onCleanChanged` instead
+    ///
+    pub const OnCleanChanged = onCleanChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qundogroup.html#cleanChanged)
     ///
@@ -431,9 +547,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QUndoGroup, clean: bool) callconv(.c) void `
     ///
-    pub fn OnCleanChanged(self: QUndoGroup, callback: *const fn (QUndoGroup, bool) callconv(.c) void) void {
+    pub fn onCleanChanged(self: QUndoGroup, callback: *const fn (QUndoGroup, bool) callconv(.c) void) void {
         qtc.QUndoGroup_Connect_CleanChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `canUndoChanged` instead
+    ///
+    pub const CanUndoChanged = canUndoChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qundogroup.html#canUndoChanged)
     ///
@@ -441,11 +561,15 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` self: QUndoGroup `
     ///
-    /// ` canUndo: bool `
+    /// ` _canUndo: bool `
     ///
-    pub fn CanUndoChanged(self: QUndoGroup, canUndo: bool) void {
-        qtc.QUndoGroup_CanUndoChanged(@ptrCast(self.ptr), canUndo);
+    pub fn canUndoChanged(self: QUndoGroup, _canUndo: bool) void {
+        qtc.QUndoGroup_CanUndoChanged(@ptrCast(self.ptr), _canUndo);
     }
+
+    /// ### DEPRECATED: Use `onCanUndoChanged` instead
+    ///
+    pub const OnCanUndoChanged = onCanUndoChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qundogroup.html#canUndoChanged)
     ///
@@ -455,9 +579,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QUndoGroup, canUndo: bool) callconv(.c) void `
     ///
-    pub fn OnCanUndoChanged(self: QUndoGroup, callback: *const fn (QUndoGroup, bool) callconv(.c) void) void {
+    pub fn onCanUndoChanged(self: QUndoGroup, callback: *const fn (QUndoGroup, bool) callconv(.c) void) void {
         qtc.QUndoGroup_Connect_CanUndoChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `canRedoChanged` instead
+    ///
+    pub const CanRedoChanged = canRedoChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qundogroup.html#canRedoChanged)
     ///
@@ -465,11 +593,15 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` self: QUndoGroup `
     ///
-    /// ` canRedo: bool `
+    /// ` _canRedo: bool `
     ///
-    pub fn CanRedoChanged(self: QUndoGroup, canRedo: bool) void {
-        qtc.QUndoGroup_CanRedoChanged(@ptrCast(self.ptr), canRedo);
+    pub fn canRedoChanged(self: QUndoGroup, _canRedo: bool) void {
+        qtc.QUndoGroup_CanRedoChanged(@ptrCast(self.ptr), _canRedo);
     }
+
+    /// ### DEPRECATED: Use `onCanRedoChanged` instead
+    ///
+    pub const OnCanRedoChanged = onCanRedoChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qundogroup.html#canRedoChanged)
     ///
@@ -479,9 +611,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QUndoGroup, canRedo: bool) callconv(.c) void `
     ///
-    pub fn OnCanRedoChanged(self: QUndoGroup, callback: *const fn (QUndoGroup, bool) callconv(.c) void) void {
+    pub fn onCanRedoChanged(self: QUndoGroup, callback: *const fn (QUndoGroup, bool) callconv(.c) void) void {
         qtc.QUndoGroup_Connect_CanRedoChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `undoTextChanged` instead
+    ///
+    pub const UndoTextChanged = undoTextChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qundogroup.html#undoTextChanged)
     ///
@@ -489,15 +625,19 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` self: QUndoGroup `
     ///
-    /// ` undoText: []const u8 `
+    /// ` _undoText: []const u8 `
     ///
-    pub fn UndoTextChanged(self: QUndoGroup, undoText: []const u8) void {
+    pub fn undoTextChanged(self: QUndoGroup, _undoText: []const u8) void {
         const undoText_str = qtc.libqt_string{
-            .len = undoText.len,
-            .data = undoText.ptr,
+            .len = _undoText.len,
+            .data = _undoText.ptr,
         };
         qtc.QUndoGroup_UndoTextChanged(@ptrCast(self.ptr), undoText_str);
     }
+
+    /// ### DEPRECATED: Use `onUndoTextChanged` instead
+    ///
+    pub const OnUndoTextChanged = onUndoTextChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qundogroup.html#undoTextChanged)
     ///
@@ -507,9 +647,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QUndoGroup, undoText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnUndoTextChanged(self: QUndoGroup, callback: *const fn (QUndoGroup, [*:0]const u8) callconv(.c) void) void {
+    pub fn onUndoTextChanged(self: QUndoGroup, callback: *const fn (QUndoGroup, [*:0]const u8) callconv(.c) void) void {
         qtc.QUndoGroup_Connect_UndoTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redoTextChanged` instead
+    ///
+    pub const RedoTextChanged = redoTextChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qundogroup.html#redoTextChanged)
     ///
@@ -517,15 +661,19 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` self: QUndoGroup `
     ///
-    /// ` redoText: []const u8 `
+    /// ` _redoText: []const u8 `
     ///
-    pub fn RedoTextChanged(self: QUndoGroup, redoText: []const u8) void {
+    pub fn redoTextChanged(self: QUndoGroup, _redoText: []const u8) void {
         const redoText_str = qtc.libqt_string{
-            .len = redoText.len,
-            .data = redoText.ptr,
+            .len = _redoText.len,
+            .data = _redoText.ptr,
         };
         qtc.QUndoGroup_RedoTextChanged(@ptrCast(self.ptr), redoText_str);
     }
+
+    /// ### DEPRECATED: Use `onRedoTextChanged` instead
+    ///
+    pub const OnRedoTextChanged = onRedoTextChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qundogroup.html#redoTextChanged)
     ///
@@ -535,9 +683,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QUndoGroup, redoText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnRedoTextChanged(self: QUndoGroup, callback: *const fn (QUndoGroup, [*:0]const u8) callconv(.c) void) void {
+    pub fn onRedoTextChanged(self: QUndoGroup, callback: *const fn (QUndoGroup, [*:0]const u8) callconv(.c) void) void {
         qtc.QUndoGroup_Connect_RedoTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -549,15 +701,19 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QUndoGroup.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QUndoGroup.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -571,15 +727,19 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QUndoGroup.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QUndoGroup.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `createUndoAction2` instead
+    ///
+    pub const CreateUndoAction2 = createUndoAction2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qundogroup.html#createUndoAction)
     ///
@@ -587,18 +747,22 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` self: QUndoGroup `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
     /// ` prefix: []const u8 `
     ///
-    pub fn CreateUndoAction2(self: QUndoGroup, parent: anytype, prefix: []const u8) QAction {
-        comptime _ = @TypeOf(parent)._is_QObject;
+    pub fn createUndoAction2(self: QUndoGroup, _parent: anytype, prefix: []const u8) QAction {
+        comptime _ = @TypeOf(_parent)._is_QObject;
         const prefix_str = qtc.libqt_string{
             .len = prefix.len,
             .data = prefix.ptr,
         };
-        return .{ .ptr = qtc.QUndoGroup_CreateUndoAction2(@ptrCast(self.ptr), @ptrCast(parent.ptr), prefix_str) };
+        return .{ .ptr = qtc.QUndoGroup_CreateUndoAction2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), prefix_str) };
     }
+
+    /// ### DEPRECATED: Use `createRedoAction2` instead
+    ///
+    pub const CreateRedoAction2 = createRedoAction2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qundogroup.html#createRedoAction)
     ///
@@ -606,18 +770,22 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` self: QUndoGroup `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
     /// ` prefix: []const u8 `
     ///
-    pub fn CreateRedoAction2(self: QUndoGroup, parent: anytype, prefix: []const u8) QAction {
-        comptime _ = @TypeOf(parent)._is_QObject;
+    pub fn createRedoAction2(self: QUndoGroup, _parent: anytype, prefix: []const u8) QAction {
+        comptime _ = @TypeOf(_parent)._is_QObject;
         const prefix_str = qtc.libqt_string{
             .len = prefix.len,
             .data = prefix.ptr,
         };
-        return .{ .ptr = qtc.QUndoGroup_CreateRedoAction2(@ptrCast(self.ptr), @ptrCast(parent.ptr), prefix_str) };
+        return .{ .ptr = qtc.QUndoGroup_CreateRedoAction2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), prefix_str) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -629,13 +797,17 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QUndoGroup, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QUndoGroup, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QUndoGroup.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QUndoGroup.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -647,13 +819,17 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QUndoGroup, name: []const u8) void {
+    pub fn setObjectName(self: QUndoGroup, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -663,9 +839,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` self: QUndoGroup `
     ///
-    pub fn IsWidgetType(self: QUndoGroup) bool {
+    pub fn isWidgetType(self: QUndoGroup) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -675,9 +855,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` self: QUndoGroup `
     ///
-    pub fn IsWindowType(self: QUndoGroup) bool {
+    pub fn isWindowType(self: QUndoGroup) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -687,9 +871,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` self: QUndoGroup `
     ///
-    pub fn IsQuickItemType(self: QUndoGroup) bool {
+    pub fn isQuickItemType(self: QUndoGroup) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -699,9 +887,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` self: QUndoGroup `
     ///
-    pub fn SignalsBlocked(self: QUndoGroup) bool {
+    pub fn signalsBlocked(self: QUndoGroup) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -713,9 +905,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QUndoGroup, b: bool) bool {
+    pub fn blockSignals(self: QUndoGroup, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -725,9 +921,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` self: QUndoGroup `
     ///
-    pub fn Thread(self: QUndoGroup) QThread {
+    pub fn thread(self: QUndoGroup) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -737,12 +937,16 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` self: QUndoGroup `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QUndoGroup, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QUndoGroup, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -754,9 +958,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QUndoGroup, interval: i32) i32 {
+    pub fn startTimer(self: QUndoGroup, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -768,9 +976,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QUndoGroup, time: i64) i32 {
+    pub fn startTimer2(self: QUndoGroup, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -782,9 +994,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QUndoGroup, id: i32) void {
+    pub fn killTimer(self: QUndoGroup, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -796,9 +1012,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QUndoGroup, id: i32) void {
+    pub fn killTimer2(self: QUndoGroup, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -810,15 +1030,19 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QUndoGroup, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QUndoGroup, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QUndoGroup.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QUndoGroup.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -828,12 +1052,16 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` self: QUndoGroup `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QUndoGroup, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QUndoGroup, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -845,10 +1073,14 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QUndoGroup, filterObj: anytype) void {
+    pub fn installEventFilter(self: QUndoGroup, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -860,10 +1092,14 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QUndoGroup, obj: anytype) void {
+    pub fn removeEventFilter(self: QUndoGroup, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -871,7 +1107,7 @@ pub const QUndoGroup = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -879,13 +1115,17 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -893,7 +1133,7 @@ pub const QUndoGroup = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -901,13 +1141,17 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -917,18 +1161,22 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` self: QUndoGroup `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QUndoGroup, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QUndoGroup, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -936,7 +1184,7 @@ pub const QUndoGroup = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -944,13 +1192,17 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -958,7 +1210,7 @@ pub const QUndoGroup = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -966,13 +1218,17 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -982,9 +1238,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` self: QUndoGroup `
     ///
-    pub fn Disconnect3(self: QUndoGroup) bool {
+    pub fn disconnect3(self: QUndoGroup) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -996,10 +1256,14 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QUndoGroup, receiver: anytype) bool {
+    pub fn disconnect4(self: QUndoGroup, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1009,10 +1273,14 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1022,9 +1290,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` self: QUndoGroup `
     ///
-    pub fn DumpObjectTree(self: QUndoGroup) void {
+    pub fn dumpObjectTree(self: QUndoGroup) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1034,9 +1306,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` self: QUndoGroup `
     ///
-    pub fn DumpObjectInfo(self: QUndoGroup) void {
+    pub fn dumpObjectInfo(self: QUndoGroup) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1050,11 +1326,15 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QUndoGroup, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QUndoGroup, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1066,10 +1346,14 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QUndoGroup, name: [:0]const u8) QVariant {
+    pub fn property(self: QUndoGroup, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1081,7 +1365,7 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QUndoGroup, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QUndoGroup, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1089,27 +1373,19 @@ pub const QUndoGroup = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QUndoGroup.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QUndoGroup.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QUndoGroup.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QUndoGroup.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QUndoGroup `
-    ///
-    pub fn BindingStorage(self: QUndoGroup) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1119,9 +1395,29 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` self: QUndoGroup `
     ///
-    pub fn BindingStorage2(self: QUndoGroup) QBindingStorage {
+    pub fn bindingStorage(self: QUndoGroup) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QUndoGroup `
+    ///
+    pub fn bindingStorage2(self: QUndoGroup) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1131,9 +1427,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` self: QUndoGroup `
     ///
-    pub fn Destroyed(self: QUndoGroup) void {
+    pub fn destroyed(self: QUndoGroup) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1145,9 +1445,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QUndoGroup) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QUndoGroup, callback: *const fn (QUndoGroup) callconv(.c) void) void {
+    pub fn onDestroyed(self: QUndoGroup, callback: *const fn (QUndoGroup) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1157,9 +1461,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` self: QUndoGroup `
     ///
-    pub fn Parent(self: QUndoGroup) QObject {
+    pub fn parent(self: QUndoGroup) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1171,10 +1479,14 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QUndoGroup, classname: [:0]const u8) bool {
+    pub fn inherits(self: QUndoGroup, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1184,9 +1496,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` self: QUndoGroup `
     ///
-    pub fn DeleteLater(self: QUndoGroup) void {
+    pub fn deleteLater(self: QUndoGroup) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1200,9 +1516,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QUndoGroup, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QUndoGroup, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1216,9 +1536,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QUndoGroup, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QUndoGroup, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1226,7 +1550,7 @@ pub const QUndoGroup = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1236,13 +1560,17 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1250,7 +1578,7 @@ pub const QUndoGroup = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1260,13 +1588,17 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1276,7 +1608,7 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` self: QUndoGroup `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1284,12 +1616,16 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QUndoGroup, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QUndoGroup, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1301,10 +1637,14 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QUndoGroup, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QUndoGroup, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1318,11 +1658,15 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QUndoGroup, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QUndoGroup, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1338,13 +1682,17 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QUndoGroup, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QUndoGroup, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1357,11 +1705,15 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QUndoGroup, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QUndoGroup, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1373,10 +1725,14 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QUndoGroup, param1: anytype) void {
+    pub fn destroyed1(self: QUndoGroup, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1388,9 +1744,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QUndoGroup, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QUndoGroup, callback: *const fn (QUndoGroup, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QUndoGroup, callback: *const fn (QUndoGroup, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1402,16 +1762,16 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` self: QUndoGroup `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QUndoGroup, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QUndoGroup_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QUndoGroup, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QUndoGroup_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1423,12 +1783,16 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` self: QUndoGroup `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QUndoGroup, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QUndoGroup_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QUndoGroup, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QUndoGroup_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -1442,9 +1806,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QUndoGroup, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QUndoGroup, callback: *const fn (QUndoGroup, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QUndoGroup, callback: *const fn (QUndoGroup, QEvent) callconv(.c) bool) void {
         qtc.QUndoGroup_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1458,17 +1826,17 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QUndoGroup, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QUndoGroup, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QUndoGroup_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QUndoGroup_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1482,13 +1850,17 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QUndoGroup, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QUndoGroup, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QUndoGroup_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QUndoGroup_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1502,9 +1874,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QUndoGroup, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QUndoGroup, callback: *const fn (QUndoGroup, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QUndoGroup, callback: *const fn (QUndoGroup, QObject, QEvent) callconv(.c) bool) void {
         qtc.QUndoGroup_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1516,16 +1892,16 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` self: QUndoGroup `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QUndoGroup, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QUndoGroup_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QUndoGroup, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QUndoGroup_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1537,12 +1913,16 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` self: QUndoGroup `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QUndoGroup, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QUndoGroup_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QUndoGroup, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QUndoGroup_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1556,9 +1936,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QUndoGroup, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QUndoGroup, callback: *const fn (QUndoGroup, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QUndoGroup, callback: *const fn (QUndoGroup, QTimerEvent) callconv(.c) void) void {
         qtc.QUndoGroup_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -1570,16 +1954,16 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` self: QUndoGroup `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QUndoGroup, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QUndoGroup_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QUndoGroup, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QUndoGroup_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1591,12 +1975,16 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` self: QUndoGroup `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QUndoGroup, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QUndoGroup_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QUndoGroup, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QUndoGroup_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1610,9 +1998,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QUndoGroup, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QUndoGroup, callback: *const fn (QUndoGroup, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QUndoGroup, callback: *const fn (QUndoGroup, QChildEvent) callconv(.c) void) void {
         qtc.QUndoGroup_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -1624,16 +2016,16 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` self: QUndoGroup `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QUndoGroup, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QUndoGroup_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QUndoGroup, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QUndoGroup_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1645,12 +2037,16 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` self: QUndoGroup `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QUndoGroup, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QUndoGroup_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QUndoGroup, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QUndoGroup_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1664,9 +2060,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QUndoGroup, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QUndoGroup, callback: *const fn (QUndoGroup, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QUndoGroup, callback: *const fn (QUndoGroup, QEvent) callconv(.c) void) void {
         qtc.QUndoGroup_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -1680,14 +2080,14 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QUndoGroup, signal: anytype) void {
+    pub fn connectNotify(self: QUndoGroup, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QUndoGroup_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1701,11 +2101,15 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QUndoGroup, signal: anytype) void {
+    pub fn superConnectNotify(self: QUndoGroup, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QUndoGroup_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1718,9 +2122,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QUndoGroup, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QUndoGroup, callback: *const fn (QUndoGroup, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QUndoGroup, callback: *const fn (QUndoGroup, QMetaMethod) callconv(.c) void) void {
         qtc.QUndoGroup_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1734,14 +2142,14 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QUndoGroup, signal: anytype) void {
+    pub fn disconnectNotify(self: QUndoGroup, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QUndoGroup_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1755,10 +2163,14 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QUndoGroup, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QUndoGroup, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QUndoGroup_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1772,9 +2184,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QUndoGroup, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QUndoGroup, callback: *const fn (QUndoGroup, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QUndoGroup, callback: *const fn (QUndoGroup, QMetaMethod) callconv(.c) void) void {
         qtc.QUndoGroup_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -1786,13 +2202,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` self: QUndoGroup `
     ///
-    pub fn Sender(self: QUndoGroup) QObject {
+    pub fn sender(self: QUndoGroup) QObject {
         return .{ .ptr = qtc.QUndoGroup_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -1804,9 +2220,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` self: QUndoGroup `
     ///
-    pub fn SuperSender(self: QUndoGroup) QObject {
+    pub fn superSender(self: QUndoGroup) QObject {
         return .{ .ptr = qtc.QUndoGroup_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -1820,9 +2240,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QUndoGroup, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QUndoGroup, callback: *const fn () callconv(.c) QObject) void {
         qtc.QUndoGroup_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1834,13 +2258,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` self: QUndoGroup `
     ///
-    pub fn SenderSignalIndex(self: QUndoGroup) i32 {
+    pub fn senderSignalIndex(self: QUndoGroup) i32 {
         return qtc.QUndoGroup_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1852,9 +2276,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` self: QUndoGroup `
     ///
-    pub fn SuperSenderSignalIndex(self: QUndoGroup) i32 {
+    pub fn superSenderSignalIndex(self: QUndoGroup) i32 {
         return qtc.QUndoGroup_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1868,9 +2296,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QUndoGroup, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QUndoGroup, callback: *const fn () callconv(.c) i32) void {
         qtc.QUndoGroup_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -1884,14 +2316,14 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QUndoGroup, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QUndoGroup, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QUndoGroup_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -1905,10 +2337,14 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QUndoGroup, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QUndoGroup, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QUndoGroup_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -1922,9 +2358,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QUndoGroup, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QUndoGroup, callback: *const fn (QUndoGroup, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QUndoGroup, callback: *const fn (QUndoGroup, [*:0]const u8) callconv(.c) i32) void {
         qtc.QUndoGroup_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1938,14 +2378,14 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QUndoGroup, signal: anytype) bool {
+    pub fn isSignalConnected(self: QUndoGroup, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QUndoGroup_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1959,10 +2399,14 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QUndoGroup, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QUndoGroup, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QUndoGroup_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1976,9 +2420,13 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QUndoGroup, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QUndoGroup, callback: *const fn (QUndoGroup, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QUndoGroup, callback: *const fn (QUndoGroup, QMetaMethod) callconv(.c) bool) void {
         qtc.QUndoGroup_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -1992,23 +2440,23 @@ pub const QUndoGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QUndoGroup, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QUndoGroup, callback: *const fn (QUndoGroup, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QUndoGroup, callback: *const fn (QUndoGroup, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qundogroup.html#dtor.QUndoGroup)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QUndoGroup `
     ///
-    pub fn Delete(self: QUndoGroup) void {
+    pub fn delete(self: QUndoGroup) void {
         qtc.QUndoGroup_Delete(@ptrCast(self.ptr));
     }
 };

@@ -12,29 +12,40 @@ pub const QSysInfo = extern struct {
 
     pub const _is_QSysInfo = {};
 
-    /// New constructs a new QSysInfo object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QSysInfo object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QSysInfo `
     ///
-    pub fn New(other: anytype) QSysInfo {
+    pub fn new(other: anytype) QSysInfo {
         comptime _ = @TypeOf(other)._is_QSysInfo;
         return .{ .ptr = qtc.QSysInfo_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new QSysInfo object and invalidates the source QSysInfo object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QSysInfo object and invalidate the source QSysInfo object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QSysInfo `
     ///
-    pub fn New2(other: anytype) QSysInfo {
+    pub fn new2(other: anytype) QSysInfo {
         comptime _ = @TypeOf(other)._is_QSysInfo;
         return .{ .ptr = qtc.QSysInfo_new2(@ptrCast(other.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -42,11 +53,14 @@ pub const QSysInfo = extern struct {
     ///
     /// ` other: QSysInfo `
     ///
-    pub fn CopyAssign(self: QSysInfo, other: QSysInfo) void {
+    pub fn copyAssign(self: QSysInfo, other: QSysInfo) void {
         qtc.QSysInfo_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -54,9 +68,13 @@ pub const QSysInfo = extern struct {
     ///
     /// ` other: QSysInfo `
     ///
-    pub fn MoveAssign(self: QSysInfo, other: QSysInfo) void {
+    pub fn moveAssign(self: QSysInfo, other: QSysInfo) void {
         qtc.QSysInfo_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `buildCpuArchitecture` instead
+    ///
+    pub const BuildCpuArchitecture = buildCpuArchitecture;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsysinfo.html#buildCpuArchitecture)
     ///
@@ -64,13 +82,17 @@ pub const QSysInfo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn BuildCpuArchitecture(allocator: std.mem.Allocator) []const u8 {
+    pub fn buildCpuArchitecture(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSysInfo_BuildCpuArchitecture();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSysInfo.BuildCpuArchitecture: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSysInfo.buildCpuArchitecture: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `currentCpuArchitecture` instead
+    ///
+    pub const CurrentCpuArchitecture = currentCpuArchitecture;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsysinfo.html#currentCpuArchitecture)
     ///
@@ -78,13 +100,17 @@ pub const QSysInfo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CurrentCpuArchitecture(allocator: std.mem.Allocator) []const u8 {
+    pub fn currentCpuArchitecture(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSysInfo_CurrentCpuArchitecture();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSysInfo.CurrentCpuArchitecture: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSysInfo.currentCpuArchitecture: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `buildAbi` instead
+    ///
+    pub const BuildAbi = buildAbi;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsysinfo.html#buildAbi)
     ///
@@ -92,13 +118,17 @@ pub const QSysInfo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn BuildAbi(allocator: std.mem.Allocator) []const u8 {
+    pub fn buildAbi(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSysInfo_BuildAbi();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSysInfo.BuildAbi: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSysInfo.buildAbi: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `kernelType` instead
+    ///
+    pub const KernelType = kernelType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsysinfo.html#kernelType)
     ///
@@ -106,13 +136,17 @@ pub const QSysInfo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn KernelType(allocator: std.mem.Allocator) []const u8 {
+    pub fn kernelType(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSysInfo_KernelType();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSysInfo.KernelType: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSysInfo.kernelType: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `kernelVersion` instead
+    ///
+    pub const KernelVersion = kernelVersion;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsysinfo.html#kernelVersion)
     ///
@@ -120,13 +154,17 @@ pub const QSysInfo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn KernelVersion(allocator: std.mem.Allocator) []const u8 {
+    pub fn kernelVersion(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSysInfo_KernelVersion();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSysInfo.KernelVersion: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSysInfo.kernelVersion: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `productType` instead
+    ///
+    pub const ProductType = productType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsysinfo.html#productType)
     ///
@@ -134,13 +172,17 @@ pub const QSysInfo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ProductType(allocator: std.mem.Allocator) []const u8 {
+    pub fn productType(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSysInfo_ProductType();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSysInfo.ProductType: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSysInfo.productType: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `productVersion` instead
+    ///
+    pub const ProductVersion = productVersion;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsysinfo.html#productVersion)
     ///
@@ -148,13 +190,17 @@ pub const QSysInfo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ProductVersion(allocator: std.mem.Allocator) []const u8 {
+    pub fn productVersion(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSysInfo_ProductVersion();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSysInfo.ProductVersion: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSysInfo.productVersion: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `prettyProductName` instead
+    ///
+    pub const PrettyProductName = prettyProductName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsysinfo.html#prettyProductName)
     ///
@@ -162,13 +208,17 @@ pub const QSysInfo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PrettyProductName(allocator: std.mem.Allocator) []const u8 {
+    pub fn prettyProductName(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSysInfo_PrettyProductName();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSysInfo.PrettyProductName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSysInfo.prettyProductName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `machineHostName` instead
+    ///
+    pub const MachineHostName = machineHostName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsysinfo.html#machineHostName)
     ///
@@ -176,13 +226,17 @@ pub const QSysInfo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MachineHostName(allocator: std.mem.Allocator) []const u8 {
+    pub fn machineHostName(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSysInfo_MachineHostName();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSysInfo.MachineHostName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSysInfo.machineHostName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `machineUniqueId` instead
+    ///
+    pub const MachineUniqueId = machineUniqueId;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsysinfo.html#machineUniqueId)
     ///
@@ -190,13 +244,17 @@ pub const QSysInfo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MachineUniqueId(allocator: std.mem.Allocator) []u8 {
+    pub fn machineUniqueId(allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QSysInfo_MachineUniqueId();
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QSysInfo.MachineUniqueId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QSysInfo.machineUniqueId: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `bootUniqueId` instead
+    ///
+    pub const BootUniqueId = bootUniqueId;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsysinfo.html#bootUniqueId)
     ///
@@ -204,27 +262,27 @@ pub const QSysInfo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn BootUniqueId(allocator: std.mem.Allocator) []u8 {
+    pub fn bootUniqueId(allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QSysInfo_BootUniqueId();
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QSysInfo.BootUniqueId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QSysInfo.bootUniqueId: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsysinfo.html#dtor.QSysInfo)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QSysInfo `
     ///
-    pub fn Delete(self: QSysInfo) void {
+    pub fn delete(self: QSysInfo) void {
         qtc.QSysInfo_Delete(@ptrCast(self.ptr));
     }
 };

@@ -36,45 +36,65 @@ pub const QStateMachine = extern struct {
     pub const _is_QAbstractState = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QStateMachine object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QStateMachine {
+    pub const New = new;
+
+    /// Allocate a new QStateMachine object in C++ memory
+    ///
+    pub fn new() QStateMachine {
         return .{ .ptr = qtc.QStateMachine_new() };
     }
 
-    /// New2 constructs a new QStateMachine object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QStateMachine object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` childMode: qstate_enums.ChildMode `
+    /// ` _childMode: qstate_enums.ChildMode `
     ///
-    pub fn New2(childMode: i32) QStateMachine {
-        return .{ .ptr = qtc.QStateMachine_new2(@bitCast(childMode)) };
+    pub fn new2(_childMode: i32) QStateMachine {
+        return .{ .ptr = qtc.QStateMachine_new2(@bitCast(_childMode)) };
     }
 
-    /// New3 constructs a new QStateMachine object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QStateMachine object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New3(parent: anytype) QStateMachine {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QStateMachine_new3(@ptrCast(parent.ptr)) };
+    pub fn new3(_parent: anytype) QStateMachine {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QStateMachine_new3(@ptrCast(_parent.ptr)) };
     }
 
-    /// New4 constructs a new QStateMachine object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QStateMachine object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` childMode: qstate_enums.ChildMode `
+    /// ` _childMode: qstate_enums.ChildMode `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New4(childMode: i32, parent: anytype) QStateMachine {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QStateMachine_new4(@bitCast(childMode), @ptrCast(parent.ptr)) };
+    pub fn new4(_childMode: i32, _parent: anytype) QStateMachine {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QStateMachine_new4(@bitCast(_childMode), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -82,9 +102,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    pub fn MetaObject(self: QStateMachine) QMetaObject {
+    pub fn metaObject(self: QStateMachine) QMetaObject {
         return .{ .ptr = qtc.QStateMachine_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -96,13 +120,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QStateMachine, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QStateMachine, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QStateMachine_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -112,9 +136,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    pub fn SuperMetaObject(self: QStateMachine) QMetaObject {
+    pub fn superMetaObject(self: QStateMachine) QMetaObject {
         return .{ .ptr = qtc.QStateMachine_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -122,10 +150,14 @@ pub const QStateMachine = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QStateMachine, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QStateMachine, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QStateMachine_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -135,13 +167,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` callback: *const fn (self: QStateMachine, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QStateMachine, callback: *const fn (QStateMachine, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QStateMachine, callback: *const fn (QStateMachine, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QStateMachine_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -151,10 +183,14 @@ pub const QStateMachine = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QStateMachine, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QStateMachine, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QStateMachine_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -166,9 +202,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QStateMachine, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QStateMachine, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QStateMachine_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -178,13 +218,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` callback: *const fn (self: QStateMachine, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QStateMachine, callback: *const fn (QStateMachine, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QStateMachine, callback: *const fn (QStateMachine, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QStateMachine_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -198,9 +238,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QStateMachine, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QStateMachine, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QStateMachine_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -210,14 +254,18 @@ pub const QStateMachine = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QStateMachine.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QStateMachine.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addState` instead
+    ///
+    pub const AddState = addState;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#addState)
     ///
@@ -227,10 +275,14 @@ pub const QStateMachine = extern struct {
     ///
     /// ` state: QAbstractState `
     ///
-    pub fn AddState(self: QStateMachine, state: anytype) void {
+    pub fn addState(self: QStateMachine, state: anytype) void {
         comptime _ = @TypeOf(state)._is_QAbstractState;
         qtc.QStateMachine_AddState(@ptrCast(self.ptr), @ptrCast(state.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeState` instead
+    ///
+    pub const RemoveState = removeState;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#removeState)
     ///
@@ -240,10 +292,16 @@ pub const QStateMachine = extern struct {
     ///
     /// ` state: QAbstractState `
     ///
-    pub fn RemoveState(self: QStateMachine, state: anytype) void {
+    pub fn removeState(self: QStateMachine, state: anytype) void {
         comptime _ = @TypeOf(state)._is_QAbstractState;
         qtc.QStateMachine_RemoveState(@ptrCast(self.ptr), @ptrCast(state.ptr));
     }
+
+    /// ### DEPRECATED: Use `error0` instead
+    ///
+    pub const Error = error0;
+
+    pub const @"error" = error0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#error)
     ///
@@ -255,9 +313,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` qstatemachine_enums.Error `
     ///
-    pub fn Error(self: QStateMachine) i32 {
+    pub fn error0(self: QStateMachine) i32 {
         return qtc.QStateMachine_Error(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `errorString` instead
+    ///
+    pub const ErrorString = errorString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#errorString)
     ///
@@ -267,13 +329,17 @@ pub const QStateMachine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorString(self: QStateMachine, allocator: std.mem.Allocator) []const u8 {
+    pub fn errorString(self: QStateMachine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QStateMachine_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QStateMachine.ErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QStateMachine.errorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `clearError` instead
+    ///
+    pub const ClearError = clearError;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#clearError)
     ///
@@ -281,9 +347,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    pub fn ClearError(self: QStateMachine) void {
+    pub fn clearError(self: QStateMachine) void {
         qtc.QStateMachine_ClearError(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRunning` instead
+    ///
+    pub const IsRunning = isRunning;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#isRunning)
     ///
@@ -291,9 +361,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    pub fn IsRunning(self: QStateMachine) bool {
+    pub fn isRunning(self: QStateMachine) bool {
         return qtc.QStateMachine_IsRunning(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAnimated` instead
+    ///
+    pub const IsAnimated = isAnimated;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#isAnimated)
     ///
@@ -301,9 +375,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    pub fn IsAnimated(self: QStateMachine) bool {
+    pub fn isAnimated(self: QStateMachine) bool {
         return qtc.QStateMachine_IsAnimated(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAnimated` instead
+    ///
+    pub const SetAnimated = setAnimated;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#setAnimated)
     ///
@@ -313,9 +391,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAnimated(self: QStateMachine, enabled: bool) void {
+    pub fn setAnimated(self: QStateMachine, enabled: bool) void {
         qtc.QStateMachine_SetAnimated(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `addDefaultAnimation` instead
+    ///
+    pub const AddDefaultAnimation = addDefaultAnimation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#addDefaultAnimation)
     ///
@@ -325,10 +407,14 @@ pub const QStateMachine = extern struct {
     ///
     /// ` animation: QAbstractAnimation `
     ///
-    pub fn AddDefaultAnimation(self: QStateMachine, animation: anytype) void {
+    pub fn addDefaultAnimation(self: QStateMachine, animation: anytype) void {
         comptime _ = @TypeOf(animation)._is_QAbstractAnimation;
         qtc.QStateMachine_AddDefaultAnimation(@ptrCast(self.ptr), @ptrCast(animation.ptr));
     }
+
+    /// ### DEPRECATED: Use `defaultAnimations` instead
+    ///
+    pub const DefaultAnimations = defaultAnimations;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#defaultAnimations)
     ///
@@ -338,15 +424,19 @@ pub const QStateMachine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DefaultAnimations(self: QStateMachine, allocator: std.mem.Allocator) []QAbstractAnimation {
+    pub fn defaultAnimations(self: QStateMachine, allocator: std.mem.Allocator) []QAbstractAnimation {
         const _arr: qtc.libqt_list = qtc.QStateMachine_DefaultAnimations(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAbstractAnimation, _arr.len) catch @panic("QStateMachine.DefaultAnimations: Memory allocation failed");
-        const _data: [*]QtC.QAbstractAnimation = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAbstractAnimation, _arr.len) catch @panic("QStateMachine.defaultAnimations: Memory allocation failed");
+        const _data_val: [*]QtC.QAbstractAnimation = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `removeDefaultAnimation` instead
+    ///
+    pub const RemoveDefaultAnimation = removeDefaultAnimation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#removeDefaultAnimation)
     ///
@@ -356,10 +446,14 @@ pub const QStateMachine = extern struct {
     ///
     /// ` animation: QAbstractAnimation `
     ///
-    pub fn RemoveDefaultAnimation(self: QStateMachine, animation: anytype) void {
+    pub fn removeDefaultAnimation(self: QStateMachine, animation: anytype) void {
         comptime _ = @TypeOf(animation)._is_QAbstractAnimation;
         qtc.QStateMachine_RemoveDefaultAnimation(@ptrCast(self.ptr), @ptrCast(animation.ptr));
     }
+
+    /// ### DEPRECATED: Use `globalRestorePolicy` instead
+    ///
+    pub const GlobalRestorePolicy = globalRestorePolicy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#globalRestorePolicy)
     ///
@@ -371,9 +465,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` qstate_enums.RestorePolicy `
     ///
-    pub fn GlobalRestorePolicy(self: QStateMachine) i32 {
+    pub fn globalRestorePolicy(self: QStateMachine) i32 {
         return qtc.QStateMachine_GlobalRestorePolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGlobalRestorePolicy` instead
+    ///
+    pub const SetGlobalRestorePolicy = setGlobalRestorePolicy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#setGlobalRestorePolicy)
     ///
@@ -383,9 +481,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` restorePolicy: qstate_enums.RestorePolicy `
     ///
-    pub fn SetGlobalRestorePolicy(self: QStateMachine, restorePolicy: i32) void {
+    pub fn setGlobalRestorePolicy(self: QStateMachine, restorePolicy: i32) void {
         qtc.QStateMachine_SetGlobalRestorePolicy(@ptrCast(self.ptr), @bitCast(restorePolicy));
     }
+
+    /// ### DEPRECATED: Use `postEvent` instead
+    ///
+    pub const PostEvent = postEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#postEvent)
     ///
@@ -393,12 +495,16 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn PostEvent(self: QStateMachine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QStateMachine_PostEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn postEvent(self: QStateMachine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QStateMachine_PostEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `postDelayedEvent` instead
+    ///
+    pub const PostDelayedEvent = postDelayedEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#postDelayedEvent)
     ///
@@ -406,14 +512,18 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
     /// ` delay: i32 `
     ///
-    pub fn PostDelayedEvent(self: QStateMachine, event: anytype, delay: i32) i32 {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QStateMachine_PostDelayedEvent(@ptrCast(self.ptr), @ptrCast(event.ptr), @bitCast(delay));
+    pub fn postDelayedEvent(self: QStateMachine, _event: anytype, delay: i32) i32 {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QStateMachine_PostDelayedEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr), @bitCast(delay));
     }
+
+    /// ### DEPRECATED: Use `cancelDelayedEvent` instead
+    ///
+    pub const CancelDelayedEvent = cancelDelayedEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#cancelDelayedEvent)
     ///
@@ -423,9 +533,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn CancelDelayedEvent(self: QStateMachine, id: i32) bool {
+    pub fn cancelDelayedEvent(self: QStateMachine, id: i32) bool {
         return qtc.QStateMachine_CancelDelayedEvent(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `configuration` instead
+    ///
+    pub const Configuration = configuration;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#configuration)
     ///
@@ -435,15 +549,19 @@ pub const QStateMachine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Configuration(self: QStateMachine, allocator: std.mem.Allocator) Set_QAbstractState {
+    pub fn configuration(self: QStateMachine, allocator: std.mem.Allocator) Set_QAbstractState {
         const _set: qtc.libqt_list = qtc.QStateMachine_Configuration(@ptrCast(self.ptr));
         var _ret: Set_QAbstractState = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_set.len)) catch @panic("QStateMachine.Configuration: Total capacity allocation failed");
-        const _data: [*]QtC.QAbstractState = @ptrCast(@alignCast(_set.data));
+        _ret.ensureTotalCapacity(allocator, @intCast(_set.len)) catch @panic("QStateMachine.configuration: Total capacity allocation failed");
+        const _data_val: [*]QtC.QAbstractState = @ptrCast(@alignCast(_set.data));
         for (0.._set.len) |i|
-            _ret.putAssumeCapacity(.{ .ptr = _data[i] }, {});
+            _ret.putAssumeCapacity(.{ .ptr = _data_val[i] }, {});
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#eventFilter)
     ///
@@ -453,13 +571,17 @@ pub const QStateMachine = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QStateMachine, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QStateMachine, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QStateMachine_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QStateMachine_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#eventFilter)
     ///
@@ -471,13 +593,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` callback: *const fn (self: QStateMachine, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QStateMachine, callback: *const fn (QStateMachine, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QStateMachine, callback: *const fn (QStateMachine, QObject, QEvent) callconv(.c) bool) void {
         qtc.QStateMachine_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#eventFilter)
     ///
@@ -489,13 +611,17 @@ pub const QStateMachine = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QStateMachine, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QStateMachine, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QStateMachine_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QStateMachine_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `postDelayedEvent2` instead
+    ///
+    pub const PostDelayedEvent2 = postDelayedEvent2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#postDelayedEvent)
     ///
@@ -503,14 +629,18 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
     /// ` delay: i64 of milliseconds `
     ///
-    pub fn PostDelayedEvent2(self: QStateMachine, event: anytype, delay: i64) i32 {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QStateMachine_PostDelayedEvent2(@ptrCast(self.ptr), @ptrCast(event.ptr), @bitCast(delay));
+    pub fn postDelayedEvent2(self: QStateMachine, _event: anytype, delay: i64) i32 {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QStateMachine_PostDelayedEvent2(@ptrCast(self.ptr), @ptrCast(_event.ptr), @bitCast(delay));
     }
+
+    /// ### DEPRECATED: Use `start` instead
+    ///
+    pub const Start = start;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#start)
     ///
@@ -518,9 +648,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    pub fn Start(self: QStateMachine) void {
+    pub fn start(self: QStateMachine) void {
         qtc.QStateMachine_Start(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stop` instead
+    ///
+    pub const Stop = stop;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#stop)
     ///
@@ -528,9 +662,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    pub fn Stop(self: QStateMachine) void {
+    pub fn stop(self: QStateMachine) void {
         qtc.QStateMachine_Stop(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setRunning` instead
+    ///
+    pub const SetRunning = setRunning;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#setRunning)
     ///
@@ -540,9 +678,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` running: bool `
     ///
-    pub fn SetRunning(self: QStateMachine, running: bool) void {
+    pub fn setRunning(self: QStateMachine, running: bool) void {
         qtc.QStateMachine_SetRunning(@ptrCast(self.ptr), running);
     }
+
+    /// ### DEPRECATED: Use `runningChanged` instead
+    ///
+    pub const RunningChanged = runningChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#runningChanged)
     ///
@@ -552,9 +694,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` running: bool `
     ///
-    pub fn RunningChanged(self: QStateMachine, running: bool) void {
+    pub fn runningChanged(self: QStateMachine, running: bool) void {
         qtc.QStateMachine_RunningChanged(@ptrCast(self.ptr), running);
     }
+
+    /// ### DEPRECATED: Use `onRunningChanged` instead
+    ///
+    pub const OnRunningChanged = onRunningChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#runningChanged)
     ///
@@ -564,22 +710,30 @@ pub const QStateMachine = extern struct {
     ///
     /// ` callback: *const fn (self: QStateMachine, running: bool) callconv(.c) void `
     ///
-    pub fn OnRunningChanged(self: QStateMachine, callback: *const fn (QStateMachine, bool) callconv(.c) void) void {
+    pub fn onRunningChanged(self: QStateMachine, callback: *const fn (QStateMachine, bool) callconv(.c) void) void {
         qtc.QStateMachine_Connect_RunningChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `onEntry` instead
+    ///
+    pub const OnEntry = onEntry;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#onEntry)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStateMachine `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn OnEntry(self: QStateMachine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QStateMachine_OnEntry(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn onEntry(self: QStateMachine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QStateMachine_OnEntry(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onOnEntry` instead
+    ///
+    pub const OnOnEntry = onOnEntry;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#onEntry)
     ///
@@ -591,13 +745,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` callback: *const fn (self: QStateMachine, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnOnEntry(self: QStateMachine, callback: *const fn (QStateMachine, QEvent) callconv(.c) void) void {
+    pub fn onOnEntry(self: QStateMachine, callback: *const fn (QStateMachine, QEvent) callconv(.c) void) void {
         qtc.QStateMachine_OnOnEntry(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperOnEntry` instead
+    /// ### DEPRECATED: Use `superOnEntry` instead
     ///
-    pub const QBaseOnEntry = SuperOnEntry;
+    pub const SuperOnEntry = superOnEntry;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#onEntry)
     ///
@@ -607,12 +761,16 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperOnEntry(self: QStateMachine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QStateMachine_SuperOnEntry(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superOnEntry(self: QStateMachine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QStateMachine_SuperOnEntry(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onExit` instead
+    ///
+    pub const OnExit = onExit;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#onExit)
     ///
@@ -620,12 +778,16 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn OnExit(self: QStateMachine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QStateMachine_OnExit(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn onExit(self: QStateMachine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QStateMachine_OnExit(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onOnExit` instead
+    ///
+    pub const OnOnExit = onOnExit;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#onExit)
     ///
@@ -637,13 +799,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` callback: *const fn (self: QStateMachine, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnOnExit(self: QStateMachine, callback: *const fn (QStateMachine, QEvent) callconv(.c) void) void {
+    pub fn onOnExit(self: QStateMachine, callback: *const fn (QStateMachine, QEvent) callconv(.c) void) void {
         qtc.QStateMachine_OnOnExit(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperOnExit` instead
+    /// ### DEPRECATED: Use `superOnExit` instead
     ///
-    pub const QBaseOnExit = SuperOnExit;
+    pub const SuperOnExit = superOnExit;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#onExit)
     ///
@@ -653,12 +815,16 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperOnExit(self: QStateMachine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QStateMachine_SuperOnExit(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superOnExit(self: QStateMachine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QStateMachine_SuperOnExit(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `beginSelectTransitions` instead
+    ///
+    pub const BeginSelectTransitions = beginSelectTransitions;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#beginSelectTransitions)
     ///
@@ -666,12 +832,16 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn BeginSelectTransitions(self: QStateMachine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QStateMachine_BeginSelectTransitions(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn beginSelectTransitions(self: QStateMachine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QStateMachine_BeginSelectTransitions(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onBeginSelectTransitions` instead
+    ///
+    pub const OnBeginSelectTransitions = onBeginSelectTransitions;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#beginSelectTransitions)
     ///
@@ -683,13 +853,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` callback: *const fn (self: QStateMachine, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnBeginSelectTransitions(self: QStateMachine, callback: *const fn (QStateMachine, QEvent) callconv(.c) void) void {
+    pub fn onBeginSelectTransitions(self: QStateMachine, callback: *const fn (QStateMachine, QEvent) callconv(.c) void) void {
         qtc.QStateMachine_OnBeginSelectTransitions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperBeginSelectTransitions` instead
+    /// ### DEPRECATED: Use `superBeginSelectTransitions` instead
     ///
-    pub const QBaseBeginSelectTransitions = SuperBeginSelectTransitions;
+    pub const SuperBeginSelectTransitions = superBeginSelectTransitions;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#beginSelectTransitions)
     ///
@@ -699,12 +869,16 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperBeginSelectTransitions(self: QStateMachine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QStateMachine_SuperBeginSelectTransitions(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superBeginSelectTransitions(self: QStateMachine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QStateMachine_SuperBeginSelectTransitions(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `endSelectTransitions` instead
+    ///
+    pub const EndSelectTransitions = endSelectTransitions;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#endSelectTransitions)
     ///
@@ -712,12 +886,16 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EndSelectTransitions(self: QStateMachine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QStateMachine_EndSelectTransitions(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn endSelectTransitions(self: QStateMachine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QStateMachine_EndSelectTransitions(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEndSelectTransitions` instead
+    ///
+    pub const OnEndSelectTransitions = onEndSelectTransitions;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#endSelectTransitions)
     ///
@@ -729,13 +907,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` callback: *const fn (self: QStateMachine, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnEndSelectTransitions(self: QStateMachine, callback: *const fn (QStateMachine, QEvent) callconv(.c) void) void {
+    pub fn onEndSelectTransitions(self: QStateMachine, callback: *const fn (QStateMachine, QEvent) callconv(.c) void) void {
         qtc.QStateMachine_OnEndSelectTransitions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEndSelectTransitions` instead
+    /// ### DEPRECATED: Use `superEndSelectTransitions` instead
     ///
-    pub const QBaseEndSelectTransitions = SuperEndSelectTransitions;
+    pub const SuperEndSelectTransitions = superEndSelectTransitions;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#endSelectTransitions)
     ///
@@ -745,12 +923,16 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEndSelectTransitions(self: QStateMachine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QStateMachine_SuperEndSelectTransitions(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEndSelectTransitions(self: QStateMachine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QStateMachine_SuperEndSelectTransitions(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `beginMicrostep` instead
+    ///
+    pub const BeginMicrostep = beginMicrostep;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#beginMicrostep)
     ///
@@ -758,12 +940,16 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn BeginMicrostep(self: QStateMachine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QStateMachine_BeginMicrostep(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn beginMicrostep(self: QStateMachine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QStateMachine_BeginMicrostep(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onBeginMicrostep` instead
+    ///
+    pub const OnBeginMicrostep = onBeginMicrostep;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#beginMicrostep)
     ///
@@ -775,13 +961,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` callback: *const fn (self: QStateMachine, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnBeginMicrostep(self: QStateMachine, callback: *const fn (QStateMachine, QEvent) callconv(.c) void) void {
+    pub fn onBeginMicrostep(self: QStateMachine, callback: *const fn (QStateMachine, QEvent) callconv(.c) void) void {
         qtc.QStateMachine_OnBeginMicrostep(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperBeginMicrostep` instead
+    /// ### DEPRECATED: Use `superBeginMicrostep` instead
     ///
-    pub const QBaseBeginMicrostep = SuperBeginMicrostep;
+    pub const SuperBeginMicrostep = superBeginMicrostep;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#beginMicrostep)
     ///
@@ -791,12 +977,16 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperBeginMicrostep(self: QStateMachine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QStateMachine_SuperBeginMicrostep(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superBeginMicrostep(self: QStateMachine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QStateMachine_SuperBeginMicrostep(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `endMicrostep` instead
+    ///
+    pub const EndMicrostep = endMicrostep;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#endMicrostep)
     ///
@@ -804,12 +994,16 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EndMicrostep(self: QStateMachine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QStateMachine_EndMicrostep(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn endMicrostep(self: QStateMachine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QStateMachine_EndMicrostep(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEndMicrostep` instead
+    ///
+    pub const OnEndMicrostep = onEndMicrostep;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#endMicrostep)
     ///
@@ -821,13 +1015,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` callback: *const fn (self: QStateMachine, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnEndMicrostep(self: QStateMachine, callback: *const fn (QStateMachine, QEvent) callconv(.c) void) void {
+    pub fn onEndMicrostep(self: QStateMachine, callback: *const fn (QStateMachine, QEvent) callconv(.c) void) void {
         qtc.QStateMachine_OnEndMicrostep(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEndMicrostep` instead
+    /// ### DEPRECATED: Use `superEndMicrostep` instead
     ///
-    pub const QBaseEndMicrostep = SuperEndMicrostep;
+    pub const SuperEndMicrostep = superEndMicrostep;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#endMicrostep)
     ///
@@ -837,12 +1031,16 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEndMicrostep(self: QStateMachine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QStateMachine_SuperEndMicrostep(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEndMicrostep(self: QStateMachine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QStateMachine_SuperEndMicrostep(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#event)
     ///
@@ -852,10 +1050,14 @@ pub const QStateMachine = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn Event(self: QStateMachine, e: anytype) bool {
+    pub fn event(self: QStateMachine, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.QStateMachine_Event(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#event)
     ///
@@ -867,13 +1069,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` callback: *const fn (self: QStateMachine, e: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QStateMachine, callback: *const fn (QStateMachine, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QStateMachine, callback: *const fn (QStateMachine, QEvent) callconv(.c) bool) void {
         qtc.QStateMachine_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#event)
     ///
@@ -885,10 +1087,14 @@ pub const QStateMachine = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn SuperEvent(self: QStateMachine, e: anytype) bool {
+    pub fn superEvent(self: QStateMachine, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.QStateMachine_SuperEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -900,15 +1106,19 @@ pub const QStateMachine = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QStateMachine.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QStateMachine.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -922,15 +1132,19 @@ pub const QStateMachine = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QStateMachine.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QStateMachine.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `postEvent2` instead
+    ///
+    pub const PostEvent2 = postEvent2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#postEvent)
     ///
@@ -938,14 +1152,18 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
     /// ` priority: qstatemachine_enums.EventPriority `
     ///
-    pub fn PostEvent2(self: QStateMachine, event: anytype, priority: i32) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QStateMachine_PostEvent2(@ptrCast(self.ptr), @ptrCast(event.ptr), @bitCast(priority));
+    pub fn postEvent2(self: QStateMachine, _event: anytype, priority: i32) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QStateMachine_PostEvent2(@ptrCast(self.ptr), @ptrCast(_event.ptr), @bitCast(priority));
     }
+
+    /// ### DEPRECATED: Use `errorState` instead
+    ///
+    pub const ErrorState = errorState;
 
     /// Inherited from QState
     ///
@@ -955,9 +1173,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    pub fn ErrorState(self: QStateMachine) QAbstractState {
+    pub fn errorState(self: QStateMachine) QAbstractState {
         return .{ .ptr = qtc.QState_ErrorState(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setErrorState` instead
+    ///
+    pub const SetErrorState = setErrorState;
 
     /// Inherited from QState
     ///
@@ -969,10 +1191,14 @@ pub const QStateMachine = extern struct {
     ///
     /// ` state: QAbstractState `
     ///
-    pub fn SetErrorState(self: QStateMachine, state: anytype) void {
+    pub fn setErrorState(self: QStateMachine, state: anytype) void {
         comptime _ = @TypeOf(state)._is_QAbstractState;
         qtc.QState_SetErrorState(@ptrCast(self.ptr), @ptrCast(state.ptr));
     }
+
+    /// ### DEPRECATED: Use `addTransition` instead
+    ///
+    pub const AddTransition = addTransition;
 
     /// Inherited from QState
     ///
@@ -984,10 +1210,14 @@ pub const QStateMachine = extern struct {
     ///
     /// ` transition: QAbstractTransition `
     ///
-    pub fn AddTransition(self: QStateMachine, transition: anytype) void {
+    pub fn addTransition(self: QStateMachine, transition: anytype) void {
         comptime _ = @TypeOf(transition)._is_QAbstractTransition;
         qtc.QState_AddTransition(@ptrCast(self.ptr), @ptrCast(transition.ptr));
     }
+
+    /// ### DEPRECATED: Use `addTransition2` instead
+    ///
+    pub const AddTransition2 = addTransition2;
 
     /// Inherited from QState
     ///
@@ -997,18 +1227,22 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` target: QAbstractState `
     ///
-    pub fn AddTransition2(self: QStateMachine, sender: anytype, signal: [:0]const u8, target: anytype) QSignalTransition {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn addTransition2(self: QStateMachine, _sender: anytype, signal: [:0]const u8, target: anytype) QSignalTransition {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(target)._is_QAbstractState;
-        return .{ .ptr = qtc.QState_AddTransition2(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, @ptrCast(target.ptr)) };
+        return .{ .ptr = qtc.QState_AddTransition2(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, @ptrCast(target.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addTransition3` instead
+    ///
+    pub const AddTransition3 = addTransition3;
 
     /// Inherited from QState
     ///
@@ -1020,10 +1254,14 @@ pub const QStateMachine = extern struct {
     ///
     /// ` target: QAbstractState `
     ///
-    pub fn AddTransition3(self: QStateMachine, target: anytype) QAbstractTransition {
+    pub fn addTransition3(self: QStateMachine, target: anytype) QAbstractTransition {
         comptime _ = @TypeOf(target)._is_QAbstractState;
         return .{ .ptr = qtc.QState_AddTransition3(@ptrCast(self.ptr), @ptrCast(target.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `removeTransition` instead
+    ///
+    pub const RemoveTransition = removeTransition;
 
     /// Inherited from QState
     ///
@@ -1035,10 +1273,14 @@ pub const QStateMachine = extern struct {
     ///
     /// ` transition: QAbstractTransition `
     ///
-    pub fn RemoveTransition(self: QStateMachine, transition: anytype) void {
+    pub fn removeTransition(self: QStateMachine, transition: anytype) void {
         comptime _ = @TypeOf(transition)._is_QAbstractTransition;
         qtc.QState_RemoveTransition(@ptrCast(self.ptr), @ptrCast(transition.ptr));
     }
+
+    /// ### DEPRECATED: Use `transitions` instead
+    ///
+    pub const Transitions = transitions;
 
     /// Inherited from QState
     ///
@@ -1050,15 +1292,19 @@ pub const QStateMachine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Transitions(self: QStateMachine, allocator: std.mem.Allocator) []QAbstractTransition {
+    pub fn transitions(self: QStateMachine, allocator: std.mem.Allocator) []QAbstractTransition {
         const _arr: qtc.libqt_list = qtc.QState_Transitions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAbstractTransition, _arr.len) catch @panic("QStateMachine.Transitions: Memory allocation failed");
-        const _data: [*]QtC.QAbstractTransition = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAbstractTransition, _arr.len) catch @panic("QStateMachine.transitions: Memory allocation failed");
+        const _data_val: [*]QtC.QAbstractTransition = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `initialState` instead
+    ///
+    pub const InitialState = initialState;
 
     /// Inherited from QState
     ///
@@ -1068,9 +1314,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    pub fn InitialState(self: QStateMachine) QAbstractState {
+    pub fn initialState(self: QStateMachine) QAbstractState {
         return .{ .ptr = qtc.QState_InitialState(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setInitialState` instead
+    ///
+    pub const SetInitialState = setInitialState;
 
     /// Inherited from QState
     ///
@@ -1082,10 +1332,14 @@ pub const QStateMachine = extern struct {
     ///
     /// ` state: QAbstractState `
     ///
-    pub fn SetInitialState(self: QStateMachine, state: anytype) void {
+    pub fn setInitialState(self: QStateMachine, state: anytype) void {
         comptime _ = @TypeOf(state)._is_QAbstractState;
         qtc.QState_SetInitialState(@ptrCast(self.ptr), @ptrCast(state.ptr));
     }
+
+    /// ### DEPRECATED: Use `childMode` instead
+    ///
+    pub const ChildMode = childMode;
 
     /// Inherited from QState
     ///
@@ -1099,9 +1353,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` qstate_enums.ChildMode `
     ///
-    pub fn ChildMode(self: QStateMachine) i32 {
+    pub fn childMode(self: QStateMachine) i32 {
         return qtc.QState_ChildMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setChildMode` instead
+    ///
+    pub const SetChildMode = setChildMode;
 
     /// Inherited from QState
     ///
@@ -1113,9 +1371,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` mode: qstate_enums.ChildMode `
     ///
-    pub fn SetChildMode(self: QStateMachine, mode: i32) void {
+    pub fn setChildMode(self: QStateMachine, mode: i32) void {
         qtc.QState_SetChildMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `assignProperty` instead
+    ///
+    pub const AssignProperty = assignProperty;
 
     /// Inherited from QState
     ///
@@ -1131,12 +1393,16 @@ pub const QStateMachine = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn AssignProperty(self: QStateMachine, object: anytype, name: [:0]const u8, value: anytype) void {
+    pub fn assignProperty(self: QStateMachine, object: anytype, name: [:0]const u8, value: anytype) void {
         comptime _ = @TypeOf(object)._is_QObject;
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         qtc.QState_AssignProperty(@ptrCast(self.ptr), @ptrCast(object.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `parentState` instead
+    ///
+    pub const ParentState = parentState;
 
     /// Inherited from QAbstractState
     ///
@@ -1146,9 +1412,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    pub fn ParentState(self: QStateMachine) QState {
+    pub fn parentState(self: QStateMachine) QState {
         return .{ .ptr = qtc.QAbstractState_ParentState(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `machine` instead
+    ///
+    pub const Machine = machine;
 
     /// Inherited from QAbstractState
     ///
@@ -1158,9 +1428,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    pub fn Machine(self: QStateMachine) QStateMachine {
+    pub fn machine(self: QStateMachine) QStateMachine {
         return .{ .ptr = qtc.QAbstractState_Machine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `active` instead
+    ///
+    pub const Active = active;
 
     /// Inherited from QAbstractState
     ///
@@ -1170,9 +1444,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    pub fn Active(self: QStateMachine) bool {
+    pub fn active(self: QStateMachine) bool {
         return qtc.QAbstractState_Active(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activeChanged` instead
+    ///
+    pub const ActiveChanged = activeChanged;
 
     /// Inherited from QAbstractState
     ///
@@ -1182,11 +1460,15 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    /// ` active: bool `
+    /// ` _active: bool `
     ///
-    pub fn ActiveChanged(self: QStateMachine, active: bool) void {
-        qtc.QAbstractState_ActiveChanged(@ptrCast(self.ptr), active);
+    pub fn activeChanged(self: QStateMachine, _active: bool) void {
+        qtc.QAbstractState_ActiveChanged(@ptrCast(self.ptr), _active);
     }
+
+    /// ### DEPRECATED: Use `onActiveChanged` instead
+    ///
+    pub const OnActiveChanged = onActiveChanged;
 
     /// Inherited from QAbstractState
     ///
@@ -1198,9 +1480,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` callback: *const fn (self: QStateMachine, active: bool) callconv(.c) void `
     ///
-    pub fn OnActiveChanged(self: QStateMachine, callback: *const fn (QStateMachine, bool) callconv(.c) void) void {
+    pub fn onActiveChanged(self: QStateMachine, callback: *const fn (QStateMachine, bool) callconv(.c) void) void {
         qtc.QAbstractState_Connect_ActiveChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -1212,13 +1498,17 @@ pub const QStateMachine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QStateMachine, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QStateMachine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QStateMachine.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QStateMachine.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -1230,13 +1520,17 @@ pub const QStateMachine = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QStateMachine, name: []const u8) void {
+    pub fn setObjectName(self: QStateMachine, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -1246,9 +1540,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    pub fn IsWidgetType(self: QStateMachine) bool {
+    pub fn isWidgetType(self: QStateMachine) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -1258,9 +1556,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    pub fn IsWindowType(self: QStateMachine) bool {
+    pub fn isWindowType(self: QStateMachine) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -1270,9 +1572,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    pub fn IsQuickItemType(self: QStateMachine) bool {
+    pub fn isQuickItemType(self: QStateMachine) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -1282,9 +1588,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    pub fn SignalsBlocked(self: QStateMachine) bool {
+    pub fn signalsBlocked(self: QStateMachine) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -1296,9 +1606,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QStateMachine, b: bool) bool {
+    pub fn blockSignals(self: QStateMachine, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -1308,9 +1622,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    pub fn Thread(self: QStateMachine) QThread {
+    pub fn thread(self: QStateMachine) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -1320,12 +1638,16 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QStateMachine, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QStateMachine, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -1337,9 +1659,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QStateMachine, interval: i32) i32 {
+    pub fn startTimer(self: QStateMachine, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -1351,9 +1677,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QStateMachine, time: i64) i32 {
+    pub fn startTimer2(self: QStateMachine, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -1365,9 +1695,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QStateMachine, id: i32) void {
+    pub fn killTimer(self: QStateMachine, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -1379,9 +1713,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QStateMachine, id: i32) void {
+    pub fn killTimer2(self: QStateMachine, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -1393,15 +1731,19 @@ pub const QStateMachine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QStateMachine, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QStateMachine, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QStateMachine.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QStateMachine.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -1411,12 +1753,16 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QStateMachine, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QStateMachine, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1428,10 +1774,14 @@ pub const QStateMachine = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QStateMachine, filterObj: anytype) void {
+    pub fn installEventFilter(self: QStateMachine, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1443,10 +1793,14 @@ pub const QStateMachine = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QStateMachine, obj: anytype) void {
+    pub fn removeEventFilter(self: QStateMachine, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -1454,7 +1808,7 @@ pub const QStateMachine = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1462,13 +1816,17 @@ pub const QStateMachine = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -1476,7 +1834,7 @@ pub const QStateMachine = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1484,13 +1842,17 @@ pub const QStateMachine = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1500,18 +1862,22 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QStateMachine, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QStateMachine, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1519,7 +1885,7 @@ pub const QStateMachine = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1527,13 +1893,17 @@ pub const QStateMachine = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1541,7 +1911,7 @@ pub const QStateMachine = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1549,13 +1919,17 @@ pub const QStateMachine = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1565,9 +1939,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    pub fn Disconnect3(self: QStateMachine) bool {
+    pub fn disconnect3(self: QStateMachine) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1579,10 +1957,14 @@ pub const QStateMachine = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QStateMachine, receiver: anytype) bool {
+    pub fn disconnect4(self: QStateMachine, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1592,10 +1974,14 @@ pub const QStateMachine = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1605,9 +1991,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    pub fn DumpObjectTree(self: QStateMachine) void {
+    pub fn dumpObjectTree(self: QStateMachine) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1617,9 +2007,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    pub fn DumpObjectInfo(self: QStateMachine) void {
+    pub fn dumpObjectInfo(self: QStateMachine) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1633,11 +2027,15 @@ pub const QStateMachine = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QStateMachine, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QStateMachine, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1649,10 +2047,14 @@ pub const QStateMachine = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QStateMachine, name: [:0]const u8) QVariant {
+    pub fn property(self: QStateMachine, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1664,7 +2066,7 @@ pub const QStateMachine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QStateMachine, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QStateMachine, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1672,27 +2074,19 @@ pub const QStateMachine = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QStateMachine.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QStateMachine.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QStateMachine.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QStateMachine.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStateMachine `
-    ///
-    pub fn BindingStorage(self: QStateMachine) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1702,9 +2096,29 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    pub fn BindingStorage2(self: QStateMachine) QBindingStorage {
+    pub fn bindingStorage(self: QStateMachine) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QStateMachine `
+    ///
+    pub fn bindingStorage2(self: QStateMachine) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1714,9 +2128,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    pub fn Destroyed(self: QStateMachine) void {
+    pub fn destroyed(self: QStateMachine) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1728,9 +2146,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` callback: *const fn (self: QStateMachine) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QStateMachine, callback: *const fn (QStateMachine) callconv(.c) void) void {
+    pub fn onDestroyed(self: QStateMachine, callback: *const fn (QStateMachine) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1740,9 +2162,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    pub fn Parent(self: QStateMachine) QObject {
+    pub fn parent(self: QStateMachine) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1754,10 +2180,14 @@ pub const QStateMachine = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QStateMachine, classname: [:0]const u8) bool {
+    pub fn inherits(self: QStateMachine, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1767,9 +2197,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    pub fn DeleteLater(self: QStateMachine) void {
+    pub fn deleteLater(self: QStateMachine) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1783,9 +2217,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QStateMachine, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QStateMachine, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1799,9 +2237,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QStateMachine, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QStateMachine, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1809,7 +2251,7 @@ pub const QStateMachine = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1819,13 +2261,17 @@ pub const QStateMachine = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1833,7 +2279,7 @@ pub const QStateMachine = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1843,13 +2289,17 @@ pub const QStateMachine = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1859,7 +2309,7 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1867,12 +2317,16 @@ pub const QStateMachine = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QStateMachine, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QStateMachine, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1884,10 +2338,14 @@ pub const QStateMachine = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QStateMachine, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QStateMachine, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1901,11 +2359,15 @@ pub const QStateMachine = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QStateMachine, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QStateMachine, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1921,13 +2383,17 @@ pub const QStateMachine = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QStateMachine, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QStateMachine, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1940,11 +2406,15 @@ pub const QStateMachine = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QStateMachine, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QStateMachine, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1956,10 +2426,14 @@ pub const QStateMachine = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QStateMachine, param1: anytype) void {
+    pub fn destroyed1(self: QStateMachine, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1971,9 +2445,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` callback: *const fn (self: QStateMachine, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QStateMachine, callback: *const fn (QStateMachine, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QStateMachine, callback: *const fn (QStateMachine, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1985,16 +2463,16 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QStateMachine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QStateMachine_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QStateMachine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QStateMachine_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -2006,12 +2484,16 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QStateMachine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QStateMachine_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QStateMachine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QStateMachine_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -2025,9 +2507,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` callback: *const fn (self: QStateMachine, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QStateMachine, callback: *const fn (QStateMachine, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QStateMachine, callback: *const fn (QStateMachine, QTimerEvent) callconv(.c) void) void {
         qtc.QStateMachine_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -2039,16 +2525,16 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QStateMachine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QStateMachine_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QStateMachine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QStateMachine_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2060,12 +2546,16 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QStateMachine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QStateMachine_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QStateMachine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QStateMachine_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2079,9 +2569,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` callback: *const fn (self: QStateMachine, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QStateMachine, callback: *const fn (QStateMachine, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QStateMachine, callback: *const fn (QStateMachine, QChildEvent) callconv(.c) void) void {
         qtc.QStateMachine_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -2093,16 +2587,16 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QStateMachine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QStateMachine_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QStateMachine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QStateMachine_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2114,12 +2608,16 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QStateMachine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QStateMachine_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QStateMachine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QStateMachine_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2133,9 +2631,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` callback: *const fn (self: QStateMachine, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QStateMachine, callback: *const fn (QStateMachine, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QStateMachine, callback: *const fn (QStateMachine, QEvent) callconv(.c) void) void {
         qtc.QStateMachine_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -2149,14 +2651,14 @@ pub const QStateMachine = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QStateMachine, signal: anytype) void {
+    pub fn connectNotify(self: QStateMachine, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QStateMachine_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2170,11 +2672,15 @@ pub const QStateMachine = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QStateMachine, signal: anytype) void {
+    pub fn superConnectNotify(self: QStateMachine, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QStateMachine_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -2187,9 +2693,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` callback: *const fn (self: QStateMachine, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QStateMachine, callback: *const fn (QStateMachine, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QStateMachine, callback: *const fn (QStateMachine, QMetaMethod) callconv(.c) void) void {
         qtc.QStateMachine_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2203,14 +2713,14 @@ pub const QStateMachine = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QStateMachine, signal: anytype) void {
+    pub fn disconnectNotify(self: QStateMachine, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QStateMachine_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2224,10 +2734,14 @@ pub const QStateMachine = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QStateMachine, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QStateMachine, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QStateMachine_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2241,9 +2755,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` callback: *const fn (self: QStateMachine, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QStateMachine, callback: *const fn (QStateMachine, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QStateMachine, callback: *const fn (QStateMachine, QMetaMethod) callconv(.c) void) void {
         qtc.QStateMachine_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -2255,13 +2773,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    pub fn Sender(self: QStateMachine) QObject {
+    pub fn sender(self: QStateMachine) QObject {
         return .{ .ptr = qtc.QStateMachine_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -2273,9 +2791,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    pub fn SuperSender(self: QStateMachine) QObject {
+    pub fn superSender(self: QStateMachine) QObject {
         return .{ .ptr = qtc.QStateMachine_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -2289,9 +2811,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QStateMachine, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QStateMachine, callback: *const fn () callconv(.c) QObject) void {
         qtc.QStateMachine_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2303,13 +2829,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    pub fn SenderSignalIndex(self: QStateMachine) i32 {
+    pub fn senderSignalIndex(self: QStateMachine) i32 {
         return qtc.QStateMachine_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2321,9 +2847,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` self: QStateMachine `
     ///
-    pub fn SuperSenderSignalIndex(self: QStateMachine) i32 {
+    pub fn superSenderSignalIndex(self: QStateMachine) i32 {
         return qtc.QStateMachine_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2337,9 +2867,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QStateMachine, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QStateMachine, callback: *const fn () callconv(.c) i32) void {
         qtc.QStateMachine_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -2353,14 +2887,14 @@ pub const QStateMachine = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QStateMachine, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QStateMachine, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QStateMachine_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -2374,10 +2908,14 @@ pub const QStateMachine = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QStateMachine, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QStateMachine, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QStateMachine_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -2391,9 +2929,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` callback: *const fn (self: QStateMachine, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QStateMachine, callback: *const fn (QStateMachine, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QStateMachine, callback: *const fn (QStateMachine, [*:0]const u8) callconv(.c) i32) void {
         qtc.QStateMachine_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2407,14 +2949,14 @@ pub const QStateMachine = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QStateMachine, signal: anytype) bool {
+    pub fn isSignalConnected(self: QStateMachine, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QStateMachine_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2428,10 +2970,14 @@ pub const QStateMachine = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QStateMachine, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QStateMachine, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QStateMachine_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2445,9 +2991,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` callback: *const fn (self: QStateMachine, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QStateMachine, callback: *const fn (QStateMachine, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QStateMachine, callback: *const fn (QStateMachine, QMetaMethod) callconv(.c) bool) void {
         qtc.QStateMachine_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onStarted` instead
+    ///
+    pub const OnStarted = onStarted;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#started)
     ///
@@ -2459,9 +3009,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` callback: *const fn (self: QStateMachine) callconv(.c) void `
     ///
-    pub fn OnStarted(self: QStateMachine, callback: *const fn (QStateMachine) callconv(.c) void) void {
+    pub fn onStarted(self: QStateMachine, callback: *const fn (QStateMachine) callconv(.c) void) void {
         qtc.QStateMachine_Connect_Started(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onStopped` instead
+    ///
+    pub const OnStopped = onStopped;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#stopped)
     ///
@@ -2473,9 +3027,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` callback: *const fn (self: QStateMachine) callconv(.c) void `
     ///
-    pub fn OnStopped(self: QStateMachine, callback: *const fn (QStateMachine) callconv(.c) void) void {
+    pub fn onStopped(self: QStateMachine, callback: *const fn (QStateMachine) callconv(.c) void) void {
         qtc.QStateMachine_Connect_Stopped(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onFinished` instead
+    ///
+    pub const OnFinished = onFinished;
 
     /// Inherited from QState
     ///
@@ -2489,9 +3047,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` callback: *const fn (self: QStateMachine) callconv(.c) void `
     ///
-    pub fn OnFinished(self: QStateMachine, callback: *const fn (QStateMachine) callconv(.c) void) void {
+    pub fn onFinished(self: QStateMachine, callback: *const fn (QStateMachine) callconv(.c) void) void {
         qtc.QState_Connect_Finished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onPropertiesAssigned` instead
+    ///
+    pub const OnPropertiesAssigned = onPropertiesAssigned;
 
     /// Inherited from QState
     ///
@@ -2505,9 +3067,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` callback: *const fn (self: QStateMachine) callconv(.c) void `
     ///
-    pub fn OnPropertiesAssigned(self: QStateMachine, callback: *const fn (QStateMachine) callconv(.c) void) void {
+    pub fn onPropertiesAssigned(self: QStateMachine, callback: *const fn (QStateMachine) callconv(.c) void) void {
         qtc.QState_Connect_PropertiesAssigned(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onChildModeChanged` instead
+    ///
+    pub const OnChildModeChanged = onChildModeChanged;
 
     /// Inherited from QState
     ///
@@ -2521,9 +3087,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` callback: *const fn (self: QStateMachine) callconv(.c) void `
     ///
-    pub fn OnChildModeChanged(self: QStateMachine, callback: *const fn (QStateMachine) callconv(.c) void) void {
+    pub fn onChildModeChanged(self: QStateMachine, callback: *const fn (QStateMachine) callconv(.c) void) void {
         qtc.QState_Connect_ChildModeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onInitialStateChanged` instead
+    ///
+    pub const OnInitialStateChanged = onInitialStateChanged;
 
     /// Inherited from QState
     ///
@@ -2537,9 +3107,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` callback: *const fn (self: QStateMachine) callconv(.c) void `
     ///
-    pub fn OnInitialStateChanged(self: QStateMachine, callback: *const fn (QStateMachine) callconv(.c) void) void {
+    pub fn onInitialStateChanged(self: QStateMachine, callback: *const fn (QStateMachine) callconv(.c) void) void {
         qtc.QState_Connect_InitialStateChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onErrorStateChanged` instead
+    ///
+    pub const OnErrorStateChanged = onErrorStateChanged;
 
     /// Inherited from QState
     ///
@@ -2553,9 +3127,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` callback: *const fn (self: QStateMachine) callconv(.c) void `
     ///
-    pub fn OnErrorStateChanged(self: QStateMachine, callback: *const fn (QStateMachine) callconv(.c) void) void {
+    pub fn onErrorStateChanged(self: QStateMachine, callback: *const fn (QStateMachine) callconv(.c) void) void {
         qtc.QState_Connect_ErrorStateChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onEntered` instead
+    ///
+    pub const OnEntered = onEntered;
 
     /// Inherited from QAbstractState
     ///
@@ -2569,9 +3147,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` callback: *const fn (self: QStateMachine) callconv(.c) void `
     ///
-    pub fn OnEntered(self: QStateMachine, callback: *const fn (QStateMachine) callconv(.c) void) void {
+    pub fn onEntered(self: QStateMachine, callback: *const fn (QStateMachine) callconv(.c) void) void {
         qtc.QAbstractState_Connect_Entered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onExited` instead
+    ///
+    pub const OnExited = onExited;
 
     /// Inherited from QAbstractState
     ///
@@ -2585,9 +3167,13 @@ pub const QStateMachine = extern struct {
     ///
     /// ` callback: *const fn (self: QStateMachine) callconv(.c) void `
     ///
-    pub fn OnExited(self: QStateMachine, callback: *const fn (QStateMachine) callconv(.c) void) void {
+    pub fn onExited(self: QStateMachine, callback: *const fn (QStateMachine) callconv(.c) void) void {
         qtc.QAbstractState_Connect_Exited(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -2601,23 +3187,23 @@ pub const QStateMachine = extern struct {
     ///
     /// ` callback: *const fn (self: QStateMachine, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QStateMachine, callback: *const fn (QStateMachine, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QStateMachine, callback: *const fn (QStateMachine, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#dtor.QStateMachine)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QStateMachine `
     ///
-    pub fn Delete(self: QStateMachine) void {
+    pub fn delete(self: QStateMachine) void {
         qtc.QStateMachine_Delete(@ptrCast(self.ptr));
     }
 };
@@ -2633,35 +3219,47 @@ pub const QStateMachine__SignalEvent = extern struct {
     pub const _is_QStateMachine__SignalEvent = {};
     pub const _is_QEvent = {};
 
-    /// New constructs a new QStateMachine::SignalEvent object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QStateMachine::SignalEvent object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
-    /// ` signalIndex: i32 `
+    /// ` _signalIndex: i32 `
     ///
-    /// ` arguments: []QVariant `
+    /// ` _arguments: []QVariant `
     ///
-    pub fn New(sender: anytype, signalIndex: i32, arguments: []QVariant) QStateMachine__SignalEvent {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn new(_sender: anytype, _signalIndex: i32, _arguments: []QVariant) QStateMachine__SignalEvent {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const arguments_list = qtc.libqt_list{
-            .len = arguments.len,
-            .data = @ptrCast(arguments.ptr),
+            .len = _arguments.len,
+            .data = @ptrCast(_arguments.ptr),
         };
-        return .{ .ptr = qtc.QStateMachine__SignalEvent_new(@ptrCast(sender.ptr), @bitCast(signalIndex), arguments_list) };
+        return .{ .ptr = qtc.QStateMachine__SignalEvent_new(@ptrCast(_sender.ptr), @bitCast(_signalIndex), arguments_list) };
     }
 
-    /// New2 constructs a new QStateMachine::SignalEvent object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QStateMachine::SignalEvent object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QStateMachine__SignalEvent `
     ///
-    pub fn New2(param1: anytype) QStateMachine__SignalEvent {
+    pub fn new2(param1: anytype) QStateMachine__SignalEvent {
         comptime _ = @TypeOf(param1)._is_QStateMachine__SignalEvent;
         return .{ .ptr = qtc.QStateMachine__SignalEvent_new2(@ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine-signalevent.html#sender)
     ///
@@ -2669,9 +3267,13 @@ pub const QStateMachine__SignalEvent = extern struct {
     ///
     /// ` self: QStateMachine__SignalEvent `
     ///
-    pub fn Sender(self: QStateMachine__SignalEvent) QObject {
+    pub fn sender(self: QStateMachine__SignalEvent) QObject {
         return .{ .ptr = qtc.QStateMachine__SignalEvent_Sender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `signalIndex` instead
+    ///
+    pub const SignalIndex = signalIndex;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine-signalevent.html#signalIndex)
     ///
@@ -2679,9 +3281,13 @@ pub const QStateMachine__SignalEvent = extern struct {
     ///
     /// ` self: QStateMachine__SignalEvent `
     ///
-    pub fn SignalIndex(self: QStateMachine__SignalEvent) i32 {
+    pub fn signalIndex(self: QStateMachine__SignalEvent) i32 {
         return qtc.QStateMachine__SignalEvent_SignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `arguments` instead
+    ///
+    pub const Arguments = arguments;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine-signalevent.html#arguments)
     ///
@@ -2691,15 +3297,21 @@ pub const QStateMachine__SignalEvent = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Arguments(self: QStateMachine__SignalEvent, allocator: std.mem.Allocator) []QVariant {
+    pub fn arguments(self: QStateMachine__SignalEvent, allocator: std.mem.Allocator) []QVariant {
         const _arr: qtc.libqt_list = qtc.QStateMachine__SignalEvent_Arguments(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QVariant, _arr.len) catch @panic("QStateMachine__SignalEvent.Arguments: Memory allocation failed");
-        const _data: [*]QtC.QVariant = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QVariant, _arr.len) catch @panic("QStateMachine__SignalEvent.arguments: Memory allocation failed");
+        const _data_val: [*]QtC.QVariant = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QEvent
     ///
@@ -2713,9 +3325,13 @@ pub const QStateMachine__SignalEvent = extern struct {
     ///
     /// ` qcoreevent_enums.Type `
     ///
-    pub fn Type(self: QStateMachine__SignalEvent) i32 {
+    pub fn type0(self: QStateMachine__SignalEvent) i32 {
         return qtc.QEvent_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `spontaneous` instead
+    ///
+    pub const Spontaneous = spontaneous;
 
     /// Inherited from QEvent
     ///
@@ -2725,9 +3341,13 @@ pub const QStateMachine__SignalEvent = extern struct {
     ///
     /// ` self: QStateMachine__SignalEvent `
     ///
-    pub fn Spontaneous(self: QStateMachine__SignalEvent) bool {
+    pub fn spontaneous(self: QStateMachine__SignalEvent) bool {
         return qtc.QEvent_Spontaneous(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAccepted` instead
+    ///
+    pub const IsAccepted = isAccepted;
 
     /// Inherited from QEvent
     ///
@@ -2737,9 +3357,13 @@ pub const QStateMachine__SignalEvent = extern struct {
     ///
     /// ` self: QStateMachine__SignalEvent `
     ///
-    pub fn IsAccepted(self: QStateMachine__SignalEvent) bool {
+    pub fn isAccepted(self: QStateMachine__SignalEvent) bool {
         return qtc.QEvent_IsAccepted(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `accept` instead
+    ///
+    pub const Accept = accept;
 
     /// Inherited from QEvent
     ///
@@ -2749,9 +3373,13 @@ pub const QStateMachine__SignalEvent = extern struct {
     ///
     /// ` self: QStateMachine__SignalEvent `
     ///
-    pub fn Accept(self: QStateMachine__SignalEvent) void {
+    pub fn accept(self: QStateMachine__SignalEvent) void {
         qtc.QEvent_Accept(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `ignore` instead
+    ///
+    pub const Ignore = ignore;
 
     /// Inherited from QEvent
     ///
@@ -2761,9 +3389,13 @@ pub const QStateMachine__SignalEvent = extern struct {
     ///
     /// ` self: QStateMachine__SignalEvent `
     ///
-    pub fn Ignore(self: QStateMachine__SignalEvent) void {
+    pub fn ignore(self: QStateMachine__SignalEvent) void {
         qtc.QEvent_Ignore(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isInputEvent` instead
+    ///
+    pub const IsInputEvent = isInputEvent;
 
     /// Inherited from QEvent
     ///
@@ -2773,9 +3405,13 @@ pub const QStateMachine__SignalEvent = extern struct {
     ///
     /// ` self: QStateMachine__SignalEvent `
     ///
-    pub fn IsInputEvent(self: QStateMachine__SignalEvent) bool {
+    pub fn isInputEvent(self: QStateMachine__SignalEvent) bool {
         return qtc.QEvent_IsInputEvent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isPointerEvent` instead
+    ///
+    pub const IsPointerEvent = isPointerEvent;
 
     /// Inherited from QEvent
     ///
@@ -2785,9 +3421,13 @@ pub const QStateMachine__SignalEvent = extern struct {
     ///
     /// ` self: QStateMachine__SignalEvent `
     ///
-    pub fn IsPointerEvent(self: QStateMachine__SignalEvent) bool {
+    pub fn isPointerEvent(self: QStateMachine__SignalEvent) bool {
         return qtc.QEvent_IsPointerEvent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSinglePointEvent` instead
+    ///
+    pub const IsSinglePointEvent = isSinglePointEvent;
 
     /// Inherited from QEvent
     ///
@@ -2797,17 +3437,25 @@ pub const QStateMachine__SignalEvent = extern struct {
     ///
     /// ` self: QStateMachine__SignalEvent `
     ///
-    pub fn IsSinglePointEvent(self: QStateMachine__SignalEvent) bool {
+    pub fn isSinglePointEvent(self: QStateMachine__SignalEvent) bool {
         return qtc.QEvent_IsSinglePointEvent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `registerEventType` instead
+    ///
+    pub const RegisterEventType = registerEventType;
 
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#registerEventType)
     ///
-    pub fn RegisterEventType() i32 {
+    pub fn registerEventType() i32 {
         return qtc.QEvent_RegisterEventType();
     }
+
+    /// ### DEPRECATED: Use `registerEventType1` instead
+    ///
+    pub const RegisterEventType1 = registerEventType1;
 
     /// Inherited from QEvent
     ///
@@ -2817,9 +3465,13 @@ pub const QStateMachine__SignalEvent = extern struct {
     ///
     /// ` hint: i32 `
     ///
-    pub fn RegisterEventType1(hint: i32) i32 {
+    pub fn registerEventType1(hint: i32) i32 {
         return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
+
+    /// ### DEPRECATED: Use `setAccepted` instead
+    ///
+    pub const SetAccepted = setAccepted;
 
     /// Inherited from QEvent
     ///
@@ -2833,13 +3485,13 @@ pub const QStateMachine__SignalEvent = extern struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn SetAccepted(self: QStateMachine__SignalEvent, accepted: bool) void {
+    pub fn setAccepted(self: QStateMachine__SignalEvent, accepted: bool) void {
         qtc.QStateMachine__SignalEvent_SetAccepted(@ptrCast(self.ptr), accepted);
     }
 
-    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    /// ### DEPRECATED: Use `superSetAccepted` instead
     ///
-    pub const QBaseSetAccepted = SuperSetAccepted;
+    pub const SuperSetAccepted = superSetAccepted;
 
     /// Inherited from QEvent
     ///
@@ -2853,9 +3505,13 @@ pub const QStateMachine__SignalEvent = extern struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn SuperSetAccepted(self: QStateMachine__SignalEvent, accepted: bool) void {
+    pub fn superSetAccepted(self: QStateMachine__SignalEvent, accepted: bool) void {
         qtc.QStateMachine__SignalEvent_SuperSetAccepted(@ptrCast(self.ptr), accepted);
     }
+
+    /// ### DEPRECATED: Use `onSetAccepted` instead
+    ///
+    pub const OnSetAccepted = onSetAccepted;
 
     /// Inherited from QEvent
     ///
@@ -2869,9 +3525,13 @@ pub const QStateMachine__SignalEvent = extern struct {
     ///
     /// ` callback: *const fn (self: QStateMachine__SignalEvent, accepted: bool) callconv(.c) void `
     ///
-    pub fn OnSetAccepted(self: QStateMachine__SignalEvent, callback: *const fn (QStateMachine__SignalEvent, bool) callconv(.c) void) void {
+    pub fn onSetAccepted(self: QStateMachine__SignalEvent, callback: *const fn (QStateMachine__SignalEvent, bool) callconv(.c) void) void {
         qtc.QStateMachine__SignalEvent_OnSetAccepted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `clone` instead
+    ///
+    pub const Clone = clone;
 
     /// Inherited from QEvent
     ///
@@ -2883,13 +3543,13 @@ pub const QStateMachine__SignalEvent = extern struct {
     ///
     /// ` self: QStateMachine__SignalEvent `
     ///
-    pub fn Clone(self: QStateMachine__SignalEvent) QEvent {
+    pub fn clone(self: QStateMachine__SignalEvent) QEvent {
         return .{ .ptr = qtc.QStateMachine__SignalEvent_Clone(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperClone` instead
+    /// ### DEPRECATED: Use `superClone` instead
     ///
-    pub const QBaseClone = SuperClone;
+    pub const SuperClone = superClone;
 
     /// Inherited from QEvent
     ///
@@ -2901,9 +3561,13 @@ pub const QStateMachine__SignalEvent = extern struct {
     ///
     /// ` self: QStateMachine__SignalEvent `
     ///
-    pub fn SuperClone(self: QStateMachine__SignalEvent) QEvent {
+    pub fn superClone(self: QStateMachine__SignalEvent) QEvent {
         return .{ .ptr = qtc.QStateMachine__SignalEvent_SuperClone(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onClone` instead
+    ///
+    pub const OnClone = onClone;
 
     /// Inherited from QEvent
     ///
@@ -2917,21 +3581,21 @@ pub const QStateMachine__SignalEvent = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QEvent `
     ///
-    pub fn OnClone(self: QStateMachine__SignalEvent, callback: *const fn () callconv(.c) QEvent) void {
+    pub fn onClone(self: QStateMachine__SignalEvent, callback: *const fn () callconv(.c) QEvent) void {
         qtc.QStateMachine__SignalEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QStateMachine__SignalEvent `
     ///
-    pub fn Delete(self: QStateMachine__SignalEvent) void {
+    pub fn delete(self: QStateMachine__SignalEvent) void {
         qtc.QStateMachine__SignalEvent_Delete(@ptrCast(self.ptr));
     }
 };
@@ -2947,30 +3611,42 @@ pub const QStateMachine__WrappedEvent = extern struct {
     pub const _is_QStateMachine__WrappedEvent = {};
     pub const _is_QEvent = {};
 
-    /// New constructs a new QStateMachine::WrappedEvent object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QStateMachine::WrappedEvent object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` object: QObject `
+    /// ` _object: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn New(object: anytype, event: anytype) QStateMachine__WrappedEvent {
-        comptime _ = @TypeOf(object)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return .{ .ptr = qtc.QStateMachine__WrappedEvent_new(@ptrCast(object.ptr), @ptrCast(event.ptr)) };
+    pub fn new(_object: anytype, _event: anytype) QStateMachine__WrappedEvent {
+        comptime _ = @TypeOf(_object)._is_QObject;
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return .{ .ptr = qtc.QStateMachine__WrappedEvent_new(@ptrCast(_object.ptr), @ptrCast(_event.ptr)) };
     }
 
-    /// New2 constructs a new QStateMachine::WrappedEvent object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QStateMachine::WrappedEvent object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QStateMachine__WrappedEvent `
     ///
-    pub fn New2(param1: anytype) QStateMachine__WrappedEvent {
+    pub fn new2(param1: anytype) QStateMachine__WrappedEvent {
         comptime _ = @TypeOf(param1)._is_QStateMachine__WrappedEvent;
         return .{ .ptr = qtc.QStateMachine__WrappedEvent_new2(@ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `object` instead
+    ///
+    pub const Object = object;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine-wrappedevent.html#object)
     ///
@@ -2978,9 +3654,13 @@ pub const QStateMachine__WrappedEvent = extern struct {
     ///
     /// ` self: QStateMachine__WrappedEvent `
     ///
-    pub fn Object(self: QStateMachine__WrappedEvent) QObject {
+    pub fn object(self: QStateMachine__WrappedEvent) QObject {
         return .{ .ptr = qtc.QStateMachine__WrappedEvent_Object(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine-wrappedevent.html#event)
     ///
@@ -2988,9 +3668,15 @@ pub const QStateMachine__WrappedEvent = extern struct {
     ///
     /// ` self: QStateMachine__WrappedEvent `
     ///
-    pub fn Event(self: QStateMachine__WrappedEvent) QEvent {
+    pub fn event(self: QStateMachine__WrappedEvent) QEvent {
         return .{ .ptr = qtc.QStateMachine__WrappedEvent_Event(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QEvent
     ///
@@ -3004,9 +3690,13 @@ pub const QStateMachine__WrappedEvent = extern struct {
     ///
     /// ` qcoreevent_enums.Type `
     ///
-    pub fn Type(self: QStateMachine__WrappedEvent) i32 {
+    pub fn type0(self: QStateMachine__WrappedEvent) i32 {
         return qtc.QEvent_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `spontaneous` instead
+    ///
+    pub const Spontaneous = spontaneous;
 
     /// Inherited from QEvent
     ///
@@ -3016,9 +3706,13 @@ pub const QStateMachine__WrappedEvent = extern struct {
     ///
     /// ` self: QStateMachine__WrappedEvent `
     ///
-    pub fn Spontaneous(self: QStateMachine__WrappedEvent) bool {
+    pub fn spontaneous(self: QStateMachine__WrappedEvent) bool {
         return qtc.QEvent_Spontaneous(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAccepted` instead
+    ///
+    pub const IsAccepted = isAccepted;
 
     /// Inherited from QEvent
     ///
@@ -3028,9 +3722,13 @@ pub const QStateMachine__WrappedEvent = extern struct {
     ///
     /// ` self: QStateMachine__WrappedEvent `
     ///
-    pub fn IsAccepted(self: QStateMachine__WrappedEvent) bool {
+    pub fn isAccepted(self: QStateMachine__WrappedEvent) bool {
         return qtc.QEvent_IsAccepted(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `accept` instead
+    ///
+    pub const Accept = accept;
 
     /// Inherited from QEvent
     ///
@@ -3040,9 +3738,13 @@ pub const QStateMachine__WrappedEvent = extern struct {
     ///
     /// ` self: QStateMachine__WrappedEvent `
     ///
-    pub fn Accept(self: QStateMachine__WrappedEvent) void {
+    pub fn accept(self: QStateMachine__WrappedEvent) void {
         qtc.QEvent_Accept(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `ignore` instead
+    ///
+    pub const Ignore = ignore;
 
     /// Inherited from QEvent
     ///
@@ -3052,9 +3754,13 @@ pub const QStateMachine__WrappedEvent = extern struct {
     ///
     /// ` self: QStateMachine__WrappedEvent `
     ///
-    pub fn Ignore(self: QStateMachine__WrappedEvent) void {
+    pub fn ignore(self: QStateMachine__WrappedEvent) void {
         qtc.QEvent_Ignore(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isInputEvent` instead
+    ///
+    pub const IsInputEvent = isInputEvent;
 
     /// Inherited from QEvent
     ///
@@ -3064,9 +3770,13 @@ pub const QStateMachine__WrappedEvent = extern struct {
     ///
     /// ` self: QStateMachine__WrappedEvent `
     ///
-    pub fn IsInputEvent(self: QStateMachine__WrappedEvent) bool {
+    pub fn isInputEvent(self: QStateMachine__WrappedEvent) bool {
         return qtc.QEvent_IsInputEvent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isPointerEvent` instead
+    ///
+    pub const IsPointerEvent = isPointerEvent;
 
     /// Inherited from QEvent
     ///
@@ -3076,9 +3786,13 @@ pub const QStateMachine__WrappedEvent = extern struct {
     ///
     /// ` self: QStateMachine__WrappedEvent `
     ///
-    pub fn IsPointerEvent(self: QStateMachine__WrappedEvent) bool {
+    pub fn isPointerEvent(self: QStateMachine__WrappedEvent) bool {
         return qtc.QEvent_IsPointerEvent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSinglePointEvent` instead
+    ///
+    pub const IsSinglePointEvent = isSinglePointEvent;
 
     /// Inherited from QEvent
     ///
@@ -3088,17 +3802,25 @@ pub const QStateMachine__WrappedEvent = extern struct {
     ///
     /// ` self: QStateMachine__WrappedEvent `
     ///
-    pub fn IsSinglePointEvent(self: QStateMachine__WrappedEvent) bool {
+    pub fn isSinglePointEvent(self: QStateMachine__WrappedEvent) bool {
         return qtc.QEvent_IsSinglePointEvent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `registerEventType` instead
+    ///
+    pub const RegisterEventType = registerEventType;
 
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#registerEventType)
     ///
-    pub fn RegisterEventType() i32 {
+    pub fn registerEventType() i32 {
         return qtc.QEvent_RegisterEventType();
     }
+
+    /// ### DEPRECATED: Use `registerEventType1` instead
+    ///
+    pub const RegisterEventType1 = registerEventType1;
 
     /// Inherited from QEvent
     ///
@@ -3108,9 +3830,13 @@ pub const QStateMachine__WrappedEvent = extern struct {
     ///
     /// ` hint: i32 `
     ///
-    pub fn RegisterEventType1(hint: i32) i32 {
+    pub fn registerEventType1(hint: i32) i32 {
         return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
+
+    /// ### DEPRECATED: Use `setAccepted` instead
+    ///
+    pub const SetAccepted = setAccepted;
 
     /// Inherited from QEvent
     ///
@@ -3124,13 +3850,13 @@ pub const QStateMachine__WrappedEvent = extern struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn SetAccepted(self: QStateMachine__WrappedEvent, accepted: bool) void {
+    pub fn setAccepted(self: QStateMachine__WrappedEvent, accepted: bool) void {
         qtc.QStateMachine__WrappedEvent_SetAccepted(@ptrCast(self.ptr), accepted);
     }
 
-    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    /// ### DEPRECATED: Use `superSetAccepted` instead
     ///
-    pub const QBaseSetAccepted = SuperSetAccepted;
+    pub const SuperSetAccepted = superSetAccepted;
 
     /// Inherited from QEvent
     ///
@@ -3144,9 +3870,13 @@ pub const QStateMachine__WrappedEvent = extern struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn SuperSetAccepted(self: QStateMachine__WrappedEvent, accepted: bool) void {
+    pub fn superSetAccepted(self: QStateMachine__WrappedEvent, accepted: bool) void {
         qtc.QStateMachine__WrappedEvent_SuperSetAccepted(@ptrCast(self.ptr), accepted);
     }
+
+    /// ### DEPRECATED: Use `onSetAccepted` instead
+    ///
+    pub const OnSetAccepted = onSetAccepted;
 
     /// Inherited from QEvent
     ///
@@ -3160,9 +3890,13 @@ pub const QStateMachine__WrappedEvent = extern struct {
     ///
     /// ` callback: *const fn (self: QStateMachine__WrappedEvent, accepted: bool) callconv(.c) void `
     ///
-    pub fn OnSetAccepted(self: QStateMachine__WrappedEvent, callback: *const fn (QStateMachine__WrappedEvent, bool) callconv(.c) void) void {
+    pub fn onSetAccepted(self: QStateMachine__WrappedEvent, callback: *const fn (QStateMachine__WrappedEvent, bool) callconv(.c) void) void {
         qtc.QStateMachine__WrappedEvent_OnSetAccepted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `clone` instead
+    ///
+    pub const Clone = clone;
 
     /// Inherited from QEvent
     ///
@@ -3174,13 +3908,13 @@ pub const QStateMachine__WrappedEvent = extern struct {
     ///
     /// ` self: QStateMachine__WrappedEvent `
     ///
-    pub fn Clone(self: QStateMachine__WrappedEvent) QEvent {
+    pub fn clone(self: QStateMachine__WrappedEvent) QEvent {
         return .{ .ptr = qtc.QStateMachine__WrappedEvent_Clone(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperClone` instead
+    /// ### DEPRECATED: Use `superClone` instead
     ///
-    pub const QBaseClone = SuperClone;
+    pub const SuperClone = superClone;
 
     /// Inherited from QEvent
     ///
@@ -3192,9 +3926,13 @@ pub const QStateMachine__WrappedEvent = extern struct {
     ///
     /// ` self: QStateMachine__WrappedEvent `
     ///
-    pub fn SuperClone(self: QStateMachine__WrappedEvent) QEvent {
+    pub fn superClone(self: QStateMachine__WrappedEvent) QEvent {
         return .{ .ptr = qtc.QStateMachine__WrappedEvent_SuperClone(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onClone` instead
+    ///
+    pub const OnClone = onClone;
 
     /// Inherited from QEvent
     ///
@@ -3208,21 +3946,21 @@ pub const QStateMachine__WrappedEvent = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QEvent `
     ///
-    pub fn OnClone(self: QStateMachine__WrappedEvent, callback: *const fn () callconv(.c) QEvent) void {
+    pub fn onClone(self: QStateMachine__WrappedEvent, callback: *const fn () callconv(.c) QEvent) void {
         qtc.QStateMachine__WrappedEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QStateMachine__WrappedEvent `
     ///
-    pub fn Delete(self: QStateMachine__WrappedEvent) void {
+    pub fn delete(self: QStateMachine__WrappedEvent) void {
         qtc.QStateMachine__WrappedEvent_Delete(@ptrCast(self.ptr));
     }
 };

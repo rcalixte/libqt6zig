@@ -28,22 +28,34 @@ pub const QValidator = extern struct {
     pub const _is_QValidator = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QValidator object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QValidator {
+    pub const New = new;
+
+    /// Allocate a new QValidator object in C++ memory
+    ///
+    pub fn new() QValidator {
         return .{ .ptr = qtc.QValidator_new() };
     }
 
-    /// New2 constructs a new QValidator object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QValidator object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) QValidator {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QValidator_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) QValidator {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QValidator_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -51,9 +63,13 @@ pub const QValidator = extern struct {
     ///
     /// ` self: QValidator `
     ///
-    pub fn MetaObject(self: QValidator) QMetaObject {
+    pub fn metaObject(self: QValidator) QMetaObject {
         return .{ .ptr = qtc.QValidator_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -65,13 +81,13 @@ pub const QValidator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QValidator, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QValidator, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QValidator_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -81,9 +97,13 @@ pub const QValidator = extern struct {
     ///
     /// ` self: QValidator `
     ///
-    pub fn SuperMetaObject(self: QValidator) QMetaObject {
+    pub fn superMetaObject(self: QValidator) QMetaObject {
         return .{ .ptr = qtc.QValidator_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -91,10 +111,14 @@ pub const QValidator = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QValidator, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QValidator, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QValidator_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -104,13 +128,13 @@ pub const QValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QValidator, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QValidator, callback: *const fn (QValidator, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QValidator, callback: *const fn (QValidator, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QValidator_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -120,10 +144,14 @@ pub const QValidator = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QValidator, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QValidator, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QValidator_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -135,9 +163,13 @@ pub const QValidator = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QValidator, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QValidator, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QValidator_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -147,13 +179,13 @@ pub const QValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QValidator, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QValidator, callback: *const fn (QValidator, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QValidator, callback: *const fn (QValidator, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QValidator_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -167,9 +199,13 @@ pub const QValidator = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QValidator, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QValidator, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QValidator_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -179,14 +215,18 @@ pub const QValidator = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QValidator.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QValidator.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvalidator.html#setLocale)
     ///
@@ -194,12 +234,16 @@ pub const QValidator = extern struct {
     ///
     /// ` self: QValidator `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: QValidator, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QValidator_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: QValidator, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QValidator_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvalidator.html#locale)
     ///
@@ -207,9 +251,13 @@ pub const QValidator = extern struct {
     ///
     /// ` self: QValidator `
     ///
-    pub fn Locale(self: QValidator) QLocale {
+    pub fn locale(self: QValidator) QLocale {
         return .{ .ptr = qtc.QValidator_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `validate` instead
+    ///
+    pub const Validate = validate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvalidator.html#validate)
     ///
@@ -225,13 +273,17 @@ pub const QValidator = extern struct {
     ///
     /// ` qvalidator_enums.State `
     ///
-    pub fn Validate(self: QValidator, param1: []const u8, param2: *i32) i32 {
+    pub fn validate(self: QValidator, param1: []const u8, param2: *i32) i32 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
         return qtc.QValidator_Validate(@ptrCast(self.ptr), param1_str, @ptrCast(param2));
     }
+
+    /// ### DEPRECATED: Use `onValidate` instead
+    ///
+    pub const OnValidate = onValidate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvalidator.html#validate)
     ///
@@ -243,13 +295,13 @@ pub const QValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QValidator, param1: [*:0]const u8, param2: *i32) callconv(.c) i32 `
     ///
-    pub fn OnValidate(self: QValidator, callback: *const fn (QValidator, [*:0]const u8, *i32) callconv(.c) i32) void {
+    pub fn onValidate(self: QValidator, callback: *const fn (QValidator, [*:0]const u8, *i32) callconv(.c) i32) void {
         qtc.QValidator_OnValidate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperValidate` instead
+    /// ### DEPRECATED: Use `superValidate` instead
     ///
-    pub const QBaseValidate = SuperValidate;
+    pub const SuperValidate = superValidate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvalidator.html#validate)
     ///
@@ -267,13 +319,17 @@ pub const QValidator = extern struct {
     ///
     /// ` qvalidator_enums.State `
     ///
-    pub fn SuperValidate(self: QValidator, param1: []const u8, param2: *i32) i32 {
+    pub fn superValidate(self: QValidator, param1: []const u8, param2: *i32) i32 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
         return qtc.QValidator_SuperValidate(@ptrCast(self.ptr), param1_str, @ptrCast(param2));
     }
+
+    /// ### DEPRECATED: Use `fixup` instead
+    ///
+    pub const Fixup = fixup;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvalidator.html#fixup)
     ///
@@ -283,13 +339,17 @@ pub const QValidator = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn Fixup(self: QValidator, param1: []const u8) void {
+    pub fn fixup(self: QValidator, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
         qtc.QValidator_Fixup(@ptrCast(self.ptr), param1_str);
     }
+
+    /// ### DEPRECATED: Use `onFixup` instead
+    ///
+    pub const OnFixup = onFixup;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvalidator.html#fixup)
     ///
@@ -301,13 +361,13 @@ pub const QValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QValidator, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnFixup(self: QValidator, callback: *const fn (QValidator, [*:0]const u8) callconv(.c) void) void {
+    pub fn onFixup(self: QValidator, callback: *const fn (QValidator, [*:0]const u8) callconv(.c) void) void {
         qtc.QValidator_OnFixup(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperFixup` instead
+    /// ### DEPRECATED: Use `superFixup` instead
     ///
-    pub const QBaseFixup = SuperFixup;
+    pub const SuperFixup = superFixup;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvalidator.html#fixup)
     ///
@@ -319,7 +379,7 @@ pub const QValidator = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn SuperFixup(self: QValidator, param1: []const u8) void {
+    pub fn superFixup(self: QValidator, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -327,15 +387,23 @@ pub const QValidator = extern struct {
         qtc.QValidator_SuperFixup(@ptrCast(self.ptr), param1_str);
     }
 
+    /// ### DEPRECATED: Use `changed` instead
+    ///
+    pub const Changed = changed;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvalidator.html#changed)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QValidator `
     ///
-    pub fn Changed(self: QValidator) void {
+    pub fn changed(self: QValidator) void {
         qtc.QValidator_Changed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChanged` instead
+    ///
+    pub const OnChanged = onChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvalidator.html#changed)
     ///
@@ -345,9 +413,13 @@ pub const QValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QValidator) callconv(.c) void `
     ///
-    pub fn OnChanged(self: QValidator, callback: *const fn (QValidator) callconv(.c) void) void {
+    pub fn onChanged(self: QValidator, callback: *const fn (QValidator) callconv(.c) void) void {
         qtc.QValidator_Connect_Changed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -359,15 +431,19 @@ pub const QValidator = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QValidator.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QValidator.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -381,15 +457,19 @@ pub const QValidator = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QValidator.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QValidator.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -401,13 +481,17 @@ pub const QValidator = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QValidator, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QValidator, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QValidator.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QValidator.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -419,13 +503,17 @@ pub const QValidator = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QValidator, name: []const u8) void {
+    pub fn setObjectName(self: QValidator, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -435,9 +523,13 @@ pub const QValidator = extern struct {
     ///
     /// ` self: QValidator `
     ///
-    pub fn IsWidgetType(self: QValidator) bool {
+    pub fn isWidgetType(self: QValidator) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -447,9 +539,13 @@ pub const QValidator = extern struct {
     ///
     /// ` self: QValidator `
     ///
-    pub fn IsWindowType(self: QValidator) bool {
+    pub fn isWindowType(self: QValidator) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -459,9 +555,13 @@ pub const QValidator = extern struct {
     ///
     /// ` self: QValidator `
     ///
-    pub fn IsQuickItemType(self: QValidator) bool {
+    pub fn isQuickItemType(self: QValidator) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -471,9 +571,13 @@ pub const QValidator = extern struct {
     ///
     /// ` self: QValidator `
     ///
-    pub fn SignalsBlocked(self: QValidator) bool {
+    pub fn signalsBlocked(self: QValidator) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -485,9 +589,13 @@ pub const QValidator = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QValidator, b: bool) bool {
+    pub fn blockSignals(self: QValidator, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -497,9 +605,13 @@ pub const QValidator = extern struct {
     ///
     /// ` self: QValidator `
     ///
-    pub fn Thread(self: QValidator) QThread {
+    pub fn thread(self: QValidator) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -509,12 +621,16 @@ pub const QValidator = extern struct {
     ///
     /// ` self: QValidator `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QValidator, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QValidator, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -526,9 +642,13 @@ pub const QValidator = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QValidator, interval: i32) i32 {
+    pub fn startTimer(self: QValidator, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -540,9 +660,13 @@ pub const QValidator = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QValidator, time: i64) i32 {
+    pub fn startTimer2(self: QValidator, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -554,9 +678,13 @@ pub const QValidator = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QValidator, id: i32) void {
+    pub fn killTimer(self: QValidator, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -568,9 +696,13 @@ pub const QValidator = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QValidator, id: i32) void {
+    pub fn killTimer2(self: QValidator, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -582,15 +714,19 @@ pub const QValidator = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QValidator, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QValidator, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QValidator.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QValidator.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -600,12 +736,16 @@ pub const QValidator = extern struct {
     ///
     /// ` self: QValidator `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QValidator, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QValidator, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -617,10 +757,14 @@ pub const QValidator = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QValidator, filterObj: anytype) void {
+    pub fn installEventFilter(self: QValidator, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -632,10 +776,14 @@ pub const QValidator = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QValidator, obj: anytype) void {
+    pub fn removeEventFilter(self: QValidator, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -643,7 +791,7 @@ pub const QValidator = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -651,13 +799,17 @@ pub const QValidator = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -665,7 +817,7 @@ pub const QValidator = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -673,13 +825,17 @@ pub const QValidator = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -689,18 +845,22 @@ pub const QValidator = extern struct {
     ///
     /// ` self: QValidator `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QValidator, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QValidator, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -708,7 +868,7 @@ pub const QValidator = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -716,13 +876,17 @@ pub const QValidator = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -730,7 +894,7 @@ pub const QValidator = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -738,13 +902,17 @@ pub const QValidator = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -754,9 +922,13 @@ pub const QValidator = extern struct {
     ///
     /// ` self: QValidator `
     ///
-    pub fn Disconnect3(self: QValidator) bool {
+    pub fn disconnect3(self: QValidator) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -768,10 +940,14 @@ pub const QValidator = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QValidator, receiver: anytype) bool {
+    pub fn disconnect4(self: QValidator, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -781,10 +957,14 @@ pub const QValidator = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -794,9 +974,13 @@ pub const QValidator = extern struct {
     ///
     /// ` self: QValidator `
     ///
-    pub fn DumpObjectTree(self: QValidator) void {
+    pub fn dumpObjectTree(self: QValidator) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -806,9 +990,13 @@ pub const QValidator = extern struct {
     ///
     /// ` self: QValidator `
     ///
-    pub fn DumpObjectInfo(self: QValidator) void {
+    pub fn dumpObjectInfo(self: QValidator) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -822,11 +1010,15 @@ pub const QValidator = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QValidator, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QValidator, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -838,10 +1030,14 @@ pub const QValidator = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QValidator, name: [:0]const u8) QVariant {
+    pub fn property(self: QValidator, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -853,7 +1049,7 @@ pub const QValidator = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QValidator, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QValidator, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -861,27 +1057,19 @@ pub const QValidator = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QValidator.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QValidator.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QValidator.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QValidator.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QValidator `
-    ///
-    pub fn BindingStorage(self: QValidator) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -891,9 +1079,29 @@ pub const QValidator = extern struct {
     ///
     /// ` self: QValidator `
     ///
-    pub fn BindingStorage2(self: QValidator) QBindingStorage {
+    pub fn bindingStorage(self: QValidator) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QValidator `
+    ///
+    pub fn bindingStorage2(self: QValidator) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -903,9 +1111,13 @@ pub const QValidator = extern struct {
     ///
     /// ` self: QValidator `
     ///
-    pub fn Destroyed(self: QValidator) void {
+    pub fn destroyed(self: QValidator) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -917,9 +1129,13 @@ pub const QValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QValidator) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QValidator, callback: *const fn (QValidator) callconv(.c) void) void {
+    pub fn onDestroyed(self: QValidator, callback: *const fn (QValidator) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -929,9 +1145,13 @@ pub const QValidator = extern struct {
     ///
     /// ` self: QValidator `
     ///
-    pub fn Parent(self: QValidator) QObject {
+    pub fn parent(self: QValidator) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -943,10 +1163,14 @@ pub const QValidator = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QValidator, classname: [:0]const u8) bool {
+    pub fn inherits(self: QValidator, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -956,9 +1180,13 @@ pub const QValidator = extern struct {
     ///
     /// ` self: QValidator `
     ///
-    pub fn DeleteLater(self: QValidator) void {
+    pub fn deleteLater(self: QValidator) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -972,9 +1200,13 @@ pub const QValidator = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QValidator, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QValidator, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -988,9 +1220,13 @@ pub const QValidator = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QValidator, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QValidator, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -998,7 +1234,7 @@ pub const QValidator = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1008,13 +1244,17 @@ pub const QValidator = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1022,7 +1262,7 @@ pub const QValidator = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1032,13 +1272,17 @@ pub const QValidator = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1048,7 +1292,7 @@ pub const QValidator = extern struct {
     ///
     /// ` self: QValidator `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1056,12 +1300,16 @@ pub const QValidator = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QValidator, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QValidator, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1073,10 +1321,14 @@ pub const QValidator = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QValidator, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QValidator, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1090,11 +1342,15 @@ pub const QValidator = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QValidator, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QValidator, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1110,13 +1366,17 @@ pub const QValidator = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QValidator, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QValidator, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1129,11 +1389,15 @@ pub const QValidator = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QValidator, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QValidator, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1145,10 +1409,14 @@ pub const QValidator = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QValidator, param1: anytype) void {
+    pub fn destroyed1(self: QValidator, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1160,9 +1428,13 @@ pub const QValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QValidator, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QValidator, callback: *const fn (QValidator, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QValidator, callback: *const fn (QValidator, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1174,16 +1446,16 @@ pub const QValidator = extern struct {
     ///
     /// ` self: QValidator `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QValidator, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QValidator_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QValidator, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QValidator_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1195,12 +1467,16 @@ pub const QValidator = extern struct {
     ///
     /// ` self: QValidator `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QValidator, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QValidator_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QValidator, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QValidator_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -1214,9 +1490,13 @@ pub const QValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QValidator, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QValidator, callback: *const fn (QValidator, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QValidator, callback: *const fn (QValidator, QEvent) callconv(.c) bool) void {
         qtc.QValidator_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1230,17 +1510,17 @@ pub const QValidator = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QValidator, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QValidator, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QValidator_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QValidator_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1254,13 +1534,17 @@ pub const QValidator = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QValidator, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QValidator, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QValidator_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QValidator_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1274,9 +1558,13 @@ pub const QValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QValidator, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QValidator, callback: *const fn (QValidator, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QValidator, callback: *const fn (QValidator, QObject, QEvent) callconv(.c) bool) void {
         qtc.QValidator_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1288,16 +1576,16 @@ pub const QValidator = extern struct {
     ///
     /// ` self: QValidator `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QValidator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QValidator_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QValidator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QValidator_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1309,12 +1597,16 @@ pub const QValidator = extern struct {
     ///
     /// ` self: QValidator `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QValidator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QValidator_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QValidator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QValidator_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1328,9 +1620,13 @@ pub const QValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QValidator, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QValidator, callback: *const fn (QValidator, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QValidator, callback: *const fn (QValidator, QTimerEvent) callconv(.c) void) void {
         qtc.QValidator_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -1342,16 +1638,16 @@ pub const QValidator = extern struct {
     ///
     /// ` self: QValidator `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QValidator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QValidator_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QValidator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QValidator_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1363,12 +1659,16 @@ pub const QValidator = extern struct {
     ///
     /// ` self: QValidator `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QValidator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QValidator_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QValidator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QValidator_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1382,9 +1682,13 @@ pub const QValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QValidator, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QValidator, callback: *const fn (QValidator, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QValidator, callback: *const fn (QValidator, QChildEvent) callconv(.c) void) void {
         qtc.QValidator_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -1396,16 +1700,16 @@ pub const QValidator = extern struct {
     ///
     /// ` self: QValidator `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QValidator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QValidator_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QValidator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QValidator_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1417,12 +1721,16 @@ pub const QValidator = extern struct {
     ///
     /// ` self: QValidator `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QValidator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QValidator_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QValidator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QValidator_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1436,9 +1744,13 @@ pub const QValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QValidator, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QValidator, callback: *const fn (QValidator, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QValidator, callback: *const fn (QValidator, QEvent) callconv(.c) void) void {
         qtc.QValidator_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -1452,14 +1764,14 @@ pub const QValidator = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QValidator, signal: anytype) void {
+    pub fn connectNotify(self: QValidator, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QValidator_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1473,11 +1785,15 @@ pub const QValidator = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QValidator, signal: anytype) void {
+    pub fn superConnectNotify(self: QValidator, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QValidator_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1490,9 +1806,13 @@ pub const QValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QValidator, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QValidator, callback: *const fn (QValidator, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QValidator, callback: *const fn (QValidator, QMetaMethod) callconv(.c) void) void {
         qtc.QValidator_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1506,14 +1826,14 @@ pub const QValidator = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QValidator, signal: anytype) void {
+    pub fn disconnectNotify(self: QValidator, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QValidator_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1527,10 +1847,14 @@ pub const QValidator = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QValidator, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QValidator, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QValidator_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1544,9 +1868,13 @@ pub const QValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QValidator, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QValidator, callback: *const fn (QValidator, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QValidator, callback: *const fn (QValidator, QMetaMethod) callconv(.c) void) void {
         qtc.QValidator_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -1558,13 +1886,13 @@ pub const QValidator = extern struct {
     ///
     /// ` self: QValidator `
     ///
-    pub fn Sender(self: QValidator) QObject {
+    pub fn sender(self: QValidator) QObject {
         return .{ .ptr = qtc.QValidator_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -1576,9 +1904,13 @@ pub const QValidator = extern struct {
     ///
     /// ` self: QValidator `
     ///
-    pub fn SuperSender(self: QValidator) QObject {
+    pub fn superSender(self: QValidator) QObject {
         return .{ .ptr = qtc.QValidator_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -1592,9 +1924,13 @@ pub const QValidator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QValidator, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QValidator, callback: *const fn () callconv(.c) QObject) void {
         qtc.QValidator_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1606,13 +1942,13 @@ pub const QValidator = extern struct {
     ///
     /// ` self: QValidator `
     ///
-    pub fn SenderSignalIndex(self: QValidator) i32 {
+    pub fn senderSignalIndex(self: QValidator) i32 {
         return qtc.QValidator_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1624,9 +1960,13 @@ pub const QValidator = extern struct {
     ///
     /// ` self: QValidator `
     ///
-    pub fn SuperSenderSignalIndex(self: QValidator) i32 {
+    pub fn superSenderSignalIndex(self: QValidator) i32 {
         return qtc.QValidator_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1640,9 +1980,13 @@ pub const QValidator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QValidator, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QValidator, callback: *const fn () callconv(.c) i32) void {
         qtc.QValidator_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -1656,14 +2000,14 @@ pub const QValidator = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QValidator, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QValidator, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QValidator_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -1677,10 +2021,14 @@ pub const QValidator = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QValidator, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QValidator, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QValidator_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -1694,9 +2042,13 @@ pub const QValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QValidator, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QValidator, callback: *const fn (QValidator, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QValidator, callback: *const fn (QValidator, [*:0]const u8) callconv(.c) i32) void {
         qtc.QValidator_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1710,14 +2062,14 @@ pub const QValidator = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QValidator, signal: anytype) bool {
+    pub fn isSignalConnected(self: QValidator, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QValidator_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1731,10 +2083,14 @@ pub const QValidator = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QValidator, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QValidator, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QValidator_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1748,9 +2104,13 @@ pub const QValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QValidator, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QValidator, callback: *const fn (QValidator, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QValidator, callback: *const fn (QValidator, QMetaMethod) callconv(.c) bool) void {
         qtc.QValidator_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -1764,23 +2124,23 @@ pub const QValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QValidator, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QValidator, callback: *const fn (QValidator, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QValidator, callback: *const fn (QValidator, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvalidator.html#dtor.QValidator)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QValidator `
     ///
-    pub fn Delete(self: QValidator) void {
+    pub fn delete(self: QValidator) void {
         qtc.QValidator_Delete(@ptrCast(self.ptr));
     }
 };
@@ -1797,49 +2157,69 @@ pub const QIntValidator = extern struct {
     pub const _is_QValidator = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QIntValidator object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QIntValidator {
+    pub const New = new;
+
+    /// Allocate a new QIntValidator object in C++ memory
+    ///
+    pub fn new() QIntValidator {
         return .{ .ptr = qtc.QIntValidator_new() };
     }
 
-    /// New2 constructs a new QIntValidator object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QIntValidator object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` bottom: i32 `
+    /// ` _bottom: i32 `
     ///
-    /// ` top: i32 `
+    /// ` _top: i32 `
     ///
-    pub fn New2(bottom: i32, top: i32) QIntValidator {
-        return .{ .ptr = qtc.QIntValidator_new2(@bitCast(bottom), @bitCast(top)) };
+    pub fn new2(_bottom: i32, _top: i32) QIntValidator {
+        return .{ .ptr = qtc.QIntValidator_new2(@bitCast(_bottom), @bitCast(_top)) };
     }
 
-    /// New3 constructs a new QIntValidator object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QIntValidator object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New3(parent: anytype) QIntValidator {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QIntValidator_new3(@ptrCast(parent.ptr)) };
+    pub fn new3(_parent: anytype) QIntValidator {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QIntValidator_new3(@ptrCast(_parent.ptr)) };
     }
 
-    /// New4 constructs a new QIntValidator object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QIntValidator object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` bottom: i32 `
+    /// ` _bottom: i32 `
     ///
-    /// ` top: i32 `
+    /// ` _top: i32 `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New4(bottom: i32, top: i32, parent: anytype) QIntValidator {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QIntValidator_new4(@bitCast(bottom), @bitCast(top), @ptrCast(parent.ptr)) };
+    pub fn new4(_bottom: i32, _top: i32, _parent: anytype) QIntValidator {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QIntValidator_new4(@bitCast(_bottom), @bitCast(_top), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -1847,9 +2227,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` self: QIntValidator `
     ///
-    pub fn MetaObject(self: QIntValidator) QMetaObject {
+    pub fn metaObject(self: QIntValidator) QMetaObject {
         return .{ .ptr = qtc.QIntValidator_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -1861,13 +2245,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QIntValidator, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QIntValidator, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QIntValidator_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -1877,9 +2261,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` self: QIntValidator `
     ///
-    pub fn SuperMetaObject(self: QIntValidator) QMetaObject {
+    pub fn superMetaObject(self: QIntValidator) QMetaObject {
         return .{ .ptr = qtc.QIntValidator_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -1887,10 +2275,14 @@ pub const QIntValidator = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QIntValidator, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QIntValidator, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QIntValidator_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -1900,13 +2292,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QIntValidator, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QIntValidator, callback: *const fn (QIntValidator, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QIntValidator, callback: *const fn (QIntValidator, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QIntValidator_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -1916,10 +2308,14 @@ pub const QIntValidator = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QIntValidator, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QIntValidator, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QIntValidator_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -1931,9 +2327,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QIntValidator, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QIntValidator, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QIntValidator_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -1943,13 +2343,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QIntValidator, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QIntValidator, callback: *const fn (QIntValidator, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QIntValidator, callback: *const fn (QIntValidator, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QIntValidator_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -1963,9 +2363,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QIntValidator, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QIntValidator, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QIntValidator_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1975,14 +2379,18 @@ pub const QIntValidator = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QIntValidator.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QIntValidator.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `validate` instead
+    ///
+    pub const Validate = validate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qintvalidator.html#validate)
     ///
@@ -1998,13 +2406,17 @@ pub const QIntValidator = extern struct {
     ///
     /// ` qvalidator_enums.State `
     ///
-    pub fn Validate(self: QIntValidator, param1: []const u8, param2: *i32) i32 {
+    pub fn validate(self: QIntValidator, param1: []const u8, param2: *i32) i32 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
         return qtc.QIntValidator_Validate(@ptrCast(self.ptr), param1_str, @ptrCast(param2));
     }
+
+    /// ### DEPRECATED: Use `onValidate` instead
+    ///
+    pub const OnValidate = onValidate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qintvalidator.html#validate)
     ///
@@ -2016,13 +2428,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QIntValidator, param1: [*:0]const u8, param2: *i32) callconv(.c) i32 `
     ///
-    pub fn OnValidate(self: QIntValidator, callback: *const fn (QIntValidator, [*:0]const u8, *i32) callconv(.c) i32) void {
+    pub fn onValidate(self: QIntValidator, callback: *const fn (QIntValidator, [*:0]const u8, *i32) callconv(.c) i32) void {
         qtc.QIntValidator_OnValidate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperValidate` instead
+    /// ### DEPRECATED: Use `superValidate` instead
     ///
-    pub const QBaseValidate = SuperValidate;
+    pub const SuperValidate = superValidate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qintvalidator.html#validate)
     ///
@@ -2040,13 +2452,17 @@ pub const QIntValidator = extern struct {
     ///
     /// ` qvalidator_enums.State `
     ///
-    pub fn SuperValidate(self: QIntValidator, param1: []const u8, param2: *i32) i32 {
+    pub fn superValidate(self: QIntValidator, param1: []const u8, param2: *i32) i32 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
         return qtc.QIntValidator_SuperValidate(@ptrCast(self.ptr), param1_str, @ptrCast(param2));
     }
+
+    /// ### DEPRECATED: Use `fixup` instead
+    ///
+    pub const Fixup = fixup;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qintvalidator.html#fixup)
     ///
@@ -2056,13 +2472,17 @@ pub const QIntValidator = extern struct {
     ///
     /// ` input: []const u8 `
     ///
-    pub fn Fixup(self: QIntValidator, input: []const u8) void {
+    pub fn fixup(self: QIntValidator, input: []const u8) void {
         const input_str = qtc.libqt_string{
             .len = input.len,
             .data = input.ptr,
         };
         qtc.QIntValidator_Fixup(@ptrCast(self.ptr), input_str);
     }
+
+    /// ### DEPRECATED: Use `onFixup` instead
+    ///
+    pub const OnFixup = onFixup;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qintvalidator.html#fixup)
     ///
@@ -2074,13 +2494,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QIntValidator, input: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnFixup(self: QIntValidator, callback: *const fn (QIntValidator, [*:0]const u8) callconv(.c) void) void {
+    pub fn onFixup(self: QIntValidator, callback: *const fn (QIntValidator, [*:0]const u8) callconv(.c) void) void {
         qtc.QIntValidator_OnFixup(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperFixup` instead
+    /// ### DEPRECATED: Use `superFixup` instead
     ///
-    pub const QBaseFixup = SuperFixup;
+    pub const SuperFixup = superFixup;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qintvalidator.html#fixup)
     ///
@@ -2092,7 +2512,7 @@ pub const QIntValidator = extern struct {
     ///
     /// ` input: []const u8 `
     ///
-    pub fn SuperFixup(self: QIntValidator, input: []const u8) void {
+    pub fn superFixup(self: QIntValidator, input: []const u8) void {
         const input_str = qtc.libqt_string{
             .len = input.len,
             .data = input.ptr,
@@ -2100,17 +2520,25 @@ pub const QIntValidator = extern struct {
         qtc.QIntValidator_SuperFixup(@ptrCast(self.ptr), input_str);
     }
 
+    /// ### DEPRECATED: Use `setBottom` instead
+    ///
+    pub const SetBottom = setBottom;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qintvalidator.html#setBottom)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QIntValidator `
     ///
-    /// ` bottom: i32 `
+    /// ` _bottom: i32 `
     ///
-    pub fn SetBottom(self: QIntValidator, bottom: i32) void {
-        qtc.QIntValidator_SetBottom(@ptrCast(self.ptr), @bitCast(bottom));
+    pub fn setBottom(self: QIntValidator, _bottom: i32) void {
+        qtc.QIntValidator_SetBottom(@ptrCast(self.ptr), @bitCast(_bottom));
     }
+
+    /// ### DEPRECATED: Use `setTop` instead
+    ///
+    pub const SetTop = setTop;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qintvalidator.html#setTop)
     ///
@@ -2118,11 +2546,15 @@ pub const QIntValidator = extern struct {
     ///
     /// ` self: QIntValidator `
     ///
-    /// ` top: i32 `
+    /// ` _top: i32 `
     ///
-    pub fn SetTop(self: QIntValidator, top: i32) void {
-        qtc.QIntValidator_SetTop(@ptrCast(self.ptr), @bitCast(top));
+    pub fn setTop(self: QIntValidator, _top: i32) void {
+        qtc.QIntValidator_SetTop(@ptrCast(self.ptr), @bitCast(_top));
     }
+
+    /// ### DEPRECATED: Use `setRange` instead
+    ///
+    pub const SetRange = setRange;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qintvalidator.html#setRange)
     ///
@@ -2130,13 +2562,17 @@ pub const QIntValidator = extern struct {
     ///
     /// ` self: QIntValidator `
     ///
-    /// ` bottom: i32 `
+    /// ` _bottom: i32 `
     ///
-    /// ` top: i32 `
+    /// ` _top: i32 `
     ///
-    pub fn SetRange(self: QIntValidator, bottom: i32, top: i32) void {
-        qtc.QIntValidator_SetRange(@ptrCast(self.ptr), @bitCast(bottom), @bitCast(top));
+    pub fn setRange(self: QIntValidator, _bottom: i32, _top: i32) void {
+        qtc.QIntValidator_SetRange(@ptrCast(self.ptr), @bitCast(_bottom), @bitCast(_top));
     }
+
+    /// ### DEPRECATED: Use `bottom` instead
+    ///
+    pub const Bottom = bottom;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qintvalidator.html#bottom)
     ///
@@ -2144,9 +2580,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` self: QIntValidator `
     ///
-    pub fn Bottom(self: QIntValidator) i32 {
+    pub fn bottom(self: QIntValidator) i32 {
         return qtc.QIntValidator_Bottom(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `top` instead
+    ///
+    pub const Top = top;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qintvalidator.html#top)
     ///
@@ -2154,9 +2594,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` self: QIntValidator `
     ///
-    pub fn Top(self: QIntValidator) i32 {
+    pub fn top(self: QIntValidator) i32 {
         return qtc.QIntValidator_Top(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `bottomChanged` instead
+    ///
+    pub const BottomChanged = bottomChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qintvalidator.html#bottomChanged)
     ///
@@ -2164,11 +2608,15 @@ pub const QIntValidator = extern struct {
     ///
     /// ` self: QIntValidator `
     ///
-    /// ` bottom: i32 `
+    /// ` _bottom: i32 `
     ///
-    pub fn BottomChanged(self: QIntValidator, bottom: i32) void {
-        qtc.QIntValidator_BottomChanged(@ptrCast(self.ptr), @bitCast(bottom));
+    pub fn bottomChanged(self: QIntValidator, _bottom: i32) void {
+        qtc.QIntValidator_BottomChanged(@ptrCast(self.ptr), @bitCast(_bottom));
     }
+
+    /// ### DEPRECATED: Use `onBottomChanged` instead
+    ///
+    pub const OnBottomChanged = onBottomChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qintvalidator.html#bottomChanged)
     ///
@@ -2178,9 +2626,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QIntValidator, bottom: i32) callconv(.c) void `
     ///
-    pub fn OnBottomChanged(self: QIntValidator, callback: *const fn (QIntValidator, i32) callconv(.c) void) void {
+    pub fn onBottomChanged(self: QIntValidator, callback: *const fn (QIntValidator, i32) callconv(.c) void) void {
         qtc.QIntValidator_Connect_BottomChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `topChanged` instead
+    ///
+    pub const TopChanged = topChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qintvalidator.html#topChanged)
     ///
@@ -2188,11 +2640,15 @@ pub const QIntValidator = extern struct {
     ///
     /// ` self: QIntValidator `
     ///
-    /// ` top: i32 `
+    /// ` _top: i32 `
     ///
-    pub fn TopChanged(self: QIntValidator, top: i32) void {
-        qtc.QIntValidator_TopChanged(@ptrCast(self.ptr), @bitCast(top));
+    pub fn topChanged(self: QIntValidator, _top: i32) void {
+        qtc.QIntValidator_TopChanged(@ptrCast(self.ptr), @bitCast(_top));
     }
+
+    /// ### DEPRECATED: Use `onTopChanged` instead
+    ///
+    pub const OnTopChanged = onTopChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qintvalidator.html#topChanged)
     ///
@@ -2202,9 +2658,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QIntValidator, top: i32) callconv(.c) void `
     ///
-    pub fn OnTopChanged(self: QIntValidator, callback: *const fn (QIntValidator, i32) callconv(.c) void) void {
+    pub fn onTopChanged(self: QIntValidator, callback: *const fn (QIntValidator, i32) callconv(.c) void) void {
         qtc.QIntValidator_Connect_TopChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -2216,15 +2676,19 @@ pub const QIntValidator = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QIntValidator.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QIntValidator.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -2238,15 +2702,19 @@ pub const QIntValidator = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QIntValidator.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QIntValidator.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QValidator
     ///
@@ -2256,12 +2724,16 @@ pub const QIntValidator = extern struct {
     ///
     /// ` self: QIntValidator `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: QIntValidator, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QValidator_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: QIntValidator, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QValidator_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QValidator
     ///
@@ -2271,9 +2743,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` self: QIntValidator `
     ///
-    pub fn Locale(self: QIntValidator) QLocale {
+    pub fn locale(self: QIntValidator) QLocale {
         return .{ .ptr = qtc.QValidator_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `changed` instead
+    ///
+    pub const Changed = changed;
 
     /// Inherited from QValidator
     ///
@@ -2283,9 +2759,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` self: QIntValidator `
     ///
-    pub fn Changed(self: QIntValidator) void {
+    pub fn changed(self: QIntValidator) void {
         qtc.QValidator_Changed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChanged` instead
+    ///
+    pub const OnChanged = onChanged;
 
     /// Inherited from QValidator
     ///
@@ -2297,9 +2777,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QIntValidator) callconv(.c) void `
     ///
-    pub fn OnChanged(self: QIntValidator, callback: *const fn (QIntValidator) callconv(.c) void) void {
+    pub fn onChanged(self: QIntValidator, callback: *const fn (QIntValidator) callconv(.c) void) void {
         qtc.QValidator_Connect_Changed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -2311,13 +2795,17 @@ pub const QIntValidator = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QIntValidator, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QIntValidator, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QIntValidator.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QIntValidator.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -2329,13 +2817,17 @@ pub const QIntValidator = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QIntValidator, name: []const u8) void {
+    pub fn setObjectName(self: QIntValidator, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -2345,9 +2837,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` self: QIntValidator `
     ///
-    pub fn IsWidgetType(self: QIntValidator) bool {
+    pub fn isWidgetType(self: QIntValidator) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -2357,9 +2853,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` self: QIntValidator `
     ///
-    pub fn IsWindowType(self: QIntValidator) bool {
+    pub fn isWindowType(self: QIntValidator) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -2369,9 +2869,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` self: QIntValidator `
     ///
-    pub fn IsQuickItemType(self: QIntValidator) bool {
+    pub fn isQuickItemType(self: QIntValidator) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -2381,9 +2885,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` self: QIntValidator `
     ///
-    pub fn SignalsBlocked(self: QIntValidator) bool {
+    pub fn signalsBlocked(self: QIntValidator) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -2395,9 +2903,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QIntValidator, b: bool) bool {
+    pub fn blockSignals(self: QIntValidator, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -2407,9 +2919,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` self: QIntValidator `
     ///
-    pub fn Thread(self: QIntValidator) QThread {
+    pub fn thread(self: QIntValidator) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -2419,12 +2935,16 @@ pub const QIntValidator = extern struct {
     ///
     /// ` self: QIntValidator `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QIntValidator, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QIntValidator, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -2436,9 +2956,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QIntValidator, interval: i32) i32 {
+    pub fn startTimer(self: QIntValidator, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -2450,9 +2974,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QIntValidator, time: i64) i32 {
+    pub fn startTimer2(self: QIntValidator, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -2464,9 +2992,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QIntValidator, id: i32) void {
+    pub fn killTimer(self: QIntValidator, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -2478,9 +3010,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QIntValidator, id: i32) void {
+    pub fn killTimer2(self: QIntValidator, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -2492,15 +3028,19 @@ pub const QIntValidator = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QIntValidator, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QIntValidator, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QIntValidator.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QIntValidator.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -2510,12 +3050,16 @@ pub const QIntValidator = extern struct {
     ///
     /// ` self: QIntValidator `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QIntValidator, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QIntValidator, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2527,10 +3071,14 @@ pub const QIntValidator = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QIntValidator, filterObj: anytype) void {
+    pub fn installEventFilter(self: QIntValidator, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2542,10 +3090,14 @@ pub const QIntValidator = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QIntValidator, obj: anytype) void {
+    pub fn removeEventFilter(self: QIntValidator, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -2553,7 +3105,7 @@ pub const QIntValidator = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2561,13 +3113,17 @@ pub const QIntValidator = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -2575,7 +3131,7 @@ pub const QIntValidator = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2583,13 +3139,17 @@ pub const QIntValidator = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -2599,18 +3159,22 @@ pub const QIntValidator = extern struct {
     ///
     /// ` self: QIntValidator `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QIntValidator, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QIntValidator, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -2618,7 +3182,7 @@ pub const QIntValidator = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2626,13 +3190,17 @@ pub const QIntValidator = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -2640,7 +3208,7 @@ pub const QIntValidator = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2648,13 +3216,17 @@ pub const QIntValidator = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -2664,9 +3236,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` self: QIntValidator `
     ///
-    pub fn Disconnect3(self: QIntValidator) bool {
+    pub fn disconnect3(self: QIntValidator) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -2678,10 +3254,14 @@ pub const QIntValidator = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QIntValidator, receiver: anytype) bool {
+    pub fn disconnect4(self: QIntValidator, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -2691,10 +3271,14 @@ pub const QIntValidator = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -2704,9 +3288,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` self: QIntValidator `
     ///
-    pub fn DumpObjectTree(self: QIntValidator) void {
+    pub fn dumpObjectTree(self: QIntValidator) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -2716,9 +3304,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` self: QIntValidator `
     ///
-    pub fn DumpObjectInfo(self: QIntValidator) void {
+    pub fn dumpObjectInfo(self: QIntValidator) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -2732,11 +3324,15 @@ pub const QIntValidator = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QIntValidator, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QIntValidator, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -2748,10 +3344,14 @@ pub const QIntValidator = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QIntValidator, name: [:0]const u8) QVariant {
+    pub fn property(self: QIntValidator, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -2763,7 +3363,7 @@ pub const QIntValidator = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QIntValidator, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QIntValidator, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -2771,27 +3371,19 @@ pub const QIntValidator = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QIntValidator.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QIntValidator.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QIntValidator.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QIntValidator.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QIntValidator `
-    ///
-    pub fn BindingStorage(self: QIntValidator) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -2801,9 +3393,29 @@ pub const QIntValidator = extern struct {
     ///
     /// ` self: QIntValidator `
     ///
-    pub fn BindingStorage2(self: QIntValidator) QBindingStorage {
+    pub fn bindingStorage(self: QIntValidator) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QIntValidator `
+    ///
+    pub fn bindingStorage2(self: QIntValidator) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -2813,9 +3425,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` self: QIntValidator `
     ///
-    pub fn Destroyed(self: QIntValidator) void {
+    pub fn destroyed(self: QIntValidator) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -2827,9 +3443,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QIntValidator) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QIntValidator, callback: *const fn (QIntValidator) callconv(.c) void) void {
+    pub fn onDestroyed(self: QIntValidator, callback: *const fn (QIntValidator) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -2839,9 +3459,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` self: QIntValidator `
     ///
-    pub fn Parent(self: QIntValidator) QObject {
+    pub fn parent(self: QIntValidator) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -2853,10 +3477,14 @@ pub const QIntValidator = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QIntValidator, classname: [:0]const u8) bool {
+    pub fn inherits(self: QIntValidator, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -2866,9 +3494,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` self: QIntValidator `
     ///
-    pub fn DeleteLater(self: QIntValidator) void {
+    pub fn deleteLater(self: QIntValidator) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -2882,9 +3514,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QIntValidator, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QIntValidator, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -2898,9 +3534,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QIntValidator, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QIntValidator, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -2908,7 +3548,7 @@ pub const QIntValidator = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2918,13 +3558,17 @@ pub const QIntValidator = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -2932,7 +3576,7 @@ pub const QIntValidator = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2942,13 +3586,17 @@ pub const QIntValidator = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -2958,7 +3606,7 @@ pub const QIntValidator = extern struct {
     ///
     /// ` self: QIntValidator `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2966,12 +3614,16 @@ pub const QIntValidator = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QIntValidator, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QIntValidator, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -2983,10 +3635,14 @@ pub const QIntValidator = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QIntValidator, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QIntValidator, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -3000,11 +3656,15 @@ pub const QIntValidator = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QIntValidator, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QIntValidator, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -3020,13 +3680,17 @@ pub const QIntValidator = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QIntValidator, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QIntValidator, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -3039,11 +3703,15 @@ pub const QIntValidator = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QIntValidator, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QIntValidator, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -3055,10 +3723,14 @@ pub const QIntValidator = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QIntValidator, param1: anytype) void {
+    pub fn destroyed1(self: QIntValidator, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -3070,9 +3742,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QIntValidator, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QIntValidator, callback: *const fn (QIntValidator, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QIntValidator, callback: *const fn (QIntValidator, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -3084,16 +3760,16 @@ pub const QIntValidator = extern struct {
     ///
     /// ` self: QIntValidator `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QIntValidator, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QIntValidator_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QIntValidator, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QIntValidator_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -3105,12 +3781,16 @@ pub const QIntValidator = extern struct {
     ///
     /// ` self: QIntValidator `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QIntValidator, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QIntValidator_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QIntValidator, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QIntValidator_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -3124,9 +3804,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QIntValidator, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QIntValidator, callback: *const fn (QIntValidator, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QIntValidator, callback: *const fn (QIntValidator, QEvent) callconv(.c) bool) void {
         qtc.QIntValidator_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -3140,17 +3824,17 @@ pub const QIntValidator = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QIntValidator, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QIntValidator, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QIntValidator_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QIntValidator_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -3164,13 +3848,17 @@ pub const QIntValidator = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QIntValidator, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QIntValidator, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QIntValidator_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QIntValidator_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -3184,9 +3872,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QIntValidator, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QIntValidator, callback: *const fn (QIntValidator, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QIntValidator, callback: *const fn (QIntValidator, QObject, QEvent) callconv(.c) bool) void {
         qtc.QIntValidator_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -3198,16 +3890,16 @@ pub const QIntValidator = extern struct {
     ///
     /// ` self: QIntValidator `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QIntValidator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QIntValidator_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QIntValidator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QIntValidator_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -3219,12 +3911,16 @@ pub const QIntValidator = extern struct {
     ///
     /// ` self: QIntValidator `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QIntValidator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QIntValidator_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QIntValidator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QIntValidator_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -3238,9 +3934,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QIntValidator, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QIntValidator, callback: *const fn (QIntValidator, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QIntValidator, callback: *const fn (QIntValidator, QTimerEvent) callconv(.c) void) void {
         qtc.QIntValidator_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -3252,16 +3952,16 @@ pub const QIntValidator = extern struct {
     ///
     /// ` self: QIntValidator `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QIntValidator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QIntValidator_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QIntValidator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QIntValidator_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -3273,12 +3973,16 @@ pub const QIntValidator = extern struct {
     ///
     /// ` self: QIntValidator `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QIntValidator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QIntValidator_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QIntValidator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QIntValidator_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -3292,9 +3996,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QIntValidator, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QIntValidator, callback: *const fn (QIntValidator, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QIntValidator, callback: *const fn (QIntValidator, QChildEvent) callconv(.c) void) void {
         qtc.QIntValidator_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -3306,16 +4014,16 @@ pub const QIntValidator = extern struct {
     ///
     /// ` self: QIntValidator `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QIntValidator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QIntValidator_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QIntValidator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QIntValidator_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -3327,12 +4035,16 @@ pub const QIntValidator = extern struct {
     ///
     /// ` self: QIntValidator `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QIntValidator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QIntValidator_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QIntValidator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QIntValidator_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -3346,9 +4058,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QIntValidator, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QIntValidator, callback: *const fn (QIntValidator, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QIntValidator, callback: *const fn (QIntValidator, QEvent) callconv(.c) void) void {
         qtc.QIntValidator_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -3362,14 +4078,14 @@ pub const QIntValidator = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QIntValidator, signal: anytype) void {
+    pub fn connectNotify(self: QIntValidator, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QIntValidator_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3383,11 +4099,15 @@ pub const QIntValidator = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QIntValidator, signal: anytype) void {
+    pub fn superConnectNotify(self: QIntValidator, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QIntValidator_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -3400,9 +4120,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QIntValidator, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QIntValidator, callback: *const fn (QIntValidator, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QIntValidator, callback: *const fn (QIntValidator, QMetaMethod) callconv(.c) void) void {
         qtc.QIntValidator_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3416,14 +4140,14 @@ pub const QIntValidator = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QIntValidator, signal: anytype) void {
+    pub fn disconnectNotify(self: QIntValidator, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QIntValidator_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3437,10 +4161,14 @@ pub const QIntValidator = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QIntValidator, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QIntValidator, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QIntValidator_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3454,9 +4182,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QIntValidator, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QIntValidator, callback: *const fn (QIntValidator, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QIntValidator, callback: *const fn (QIntValidator, QMetaMethod) callconv(.c) void) void {
         qtc.QIntValidator_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -3468,13 +4200,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` self: QIntValidator `
     ///
-    pub fn Sender(self: QIntValidator) QObject {
+    pub fn sender(self: QIntValidator) QObject {
         return .{ .ptr = qtc.QIntValidator_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -3486,9 +4218,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` self: QIntValidator `
     ///
-    pub fn SuperSender(self: QIntValidator) QObject {
+    pub fn superSender(self: QIntValidator) QObject {
         return .{ .ptr = qtc.QIntValidator_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -3502,9 +4238,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QIntValidator, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QIntValidator, callback: *const fn () callconv(.c) QObject) void {
         qtc.QIntValidator_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -3516,13 +4256,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` self: QIntValidator `
     ///
-    pub fn SenderSignalIndex(self: QIntValidator) i32 {
+    pub fn senderSignalIndex(self: QIntValidator) i32 {
         return qtc.QIntValidator_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -3534,9 +4274,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` self: QIntValidator `
     ///
-    pub fn SuperSenderSignalIndex(self: QIntValidator) i32 {
+    pub fn superSenderSignalIndex(self: QIntValidator) i32 {
         return qtc.QIntValidator_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -3550,9 +4294,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QIntValidator, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QIntValidator, callback: *const fn () callconv(.c) i32) void {
         qtc.QIntValidator_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -3566,14 +4314,14 @@ pub const QIntValidator = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QIntValidator, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QIntValidator, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QIntValidator_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -3587,10 +4335,14 @@ pub const QIntValidator = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QIntValidator, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QIntValidator, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QIntValidator_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -3604,9 +4356,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QIntValidator, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QIntValidator, callback: *const fn (QIntValidator, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QIntValidator, callback: *const fn (QIntValidator, [*:0]const u8) callconv(.c) i32) void {
         qtc.QIntValidator_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -3620,14 +4376,14 @@ pub const QIntValidator = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QIntValidator, signal: anytype) bool {
+    pub fn isSignalConnected(self: QIntValidator, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QIntValidator_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -3641,10 +4397,14 @@ pub const QIntValidator = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QIntValidator, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QIntValidator, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QIntValidator_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -3658,9 +4418,13 @@ pub const QIntValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QIntValidator, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QIntValidator, callback: *const fn (QIntValidator, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QIntValidator, callback: *const fn (QIntValidator, QMetaMethod) callconv(.c) bool) void {
         qtc.QIntValidator_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -3674,23 +4438,23 @@ pub const QIntValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QIntValidator, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QIntValidator, callback: *const fn (QIntValidator, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QIntValidator, callback: *const fn (QIntValidator, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qintvalidator.html#dtor.QIntValidator)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QIntValidator `
     ///
-    pub fn Delete(self: QIntValidator) void {
+    pub fn delete(self: QIntValidator) void {
         qtc.QIntValidator_Delete(@ptrCast(self.ptr));
     }
 };
@@ -3707,53 +4471,73 @@ pub const QDoubleValidator = extern struct {
     pub const _is_QValidator = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QDoubleValidator object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QDoubleValidator {
+    pub const New = new;
+
+    /// Allocate a new QDoubleValidator object in C++ memory
+    ///
+    pub fn new() QDoubleValidator {
         return .{ .ptr = qtc.QDoubleValidator_new() };
     }
 
-    /// New2 constructs a new QDoubleValidator object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QDoubleValidator object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` bottom: f64 `
+    /// ` _bottom: f64 `
     ///
-    /// ` top: f64 `
+    /// ` _top: f64 `
     ///
-    /// ` decimals: i32 `
+    /// ` _decimals: i32 `
     ///
-    pub fn New2(bottom: f64, top: f64, decimals: i32) QDoubleValidator {
-        return .{ .ptr = qtc.QDoubleValidator_new2(@bitCast(bottom), @bitCast(top), @bitCast(decimals)) };
+    pub fn new2(_bottom: f64, _top: f64, _decimals: i32) QDoubleValidator {
+        return .{ .ptr = qtc.QDoubleValidator_new2(@bitCast(_bottom), @bitCast(_top), @bitCast(_decimals)) };
     }
 
-    /// New3 constructs a new QDoubleValidator object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QDoubleValidator object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New3(parent: anytype) QDoubleValidator {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QDoubleValidator_new3(@ptrCast(parent.ptr)) };
+    pub fn new3(_parent: anytype) QDoubleValidator {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QDoubleValidator_new3(@ptrCast(_parent.ptr)) };
     }
 
-    /// New4 constructs a new QDoubleValidator object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QDoubleValidator object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` bottom: f64 `
+    /// ` _bottom: f64 `
     ///
-    /// ` top: f64 `
+    /// ` _top: f64 `
     ///
-    /// ` decimals: i32 `
+    /// ` _decimals: i32 `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New4(bottom: f64, top: f64, decimals: i32, parent: anytype) QDoubleValidator {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QDoubleValidator_new4(@bitCast(bottom), @bitCast(top), @bitCast(decimals), @ptrCast(parent.ptr)) };
+    pub fn new4(_bottom: f64, _top: f64, _decimals: i32, _parent: anytype) QDoubleValidator {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QDoubleValidator_new4(@bitCast(_bottom), @bitCast(_top), @bitCast(_decimals), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -3761,9 +4545,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` self: QDoubleValidator `
     ///
-    pub fn MetaObject(self: QDoubleValidator) QMetaObject {
+    pub fn metaObject(self: QDoubleValidator) QMetaObject {
         return .{ .ptr = qtc.QDoubleValidator_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -3775,13 +4563,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QDoubleValidator, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QDoubleValidator, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QDoubleValidator_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -3791,9 +4579,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` self: QDoubleValidator `
     ///
-    pub fn SuperMetaObject(self: QDoubleValidator) QMetaObject {
+    pub fn superMetaObject(self: QDoubleValidator) QMetaObject {
         return .{ .ptr = qtc.QDoubleValidator_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -3801,10 +4593,14 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QDoubleValidator, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QDoubleValidator, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QDoubleValidator_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -3814,13 +4610,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QDoubleValidator, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QDoubleValidator, callback: *const fn (QDoubleValidator, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QDoubleValidator, callback: *const fn (QDoubleValidator, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QDoubleValidator_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -3830,10 +4626,14 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QDoubleValidator, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QDoubleValidator, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QDoubleValidator_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -3845,9 +4645,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QDoubleValidator, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QDoubleValidator, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QDoubleValidator_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -3857,13 +4661,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QDoubleValidator, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QDoubleValidator, callback: *const fn (QDoubleValidator, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QDoubleValidator, callback: *const fn (QDoubleValidator, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QDoubleValidator_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -3877,9 +4681,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QDoubleValidator, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QDoubleValidator, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QDoubleValidator_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -3889,14 +4697,18 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDoubleValidator.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDoubleValidator.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `validate` instead
+    ///
+    pub const Validate = validate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#validate)
     ///
@@ -3912,13 +4724,17 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` qvalidator_enums.State `
     ///
-    pub fn Validate(self: QDoubleValidator, param1: []const u8, param2: *i32) i32 {
+    pub fn validate(self: QDoubleValidator, param1: []const u8, param2: *i32) i32 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
         return qtc.QDoubleValidator_Validate(@ptrCast(self.ptr), param1_str, @ptrCast(param2));
     }
+
+    /// ### DEPRECATED: Use `onValidate` instead
+    ///
+    pub const OnValidate = onValidate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#validate)
     ///
@@ -3930,13 +4746,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QDoubleValidator, param1: [*:0]const u8, param2: *i32) callconv(.c) i32 `
     ///
-    pub fn OnValidate(self: QDoubleValidator, callback: *const fn (QDoubleValidator, [*:0]const u8, *i32) callconv(.c) i32) void {
+    pub fn onValidate(self: QDoubleValidator, callback: *const fn (QDoubleValidator, [*:0]const u8, *i32) callconv(.c) i32) void {
         qtc.QDoubleValidator_OnValidate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperValidate` instead
+    /// ### DEPRECATED: Use `superValidate` instead
     ///
-    pub const QBaseValidate = SuperValidate;
+    pub const SuperValidate = superValidate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#validate)
     ///
@@ -3954,13 +4770,17 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` qvalidator_enums.State `
     ///
-    pub fn SuperValidate(self: QDoubleValidator, param1: []const u8, param2: *i32) i32 {
+    pub fn superValidate(self: QDoubleValidator, param1: []const u8, param2: *i32) i32 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
         return qtc.QDoubleValidator_SuperValidate(@ptrCast(self.ptr), param1_str, @ptrCast(param2));
     }
+
+    /// ### DEPRECATED: Use `fixup` instead
+    ///
+    pub const Fixup = fixup;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#fixup)
     ///
@@ -3970,13 +4790,17 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` input: []const u8 `
     ///
-    pub fn Fixup(self: QDoubleValidator, input: []const u8) void {
+    pub fn fixup(self: QDoubleValidator, input: []const u8) void {
         const input_str = qtc.libqt_string{
             .len = input.len,
             .data = input.ptr,
         };
         qtc.QDoubleValidator_Fixup(@ptrCast(self.ptr), input_str);
     }
+
+    /// ### DEPRECATED: Use `onFixup` instead
+    ///
+    pub const OnFixup = onFixup;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#fixup)
     ///
@@ -3988,13 +4812,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QDoubleValidator, input: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnFixup(self: QDoubleValidator, callback: *const fn (QDoubleValidator, [*:0]const u8) callconv(.c) void) void {
+    pub fn onFixup(self: QDoubleValidator, callback: *const fn (QDoubleValidator, [*:0]const u8) callconv(.c) void) void {
         qtc.QDoubleValidator_OnFixup(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperFixup` instead
+    /// ### DEPRECATED: Use `superFixup` instead
     ///
-    pub const QBaseFixup = SuperFixup;
+    pub const SuperFixup = superFixup;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#fixup)
     ///
@@ -4006,7 +4830,7 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` input: []const u8 `
     ///
-    pub fn SuperFixup(self: QDoubleValidator, input: []const u8) void {
+    pub fn superFixup(self: QDoubleValidator, input: []const u8) void {
         const input_str = qtc.libqt_string{
             .len = input.len,
             .data = input.ptr,
@@ -4014,21 +4838,9 @@ pub const QDoubleValidator = extern struct {
         qtc.QDoubleValidator_SuperFixup(@ptrCast(self.ptr), input_str);
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#setRange)
+    /// ### DEPRECATED: Use `setRange` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDoubleValidator `
-    ///
-    /// ` bottom: f64 `
-    ///
-    /// ` top: f64 `
-    ///
-    /// ` decimals: i32 `
-    ///
-    pub fn SetRange(self: QDoubleValidator, bottom: f64, top: f64, decimals: i32) void {
-        qtc.QDoubleValidator_SetRange(@ptrCast(self.ptr), @bitCast(bottom), @bitCast(top), @bitCast(decimals));
-    }
+    pub const SetRange = setRange;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#setRange)
     ///
@@ -4036,13 +4848,37 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` self: QDoubleValidator `
     ///
-    /// ` bottom: f64 `
+    /// ` _bottom: f64 `
     ///
-    /// ` top: f64 `
+    /// ` _top: f64 `
     ///
-    pub fn SetRange2(self: QDoubleValidator, bottom: f64, top: f64) void {
-        qtc.QDoubleValidator_SetRange2(@ptrCast(self.ptr), @bitCast(bottom), @bitCast(top));
+    /// ` _decimals: i32 `
+    ///
+    pub fn setRange(self: QDoubleValidator, _bottom: f64, _top: f64, _decimals: i32) void {
+        qtc.QDoubleValidator_SetRange(@ptrCast(self.ptr), @bitCast(_bottom), @bitCast(_top), @bitCast(_decimals));
     }
+
+    /// ### DEPRECATED: Use `setRange2` instead
+    ///
+    pub const SetRange2 = setRange2;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#setRange)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QDoubleValidator `
+    ///
+    /// ` _bottom: f64 `
+    ///
+    /// ` _top: f64 `
+    ///
+    pub fn setRange2(self: QDoubleValidator, _bottom: f64, _top: f64) void {
+        qtc.QDoubleValidator_SetRange2(@ptrCast(self.ptr), @bitCast(_bottom), @bitCast(_top));
+    }
+
+    /// ### DEPRECATED: Use `setBottom` instead
+    ///
+    pub const SetBottom = setBottom;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#setBottom)
     ///
@@ -4050,11 +4886,15 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` self: QDoubleValidator `
     ///
-    /// ` bottom: f64 `
+    /// ` _bottom: f64 `
     ///
-    pub fn SetBottom(self: QDoubleValidator, bottom: f64) void {
-        qtc.QDoubleValidator_SetBottom(@ptrCast(self.ptr), @bitCast(bottom));
+    pub fn setBottom(self: QDoubleValidator, _bottom: f64) void {
+        qtc.QDoubleValidator_SetBottom(@ptrCast(self.ptr), @bitCast(_bottom));
     }
+
+    /// ### DEPRECATED: Use `setTop` instead
+    ///
+    pub const SetTop = setTop;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#setTop)
     ///
@@ -4062,11 +4902,15 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` self: QDoubleValidator `
     ///
-    /// ` top: f64 `
+    /// ` _top: f64 `
     ///
-    pub fn SetTop(self: QDoubleValidator, top: f64) void {
-        qtc.QDoubleValidator_SetTop(@ptrCast(self.ptr), @bitCast(top));
+    pub fn setTop(self: QDoubleValidator, _top: f64) void {
+        qtc.QDoubleValidator_SetTop(@ptrCast(self.ptr), @bitCast(_top));
     }
+
+    /// ### DEPRECATED: Use `setDecimals` instead
+    ///
+    pub const SetDecimals = setDecimals;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#setDecimals)
     ///
@@ -4074,11 +4918,15 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` self: QDoubleValidator `
     ///
-    /// ` decimals: i32 `
+    /// ` _decimals: i32 `
     ///
-    pub fn SetDecimals(self: QDoubleValidator, decimals: i32) void {
-        qtc.QDoubleValidator_SetDecimals(@ptrCast(self.ptr), @bitCast(decimals));
+    pub fn setDecimals(self: QDoubleValidator, _decimals: i32) void {
+        qtc.QDoubleValidator_SetDecimals(@ptrCast(self.ptr), @bitCast(_decimals));
     }
+
+    /// ### DEPRECATED: Use `setNotation` instead
+    ///
+    pub const SetNotation = setNotation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#setNotation)
     ///
@@ -4086,11 +4934,15 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` self: QDoubleValidator `
     ///
-    /// ` notation: qvalidator_enums.Notation `
+    /// ` _notation: qvalidator_enums.Notation `
     ///
-    pub fn SetNotation(self: QDoubleValidator, notation: i32) void {
-        qtc.QDoubleValidator_SetNotation(@ptrCast(self.ptr), @bitCast(notation));
+    pub fn setNotation(self: QDoubleValidator, _notation: i32) void {
+        qtc.QDoubleValidator_SetNotation(@ptrCast(self.ptr), @bitCast(_notation));
     }
+
+    /// ### DEPRECATED: Use `bottom` instead
+    ///
+    pub const Bottom = bottom;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#bottom)
     ///
@@ -4098,9 +4950,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` self: QDoubleValidator `
     ///
-    pub fn Bottom(self: QDoubleValidator) f64 {
+    pub fn bottom(self: QDoubleValidator) f64 {
         return qtc.QDoubleValidator_Bottom(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `top` instead
+    ///
+    pub const Top = top;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#top)
     ///
@@ -4108,9 +4964,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` self: QDoubleValidator `
     ///
-    pub fn Top(self: QDoubleValidator) f64 {
+    pub fn top(self: QDoubleValidator) f64 {
         return qtc.QDoubleValidator_Top(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `decimals` instead
+    ///
+    pub const Decimals = decimals;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#decimals)
     ///
@@ -4118,9 +4978,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` self: QDoubleValidator `
     ///
-    pub fn Decimals(self: QDoubleValidator) i32 {
+    pub fn decimals(self: QDoubleValidator) i32 {
         return qtc.QDoubleValidator_Decimals(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `notation` instead
+    ///
+    pub const Notation = notation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#notation)
     ///
@@ -4132,9 +4996,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` qvalidator_enums.Notation `
     ///
-    pub fn Notation(self: QDoubleValidator) i32 {
+    pub fn notation(self: QDoubleValidator) i32 {
         return qtc.QDoubleValidator_Notation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `bottomChanged` instead
+    ///
+    pub const BottomChanged = bottomChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#bottomChanged)
     ///
@@ -4142,11 +5010,15 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` self: QDoubleValidator `
     ///
-    /// ` bottom: f64 `
+    /// ` _bottom: f64 `
     ///
-    pub fn BottomChanged(self: QDoubleValidator, bottom: f64) void {
-        qtc.QDoubleValidator_BottomChanged(@ptrCast(self.ptr), @bitCast(bottom));
+    pub fn bottomChanged(self: QDoubleValidator, _bottom: f64) void {
+        qtc.QDoubleValidator_BottomChanged(@ptrCast(self.ptr), @bitCast(_bottom));
     }
+
+    /// ### DEPRECATED: Use `onBottomChanged` instead
+    ///
+    pub const OnBottomChanged = onBottomChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#bottomChanged)
     ///
@@ -4156,9 +5028,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QDoubleValidator, bottom: f64) callconv(.c) void `
     ///
-    pub fn OnBottomChanged(self: QDoubleValidator, callback: *const fn (QDoubleValidator, f64) callconv(.c) void) void {
+    pub fn onBottomChanged(self: QDoubleValidator, callback: *const fn (QDoubleValidator, f64) callconv(.c) void) void {
         qtc.QDoubleValidator_Connect_BottomChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `topChanged` instead
+    ///
+    pub const TopChanged = topChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#topChanged)
     ///
@@ -4166,11 +5042,15 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` self: QDoubleValidator `
     ///
-    /// ` top: f64 `
+    /// ` _top: f64 `
     ///
-    pub fn TopChanged(self: QDoubleValidator, top: f64) void {
-        qtc.QDoubleValidator_TopChanged(@ptrCast(self.ptr), @bitCast(top));
+    pub fn topChanged(self: QDoubleValidator, _top: f64) void {
+        qtc.QDoubleValidator_TopChanged(@ptrCast(self.ptr), @bitCast(_top));
     }
+
+    /// ### DEPRECATED: Use `onTopChanged` instead
+    ///
+    pub const OnTopChanged = onTopChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#topChanged)
     ///
@@ -4180,9 +5060,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QDoubleValidator, top: f64) callconv(.c) void `
     ///
-    pub fn OnTopChanged(self: QDoubleValidator, callback: *const fn (QDoubleValidator, f64) callconv(.c) void) void {
+    pub fn onTopChanged(self: QDoubleValidator, callback: *const fn (QDoubleValidator, f64) callconv(.c) void) void {
         qtc.QDoubleValidator_Connect_TopChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `decimalsChanged` instead
+    ///
+    pub const DecimalsChanged = decimalsChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#decimalsChanged)
     ///
@@ -4190,11 +5074,15 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` self: QDoubleValidator `
     ///
-    /// ` decimals: i32 `
+    /// ` _decimals: i32 `
     ///
-    pub fn DecimalsChanged(self: QDoubleValidator, decimals: i32) void {
-        qtc.QDoubleValidator_DecimalsChanged(@ptrCast(self.ptr), @bitCast(decimals));
+    pub fn decimalsChanged(self: QDoubleValidator, _decimals: i32) void {
+        qtc.QDoubleValidator_DecimalsChanged(@ptrCast(self.ptr), @bitCast(_decimals));
     }
+
+    /// ### DEPRECATED: Use `onDecimalsChanged` instead
+    ///
+    pub const OnDecimalsChanged = onDecimalsChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#decimalsChanged)
     ///
@@ -4204,9 +5092,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QDoubleValidator, decimals: i32) callconv(.c) void `
     ///
-    pub fn OnDecimalsChanged(self: QDoubleValidator, callback: *const fn (QDoubleValidator, i32) callconv(.c) void) void {
+    pub fn onDecimalsChanged(self: QDoubleValidator, callback: *const fn (QDoubleValidator, i32) callconv(.c) void) void {
         qtc.QDoubleValidator_Connect_DecimalsChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `notationChanged` instead
+    ///
+    pub const NotationChanged = notationChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#notationChanged)
     ///
@@ -4214,11 +5106,15 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` self: QDoubleValidator `
     ///
-    /// ` notation: qvalidator_enums.Notation `
+    /// ` _notation: qvalidator_enums.Notation `
     ///
-    pub fn NotationChanged(self: QDoubleValidator, notation: i32) void {
-        qtc.QDoubleValidator_NotationChanged(@ptrCast(self.ptr), @bitCast(notation));
+    pub fn notationChanged(self: QDoubleValidator, _notation: i32) void {
+        qtc.QDoubleValidator_NotationChanged(@ptrCast(self.ptr), @bitCast(_notation));
     }
+
+    /// ### DEPRECATED: Use `onNotationChanged` instead
+    ///
+    pub const OnNotationChanged = onNotationChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#notationChanged)
     ///
@@ -4228,9 +5124,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QDoubleValidator, notation: qvalidator_enums.Notation) callconv(.c) void `
     ///
-    pub fn OnNotationChanged(self: QDoubleValidator, callback: *const fn (QDoubleValidator, i32) callconv(.c) void) void {
+    pub fn onNotationChanged(self: QDoubleValidator, callback: *const fn (QDoubleValidator, i32) callconv(.c) void) void {
         qtc.QDoubleValidator_Connect_NotationChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -4242,15 +5142,19 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDoubleValidator.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDoubleValidator.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -4264,15 +5168,19 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDoubleValidator.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDoubleValidator.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QValidator
     ///
@@ -4282,12 +5190,16 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` self: QDoubleValidator `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: QDoubleValidator, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QValidator_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: QDoubleValidator, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QValidator_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QValidator
     ///
@@ -4297,9 +5209,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` self: QDoubleValidator `
     ///
-    pub fn Locale(self: QDoubleValidator) QLocale {
+    pub fn locale(self: QDoubleValidator) QLocale {
         return .{ .ptr = qtc.QValidator_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `changed` instead
+    ///
+    pub const Changed = changed;
 
     /// Inherited from QValidator
     ///
@@ -4309,9 +5225,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` self: QDoubleValidator `
     ///
-    pub fn Changed(self: QDoubleValidator) void {
+    pub fn changed(self: QDoubleValidator) void {
         qtc.QValidator_Changed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChanged` instead
+    ///
+    pub const OnChanged = onChanged;
 
     /// Inherited from QValidator
     ///
@@ -4323,9 +5243,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QDoubleValidator) callconv(.c) void `
     ///
-    pub fn OnChanged(self: QDoubleValidator, callback: *const fn (QDoubleValidator) callconv(.c) void) void {
+    pub fn onChanged(self: QDoubleValidator, callback: *const fn (QDoubleValidator) callconv(.c) void) void {
         qtc.QValidator_Connect_Changed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -4337,13 +5261,17 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QDoubleValidator, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QDoubleValidator, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDoubleValidator.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDoubleValidator.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -4355,13 +5283,17 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QDoubleValidator, name: []const u8) void {
+    pub fn setObjectName(self: QDoubleValidator, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -4371,9 +5303,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` self: QDoubleValidator `
     ///
-    pub fn IsWidgetType(self: QDoubleValidator) bool {
+    pub fn isWidgetType(self: QDoubleValidator) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -4383,9 +5319,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` self: QDoubleValidator `
     ///
-    pub fn IsWindowType(self: QDoubleValidator) bool {
+    pub fn isWindowType(self: QDoubleValidator) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -4395,9 +5335,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` self: QDoubleValidator `
     ///
-    pub fn IsQuickItemType(self: QDoubleValidator) bool {
+    pub fn isQuickItemType(self: QDoubleValidator) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -4407,9 +5351,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` self: QDoubleValidator `
     ///
-    pub fn SignalsBlocked(self: QDoubleValidator) bool {
+    pub fn signalsBlocked(self: QDoubleValidator) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -4421,9 +5369,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QDoubleValidator, b: bool) bool {
+    pub fn blockSignals(self: QDoubleValidator, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -4433,9 +5385,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` self: QDoubleValidator `
     ///
-    pub fn Thread(self: QDoubleValidator) QThread {
+    pub fn thread(self: QDoubleValidator) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -4445,12 +5401,16 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` self: QDoubleValidator `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QDoubleValidator, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QDoubleValidator, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -4462,9 +5422,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QDoubleValidator, interval: i32) i32 {
+    pub fn startTimer(self: QDoubleValidator, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -4476,9 +5440,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QDoubleValidator, time: i64) i32 {
+    pub fn startTimer2(self: QDoubleValidator, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -4490,9 +5458,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QDoubleValidator, id: i32) void {
+    pub fn killTimer(self: QDoubleValidator, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -4504,9 +5476,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QDoubleValidator, id: i32) void {
+    pub fn killTimer2(self: QDoubleValidator, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -4518,15 +5494,19 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QDoubleValidator, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QDoubleValidator, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QDoubleValidator.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QDoubleValidator.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -4536,12 +5516,16 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` self: QDoubleValidator `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QDoubleValidator, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QDoubleValidator, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4553,10 +5537,14 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QDoubleValidator, filterObj: anytype) void {
+    pub fn installEventFilter(self: QDoubleValidator, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4568,10 +5556,14 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QDoubleValidator, obj: anytype) void {
+    pub fn removeEventFilter(self: QDoubleValidator, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -4579,7 +5571,7 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4587,13 +5579,17 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -4601,7 +5597,7 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -4609,13 +5605,17 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -4625,18 +5625,22 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` self: QDoubleValidator `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QDoubleValidator, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QDoubleValidator, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -4644,7 +5648,7 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4652,13 +5656,17 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -4666,7 +5674,7 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -4674,13 +5682,17 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -4690,9 +5702,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` self: QDoubleValidator `
     ///
-    pub fn Disconnect3(self: QDoubleValidator) bool {
+    pub fn disconnect3(self: QDoubleValidator) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -4704,10 +5720,14 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QDoubleValidator, receiver: anytype) bool {
+    pub fn disconnect4(self: QDoubleValidator, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -4717,10 +5737,14 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -4730,9 +5754,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` self: QDoubleValidator `
     ///
-    pub fn DumpObjectTree(self: QDoubleValidator) void {
+    pub fn dumpObjectTree(self: QDoubleValidator) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -4742,9 +5770,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` self: QDoubleValidator `
     ///
-    pub fn DumpObjectInfo(self: QDoubleValidator) void {
+    pub fn dumpObjectInfo(self: QDoubleValidator) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -4758,11 +5790,15 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QDoubleValidator, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QDoubleValidator, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -4774,10 +5810,14 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QDoubleValidator, name: [:0]const u8) QVariant {
+    pub fn property(self: QDoubleValidator, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -4789,7 +5829,7 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QDoubleValidator, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QDoubleValidator, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -4797,27 +5837,19 @@ pub const QDoubleValidator = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDoubleValidator.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDoubleValidator.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QDoubleValidator.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QDoubleValidator.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDoubleValidator `
-    ///
-    pub fn BindingStorage(self: QDoubleValidator) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -4827,9 +5859,29 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` self: QDoubleValidator `
     ///
-    pub fn BindingStorage2(self: QDoubleValidator) QBindingStorage {
+    pub fn bindingStorage(self: QDoubleValidator) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QDoubleValidator `
+    ///
+    pub fn bindingStorage2(self: QDoubleValidator) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -4839,9 +5891,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` self: QDoubleValidator `
     ///
-    pub fn Destroyed(self: QDoubleValidator) void {
+    pub fn destroyed(self: QDoubleValidator) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -4853,9 +5909,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QDoubleValidator) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QDoubleValidator, callback: *const fn (QDoubleValidator) callconv(.c) void) void {
+    pub fn onDestroyed(self: QDoubleValidator, callback: *const fn (QDoubleValidator) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -4865,9 +5925,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` self: QDoubleValidator `
     ///
-    pub fn Parent(self: QDoubleValidator) QObject {
+    pub fn parent(self: QDoubleValidator) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -4879,10 +5943,14 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QDoubleValidator, classname: [:0]const u8) bool {
+    pub fn inherits(self: QDoubleValidator, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -4892,9 +5960,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` self: QDoubleValidator `
     ///
-    pub fn DeleteLater(self: QDoubleValidator) void {
+    pub fn deleteLater(self: QDoubleValidator) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -4908,9 +5980,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QDoubleValidator, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QDoubleValidator, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -4924,9 +6000,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QDoubleValidator, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QDoubleValidator, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -4934,7 +6014,7 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4944,13 +6024,17 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -4958,7 +6042,7 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -4968,13 +6052,17 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -4984,7 +6072,7 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` self: QDoubleValidator `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4992,12 +6080,16 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QDoubleValidator, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QDoubleValidator, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -5009,10 +6101,14 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QDoubleValidator, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QDoubleValidator, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -5026,11 +6122,15 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QDoubleValidator, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QDoubleValidator, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -5046,13 +6146,17 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QDoubleValidator, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QDoubleValidator, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -5065,11 +6169,15 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QDoubleValidator, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QDoubleValidator, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -5081,10 +6189,14 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QDoubleValidator, param1: anytype) void {
+    pub fn destroyed1(self: QDoubleValidator, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -5096,9 +6208,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QDoubleValidator, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QDoubleValidator, callback: *const fn (QDoubleValidator, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QDoubleValidator, callback: *const fn (QDoubleValidator, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -5110,16 +6226,16 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` self: QDoubleValidator `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QDoubleValidator, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QDoubleValidator_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QDoubleValidator, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QDoubleValidator_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -5131,12 +6247,16 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` self: QDoubleValidator `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QDoubleValidator, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QDoubleValidator_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QDoubleValidator, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QDoubleValidator_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -5150,9 +6270,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QDoubleValidator, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QDoubleValidator, callback: *const fn (QDoubleValidator, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QDoubleValidator, callback: *const fn (QDoubleValidator, QEvent) callconv(.c) bool) void {
         qtc.QDoubleValidator_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -5166,17 +6290,17 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QDoubleValidator, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QDoubleValidator, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QDoubleValidator_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QDoubleValidator_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5190,13 +6314,17 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QDoubleValidator, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QDoubleValidator, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QDoubleValidator_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QDoubleValidator_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5210,9 +6338,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QDoubleValidator, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QDoubleValidator, callback: *const fn (QDoubleValidator, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QDoubleValidator, callback: *const fn (QDoubleValidator, QObject, QEvent) callconv(.c) bool) void {
         qtc.QDoubleValidator_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -5224,16 +6356,16 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` self: QDoubleValidator `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QDoubleValidator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QDoubleValidator_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QDoubleValidator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QDoubleValidator_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -5245,12 +6377,16 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` self: QDoubleValidator `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QDoubleValidator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QDoubleValidator_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QDoubleValidator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QDoubleValidator_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -5264,9 +6400,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QDoubleValidator, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QDoubleValidator, callback: *const fn (QDoubleValidator, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QDoubleValidator, callback: *const fn (QDoubleValidator, QTimerEvent) callconv(.c) void) void {
         qtc.QDoubleValidator_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -5278,16 +6418,16 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` self: QDoubleValidator `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QDoubleValidator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QDoubleValidator_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QDoubleValidator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QDoubleValidator_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -5299,12 +6439,16 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` self: QDoubleValidator `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QDoubleValidator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QDoubleValidator_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QDoubleValidator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QDoubleValidator_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -5318,9 +6462,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QDoubleValidator, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QDoubleValidator, callback: *const fn (QDoubleValidator, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QDoubleValidator, callback: *const fn (QDoubleValidator, QChildEvent) callconv(.c) void) void {
         qtc.QDoubleValidator_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -5332,16 +6480,16 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` self: QDoubleValidator `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QDoubleValidator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QDoubleValidator_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QDoubleValidator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QDoubleValidator_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -5353,12 +6501,16 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` self: QDoubleValidator `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QDoubleValidator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QDoubleValidator_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QDoubleValidator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QDoubleValidator_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -5372,9 +6524,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QDoubleValidator, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QDoubleValidator, callback: *const fn (QDoubleValidator, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QDoubleValidator, callback: *const fn (QDoubleValidator, QEvent) callconv(.c) void) void {
         qtc.QDoubleValidator_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -5388,14 +6544,14 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QDoubleValidator, signal: anytype) void {
+    pub fn connectNotify(self: QDoubleValidator, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QDoubleValidator_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -5409,11 +6565,15 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QDoubleValidator, signal: anytype) void {
+    pub fn superConnectNotify(self: QDoubleValidator, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QDoubleValidator_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -5426,9 +6586,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QDoubleValidator, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QDoubleValidator, callback: *const fn (QDoubleValidator, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QDoubleValidator, callback: *const fn (QDoubleValidator, QMetaMethod) callconv(.c) void) void {
         qtc.QDoubleValidator_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -5442,14 +6606,14 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QDoubleValidator, signal: anytype) void {
+    pub fn disconnectNotify(self: QDoubleValidator, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QDoubleValidator_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -5463,10 +6627,14 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QDoubleValidator, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QDoubleValidator, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QDoubleValidator_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -5480,9 +6648,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QDoubleValidator, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QDoubleValidator, callback: *const fn (QDoubleValidator, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QDoubleValidator, callback: *const fn (QDoubleValidator, QMetaMethod) callconv(.c) void) void {
         qtc.QDoubleValidator_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -5494,13 +6666,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` self: QDoubleValidator `
     ///
-    pub fn Sender(self: QDoubleValidator) QObject {
+    pub fn sender(self: QDoubleValidator) QObject {
         return .{ .ptr = qtc.QDoubleValidator_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -5512,9 +6684,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` self: QDoubleValidator `
     ///
-    pub fn SuperSender(self: QDoubleValidator) QObject {
+    pub fn superSender(self: QDoubleValidator) QObject {
         return .{ .ptr = qtc.QDoubleValidator_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -5528,9 +6704,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QDoubleValidator, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QDoubleValidator, callback: *const fn () callconv(.c) QObject) void {
         qtc.QDoubleValidator_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -5542,13 +6722,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` self: QDoubleValidator `
     ///
-    pub fn SenderSignalIndex(self: QDoubleValidator) i32 {
+    pub fn senderSignalIndex(self: QDoubleValidator) i32 {
         return qtc.QDoubleValidator_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -5560,9 +6740,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` self: QDoubleValidator `
     ///
-    pub fn SuperSenderSignalIndex(self: QDoubleValidator) i32 {
+    pub fn superSenderSignalIndex(self: QDoubleValidator) i32 {
         return qtc.QDoubleValidator_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -5576,9 +6760,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QDoubleValidator, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QDoubleValidator, callback: *const fn () callconv(.c) i32) void {
         qtc.QDoubleValidator_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -5592,14 +6780,14 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QDoubleValidator, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QDoubleValidator, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QDoubleValidator_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -5613,10 +6801,14 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QDoubleValidator, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QDoubleValidator, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QDoubleValidator_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -5630,9 +6822,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QDoubleValidator, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QDoubleValidator, callback: *const fn (QDoubleValidator, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QDoubleValidator, callback: *const fn (QDoubleValidator, [*:0]const u8) callconv(.c) i32) void {
         qtc.QDoubleValidator_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -5646,14 +6842,14 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QDoubleValidator, signal: anytype) bool {
+    pub fn isSignalConnected(self: QDoubleValidator, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QDoubleValidator_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -5667,10 +6863,14 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QDoubleValidator, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QDoubleValidator, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QDoubleValidator_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -5684,9 +6884,13 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QDoubleValidator, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QDoubleValidator, callback: *const fn (QDoubleValidator, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QDoubleValidator, callback: *const fn (QDoubleValidator, QMetaMethod) callconv(.c) bool) void {
         qtc.QDoubleValidator_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -5700,23 +6904,23 @@ pub const QDoubleValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QDoubleValidator, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QDoubleValidator, callback: *const fn (QDoubleValidator, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QDoubleValidator, callback: *const fn (QDoubleValidator, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#dtor.QDoubleValidator)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDoubleValidator `
     ///
-    pub fn Delete(self: QDoubleValidator) void {
+    pub fn delete(self: QDoubleValidator) void {
         qtc.QDoubleValidator_Delete(@ptrCast(self.ptr));
     }
 };
@@ -5733,47 +6937,67 @@ pub const QRegularExpressionValidator = extern struct {
     pub const _is_QValidator = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QRegularExpressionValidator object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QRegularExpressionValidator {
+    pub const New = new;
+
+    /// Allocate a new QRegularExpressionValidator object in C++ memory
+    ///
+    pub fn new() QRegularExpressionValidator {
         return .{ .ptr = qtc.QRegularExpressionValidator_new() };
     }
 
-    /// New2 constructs a new QRegularExpressionValidator object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QRegularExpressionValidator object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` re: QRegularExpression `
     ///
-    pub fn New2(re: anytype) QRegularExpressionValidator {
+    pub fn new2(re: anytype) QRegularExpressionValidator {
         comptime _ = @TypeOf(re)._is_QRegularExpression;
         return .{ .ptr = qtc.QRegularExpressionValidator_new2(@ptrCast(re.ptr)) };
     }
 
-    /// New3 constructs a new QRegularExpressionValidator object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QRegularExpressionValidator object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New3(parent: anytype) QRegularExpressionValidator {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QRegularExpressionValidator_new3(@ptrCast(parent.ptr)) };
+    pub fn new3(_parent: anytype) QRegularExpressionValidator {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QRegularExpressionValidator_new3(@ptrCast(_parent.ptr)) };
     }
 
-    /// New4 constructs a new QRegularExpressionValidator object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QRegularExpressionValidator object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` re: QRegularExpression `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New4(re: anytype, parent: anytype) QRegularExpressionValidator {
+    pub fn new4(re: anytype, _parent: anytype) QRegularExpressionValidator {
         comptime _ = @TypeOf(re)._is_QRegularExpression;
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QRegularExpressionValidator_new4(@ptrCast(re.ptr), @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QRegularExpressionValidator_new4(@ptrCast(re.ptr), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -5781,9 +7005,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` self: QRegularExpressionValidator `
     ///
-    pub fn MetaObject(self: QRegularExpressionValidator) QMetaObject {
+    pub fn metaObject(self: QRegularExpressionValidator) QMetaObject {
         return .{ .ptr = qtc.QRegularExpressionValidator_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -5795,13 +7023,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QRegularExpressionValidator, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QRegularExpressionValidator, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QRegularExpressionValidator_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -5811,9 +7039,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` self: QRegularExpressionValidator `
     ///
-    pub fn SuperMetaObject(self: QRegularExpressionValidator) QMetaObject {
+    pub fn superMetaObject(self: QRegularExpressionValidator) QMetaObject {
         return .{ .ptr = qtc.QRegularExpressionValidator_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -5821,10 +7053,14 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QRegularExpressionValidator, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QRegularExpressionValidator, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QRegularExpressionValidator_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -5834,13 +7070,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QRegularExpressionValidator, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QRegularExpressionValidator, callback: *const fn (QRegularExpressionValidator, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QRegularExpressionValidator, callback: *const fn (QRegularExpressionValidator, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QRegularExpressionValidator_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -5850,10 +7086,14 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QRegularExpressionValidator, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QRegularExpressionValidator, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QRegularExpressionValidator_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -5865,9 +7105,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QRegularExpressionValidator, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QRegularExpressionValidator, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QRegularExpressionValidator_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -5877,13 +7121,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QRegularExpressionValidator, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QRegularExpressionValidator, callback: *const fn (QRegularExpressionValidator, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QRegularExpressionValidator, callback: *const fn (QRegularExpressionValidator, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QRegularExpressionValidator_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -5897,9 +7141,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QRegularExpressionValidator, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QRegularExpressionValidator, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QRegularExpressionValidator_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -5909,14 +7157,18 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QRegularExpressionValidator.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QRegularExpressionValidator.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `validate` instead
+    ///
+    pub const Validate = validate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qregularexpressionvalidator.html#validate)
     ///
@@ -5932,13 +7184,17 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` qvalidator_enums.State `
     ///
-    pub fn Validate(self: QRegularExpressionValidator, input: []const u8, pos: *i32) i32 {
+    pub fn validate(self: QRegularExpressionValidator, input: []const u8, pos: *i32) i32 {
         const input_str = qtc.libqt_string{
             .len = input.len,
             .data = input.ptr,
         };
         return qtc.QRegularExpressionValidator_Validate(@ptrCast(self.ptr), input_str, @ptrCast(pos));
     }
+
+    /// ### DEPRECATED: Use `onValidate` instead
+    ///
+    pub const OnValidate = onValidate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qregularexpressionvalidator.html#validate)
     ///
@@ -5950,13 +7206,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QRegularExpressionValidator, input: [*:0]const u8, pos: *i32) callconv(.c) i32 `
     ///
-    pub fn OnValidate(self: QRegularExpressionValidator, callback: *const fn (QRegularExpressionValidator, [*:0]const u8, *i32) callconv(.c) i32) void {
+    pub fn onValidate(self: QRegularExpressionValidator, callback: *const fn (QRegularExpressionValidator, [*:0]const u8, *i32) callconv(.c) i32) void {
         qtc.QRegularExpressionValidator_OnValidate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperValidate` instead
+    /// ### DEPRECATED: Use `superValidate` instead
     ///
-    pub const QBaseValidate = SuperValidate;
+    pub const SuperValidate = superValidate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qregularexpressionvalidator.html#validate)
     ///
@@ -5974,7 +7230,7 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` qvalidator_enums.State `
     ///
-    pub fn SuperValidate(self: QRegularExpressionValidator, input: []const u8, pos: *i32) i32 {
+    pub fn superValidate(self: QRegularExpressionValidator, input: []const u8, pos: *i32) i32 {
         const input_str = qtc.libqt_string{
             .len = input.len,
             .data = input.ptr,
@@ -5982,15 +7238,23 @@ pub const QRegularExpressionValidator = extern struct {
         return qtc.QRegularExpressionValidator_SuperValidate(@ptrCast(self.ptr), input_str, @ptrCast(pos));
     }
 
+    /// ### DEPRECATED: Use `regularExpression` instead
+    ///
+    pub const RegularExpression = regularExpression;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qregularexpressionvalidator.html#regularExpression)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QRegularExpressionValidator `
     ///
-    pub fn RegularExpression(self: QRegularExpressionValidator) QRegularExpression {
+    pub fn regularExpression(self: QRegularExpressionValidator) QRegularExpression {
         return .{ .ptr = qtc.QRegularExpressionValidator_RegularExpression(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setRegularExpression` instead
+    ///
+    pub const SetRegularExpression = setRegularExpression;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qregularexpressionvalidator.html#setRegularExpression)
     ///
@@ -6000,10 +7264,14 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` re: QRegularExpression `
     ///
-    pub fn SetRegularExpression(self: QRegularExpressionValidator, re: anytype) void {
+    pub fn setRegularExpression(self: QRegularExpressionValidator, re: anytype) void {
         comptime _ = @TypeOf(re)._is_QRegularExpression;
         qtc.QRegularExpressionValidator_SetRegularExpression(@ptrCast(self.ptr), @ptrCast(re.ptr));
     }
+
+    /// ### DEPRECATED: Use `regularExpressionChanged` instead
+    ///
+    pub const RegularExpressionChanged = regularExpressionChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qregularexpressionvalidator.html#regularExpressionChanged)
     ///
@@ -6013,10 +7281,14 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` re: QRegularExpression `
     ///
-    pub fn RegularExpressionChanged(self: QRegularExpressionValidator, re: anytype) void {
+    pub fn regularExpressionChanged(self: QRegularExpressionValidator, re: anytype) void {
         comptime _ = @TypeOf(re)._is_QRegularExpression;
         qtc.QRegularExpressionValidator_RegularExpressionChanged(@ptrCast(self.ptr), @ptrCast(re.ptr));
     }
+
+    /// ### DEPRECATED: Use `onRegularExpressionChanged` instead
+    ///
+    pub const OnRegularExpressionChanged = onRegularExpressionChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qregularexpressionvalidator.html#regularExpressionChanged)
     ///
@@ -6026,9 +7298,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QRegularExpressionValidator, re: QRegularExpression) callconv(.c) void `
     ///
-    pub fn OnRegularExpressionChanged(self: QRegularExpressionValidator, callback: *const fn (QRegularExpressionValidator, QRegularExpression) callconv(.c) void) void {
+    pub fn onRegularExpressionChanged(self: QRegularExpressionValidator, callback: *const fn (QRegularExpressionValidator, QRegularExpression) callconv(.c) void) void {
         qtc.QRegularExpressionValidator_Connect_RegularExpressionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -6040,15 +7316,19 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QRegularExpressionValidator.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QRegularExpressionValidator.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -6062,15 +7342,19 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QRegularExpressionValidator.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QRegularExpressionValidator.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QValidator
     ///
@@ -6080,12 +7364,16 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` self: QRegularExpressionValidator `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: QRegularExpressionValidator, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QValidator_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: QRegularExpressionValidator, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QValidator_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QValidator
     ///
@@ -6095,9 +7383,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` self: QRegularExpressionValidator `
     ///
-    pub fn Locale(self: QRegularExpressionValidator) QLocale {
+    pub fn locale(self: QRegularExpressionValidator) QLocale {
         return .{ .ptr = qtc.QValidator_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `changed` instead
+    ///
+    pub const Changed = changed;
 
     /// Inherited from QValidator
     ///
@@ -6107,9 +7399,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` self: QRegularExpressionValidator `
     ///
-    pub fn Changed(self: QRegularExpressionValidator) void {
+    pub fn changed(self: QRegularExpressionValidator) void {
         qtc.QValidator_Changed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChanged` instead
+    ///
+    pub const OnChanged = onChanged;
 
     /// Inherited from QValidator
     ///
@@ -6121,9 +7417,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QRegularExpressionValidator) callconv(.c) void `
     ///
-    pub fn OnChanged(self: QRegularExpressionValidator, callback: *const fn (QRegularExpressionValidator) callconv(.c) void) void {
+    pub fn onChanged(self: QRegularExpressionValidator, callback: *const fn (QRegularExpressionValidator) callconv(.c) void) void {
         qtc.QValidator_Connect_Changed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -6135,13 +7435,17 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QRegularExpressionValidator, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QRegularExpressionValidator, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QRegularExpressionValidator.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QRegularExpressionValidator.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -6153,13 +7457,17 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QRegularExpressionValidator, name: []const u8) void {
+    pub fn setObjectName(self: QRegularExpressionValidator, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -6169,9 +7477,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` self: QRegularExpressionValidator `
     ///
-    pub fn IsWidgetType(self: QRegularExpressionValidator) bool {
+    pub fn isWidgetType(self: QRegularExpressionValidator) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -6181,9 +7493,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` self: QRegularExpressionValidator `
     ///
-    pub fn IsWindowType(self: QRegularExpressionValidator) bool {
+    pub fn isWindowType(self: QRegularExpressionValidator) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -6193,9 +7509,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` self: QRegularExpressionValidator `
     ///
-    pub fn IsQuickItemType(self: QRegularExpressionValidator) bool {
+    pub fn isQuickItemType(self: QRegularExpressionValidator) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -6205,9 +7525,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` self: QRegularExpressionValidator `
     ///
-    pub fn SignalsBlocked(self: QRegularExpressionValidator) bool {
+    pub fn signalsBlocked(self: QRegularExpressionValidator) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -6219,9 +7543,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QRegularExpressionValidator, b: bool) bool {
+    pub fn blockSignals(self: QRegularExpressionValidator, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -6231,9 +7559,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` self: QRegularExpressionValidator `
     ///
-    pub fn Thread(self: QRegularExpressionValidator) QThread {
+    pub fn thread(self: QRegularExpressionValidator) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -6243,12 +7575,16 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` self: QRegularExpressionValidator `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QRegularExpressionValidator, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QRegularExpressionValidator, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -6260,9 +7596,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QRegularExpressionValidator, interval: i32) i32 {
+    pub fn startTimer(self: QRegularExpressionValidator, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -6274,9 +7614,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QRegularExpressionValidator, time: i64) i32 {
+    pub fn startTimer2(self: QRegularExpressionValidator, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -6288,9 +7632,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QRegularExpressionValidator, id: i32) void {
+    pub fn killTimer(self: QRegularExpressionValidator, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -6302,9 +7650,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QRegularExpressionValidator, id: i32) void {
+    pub fn killTimer2(self: QRegularExpressionValidator, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -6316,15 +7668,19 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QRegularExpressionValidator, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QRegularExpressionValidator, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QRegularExpressionValidator.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QRegularExpressionValidator.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -6334,12 +7690,16 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` self: QRegularExpressionValidator `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QRegularExpressionValidator, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QRegularExpressionValidator, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -6351,10 +7711,14 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QRegularExpressionValidator, filterObj: anytype) void {
+    pub fn installEventFilter(self: QRegularExpressionValidator, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -6366,10 +7730,14 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QRegularExpressionValidator, obj: anytype) void {
+    pub fn removeEventFilter(self: QRegularExpressionValidator, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -6377,7 +7745,7 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6385,13 +7753,17 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -6399,7 +7771,7 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -6407,13 +7779,17 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -6423,18 +7799,22 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` self: QRegularExpressionValidator `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QRegularExpressionValidator, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QRegularExpressionValidator, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -6442,7 +7822,7 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6450,13 +7830,17 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -6464,7 +7848,7 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -6472,13 +7856,17 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -6488,9 +7876,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` self: QRegularExpressionValidator `
     ///
-    pub fn Disconnect3(self: QRegularExpressionValidator) bool {
+    pub fn disconnect3(self: QRegularExpressionValidator) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -6502,10 +7894,14 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QRegularExpressionValidator, receiver: anytype) bool {
+    pub fn disconnect4(self: QRegularExpressionValidator, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -6515,10 +7911,14 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -6528,9 +7928,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` self: QRegularExpressionValidator `
     ///
-    pub fn DumpObjectTree(self: QRegularExpressionValidator) void {
+    pub fn dumpObjectTree(self: QRegularExpressionValidator) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -6540,9 +7944,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` self: QRegularExpressionValidator `
     ///
-    pub fn DumpObjectInfo(self: QRegularExpressionValidator) void {
+    pub fn dumpObjectInfo(self: QRegularExpressionValidator) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -6556,11 +7964,15 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QRegularExpressionValidator, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QRegularExpressionValidator, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -6572,10 +7984,14 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QRegularExpressionValidator, name: [:0]const u8) QVariant {
+    pub fn property(self: QRegularExpressionValidator, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -6587,7 +8003,7 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QRegularExpressionValidator, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QRegularExpressionValidator, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -6595,27 +8011,19 @@ pub const QRegularExpressionValidator = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QRegularExpressionValidator.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QRegularExpressionValidator.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QRegularExpressionValidator.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QRegularExpressionValidator.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QRegularExpressionValidator `
-    ///
-    pub fn BindingStorage(self: QRegularExpressionValidator) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -6625,9 +8033,29 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` self: QRegularExpressionValidator `
     ///
-    pub fn BindingStorage2(self: QRegularExpressionValidator) QBindingStorage {
+    pub fn bindingStorage(self: QRegularExpressionValidator) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QRegularExpressionValidator `
+    ///
+    pub fn bindingStorage2(self: QRegularExpressionValidator) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -6637,9 +8065,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` self: QRegularExpressionValidator `
     ///
-    pub fn Destroyed(self: QRegularExpressionValidator) void {
+    pub fn destroyed(self: QRegularExpressionValidator) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -6651,9 +8083,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QRegularExpressionValidator) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QRegularExpressionValidator, callback: *const fn (QRegularExpressionValidator) callconv(.c) void) void {
+    pub fn onDestroyed(self: QRegularExpressionValidator, callback: *const fn (QRegularExpressionValidator) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -6663,9 +8099,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` self: QRegularExpressionValidator `
     ///
-    pub fn Parent(self: QRegularExpressionValidator) QObject {
+    pub fn parent(self: QRegularExpressionValidator) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -6677,10 +8117,14 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QRegularExpressionValidator, classname: [:0]const u8) bool {
+    pub fn inherits(self: QRegularExpressionValidator, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -6690,9 +8134,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` self: QRegularExpressionValidator `
     ///
-    pub fn DeleteLater(self: QRegularExpressionValidator) void {
+    pub fn deleteLater(self: QRegularExpressionValidator) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -6706,9 +8154,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QRegularExpressionValidator, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QRegularExpressionValidator, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -6722,9 +8174,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QRegularExpressionValidator, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QRegularExpressionValidator, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -6732,7 +8188,7 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6742,13 +8198,17 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -6756,7 +8216,7 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -6766,13 +8226,17 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -6782,7 +8246,7 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` self: QRegularExpressionValidator `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6790,12 +8254,16 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QRegularExpressionValidator, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QRegularExpressionValidator, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -6807,10 +8275,14 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QRegularExpressionValidator, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QRegularExpressionValidator, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -6824,11 +8296,15 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QRegularExpressionValidator, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QRegularExpressionValidator, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -6844,13 +8320,17 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QRegularExpressionValidator, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QRegularExpressionValidator, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -6863,11 +8343,15 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QRegularExpressionValidator, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QRegularExpressionValidator, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -6879,10 +8363,14 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QRegularExpressionValidator, param1: anytype) void {
+    pub fn destroyed1(self: QRegularExpressionValidator, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -6894,9 +8382,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QRegularExpressionValidator, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QRegularExpressionValidator, callback: *const fn (QRegularExpressionValidator, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QRegularExpressionValidator, callback: *const fn (QRegularExpressionValidator, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `fixup` instead
+    ///
+    pub const Fixup = fixup;
 
     /// Inherited from QValidator
     ///
@@ -6910,7 +8402,7 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn Fixup(self: QRegularExpressionValidator, param1: []const u8) void {
+    pub fn fixup(self: QRegularExpressionValidator, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -6918,9 +8410,9 @@ pub const QRegularExpressionValidator = extern struct {
         qtc.QRegularExpressionValidator_Fixup(@ptrCast(self.ptr), param1_str);
     }
 
-    /// ### DEPRECATED: Use `SuperFixup` instead
+    /// ### DEPRECATED: Use `superFixup` instead
     ///
-    pub const QBaseFixup = SuperFixup;
+    pub const SuperFixup = superFixup;
 
     /// Inherited from QValidator
     ///
@@ -6934,13 +8426,17 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn SuperFixup(self: QRegularExpressionValidator, param1: []const u8) void {
+    pub fn superFixup(self: QRegularExpressionValidator, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
         qtc.QRegularExpressionValidator_SuperFixup(@ptrCast(self.ptr), param1_str);
     }
+
+    /// ### DEPRECATED: Use `onFixup` instead
+    ///
+    pub const OnFixup = onFixup;
 
     /// Inherited from QValidator
     ///
@@ -6954,9 +8450,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QRegularExpressionValidator, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnFixup(self: QRegularExpressionValidator, callback: *const fn (QRegularExpressionValidator, [*:0]const u8) callconv(.c) void) void {
+    pub fn onFixup(self: QRegularExpressionValidator, callback: *const fn (QRegularExpressionValidator, [*:0]const u8) callconv(.c) void) void {
         qtc.QRegularExpressionValidator_OnFixup(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -6968,16 +8468,16 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` self: QRegularExpressionValidator `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QRegularExpressionValidator, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QRegularExpressionValidator_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QRegularExpressionValidator, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QRegularExpressionValidator_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -6989,12 +8489,16 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` self: QRegularExpressionValidator `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QRegularExpressionValidator, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QRegularExpressionValidator_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QRegularExpressionValidator, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QRegularExpressionValidator_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -7008,9 +8512,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QRegularExpressionValidator, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QRegularExpressionValidator, callback: *const fn (QRegularExpressionValidator, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QRegularExpressionValidator, callback: *const fn (QRegularExpressionValidator, QEvent) callconv(.c) bool) void {
         qtc.QRegularExpressionValidator_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -7024,17 +8532,17 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QRegularExpressionValidator, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QRegularExpressionValidator, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QRegularExpressionValidator_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QRegularExpressionValidator_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -7048,13 +8556,17 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QRegularExpressionValidator, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QRegularExpressionValidator, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QRegularExpressionValidator_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QRegularExpressionValidator_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -7068,9 +8580,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QRegularExpressionValidator, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QRegularExpressionValidator, callback: *const fn (QRegularExpressionValidator, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QRegularExpressionValidator, callback: *const fn (QRegularExpressionValidator, QObject, QEvent) callconv(.c) bool) void {
         qtc.QRegularExpressionValidator_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -7082,16 +8598,16 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` self: QRegularExpressionValidator `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QRegularExpressionValidator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QRegularExpressionValidator_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QRegularExpressionValidator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QRegularExpressionValidator_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -7103,12 +8619,16 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` self: QRegularExpressionValidator `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QRegularExpressionValidator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QRegularExpressionValidator_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QRegularExpressionValidator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QRegularExpressionValidator_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -7122,9 +8642,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QRegularExpressionValidator, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QRegularExpressionValidator, callback: *const fn (QRegularExpressionValidator, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QRegularExpressionValidator, callback: *const fn (QRegularExpressionValidator, QTimerEvent) callconv(.c) void) void {
         qtc.QRegularExpressionValidator_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -7136,16 +8660,16 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` self: QRegularExpressionValidator `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QRegularExpressionValidator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QRegularExpressionValidator_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QRegularExpressionValidator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QRegularExpressionValidator_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -7157,12 +8681,16 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` self: QRegularExpressionValidator `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QRegularExpressionValidator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QRegularExpressionValidator_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QRegularExpressionValidator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QRegularExpressionValidator_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -7176,9 +8704,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QRegularExpressionValidator, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QRegularExpressionValidator, callback: *const fn (QRegularExpressionValidator, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QRegularExpressionValidator, callback: *const fn (QRegularExpressionValidator, QChildEvent) callconv(.c) void) void {
         qtc.QRegularExpressionValidator_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -7190,16 +8722,16 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` self: QRegularExpressionValidator `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QRegularExpressionValidator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QRegularExpressionValidator_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QRegularExpressionValidator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QRegularExpressionValidator_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -7211,12 +8743,16 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` self: QRegularExpressionValidator `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QRegularExpressionValidator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QRegularExpressionValidator_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QRegularExpressionValidator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QRegularExpressionValidator_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -7230,9 +8766,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QRegularExpressionValidator, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QRegularExpressionValidator, callback: *const fn (QRegularExpressionValidator, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QRegularExpressionValidator, callback: *const fn (QRegularExpressionValidator, QEvent) callconv(.c) void) void {
         qtc.QRegularExpressionValidator_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -7246,14 +8786,14 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QRegularExpressionValidator, signal: anytype) void {
+    pub fn connectNotify(self: QRegularExpressionValidator, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QRegularExpressionValidator_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7267,11 +8807,15 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QRegularExpressionValidator, signal: anytype) void {
+    pub fn superConnectNotify(self: QRegularExpressionValidator, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QRegularExpressionValidator_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -7284,9 +8828,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QRegularExpressionValidator, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QRegularExpressionValidator, callback: *const fn (QRegularExpressionValidator, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QRegularExpressionValidator, callback: *const fn (QRegularExpressionValidator, QMetaMethod) callconv(.c) void) void {
         qtc.QRegularExpressionValidator_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7300,14 +8848,14 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QRegularExpressionValidator, signal: anytype) void {
+    pub fn disconnectNotify(self: QRegularExpressionValidator, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QRegularExpressionValidator_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7321,10 +8869,14 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QRegularExpressionValidator, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QRegularExpressionValidator, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QRegularExpressionValidator_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7338,9 +8890,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QRegularExpressionValidator, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QRegularExpressionValidator, callback: *const fn (QRegularExpressionValidator, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QRegularExpressionValidator, callback: *const fn (QRegularExpressionValidator, QMetaMethod) callconv(.c) void) void {
         qtc.QRegularExpressionValidator_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -7352,13 +8908,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` self: QRegularExpressionValidator `
     ///
-    pub fn Sender(self: QRegularExpressionValidator) QObject {
+    pub fn sender(self: QRegularExpressionValidator) QObject {
         return .{ .ptr = qtc.QRegularExpressionValidator_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -7370,9 +8926,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` self: QRegularExpressionValidator `
     ///
-    pub fn SuperSender(self: QRegularExpressionValidator) QObject {
+    pub fn superSender(self: QRegularExpressionValidator) QObject {
         return .{ .ptr = qtc.QRegularExpressionValidator_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -7386,9 +8946,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QRegularExpressionValidator, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QRegularExpressionValidator, callback: *const fn () callconv(.c) QObject) void {
         qtc.QRegularExpressionValidator_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -7400,13 +8964,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` self: QRegularExpressionValidator `
     ///
-    pub fn SenderSignalIndex(self: QRegularExpressionValidator) i32 {
+    pub fn senderSignalIndex(self: QRegularExpressionValidator) i32 {
         return qtc.QRegularExpressionValidator_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -7418,9 +8982,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` self: QRegularExpressionValidator `
     ///
-    pub fn SuperSenderSignalIndex(self: QRegularExpressionValidator) i32 {
+    pub fn superSenderSignalIndex(self: QRegularExpressionValidator) i32 {
         return qtc.QRegularExpressionValidator_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -7434,9 +9002,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QRegularExpressionValidator, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QRegularExpressionValidator, callback: *const fn () callconv(.c) i32) void {
         qtc.QRegularExpressionValidator_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -7450,14 +9022,14 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QRegularExpressionValidator, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QRegularExpressionValidator, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QRegularExpressionValidator_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -7471,10 +9043,14 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QRegularExpressionValidator, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QRegularExpressionValidator, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QRegularExpressionValidator_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -7488,9 +9064,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QRegularExpressionValidator, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QRegularExpressionValidator, callback: *const fn (QRegularExpressionValidator, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QRegularExpressionValidator, callback: *const fn (QRegularExpressionValidator, [*:0]const u8) callconv(.c) i32) void {
         qtc.QRegularExpressionValidator_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -7504,14 +9084,14 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QRegularExpressionValidator, signal: anytype) bool {
+    pub fn isSignalConnected(self: QRegularExpressionValidator, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QRegularExpressionValidator_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -7525,10 +9105,14 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QRegularExpressionValidator, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QRegularExpressionValidator, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QRegularExpressionValidator_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -7542,9 +9126,13 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QRegularExpressionValidator, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QRegularExpressionValidator, callback: *const fn (QRegularExpressionValidator, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QRegularExpressionValidator, callback: *const fn (QRegularExpressionValidator, QMetaMethod) callconv(.c) bool) void {
         qtc.QRegularExpressionValidator_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -7558,23 +9146,23 @@ pub const QRegularExpressionValidator = extern struct {
     ///
     /// ` callback: *const fn (self: QRegularExpressionValidator, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QRegularExpressionValidator, callback: *const fn (QRegularExpressionValidator, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QRegularExpressionValidator, callback: *const fn (QRegularExpressionValidator, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qregularexpressionvalidator.html#dtor.QRegularExpressionValidator)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QRegularExpressionValidator `
     ///
-    pub fn Delete(self: QRegularExpressionValidator) void {
+    pub fn delete(self: QRegularExpressionValidator) void {
         qtc.QRegularExpressionValidator_Delete(@ptrCast(self.ptr));
     }
 };

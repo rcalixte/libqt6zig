@@ -16,32 +16,48 @@ pub const QFutureInterfaceBase = extern struct {
 
     pub const _is_QFutureInterfaceBase = {};
 
-    /// New constructs a new QFutureInterfaceBase object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QFutureInterfaceBase {
+    pub const New = new;
+
+    /// Allocate a new QFutureInterfaceBase object in C++ memory
+    ///
+    pub fn new() QFutureInterfaceBase {
         return .{ .ptr = qtc.QFutureInterfaceBase_new() };
     }
 
-    /// New2 constructs a new QFutureInterfaceBase object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QFutureInterfaceBase object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QFutureInterfaceBase `
     ///
-    pub fn New2(other: anytype) QFutureInterfaceBase {
+    pub fn new2(other: anytype) QFutureInterfaceBase {
         comptime _ = @TypeOf(other)._is_QFutureInterfaceBase;
         return .{ .ptr = qtc.QFutureInterfaceBase_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QFutureInterfaceBase object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QFutureInterfaceBase object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` initialState: qfutureinterface_enums.State `
     ///
-    pub fn New3(initialState: i32) QFutureInterfaceBase {
+    pub fn new3(initialState: i32) QFutureInterfaceBase {
         return .{ .ptr = qtc.QFutureInterfaceBase_new3(@bitCast(initialState)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#operator-eq)
     ///
@@ -51,10 +67,14 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` other: QFutureInterfaceBase `
     ///
-    pub fn OperatorAssign(self: QFutureInterfaceBase, other: anytype) void {
+    pub fn operatorAssign(self: QFutureInterfaceBase, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QFutureInterfaceBase;
         qtc.QFutureInterfaceBase_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `reportStarted` instead
+    ///
+    pub const ReportStarted = reportStarted;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#reportStarted)
     ///
@@ -62,9 +82,13 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` self: QFutureInterfaceBase `
     ///
-    pub fn ReportStarted(self: QFutureInterfaceBase) void {
+    pub fn reportStarted(self: QFutureInterfaceBase) void {
         qtc.QFutureInterfaceBase_ReportStarted(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `reportFinished` instead
+    ///
+    pub const ReportFinished = reportFinished;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#reportFinished)
     ///
@@ -72,9 +96,13 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` self: QFutureInterfaceBase `
     ///
-    pub fn ReportFinished(self: QFutureInterfaceBase) void {
+    pub fn reportFinished(self: QFutureInterfaceBase) void {
         qtc.QFutureInterfaceBase_ReportFinished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `reportCanceled` instead
+    ///
+    pub const ReportCanceled = reportCanceled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#reportCanceled)
     ///
@@ -82,9 +110,13 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` self: QFutureInterfaceBase `
     ///
-    pub fn ReportCanceled(self: QFutureInterfaceBase) void {
+    pub fn reportCanceled(self: QFutureInterfaceBase) void {
         qtc.QFutureInterfaceBase_ReportCanceled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `reportResultsReady` instead
+    ///
+    pub const ReportResultsReady = reportResultsReady;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#reportResultsReady)
     ///
@@ -96,9 +128,13 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` endIndex: i32 `
     ///
-    pub fn ReportResultsReady(self: QFutureInterfaceBase, beginIndex: i32, endIndex: i32) void {
+    pub fn reportResultsReady(self: QFutureInterfaceBase, beginIndex: i32, endIndex: i32) void {
         qtc.QFutureInterfaceBase_ReportResultsReady(@ptrCast(self.ptr), @bitCast(beginIndex), @bitCast(endIndex));
     }
+
+    /// ### DEPRECATED: Use `setRunnable` instead
+    ///
+    pub const SetRunnable = setRunnable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#setRunnable)
     ///
@@ -108,10 +144,14 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` runnable: QRunnable `
     ///
-    pub fn SetRunnable(self: QFutureInterfaceBase, runnable: anytype) void {
+    pub fn setRunnable(self: QFutureInterfaceBase, runnable: anytype) void {
         comptime _ = @TypeOf(runnable)._is_QRunnable;
         qtc.QFutureInterfaceBase_SetRunnable(@ptrCast(self.ptr), @ptrCast(runnable.ptr));
     }
+
+    /// ### DEPRECATED: Use `setThreadPool` instead
+    ///
+    pub const SetThreadPool = setThreadPool;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#setThreadPool)
     ///
@@ -121,10 +161,14 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` pool: QThreadPool `
     ///
-    pub fn SetThreadPool(self: QFutureInterfaceBase, pool: anytype) void {
+    pub fn setThreadPool(self: QFutureInterfaceBase, pool: anytype) void {
         comptime _ = @TypeOf(pool)._is_QThreadPool;
         qtc.QFutureInterfaceBase_SetThreadPool(@ptrCast(self.ptr), @ptrCast(pool.ptr));
     }
+
+    /// ### DEPRECATED: Use `threadPool` instead
+    ///
+    pub const ThreadPool = threadPool;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#threadPool)
     ///
@@ -132,9 +176,13 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` self: QFutureInterfaceBase `
     ///
-    pub fn ThreadPool(self: QFutureInterfaceBase) QThreadPool {
+    pub fn threadPool(self: QFutureInterfaceBase) QThreadPool {
         return .{ .ptr = qtc.QFutureInterfaceBase_ThreadPool(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFilterMode` instead
+    ///
+    pub const SetFilterMode = setFilterMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#setFilterMode)
     ///
@@ -144,9 +192,13 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetFilterMode(self: QFutureInterfaceBase, enable: bool) void {
+    pub fn setFilterMode(self: QFutureInterfaceBase, enable: bool) void {
         qtc.QFutureInterfaceBase_SetFilterMode(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `setProgressRange` instead
+    ///
+    pub const SetProgressRange = setProgressRange;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#setProgressRange)
     ///
@@ -158,9 +210,13 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` maximum: i32 `
     ///
-    pub fn SetProgressRange(self: QFutureInterfaceBase, minimum: i32, maximum: i32) void {
+    pub fn setProgressRange(self: QFutureInterfaceBase, minimum: i32, maximum: i32) void {
         qtc.QFutureInterfaceBase_SetProgressRange(@ptrCast(self.ptr), @bitCast(minimum), @bitCast(maximum));
     }
+
+    /// ### DEPRECATED: Use `progressMinimum` instead
+    ///
+    pub const ProgressMinimum = progressMinimum;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#progressMinimum)
     ///
@@ -168,9 +224,13 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` self: QFutureInterfaceBase `
     ///
-    pub fn ProgressMinimum(self: QFutureInterfaceBase) i32 {
+    pub fn progressMinimum(self: QFutureInterfaceBase) i32 {
         return qtc.QFutureInterfaceBase_ProgressMinimum(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `progressMaximum` instead
+    ///
+    pub const ProgressMaximum = progressMaximum;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#progressMaximum)
     ///
@@ -178,9 +238,13 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` self: QFutureInterfaceBase `
     ///
-    pub fn ProgressMaximum(self: QFutureInterfaceBase) i32 {
+    pub fn progressMaximum(self: QFutureInterfaceBase) i32 {
         return qtc.QFutureInterfaceBase_ProgressMaximum(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isProgressUpdateNeeded` instead
+    ///
+    pub const IsProgressUpdateNeeded = isProgressUpdateNeeded;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#isProgressUpdateNeeded)
     ///
@@ -188,9 +252,13 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` self: QFutureInterfaceBase `
     ///
-    pub fn IsProgressUpdateNeeded(self: QFutureInterfaceBase) bool {
+    pub fn isProgressUpdateNeeded(self: QFutureInterfaceBase) bool {
         return qtc.QFutureInterfaceBase_IsProgressUpdateNeeded(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProgressValue` instead
+    ///
+    pub const SetProgressValue = setProgressValue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#setProgressValue)
     ///
@@ -198,11 +266,15 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` self: QFutureInterfaceBase `
     ///
-    /// ` progressValue: i32 `
+    /// ` _progressValue: i32 `
     ///
-    pub fn SetProgressValue(self: QFutureInterfaceBase, progressValue: i32) void {
-        qtc.QFutureInterfaceBase_SetProgressValue(@ptrCast(self.ptr), @bitCast(progressValue));
+    pub fn setProgressValue(self: QFutureInterfaceBase, _progressValue: i32) void {
+        qtc.QFutureInterfaceBase_SetProgressValue(@ptrCast(self.ptr), @bitCast(_progressValue));
     }
+
+    /// ### DEPRECATED: Use `progressValue` instead
+    ///
+    pub const ProgressValue = progressValue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#progressValue)
     ///
@@ -210,9 +282,13 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` self: QFutureInterfaceBase `
     ///
-    pub fn ProgressValue(self: QFutureInterfaceBase) i32 {
+    pub fn progressValue(self: QFutureInterfaceBase) i32 {
         return qtc.QFutureInterfaceBase_ProgressValue(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProgressValueAndText` instead
+    ///
+    pub const SetProgressValueAndText = setProgressValueAndText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#setProgressValueAndText)
     ///
@@ -220,17 +296,21 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` self: QFutureInterfaceBase `
     ///
-    /// ` progressValue: i32 `
+    /// ` _progressValue: i32 `
     ///
-    /// ` progressText: []const u8 `
+    /// ` _progressText: []const u8 `
     ///
-    pub fn SetProgressValueAndText(self: QFutureInterfaceBase, progressValue: i32, progressText: []const u8) void {
+    pub fn setProgressValueAndText(self: QFutureInterfaceBase, _progressValue: i32, _progressText: []const u8) void {
         const progressText_str = qtc.libqt_string{
-            .len = progressText.len,
-            .data = progressText.ptr,
+            .len = _progressText.len,
+            .data = _progressText.ptr,
         };
-        qtc.QFutureInterfaceBase_SetProgressValueAndText(@ptrCast(self.ptr), @bitCast(progressValue), progressText_str);
+        qtc.QFutureInterfaceBase_SetProgressValueAndText(@ptrCast(self.ptr), @bitCast(_progressValue), progressText_str);
     }
+
+    /// ### DEPRECATED: Use `progressText` instead
+    ///
+    pub const ProgressText = progressText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#progressText)
     ///
@@ -240,13 +320,17 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ProgressText(self: QFutureInterfaceBase, allocator: std.mem.Allocator) []const u8 {
+    pub fn progressText(self: QFutureInterfaceBase, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QFutureInterfaceBase_ProgressText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFutureInterfaceBase.ProgressText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFutureInterfaceBase.progressText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setExpectedResultCount` instead
+    ///
+    pub const SetExpectedResultCount = setExpectedResultCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#setExpectedResultCount)
     ///
@@ -254,11 +338,15 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` self: QFutureInterfaceBase `
     ///
-    /// ` resultCount: i32 `
+    /// ` _resultCount: i32 `
     ///
-    pub fn SetExpectedResultCount(self: QFutureInterfaceBase, resultCount: i32) void {
-        qtc.QFutureInterfaceBase_SetExpectedResultCount(@ptrCast(self.ptr), @bitCast(resultCount));
+    pub fn setExpectedResultCount(self: QFutureInterfaceBase, _resultCount: i32) void {
+        qtc.QFutureInterfaceBase_SetExpectedResultCount(@ptrCast(self.ptr), @bitCast(_resultCount));
     }
+
+    /// ### DEPRECATED: Use `expectedResultCount` instead
+    ///
+    pub const ExpectedResultCount = expectedResultCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#expectedResultCount)
     ///
@@ -266,9 +354,13 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` self: QFutureInterfaceBase `
     ///
-    pub fn ExpectedResultCount(self: QFutureInterfaceBase) i32 {
+    pub fn expectedResultCount(self: QFutureInterfaceBase) i32 {
         return qtc.QFutureInterfaceBase_ExpectedResultCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `resultCount` instead
+    ///
+    pub const ResultCount = resultCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#resultCount)
     ///
@@ -276,9 +368,13 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` self: QFutureInterfaceBase `
     ///
-    pub fn ResultCount(self: QFutureInterfaceBase) i32 {
+    pub fn resultCount(self: QFutureInterfaceBase) i32 {
         return qtc.QFutureInterfaceBase_ResultCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `queryState` instead
+    ///
+    pub const QueryState = queryState;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#queryState)
     ///
@@ -288,9 +384,13 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` state: qfutureinterface_enums.State `
     ///
-    pub fn QueryState(self: QFutureInterfaceBase, state: i32) bool {
+    pub fn queryState(self: QFutureInterfaceBase, state: i32) bool {
         return qtc.QFutureInterfaceBase_QueryState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `isRunning` instead
+    ///
+    pub const IsRunning = isRunning;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#isRunning)
     ///
@@ -298,9 +398,13 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` self: QFutureInterfaceBase `
     ///
-    pub fn IsRunning(self: QFutureInterfaceBase) bool {
+    pub fn isRunning(self: QFutureInterfaceBase) bool {
         return qtc.QFutureInterfaceBase_IsRunning(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isStarted` instead
+    ///
+    pub const IsStarted = isStarted;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#isStarted)
     ///
@@ -308,9 +412,13 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` self: QFutureInterfaceBase `
     ///
-    pub fn IsStarted(self: QFutureInterfaceBase) bool {
+    pub fn isStarted(self: QFutureInterfaceBase) bool {
         return qtc.QFutureInterfaceBase_IsStarted(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isCanceled` instead
+    ///
+    pub const IsCanceled = isCanceled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#isCanceled)
     ///
@@ -318,9 +426,13 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` self: QFutureInterfaceBase `
     ///
-    pub fn IsCanceled(self: QFutureInterfaceBase) bool {
+    pub fn isCanceled(self: QFutureInterfaceBase) bool {
         return qtc.QFutureInterfaceBase_IsCanceled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFinished` instead
+    ///
+    pub const IsFinished = isFinished;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#isFinished)
     ///
@@ -328,9 +440,13 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` self: QFutureInterfaceBase `
     ///
-    pub fn IsFinished(self: QFutureInterfaceBase) bool {
+    pub fn isFinished(self: QFutureInterfaceBase) bool {
         return qtc.QFutureInterfaceBase_IsFinished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isPaused` instead
+    ///
+    pub const IsPaused = isPaused;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#isPaused)
     ///
@@ -338,9 +454,13 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` self: QFutureInterfaceBase `
     ///
-    pub fn IsPaused(self: QFutureInterfaceBase) bool {
+    pub fn isPaused(self: QFutureInterfaceBase) bool {
         return qtc.QFutureInterfaceBase_IsPaused(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPaused` instead
+    ///
+    pub const SetPaused = setPaused;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#setPaused)
     ///
@@ -350,9 +470,13 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` paused: bool `
     ///
-    pub fn SetPaused(self: QFutureInterfaceBase, paused: bool) void {
+    pub fn setPaused(self: QFutureInterfaceBase, paused: bool) void {
         qtc.QFutureInterfaceBase_SetPaused(@ptrCast(self.ptr), paused);
     }
+
+    /// ### DEPRECATED: Use `togglePaused` instead
+    ///
+    pub const TogglePaused = togglePaused;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#togglePaused)
     ///
@@ -360,9 +484,13 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` self: QFutureInterfaceBase `
     ///
-    pub fn TogglePaused(self: QFutureInterfaceBase) void {
+    pub fn togglePaused(self: QFutureInterfaceBase) void {
         qtc.QFutureInterfaceBase_TogglePaused(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSuspending` instead
+    ///
+    pub const IsSuspending = isSuspending;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#isSuspending)
     ///
@@ -370,9 +498,13 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` self: QFutureInterfaceBase `
     ///
-    pub fn IsSuspending(self: QFutureInterfaceBase) bool {
+    pub fn isSuspending(self: QFutureInterfaceBase) bool {
         return qtc.QFutureInterfaceBase_IsSuspending(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSuspended` instead
+    ///
+    pub const IsSuspended = isSuspended;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#isSuspended)
     ///
@@ -380,9 +512,13 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` self: QFutureInterfaceBase `
     ///
-    pub fn IsSuspended(self: QFutureInterfaceBase) bool {
+    pub fn isSuspended(self: QFutureInterfaceBase) bool {
         return qtc.QFutureInterfaceBase_IsSuspended(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isThrottled` instead
+    ///
+    pub const IsThrottled = isThrottled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#isThrottled)
     ///
@@ -390,9 +526,13 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` self: QFutureInterfaceBase `
     ///
-    pub fn IsThrottled(self: QFutureInterfaceBase) bool {
+    pub fn isThrottled(self: QFutureInterfaceBase) bool {
         return qtc.QFutureInterfaceBase_IsThrottled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isResultReadyAt` instead
+    ///
+    pub const IsResultReadyAt = isResultReadyAt;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#isResultReadyAt)
     ///
@@ -402,9 +542,13 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn IsResultReadyAt(self: QFutureInterfaceBase, index: i32) bool {
+    pub fn isResultReadyAt(self: QFutureInterfaceBase, index: i32) bool {
         return qtc.QFutureInterfaceBase_IsResultReadyAt(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#isValid)
     ///
@@ -412,9 +556,13 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` self: QFutureInterfaceBase `
     ///
-    pub fn IsValid(self: QFutureInterfaceBase) bool {
+    pub fn isValid(self: QFutureInterfaceBase) bool {
         return qtc.QFutureInterfaceBase_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `loadState` instead
+    ///
+    pub const LoadState = loadState;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#loadState)
     ///
@@ -422,9 +570,13 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` self: QFutureInterfaceBase `
     ///
-    pub fn LoadState(self: QFutureInterfaceBase) i32 {
+    pub fn loadState(self: QFutureInterfaceBase) i32 {
         return qtc.QFutureInterfaceBase_LoadState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `cancel` instead
+    ///
+    pub const Cancel = cancel;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#cancel)
     ///
@@ -432,9 +584,13 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` self: QFutureInterfaceBase `
     ///
-    pub fn Cancel(self: QFutureInterfaceBase) void {
+    pub fn cancel(self: QFutureInterfaceBase) void {
         qtc.QFutureInterfaceBase_Cancel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `cancelAndFinish` instead
+    ///
+    pub const CancelAndFinish = cancelAndFinish;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#cancelAndFinish)
     ///
@@ -442,9 +598,13 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` self: QFutureInterfaceBase `
     ///
-    pub fn CancelAndFinish(self: QFutureInterfaceBase) void {
+    pub fn cancelAndFinish(self: QFutureInterfaceBase) void {
         qtc.QFutureInterfaceBase_CancelAndFinish(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSuspended` instead
+    ///
+    pub const SetSuspended = setSuspended;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#setSuspended)
     ///
@@ -454,9 +614,13 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` suspendVal: bool `
     ///
-    pub fn SetSuspended(self: QFutureInterfaceBase, suspendVal: bool) void {
+    pub fn setSuspended(self: QFutureInterfaceBase, suspendVal: bool) void {
         qtc.QFutureInterfaceBase_SetSuspended(@ptrCast(self.ptr), suspendVal);
     }
+
+    /// ### DEPRECATED: Use `toggleSuspended` instead
+    ///
+    pub const ToggleSuspended = toggleSuspended;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#toggleSuspended)
     ///
@@ -464,9 +628,13 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` self: QFutureInterfaceBase `
     ///
-    pub fn ToggleSuspended(self: QFutureInterfaceBase) void {
+    pub fn toggleSuspended(self: QFutureInterfaceBase) void {
         qtc.QFutureInterfaceBase_ToggleSuspended(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `reportSuspended` instead
+    ///
+    pub const ReportSuspended = reportSuspended;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#reportSuspended)
     ///
@@ -474,9 +642,13 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` self: QFutureInterfaceBase `
     ///
-    pub fn ReportSuspended(self: QFutureInterfaceBase) void {
+    pub fn reportSuspended(self: QFutureInterfaceBase) void {
         qtc.QFutureInterfaceBase_ReportSuspended(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setThrottled` instead
+    ///
+    pub const SetThrottled = setThrottled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#setThrottled)
     ///
@@ -486,9 +658,13 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetThrottled(self: QFutureInterfaceBase, enable: bool) void {
+    pub fn setThrottled(self: QFutureInterfaceBase, enable: bool) void {
         qtc.QFutureInterfaceBase_SetThrottled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `waitForFinished` instead
+    ///
+    pub const WaitForFinished = waitForFinished;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#waitForFinished)
     ///
@@ -496,9 +672,13 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` self: QFutureInterfaceBase `
     ///
-    pub fn WaitForFinished(self: QFutureInterfaceBase) void {
+    pub fn waitForFinished(self: QFutureInterfaceBase) void {
         qtc.QFutureInterfaceBase_WaitForFinished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `waitForNextResult` instead
+    ///
+    pub const WaitForNextResult = waitForNextResult;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#waitForNextResult)
     ///
@@ -506,9 +686,13 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` self: QFutureInterfaceBase `
     ///
-    pub fn WaitForNextResult(self: QFutureInterfaceBase) bool {
+    pub fn waitForNextResult(self: QFutureInterfaceBase) bool {
         return qtc.QFutureInterfaceBase_WaitForNextResult(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `waitForResult` instead
+    ///
+    pub const WaitForResult = waitForResult;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#waitForResult)
     ///
@@ -518,9 +702,13 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` resultIndex: i32 `
     ///
-    pub fn WaitForResult(self: QFutureInterfaceBase, resultIndex: i32) void {
+    pub fn waitForResult(self: QFutureInterfaceBase, resultIndex: i32) void {
         qtc.QFutureInterfaceBase_WaitForResult(@ptrCast(self.ptr), @bitCast(resultIndex));
     }
+
+    /// ### DEPRECATED: Use `waitForResume` instead
+    ///
+    pub const WaitForResume = waitForResume;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#waitForResume)
     ///
@@ -528,9 +716,13 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` self: QFutureInterfaceBase `
     ///
-    pub fn WaitForResume(self: QFutureInterfaceBase) void {
+    pub fn waitForResume(self: QFutureInterfaceBase) void {
         qtc.QFutureInterfaceBase_WaitForResume(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `suspendIfRequested` instead
+    ///
+    pub const SuspendIfRequested = suspendIfRequested;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#suspendIfRequested)
     ///
@@ -538,9 +730,13 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` self: QFutureInterfaceBase `
     ///
-    pub fn SuspendIfRequested(self: QFutureInterfaceBase) void {
+    pub fn suspendIfRequested(self: QFutureInterfaceBase) void {
         qtc.QFutureInterfaceBase_SuspendIfRequested(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `mutex` instead
+    ///
+    pub const Mutex = mutex;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#mutex)
     ///
@@ -548,9 +744,13 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` self: QFutureInterfaceBase `
     ///
-    pub fn Mutex(self: QFutureInterfaceBase) QMutex {
+    pub fn mutex(self: QFutureInterfaceBase) QMutex {
         return .{ .ptr = qtc.QFutureInterfaceBase_Mutex(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `hasException` instead
+    ///
+    pub const HasException = hasException;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#hasException)
     ///
@@ -558,9 +758,13 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` self: QFutureInterfaceBase `
     ///
-    pub fn HasException(self: QFutureInterfaceBase) bool {
+    pub fn hasException(self: QFutureInterfaceBase) bool {
         return qtc.QFutureInterfaceBase_HasException(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#operator-eq-eq)
     ///
@@ -570,10 +774,14 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` other: QFutureInterfaceBase `
     ///
-    pub fn OperatorEqual(self: QFutureInterfaceBase, other: anytype) bool {
+    pub fn operatorEqual(self: QFutureInterfaceBase, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QFutureInterfaceBase;
         return qtc.QFutureInterfaceBase_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#operator-not-eq)
     ///
@@ -583,10 +791,14 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` other: QFutureInterfaceBase `
     ///
-    pub fn OperatorNotEqual(self: QFutureInterfaceBase, other: anytype) bool {
+    pub fn operatorNotEqual(self: QFutureInterfaceBase, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QFutureInterfaceBase;
         return qtc.QFutureInterfaceBase_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#swap)
     ///
@@ -596,10 +808,14 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` other: QFutureInterfaceBase `
     ///
-    pub fn Swap(self: QFutureInterfaceBase, other: anytype) void {
+    pub fn swap(self: QFutureInterfaceBase, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QFutureInterfaceBase;
         qtc.QFutureInterfaceBase_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `isChainCanceled` instead
+    ///
+    pub const IsChainCanceled = isChainCanceled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#isChainCanceled)
     ///
@@ -607,23 +823,23 @@ pub const QFutureInterfaceBase = extern struct {
     ///
     /// ` self: QFutureInterfaceBase `
     ///
-    pub fn IsChainCanceled(self: QFutureInterfaceBase) bool {
+    pub fn isChainCanceled(self: QFutureInterfaceBase) bool {
         return qtc.QFutureInterfaceBase_IsChainCanceled(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#dtor.QFutureInterfaceBase)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QFutureInterfaceBase `
     ///
-    pub fn Delete(self: QFutureInterfaceBase) void {
+    pub fn delete(self: QFutureInterfaceBase) void {
         qtc.QFutureInterfaceBase_Delete(@ptrCast(self.ptr));
     }
 };

@@ -86,45 +86,65 @@ pub const QTermWidget = extern struct {
     pub const _is_QPaintDevice = {};
     pub const _is_QTermWidgetInterface = {};
 
-    /// New constructs a new QTermWidget object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QTermWidget object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) QTermWidget {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QTermWidget_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) QTermWidget {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QTermWidget_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new QTermWidget object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QTermWidget object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` startnow: i32 `
     ///
-    pub fn New2(startnow: i32) QTermWidget {
+    pub fn new2(startnow: i32) QTermWidget {
         return .{ .ptr = qtc.QTermWidget_new2(@bitCast(startnow)) };
     }
 
-    /// New3 constructs a new QTermWidget object.
+    /// ### DEPRECATED: Use `new3` instead
     ///
-    pub fn New3() QTermWidget {
+    pub const New3 = new3;
+
+    /// Allocate a new QTermWidget object in C++ memory
+    ///
+    pub fn new3() QTermWidget {
         return .{ .ptr = qtc.QTermWidget_new3() };
     }
 
-    /// New4 constructs a new QTermWidget object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QTermWidget object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` startnow: i32 `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New4(startnow: i32, parent: anytype) QTermWidget {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QTermWidget_new4(@bitCast(startnow), @ptrCast(parent.ptr)) };
+    pub fn new4(startnow: i32, _parent: anytype) QTermWidget {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QTermWidget_new4(@bitCast(startnow), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -132,9 +152,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn MetaObject(self: QTermWidget) QMetaObject {
+    pub fn metaObject(self: QTermWidget) QMetaObject {
         return .{ .ptr = qtc.QTermWidget_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -146,13 +170,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QTermWidget, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QTermWidget, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QTermWidget_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -162,9 +186,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn SuperMetaObject(self: QTermWidget) QMetaObject {
+    pub fn superMetaObject(self: QTermWidget) QMetaObject {
         return .{ .ptr = qtc.QTermWidget_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -172,10 +200,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QTermWidget, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QTermWidget, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QTermWidget_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -185,13 +217,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QTermWidget, callback: *const fn (QTermWidget, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QTermWidget, callback: *const fn (QTermWidget, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QTermWidget_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -201,10 +233,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QTermWidget, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QTermWidget, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QTermWidget_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -216,9 +252,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QTermWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QTermWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QTermWidget_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -228,13 +268,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QTermWidget, callback: *const fn (QTermWidget, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QTermWidget, callback: *const fn (QTermWidget, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QTermWidget_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -248,9 +288,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QTermWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QTermWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QTermWidget_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -260,14 +304,18 @@ pub const QTermWidget = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -275,9 +323,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn SizeHint(self: QTermWidget) QSize {
+    pub fn sizeHint(self: QTermWidget) QSize {
         return .{ .ptr = qtc.QTermWidget_SizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -291,13 +343,13 @@ pub const QTermWidget = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: QTermWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QTermWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.QTermWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -307,9 +359,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn SuperSizeHint(self: QTermWidget) QSize {
+    pub fn superSizeHint(self: QTermWidget) QSize {
         return .{ .ptr = qtc.QTermWidget_SuperSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setTerminalSizeHint` instead
+    ///
+    pub const SetTerminalSizeHint = setTerminalSizeHint;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -319,9 +375,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetTerminalSizeHint(self: QTermWidget, enabled: bool) void {
+    pub fn setTerminalSizeHint(self: QTermWidget, enabled: bool) void {
         qtc.QTermWidget_SetTerminalSizeHint(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `onSetTerminalSizeHint` instead
+    ///
+    pub const OnSetTerminalSizeHint = onSetTerminalSizeHint;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -333,13 +393,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, enabled: bool) callconv(.c) void `
     ///
-    pub fn OnSetTerminalSizeHint(self: QTermWidget, callback: *const fn (QTermWidget, bool) callconv(.c) void) void {
+    pub fn onSetTerminalSizeHint(self: QTermWidget, callback: *const fn (QTermWidget, bool) callconv(.c) void) void {
         qtc.QTermWidget_OnSetTerminalSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetTerminalSizeHint` instead
+    /// ### DEPRECATED: Use `superSetTerminalSizeHint` instead
     ///
-    pub const QBaseSetTerminalSizeHint = SuperSetTerminalSizeHint;
+    pub const SuperSetTerminalSizeHint = superSetTerminalSizeHint;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -351,9 +411,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SuperSetTerminalSizeHint(self: QTermWidget, enabled: bool) void {
+    pub fn superSetTerminalSizeHint(self: QTermWidget, enabled: bool) void {
         qtc.QTermWidget_SuperSetTerminalSizeHint(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `terminalSizeHint` instead
+    ///
+    pub const TerminalSizeHint = terminalSizeHint;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -361,9 +425,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn TerminalSizeHint(self: QTermWidget) bool {
+    pub fn terminalSizeHint(self: QTermWidget) bool {
         return qtc.QTermWidget_TerminalSizeHint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTerminalSizeHint` instead
+    ///
+    pub const OnTerminalSizeHint = onTerminalSizeHint;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -375,13 +443,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnTerminalSizeHint(self: QTermWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onTerminalSizeHint(self: QTermWidget, callback: *const fn () callconv(.c) bool) void {
         qtc.QTermWidget_OnTerminalSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperTerminalSizeHint` instead
+    /// ### DEPRECATED: Use `superTerminalSizeHint` instead
     ///
-    pub const QBaseTerminalSizeHint = SuperTerminalSizeHint;
+    pub const SuperTerminalSizeHint = superTerminalSizeHint;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -391,20 +459,28 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn SuperTerminalSizeHint(self: QTermWidget) bool {
+    pub fn superTerminalSizeHint(self: QTermWidget) bool {
         return qtc.QTermWidget_SuperTerminalSizeHint(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `startShellProgram` instead
+    ///
+    pub const StartShellProgram = startShellProgram;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn StartShellProgram(self: QTermWidget) void {
+    pub fn startShellProgram(self: QTermWidget) void {
         qtc.QTermWidget_StartShellProgram(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onStartShellProgram` instead
+    ///
+    pub const OnStartShellProgram = onStartShellProgram;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
@@ -415,13 +491,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnStartShellProgram(self: QTermWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onStartShellProgram(self: QTermWidget, callback: *const fn () callconv(.c) void) void {
         qtc.QTermWidget_OnStartShellProgram(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperStartShellProgram` instead
+    /// ### DEPRECATED: Use `superStartShellProgram` instead
     ///
-    pub const QBaseStartShellProgram = SuperStartShellProgram;
+    pub const SuperStartShellProgram = superStartShellProgram;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -431,9 +507,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn SuperStartShellProgram(self: QTermWidget) void {
+    pub fn superStartShellProgram(self: QTermWidget) void {
         qtc.QTermWidget_SuperStartShellProgram(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTerminalTeletype` instead
+    ///
+    pub const StartTerminalTeletype = startTerminalTeletype;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -441,9 +521,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn StartTerminalTeletype(self: QTermWidget) void {
+    pub fn startTerminalTeletype(self: QTermWidget) void {
         qtc.QTermWidget_StartTerminalTeletype(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onStartTerminalTeletype` instead
+    ///
+    pub const OnStartTerminalTeletype = onStartTerminalTeletype;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -455,13 +539,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnStartTerminalTeletype(self: QTermWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onStartTerminalTeletype(self: QTermWidget, callback: *const fn () callconv(.c) void) void {
         qtc.QTermWidget_OnStartTerminalTeletype(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperStartTerminalTeletype` instead
+    /// ### DEPRECATED: Use `superStartTerminalTeletype` instead
     ///
-    pub const QBaseStartTerminalTeletype = SuperStartTerminalTeletype;
+    pub const SuperStartTerminalTeletype = superStartTerminalTeletype;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -471,20 +555,28 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn SuperStartTerminalTeletype(self: QTermWidget) void {
+    pub fn superStartTerminalTeletype(self: QTermWidget) void {
         qtc.QTermWidget_SuperStartTerminalTeletype(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `getShellPID` instead
+    ///
+    pub const GetShellPID = getShellPID;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn GetShellPID(self: QTermWidget) i32 {
+    pub fn getShellPID(self: QTermWidget) i32 {
         return qtc.QTermWidget_GetShellPID(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onGetShellPID` instead
+    ///
+    pub const OnGetShellPID = onGetShellPID;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
@@ -495,13 +587,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnGetShellPID(self: QTermWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onGetShellPID(self: QTermWidget, callback: *const fn () callconv(.c) i32) void {
         qtc.QTermWidget_OnGetShellPID(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperGetShellPID` instead
+    /// ### DEPRECATED: Use `superGetShellPID` instead
     ///
-    pub const QBaseGetShellPID = SuperGetShellPID;
+    pub const SuperGetShellPID = superGetShellPID;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -511,9 +603,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn SuperGetShellPID(self: QTermWidget) i32 {
+    pub fn superGetShellPID(self: QTermWidget) i32 {
         return qtc.QTermWidget_SuperGetShellPID(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `getForegroundProcessId` instead
+    ///
+    pub const GetForegroundProcessId = getForegroundProcessId;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -521,9 +617,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn GetForegroundProcessId(self: QTermWidget) i32 {
+    pub fn getForegroundProcessId(self: QTermWidget) i32 {
         return qtc.QTermWidget_GetForegroundProcessId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onGetForegroundProcessId` instead
+    ///
+    pub const OnGetForegroundProcessId = onGetForegroundProcessId;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -535,13 +635,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnGetForegroundProcessId(self: QTermWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onGetForegroundProcessId(self: QTermWidget, callback: *const fn () callconv(.c) i32) void {
         qtc.QTermWidget_OnGetForegroundProcessId(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperGetForegroundProcessId` instead
+    /// ### DEPRECATED: Use `superGetForegroundProcessId` instead
     ///
-    pub const QBaseGetForegroundProcessId = SuperGetForegroundProcessId;
+    pub const SuperGetForegroundProcessId = superGetForegroundProcessId;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -551,9 +651,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn SuperGetForegroundProcessId(self: QTermWidget) i32 {
+    pub fn superGetForegroundProcessId(self: QTermWidget) i32 {
         return qtc.QTermWidget_SuperGetForegroundProcessId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `changeDir` instead
+    ///
+    pub const ChangeDir = changeDir;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -563,13 +667,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` dir: []const u8 `
     ///
-    pub fn ChangeDir(self: QTermWidget, dir: []const u8) void {
+    pub fn changeDir(self: QTermWidget, dir: []const u8) void {
         const dir_str = qtc.libqt_string{
             .len = dir.len,
             .data = dir.ptr,
         };
         qtc.QTermWidget_ChangeDir(@ptrCast(self.ptr), dir_str);
     }
+
+    /// ### DEPRECATED: Use `onChangeDir` instead
+    ///
+    pub const OnChangeDir = onChangeDir;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -581,13 +689,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, dir: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnChangeDir(self: QTermWidget, callback: *const fn (QTermWidget, [*:0]const u8) callconv(.c) void) void {
+    pub fn onChangeDir(self: QTermWidget, callback: *const fn (QTermWidget, [*:0]const u8) callconv(.c) void) void {
         qtc.QTermWidget_OnChangeDir(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeDir` instead
+    /// ### DEPRECATED: Use `superChangeDir` instead
     ///
-    pub const QBaseChangeDir = SuperChangeDir;
+    pub const SuperChangeDir = superChangeDir;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -599,7 +707,7 @@ pub const QTermWidget = extern struct {
     ///
     /// ` dir: []const u8 `
     ///
-    pub fn SuperChangeDir(self: QTermWidget, dir: []const u8) void {
+    pub fn superChangeDir(self: QTermWidget, dir: []const u8) void {
         const dir_str = qtc.libqt_string{
             .len = dir.len,
             .data = dir.ptr,
@@ -607,18 +715,26 @@ pub const QTermWidget = extern struct {
         qtc.QTermWidget_SuperChangeDir(@ptrCast(self.ptr), dir_str);
     }
 
+    /// ### DEPRECATED: Use `setTerminalFont` instead
+    ///
+    pub const SetTerminalFont = setTerminalFont;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetTerminalFont(self: QTermWidget, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QTermWidget_SetTerminalFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setTerminalFont(self: QTermWidget, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QTermWidget_SetTerminalFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetTerminalFont` instead
+    ///
+    pub const OnSetTerminalFont = onSetTerminalFont;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -630,13 +746,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, font: QFont) callconv(.c) void `
     ///
-    pub fn OnSetTerminalFont(self: QTermWidget, callback: *const fn (QTermWidget, QFont) callconv(.c) void) void {
+    pub fn onSetTerminalFont(self: QTermWidget, callback: *const fn (QTermWidget, QFont) callconv(.c) void) void {
         qtc.QTermWidget_OnSetTerminalFont(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetTerminalFont` instead
+    /// ### DEPRECATED: Use `superSetTerminalFont` instead
     ///
-    pub const QBaseSetTerminalFont = SuperSetTerminalFont;
+    pub const SuperSetTerminalFont = superSetTerminalFont;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -646,12 +762,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SuperSetTerminalFont(self: QTermWidget, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QTermWidget_SuperSetTerminalFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn superSetTerminalFont(self: QTermWidget, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QTermWidget_SuperSetTerminalFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `getTerminalFont` instead
+    ///
+    pub const GetTerminalFont = getTerminalFont;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -659,9 +779,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn GetTerminalFont(self: QTermWidget) QFont {
+    pub fn getTerminalFont(self: QTermWidget) QFont {
         return .{ .ptr = qtc.QTermWidget_GetTerminalFont(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onGetTerminalFont` instead
+    ///
+    pub const OnGetTerminalFont = onGetTerminalFont;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -675,13 +799,13 @@ pub const QTermWidget = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnGetTerminalFont(self: QTermWidget, callback: *const fn () callconv(.c) QFont) void {
+    pub fn onGetTerminalFont(self: QTermWidget, callback: *const fn () callconv(.c) QFont) void {
         qtc.QTermWidget_OnGetTerminalFont(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperGetTerminalFont` instead
+    /// ### DEPRECATED: Use `superGetTerminalFont` instead
     ///
-    pub const QBaseGetTerminalFont = SuperGetTerminalFont;
+    pub const SuperGetTerminalFont = superGetTerminalFont;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -691,9 +815,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn SuperGetTerminalFont(self: QTermWidget) QFont {
+    pub fn superGetTerminalFont(self: QTermWidget) QFont {
         return .{ .ptr = qtc.QTermWidget_SuperGetTerminalFont(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setTerminalOpacity` instead
+    ///
+    pub const SetTerminalOpacity = setTerminalOpacity;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -703,9 +831,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetTerminalOpacity(self: QTermWidget, level: f64) void {
+    pub fn setTerminalOpacity(self: QTermWidget, level: f64) void {
         qtc.QTermWidget_SetTerminalOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `onSetTerminalOpacity` instead
+    ///
+    pub const OnSetTerminalOpacity = onSetTerminalOpacity;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -717,13 +849,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, level: f64) callconv(.c) void `
     ///
-    pub fn OnSetTerminalOpacity(self: QTermWidget, callback: *const fn (QTermWidget, f64) callconv(.c) void) void {
+    pub fn onSetTerminalOpacity(self: QTermWidget, callback: *const fn (QTermWidget, f64) callconv(.c) void) void {
         qtc.QTermWidget_OnSetTerminalOpacity(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetTerminalOpacity` instead
+    /// ### DEPRECATED: Use `superSetTerminalOpacity` instead
     ///
-    pub const QBaseSetTerminalOpacity = SuperSetTerminalOpacity;
+    pub const SuperSetTerminalOpacity = superSetTerminalOpacity;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -735,9 +867,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SuperSetTerminalOpacity(self: QTermWidget, level: f64) void {
+    pub fn superSetTerminalOpacity(self: QTermWidget, level: f64) void {
         qtc.QTermWidget_SuperSetTerminalOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `setTerminalBackgroundImage` instead
+    ///
+    pub const SetTerminalBackgroundImage = setTerminalBackgroundImage;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -747,13 +883,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` backgroundImage: []const u8 `
     ///
-    pub fn SetTerminalBackgroundImage(self: QTermWidget, backgroundImage: []const u8) void {
+    pub fn setTerminalBackgroundImage(self: QTermWidget, backgroundImage: []const u8) void {
         const backgroundImage_str = qtc.libqt_string{
             .len = backgroundImage.len,
             .data = backgroundImage.ptr,
         };
         qtc.QTermWidget_SetTerminalBackgroundImage(@ptrCast(self.ptr), backgroundImage_str);
     }
+
+    /// ### DEPRECATED: Use `onSetTerminalBackgroundImage` instead
+    ///
+    pub const OnSetTerminalBackgroundImage = onSetTerminalBackgroundImage;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -765,13 +905,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, backgroundImage: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetTerminalBackgroundImage(self: QTermWidget, callback: *const fn (QTermWidget, [*:0]const u8) callconv(.c) void) void {
+    pub fn onSetTerminalBackgroundImage(self: QTermWidget, callback: *const fn (QTermWidget, [*:0]const u8) callconv(.c) void) void {
         qtc.QTermWidget_OnSetTerminalBackgroundImage(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetTerminalBackgroundImage` instead
+    /// ### DEPRECATED: Use `superSetTerminalBackgroundImage` instead
     ///
-    pub const QBaseSetTerminalBackgroundImage = SuperSetTerminalBackgroundImage;
+    pub const SuperSetTerminalBackgroundImage = superSetTerminalBackgroundImage;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -783,13 +923,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` backgroundImage: []const u8 `
     ///
-    pub fn SuperSetTerminalBackgroundImage(self: QTermWidget, backgroundImage: []const u8) void {
+    pub fn superSetTerminalBackgroundImage(self: QTermWidget, backgroundImage: []const u8) void {
         const backgroundImage_str = qtc.libqt_string{
             .len = backgroundImage.len,
             .data = backgroundImage.ptr,
         };
         qtc.QTermWidget_SuperSetTerminalBackgroundImage(@ptrCast(self.ptr), backgroundImage_str);
     }
+
+    /// ### DEPRECATED: Use `setTerminalBackgroundMode` instead
+    ///
+    pub const SetTerminalBackgroundMode = setTerminalBackgroundMode;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -799,9 +943,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` mode: i32 `
     ///
-    pub fn SetTerminalBackgroundMode(self: QTermWidget, mode: i32) void {
+    pub fn setTerminalBackgroundMode(self: QTermWidget, mode: i32) void {
         qtc.QTermWidget_SetTerminalBackgroundMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `onSetTerminalBackgroundMode` instead
+    ///
+    pub const OnSetTerminalBackgroundMode = onSetTerminalBackgroundMode;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -813,13 +961,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, mode: i32) callconv(.c) void `
     ///
-    pub fn OnSetTerminalBackgroundMode(self: QTermWidget, callback: *const fn (QTermWidget, i32) callconv(.c) void) void {
+    pub fn onSetTerminalBackgroundMode(self: QTermWidget, callback: *const fn (QTermWidget, i32) callconv(.c) void) void {
         qtc.QTermWidget_OnSetTerminalBackgroundMode(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetTerminalBackgroundMode` instead
+    /// ### DEPRECATED: Use `superSetTerminalBackgroundMode` instead
     ///
-    pub const QBaseSetTerminalBackgroundMode = SuperSetTerminalBackgroundMode;
+    pub const SuperSetTerminalBackgroundMode = superSetTerminalBackgroundMode;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -831,9 +979,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` mode: i32 `
     ///
-    pub fn SuperSetTerminalBackgroundMode(self: QTermWidget, mode: i32) void {
+    pub fn superSetTerminalBackgroundMode(self: QTermWidget, mode: i32) void {
         qtc.QTermWidget_SuperSetTerminalBackgroundMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `setEnvironment` instead
+    ///
+    pub const SetEnvironment = setEnvironment;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -845,13 +997,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` environment: []const []const u8 `
     ///
-    pub fn SetEnvironment(self: QTermWidget, allocator: std.mem.Allocator, environment: []const []const u8) void {
-        const environment_arr = allocator.alloc(qtc.libqt_string, environment.len) catch @panic("QTermWidget.SetEnvironment: Memory allocation failed");
+    pub fn setEnvironment(self: QTermWidget, allocator: std.mem.Allocator, environment: []const []const u8) void {
+        const environment_arr = allocator.alloc(qtc.libqt_string, environment.len) catch @panic("QTermWidget.setEnvironment: Memory allocation failed");
         defer allocator.free(environment_arr);
-        for (environment, 0..environment.len) |item, i|
+        for (environment, 0..environment.len) |str_item, i|
             environment_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const environment_list = qtc.libqt_list{
             .len = environment.len,
@@ -859,6 +1011,10 @@ pub const QTermWidget = extern struct {
         };
         qtc.QTermWidget_SetEnvironment(@ptrCast(self.ptr), environment_list);
     }
+
+    /// ### DEPRECATED: Use `onSetEnvironment` instead
+    ///
+    pub const OnSetEnvironment = onSetEnvironment;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -870,13 +1026,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, environment: ?[*:null]?[*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetEnvironment(self: QTermWidget, callback: *const fn (QTermWidget, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
+    pub fn onSetEnvironment(self: QTermWidget, callback: *const fn (QTermWidget, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
         qtc.QTermWidget_OnSetEnvironment(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetEnvironment` instead
+    /// ### DEPRECATED: Use `superSetEnvironment` instead
     ///
-    pub const QBaseSetEnvironment = SuperSetEnvironment;
+    pub const SuperSetEnvironment = superSetEnvironment;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -890,13 +1046,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` environment: []const []const u8 `
     ///
-    pub fn SuperSetEnvironment(self: QTermWidget, allocator: std.mem.Allocator, environment: []const []const u8) void {
-        const environment_arr = allocator.alloc(qtc.libqt_string, environment.len) catch @panic("QTermWidget.SetEnvironment: Memory allocation failed");
+    pub fn superSetEnvironment(self: QTermWidget, allocator: std.mem.Allocator, environment: []const []const u8) void {
+        const environment_arr = allocator.alloc(qtc.libqt_string, environment.len) catch @panic("QTermWidget.setEnvironment: Memory allocation failed");
         defer allocator.free(environment_arr);
-        for (environment, 0..environment.len) |item, i|
+        for (environment, 0..environment.len) |str_item, i|
             environment_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const environment_list = qtc.libqt_list{
             .len = environment.len,
@@ -904,6 +1060,10 @@ pub const QTermWidget = extern struct {
         };
         qtc.QTermWidget_SuperSetEnvironment(@ptrCast(self.ptr), environment_list);
     }
+
+    /// ### DEPRECATED: Use `setShellProgram` instead
+    ///
+    pub const SetShellProgram = setShellProgram;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -913,13 +1073,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` program: []const u8 `
     ///
-    pub fn SetShellProgram(self: QTermWidget, program: []const u8) void {
+    pub fn setShellProgram(self: QTermWidget, program: []const u8) void {
         const program_str = qtc.libqt_string{
             .len = program.len,
             .data = program.ptr,
         };
         qtc.QTermWidget_SetShellProgram(@ptrCast(self.ptr), program_str);
     }
+
+    /// ### DEPRECATED: Use `onSetShellProgram` instead
+    ///
+    pub const OnSetShellProgram = onSetShellProgram;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -931,13 +1095,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, program: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetShellProgram(self: QTermWidget, callback: *const fn (QTermWidget, [*:0]const u8) callconv(.c) void) void {
+    pub fn onSetShellProgram(self: QTermWidget, callback: *const fn (QTermWidget, [*:0]const u8) callconv(.c) void) void {
         qtc.QTermWidget_OnSetShellProgram(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetShellProgram` instead
+    /// ### DEPRECATED: Use `superSetShellProgram` instead
     ///
-    pub const QBaseSetShellProgram = SuperSetShellProgram;
+    pub const SuperSetShellProgram = superSetShellProgram;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -949,13 +1113,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` program: []const u8 `
     ///
-    pub fn SuperSetShellProgram(self: QTermWidget, program: []const u8) void {
+    pub fn superSetShellProgram(self: QTermWidget, program: []const u8) void {
         const program_str = qtc.libqt_string{
             .len = program.len,
             .data = program.ptr,
         };
         qtc.QTermWidget_SuperSetShellProgram(@ptrCast(self.ptr), program_str);
     }
+
+    /// ### DEPRECATED: Use `setWorkingDirectory` instead
+    ///
+    pub const SetWorkingDirectory = setWorkingDirectory;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -965,13 +1133,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` dir: []const u8 `
     ///
-    pub fn SetWorkingDirectory(self: QTermWidget, dir: []const u8) void {
+    pub fn setWorkingDirectory(self: QTermWidget, dir: []const u8) void {
         const dir_str = qtc.libqt_string{
             .len = dir.len,
             .data = dir.ptr,
         };
         qtc.QTermWidget_SetWorkingDirectory(@ptrCast(self.ptr), dir_str);
     }
+
+    /// ### DEPRECATED: Use `onSetWorkingDirectory` instead
+    ///
+    pub const OnSetWorkingDirectory = onSetWorkingDirectory;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -983,13 +1155,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, dir: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetWorkingDirectory(self: QTermWidget, callback: *const fn (QTermWidget, [*:0]const u8) callconv(.c) void) void {
+    pub fn onSetWorkingDirectory(self: QTermWidget, callback: *const fn (QTermWidget, [*:0]const u8) callconv(.c) void) void {
         qtc.QTermWidget_OnSetWorkingDirectory(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetWorkingDirectory` instead
+    /// ### DEPRECATED: Use `superSetWorkingDirectory` instead
     ///
-    pub const QBaseSetWorkingDirectory = SuperSetWorkingDirectory;
+    pub const SuperSetWorkingDirectory = superSetWorkingDirectory;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1001,13 +1173,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` dir: []const u8 `
     ///
-    pub fn SuperSetWorkingDirectory(self: QTermWidget, dir: []const u8) void {
+    pub fn superSetWorkingDirectory(self: QTermWidget, dir: []const u8) void {
         const dir_str = qtc.libqt_string{
             .len = dir.len,
             .data = dir.ptr,
         };
         qtc.QTermWidget_SuperSetWorkingDirectory(@ptrCast(self.ptr), dir_str);
     }
+
+    /// ### DEPRECATED: Use `workingDirectory` instead
+    ///
+    pub const WorkingDirectory = workingDirectory;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1017,13 +1193,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WorkingDirectory(self: QTermWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn workingDirectory(self: QTermWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTermWidget_WorkingDirectory(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.WorkingDirectory: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.workingDirectory: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onWorkingDirectory` instead
+    ///
+    pub const OnWorkingDirectory = onWorkingDirectory;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1035,13 +1215,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnWorkingDirectory(self: QTermWidget, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onWorkingDirectory(self: QTermWidget, callback: *const fn () callconv(.c) [*:0]const u8) void {
         qtc.QTermWidget_OnWorkingDirectory(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperWorkingDirectory` instead
+    /// ### DEPRECATED: Use `superWorkingDirectory` instead
     ///
-    pub const QBaseWorkingDirectory = SuperWorkingDirectory;
+    pub const SuperWorkingDirectory = superWorkingDirectory;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1053,13 +1233,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperWorkingDirectory(self: QTermWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn superWorkingDirectory(self: QTermWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTermWidget_SuperWorkingDirectory(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.WorkingDirectory: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.workingDirectory: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setArgs` instead
+    ///
+    pub const SetArgs = setArgs;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1071,13 +1255,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` args: []const []const u8 `
     ///
-    pub fn SetArgs(self: QTermWidget, allocator: std.mem.Allocator, args: []const []const u8) void {
-        const args_arr = allocator.alloc(qtc.libqt_string, args.len) catch @panic("QTermWidget.SetArgs: Memory allocation failed");
+    pub fn setArgs(self: QTermWidget, allocator: std.mem.Allocator, args: []const []const u8) void {
+        const args_arr = allocator.alloc(qtc.libqt_string, args.len) catch @panic("QTermWidget.setArgs: Memory allocation failed");
         defer allocator.free(args_arr);
-        for (args, 0..args.len) |item, i|
+        for (args, 0..args.len) |str_item, i|
             args_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const args_list = qtc.libqt_list{
             .len = args.len,
@@ -1085,6 +1269,10 @@ pub const QTermWidget = extern struct {
         };
         qtc.QTermWidget_SetArgs(@ptrCast(self.ptr), args_list);
     }
+
+    /// ### DEPRECATED: Use `onSetArgs` instead
+    ///
+    pub const OnSetArgs = onSetArgs;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1096,13 +1284,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, args: ?[*:null]?[*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetArgs(self: QTermWidget, callback: *const fn (QTermWidget, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
+    pub fn onSetArgs(self: QTermWidget, callback: *const fn (QTermWidget, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
         qtc.QTermWidget_OnSetArgs(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetArgs` instead
+    /// ### DEPRECATED: Use `superSetArgs` instead
     ///
-    pub const QBaseSetArgs = SuperSetArgs;
+    pub const SuperSetArgs = superSetArgs;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1116,13 +1304,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` args: []const []const u8 `
     ///
-    pub fn SuperSetArgs(self: QTermWidget, allocator: std.mem.Allocator, args: []const []const u8) void {
-        const args_arr = allocator.alloc(qtc.libqt_string, args.len) catch @panic("QTermWidget.SetArgs: Memory allocation failed");
+    pub fn superSetArgs(self: QTermWidget, allocator: std.mem.Allocator, args: []const []const u8) void {
+        const args_arr = allocator.alloc(qtc.libqt_string, args.len) catch @panic("QTermWidget.setArgs: Memory allocation failed");
         defer allocator.free(args_arr);
-        for (args, 0..args.len) |item, i|
+        for (args, 0..args.len) |str_item, i|
             args_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const args_list = qtc.libqt_list{
             .len = args.len,
@@ -1130,6 +1318,10 @@ pub const QTermWidget = extern struct {
         };
         qtc.QTermWidget_SuperSetArgs(@ptrCast(self.ptr), args_list);
     }
+
+    /// ### DEPRECATED: Use `setColorScheme` instead
+    ///
+    pub const SetColorScheme = setColorScheme;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1139,13 +1331,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetColorScheme(self: QTermWidget, name: []const u8) void {
+    pub fn setColorScheme(self: QTermWidget, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QTermWidget_SetColorScheme(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `onSetColorScheme` instead
+    ///
+    pub const OnSetColorScheme = onSetColorScheme;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1157,13 +1353,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, name: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetColorScheme(self: QTermWidget, callback: *const fn (QTermWidget, [*:0]const u8) callconv(.c) void) void {
+    pub fn onSetColorScheme(self: QTermWidget, callback: *const fn (QTermWidget, [*:0]const u8) callconv(.c) void) void {
         qtc.QTermWidget_OnSetColorScheme(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetColorScheme` instead
+    /// ### DEPRECATED: Use `superSetColorScheme` instead
     ///
-    pub const QBaseSetColorScheme = SuperSetColorScheme;
+    pub const SuperSetColorScheme = superSetColorScheme;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1175,13 +1371,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SuperSetColorScheme(self: QTermWidget, name: []const u8) void {
+    pub fn superSetColorScheme(self: QTermWidget, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QTermWidget_SuperSetColorScheme(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `getAvailableColorSchemes` instead
+    ///
+    pub const GetAvailableColorSchemes = getAvailableColorSchemes;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1191,7 +1391,7 @@ pub const QTermWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GetAvailableColorSchemes(self: QTermWidget, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn getAvailableColorSchemes(self: QTermWidget, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QTermWidget_GetAvailableColorSchemes(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1199,15 +1399,19 @@ pub const QTermWidget = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QTermWidget.GetAvailableColorSchemes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QTermWidget.getAvailableColorSchemes: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QTermWidget.GetAvailableColorSchemes: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QTermWidget.getAvailableColorSchemes: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onGetAvailableColorSchemes` instead
+    ///
+    pub const OnGetAvailableColorSchemes = onGetAvailableColorSchemes;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1221,13 +1425,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnGetAvailableColorSchemes(self: QTermWidget, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
+    pub fn onGetAvailableColorSchemes(self: QTermWidget, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.QTermWidget_OnGetAvailableColorSchemes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperGetAvailableColorSchemes` instead
+    /// ### DEPRECATED: Use `superGetAvailableColorSchemes` instead
     ///
-    pub const QBaseGetAvailableColorSchemes = SuperGetAvailableColorSchemes;
+    pub const SuperGetAvailableColorSchemes = superGetAvailableColorSchemes;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1239,7 +1443,7 @@ pub const QTermWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperGetAvailableColorSchemes(self: QTermWidget, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn superGetAvailableColorSchemes(self: QTermWidget, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QTermWidget_SuperGetAvailableColorSchemes(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1247,15 +1451,19 @@ pub const QTermWidget = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QTermWidget.GetAvailableColorSchemes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QTermWidget.getAvailableColorSchemes: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QTermWidget.GetAvailableColorSchemes: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QTermWidget.getAvailableColorSchemes: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `availableColorSchemes` instead
+    ///
+    pub const AvailableColorSchemes = availableColorSchemes;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1263,7 +1471,7 @@ pub const QTermWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AvailableColorSchemes(allocator: std.mem.Allocator) []const []const u8 {
+    pub fn availableColorSchemes(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QTermWidget_AvailableColorSchemes();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1271,15 +1479,19 @@ pub const QTermWidget = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QTermWidget.AvailableColorSchemes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QTermWidget.availableColorSchemes: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QTermWidget.AvailableColorSchemes: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QTermWidget.availableColorSchemes: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addCustomColorSchemeDir` instead
+    ///
+    pub const AddCustomColorSchemeDir = addCustomColorSchemeDir;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1287,13 +1499,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` custom_dir: []const u8 `
     ///
-    pub fn AddCustomColorSchemeDir(custom_dir: []const u8) void {
+    pub fn addCustomColorSchemeDir(custom_dir: []const u8) void {
         const custom_dir_str = qtc.libqt_string{
             .len = custom_dir.len,
             .data = custom_dir.ptr,
         };
         qtc.QTermWidget_AddCustomColorSchemeDir(custom_dir_str);
     }
+
+    /// ### DEPRECATED: Use `setHistorySize` instead
+    ///
+    pub const SetHistorySize = setHistorySize;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1303,9 +1519,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` lines: i32 `
     ///
-    pub fn SetHistorySize(self: QTermWidget, lines: i32) void {
+    pub fn setHistorySize(self: QTermWidget, lines: i32) void {
         qtc.QTermWidget_SetHistorySize(@ptrCast(self.ptr), @bitCast(lines));
     }
+
+    /// ### DEPRECATED: Use `onSetHistorySize` instead
+    ///
+    pub const OnSetHistorySize = onSetHistorySize;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1317,13 +1537,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, lines: i32) callconv(.c) void `
     ///
-    pub fn OnSetHistorySize(self: QTermWidget, callback: *const fn (QTermWidget, i32) callconv(.c) void) void {
+    pub fn onSetHistorySize(self: QTermWidget, callback: *const fn (QTermWidget, i32) callconv(.c) void) void {
         qtc.QTermWidget_OnSetHistorySize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetHistorySize` instead
+    /// ### DEPRECATED: Use `superSetHistorySize` instead
     ///
-    pub const QBaseSetHistorySize = SuperSetHistorySize;
+    pub const SuperSetHistorySize = superSetHistorySize;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1335,9 +1555,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` lines: i32 `
     ///
-    pub fn SuperSetHistorySize(self: QTermWidget, lines: i32) void {
+    pub fn superSetHistorySize(self: QTermWidget, lines: i32) void {
         qtc.QTermWidget_SuperSetHistorySize(@ptrCast(self.ptr), @bitCast(lines));
     }
+
+    /// ### DEPRECATED: Use `historySize` instead
+    ///
+    pub const HistorySize = historySize;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1345,9 +1569,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn HistorySize(self: QTermWidget) i32 {
+    pub fn historySize(self: QTermWidget) i32 {
         return qtc.QTermWidget_HistorySize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHistorySize` instead
+    ///
+    pub const OnHistorySize = onHistorySize;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1359,13 +1587,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnHistorySize(self: QTermWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onHistorySize(self: QTermWidget, callback: *const fn () callconv(.c) i32) void {
         qtc.QTermWidget_OnHistorySize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperHistorySize` instead
+    /// ### DEPRECATED: Use `superHistorySize` instead
     ///
-    pub const QBaseHistorySize = SuperHistorySize;
+    pub const SuperHistorySize = superHistorySize;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1375,9 +1603,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn SuperHistorySize(self: QTermWidget) i32 {
+    pub fn superHistorySize(self: QTermWidget) i32 {
         return qtc.QTermWidget_SuperHistorySize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setScrollBarPosition` instead
+    ///
+    pub const SetScrollBarPosition = setScrollBarPosition;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1387,9 +1619,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` scrollBarPosition: qtermwidget_interface_enums.ScrollBarPosition `
     ///
-    pub fn SetScrollBarPosition(self: QTermWidget, scrollBarPosition: i32) void {
+    pub fn setScrollBarPosition(self: QTermWidget, scrollBarPosition: i32) void {
         qtc.QTermWidget_SetScrollBarPosition(@ptrCast(self.ptr), @bitCast(scrollBarPosition));
     }
+
+    /// ### DEPRECATED: Use `onSetScrollBarPosition` instead
+    ///
+    pub const OnSetScrollBarPosition = onSetScrollBarPosition;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1401,13 +1637,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, scrollBarPosition: qtermwidget_interface_enums.ScrollBarPosition) callconv(.c) void `
     ///
-    pub fn OnSetScrollBarPosition(self: QTermWidget, callback: *const fn (QTermWidget, i32) callconv(.c) void) void {
+    pub fn onSetScrollBarPosition(self: QTermWidget, callback: *const fn (QTermWidget, i32) callconv(.c) void) void {
         qtc.QTermWidget_OnSetScrollBarPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetScrollBarPosition` instead
+    /// ### DEPRECATED: Use `superSetScrollBarPosition` instead
     ///
-    pub const QBaseSetScrollBarPosition = SuperSetScrollBarPosition;
+    pub const SuperSetScrollBarPosition = superSetScrollBarPosition;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1419,9 +1655,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` scrollBarPosition: qtermwidget_interface_enums.ScrollBarPosition `
     ///
-    pub fn SuperSetScrollBarPosition(self: QTermWidget, scrollBarPosition: i32) void {
+    pub fn superSetScrollBarPosition(self: QTermWidget, scrollBarPosition: i32) void {
         qtc.QTermWidget_SuperSetScrollBarPosition(@ptrCast(self.ptr), @bitCast(scrollBarPosition));
     }
+
+    /// ### DEPRECATED: Use `scrollToEnd` instead
+    ///
+    pub const ScrollToEnd = scrollToEnd;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1429,9 +1669,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn ScrollToEnd(self: QTermWidget) void {
+    pub fn scrollToEnd(self: QTermWidget) void {
         qtc.QTermWidget_ScrollToEnd(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onScrollToEnd` instead
+    ///
+    pub const OnScrollToEnd = onScrollToEnd;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1443,13 +1687,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnScrollToEnd(self: QTermWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onScrollToEnd(self: QTermWidget, callback: *const fn () callconv(.c) void) void {
         qtc.QTermWidget_OnScrollToEnd(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperScrollToEnd` instead
+    /// ### DEPRECATED: Use `superScrollToEnd` instead
     ///
-    pub const QBaseScrollToEnd = SuperScrollToEnd;
+    pub const SuperScrollToEnd = superScrollToEnd;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1459,9 +1703,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn SuperScrollToEnd(self: QTermWidget) void {
+    pub fn superScrollToEnd(self: QTermWidget) void {
         qtc.QTermWidget_SuperScrollToEnd(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `sendText` instead
+    ///
+    pub const SendText = sendText;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1471,13 +1719,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SendText(self: QTermWidget, text: []const u8) void {
+    pub fn sendText(self: QTermWidget, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QTermWidget_SendText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `onSendText` instead
+    ///
+    pub const OnSendText = onSendText;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1489,13 +1741,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, text: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSendText(self: QTermWidget, callback: *const fn (QTermWidget, [*:0]const u8) callconv(.c) void) void {
+    pub fn onSendText(self: QTermWidget, callback: *const fn (QTermWidget, [*:0]const u8) callconv(.c) void) void {
         qtc.QTermWidget_OnSendText(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSendText` instead
+    /// ### DEPRECATED: Use `superSendText` instead
     ///
-    pub const QBaseSendText = SuperSendText;
+    pub const SuperSendText = superSendText;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1507,13 +1759,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SuperSendText(self: QTermWidget, text: []const u8) void {
+    pub fn superSendText(self: QTermWidget, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QTermWidget_SuperSendText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `sendKeyEvent` instead
+    ///
+    pub const SendKeyEvent = sendKeyEvent;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1523,10 +1779,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn SendKeyEvent(self: QTermWidget, e: anytype) void {
+    pub fn sendKeyEvent(self: QTermWidget, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.QTermWidget_SendKeyEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSendKeyEvent` instead
+    ///
+    pub const OnSendKeyEvent = onSendKeyEvent;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1538,13 +1798,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, e: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnSendKeyEvent(self: QTermWidget, callback: *const fn (QTermWidget, QKeyEvent) callconv(.c) void) void {
+    pub fn onSendKeyEvent(self: QTermWidget, callback: *const fn (QTermWidget, QKeyEvent) callconv(.c) void) void {
         qtc.QTermWidget_OnSendKeyEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSendKeyEvent` instead
+    /// ### DEPRECATED: Use `superSendKeyEvent` instead
     ///
-    pub const QBaseSendKeyEvent = SuperSendKeyEvent;
+    pub const SuperSendKeyEvent = superSendKeyEvent;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1556,10 +1816,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn SuperSendKeyEvent(self: QTermWidget, e: anytype) void {
+    pub fn superSendKeyEvent(self: QTermWidget, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.QTermWidget_SuperSendKeyEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFlowControlEnabled` instead
+    ///
+    pub const SetFlowControlEnabled = setFlowControlEnabled;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1569,9 +1833,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetFlowControlEnabled(self: QTermWidget, enabled: bool) void {
+    pub fn setFlowControlEnabled(self: QTermWidget, enabled: bool) void {
         qtc.QTermWidget_SetFlowControlEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `onSetFlowControlEnabled` instead
+    ///
+    pub const OnSetFlowControlEnabled = onSetFlowControlEnabled;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1583,13 +1851,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, enabled: bool) callconv(.c) void `
     ///
-    pub fn OnSetFlowControlEnabled(self: QTermWidget, callback: *const fn (QTermWidget, bool) callconv(.c) void) void {
+    pub fn onSetFlowControlEnabled(self: QTermWidget, callback: *const fn (QTermWidget, bool) callconv(.c) void) void {
         qtc.QTermWidget_OnSetFlowControlEnabled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetFlowControlEnabled` instead
+    /// ### DEPRECATED: Use `superSetFlowControlEnabled` instead
     ///
-    pub const QBaseSetFlowControlEnabled = SuperSetFlowControlEnabled;
+    pub const SuperSetFlowControlEnabled = superSetFlowControlEnabled;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1601,9 +1869,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SuperSetFlowControlEnabled(self: QTermWidget, enabled: bool) void {
+    pub fn superSetFlowControlEnabled(self: QTermWidget, enabled: bool) void {
         qtc.QTermWidget_SuperSetFlowControlEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `flowControlEnabled` instead
+    ///
+    pub const FlowControlEnabled = flowControlEnabled;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1611,9 +1883,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn FlowControlEnabled(self: QTermWidget) bool {
+    pub fn flowControlEnabled(self: QTermWidget) bool {
         return qtc.QTermWidget_FlowControlEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFlowControlEnabled` instead
+    ///
+    pub const OnFlowControlEnabled = onFlowControlEnabled;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1625,13 +1901,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFlowControlEnabled(self: QTermWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFlowControlEnabled(self: QTermWidget, callback: *const fn () callconv(.c) bool) void {
         qtc.QTermWidget_OnFlowControlEnabled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperFlowControlEnabled` instead
+    /// ### DEPRECATED: Use `superFlowControlEnabled` instead
     ///
-    pub const QBaseFlowControlEnabled = SuperFlowControlEnabled;
+    pub const SuperFlowControlEnabled = superFlowControlEnabled;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1641,9 +1917,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn SuperFlowControlEnabled(self: QTermWidget) bool {
+    pub fn superFlowControlEnabled(self: QTermWidget) bool {
         return qtc.QTermWidget_SuperFlowControlEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFlowControlWarningEnabled` instead
+    ///
+    pub const SetFlowControlWarningEnabled = setFlowControlWarningEnabled;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1653,9 +1933,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetFlowControlWarningEnabled(self: QTermWidget, enabled: bool) void {
+    pub fn setFlowControlWarningEnabled(self: QTermWidget, enabled: bool) void {
         qtc.QTermWidget_SetFlowControlWarningEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `onSetFlowControlWarningEnabled` instead
+    ///
+    pub const OnSetFlowControlWarningEnabled = onSetFlowControlWarningEnabled;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1667,13 +1951,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, enabled: bool) callconv(.c) void `
     ///
-    pub fn OnSetFlowControlWarningEnabled(self: QTermWidget, callback: *const fn (QTermWidget, bool) callconv(.c) void) void {
+    pub fn onSetFlowControlWarningEnabled(self: QTermWidget, callback: *const fn (QTermWidget, bool) callconv(.c) void) void {
         qtc.QTermWidget_OnSetFlowControlWarningEnabled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetFlowControlWarningEnabled` instead
+    /// ### DEPRECATED: Use `superSetFlowControlWarningEnabled` instead
     ///
-    pub const QBaseSetFlowControlWarningEnabled = SuperSetFlowControlWarningEnabled;
+    pub const SuperSetFlowControlWarningEnabled = superSetFlowControlWarningEnabled;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1685,9 +1969,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SuperSetFlowControlWarningEnabled(self: QTermWidget, enabled: bool) void {
+    pub fn superSetFlowControlWarningEnabled(self: QTermWidget, enabled: bool) void {
         qtc.QTermWidget_SuperSetFlowControlWarningEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `availableKeyBindings` instead
+    ///
+    pub const AvailableKeyBindings = availableKeyBindings;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1695,7 +1983,7 @@ pub const QTermWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AvailableKeyBindings(allocator: std.mem.Allocator) []const []const u8 {
+    pub fn availableKeyBindings(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QTermWidget_AvailableKeyBindings();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1703,15 +1991,19 @@ pub const QTermWidget = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QTermWidget.AvailableKeyBindings: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QTermWidget.availableKeyBindings: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QTermWidget.AvailableKeyBindings: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QTermWidget.availableKeyBindings: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `keyBindings` instead
+    ///
+    pub const KeyBindings = keyBindings;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1721,13 +2013,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn KeyBindings(self: QTermWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn keyBindings(self: QTermWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTermWidget_KeyBindings(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.KeyBindings: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.keyBindings: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onKeyBindings` instead
+    ///
+    pub const OnKeyBindings = onKeyBindings;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1739,13 +2035,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnKeyBindings(self: QTermWidget, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onKeyBindings(self: QTermWidget, callback: *const fn () callconv(.c) [*:0]const u8) void {
         qtc.QTermWidget_OnKeyBindings(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyBindings` instead
+    /// ### DEPRECATED: Use `superKeyBindings` instead
     ///
-    pub const QBaseKeyBindings = SuperKeyBindings;
+    pub const SuperKeyBindings = superKeyBindings;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1757,13 +2053,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperKeyBindings(self: QTermWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn superKeyBindings(self: QTermWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTermWidget_SuperKeyBindings(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.KeyBindings: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.keyBindings: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setMotionAfterPasting` instead
+    ///
+    pub const SetMotionAfterPasting = setMotionAfterPasting;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1773,9 +2073,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` motionAfterPasting: i32 `
     ///
-    pub fn SetMotionAfterPasting(self: QTermWidget, motionAfterPasting: i32) void {
+    pub fn setMotionAfterPasting(self: QTermWidget, motionAfterPasting: i32) void {
         qtc.QTermWidget_SetMotionAfterPasting(@ptrCast(self.ptr), @bitCast(motionAfterPasting));
     }
+
+    /// ### DEPRECATED: Use `onSetMotionAfterPasting` instead
+    ///
+    pub const OnSetMotionAfterPasting = onSetMotionAfterPasting;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1787,13 +2091,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, motionAfterPasting: i32) callconv(.c) void `
     ///
-    pub fn OnSetMotionAfterPasting(self: QTermWidget, callback: *const fn (QTermWidget, i32) callconv(.c) void) void {
+    pub fn onSetMotionAfterPasting(self: QTermWidget, callback: *const fn (QTermWidget, i32) callconv(.c) void) void {
         qtc.QTermWidget_OnSetMotionAfterPasting(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetMotionAfterPasting` instead
+    /// ### DEPRECATED: Use `superSetMotionAfterPasting` instead
     ///
-    pub const QBaseSetMotionAfterPasting = SuperSetMotionAfterPasting;
+    pub const SuperSetMotionAfterPasting = superSetMotionAfterPasting;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1805,20 +2109,28 @@ pub const QTermWidget = extern struct {
     ///
     /// ` motionAfterPasting: i32 `
     ///
-    pub fn SuperSetMotionAfterPasting(self: QTermWidget, motionAfterPasting: i32) void {
+    pub fn superSetMotionAfterPasting(self: QTermWidget, motionAfterPasting: i32) void {
         qtc.QTermWidget_SuperSetMotionAfterPasting(@ptrCast(self.ptr), @bitCast(motionAfterPasting));
     }
 
+    /// ### DEPRECATED: Use `historyLinesCount` instead
+    ///
+    pub const HistoryLinesCount = historyLinesCount;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn HistoryLinesCount(self: QTermWidget) i32 {
+    pub fn historyLinesCount(self: QTermWidget) i32 {
         return qtc.QTermWidget_HistoryLinesCount(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onHistoryLinesCount` instead
+    ///
+    pub const OnHistoryLinesCount = onHistoryLinesCount;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
@@ -1829,13 +2141,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnHistoryLinesCount(self: QTermWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onHistoryLinesCount(self: QTermWidget, callback: *const fn () callconv(.c) i32) void {
         qtc.QTermWidget_OnHistoryLinesCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperHistoryLinesCount` instead
+    /// ### DEPRECATED: Use `superHistoryLinesCount` instead
     ///
-    pub const QBaseHistoryLinesCount = SuperHistoryLinesCount;
+    pub const SuperHistoryLinesCount = superHistoryLinesCount;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1845,20 +2157,28 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn SuperHistoryLinesCount(self: QTermWidget) i32 {
+    pub fn superHistoryLinesCount(self: QTermWidget) i32 {
         return qtc.QTermWidget_SuperHistoryLinesCount(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `screenColumnsCount` instead
+    ///
+    pub const ScreenColumnsCount = screenColumnsCount;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn ScreenColumnsCount(self: QTermWidget) i32 {
+    pub fn screenColumnsCount(self: QTermWidget) i32 {
         return qtc.QTermWidget_ScreenColumnsCount(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onScreenColumnsCount` instead
+    ///
+    pub const OnScreenColumnsCount = onScreenColumnsCount;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
@@ -1869,13 +2189,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnScreenColumnsCount(self: QTermWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onScreenColumnsCount(self: QTermWidget, callback: *const fn () callconv(.c) i32) void {
         qtc.QTermWidget_OnScreenColumnsCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperScreenColumnsCount` instead
+    /// ### DEPRECATED: Use `superScreenColumnsCount` instead
     ///
-    pub const QBaseScreenColumnsCount = SuperScreenColumnsCount;
+    pub const SuperScreenColumnsCount = superScreenColumnsCount;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1885,9 +2205,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn SuperScreenColumnsCount(self: QTermWidget) i32 {
+    pub fn superScreenColumnsCount(self: QTermWidget) i32 {
         return qtc.QTermWidget_SuperScreenColumnsCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `screenLinesCount` instead
+    ///
+    pub const ScreenLinesCount = screenLinesCount;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1895,9 +2219,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn ScreenLinesCount(self: QTermWidget) i32 {
+    pub fn screenLinesCount(self: QTermWidget) i32 {
         return qtc.QTermWidget_ScreenLinesCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onScreenLinesCount` instead
+    ///
+    pub const OnScreenLinesCount = onScreenLinesCount;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1909,13 +2237,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnScreenLinesCount(self: QTermWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onScreenLinesCount(self: QTermWidget, callback: *const fn () callconv(.c) i32) void {
         qtc.QTermWidget_OnScreenLinesCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperScreenLinesCount` instead
+    /// ### DEPRECATED: Use `superScreenLinesCount` instead
     ///
-    pub const QBaseScreenLinesCount = SuperScreenLinesCount;
+    pub const SuperScreenLinesCount = superScreenLinesCount;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1925,10 +2253,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn SuperScreenLinesCount(self: QTermWidget) i32 {
+    pub fn superScreenLinesCount(self: QTermWidget) i32 {
         return qtc.QTermWidget_SuperScreenLinesCount(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setSelectionStart` instead
+    ///
+    pub const SetSelectionStart = setSelectionStart;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
@@ -1939,10 +2271,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn SetSelectionStart(self: QTermWidget, row: i32, column: i32) void {
+    pub fn setSelectionStart(self: QTermWidget, row: i32, column: i32) void {
         qtc.QTermWidget_SetSelectionStart(@ptrCast(self.ptr), @bitCast(row), @bitCast(column));
     }
 
+    /// ### DEPRECATED: Use `onSetSelectionStart` instead
+    ///
+    pub const OnSetSelectionStart = onSetSelectionStart;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
@@ -1953,13 +2289,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, row: i32, column: i32) callconv(.c) void `
     ///
-    pub fn OnSetSelectionStart(self: QTermWidget, callback: *const fn (QTermWidget, i32, i32) callconv(.c) void) void {
+    pub fn onSetSelectionStart(self: QTermWidget, callback: *const fn (QTermWidget, i32, i32) callconv(.c) void) void {
         qtc.QTermWidget_OnSetSelectionStart(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetSelectionStart` instead
+    /// ### DEPRECATED: Use `superSetSelectionStart` instead
     ///
-    pub const QBaseSetSelectionStart = SuperSetSelectionStart;
+    pub const SuperSetSelectionStart = superSetSelectionStart;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1973,9 +2309,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn SuperSetSelectionStart(self: QTermWidget, row: i32, column: i32) void {
+    pub fn superSetSelectionStart(self: QTermWidget, row: i32, column: i32) void {
         qtc.QTermWidget_SuperSetSelectionStart(@ptrCast(self.ptr), @bitCast(row), @bitCast(column));
     }
+
+    /// ### DEPRECATED: Use `setSelectionEnd` instead
+    ///
+    pub const SetSelectionEnd = setSelectionEnd;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -1987,9 +2327,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn SetSelectionEnd(self: QTermWidget, row: i32, column: i32) void {
+    pub fn setSelectionEnd(self: QTermWidget, row: i32, column: i32) void {
         qtc.QTermWidget_SetSelectionEnd(@ptrCast(self.ptr), @bitCast(row), @bitCast(column));
     }
+
+    /// ### DEPRECATED: Use `onSetSelectionEnd` instead
+    ///
+    pub const OnSetSelectionEnd = onSetSelectionEnd;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2001,13 +2345,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, row: i32, column: i32) callconv(.c) void `
     ///
-    pub fn OnSetSelectionEnd(self: QTermWidget, callback: *const fn (QTermWidget, i32, i32) callconv(.c) void) void {
+    pub fn onSetSelectionEnd(self: QTermWidget, callback: *const fn (QTermWidget, i32, i32) callconv(.c) void) void {
         qtc.QTermWidget_OnSetSelectionEnd(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetSelectionEnd` instead
+    /// ### DEPRECATED: Use `superSetSelectionEnd` instead
     ///
-    pub const QBaseSetSelectionEnd = SuperSetSelectionEnd;
+    pub const SuperSetSelectionEnd = superSetSelectionEnd;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2021,10 +2365,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn SuperSetSelectionEnd(self: QTermWidget, row: i32, column: i32) void {
+    pub fn superSetSelectionEnd(self: QTermWidget, row: i32, column: i32) void {
         qtc.QTermWidget_SuperSetSelectionEnd(@ptrCast(self.ptr), @bitCast(row), @bitCast(column));
     }
 
+    /// ### DEPRECATED: Use `getSelectionStart` instead
+    ///
+    pub const GetSelectionStart = getSelectionStart;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
@@ -2035,10 +2383,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` column: *i32 `
     ///
-    pub fn GetSelectionStart(self: QTermWidget, row: *i32, column: *i32) void {
+    pub fn getSelectionStart(self: QTermWidget, row: *i32, column: *i32) void {
         qtc.QTermWidget_GetSelectionStart(@ptrCast(self.ptr), @ptrCast(row), @ptrCast(column));
     }
 
+    /// ### DEPRECATED: Use `onGetSelectionStart` instead
+    ///
+    pub const OnGetSelectionStart = onGetSelectionStart;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
@@ -2049,13 +2401,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, row: *i32, column: *i32) callconv(.c) void `
     ///
-    pub fn OnGetSelectionStart(self: QTermWidget, callback: *const fn (QTermWidget, *i32, *i32) callconv(.c) void) void {
+    pub fn onGetSelectionStart(self: QTermWidget, callback: *const fn (QTermWidget, *i32, *i32) callconv(.c) void) void {
         qtc.QTermWidget_OnGetSelectionStart(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperGetSelectionStart` instead
+    /// ### DEPRECATED: Use `superGetSelectionStart` instead
     ///
-    pub const QBaseGetSelectionStart = SuperGetSelectionStart;
+    pub const SuperGetSelectionStart = superGetSelectionStart;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2069,9 +2421,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` column: *i32 `
     ///
-    pub fn SuperGetSelectionStart(self: QTermWidget, row: *i32, column: *i32) void {
+    pub fn superGetSelectionStart(self: QTermWidget, row: *i32, column: *i32) void {
         qtc.QTermWidget_SuperGetSelectionStart(@ptrCast(self.ptr), @ptrCast(row), @ptrCast(column));
     }
+
+    /// ### DEPRECATED: Use `getSelectionEnd` instead
+    ///
+    pub const GetSelectionEnd = getSelectionEnd;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2083,9 +2439,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` column: *i32 `
     ///
-    pub fn GetSelectionEnd(self: QTermWidget, row: *i32, column: *i32) void {
+    pub fn getSelectionEnd(self: QTermWidget, row: *i32, column: *i32) void {
         qtc.QTermWidget_GetSelectionEnd(@ptrCast(self.ptr), @ptrCast(row), @ptrCast(column));
     }
+
+    /// ### DEPRECATED: Use `onGetSelectionEnd` instead
+    ///
+    pub const OnGetSelectionEnd = onGetSelectionEnd;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2097,13 +2457,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, row: *i32, column: *i32) callconv(.c) void `
     ///
-    pub fn OnGetSelectionEnd(self: QTermWidget, callback: *const fn (QTermWidget, *i32, *i32) callconv(.c) void) void {
+    pub fn onGetSelectionEnd(self: QTermWidget, callback: *const fn (QTermWidget, *i32, *i32) callconv(.c) void) void {
         qtc.QTermWidget_OnGetSelectionEnd(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperGetSelectionEnd` instead
+    /// ### DEPRECATED: Use `superGetSelectionEnd` instead
     ///
-    pub const QBaseGetSelectionEnd = SuperGetSelectionEnd;
+    pub const SuperGetSelectionEnd = superGetSelectionEnd;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2117,9 +2477,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` column: *i32 `
     ///
-    pub fn SuperGetSelectionEnd(self: QTermWidget, row: *i32, column: *i32) void {
+    pub fn superGetSelectionEnd(self: QTermWidget, row: *i32, column: *i32) void {
         qtc.QTermWidget_SuperGetSelectionEnd(@ptrCast(self.ptr), @ptrCast(row), @ptrCast(column));
     }
+
+    /// ### DEPRECATED: Use `selectedText` instead
+    ///
+    pub const SelectedText = selectedText;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2131,13 +2495,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` preserveLineBreaks: bool `
     ///
-    pub fn SelectedText(self: QTermWidget, allocator: std.mem.Allocator, preserveLineBreaks: bool) []const u8 {
+    pub fn selectedText(self: QTermWidget, allocator: std.mem.Allocator, preserveLineBreaks: bool) []const u8 {
         var _str = qtc.QTermWidget_SelectedText(@ptrCast(self.ptr), preserveLineBreaks);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.SelectedText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.selectedText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onSelectedText` instead
+    ///
+    pub const OnSelectedText = onSelectedText;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2149,13 +2517,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, preserveLineBreaks: bool) callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnSelectedText(self: QTermWidget, callback: *const fn (QTermWidget, bool) callconv(.c) [*:0]const u8) void {
+    pub fn onSelectedText(self: QTermWidget, callback: *const fn (QTermWidget, bool) callconv(.c) [*:0]const u8) void {
         qtc.QTermWidget_OnSelectedText(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSelectedText` instead
+    /// ### DEPRECATED: Use `superSelectedText` instead
     ///
-    pub const QBaseSelectedText = SuperSelectedText;
+    pub const SuperSelectedText = superSelectedText;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2169,13 +2537,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` preserveLineBreaks: bool `
     ///
-    pub fn SuperSelectedText(self: QTermWidget, allocator: std.mem.Allocator, preserveLineBreaks: bool) []const u8 {
+    pub fn superSelectedText(self: QTermWidget, allocator: std.mem.Allocator, preserveLineBreaks: bool) []const u8 {
         var _str = qtc.QTermWidget_SuperSelectedText(@ptrCast(self.ptr), preserveLineBreaks);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.SelectedText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.selectedText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setMonitorActivity` instead
+    ///
+    pub const SetMonitorActivity = setMonitorActivity;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2185,9 +2557,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` monitorActivity: bool `
     ///
-    pub fn SetMonitorActivity(self: QTermWidget, monitorActivity: bool) void {
+    pub fn setMonitorActivity(self: QTermWidget, monitorActivity: bool) void {
         qtc.QTermWidget_SetMonitorActivity(@ptrCast(self.ptr), monitorActivity);
     }
+
+    /// ### DEPRECATED: Use `onSetMonitorActivity` instead
+    ///
+    pub const OnSetMonitorActivity = onSetMonitorActivity;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2199,13 +2575,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, monitorActivity: bool) callconv(.c) void `
     ///
-    pub fn OnSetMonitorActivity(self: QTermWidget, callback: *const fn (QTermWidget, bool) callconv(.c) void) void {
+    pub fn onSetMonitorActivity(self: QTermWidget, callback: *const fn (QTermWidget, bool) callconv(.c) void) void {
         qtc.QTermWidget_OnSetMonitorActivity(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetMonitorActivity` instead
+    /// ### DEPRECATED: Use `superSetMonitorActivity` instead
     ///
-    pub const QBaseSetMonitorActivity = SuperSetMonitorActivity;
+    pub const SuperSetMonitorActivity = superSetMonitorActivity;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2217,9 +2593,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` monitorActivity: bool `
     ///
-    pub fn SuperSetMonitorActivity(self: QTermWidget, monitorActivity: bool) void {
+    pub fn superSetMonitorActivity(self: QTermWidget, monitorActivity: bool) void {
         qtc.QTermWidget_SuperSetMonitorActivity(@ptrCast(self.ptr), monitorActivity);
     }
+
+    /// ### DEPRECATED: Use `setMonitorSilence` instead
+    ///
+    pub const SetMonitorSilence = setMonitorSilence;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2229,9 +2609,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` monitorSilence: bool `
     ///
-    pub fn SetMonitorSilence(self: QTermWidget, monitorSilence: bool) void {
+    pub fn setMonitorSilence(self: QTermWidget, monitorSilence: bool) void {
         qtc.QTermWidget_SetMonitorSilence(@ptrCast(self.ptr), monitorSilence);
     }
+
+    /// ### DEPRECATED: Use `onSetMonitorSilence` instead
+    ///
+    pub const OnSetMonitorSilence = onSetMonitorSilence;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2243,13 +2627,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, monitorSilence: bool) callconv(.c) void `
     ///
-    pub fn OnSetMonitorSilence(self: QTermWidget, callback: *const fn (QTermWidget, bool) callconv(.c) void) void {
+    pub fn onSetMonitorSilence(self: QTermWidget, callback: *const fn (QTermWidget, bool) callconv(.c) void) void {
         qtc.QTermWidget_OnSetMonitorSilence(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetMonitorSilence` instead
+    /// ### DEPRECATED: Use `superSetMonitorSilence` instead
     ///
-    pub const QBaseSetMonitorSilence = SuperSetMonitorSilence;
+    pub const SuperSetMonitorSilence = superSetMonitorSilence;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2261,9 +2645,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` monitorSilence: bool `
     ///
-    pub fn SuperSetMonitorSilence(self: QTermWidget, monitorSilence: bool) void {
+    pub fn superSetMonitorSilence(self: QTermWidget, monitorSilence: bool) void {
         qtc.QTermWidget_SuperSetMonitorSilence(@ptrCast(self.ptr), monitorSilence);
     }
+
+    /// ### DEPRECATED: Use `setSilenceTimeout` instead
+    ///
+    pub const SetSilenceTimeout = setSilenceTimeout;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2273,9 +2661,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` seconds: i32 `
     ///
-    pub fn SetSilenceTimeout(self: QTermWidget, seconds: i32) void {
+    pub fn setSilenceTimeout(self: QTermWidget, seconds: i32) void {
         qtc.QTermWidget_SetSilenceTimeout(@ptrCast(self.ptr), @bitCast(seconds));
     }
+
+    /// ### DEPRECATED: Use `onSetSilenceTimeout` instead
+    ///
+    pub const OnSetSilenceTimeout = onSetSilenceTimeout;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2287,13 +2679,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, seconds: i32) callconv(.c) void `
     ///
-    pub fn OnSetSilenceTimeout(self: QTermWidget, callback: *const fn (QTermWidget, i32) callconv(.c) void) void {
+    pub fn onSetSilenceTimeout(self: QTermWidget, callback: *const fn (QTermWidget, i32) callconv(.c) void) void {
         qtc.QTermWidget_OnSetSilenceTimeout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetSilenceTimeout` instead
+    /// ### DEPRECATED: Use `superSetSilenceTimeout` instead
     ///
-    pub const QBaseSetSilenceTimeout = SuperSetSilenceTimeout;
+    pub const SuperSetSilenceTimeout = superSetSilenceTimeout;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2305,9 +2697,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` seconds: i32 `
     ///
-    pub fn SuperSetSilenceTimeout(self: QTermWidget, seconds: i32) void {
+    pub fn superSetSilenceTimeout(self: QTermWidget, seconds: i32) void {
         qtc.QTermWidget_SuperSetSilenceTimeout(@ptrCast(self.ptr), @bitCast(seconds));
     }
+
+    /// ### DEPRECATED: Use `getHotSpotAt` instead
+    ///
+    pub const GetHotSpotAt = getHotSpotAt;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2315,12 +2711,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn GetHotSpotAt(self: QTermWidget, pos: anytype) Konsole__Filter__HotSpot {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        return .{ .ptr = qtc.QTermWidget_GetHotSpotAt(@ptrCast(self.ptr), @ptrCast(pos.ptr)) };
+    pub fn getHotSpotAt(self: QTermWidget, _pos: anytype) Konsole__Filter__HotSpot {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        return .{ .ptr = qtc.QTermWidget_GetHotSpotAt(@ptrCast(self.ptr), @ptrCast(_pos.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `getHotSpotAt2` instead
+    ///
+    pub const GetHotSpotAt2 = getHotSpotAt2;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2332,9 +2732,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn GetHotSpotAt2(self: QTermWidget, row: i32, column: i32) Konsole__Filter__HotSpot {
+    pub fn getHotSpotAt2(self: QTermWidget, row: i32, column: i32) Konsole__Filter__HotSpot {
         return .{ .ptr = qtc.QTermWidget_GetHotSpotAt2(@ptrCast(self.ptr), @bitCast(row), @bitCast(column)) };
     }
+
+    /// ### DEPRECATED: Use `filterActions` instead
+    ///
+    pub const FilterActions = filterActions;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2346,16 +2750,20 @@ pub const QTermWidget = extern struct {
     ///
     /// ` position: QPoint `
     ///
-    pub fn FilterActions(self: QTermWidget, allocator: std.mem.Allocator, position: anytype) []QAction {
+    pub fn filterActions(self: QTermWidget, allocator: std.mem.Allocator, position: anytype) []QAction {
         comptime _ = @TypeOf(position)._is_QPoint;
         const _arr: qtc.libqt_list = qtc.QTermWidget_FilterActions(@ptrCast(self.ptr), @ptrCast(position.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QTermWidget.FilterActions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QTermWidget.filterActions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onFilterActions` instead
+    ///
+    pub const OnFilterActions = onFilterActions;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2373,13 +2781,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` C ABI representation of []QAction `
     ///
-    pub fn OnFilterActions(self: QTermWidget, callback: *const fn (QTermWidget, QPoint) callconv(.c) qtc.libqt_list) void {
+    pub fn onFilterActions(self: QTermWidget, callback: *const fn (QTermWidget, QPoint) callconv(.c) qtc.libqt_list) void {
         qtc.QTermWidget_OnFilterActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperFilterActions` instead
+    /// ### DEPRECATED: Use `superFilterActions` instead
     ///
-    pub const QBaseFilterActions = SuperFilterActions;
+    pub const SuperFilterActions = superFilterActions;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2393,16 +2801,20 @@ pub const QTermWidget = extern struct {
     ///
     /// ` position: QPoint `
     ///
-    pub fn SuperFilterActions(self: QTermWidget, allocator: std.mem.Allocator, position: anytype) []QAction {
+    pub fn superFilterActions(self: QTermWidget, allocator: std.mem.Allocator, position: anytype) []QAction {
         comptime _ = @TypeOf(position)._is_QPoint;
         const _arr: qtc.libqt_list = qtc.QTermWidget_SuperFilterActions(@ptrCast(self.ptr), @ptrCast(position.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QTermWidget.FilterActions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QTermWidget.filterActions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `getPtySlaveFd` instead
+    ///
+    pub const GetPtySlaveFd = getPtySlaveFd;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2410,9 +2822,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn GetPtySlaveFd(self: QTermWidget) i32 {
+    pub fn getPtySlaveFd(self: QTermWidget) i32 {
         return qtc.QTermWidget_GetPtySlaveFd(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onGetPtySlaveFd` instead
+    ///
+    pub const OnGetPtySlaveFd = onGetPtySlaveFd;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2424,13 +2840,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnGetPtySlaveFd(self: QTermWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onGetPtySlaveFd(self: QTermWidget, callback: *const fn () callconv(.c) i32) void {
         qtc.QTermWidget_OnGetPtySlaveFd(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperGetPtySlaveFd` instead
+    /// ### DEPRECATED: Use `superGetPtySlaveFd` instead
     ///
-    pub const QBaseGetPtySlaveFd = SuperGetPtySlaveFd;
+    pub const SuperGetPtySlaveFd = superGetPtySlaveFd;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2440,9 +2856,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn SuperGetPtySlaveFd(self: QTermWidget) i32 {
+    pub fn superGetPtySlaveFd(self: QTermWidget) i32 {
         return qtc.QTermWidget_SuperGetPtySlaveFd(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setKeyboardCursorShape` instead
+    ///
+    pub const SetKeyboardCursorShape = setKeyboardCursorShape;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2452,9 +2872,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` shape: Emulation_enums.KeyboardCursorShape `
     ///
-    pub fn SetKeyboardCursorShape(self: QTermWidget, shape: i32) void {
+    pub fn setKeyboardCursorShape(self: QTermWidget, shape: i32) void {
         qtc.QTermWidget_SetKeyboardCursorShape(@ptrCast(self.ptr), @bitCast(shape));
     }
+
+    /// ### DEPRECATED: Use `setBlinkingCursor` instead
+    ///
+    pub const SetBlinkingCursor = setBlinkingCursor;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2464,9 +2888,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` blink: bool `
     ///
-    pub fn SetBlinkingCursor(self: QTermWidget, blink: bool) void {
+    pub fn setBlinkingCursor(self: QTermWidget, blink: bool) void {
         qtc.QTermWidget_SetBlinkingCursor(@ptrCast(self.ptr), blink);
     }
+
+    /// ### DEPRECATED: Use `onSetBlinkingCursor` instead
+    ///
+    pub const OnSetBlinkingCursor = onSetBlinkingCursor;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2478,13 +2906,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, blink: bool) callconv(.c) void `
     ///
-    pub fn OnSetBlinkingCursor(self: QTermWidget, callback: *const fn (QTermWidget, bool) callconv(.c) void) void {
+    pub fn onSetBlinkingCursor(self: QTermWidget, callback: *const fn (QTermWidget, bool) callconv(.c) void) void {
         qtc.QTermWidget_OnSetBlinkingCursor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetBlinkingCursor` instead
+    /// ### DEPRECATED: Use `superSetBlinkingCursor` instead
     ///
-    pub const QBaseSetBlinkingCursor = SuperSetBlinkingCursor;
+    pub const SuperSetBlinkingCursor = superSetBlinkingCursor;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2496,9 +2924,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` blink: bool `
     ///
-    pub fn SuperSetBlinkingCursor(self: QTermWidget, blink: bool) void {
+    pub fn superSetBlinkingCursor(self: QTermWidget, blink: bool) void {
         qtc.QTermWidget_SuperSetBlinkingCursor(@ptrCast(self.ptr), blink);
     }
+
+    /// ### DEPRECATED: Use `setBidiEnabled` instead
+    ///
+    pub const SetBidiEnabled = setBidiEnabled;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2508,9 +2940,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetBidiEnabled(self: QTermWidget, enabled: bool) void {
+    pub fn setBidiEnabled(self: QTermWidget, enabled: bool) void {
         qtc.QTermWidget_SetBidiEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `onSetBidiEnabled` instead
+    ///
+    pub const OnSetBidiEnabled = onSetBidiEnabled;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2522,13 +2958,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, enabled: bool) callconv(.c) void `
     ///
-    pub fn OnSetBidiEnabled(self: QTermWidget, callback: *const fn (QTermWidget, bool) callconv(.c) void) void {
+    pub fn onSetBidiEnabled(self: QTermWidget, callback: *const fn (QTermWidget, bool) callconv(.c) void) void {
         qtc.QTermWidget_OnSetBidiEnabled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetBidiEnabled` instead
+    /// ### DEPRECATED: Use `superSetBidiEnabled` instead
     ///
-    pub const QBaseSetBidiEnabled = SuperSetBidiEnabled;
+    pub const SuperSetBidiEnabled = superSetBidiEnabled;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2540,9 +2976,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SuperSetBidiEnabled(self: QTermWidget, enabled: bool) void {
+    pub fn superSetBidiEnabled(self: QTermWidget, enabled: bool) void {
         qtc.QTermWidget_SuperSetBidiEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `isBidiEnabled` instead
+    ///
+    pub const IsBidiEnabled = isBidiEnabled;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2550,9 +2990,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn IsBidiEnabled(self: QTermWidget) bool {
+    pub fn isBidiEnabled(self: QTermWidget) bool {
         return qtc.QTermWidget_IsBidiEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsBidiEnabled` instead
+    ///
+    pub const OnIsBidiEnabled = onIsBidiEnabled;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2564,13 +3008,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnIsBidiEnabled(self: QTermWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsBidiEnabled(self: QTermWidget, callback: *const fn () callconv(.c) bool) void {
         qtc.QTermWidget_OnIsBidiEnabled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperIsBidiEnabled` instead
+    /// ### DEPRECATED: Use `superIsBidiEnabled` instead
     ///
-    pub const QBaseIsBidiEnabled = SuperIsBidiEnabled;
+    pub const SuperIsBidiEnabled = superIsBidiEnabled;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2580,9 +3024,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn SuperIsBidiEnabled(self: QTermWidget) bool {
+    pub fn superIsBidiEnabled(self: QTermWidget) bool {
         return qtc.QTermWidget_SuperIsBidiEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoClose` instead
+    ///
+    pub const SetAutoClose = setAutoClose;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2592,9 +3040,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` autoClose: bool `
     ///
-    pub fn SetAutoClose(self: QTermWidget, autoClose: bool) void {
+    pub fn setAutoClose(self: QTermWidget, autoClose: bool) void {
         qtc.QTermWidget_SetAutoClose(@ptrCast(self.ptr), autoClose);
     }
+
+    /// ### DEPRECATED: Use `onSetAutoClose` instead
+    ///
+    pub const OnSetAutoClose = onSetAutoClose;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2606,13 +3058,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, autoClose: bool) callconv(.c) void `
     ///
-    pub fn OnSetAutoClose(self: QTermWidget, callback: *const fn (QTermWidget, bool) callconv(.c) void) void {
+    pub fn onSetAutoClose(self: QTermWidget, callback: *const fn (QTermWidget, bool) callconv(.c) void) void {
         qtc.QTermWidget_OnSetAutoClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetAutoClose` instead
+    /// ### DEPRECATED: Use `superSetAutoClose` instead
     ///
-    pub const QBaseSetAutoClose = SuperSetAutoClose;
+    pub const SuperSetAutoClose = superSetAutoClose;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2624,10 +3076,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` autoClose: bool `
     ///
-    pub fn SuperSetAutoClose(self: QTermWidget, autoClose: bool) void {
+    pub fn superSetAutoClose(self: QTermWidget, autoClose: bool) void {
         qtc.QTermWidget_SuperSetAutoClose(@ptrCast(self.ptr), autoClose);
     }
 
+    /// ### DEPRECATED: Use `title` instead
+    ///
+    pub const Title = title;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
@@ -2636,13 +3092,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Title(self: QTermWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn title(self: QTermWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTermWidget_Title(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.Title: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.title: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onTitle` instead
+    ///
+    pub const OnTitle = onTitle;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2654,13 +3114,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnTitle(self: QTermWidget, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onTitle(self: QTermWidget, callback: *const fn () callconv(.c) [*:0]const u8) void {
         qtc.QTermWidget_OnTitle(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperTitle` instead
+    /// ### DEPRECATED: Use `superTitle` instead
     ///
-    pub const QBaseTitle = SuperTitle;
+    pub const SuperTitle = superTitle;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2672,13 +3132,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperTitle(self: QTermWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn superTitle(self: QTermWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTermWidget_SuperTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.Title: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.title: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `icon` instead
+    ///
+    pub const Icon = icon;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2688,13 +3152,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Icon(self: QTermWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn icon(self: QTermWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTermWidget_Icon(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.Icon: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.icon: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onIcon` instead
+    ///
+    pub const OnIcon = onIcon;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2706,13 +3174,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnIcon(self: QTermWidget, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onIcon(self: QTermWidget, callback: *const fn () callconv(.c) [*:0]const u8) void {
         qtc.QTermWidget_OnIcon(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperIcon` instead
+    /// ### DEPRECATED: Use `superIcon` instead
     ///
-    pub const QBaseIcon = SuperIcon;
+    pub const SuperIcon = superIcon;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2724,13 +3192,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperIcon(self: QTermWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn superIcon(self: QTermWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTermWidget_SuperIcon(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.Icon: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.icon: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isTitleChanged` instead
+    ///
+    pub const IsTitleChanged = isTitleChanged;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2738,9 +3210,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn IsTitleChanged(self: QTermWidget) bool {
+    pub fn isTitleChanged(self: QTermWidget) bool {
         return qtc.QTermWidget_IsTitleChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsTitleChanged` instead
+    ///
+    pub const OnIsTitleChanged = onIsTitleChanged;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2752,13 +3228,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnIsTitleChanged(self: QTermWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsTitleChanged(self: QTermWidget, callback: *const fn () callconv(.c) bool) void {
         qtc.QTermWidget_OnIsTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperIsTitleChanged` instead
+    /// ### DEPRECATED: Use `superIsTitleChanged` instead
     ///
-    pub const QBaseIsTitleChanged = SuperIsTitleChanged;
+    pub const SuperIsTitleChanged = superIsTitleChanged;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2768,9 +3244,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn SuperIsTitleChanged(self: QTermWidget) bool {
+    pub fn superIsTitleChanged(self: QTermWidget) bool {
         return qtc.QTermWidget_SuperIsTitleChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `bracketText` instead
+    ///
+    pub const BracketText = bracketText;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2780,13 +3260,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn BracketText(self: QTermWidget, text: []const u8) void {
+    pub fn bracketText(self: QTermWidget, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QTermWidget_BracketText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `onBracketText` instead
+    ///
+    pub const OnBracketText = onBracketText;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2798,13 +3282,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, text: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnBracketText(self: QTermWidget, callback: *const fn (QTermWidget, [*:0]const u8) callconv(.c) void) void {
+    pub fn onBracketText(self: QTermWidget, callback: *const fn (QTermWidget, [*:0]const u8) callconv(.c) void) void {
         qtc.QTermWidget_OnBracketText(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperBracketText` instead
+    /// ### DEPRECATED: Use `superBracketText` instead
     ///
-    pub const QBaseBracketText = SuperBracketText;
+    pub const SuperBracketText = superBracketText;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2816,13 +3300,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SuperBracketText(self: QTermWidget, text: []const u8) void {
+    pub fn superBracketText(self: QTermWidget, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QTermWidget_SuperBracketText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `disableBracketedPasteMode` instead
+    ///
+    pub const DisableBracketedPasteMode = disableBracketedPasteMode;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2832,9 +3320,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` disable: bool `
     ///
-    pub fn DisableBracketedPasteMode(self: QTermWidget, disable: bool) void {
+    pub fn disableBracketedPasteMode(self: QTermWidget, disable: bool) void {
         qtc.QTermWidget_DisableBracketedPasteMode(@ptrCast(self.ptr), disable);
     }
+
+    /// ### DEPRECATED: Use `onDisableBracketedPasteMode` instead
+    ///
+    pub const OnDisableBracketedPasteMode = onDisableBracketedPasteMode;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2846,13 +3338,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, disable: bool) callconv(.c) void `
     ///
-    pub fn OnDisableBracketedPasteMode(self: QTermWidget, callback: *const fn (QTermWidget, bool) callconv(.c) void) void {
+    pub fn onDisableBracketedPasteMode(self: QTermWidget, callback: *const fn (QTermWidget, bool) callconv(.c) void) void {
         qtc.QTermWidget_OnDisableBracketedPasteMode(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDisableBracketedPasteMode` instead
+    /// ### DEPRECATED: Use `superDisableBracketedPasteMode` instead
     ///
-    pub const QBaseDisableBracketedPasteMode = SuperDisableBracketedPasteMode;
+    pub const SuperDisableBracketedPasteMode = superDisableBracketedPasteMode;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2864,9 +3356,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` disable: bool `
     ///
-    pub fn SuperDisableBracketedPasteMode(self: QTermWidget, disable: bool) void {
+    pub fn superDisableBracketedPasteMode(self: QTermWidget, disable: bool) void {
         qtc.QTermWidget_SuperDisableBracketedPasteMode(@ptrCast(self.ptr), disable);
     }
+
+    /// ### DEPRECATED: Use `bracketedPasteModeIsDisabled` instead
+    ///
+    pub const BracketedPasteModeIsDisabled = bracketedPasteModeIsDisabled;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2874,9 +3370,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn BracketedPasteModeIsDisabled(self: QTermWidget) bool {
+    pub fn bracketedPasteModeIsDisabled(self: QTermWidget) bool {
         return qtc.QTermWidget_BracketedPasteModeIsDisabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onBracketedPasteModeIsDisabled` instead
+    ///
+    pub const OnBracketedPasteModeIsDisabled = onBracketedPasteModeIsDisabled;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2888,13 +3388,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnBracketedPasteModeIsDisabled(self: QTermWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onBracketedPasteModeIsDisabled(self: QTermWidget, callback: *const fn () callconv(.c) bool) void {
         qtc.QTermWidget_OnBracketedPasteModeIsDisabled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperBracketedPasteModeIsDisabled` instead
+    /// ### DEPRECATED: Use `superBracketedPasteModeIsDisabled` instead
     ///
-    pub const QBaseBracketedPasteModeIsDisabled = SuperBracketedPasteModeIsDisabled;
+    pub const SuperBracketedPasteModeIsDisabled = superBracketedPasteModeIsDisabled;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2904,9 +3404,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn SuperBracketedPasteModeIsDisabled(self: QTermWidget) bool {
+    pub fn superBracketedPasteModeIsDisabled(self: QTermWidget) bool {
         return qtc.QTermWidget_SuperBracketedPasteModeIsDisabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMargin` instead
+    ///
+    pub const SetMargin = setMargin;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2916,9 +3420,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` margin: i32 `
     ///
-    pub fn SetMargin(self: QTermWidget, margin: i32) void {
+    pub fn setMargin(self: QTermWidget, margin: i32) void {
         qtc.QTermWidget_SetMargin(@ptrCast(self.ptr), @bitCast(margin));
     }
+
+    /// ### DEPRECATED: Use `onSetMargin` instead
+    ///
+    pub const OnSetMargin = onSetMargin;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2930,13 +3438,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, margin: i32) callconv(.c) void `
     ///
-    pub fn OnSetMargin(self: QTermWidget, callback: *const fn (QTermWidget, i32) callconv(.c) void) void {
+    pub fn onSetMargin(self: QTermWidget, callback: *const fn (QTermWidget, i32) callconv(.c) void) void {
         qtc.QTermWidget_OnSetMargin(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetMargin` instead
+    /// ### DEPRECATED: Use `superSetMargin` instead
     ///
-    pub const QBaseSetMargin = SuperSetMargin;
+    pub const SuperSetMargin = superSetMargin;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2948,9 +3456,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` margin: i32 `
     ///
-    pub fn SuperSetMargin(self: QTermWidget, margin: i32) void {
+    pub fn superSetMargin(self: QTermWidget, margin: i32) void {
         qtc.QTermWidget_SuperSetMargin(@ptrCast(self.ptr), @bitCast(margin));
     }
+
+    /// ### DEPRECATED: Use `getMargin` instead
+    ///
+    pub const GetMargin = getMargin;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2958,9 +3470,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn GetMargin(self: QTermWidget) i32 {
+    pub fn getMargin(self: QTermWidget) i32 {
         return qtc.QTermWidget_GetMargin(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onGetMargin` instead
+    ///
+    pub const OnGetMargin = onGetMargin;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2972,13 +3488,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnGetMargin(self: QTermWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onGetMargin(self: QTermWidget, callback: *const fn () callconv(.c) i32) void {
         qtc.QTermWidget_OnGetMargin(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperGetMargin` instead
+    /// ### DEPRECATED: Use `superGetMargin` instead
     ///
-    pub const QBaseGetMargin = SuperGetMargin;
+    pub const SuperGetMargin = superGetMargin;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -2988,9 +3504,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn SuperGetMargin(self: QTermWidget) i32 {
+    pub fn superGetMargin(self: QTermWidget) i32 {
         return qtc.QTermWidget_SuperGetMargin(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDrawLineChars` instead
+    ///
+    pub const SetDrawLineChars = setDrawLineChars;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3000,9 +3520,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` drawLineChars: bool `
     ///
-    pub fn SetDrawLineChars(self: QTermWidget, drawLineChars: bool) void {
+    pub fn setDrawLineChars(self: QTermWidget, drawLineChars: bool) void {
         qtc.QTermWidget_SetDrawLineChars(@ptrCast(self.ptr), drawLineChars);
     }
+
+    /// ### DEPRECATED: Use `onSetDrawLineChars` instead
+    ///
+    pub const OnSetDrawLineChars = onSetDrawLineChars;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3014,13 +3538,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, drawLineChars: bool) callconv(.c) void `
     ///
-    pub fn OnSetDrawLineChars(self: QTermWidget, callback: *const fn (QTermWidget, bool) callconv(.c) void) void {
+    pub fn onSetDrawLineChars(self: QTermWidget, callback: *const fn (QTermWidget, bool) callconv(.c) void) void {
         qtc.QTermWidget_OnSetDrawLineChars(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetDrawLineChars` instead
+    /// ### DEPRECATED: Use `superSetDrawLineChars` instead
     ///
-    pub const QBaseSetDrawLineChars = SuperSetDrawLineChars;
+    pub const SuperSetDrawLineChars = superSetDrawLineChars;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3032,9 +3556,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` drawLineChars: bool `
     ///
-    pub fn SuperSetDrawLineChars(self: QTermWidget, drawLineChars: bool) void {
+    pub fn superSetDrawLineChars(self: QTermWidget, drawLineChars: bool) void {
         qtc.QTermWidget_SuperSetDrawLineChars(@ptrCast(self.ptr), drawLineChars);
     }
+
+    /// ### DEPRECATED: Use `setBoldIntense` instead
+    ///
+    pub const SetBoldIntense = setBoldIntense;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3044,9 +3572,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` boldIntense: bool `
     ///
-    pub fn SetBoldIntense(self: QTermWidget, boldIntense: bool) void {
+    pub fn setBoldIntense(self: QTermWidget, boldIntense: bool) void {
         qtc.QTermWidget_SetBoldIntense(@ptrCast(self.ptr), boldIntense);
     }
+
+    /// ### DEPRECATED: Use `onSetBoldIntense` instead
+    ///
+    pub const OnSetBoldIntense = onSetBoldIntense;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3058,13 +3590,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, boldIntense: bool) callconv(.c) void `
     ///
-    pub fn OnSetBoldIntense(self: QTermWidget, callback: *const fn (QTermWidget, bool) callconv(.c) void) void {
+    pub fn onSetBoldIntense(self: QTermWidget, callback: *const fn (QTermWidget, bool) callconv(.c) void) void {
         qtc.QTermWidget_OnSetBoldIntense(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetBoldIntense` instead
+    /// ### DEPRECATED: Use `superSetBoldIntense` instead
     ///
-    pub const QBaseSetBoldIntense = SuperSetBoldIntense;
+    pub const SuperSetBoldIntense = superSetBoldIntense;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3076,9 +3608,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` boldIntense: bool `
     ///
-    pub fn SuperSetBoldIntense(self: QTermWidget, boldIntense: bool) void {
+    pub fn superSetBoldIntense(self: QTermWidget, boldIntense: bool) void {
         qtc.QTermWidget_SuperSetBoldIntense(@ptrCast(self.ptr), boldIntense);
     }
+
+    /// ### DEPRECATED: Use `setConfirmMultilinePaste` instead
+    ///
+    pub const SetConfirmMultilinePaste = setConfirmMultilinePaste;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3088,9 +3624,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` confirmMultilinePaste: bool `
     ///
-    pub fn SetConfirmMultilinePaste(self: QTermWidget, confirmMultilinePaste: bool) void {
+    pub fn setConfirmMultilinePaste(self: QTermWidget, confirmMultilinePaste: bool) void {
         qtc.QTermWidget_SetConfirmMultilinePaste(@ptrCast(self.ptr), confirmMultilinePaste);
     }
+
+    /// ### DEPRECATED: Use `onSetConfirmMultilinePaste` instead
+    ///
+    pub const OnSetConfirmMultilinePaste = onSetConfirmMultilinePaste;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3102,13 +3642,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, confirmMultilinePaste: bool) callconv(.c) void `
     ///
-    pub fn OnSetConfirmMultilinePaste(self: QTermWidget, callback: *const fn (QTermWidget, bool) callconv(.c) void) void {
+    pub fn onSetConfirmMultilinePaste(self: QTermWidget, callback: *const fn (QTermWidget, bool) callconv(.c) void) void {
         qtc.QTermWidget_OnSetConfirmMultilinePaste(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetConfirmMultilinePaste` instead
+    /// ### DEPRECATED: Use `superSetConfirmMultilinePaste` instead
     ///
-    pub const QBaseSetConfirmMultilinePaste = SuperSetConfirmMultilinePaste;
+    pub const SuperSetConfirmMultilinePaste = superSetConfirmMultilinePaste;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3120,9 +3660,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` confirmMultilinePaste: bool `
     ///
-    pub fn SuperSetConfirmMultilinePaste(self: QTermWidget, confirmMultilinePaste: bool) void {
+    pub fn superSetConfirmMultilinePaste(self: QTermWidget, confirmMultilinePaste: bool) void {
         qtc.QTermWidget_SuperSetConfirmMultilinePaste(@ptrCast(self.ptr), confirmMultilinePaste);
     }
+
+    /// ### DEPRECATED: Use `setTrimPastedTrailingNewlines` instead
+    ///
+    pub const SetTrimPastedTrailingNewlines = setTrimPastedTrailingNewlines;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3132,9 +3676,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` trimPastedTrailingNewlines: bool `
     ///
-    pub fn SetTrimPastedTrailingNewlines(self: QTermWidget, trimPastedTrailingNewlines: bool) void {
+    pub fn setTrimPastedTrailingNewlines(self: QTermWidget, trimPastedTrailingNewlines: bool) void {
         qtc.QTermWidget_SetTrimPastedTrailingNewlines(@ptrCast(self.ptr), trimPastedTrailingNewlines);
     }
+
+    /// ### DEPRECATED: Use `onSetTrimPastedTrailingNewlines` instead
+    ///
+    pub const OnSetTrimPastedTrailingNewlines = onSetTrimPastedTrailingNewlines;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3146,13 +3694,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, trimPastedTrailingNewlines: bool) callconv(.c) void `
     ///
-    pub fn OnSetTrimPastedTrailingNewlines(self: QTermWidget, callback: *const fn (QTermWidget, bool) callconv(.c) void) void {
+    pub fn onSetTrimPastedTrailingNewlines(self: QTermWidget, callback: *const fn (QTermWidget, bool) callconv(.c) void) void {
         qtc.QTermWidget_OnSetTrimPastedTrailingNewlines(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetTrimPastedTrailingNewlines` instead
+    /// ### DEPRECATED: Use `superSetTrimPastedTrailingNewlines` instead
     ///
-    pub const QBaseSetTrimPastedTrailingNewlines = SuperSetTrimPastedTrailingNewlines;
+    pub const SuperSetTrimPastedTrailingNewlines = superSetTrimPastedTrailingNewlines;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3164,9 +3712,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` trimPastedTrailingNewlines: bool `
     ///
-    pub fn SuperSetTrimPastedTrailingNewlines(self: QTermWidget, trimPastedTrailingNewlines: bool) void {
+    pub fn superSetTrimPastedTrailingNewlines(self: QTermWidget, trimPastedTrailingNewlines: bool) void {
         qtc.QTermWidget_SuperSetTrimPastedTrailingNewlines(@ptrCast(self.ptr), trimPastedTrailingNewlines);
     }
+
+    /// ### DEPRECATED: Use `wordCharacters` instead
+    ///
+    pub const WordCharacters = wordCharacters;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3176,13 +3728,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WordCharacters(self: QTermWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn wordCharacters(self: QTermWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTermWidget_WordCharacters(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.WordCharacters: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.wordCharacters: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onWordCharacters` instead
+    ///
+    pub const OnWordCharacters = onWordCharacters;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3194,13 +3750,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnWordCharacters(self: QTermWidget, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onWordCharacters(self: QTermWidget, callback: *const fn () callconv(.c) [*:0]const u8) void {
         qtc.QTermWidget_OnWordCharacters(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperWordCharacters` instead
+    /// ### DEPRECATED: Use `superWordCharacters` instead
     ///
-    pub const QBaseWordCharacters = SuperWordCharacters;
+    pub const SuperWordCharacters = superWordCharacters;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3212,13 +3768,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperWordCharacters(self: QTermWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn superWordCharacters(self: QTermWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTermWidget_SuperWordCharacters(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.WordCharacters: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.wordCharacters: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWordCharacters` instead
+    ///
+    pub const SetWordCharacters = setWordCharacters;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3228,13 +3788,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` chars: []const u8 `
     ///
-    pub fn SetWordCharacters(self: QTermWidget, chars: []const u8) void {
+    pub fn setWordCharacters(self: QTermWidget, chars: []const u8) void {
         const chars_str = qtc.libqt_string{
             .len = chars.len,
             .data = chars.ptr,
         };
         qtc.QTermWidget_SetWordCharacters(@ptrCast(self.ptr), chars_str);
     }
+
+    /// ### DEPRECATED: Use `onSetWordCharacters` instead
+    ///
+    pub const OnSetWordCharacters = onSetWordCharacters;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3246,13 +3810,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, chars: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetWordCharacters(self: QTermWidget, callback: *const fn (QTermWidget, [*:0]const u8) callconv(.c) void) void {
+    pub fn onSetWordCharacters(self: QTermWidget, callback: *const fn (QTermWidget, [*:0]const u8) callconv(.c) void) void {
         qtc.QTermWidget_OnSetWordCharacters(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetWordCharacters` instead
+    /// ### DEPRECATED: Use `superSetWordCharacters` instead
     ///
-    pub const QBaseSetWordCharacters = SuperSetWordCharacters;
+    pub const SuperSetWordCharacters = superSetWordCharacters;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3264,13 +3828,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` chars: []const u8 `
     ///
-    pub fn SuperSetWordCharacters(self: QTermWidget, chars: []const u8) void {
+    pub fn superSetWordCharacters(self: QTermWidget, chars: []const u8) void {
         const chars_str = qtc.libqt_string{
             .len = chars.len,
             .data = chars.ptr,
         };
         qtc.QTermWidget_SuperSetWordCharacters(@ptrCast(self.ptr), chars_str);
     }
+
+    /// ### DEPRECATED: Use `createWidget` instead
+    ///
+    pub const CreateWidget = createWidget;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3280,9 +3848,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` startnow: i32 `
     ///
-    pub fn CreateWidget(self: QTermWidget, startnow: i32) QTermWidgetInterface {
+    pub fn createWidget(self: QTermWidget, startnow: i32) QTermWidgetInterface {
         return .{ .ptr = qtc.QTermWidget_CreateWidget(@ptrCast(self.ptr), @bitCast(startnow)) };
     }
+
+    /// ### DEPRECATED: Use `onCreateWidget` instead
+    ///
+    pub const OnCreateWidget = onCreateWidget;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3294,13 +3866,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, startnow: i32) callconv(.c) QTermWidgetInterface `
     ///
-    pub fn OnCreateWidget(self: QTermWidget, callback: *const fn (QTermWidget, i32) callconv(.c) QTermWidgetInterface) void {
+    pub fn onCreateWidget(self: QTermWidget, callback: *const fn (QTermWidget, i32) callconv(.c) QTermWidgetInterface) void {
         qtc.QTermWidget_OnCreateWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCreateWidget` instead
+    /// ### DEPRECATED: Use `superCreateWidget` instead
     ///
-    pub const QBaseCreateWidget = SuperCreateWidget;
+    pub const SuperCreateWidget = superCreateWidget;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3312,9 +3884,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` startnow: i32 `
     ///
-    pub fn SuperCreateWidget(self: QTermWidget, startnow: i32) QTermWidgetInterface {
+    pub fn superCreateWidget(self: QTermWidget, startnow: i32) QTermWidgetInterface {
         return .{ .ptr = qtc.QTermWidget_SuperCreateWidget(@ptrCast(self.ptr), @bitCast(startnow)) };
     }
+
+    /// ### DEPRECATED: Use `finished` instead
+    ///
+    pub const Finished = finished;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3322,9 +3898,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn Finished(self: QTermWidget) void {
+    pub fn finished(self: QTermWidget) void {
         qtc.QTermWidget_Finished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFinished` instead
+    ///
+    pub const OnFinished = onFinished;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3334,9 +3914,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget) callconv(.c) void `
     ///
-    pub fn OnFinished(self: QTermWidget, callback: *const fn (QTermWidget) callconv(.c) void) void {
+    pub fn onFinished(self: QTermWidget, callback: *const fn (QTermWidget) callconv(.c) void) void {
         qtc.QTermWidget_Connect_Finished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `copyAvailable` instead
+    ///
+    pub const CopyAvailable = copyAvailable;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3346,9 +3930,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param1: bool `
     ///
-    pub fn CopyAvailable(self: QTermWidget, param1: bool) void {
+    pub fn copyAvailable(self: QTermWidget, param1: bool) void {
         qtc.QTermWidget_CopyAvailable(@ptrCast(self.ptr), param1);
     }
+
+    /// ### DEPRECATED: Use `onCopyAvailable` instead
+    ///
+    pub const OnCopyAvailable = onCopyAvailable;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3358,20 +3946,28 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, param1: bool) callconv(.c) void `
     ///
-    pub fn OnCopyAvailable(self: QTermWidget, callback: *const fn (QTermWidget, bool) callconv(.c) void) void {
+    pub fn onCopyAvailable(self: QTermWidget, callback: *const fn (QTermWidget, bool) callconv(.c) void) void {
         qtc.QTermWidget_Connect_CopyAvailable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `termGetFocus` instead
+    ///
+    pub const TermGetFocus = termGetFocus;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn TermGetFocus(self: QTermWidget) void {
+    pub fn termGetFocus(self: QTermWidget) void {
         qtc.QTermWidget_TermGetFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onTermGetFocus` instead
+    ///
+    pub const OnTermGetFocus = onTermGetFocus;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameters:
@@ -3380,9 +3976,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget) callconv(.c) void `
     ///
-    pub fn OnTermGetFocus(self: QTermWidget, callback: *const fn (QTermWidget) callconv(.c) void) void {
+    pub fn onTermGetFocus(self: QTermWidget, callback: *const fn (QTermWidget) callconv(.c) void) void {
         qtc.QTermWidget_Connect_TermGetFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `termLostFocus` instead
+    ///
+    pub const TermLostFocus = termLostFocus;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3390,9 +3990,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn TermLostFocus(self: QTermWidget) void {
+    pub fn termLostFocus(self: QTermWidget) void {
         qtc.QTermWidget_TermLostFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTermLostFocus` instead
+    ///
+    pub const OnTermLostFocus = onTermLostFocus;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3402,9 +4006,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget) callconv(.c) void `
     ///
-    pub fn OnTermLostFocus(self: QTermWidget, callback: *const fn (QTermWidget) callconv(.c) void) void {
+    pub fn onTermLostFocus(self: QTermWidget, callback: *const fn (QTermWidget) callconv(.c) void) void {
         qtc.QTermWidget_Connect_TermLostFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `termKeyPressed` instead
+    ///
+    pub const TermKeyPressed = termKeyPressed;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3414,10 +4022,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param1: QKeyEvent `
     ///
-    pub fn TermKeyPressed(self: QTermWidget, param1: anytype) void {
+    pub fn termKeyPressed(self: QTermWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QKeyEvent;
         qtc.QTermWidget_TermKeyPressed(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTermKeyPressed` instead
+    ///
+    pub const OnTermKeyPressed = onTermKeyPressed;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3427,9 +4039,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, param1: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnTermKeyPressed(self: QTermWidget, callback: *const fn (QTermWidget, QKeyEvent) callconv(.c) void) void {
+    pub fn onTermKeyPressed(self: QTermWidget, callback: *const fn (QTermWidget, QKeyEvent) callconv(.c) void) void {
         qtc.QTermWidget_Connect_TermKeyPressed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `urlActivated` instead
+    ///
+    pub const UrlActivated = urlActivated;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3441,10 +4057,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` fromContextMenu: bool `
     ///
-    pub fn UrlActivated(self: QTermWidget, param1: anytype, fromContextMenu: bool) void {
+    pub fn urlActivated(self: QTermWidget, param1: anytype, fromContextMenu: bool) void {
         comptime _ = @TypeOf(param1)._is_QUrl;
         qtc.QTermWidget_UrlActivated(@ptrCast(self.ptr), @ptrCast(param1.ptr), fromContextMenu);
     }
+
+    /// ### DEPRECATED: Use `onUrlActivated` instead
+    ///
+    pub const OnUrlActivated = onUrlActivated;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3454,9 +4074,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, param1: QUrl, fromContextMenu: bool) callconv(.c) void `
     ///
-    pub fn OnUrlActivated(self: QTermWidget, callback: *const fn (QTermWidget, QUrl, bool) callconv(.c) void) void {
+    pub fn onUrlActivated(self: QTermWidget, callback: *const fn (QTermWidget, QUrl, bool) callconv(.c) void) void {
         qtc.QTermWidget_Connect_UrlActivated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `bell` instead
+    ///
+    pub const Bell = bell;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3466,13 +4090,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` message: []const u8 `
     ///
-    pub fn Bell(self: QTermWidget, message: []const u8) void {
+    pub fn bell(self: QTermWidget, message: []const u8) void {
         const message_str = qtc.libqt_string{
             .len = message.len,
             .data = message.ptr,
         };
         qtc.QTermWidget_Bell(@ptrCast(self.ptr), message_str);
     }
+
+    /// ### DEPRECATED: Use `onBell` instead
+    ///
+    pub const OnBell = onBell;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3482,20 +4110,28 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, message: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnBell(self: QTermWidget, callback: *const fn (QTermWidget, [*:0]const u8) callconv(.c) void) void {
+    pub fn onBell(self: QTermWidget, callback: *const fn (QTermWidget, [*:0]const u8) callconv(.c) void) void {
         qtc.QTermWidget_Connect_Bell(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `activity` instead
+    ///
+    pub const Activity = activity;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn Activity(self: QTermWidget) void {
+    pub fn activity(self: QTermWidget) void {
         qtc.QTermWidget_Activity(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onActivity` instead
+    ///
+    pub const OnActivity = onActivity;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameters:
@@ -3504,9 +4140,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget) callconv(.c) void `
     ///
-    pub fn OnActivity(self: QTermWidget, callback: *const fn (QTermWidget) callconv(.c) void) void {
+    pub fn onActivity(self: QTermWidget, callback: *const fn (QTermWidget) callconv(.c) void) void {
         qtc.QTermWidget_Connect_Activity(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `silence` instead
+    ///
+    pub const Silence = silence;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3514,9 +4154,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn Silence(self: QTermWidget) void {
+    pub fn silence(self: QTermWidget) void {
         qtc.QTermWidget_Silence(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSilence` instead
+    ///
+    pub const OnSilence = onSilence;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3526,9 +4170,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget) callconv(.c) void `
     ///
-    pub fn OnSilence(self: QTermWidget, callback: *const fn (QTermWidget) callconv(.c) void) void {
+    pub fn onSilence(self: QTermWidget, callback: *const fn (QTermWidget) callconv(.c) void) void {
         qtc.QTermWidget_Connect_Silence(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sendData` instead
+    ///
+    pub const SendData = sendData;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3540,10 +4188,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param2: i32 `
     ///
-    pub fn SendData(self: QTermWidget, param1: [:0]const u8, param2: i32) void {
+    pub fn sendData(self: QTermWidget, param1: [:0]const u8, param2: i32) void {
         const param1_Cstring = param1.ptr;
         qtc.QTermWidget_SendData(@ptrCast(self.ptr), param1_Cstring, @bitCast(param2));
     }
+
+    /// ### DEPRECATED: Use `onSendData` instead
+    ///
+    pub const OnSendData = onSendData;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3553,9 +4205,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, param1: [*:0]const u8, param2: i32) callconv(.c) void `
     ///
-    pub fn OnSendData(self: QTermWidget, callback: *const fn (QTermWidget, [*:0]const u8, i32) callconv(.c) void) void {
+    pub fn onSendData(self: QTermWidget, callback: *const fn (QTermWidget, [*:0]const u8, i32) callconv(.c) void) void {
         qtc.QTermWidget_Connect_SendData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `profileChanged` instead
+    ///
+    pub const ProfileChanged = profileChanged;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3565,13 +4221,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` profile: []const u8 `
     ///
-    pub fn ProfileChanged(self: QTermWidget, profile: []const u8) void {
+    pub fn profileChanged(self: QTermWidget, profile: []const u8) void {
         const profile_str = qtc.libqt_string{
             .len = profile.len,
             .data = profile.ptr,
         };
         qtc.QTermWidget_ProfileChanged(@ptrCast(self.ptr), profile_str);
     }
+
+    /// ### DEPRECATED: Use `onProfileChanged` instead
+    ///
+    pub const OnProfileChanged = onProfileChanged;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3581,9 +4241,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, profile: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnProfileChanged(self: QTermWidget, callback: *const fn (QTermWidget, [*:0]const u8) callconv(.c) void) void {
+    pub fn onProfileChanged(self: QTermWidget, callback: *const fn (QTermWidget, [*:0]const u8) callconv(.c) void) void {
         qtc.QTermWidget_Connect_ProfileChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `titleChanged` instead
+    ///
+    pub const TitleChanged = titleChanged;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3591,9 +4255,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn TitleChanged(self: QTermWidget) void {
+    pub fn titleChanged(self: QTermWidget) void {
         qtc.QTermWidget_TitleChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTitleChanged` instead
+    ///
+    pub const OnTitleChanged = onTitleChanged;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3603,9 +4271,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget) callconv(.c) void `
     ///
-    pub fn OnTitleChanged(self: QTermWidget, callback: *const fn (QTermWidget) callconv(.c) void) void {
+    pub fn onTitleChanged(self: QTermWidget, callback: *const fn (QTermWidget) callconv(.c) void) void {
         qtc.QTermWidget_Connect_TitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivedData` instead
+    ///
+    pub const ReceivedData = receivedData;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3615,13 +4287,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn ReceivedData(self: QTermWidget, text: []const u8) void {
+    pub fn receivedData(self: QTermWidget, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QTermWidget_ReceivedData(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `onReceivedData` instead
+    ///
+    pub const OnReceivedData = onReceivedData;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3631,59 +4307,69 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, text: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnReceivedData(self: QTermWidget, callback: *const fn (QTermWidget, [*:0]const u8) callconv(.c) void) void {
+    pub fn onReceivedData(self: QTermWidget, callback: *const fn (QTermWidget, [*:0]const u8) callconv(.c) void) void {
         qtc.QTermWidget_Connect_ReceivedData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `copyClipboard` instead
+    ///
+    pub const CopyClipboard = copyClipboard;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn CopyClipboard(self: QTermWidget) void {
+    pub fn copyClipboard(self: QTermWidget) void {
         qtc.QTermWidget_CopyClipboard(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `pasteClipboard` instead
+    ///
+    pub const PasteClipboard = pasteClipboard;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn PasteClipboard(self: QTermWidget) void {
+    pub fn pasteClipboard(self: QTermWidget) void {
         qtc.QTermWidget_PasteClipboard(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `pasteSelection` instead
+    ///
+    pub const PasteSelection = pasteSelection;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn PasteSelection(self: QTermWidget) void {
+    pub fn pasteSelection(self: QTermWidget) void {
         qtc.QTermWidget_PasteSelection(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `zoomIn` instead
+    ///
+    pub const ZoomIn = zoomIn;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn ZoomIn(self: QTermWidget) void {
+    pub fn zoomIn(self: QTermWidget) void {
         qtc.QTermWidget_ZoomIn(@ptrCast(self.ptr));
     }
 
-    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### DEPRECATED: Use `zoomOut` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTermWidget `
-    ///
-    pub fn ZoomOut(self: QTermWidget) void {
-        qtc.QTermWidget_ZoomOut(@ptrCast(self.ptr));
-    }
+    pub const ZoomOut = zoomOut;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3691,12 +4377,30 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` size: QSize `
-    ///
-    pub fn SetSize(self: QTermWidget, size: anytype) void {
-        comptime _ = @TypeOf(size)._is_QSize;
-        qtc.QTermWidget_SetSize(@ptrCast(self.ptr), @ptrCast(size.ptr));
+    pub fn zoomOut(self: QTermWidget) void {
+        qtc.QTermWidget_ZoomOut(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSize` instead
+    ///
+    pub const SetSize = setSize;
+
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QTermWidget `
+    ///
+    /// ` _size: QSize `
+    ///
+    pub fn setSize(self: QTermWidget, _size: anytype) void {
+        comptime _ = @TypeOf(_size)._is_QSize;
+        qtc.QTermWidget_SetSize(@ptrCast(self.ptr), @ptrCast(_size.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setKeyBindings` instead
+    ///
+    pub const SetKeyBindings = setKeyBindings;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3706,7 +4410,7 @@ pub const QTermWidget = extern struct {
     ///
     /// ` kb: []const u8 `
     ///
-    pub fn SetKeyBindings(self: QTermWidget, kb: []const u8) void {
+    pub fn setKeyBindings(self: QTermWidget, kb: []const u8) void {
         const kb_str = qtc.libqt_string{
             .len = kb.len,
             .data = kb.ptr,
@@ -3714,15 +4418,9 @@ pub const QTermWidget = extern struct {
         qtc.QTermWidget_SetKeyBindings(@ptrCast(self.ptr), kb_str);
     }
 
-    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// ### DEPRECATED: Use `clear` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTermWidget `
-    ///
-    pub fn Clear(self: QTermWidget) void {
-        qtc.QTermWidget_Clear(@ptrCast(self.ptr));
-    }
+    pub const Clear = clear;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3730,9 +4428,27 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn ToggleShowSearchBar(self: QTermWidget) void {
+    pub fn clear(self: QTermWidget) void {
+        qtc.QTermWidget_Clear(@ptrCast(self.ptr));
+    }
+
+    /// ### DEPRECATED: Use `toggleShowSearchBar` instead
+    ///
+    pub const ToggleShowSearchBar = toggleShowSearchBar;
+
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QTermWidget `
+    ///
+    pub fn toggleShowSearchBar(self: QTermWidget) void {
         qtc.QTermWidget_ToggleShowSearchBar(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveHistory` instead
+    ///
+    pub const SaveHistory = saveHistory;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3742,10 +4458,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` device: QIODevice `
     ///
-    pub fn SaveHistory(self: QTermWidget, device: anytype) void {
+    pub fn saveHistory(self: QTermWidget, device: anytype) void {
         comptime _ = @TypeOf(device)._is_QIODevice;
         qtc.QTermWidget_SaveHistory(@ptrCast(self.ptr), @ptrCast(device.ptr));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3755,10 +4475,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param1: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: QTermWidget, param1: anytype) void {
+    pub fn resizeEvent(self: QTermWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QResizeEvent;
         qtc.QTermWidget_ResizeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3770,13 +4494,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, param1: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: QTermWidget, callback: *const fn (QTermWidget, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: QTermWidget, callback: *const fn (QTermWidget, QResizeEvent) callconv(.c) void) void {
         qtc.QTermWidget_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3788,10 +4512,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param1: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: QTermWidget, param1: anytype) void {
+    pub fn superResizeEvent(self: QTermWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QResizeEvent;
         qtc.QTermWidget_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `sessionFinished` instead
+    ///
+    pub const SessionFinished = sessionFinished;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3799,9 +4527,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn SessionFinished(self: QTermWidget) void {
+    pub fn sessionFinished(self: QTermWidget) void {
         qtc.QTermWidget_SessionFinished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSessionFinished` instead
+    ///
+    pub const OnSessionFinished = onSessionFinished;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3813,13 +4545,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnSessionFinished(self: QTermWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onSessionFinished(self: QTermWidget, callback: *const fn () callconv(.c) void) void {
         qtc.QTermWidget_OnSessionFinished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSessionFinished` instead
+    /// ### DEPRECATED: Use `superSessionFinished` instead
     ///
-    pub const QBaseSessionFinished = SuperSessionFinished;
+    pub const SuperSessionFinished = superSessionFinished;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3829,9 +4561,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn SuperSessionFinished(self: QTermWidget) void {
+    pub fn superSessionFinished(self: QTermWidget) void {
         qtc.QTermWidget_SuperSessionFinished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `selectionChanged` instead
+    ///
+    pub const SelectionChanged = selectionChanged;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3841,9 +4577,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` textSelected: bool `
     ///
-    pub fn SelectionChanged(self: QTermWidget, textSelected: bool) void {
+    pub fn selectionChanged(self: QTermWidget, textSelected: bool) void {
         qtc.QTermWidget_SelectionChanged(@ptrCast(self.ptr), textSelected);
     }
+
+    /// ### DEPRECATED: Use `onSelectionChanged` instead
+    ///
+    pub const OnSelectionChanged = onSelectionChanged;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3855,13 +4595,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, textSelected: bool) callconv(.c) void `
     ///
-    pub fn OnSelectionChanged(self: QTermWidget, callback: *const fn (QTermWidget, bool) callconv(.c) void) void {
+    pub fn onSelectionChanged(self: QTermWidget, callback: *const fn (QTermWidget, bool) callconv(.c) void) void {
         qtc.QTermWidget_OnSelectionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSelectionChanged` instead
+    /// ### DEPRECATED: Use `superSelectionChanged` instead
     ///
-    pub const QBaseSelectionChanged = SuperSelectionChanged;
+    pub const SuperSelectionChanged = superSelectionChanged;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -3873,9 +4613,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` textSelected: bool `
     ///
-    pub fn SuperSelectionChanged(self: QTermWidget, textSelected: bool) void {
+    pub fn superSelectionChanged(self: QTermWidget, textSelected: bool) void {
         qtc.QTermWidget_SuperSelectionChanged(@ptrCast(self.ptr), textSelected);
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -3887,15 +4631,19 @@ pub const QTermWidget = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -3909,15 +4657,19 @@ pub const QTermWidget = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -3927,9 +4679,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn WinId(self: QTermWidget) usize {
+    pub fn winId(self: QTermWidget) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -3939,9 +4695,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn CreateWinId(self: QTermWidget) void {
+    pub fn createWinId(self: QTermWidget) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -3951,9 +4711,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn InternalWinId(self: QTermWidget) usize {
+    pub fn internalWinId(self: QTermWidget) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -3963,9 +4727,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn EffectiveWinId(self: QTermWidget) usize {
+    pub fn effectiveWinId(self: QTermWidget) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -3975,9 +4743,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn Style(self: QTermWidget) QStyle {
+    pub fn style(self: QTermWidget) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -3987,12 +4759,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: QTermWidget, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: QTermWidget, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -4002,9 +4778,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn IsTopLevel(self: QTermWidget) bool {
+    pub fn isTopLevel(self: QTermWidget) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -4014,9 +4794,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn IsWindow(self: QTermWidget) bool {
+    pub fn isWindow(self: QTermWidget) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -4026,9 +4810,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn IsModal(self: QTermWidget) bool {
+    pub fn isModal(self: QTermWidget) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -4042,9 +4830,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: QTermWidget) i32 {
+    pub fn windowModality(self: QTermWidget) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -4054,11 +4846,15 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: QTermWidget, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: QTermWidget, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -4068,9 +4864,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn IsEnabled(self: QTermWidget) bool {
+    pub fn isEnabled(self: QTermWidget) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -4082,10 +4882,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: QTermWidget, param1: anytype) bool {
+    pub fn isEnabledTo(self: QTermWidget, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -4097,9 +4901,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: QTermWidget, enabled: bool) void {
+    pub fn setEnabled(self: QTermWidget, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -4111,9 +4919,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: QTermWidget, disabled: bool) void {
+    pub fn setDisabled(self: QTermWidget, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -4125,9 +4937,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: QTermWidget, windowModified: bool) void {
+    pub fn setWindowModified(self: QTermWidget, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4137,9 +4953,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn FrameGeometry(self: QTermWidget) QRect {
+    pub fn frameGeometry(self: QTermWidget) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -4149,9 +4969,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn Geometry(self: QTermWidget) QRect {
+    pub fn geometry(self: QTermWidget) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4161,9 +4985,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn NormalGeometry(self: QTermWidget) QRect {
+    pub fn normalGeometry(self: QTermWidget) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -4173,9 +5001,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn X(self: QTermWidget) i32 {
+    pub fn x(self: QTermWidget) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -4185,9 +5017,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn Y(self: QTermWidget) i32 {
+    pub fn y(self: QTermWidget) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -4197,9 +5033,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn Pos(self: QTermWidget) QPoint {
+    pub fn pos(self: QTermWidget) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -4209,9 +5049,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn FrameSize(self: QTermWidget) QSize {
+    pub fn frameSize(self: QTermWidget) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -4221,9 +5065,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn Size(self: QTermWidget) QSize {
+    pub fn size(self: QTermWidget) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -4233,9 +5081,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn Width(self: QTermWidget) i32 {
+    pub fn width(self: QTermWidget) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -4245,9 +5097,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn Height(self: QTermWidget) i32 {
+    pub fn height(self: QTermWidget) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -4257,9 +5113,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn Rect(self: QTermWidget) QRect {
+    pub fn rect(self: QTermWidget) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -4269,9 +5129,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn ChildrenRect(self: QTermWidget) QRect {
+    pub fn childrenRect(self: QTermWidget) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -4281,9 +5145,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn ChildrenRegion(self: QTermWidget) QRegion {
+    pub fn childrenRegion(self: QTermWidget) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -4293,9 +5161,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn MinimumSize(self: QTermWidget) QSize {
+    pub fn minimumSize(self: QTermWidget) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -4305,9 +5177,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn MaximumSize(self: QTermWidget) QSize {
+    pub fn maximumSize(self: QTermWidget) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -4317,9 +5193,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn MinimumWidth(self: QTermWidget) i32 {
+    pub fn minimumWidth(self: QTermWidget) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -4329,9 +5209,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn MinimumHeight(self: QTermWidget) i32 {
+    pub fn minimumHeight(self: QTermWidget) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -4341,9 +5225,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn MaximumWidth(self: QTermWidget) i32 {
+    pub fn maximumWidth(self: QTermWidget) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -4353,9 +5241,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn MaximumHeight(self: QTermWidget) i32 {
+    pub fn maximumHeight(self: QTermWidget) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -4365,12 +5257,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: QTermWidget, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: QTermWidget, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -4384,9 +5280,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: QTermWidget, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: QTermWidget, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -4396,12 +5296,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: QTermWidget, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: QTermWidget, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -4415,9 +5319,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: QTermWidget, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: QTermWidget, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -4429,9 +5337,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: QTermWidget, minw: i32) void {
+    pub fn setMinimumWidth(self: QTermWidget, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -4443,9 +5355,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: QTermWidget, minh: i32) void {
+    pub fn setMinimumHeight(self: QTermWidget, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -4457,9 +5373,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: QTermWidget, maxw: i32) void {
+    pub fn setMaximumWidth(self: QTermWidget, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -4471,9 +5391,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: QTermWidget, maxh: i32) void {
+    pub fn setMaximumHeight(self: QTermWidget, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -4483,9 +5407,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn SizeIncrement(self: QTermWidget) QSize {
+    pub fn sizeIncrement(self: QTermWidget) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -4495,12 +5423,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: QTermWidget, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: QTermWidget, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -4514,9 +5446,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: QTermWidget, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: QTermWidget, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -4526,9 +5462,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn BaseSize(self: QTermWidget) QSize {
+    pub fn baseSize(self: QTermWidget) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -4538,12 +5478,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: QTermWidget, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: QTermWidget, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -4557,9 +5501,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: QTermWidget, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: QTermWidget, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -4571,10 +5519,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: QTermWidget, fixedSize: anytype) void {
+    pub fn setFixedSize(self: QTermWidget, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -4588,9 +5540,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: QTermWidget, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: QTermWidget, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -4602,9 +5558,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: QTermWidget, w: i32) void {
+    pub fn setFixedWidth(self: QTermWidget, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -4616,9 +5576,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: QTermWidget, h: i32) void {
+    pub fn setFixedHeight(self: QTermWidget, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -4630,11 +5594,15 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: QTermWidget, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: QTermWidget, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -4645,11 +5613,15 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: QTermWidget, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: QTermWidget, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -4660,11 +5632,15 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: QTermWidget, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: QTermWidget, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -4675,11 +5651,15 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: QTermWidget, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: QTermWidget, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -4690,11 +5670,15 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: QTermWidget, param1: anytype) QPointF {
+    pub fn mapToParent(self: QTermWidget, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -4705,10 +5689,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: QTermWidget, param1: anytype) QPoint {
+    pub fn mapToParent2(self: QTermWidget, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -4720,10 +5708,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: QTermWidget, param1: anytype) QPointF {
+    pub fn mapFromParent(self: QTermWidget, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -4735,10 +5727,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: QTermWidget, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: QTermWidget, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -4752,12 +5748,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: QTermWidget, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: QTermWidget, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -4770,11 +5770,15 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: QTermWidget, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: QTermWidget, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -4788,11 +5792,15 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: QTermWidget, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: QTermWidget, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -4806,11 +5814,15 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: QTermWidget, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: QTermWidget, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -4820,9 +5832,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn Window(self: QTermWidget) QWidget {
+    pub fn window(self: QTermWidget) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -4832,9 +5848,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn NativeParentWidget(self: QTermWidget) QWidget {
+    pub fn nativeParentWidget(self: QTermWidget) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -4844,9 +5864,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn TopLevelWidget(self: QTermWidget) QWidget {
+    pub fn topLevelWidget(self: QTermWidget) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -4856,9 +5880,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn Palette(self: QTermWidget) QPalette {
+    pub fn palette(self: QTermWidget) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -4868,12 +5896,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: QTermWidget, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: QTermWidget, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -4883,11 +5915,15 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: QTermWidget, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: QTermWidget, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -4901,9 +5937,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: QTermWidget) i32 {
+    pub fn backgroundRole(self: QTermWidget) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -4913,11 +5953,15 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: QTermWidget, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: QTermWidget, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -4931,9 +5975,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: QTermWidget) i32 {
+    pub fn foregroundRole(self: QTermWidget) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -4943,9 +5991,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn Font(self: QTermWidget) QFont {
+    pub fn font(self: QTermWidget) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -4955,12 +6007,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: QTermWidget, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: QTermWidget, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -4970,9 +6026,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn FontMetrics(self: QTermWidget) QFontMetrics {
+    pub fn fontMetrics(self: QTermWidget) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -4982,9 +6042,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn FontInfo(self: QTermWidget) QFontInfo {
+    pub fn fontInfo(self: QTermWidget) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -4994,9 +6058,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn Cursor(self: QTermWidget) QCursor {
+    pub fn cursor(self: QTermWidget) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -5006,12 +6074,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: QTermWidget, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: QTermWidget, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -5021,9 +6093,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn UnsetCursor(self: QTermWidget) void {
+    pub fn unsetCursor(self: QTermWidget) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -5035,9 +6111,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: QTermWidget, enable: bool) void {
+    pub fn setMouseTracking(self: QTermWidget, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -5047,9 +6127,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn HasMouseTracking(self: QTermWidget) bool {
+    pub fn hasMouseTracking(self: QTermWidget) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -5059,9 +6143,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn UnderMouse(self: QTermWidget) bool {
+    pub fn underMouse(self: QTermWidget) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -5073,9 +6161,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: QTermWidget, enable: bool) void {
+    pub fn setTabletTracking(self: QTermWidget, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -5085,24 +6177,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn HasTabletTracking(self: QTermWidget) bool {
+    pub fn hasTabletTracking(self: QTermWidget) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTermWidget `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: QTermWidget, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -5112,12 +6193,35 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: QTermWidget, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: QTermWidget, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QTermWidget `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: QTermWidget, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -5127,9 +6231,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn Mask(self: QTermWidget) QRegion {
+    pub fn mask(self: QTermWidget) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -5139,9 +6247,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn ClearMask(self: QTermWidget) void {
+    pub fn clearMask(self: QTermWidget) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -5153,10 +6265,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: QTermWidget, target: anytype) void {
+    pub fn render(self: QTermWidget, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -5168,10 +6284,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: QTermWidget, painter: anytype) void {
+    pub fn render2(self: QTermWidget, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -5181,9 +6301,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn Grab(self: QTermWidget) QPixmap {
+    pub fn grab(self: QTermWidget) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -5193,9 +6317,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn GraphicsEffect(self: QTermWidget) QGraphicsEffect {
+    pub fn graphicsEffect(self: QTermWidget) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -5207,10 +6335,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: QTermWidget, effect: anytype) void {
+    pub fn setGraphicsEffect(self: QTermWidget, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -5222,9 +6354,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: QTermWidget, typeVal: i32) void {
+    pub fn grabGesture(self: QTermWidget, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -5236,9 +6372,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: QTermWidget, typeVal: i32) void {
+    pub fn ungrabGesture(self: QTermWidget, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -5248,15 +6388,19 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: QTermWidget, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: QTermWidget, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -5266,15 +6410,19 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: QTermWidget, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: QTermWidget, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -5286,13 +6434,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: QTermWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: QTermWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -5304,13 +6456,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: QTermWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: QTermWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -5320,12 +6476,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: QTermWidget, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn setWindowIcon(self: QTermWidget, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -5335,9 +6495,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn WindowIcon(self: QTermWidget) QIcon {
+    pub fn windowIcon(self: QTermWidget) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -5347,15 +6511,19 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: QTermWidget, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: QTermWidget, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -5367,13 +6535,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: QTermWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: QTermWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -5383,15 +6555,19 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: QTermWidget, windowRole: []const u8) void {
+    pub fn setWindowRole(self: QTermWidget, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -5403,13 +6579,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: QTermWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: QTermWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -5421,13 +6601,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: QTermWidget, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: QTermWidget, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -5439,13 +6623,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: QTermWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: QTermWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -5457,9 +6645,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: QTermWidget, level: f64) void {
+    pub fn setWindowOpacity(self: QTermWidget, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -5469,9 +6661,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn WindowOpacity(self: QTermWidget) f64 {
+    pub fn windowOpacity(self: QTermWidget) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -5481,9 +6677,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn IsWindowModified(self: QTermWidget) bool {
+    pub fn isWindowModified(self: QTermWidget) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -5493,15 +6693,19 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: QTermWidget, toolTip: []const u8) void {
+    pub fn setToolTip(self: QTermWidget, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -5513,13 +6717,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: QTermWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: QTermWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -5531,9 +6739,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: QTermWidget, msec: i32) void {
+    pub fn setToolTipDuration(self: QTermWidget, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -5543,9 +6755,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn ToolTipDuration(self: QTermWidget) i32 {
+    pub fn toolTipDuration(self: QTermWidget) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -5555,15 +6771,19 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: QTermWidget, statusTip: []const u8) void {
+    pub fn setStatusTip(self: QTermWidget, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -5575,13 +6795,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: QTermWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: QTermWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -5591,15 +6815,19 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: QTermWidget, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: QTermWidget, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -5611,13 +6839,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: QTermWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: QTermWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -5629,13 +6861,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: QTermWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: QTermWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -5647,13 +6883,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: QTermWidget, name: []const u8) void {
+    pub fn setAccessibleName(self: QTermWidget, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -5665,13 +6905,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: QTermWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: QTermWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -5683,13 +6927,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: QTermWidget, description: []const u8) void {
+    pub fn setAccessibleDescription(self: QTermWidget, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -5701,9 +6949,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: QTermWidget, direction: i32) void {
+    pub fn setLayoutDirection(self: QTermWidget, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -5717,9 +6969,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: QTermWidget) i32 {
+    pub fn layoutDirection(self: QTermWidget) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -5729,9 +6985,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn UnsetLayoutDirection(self: QTermWidget) void {
+    pub fn unsetLayoutDirection(self: QTermWidget) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -5741,12 +7001,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: QTermWidget, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: QTermWidget, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -5756,9 +7020,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn Locale(self: QTermWidget) QLocale {
+    pub fn locale(self: QTermWidget) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -5768,9 +7036,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn UnsetLocale(self: QTermWidget) void {
+    pub fn unsetLocale(self: QTermWidget) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -5780,9 +7052,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn IsRightToLeft(self: QTermWidget) bool {
+    pub fn isRightToLeft(self: QTermWidget) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -5792,9 +7068,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn IsLeftToRight(self: QTermWidget) bool {
+    pub fn isLeftToRight(self: QTermWidget) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -5804,9 +7084,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn SetFocus(self: QTermWidget) void {
+    pub fn setFocus(self: QTermWidget) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -5816,9 +7100,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn IsActiveWindow(self: QTermWidget) bool {
+    pub fn isActiveWindow(self: QTermWidget) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -5828,9 +7116,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn ActivateWindow(self: QTermWidget) void {
+    pub fn activateWindow(self: QTermWidget) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -5840,9 +7132,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn ClearFocus(self: QTermWidget) void {
+    pub fn clearFocus(self: QTermWidget) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -5854,9 +7150,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: QTermWidget, reason: i32) void {
+    pub fn setFocus2(self: QTermWidget, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -5870,9 +7170,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: QTermWidget) i32 {
+    pub fn focusPolicy(self: QTermWidget) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -5884,9 +7188,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: QTermWidget, policy: i32) void {
+    pub fn setFocusPolicy(self: QTermWidget, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -5896,9 +7204,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn HasFocus(self: QTermWidget) bool {
+    pub fn hasFocus(self: QTermWidget) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -5910,11 +7222,15 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -5924,12 +7240,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: QTermWidget, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: QTermWidget, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -5939,9 +7259,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn FocusProxy(self: QTermWidget) QWidget {
+    pub fn focusProxy(self: QTermWidget) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -5955,9 +7279,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: QTermWidget) i32 {
+    pub fn contextMenuPolicy(self: QTermWidget) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -5969,9 +7297,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: QTermWidget, policy: i32) void {
+    pub fn setContextMenuPolicy(self: QTermWidget, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -5981,9 +7313,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn GrabMouse(self: QTermWidget) void {
+    pub fn grabMouse(self: QTermWidget) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -5995,10 +7331,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: QTermWidget, param1: anytype) void {
+    pub fn grabMouse2(self: QTermWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -6008,9 +7348,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn ReleaseMouse(self: QTermWidget) void {
+    pub fn releaseMouse(self: QTermWidget) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -6020,9 +7364,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn GrabKeyboard(self: QTermWidget) void {
+    pub fn grabKeyboard(self: QTermWidget) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -6032,9 +7380,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn ReleaseKeyboard(self: QTermWidget) void {
+    pub fn releaseKeyboard(self: QTermWidget) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -6046,10 +7398,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: QTermWidget, key: anytype) i32 {
+    pub fn grabShortcut(self: QTermWidget, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -6061,9 +7417,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: QTermWidget, id: i32) void {
+    pub fn releaseShortcut(self: QTermWidget, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -6075,9 +7435,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: QTermWidget, id: i32) void {
+    pub fn setShortcutEnabled(self: QTermWidget, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -6089,25 +7453,37 @@ pub const QTermWidget = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: QTermWidget, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: QTermWidget, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -6117,9 +7493,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn UpdatesEnabled(self: QTermWidget) bool {
+    pub fn updatesEnabled(self: QTermWidget) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -6131,9 +7511,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: QTermWidget, enable: bool) void {
+    pub fn setUpdatesEnabled(self: QTermWidget, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -6143,9 +7527,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn GraphicsProxyWidget(self: QTermWidget) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: QTermWidget) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -6155,9 +7543,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn Update(self: QTermWidget) void {
+    pub fn update(self: QTermWidget) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -6167,9 +7559,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn Repaint(self: QTermWidget) void {
+    pub fn repaint(self: QTermWidget) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -6179,17 +7575,21 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: QTermWidget, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: QTermWidget, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -6201,11 +7601,15 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: QTermWidget, param1: anytype) void {
+    pub fn update3(self: QTermWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -6216,10 +7620,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: QTermWidget, param1: anytype) void {
+    pub fn update4(self: QTermWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -6229,17 +7637,21 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: QTermWidget, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: QTermWidget, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -6251,10 +7663,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: QTermWidget, param1: anytype) void {
+    pub fn repaint3(self: QTermWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -6266,10 +7682,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: QTermWidget, param1: anytype) void {
+    pub fn repaint4(self: QTermWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -6281,9 +7701,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: QTermWidget, hidden: bool) void {
+    pub fn setHidden(self: QTermWidget, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -6293,9 +7717,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn Show(self: QTermWidget) void {
+    pub fn show(self: QTermWidget) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -6305,9 +7733,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn Hide(self: QTermWidget) void {
+    pub fn hide(self: QTermWidget) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -6317,9 +7749,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn ShowMinimized(self: QTermWidget) void {
+    pub fn showMinimized(self: QTermWidget) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -6329,9 +7765,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn ShowMaximized(self: QTermWidget) void {
+    pub fn showMaximized(self: QTermWidget) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -6341,9 +7781,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn ShowFullScreen(self: QTermWidget) void {
+    pub fn showFullScreen(self: QTermWidget) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -6353,9 +7797,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn ShowNormal(self: QTermWidget) void {
+    pub fn showNormal(self: QTermWidget) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -6365,9 +7813,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn Close(self: QTermWidget) bool {
+    pub fn close(self: QTermWidget) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -6377,9 +7829,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn Raise(self: QTermWidget) void {
+    pub fn raise(self: QTermWidget) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -6389,9 +7845,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn Lower(self: QTermWidget) void {
+    pub fn lower(self: QTermWidget) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -6403,10 +7863,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: QTermWidget, param1: anytype) void {
+    pub fn stackUnder(self: QTermWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -6416,13 +7880,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: QTermWidget, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: QTermWidget, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -6434,10 +7902,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: QTermWidget, param1: anytype) void {
+    pub fn move2(self: QTermWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -6451,9 +7923,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: QTermWidget, w: i32, h: i32) void {
+    pub fn resize(self: QTermWidget, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -6465,10 +7941,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: QTermWidget, param1: anytype) void {
+    pub fn resize2(self: QTermWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -6478,17 +7958,21 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: QTermWidget, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: QTermWidget, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -6498,12 +7982,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: QTermWidget, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: QTermWidget, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -6515,13 +8003,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: QTermWidget, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: QTermWidget, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QTermWidget.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QTermWidget.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -6531,15 +8023,19 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: QTermWidget, geometry: []u8) bool {
+    pub fn restoreGeometry(self: QTermWidget, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -6549,9 +8045,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn AdjustSize(self: QTermWidget) void {
+    pub fn adjustSize(self: QTermWidget) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -6561,9 +8061,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn IsVisible(self: QTermWidget) bool {
+    pub fn isVisible(self: QTermWidget) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -6575,10 +8079,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: QTermWidget, param1: anytype) bool {
+    pub fn isVisibleTo(self: QTermWidget, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -6588,9 +8096,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn IsHidden(self: QTermWidget) bool {
+    pub fn isHidden(self: QTermWidget) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -6600,9 +8112,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn IsMinimized(self: QTermWidget) bool {
+    pub fn isMinimized(self: QTermWidget) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -6612,9 +8128,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn IsMaximized(self: QTermWidget) bool {
+    pub fn isMaximized(self: QTermWidget) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -6624,9 +8144,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn IsFullScreen(self: QTermWidget) bool {
+    pub fn isFullScreen(self: QTermWidget) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -6640,9 +8164,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: QTermWidget) i32 {
+    pub fn windowState(self: QTermWidget) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -6654,9 +8182,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: QTermWidget, state: i32) void {
+    pub fn setWindowState(self: QTermWidget, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -6668,9 +8200,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: QTermWidget, state: i32) void {
+    pub fn overrideWindowState(self: QTermWidget, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -6680,9 +8216,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn SizePolicy(self: QTermWidget) QSizePolicy {
+    pub fn sizePolicy(self: QTermWidget) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -6692,12 +8232,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: QTermWidget, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: QTermWidget, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -6711,9 +8255,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: QTermWidget, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: QTermWidget, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -6723,9 +8271,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn VisibleRegion(self: QTermWidget) QRegion {
+    pub fn visibleRegion(self: QTermWidget) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -6743,9 +8295,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: QTermWidget, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: QTermWidget, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -6757,10 +8313,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: QTermWidget, margins: anytype) void {
+    pub fn setContentsMargins2(self: QTermWidget, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -6770,9 +8330,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn ContentsMargins(self: QTermWidget) QMargins {
+    pub fn contentsMargins(self: QTermWidget) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -6782,9 +8346,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn ContentsRect(self: QTermWidget) QRect {
+    pub fn contentsRect(self: QTermWidget) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -6794,9 +8362,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn Layout(self: QTermWidget) QLayout {
+    pub fn layout(self: QTermWidget) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -6806,12 +8378,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: QTermWidget, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: QTermWidget, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -6821,24 +8397,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn UpdateGeometry(self: QTermWidget) void {
+    pub fn updateGeometry(self: QTermWidget) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTermWidget `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: QTermWidget, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -6848,14 +8413,37 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: QTermWidget, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QTermWidget `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: QTermWidget, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: QTermWidget, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -6869,9 +8457,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: QTermWidget, dx: i32, dy: i32) void {
+    pub fn scroll(self: QTermWidget, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -6887,10 +8479,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: QTermWidget, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: QTermWidget, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -6900,9 +8496,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn FocusWidget(self: QTermWidget) QWidget {
+    pub fn focusWidget(self: QTermWidget) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -6912,9 +8512,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn NextInFocusChain(self: QTermWidget) QWidget {
+    pub fn nextInFocusChain(self: QTermWidget) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -6924,9 +8528,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn PreviousInFocusChain(self: QTermWidget) QWidget {
+    pub fn previousInFocusChain(self: QTermWidget) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -6936,9 +8544,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn AcceptDrops(self: QTermWidget) bool {
+    pub fn acceptDrops(self: QTermWidget) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -6950,9 +8562,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: QTermWidget, on: bool) void {
+    pub fn setAcceptDrops(self: QTermWidget, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -6964,10 +8580,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: QTermWidget, action: anytype) void {
+    pub fn addAction(self: QTermWidget, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -6977,15 +8597,19 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: QTermWidget, actions: []QAction) void {
+    pub fn addActions(self: QTermWidget, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -6997,16 +8621,20 @@ pub const QTermWidget = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: QTermWidget, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: QTermWidget, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -7020,11 +8648,15 @@ pub const QTermWidget = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: QTermWidget, before: anytype, action: anytype) void {
+    pub fn insertAction(self: QTermWidget, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -7036,10 +8668,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: QTermWidget, action: anytype) void {
+    pub fn removeAction(self: QTermWidget, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -7051,15 +8687,19 @@ pub const QTermWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: QTermWidget, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: QTermWidget, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QTermWidget.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QTermWidget.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -7071,7 +8711,7 @@ pub const QTermWidget = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: QTermWidget, text: []const u8) QAction {
+    pub fn addAction2(self: QTermWidget, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -7079,6 +8719,10 @@ pub const QTermWidget = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -7087,18 +8731,22 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: QTermWidget, icon: anytype, text: []const u8) QAction {
-        comptime _ = @TypeOf(icon)._is_QIcon;
+    pub fn addAction3(self: QTermWidget, _icon: anytype, text: []const u8) QAction {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
+        return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(_icon.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
 
     /// Inherited from QWidget
     ///
@@ -7112,7 +8760,7 @@ pub const QTermWidget = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: QTermWidget, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: QTermWidget, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -7121,6 +8769,10 @@ pub const QTermWidget = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -7129,21 +8781,25 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: QTermWidget, icon: anytype, text: []const u8, shortcut: anytype) QAction {
-        comptime _ = @TypeOf(icon)._is_QIcon;
+    pub fn addAction5(self: QTermWidget, _icon: anytype, text: []const u8, shortcut: anytype) QAction {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
-        return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
+        return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(_icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
 
     /// Inherited from QWidget
     ///
@@ -7153,9 +8809,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn ParentWidget(self: QTermWidget) QWidget {
+    pub fn parentWidget(self: QTermWidget) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -7167,9 +8827,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: QTermWidget, typeVal: i32) void {
+    pub fn setWindowFlags(self: QTermWidget, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -7183,9 +8847,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: QTermWidget) i32 {
+    pub fn windowFlags(self: QTermWidget) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -7197,9 +8865,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: QTermWidget, param1: i32) void {
+    pub fn setWindowFlag(self: QTermWidget, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -7211,9 +8883,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: QTermWidget, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: QTermWidget, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -7227,9 +8903,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: QTermWidget) i32 {
+    pub fn windowType(self: QTermWidget) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -7239,9 +8919,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -7251,13 +8935,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: QTermWidget, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: QTermWidget, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -7269,10 +8957,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: QTermWidget, p: anytype) QWidget {
+    pub fn childAt2(self: QTermWidget, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -7284,10 +8976,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: QTermWidget, p: anytype) QWidget {
+    pub fn childAt3(self: QTermWidget, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -7299,9 +8995,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: QTermWidget, param1: i32) void {
+    pub fn setAttribute(self: QTermWidget, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -7313,9 +9013,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: QTermWidget, param1: i32) bool {
+    pub fn testAttribute(self: QTermWidget, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -7325,9 +9029,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn EnsurePolished(self: QTermWidget) void {
+    pub fn ensurePolished(self: QTermWidget) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -7339,10 +9047,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: QTermWidget, child: anytype) bool {
+    pub fn isAncestorOf(self: QTermWidget, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -7352,9 +9064,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn AutoFillBackground(self: QTermWidget) bool {
+    pub fn autoFillBackground(self: QTermWidget) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -7366,9 +9082,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: QTermWidget, enabled: bool) void {
+    pub fn setAutoFillBackground(self: QTermWidget, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -7378,9 +9098,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn BackingStore(self: QTermWidget) QBackingStore {
+    pub fn backingStore(self: QTermWidget) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -7390,9 +9114,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn WindowHandle(self: QTermWidget) QWindow {
+    pub fn windowHandle(self: QTermWidget) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -7402,9 +9130,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn Screen(self: QTermWidget) QScreen {
+    pub fn screen(self: QTermWidget) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -7414,12 +9146,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: QTermWidget, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: QTermWidget, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -7427,12 +9163,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -7442,15 +9182,19 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` title: []const u8 `
+    /// ` _title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: QTermWidget, title: []const u8) void {
+    pub fn windowTitleChanged(self: QTermWidget, _title: []const u8) void {
         const title_str = qtc.libqt_string{
-            .len = title.len,
-            .data = title.ptr,
+            .len = _title.len,
+            .data = _title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -7462,9 +9206,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: QTermWidget, callback: *const fn (QTermWidget, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: QTermWidget, callback: *const fn (QTermWidget, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -7474,12 +9222,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: QTermWidget, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn windowIconChanged(self: QTermWidget, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -7491,9 +9243,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: QTermWidget, callback: *const fn (QTermWidget, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: QTermWidget, callback: *const fn (QTermWidget, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -7505,13 +9261,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: QTermWidget, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: QTermWidget, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -7523,9 +9283,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: QTermWidget, callback: *const fn (QTermWidget, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: QTermWidget, callback: *const fn (QTermWidget, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -7535,12 +9299,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: QTermWidget, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: QTermWidget, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -7552,9 +9320,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: QTermWidget, callback: *const fn (QTermWidget, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: QTermWidget, callback: *const fn (QTermWidget, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -7568,9 +9340,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: QTermWidget) i32 {
+    pub fn inputMethodHints(self: QTermWidget) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -7582,9 +9358,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: QTermWidget, hints: i32) void {
+    pub fn setInputMethodHints(self: QTermWidget, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -7598,11 +9378,15 @@ pub const QTermWidget = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: QTermWidget, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: QTermWidget, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -7618,13 +9402,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: QTermWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: QTermWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -7641,12 +9429,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: QTermWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: QTermWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -7660,11 +9452,15 @@ pub const QTermWidget = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: QTermWidget, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: QTermWidget, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -7680,12 +9476,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: QTermWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: QTermWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -7703,12 +9503,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: QTermWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: QTermWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -7720,10 +9524,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: QTermWidget, rectangle: anytype) QPixmap {
+    pub fn grab1(self: QTermWidget, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -7737,9 +9545,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: QTermWidget, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: QTermWidget, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -7753,10 +9565,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: QTermWidget, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: QTermWidget, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -7770,9 +9586,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: QTermWidget, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: QTermWidget, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -7786,9 +9606,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: QTermWidget, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: QTermWidget, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -7802,9 +9626,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: QTermWidget, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: QTermWidget, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -7818,25 +9646,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: QTermWidget, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: QTermWidget, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -7844,17 +9660,41 @@ pub const QTermWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -7866,13 +9706,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QTermWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QTermWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -7884,13 +9728,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QTermWidget, name: []const u8) void {
+    pub fn setObjectName(self: QTermWidget, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -7900,9 +9748,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn IsWidgetType(self: QTermWidget) bool {
+    pub fn isWidgetType(self: QTermWidget) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -7912,9 +9764,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn IsWindowType(self: QTermWidget) bool {
+    pub fn isWindowType(self: QTermWidget) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -7924,9 +9780,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn IsQuickItemType(self: QTermWidget) bool {
+    pub fn isQuickItemType(self: QTermWidget) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -7936,9 +9796,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn SignalsBlocked(self: QTermWidget) bool {
+    pub fn signalsBlocked(self: QTermWidget) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -7950,9 +9814,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QTermWidget, b: bool) bool {
+    pub fn blockSignals(self: QTermWidget, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -7962,9 +9830,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn Thread(self: QTermWidget) QThread {
+    pub fn thread(self: QTermWidget) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -7974,12 +9846,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QTermWidget, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QTermWidget, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -7991,9 +9867,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QTermWidget, interval: i32) i32 {
+    pub fn startTimer(self: QTermWidget, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -8005,9 +9885,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QTermWidget, time: i64) i32 {
+    pub fn startTimer2(self: QTermWidget, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -8019,9 +9903,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QTermWidget, id: i32) void {
+    pub fn killTimer(self: QTermWidget, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -8033,9 +9921,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QTermWidget, id: i32) void {
+    pub fn killTimer2(self: QTermWidget, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -8047,15 +9939,19 @@ pub const QTermWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QTermWidget, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QTermWidget, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QTermWidget.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QTermWidget.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -8067,10 +9963,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QTermWidget, filterObj: anytype) void {
+    pub fn installEventFilter(self: QTermWidget, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -8082,10 +9982,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QTermWidget, obj: anytype) void {
+    pub fn removeEventFilter(self: QTermWidget, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -8093,7 +9997,7 @@ pub const QTermWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -8101,13 +10005,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -8115,7 +10023,7 @@ pub const QTermWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -8123,13 +10031,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -8139,18 +10051,22 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QTermWidget, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QTermWidget, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -8158,7 +10074,7 @@ pub const QTermWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -8166,13 +10082,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -8180,7 +10100,7 @@ pub const QTermWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -8188,13 +10108,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -8204,9 +10128,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn Disconnect3(self: QTermWidget) bool {
+    pub fn disconnect3(self: QTermWidget) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -8218,10 +10146,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QTermWidget, receiver: anytype) bool {
+    pub fn disconnect4(self: QTermWidget, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -8231,10 +10163,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -8244,9 +10180,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn DumpObjectTree(self: QTermWidget) void {
+    pub fn dumpObjectTree(self: QTermWidget) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -8256,9 +10196,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn DumpObjectInfo(self: QTermWidget) void {
+    pub fn dumpObjectInfo(self: QTermWidget) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -8272,11 +10216,15 @@ pub const QTermWidget = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QTermWidget, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QTermWidget, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -8288,10 +10236,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QTermWidget, name: [:0]const u8) QVariant {
+    pub fn property(self: QTermWidget, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -8303,7 +10255,7 @@ pub const QTermWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QTermWidget, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QTermWidget, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -8311,27 +10263,19 @@ pub const QTermWidget = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QTermWidget.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QTermWidget.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QTermWidget.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QTermWidget.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTermWidget `
-    ///
-    pub fn BindingStorage(self: QTermWidget) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -8341,9 +10285,29 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn BindingStorage2(self: QTermWidget) QBindingStorage {
+    pub fn bindingStorage(self: QTermWidget) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QTermWidget `
+    ///
+    pub fn bindingStorage2(self: QTermWidget) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -8353,9 +10317,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn Destroyed(self: QTermWidget) void {
+    pub fn destroyed(self: QTermWidget) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -8367,9 +10335,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QTermWidget, callback: *const fn (QTermWidget) callconv(.c) void) void {
+    pub fn onDestroyed(self: QTermWidget, callback: *const fn (QTermWidget) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -8379,9 +10351,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn Parent(self: QTermWidget) QObject {
+    pub fn parent(self: QTermWidget) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -8393,10 +10369,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QTermWidget, classname: [:0]const u8) bool {
+    pub fn inherits(self: QTermWidget, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -8406,9 +10386,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn DeleteLater(self: QTermWidget) void {
+    pub fn deleteLater(self: QTermWidget) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -8422,9 +10406,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QTermWidget, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QTermWidget, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -8438,9 +10426,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QTermWidget, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QTermWidget, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -8448,7 +10440,7 @@ pub const QTermWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -8458,13 +10450,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -8472,7 +10468,7 @@ pub const QTermWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -8482,13 +10478,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -8498,7 +10498,7 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -8506,12 +10506,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QTermWidget, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QTermWidget, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -8523,10 +10527,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QTermWidget, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QTermWidget, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -8540,11 +10548,15 @@ pub const QTermWidget = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QTermWidget, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QTermWidget, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -8560,13 +10572,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QTermWidget, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QTermWidget, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -8579,11 +10595,15 @@ pub const QTermWidget = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QTermWidget, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QTermWidget, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -8595,10 +10615,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QTermWidget, param1: anytype) void {
+    pub fn destroyed1(self: QTermWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -8610,9 +10634,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QTermWidget, callback: *const fn (QTermWidget, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QTermWidget, callback: *const fn (QTermWidget, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -8622,9 +10650,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn PaintingActive(self: QTermWidget) bool {
+    pub fn paintingActive(self: QTermWidget) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -8634,9 +10666,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn WidthMM(self: QTermWidget) i32 {
+    pub fn widthMM(self: QTermWidget) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -8646,9 +10682,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn HeightMM(self: QTermWidget) i32 {
+    pub fn heightMM(self: QTermWidget) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -8658,9 +10698,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn LogicalDpiX(self: QTermWidget) i32 {
+    pub fn logicalDpiX(self: QTermWidget) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -8670,9 +10714,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn LogicalDpiY(self: QTermWidget) i32 {
+    pub fn logicalDpiY(self: QTermWidget) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -8682,9 +10730,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn PhysicalDpiX(self: QTermWidget) i32 {
+    pub fn physicalDpiX(self: QTermWidget) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -8694,9 +10746,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn PhysicalDpiY(self: QTermWidget) i32 {
+    pub fn physicalDpiY(self: QTermWidget) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -8706,9 +10762,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn DevicePixelRatio(self: QTermWidget) f64 {
+    pub fn devicePixelRatio(self: QTermWidget) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8718,9 +10778,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn DevicePixelRatioF(self: QTermWidget) f64 {
+    pub fn devicePixelRatioF(self: QTermWidget) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -8730,9 +10794,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn ColorCount(self: QTermWidget) i32 {
+    pub fn colorCount(self: QTermWidget) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -8742,17 +10810,25 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn Depth(self: QTermWidget) i32 {
+    pub fn depth(self: QTermWidget) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8760,13 +10836,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// Inherited from QTermWidgetInterface
     ///
@@ -8778,10 +10858,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param1: QTermWidgetInterface `
     ///
-    pub fn OperatorAssign(self: QTermWidget, param1: anytype) void {
+    pub fn operatorAssign(self: QTermWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QTermWidgetInterface;
         qtc.QTermWidgetInterface_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -8793,13 +10877,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn DevType(self: QTermWidget) i32 {
+    pub fn devType(self: QTermWidget) i32 {
         return qtc.QTermWidget_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -8811,9 +10895,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn SuperDevType(self: QTermWidget) i32 {
+    pub fn superDevType(self: QTermWidget) i32 {
         return qtc.QTermWidget_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -8827,9 +10915,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: QTermWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QTermWidget, callback: *const fn () callconv(.c) i32) void {
         qtc.QTermWidget_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -8843,13 +10935,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: QTermWidget, visible: bool) void {
+    pub fn setVisible(self: QTermWidget, visible: bool) void {
         qtc.QTermWidget_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -8863,9 +10955,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: QTermWidget, visible: bool) void {
+    pub fn superSetVisible(self: QTermWidget, visible: bool) void {
         qtc.QTermWidget_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -8879,9 +10975,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: QTermWidget, callback: *const fn (QTermWidget, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: QTermWidget, callback: *const fn (QTermWidget, bool) callconv(.c) void) void {
         qtc.QTermWidget_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -8893,13 +10993,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn MinimumSizeHint(self: QTermWidget) QSize {
+    pub fn minimumSizeHint(self: QTermWidget) QSize {
         return .{ .ptr = qtc.QTermWidget_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -8911,9 +11011,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn SuperMinimumSizeHint(self: QTermWidget) QSize {
+    pub fn superMinimumSizeHint(self: QTermWidget) QSize {
         return .{ .ptr = qtc.QTermWidget_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -8929,9 +11033,13 @@ pub const QTermWidget = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: QTermWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QTermWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.QTermWidget_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -8945,13 +11053,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: QTermWidget, param1: i32) i32 {
+    pub fn heightForWidth(self: QTermWidget, param1: i32) i32 {
         return qtc.QTermWidget_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -8965,9 +11073,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: QTermWidget, param1: i32) i32 {
+    pub fn superHeightForWidth(self: QTermWidget, param1: i32) i32 {
         return qtc.QTermWidget_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -8981,9 +11093,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: QTermWidget, callback: *const fn (QTermWidget, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: QTermWidget, callback: *const fn (QTermWidget, i32) callconv(.c) i32) void {
         qtc.QTermWidget_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -8995,13 +11111,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn HasHeightForWidth(self: QTermWidget) bool {
+    pub fn hasHeightForWidth(self: QTermWidget) bool {
         return qtc.QTermWidget_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -9013,9 +11129,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn SuperHasHeightForWidth(self: QTermWidget) bool {
+    pub fn superHasHeightForWidth(self: QTermWidget) bool {
         return qtc.QTermWidget_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -9029,9 +11149,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: QTermWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QTermWidget, callback: *const fn () callconv(.c) bool) void {
         qtc.QTermWidget_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -9043,13 +11167,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn PaintEngine(self: QTermWidget) QPaintEngine {
+    pub fn paintEngine(self: QTermWidget) QPaintEngine {
         return .{ .ptr = qtc.QTermWidget_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -9061,9 +11185,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn SuperPaintEngine(self: QTermWidget) QPaintEngine {
+    pub fn superPaintEngine(self: QTermWidget) QPaintEngine {
         return .{ .ptr = qtc.QTermWidget_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -9077,9 +11205,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: QTermWidget, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QTermWidget, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.QTermWidget_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QWidget
     ///
@@ -9091,16 +11223,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QTermWidget, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QTermWidget_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QTermWidget, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QTermWidget_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QWidget
     ///
@@ -9112,12 +11244,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QTermWidget, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QTermWidget_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QTermWidget, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QTermWidget_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QWidget
     ///
@@ -9131,10 +11267,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QTermWidget, callback: *const fn (QTermWidget, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QTermWidget, callback: *const fn (QTermWidget, QEvent) callconv(.c) bool) void {
         qtc.QTermWidget_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
@@ -9145,16 +11285,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QTermWidget_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mousePressEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QTermWidget_MousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -9166,12 +11306,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QTermWidget_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMousePressEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QTermWidget_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -9185,10 +11329,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: QTermWidget, callback: *const fn (QTermWidget, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: QTermWidget, callback: *const fn (QTermWidget, QMouseEvent) callconv(.c) void) void {
         qtc.QTermWidget_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
@@ -9199,16 +11347,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QTermWidget_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseReleaseEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QTermWidget_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -9220,12 +11368,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QTermWidget_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseReleaseEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QTermWidget_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -9239,10 +11391,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: QTermWidget, callback: *const fn (QTermWidget, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: QTermWidget, callback: *const fn (QTermWidget, QMouseEvent) callconv(.c) void) void {
         qtc.QTermWidget_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -9253,16 +11409,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QTermWidget_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QTermWidget_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -9274,12 +11430,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QTermWidget_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QTermWidget_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -9293,10 +11453,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: QTermWidget, callback: *const fn (QTermWidget, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: QTermWidget, callback: *const fn (QTermWidget, QMouseEvent) callconv(.c) void) void {
         qtc.QTermWidget_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -9307,16 +11471,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QTermWidget_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QTermWidget_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9328,12 +11492,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QTermWidget_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QTermWidget_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9347,9 +11515,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: QTermWidget, callback: *const fn (QTermWidget, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: QTermWidget, callback: *const fn (QTermWidget, QMouseEvent) callconv(.c) void) void {
         qtc.QTermWidget_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -9361,16 +11533,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.QTermWidget_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.QTermWidget_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -9382,12 +11554,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.QTermWidget_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.QTermWidget_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -9401,10 +11577,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: QTermWidget, callback: *const fn (QTermWidget, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: QTermWidget, callback: *const fn (QTermWidget, QWheelEvent) callconv(.c) void) void {
         qtc.QTermWidget_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyPressEvent)
@@ -9415,16 +11595,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QTermWidget_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyPressEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QTermWidget_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -9436,12 +11616,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QTermWidget_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyPressEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QTermWidget_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -9455,10 +11639,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: QTermWidget, callback: *const fn (QTermWidget, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: QTermWidget, callback: *const fn (QTermWidget, QKeyEvent) callconv(.c) void) void {
         qtc.QTermWidget_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
@@ -9469,16 +11657,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QTermWidget_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QTermWidget_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -9490,12 +11678,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QTermWidget_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QTermWidget_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -9509,10 +11701,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: QTermWidget, callback: *const fn (QTermWidget, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: QTermWidget, callback: *const fn (QTermWidget, QKeyEvent) callconv(.c) void) void {
         qtc.QTermWidget_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -9523,16 +11719,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QTermWidget_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QTermWidget_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -9544,12 +11740,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QTermWidget_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QTermWidget_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -9563,10 +11763,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: QTermWidget, callback: *const fn (QTermWidget, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: QTermWidget, callback: *const fn (QTermWidget, QFocusEvent) callconv(.c) void) void {
         qtc.QTermWidget_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -9577,16 +11781,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QTermWidget_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QTermWidget_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -9598,12 +11802,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QTermWidget_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QTermWidget_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -9617,9 +11825,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: QTermWidget, callback: *const fn (QTermWidget, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: QTermWidget, callback: *const fn (QTermWidget, QFocusEvent) callconv(.c) void) void {
         qtc.QTermWidget_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -9631,16 +11843,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.QTermWidget_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.QTermWidget_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -9652,12 +11864,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.QTermWidget_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.QTermWidget_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -9671,9 +11887,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: QTermWidget, callback: *const fn (QTermWidget, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: QTermWidget, callback: *const fn (QTermWidget, QEnterEvent) callconv(.c) void) void {
         qtc.QTermWidget_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9685,16 +11905,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QTermWidget_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QTermWidget_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9706,12 +11926,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QTermWidget_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QTermWidget_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9725,9 +11949,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: QTermWidget, callback: *const fn (QTermWidget, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: QTermWidget, callback: *const fn (QTermWidget, QEvent) callconv(.c) void) void {
         qtc.QTermWidget_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QWidget
     ///
@@ -9739,16 +11967,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn PaintEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.QTermWidget_PaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn paintEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.QTermWidget_PaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -9760,12 +11988,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.QTermWidget_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superPaintEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.QTermWidget_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -9779,9 +12011,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, event: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: QTermWidget, callback: *const fn (QTermWidget, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: QTermWidget, callback: *const fn (QTermWidget, QPaintEvent) callconv(.c) void) void {
         qtc.QTermWidget_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9793,16 +12029,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.QTermWidget_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.QTermWidget_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9814,12 +12050,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.QTermWidget_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.QTermWidget_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9833,9 +12073,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: QTermWidget, callback: *const fn (QTermWidget, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: QTermWidget, callback: *const fn (QTermWidget, QMoveEvent) callconv(.c) void) void {
         qtc.QTermWidget_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -9847,16 +12091,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.QTermWidget_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.QTermWidget_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -9868,12 +12112,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.QTermWidget_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.QTermWidget_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -9887,9 +12135,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: QTermWidget, callback: *const fn (QTermWidget, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: QTermWidget, callback: *const fn (QTermWidget, QCloseEvent) callconv(.c) void) void {
         qtc.QTermWidget_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -9901,16 +12153,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.QTermWidget_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn contextMenuEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.QTermWidget_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -9922,12 +12174,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.QTermWidget_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superContextMenuEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.QTermWidget_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -9941,9 +12197,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, event: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: QTermWidget, callback: *const fn (QTermWidget, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: QTermWidget, callback: *const fn (QTermWidget, QContextMenuEvent) callconv(.c) void) void {
         qtc.QTermWidget_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -9955,16 +12215,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.QTermWidget_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.QTermWidget_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -9976,12 +12236,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.QTermWidget_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.QTermWidget_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -9995,9 +12259,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: QTermWidget, callback: *const fn (QTermWidget, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: QTermWidget, callback: *const fn (QTermWidget, QTabletEvent) callconv(.c) void) void {
         qtc.QTermWidget_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -10009,16 +12277,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.QTermWidget_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.QTermWidget_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -10030,12 +12298,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.QTermWidget_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.QTermWidget_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -10049,9 +12321,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: QTermWidget, callback: *const fn (QTermWidget, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: QTermWidget, callback: *const fn (QTermWidget, QActionEvent) callconv(.c) void) void {
         qtc.QTermWidget_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -10063,16 +12339,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.QTermWidget_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.QTermWidget_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -10084,12 +12360,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.QTermWidget_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.QTermWidget_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -10103,9 +12383,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: QTermWidget, callback: *const fn (QTermWidget, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: QTermWidget, callback: *const fn (QTermWidget, QDragEnterEvent) callconv(.c) void) void {
         qtc.QTermWidget_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -10117,16 +12401,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.QTermWidget_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.QTermWidget_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -10138,12 +12422,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.QTermWidget_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.QTermWidget_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -10157,9 +12445,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: QTermWidget, callback: *const fn (QTermWidget, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: QTermWidget, callback: *const fn (QTermWidget, QDragMoveEvent) callconv(.c) void) void {
         qtc.QTermWidget_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -10171,16 +12463,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.QTermWidget_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.QTermWidget_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -10192,12 +12484,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.QTermWidget_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.QTermWidget_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -10211,9 +12507,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: QTermWidget, callback: *const fn (QTermWidget, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: QTermWidget, callback: *const fn (QTermWidget, QDragLeaveEvent) callconv(.c) void) void {
         qtc.QTermWidget_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -10225,16 +12525,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.QTermWidget_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.QTermWidget_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -10246,12 +12546,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.QTermWidget_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.QTermWidget_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -10265,9 +12569,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: QTermWidget, callback: *const fn (QTermWidget, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: QTermWidget, callback: *const fn (QTermWidget, QDropEvent) callconv(.c) void) void {
         qtc.QTermWidget_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QWidget
     ///
@@ -10279,16 +12587,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn ShowEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.QTermWidget_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn showEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.QTermWidget_ShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -10300,12 +12608,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.QTermWidget_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superShowEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.QTermWidget_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -10319,9 +12631,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: QTermWidget, callback: *const fn (QTermWidget, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: QTermWidget, callback: *const fn (QTermWidget, QShowEvent) callconv(.c) void) void {
         qtc.QTermWidget_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -10333,16 +12649,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.QTermWidget_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.QTermWidget_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -10354,12 +12670,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.QTermWidget_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.QTermWidget_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -10373,9 +12693,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: QTermWidget, callback: *const fn (QTermWidget, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: QTermWidget, callback: *const fn (QTermWidget, QHideEvent) callconv(.c) void) void {
         qtc.QTermWidget_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -10393,7 +12717,7 @@ pub const QTermWidget = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: QTermWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: QTermWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -10401,9 +12725,9 @@ pub const QTermWidget = extern struct {
         return qtc.QTermWidget_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -10421,13 +12745,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: QTermWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: QTermWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.QTermWidget_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -10441,9 +12769,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: QTermWidget, callback: *const fn (QTermWidget, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: QTermWidget, callback: *const fn (QTermWidget, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QTermWidget_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QWidget
     ///
@@ -10457,14 +12789,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: QTermWidget, param1: anytype) void {
+    pub fn changeEvent(self: QTermWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.QTermWidget_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -10478,10 +12810,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: QTermWidget, param1: anytype) void {
+    pub fn superChangeEvent(self: QTermWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.QTermWidget_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -10495,9 +12831,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: QTermWidget, callback: *const fn (QTermWidget, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: QTermWidget, callback: *const fn (QTermWidget, QEvent) callconv(.c) void) void {
         qtc.QTermWidget_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -10511,13 +12851,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: QTermWidget, param1: i32) i32 {
+    pub fn metric(self: QTermWidget, param1: i32) i32 {
         return qtc.QTermWidget_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -10531,9 +12871,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: QTermWidget, param1: i32) i32 {
+    pub fn superMetric(self: QTermWidget, param1: i32) i32 {
         return qtc.QTermWidget_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -10547,9 +12891,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: QTermWidget, callback: *const fn (QTermWidget, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: QTermWidget, callback: *const fn (QTermWidget, i32) callconv(.c) i32) void {
         qtc.QTermWidget_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -10563,14 +12911,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: QTermWidget, painter: anytype) void {
+    pub fn initPainter(self: QTermWidget, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QTermWidget_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -10584,10 +12932,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: QTermWidget, painter: anytype) void {
+    pub fn superInitPainter(self: QTermWidget, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QTermWidget_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -10601,9 +12953,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: QTermWidget, callback: *const fn (QTermWidget, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: QTermWidget, callback: *const fn (QTermWidget, QPainter) callconv(.c) void) void {
         qtc.QTermWidget_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -10617,14 +12973,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: QTermWidget, offset: anytype) QPaintDevice {
+    pub fn redirected(self: QTermWidget, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QTermWidget_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -10638,10 +12994,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: QTermWidget, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: QTermWidget, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QTermWidget_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -10655,9 +13015,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: QTermWidget, callback: *const fn (QTermWidget, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: QTermWidget, callback: *const fn (QTermWidget, QPoint) callconv(.c) QPaintDevice) void {
         qtc.QTermWidget_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -10669,13 +13033,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn SharedPainter(self: QTermWidget) QPainter {
+    pub fn sharedPainter(self: QTermWidget) QPainter {
         return .{ .ptr = qtc.QTermWidget_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -10687,9 +13051,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn SuperSharedPainter(self: QTermWidget) QPainter {
+    pub fn superSharedPainter(self: QTermWidget) QPainter {
         return .{ .ptr = qtc.QTermWidget_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -10703,9 +13071,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: QTermWidget, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QTermWidget, callback: *const fn () callconv(.c) QPainter) void {
         qtc.QTermWidget_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -10719,14 +13091,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: QTermWidget, param1: anytype) void {
+    pub fn inputMethodEvent(self: QTermWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.QTermWidget_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -10740,10 +13112,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: QTermWidget, param1: anytype) void {
+    pub fn superInputMethodEvent(self: QTermWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.QTermWidget_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -10757,9 +13133,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: QTermWidget, callback: *const fn (QTermWidget, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: QTermWidget, callback: *const fn (QTermWidget, QInputMethodEvent) callconv(.c) void) void {
         qtc.QTermWidget_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -10773,13 +13153,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: QTermWidget, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: QTermWidget, param1: i32) QVariant {
         return .{ .ptr = qtc.QTermWidget_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -10793,9 +13173,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: QTermWidget, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: QTermWidget, param1: i32) QVariant {
         return .{ .ptr = qtc.QTermWidget_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -10811,9 +13195,13 @@ pub const QTermWidget = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: QTermWidget, callback: *const fn (QTermWidget, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: QTermWidget, callback: *const fn (QTermWidget, i32) callconv(.c) QVariant) void {
         qtc.QTermWidget_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -10827,13 +13215,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: QTermWidget, next: bool) bool {
+    pub fn focusNextPrevChild(self: QTermWidget, next: bool) bool {
         return qtc.QTermWidget_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -10847,9 +13235,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: QTermWidget, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: QTermWidget, next: bool) bool {
         return qtc.QTermWidget_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -10863,9 +13255,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: QTermWidget, callback: *const fn (QTermWidget, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: QTermWidget, callback: *const fn (QTermWidget, bool) callconv(.c) bool) void {
         qtc.QTermWidget_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -10879,17 +13275,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QTermWidget, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QTermWidget, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QTermWidget_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QTermWidget_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -10903,13 +13299,17 @@ pub const QTermWidget = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QTermWidget, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QTermWidget, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QTermWidget_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QTermWidget_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -10923,9 +13323,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QTermWidget, callback: *const fn (QTermWidget, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QTermWidget, callback: *const fn (QTermWidget, QObject, QEvent) callconv(.c) bool) void {
         qtc.QTermWidget_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -10937,16 +13341,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QTermWidget_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QTermWidget_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -10958,12 +13362,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QTermWidget_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QTermWidget_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -10977,9 +13385,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QTermWidget, callback: *const fn (QTermWidget, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QTermWidget, callback: *const fn (QTermWidget, QTimerEvent) callconv(.c) void) void {
         qtc.QTermWidget_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -10991,16 +13403,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QTermWidget_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QTermWidget_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -11012,12 +13424,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QTermWidget_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QTermWidget_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -11031,9 +13447,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QTermWidget, callback: *const fn (QTermWidget, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QTermWidget, callback: *const fn (QTermWidget, QChildEvent) callconv(.c) void) void {
         qtc.QTermWidget_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -11045,16 +13465,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QTermWidget_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QTermWidget_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -11066,12 +13486,16 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QTermWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QTermWidget_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QTermWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QTermWidget_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -11085,9 +13509,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QTermWidget, callback: *const fn (QTermWidget, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QTermWidget, callback: *const fn (QTermWidget, QEvent) callconv(.c) void) void {
         qtc.QTermWidget_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -11101,14 +13529,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QTermWidget, signal: anytype) void {
+    pub fn connectNotify(self: QTermWidget, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QTermWidget_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -11122,11 +13550,15 @@ pub const QTermWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QTermWidget, signal: anytype) void {
+    pub fn superConnectNotify(self: QTermWidget, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QTermWidget_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -11139,9 +13571,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QTermWidget, callback: *const fn (QTermWidget, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QTermWidget, callback: *const fn (QTermWidget, QMetaMethod) callconv(.c) void) void {
         qtc.QTermWidget_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -11155,14 +13591,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QTermWidget, signal: anytype) void {
+    pub fn disconnectNotify(self: QTermWidget, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QTermWidget_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -11176,10 +13612,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QTermWidget, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QTermWidget, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QTermWidget_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -11193,10 +13633,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QTermWidget, callback: *const fn (QTermWidget, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QTermWidget, callback: *const fn (QTermWidget, QMetaMethod) callconv(.c) void) void {
         qtc.QTermWidget_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -11207,13 +13651,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn UpdateMicroFocus(self: QTermWidget) void {
+    pub fn updateMicroFocus(self: QTermWidget) void {
         qtc.QTermWidget_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -11225,10 +13669,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn SuperUpdateMicroFocus(self: QTermWidget) void {
+    pub fn superUpdateMicroFocus(self: QTermWidget) void {
         qtc.QTermWidget_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -11241,10 +13689,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: QTermWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: QTermWidget, callback: *const fn () callconv(.c) void) void {
         qtc.QTermWidget_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -11255,13 +13707,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn Create(self: QTermWidget) void {
+    pub fn create(self: QTermWidget) void {
         qtc.QTermWidget_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -11273,10 +13725,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn SuperCreate(self: QTermWidget) void {
+    pub fn superCreate(self: QTermWidget) void {
         qtc.QTermWidget_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -11289,9 +13745,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: QTermWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: QTermWidget, callback: *const fn () callconv(.c) void) void {
         qtc.QTermWidget_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -11303,13 +13763,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn Destroy(self: QTermWidget) void {
+    pub fn destroy(self: QTermWidget) void {
         qtc.QTermWidget_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -11321,9 +13781,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn SuperDestroy(self: QTermWidget) void {
+    pub fn superDestroy(self: QTermWidget) void {
         qtc.QTermWidget_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -11337,10 +13801,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: QTermWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: QTermWidget, callback: *const fn () callconv(.c) void) void {
         qtc.QTermWidget_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -11351,13 +13819,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn FocusNextChild(self: QTermWidget) bool {
+    pub fn focusNextChild(self: QTermWidget) bool {
         return qtc.QTermWidget_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -11369,10 +13837,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn SuperFocusNextChild(self: QTermWidget) bool {
+    pub fn superFocusNextChild(self: QTermWidget) bool {
         return qtc.QTermWidget_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -11385,9 +13857,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: QTermWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: QTermWidget, callback: *const fn () callconv(.c) bool) void {
         qtc.QTermWidget_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -11399,13 +13875,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn FocusPreviousChild(self: QTermWidget) bool {
+    pub fn focusPreviousChild(self: QTermWidget) bool {
         return qtc.QTermWidget_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -11417,9 +13893,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn SuperFocusPreviousChild(self: QTermWidget) bool {
+    pub fn superFocusPreviousChild(self: QTermWidget) bool {
         return qtc.QTermWidget_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -11433,9 +13913,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: QTermWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: QTermWidget, callback: *const fn () callconv(.c) bool) void {
         qtc.QTermWidget_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -11447,13 +13931,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn Sender(self: QTermWidget) QObject {
+    pub fn sender(self: QTermWidget) QObject {
         return .{ .ptr = qtc.QTermWidget_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -11465,9 +13949,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn SuperSender(self: QTermWidget) QObject {
+    pub fn superSender(self: QTermWidget) QObject {
         return .{ .ptr = qtc.QTermWidget_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -11481,9 +13969,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QTermWidget, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QTermWidget, callback: *const fn () callconv(.c) QObject) void {
         qtc.QTermWidget_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -11495,13 +13987,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn SenderSignalIndex(self: QTermWidget) i32 {
+    pub fn senderSignalIndex(self: QTermWidget) i32 {
         return qtc.QTermWidget_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -11513,9 +14005,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn SuperSenderSignalIndex(self: QTermWidget) i32 {
+    pub fn superSenderSignalIndex(self: QTermWidget) i32 {
         return qtc.QTermWidget_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -11529,9 +14025,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QTermWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QTermWidget, callback: *const fn () callconv(.c) i32) void {
         qtc.QTermWidget_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -11545,14 +14045,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QTermWidget, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QTermWidget, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QTermWidget_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -11566,10 +14066,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QTermWidget, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QTermWidget, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QTermWidget_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -11583,9 +14087,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QTermWidget, callback: *const fn (QTermWidget, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QTermWidget, callback: *const fn (QTermWidget, [*:0]const u8) callconv(.c) i32) void {
         qtc.QTermWidget_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -11599,14 +14107,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QTermWidget, signal: anytype) bool {
+    pub fn isSignalConnected(self: QTermWidget, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QTermWidget_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -11620,10 +14128,14 @@ pub const QTermWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QTermWidget, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QTermWidget, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QTermWidget_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -11637,9 +14149,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QTermWidget, callback: *const fn (QTermWidget, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QTermWidget, callback: *const fn (QTermWidget, QMetaMethod) callconv(.c) bool) void {
         qtc.QTermWidget_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -11655,13 +14171,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: QTermWidget, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: QTermWidget, metricA: i32, metricB: i32) f64 {
         return qtc.QTermWidget_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -11677,9 +14193,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: QTermWidget, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: QTermWidget, metricA: i32, metricB: i32) f64 {
         return qtc.QTermWidget_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -11693,9 +14213,13 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: QTermWidget, callback: *const fn (QTermWidget, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: QTermWidget, callback: *const fn (QTermWidget, i32, i32) callconv(.c) f64) void {
         qtc.QTermWidget_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -11709,23 +14233,23 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTermWidget, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QTermWidget, callback: *const fn (QTermWidget, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QTermWidget, callback: *const fn (QTermWidget, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QTermWidget `
     ///
-    pub fn Delete(self: QTermWidget) void {
+    pub fn delete(self: QTermWidget) void {
         qtc.QTermWidget_Delete(@ptrCast(self.ptr));
     }
 };

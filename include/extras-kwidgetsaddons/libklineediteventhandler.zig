@@ -12,16 +12,24 @@ pub const KLineEditEventHandler = extern struct {
 
     pub const _is_KLineEditEventHandler = {};
 
+    /// ### DEPRECATED: Use `catchReturnKey` instead
+    ///
+    pub const CatchReturnKey = catchReturnKey;
+
     /// ### [Upstream resources](https://api.kde.org/klineediteventhandler.html#catchReturnKey)
     ///
     /// ## Parameter(s):
     ///
     /// ` lineEdit: QObject `
     ///
-    pub fn CatchReturnKey(lineEdit: anytype) void {
+    pub fn catchReturnKey(lineEdit: anytype) void {
         comptime _ = @TypeOf(lineEdit)._is_QObject;
         qtc.KLineEditEventHandler_CatchReturnKey(@ptrCast(lineEdit.ptr));
     }
+
+    /// ### DEPRECATED: Use `handleUrlDrops` instead
+    ///
+    pub const HandleUrlDrops = handleUrlDrops;
 
     /// ### [Upstream resources](https://api.kde.org/klineediteventhandler.html#handleUrlDrops)
     ///
@@ -29,7 +37,7 @@ pub const KLineEditEventHandler = extern struct {
     ///
     /// ` lineEdit: QObject `
     ///
-    pub fn HandleUrlDrops(lineEdit: anytype) void {
+    pub fn handleUrlDrops(lineEdit: anytype) void {
         comptime _ = @TypeOf(lineEdit)._is_QObject;
         qtc.KLineEditEventHandler_HandleUrlDrops(@ptrCast(lineEdit.ptr));
     }

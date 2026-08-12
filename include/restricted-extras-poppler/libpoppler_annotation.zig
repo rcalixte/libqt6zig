@@ -36,6 +36,10 @@ pub const Poppler__Annotation = extern struct {
 
     pub const _is_Poppler__Annotation = {};
 
+    /// ### DEPRECATED: Use `author` instead
+    ///
+    pub const Author = author;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation.html)
     ///
     /// ## Parameter(s):
@@ -44,13 +48,17 @@ pub const Poppler__Annotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Author(self: Poppler__Annotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn author(self: Poppler__Annotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Author(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__Annotation.Author: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__Annotation.author: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAuthor` instead
+    ///
+    pub const SetAuthor = setAuthor;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation.html)
     ///
@@ -58,16 +66,20 @@ pub const Poppler__Annotation = extern struct {
     ///
     /// ` self: Poppler__Annotation `
     ///
-    /// ` author: []const u8 `
+    /// ` _author: []const u8 `
     ///
-    pub fn SetAuthor(self: Poppler__Annotation, author: []const u8) void {
+    pub fn setAuthor(self: Poppler__Annotation, _author: []const u8) void {
         const author_str = qtc.libqt_string{
-            .len = author.len,
-            .data = author.ptr,
+            .len = _author.len,
+            .data = _author.ptr,
         };
         qtc.Poppler__Annotation_SetAuthor(@ptrCast(self.ptr), author_str);
     }
 
+    /// ### DEPRECATED: Use `contents` instead
+    ///
+    pub const Contents = contents;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation.html)
     ///
     /// ## Parameter(s):
@@ -76,13 +88,17 @@ pub const Poppler__Annotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Contents(self: Poppler__Annotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn contents(self: Poppler__Annotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Contents(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__Annotation.Contents: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__Annotation.contents: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setContents` instead
+    ///
+    pub const SetContents = setContents;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation.html)
     ///
@@ -90,16 +106,20 @@ pub const Poppler__Annotation = extern struct {
     ///
     /// ` self: Poppler__Annotation `
     ///
-    /// ` contents: []const u8 `
+    /// ` _contents: []const u8 `
     ///
-    pub fn SetContents(self: Poppler__Annotation, contents: []const u8) void {
+    pub fn setContents(self: Poppler__Annotation, _contents: []const u8) void {
         const contents_str = qtc.libqt_string{
-            .len = contents.len,
-            .data = contents.ptr,
+            .len = _contents.len,
+            .data = _contents.ptr,
         };
         qtc.Poppler__Annotation_SetContents(@ptrCast(self.ptr), contents_str);
     }
 
+    /// ### DEPRECATED: Use `uniqueName` instead
+    ///
+    pub const UniqueName = uniqueName;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation.html)
     ///
     /// ## Parameter(s):
@@ -108,39 +128,51 @@ pub const Poppler__Annotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UniqueName(self: Poppler__Annotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn uniqueName(self: Poppler__Annotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_UniqueName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__Annotation.UniqueName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__Annotation.uniqueName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `setUniqueName` instead
+    ///
+    pub const SetUniqueName = setUniqueName;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Poppler__Annotation `
     ///
-    /// ` uniqueName: []const u8 `
+    /// ` _uniqueName: []const u8 `
     ///
-    pub fn SetUniqueName(self: Poppler__Annotation, uniqueName: []const u8) void {
+    pub fn setUniqueName(self: Poppler__Annotation, _uniqueName: []const u8) void {
         const uniqueName_str = qtc.libqt_string{
-            .len = uniqueName.len,
-            .data = uniqueName.ptr,
+            .len = _uniqueName.len,
+            .data = _uniqueName.ptr,
         };
         qtc.Poppler__Annotation_SetUniqueName(@ptrCast(self.ptr), uniqueName_str);
     }
 
+    /// ### DEPRECATED: Use `modificationDate` instead
+    ///
+    pub const ModificationDate = modificationDate;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Poppler__Annotation `
     ///
-    pub fn ModificationDate(self: Poppler__Annotation) QDateTime {
+    pub fn modificationDate(self: Poppler__Annotation) QDateTime {
         return .{ .ptr = qtc.Poppler__Annotation_ModificationDate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setModificationDate` instead
+    ///
+    pub const SetModificationDate = setModificationDate;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation.html)
     ///
@@ -150,20 +182,28 @@ pub const Poppler__Annotation = extern struct {
     ///
     /// ` date: QDateTime `
     ///
-    pub fn SetModificationDate(self: Poppler__Annotation, date: anytype) void {
+    pub fn setModificationDate(self: Poppler__Annotation, date: anytype) void {
         comptime _ = @TypeOf(date)._is_QDateTime;
         qtc.Poppler__Annotation_SetModificationDate(@ptrCast(self.ptr), @ptrCast(date.ptr));
     }
 
+    /// ### DEPRECATED: Use `creationDate` instead
+    ///
+    pub const CreationDate = creationDate;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Poppler__Annotation `
     ///
-    pub fn CreationDate(self: Poppler__Annotation) QDateTime {
+    pub fn creationDate(self: Poppler__Annotation) QDateTime {
         return .{ .ptr = qtc.Poppler__Annotation_CreationDate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCreationDate` instead
+    ///
+    pub const SetCreationDate = setCreationDate;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation.html)
     ///
@@ -173,10 +213,14 @@ pub const Poppler__Annotation = extern struct {
     ///
     /// ` date: QDateTime `
     ///
-    pub fn SetCreationDate(self: Poppler__Annotation, date: anytype) void {
+    pub fn setCreationDate(self: Poppler__Annotation, date: anytype) void {
         comptime _ = @TypeOf(date)._is_QDateTime;
         qtc.Poppler__Annotation_SetCreationDate(@ptrCast(self.ptr), @ptrCast(date.ptr));
     }
+
+    /// ### DEPRECATED: Use `flags` instead
+    ///
+    pub const Flags = flags;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation.html)
     ///
@@ -188,21 +232,13 @@ pub const Poppler__Annotation = extern struct {
     ///
     /// ` flag of poppler_annotation_enums.Flag `
     ///
-    pub fn Flags(self: Poppler__Annotation) i32 {
+    pub fn flags(self: Poppler__Annotation) i32 {
         return qtc.Poppler__Annotation_Flags(@ptrCast(self.ptr));
     }
 
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation.html)
+    /// ### DEPRECATED: Use `setFlags` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__Annotation `
-    ///
-    /// ` flags: flag of poppler_annotation_enums.Flag `
-    ///
-    pub fn SetFlags(self: Poppler__Annotation, flags: i32) void {
-        qtc.Poppler__Annotation_SetFlags(@ptrCast(self.ptr), @bitCast(flags));
-    }
+    pub const SetFlags = setFlags;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation.html)
     ///
@@ -210,22 +246,29 @@ pub const Poppler__Annotation = extern struct {
     ///
     /// ` self: Poppler__Annotation `
     ///
-    pub fn Boundary(self: Poppler__Annotation) QRectF {
+    /// ` _flags: flag of poppler_annotation_enums.Flag `
+    ///
+    pub fn setFlags(self: Poppler__Annotation, _flags: i32) void {
+        qtc.Poppler__Annotation_SetFlags(@ptrCast(self.ptr), @bitCast(_flags));
+    }
+
+    /// ### DEPRECATED: Use `boundary` instead
+    ///
+    pub const Boundary = boundary;
+
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__Annotation `
+    ///
+    pub fn boundary(self: Poppler__Annotation) QRectF {
         return .{ .ptr = qtc.Poppler__Annotation_Boundary(@ptrCast(self.ptr)) };
     }
 
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation.html)
+    /// ### DEPRECATED: Use `setBoundary` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__Annotation `
-    ///
-    /// ` boundary: QRectF `
-    ///
-    pub fn SetBoundary(self: Poppler__Annotation, boundary: anytype) void {
-        comptime _ = @TypeOf(boundary)._is_QRectF;
-        qtc.Poppler__Annotation_SetBoundary(@ptrCast(self.ptr), @ptrCast(boundary.ptr));
-    }
+    pub const SetBoundary = setBoundary;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation.html)
     ///
@@ -233,22 +276,30 @@ pub const Poppler__Annotation = extern struct {
     ///
     /// ` self: Poppler__Annotation `
     ///
-    pub fn Style(self: Poppler__Annotation) Poppler__Annotation__Style {
+    /// ` _boundary: QRectF `
+    ///
+    pub fn setBoundary(self: Poppler__Annotation, _boundary: anytype) void {
+        comptime _ = @TypeOf(_boundary)._is_QRectF;
+        qtc.Poppler__Annotation_SetBoundary(@ptrCast(self.ptr), @ptrCast(_boundary.ptr));
+    }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
+
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__Annotation `
+    ///
+    pub fn style(self: Poppler__Annotation) Poppler__Annotation__Style {
         return .{ .ptr = qtc.Poppler__Annotation_Style(@ptrCast(self.ptr)) };
     }
 
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation.html)
+    /// ### DEPRECATED: Use `setStyle` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__Annotation `
-    ///
-    /// ` style: Poppler__Annotation__Style `
-    ///
-    pub fn SetStyle(self: Poppler__Annotation, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_Poppler__Annotation__Style;
-        qtc.Poppler__Annotation_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
-    }
+    pub const SetStyle = setStyle;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation.html)
     ///
@@ -256,22 +307,47 @@ pub const Poppler__Annotation = extern struct {
     ///
     /// ` self: Poppler__Annotation `
     ///
-    pub fn Popup(self: Poppler__Annotation) Poppler__Annotation__Popup {
+    /// ` _style: Poppler__Annotation__Style `
+    ///
+    pub fn setStyle(self: Poppler__Annotation, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_Poppler__Annotation__Style;
+        qtc.Poppler__Annotation_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
+    }
+
+    /// ### DEPRECATED: Use `popup` instead
+    ///
+    pub const Popup = popup;
+
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__Annotation `
+    ///
+    pub fn popup(self: Poppler__Annotation) Poppler__Annotation__Popup {
         return .{ .ptr = qtc.Poppler__Annotation_Popup(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setPopup` instead
+    ///
+    pub const SetPopup = setPopup;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Poppler__Annotation `
     ///
-    /// ` popup: Poppler__Annotation__Popup `
+    /// ` _popup: Poppler__Annotation__Popup `
     ///
-    pub fn SetPopup(self: Poppler__Annotation, popup: anytype) void {
-        comptime _ = @TypeOf(popup)._is_Poppler__Annotation__Popup;
-        qtc.Poppler__Annotation_SetPopup(@ptrCast(self.ptr), @ptrCast(popup.ptr));
+    pub fn setPopup(self: Poppler__Annotation, _popup: anytype) void {
+        comptime _ = @TypeOf(_popup)._is_Poppler__Annotation__Popup;
+        qtc.Poppler__Annotation_SetPopup(@ptrCast(self.ptr), @ptrCast(_popup.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisionScope` instead
+    ///
+    pub const RevisionScope = revisionScope;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation.html)
     ///
@@ -283,9 +359,13 @@ pub const Poppler__Annotation = extern struct {
     ///
     /// ` poppler_annotation_enums.RevScope `
     ///
-    pub fn RevisionScope(self: Poppler__Annotation) i32 {
+    pub fn revisionScope(self: Poppler__Annotation) i32 {
         return qtc.Poppler__Annotation_RevisionScope(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisionType` instead
+    ///
+    pub const RevisionType = revisionType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation.html)
     ///
@@ -297,9 +377,13 @@ pub const Poppler__Annotation = extern struct {
     ///
     /// ` poppler_annotation_enums.RevType `
     ///
-    pub fn RevisionType(self: Poppler__Annotation) i32 {
+    pub fn revisionType(self: Poppler__Annotation) i32 {
         return qtc.Poppler__Annotation_RevisionType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisions` instead
+    ///
+    pub const Revisions = revisions;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation.html)
     ///
@@ -309,15 +393,19 @@ pub const Poppler__Annotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Revisions(self: Poppler__Annotation, allocator: std.mem.Allocator) []Poppler__Annotation {
+    pub fn revisions(self: Poppler__Annotation, allocator: std.mem.Allocator) []Poppler__Annotation {
         const _arr: qtc.libqt_list = qtc.Poppler__Annotation_Revisions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__Annotation.Revisions: Memory allocation failed");
-        const _data: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__Annotation.revisions: Memory allocation failed");
+        const _data_val: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `subType` instead
+    ///
+    pub const SubType = subType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation.html)
     ///
@@ -329,46 +417,54 @@ pub const Poppler__Annotation = extern struct {
     ///
     /// ` poppler_annotation_enums.SubType `
     ///
-    pub fn SubType(self: Poppler__Annotation) i32 {
+    pub fn subType(self: Poppler__Annotation) i32 {
         return qtc.Poppler__Annotation_SubType(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `annotationAppearance` instead
+    ///
+    pub const AnnotationAppearance = annotationAppearance;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Poppler__Annotation `
     ///
-    pub fn AnnotationAppearance(self: Poppler__Annotation) Poppler__AnnotationAppearance {
+    pub fn annotationAppearance(self: Poppler__Annotation) Poppler__AnnotationAppearance {
         return .{ .ptr = qtc.Poppler__Annotation_AnnotationAppearance(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setAnnotationAppearance` instead
+    ///
+    pub const SetAnnotationAppearance = setAnnotationAppearance;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Poppler__Annotation `
     ///
-    /// ` annotationAppearance: Poppler__AnnotationAppearance `
+    /// ` _annotationAppearance: Poppler__AnnotationAppearance `
     ///
-    pub fn SetAnnotationAppearance(self: Poppler__Annotation, annotationAppearance: anytype) void {
-        comptime _ = @TypeOf(annotationAppearance)._is_Poppler__AnnotationAppearance;
-        qtc.Poppler__Annotation_SetAnnotationAppearance(@ptrCast(self.ptr), @ptrCast(annotationAppearance.ptr));
+    pub fn setAnnotationAppearance(self: Poppler__Annotation, _annotationAppearance: anytype) void {
+        comptime _ = @TypeOf(_annotationAppearance)._is_Poppler__AnnotationAppearance;
+        qtc.Poppler__Annotation_SetAnnotationAppearance(@ptrCast(self.ptr), @ptrCast(_annotationAppearance.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Poppler__Annotation `
     ///
-    pub fn Delete(self: Poppler__Annotation) void {
+    pub fn delete(self: Poppler__Annotation) void {
         qtc.Poppler__Annotation_Delete(@ptrCast(self.ptr));
     }
 };
@@ -384,15 +480,23 @@ pub const Poppler__TextAnnotation = extern struct {
     pub const _is_Poppler__TextAnnotation = {};
     pub const _is_Poppler__Annotation = {};
 
-    /// New constructs a new Poppler::TextAnnotation object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new Poppler::TextAnnotation object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` typeVal: poppler_annotation_enums.TextType `
     ///
-    pub fn New(typeVal: i32) Poppler__TextAnnotation {
+    pub fn new(typeVal: i32) Poppler__TextAnnotation {
         return .{ .ptr = qtc.Poppler__TextAnnotation_new(@bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `subType` instead
+    ///
+    pub const SubType = subType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1TextAnnotation.html)
     ///
@@ -404,9 +508,13 @@ pub const Poppler__TextAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.SubType `
     ///
-    pub fn SubType(self: Poppler__TextAnnotation) i32 {
+    pub fn subType(self: Poppler__TextAnnotation) i32 {
         return qtc.Poppler__TextAnnotation_SubType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSubType` instead
+    ///
+    pub const OnSubType = onSubType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1TextAnnotation.html)
     ///
@@ -418,13 +526,13 @@ pub const Poppler__TextAnnotation = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSubType(self: Poppler__TextAnnotation, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSubType(self: Poppler__TextAnnotation, callback: *const fn () callconv(.c) i32) void {
         qtc.Poppler__TextAnnotation_OnSubType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSubType` instead
+    /// ### DEPRECATED: Use `superSubType` instead
     ///
-    pub const QBaseSubType = SuperSubType;
+    pub const SuperSubType = superSubType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1TextAnnotation.html)
     ///
@@ -438,9 +546,13 @@ pub const Poppler__TextAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.SubType `
     ///
-    pub fn SuperSubType(self: Poppler__TextAnnotation) i32 {
+    pub fn superSubType(self: Poppler__TextAnnotation) i32 {
         return qtc.Poppler__TextAnnotation_SuperSubType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `textType` instead
+    ///
+    pub const TextType = textType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1TextAnnotation.html)
     ///
@@ -452,9 +564,13 @@ pub const Poppler__TextAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.TextType `
     ///
-    pub fn TextType(self: Poppler__TextAnnotation) i32 {
+    pub fn textType(self: Poppler__TextAnnotation) i32 {
         return qtc.Poppler__TextAnnotation_TextType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `textIcon` instead
+    ///
+    pub const TextIcon = textIcon;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1TextAnnotation.html)
     ///
@@ -464,13 +580,17 @@ pub const Poppler__TextAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TextIcon(self: Poppler__TextAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn textIcon(self: Poppler__TextAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__TextAnnotation_TextIcon(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__TextAnnotation.TextIcon: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__TextAnnotation.textIcon: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setTextIcon` instead
+    ///
+    pub const SetTextIcon = setTextIcon;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1TextAnnotation.html)
     ///
@@ -480,7 +600,7 @@ pub const Poppler__TextAnnotation = extern struct {
     ///
     /// ` icon: []const u8 `
     ///
-    pub fn SetTextIcon(self: Poppler__TextAnnotation, icon: []const u8) void {
+    pub fn setTextIcon(self: Poppler__TextAnnotation, icon: []const u8) void {
         const icon_str = qtc.libqt_string{
             .len = icon.len,
             .data = icon.ptr,
@@ -488,15 +608,23 @@ pub const Poppler__TextAnnotation = extern struct {
         qtc.Poppler__TextAnnotation_SetTextIcon(@ptrCast(self.ptr), icon_str);
     }
 
+    /// ### DEPRECATED: Use `textFont` instead
+    ///
+    pub const TextFont = textFont;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1TextAnnotation.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Poppler__TextAnnotation `
     ///
-    pub fn TextFont(self: Poppler__TextAnnotation) QFont {
+    pub fn textFont(self: Poppler__TextAnnotation) QFont {
         return .{ .ptr = qtc.Poppler__TextAnnotation_TextFont(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setTextFont` instead
+    ///
+    pub const SetTextFont = setTextFont;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1TextAnnotation.html)
     ///
@@ -506,10 +634,14 @@ pub const Poppler__TextAnnotation = extern struct {
     ///
     /// ` font: QFont `
     ///
-    pub fn SetTextFont(self: Poppler__TextAnnotation, font: anytype) void {
+    pub fn setTextFont(self: Poppler__TextAnnotation, font: anytype) void {
         comptime _ = @TypeOf(font)._is_QFont;
         qtc.Poppler__TextAnnotation_SetTextFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
     }
+
+    /// ### DEPRECATED: Use `textColor` instead
+    ///
+    pub const TextColor = textColor;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1TextAnnotation.html)
     ///
@@ -517,9 +649,13 @@ pub const Poppler__TextAnnotation = extern struct {
     ///
     /// ` self: Poppler__TextAnnotation `
     ///
-    pub fn TextColor(self: Poppler__TextAnnotation) QColor {
+    pub fn textColor(self: Poppler__TextAnnotation) QColor {
         return .{ .ptr = qtc.Poppler__TextAnnotation_TextColor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setTextColor` instead
+    ///
+    pub const SetTextColor = setTextColor;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1TextAnnotation.html)
     ///
@@ -529,10 +665,14 @@ pub const Poppler__TextAnnotation = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn SetTextColor(self: Poppler__TextAnnotation, color: anytype) void {
+    pub fn setTextColor(self: Poppler__TextAnnotation, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.Poppler__TextAnnotation_SetTextColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
+
+    /// ### DEPRECATED: Use `inplaceAlign` instead
+    ///
+    pub const InplaceAlign = inplaceAlign;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1TextAnnotation.html)
     ///
@@ -544,9 +684,13 @@ pub const Poppler__TextAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.InplaceAlignPosition `
     ///
-    pub fn InplaceAlign(self: Poppler__TextAnnotation) i32 {
+    pub fn inplaceAlign(self: Poppler__TextAnnotation) i32 {
         return qtc.Poppler__TextAnnotation_InplaceAlign(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInplaceAlign` instead
+    ///
+    pub const SetInplaceAlign = setInplaceAlign;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1TextAnnotation.html)
     ///
@@ -556,9 +700,13 @@ pub const Poppler__TextAnnotation = extern struct {
     ///
     /// ` alignVal: poppler_annotation_enums.InplaceAlignPosition `
     ///
-    pub fn SetInplaceAlign(self: Poppler__TextAnnotation, alignVal: i32) void {
+    pub fn setInplaceAlign(self: Poppler__TextAnnotation, alignVal: i32) void {
         qtc.Poppler__TextAnnotation_SetInplaceAlign(@ptrCast(self.ptr), @bitCast(alignVal));
     }
+
+    /// ### DEPRECATED: Use `calloutPoint` instead
+    ///
+    pub const CalloutPoint = calloutPoint;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1TextAnnotation.html)
     ///
@@ -568,9 +716,13 @@ pub const Poppler__TextAnnotation = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn CalloutPoint(self: Poppler__TextAnnotation, id: i32) QPointF {
+    pub fn calloutPoint(self: Poppler__TextAnnotation, id: i32) QPointF {
         return .{ .ptr = qtc.Poppler__TextAnnotation_CalloutPoint(@ptrCast(self.ptr), @bitCast(id)) };
     }
+
+    /// ### DEPRECATED: Use `calloutPoints` instead
+    ///
+    pub const CalloutPoints = calloutPoints;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1TextAnnotation.html)
     ///
@@ -580,15 +732,19 @@ pub const Poppler__TextAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CalloutPoints(self: Poppler__TextAnnotation, allocator: std.mem.Allocator) []QPointF {
+    pub fn calloutPoints(self: Poppler__TextAnnotation, allocator: std.mem.Allocator) []QPointF {
         const _arr: qtc.libqt_list = qtc.Poppler__TextAnnotation_CalloutPoints(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("Poppler__TextAnnotation.CalloutPoints: Memory allocation failed");
-        const _data: [*]QtC.QPointF = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("Poppler__TextAnnotation.calloutPoints: Memory allocation failed");
+        const _data_val: [*]QtC.QPointF = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setCalloutPoints` instead
+    ///
+    pub const SetCalloutPoints = setCalloutPoints;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1TextAnnotation.html)
     ///
@@ -598,13 +754,17 @@ pub const Poppler__TextAnnotation = extern struct {
     ///
     /// ` points: []QPointF `
     ///
-    pub fn SetCalloutPoints(self: Poppler__TextAnnotation, points: []QPointF) void {
+    pub fn setCalloutPoints(self: Poppler__TextAnnotation, points: []QPointF) void {
         const points_list = qtc.libqt_list{
             .len = points.len,
             .data = @ptrCast(points.ptr),
         };
         qtc.Poppler__TextAnnotation_SetCalloutPoints(@ptrCast(self.ptr), points_list);
     }
+
+    /// ### DEPRECATED: Use `inplaceIntent` instead
+    ///
+    pub const InplaceIntent = inplaceIntent;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1TextAnnotation.html)
     ///
@@ -616,9 +776,13 @@ pub const Poppler__TextAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.InplaceIntent `
     ///
-    pub fn InplaceIntent(self: Poppler__TextAnnotation) i32 {
+    pub fn inplaceIntent(self: Poppler__TextAnnotation) i32 {
         return qtc.Poppler__TextAnnotation_InplaceIntent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInplaceIntent` instead
+    ///
+    pub const SetInplaceIntent = setInplaceIntent;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1TextAnnotation.html)
     ///
@@ -628,9 +792,13 @@ pub const Poppler__TextAnnotation = extern struct {
     ///
     /// ` intent: poppler_annotation_enums.InplaceIntent `
     ///
-    pub fn SetInplaceIntent(self: Poppler__TextAnnotation, intent: i32) void {
+    pub fn setInplaceIntent(self: Poppler__TextAnnotation, intent: i32) void {
         qtc.Poppler__TextAnnotation_SetInplaceIntent(@ptrCast(self.ptr), @bitCast(intent));
     }
+
+    /// ### DEPRECATED: Use `author` instead
+    ///
+    pub const Author = author;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -642,13 +810,17 @@ pub const Poppler__TextAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Author(self: Poppler__TextAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn author(self: Poppler__TextAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Author(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__TextAnnotation.Author: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__TextAnnotation.author: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAuthor` instead
+    ///
+    pub const SetAuthor = setAuthor;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -658,16 +830,20 @@ pub const Poppler__TextAnnotation = extern struct {
     ///
     /// ` self: Poppler__TextAnnotation `
     ///
-    /// ` author: []const u8 `
+    /// ` _author: []const u8 `
     ///
-    pub fn SetAuthor(self: Poppler__TextAnnotation, author: []const u8) void {
+    pub fn setAuthor(self: Poppler__TextAnnotation, _author: []const u8) void {
         const author_str = qtc.libqt_string{
-            .len = author.len,
-            .data = author.ptr,
+            .len = _author.len,
+            .data = _author.ptr,
         };
         qtc.Poppler__Annotation_SetAuthor(@ptrCast(self.ptr), author_str);
     }
 
+    /// ### DEPRECATED: Use `contents` instead
+    ///
+    pub const Contents = contents;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1TextAnnotation.html)
@@ -678,13 +854,17 @@ pub const Poppler__TextAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Contents(self: Poppler__TextAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn contents(self: Poppler__TextAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Contents(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__TextAnnotation.Contents: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__TextAnnotation.contents: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setContents` instead
+    ///
+    pub const SetContents = setContents;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -694,16 +874,20 @@ pub const Poppler__TextAnnotation = extern struct {
     ///
     /// ` self: Poppler__TextAnnotation `
     ///
-    /// ` contents: []const u8 `
+    /// ` _contents: []const u8 `
     ///
-    pub fn SetContents(self: Poppler__TextAnnotation, contents: []const u8) void {
+    pub fn setContents(self: Poppler__TextAnnotation, _contents: []const u8) void {
         const contents_str = qtc.libqt_string{
-            .len = contents.len,
-            .data = contents.ptr,
+            .len = _contents.len,
+            .data = _contents.ptr,
         };
         qtc.Poppler__Annotation_SetContents(@ptrCast(self.ptr), contents_str);
     }
 
+    /// ### DEPRECATED: Use `uniqueName` instead
+    ///
+    pub const UniqueName = uniqueName;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1TextAnnotation.html)
@@ -714,14 +898,18 @@ pub const Poppler__TextAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UniqueName(self: Poppler__TextAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn uniqueName(self: Poppler__TextAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_UniqueName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__TextAnnotation.UniqueName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__TextAnnotation.uniqueName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `setUniqueName` instead
+    ///
+    pub const SetUniqueName = setUniqueName;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1TextAnnotation.html)
@@ -730,16 +918,20 @@ pub const Poppler__TextAnnotation = extern struct {
     ///
     /// ` self: Poppler__TextAnnotation `
     ///
-    /// ` uniqueName: []const u8 `
+    /// ` _uniqueName: []const u8 `
     ///
-    pub fn SetUniqueName(self: Poppler__TextAnnotation, uniqueName: []const u8) void {
+    pub fn setUniqueName(self: Poppler__TextAnnotation, _uniqueName: []const u8) void {
         const uniqueName_str = qtc.libqt_string{
-            .len = uniqueName.len,
-            .data = uniqueName.ptr,
+            .len = _uniqueName.len,
+            .data = _uniqueName.ptr,
         };
         qtc.Poppler__Annotation_SetUniqueName(@ptrCast(self.ptr), uniqueName_str);
     }
 
+    /// ### DEPRECATED: Use `modificationDate` instead
+    ///
+    pub const ModificationDate = modificationDate;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1TextAnnotation.html)
@@ -748,9 +940,13 @@ pub const Poppler__TextAnnotation = extern struct {
     ///
     /// ` self: Poppler__TextAnnotation `
     ///
-    pub fn ModificationDate(self: Poppler__TextAnnotation) QDateTime {
+    pub fn modificationDate(self: Poppler__TextAnnotation) QDateTime {
         return .{ .ptr = qtc.Poppler__Annotation_ModificationDate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setModificationDate` instead
+    ///
+    pub const SetModificationDate = setModificationDate;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -762,11 +958,15 @@ pub const Poppler__TextAnnotation = extern struct {
     ///
     /// ` date: QDateTime `
     ///
-    pub fn SetModificationDate(self: Poppler__TextAnnotation, date: anytype) void {
+    pub fn setModificationDate(self: Poppler__TextAnnotation, date: anytype) void {
         comptime _ = @TypeOf(date)._is_QDateTime;
         qtc.Poppler__Annotation_SetModificationDate(@ptrCast(self.ptr), @ptrCast(date.ptr));
     }
 
+    /// ### DEPRECATED: Use `creationDate` instead
+    ///
+    pub const CreationDate = creationDate;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1TextAnnotation.html)
@@ -775,9 +975,13 @@ pub const Poppler__TextAnnotation = extern struct {
     ///
     /// ` self: Poppler__TextAnnotation `
     ///
-    pub fn CreationDate(self: Poppler__TextAnnotation) QDateTime {
+    pub fn creationDate(self: Poppler__TextAnnotation) QDateTime {
         return .{ .ptr = qtc.Poppler__Annotation_CreationDate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCreationDate` instead
+    ///
+    pub const SetCreationDate = setCreationDate;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -789,10 +993,14 @@ pub const Poppler__TextAnnotation = extern struct {
     ///
     /// ` date: QDateTime `
     ///
-    pub fn SetCreationDate(self: Poppler__TextAnnotation, date: anytype) void {
+    pub fn setCreationDate(self: Poppler__TextAnnotation, date: anytype) void {
         comptime _ = @TypeOf(date)._is_QDateTime;
         qtc.Poppler__Annotation_SetCreationDate(@ptrCast(self.ptr), @ptrCast(date.ptr));
     }
+
+    /// ### DEPRECATED: Use `flags` instead
+    ///
+    pub const Flags = flags;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -806,23 +1014,13 @@ pub const Poppler__TextAnnotation = extern struct {
     ///
     /// ` flag of poppler_annotation_enums.Flag `
     ///
-    pub fn Flags(self: Poppler__TextAnnotation) i32 {
+    pub fn flags(self: Poppler__TextAnnotation) i32 {
         return qtc.Poppler__Annotation_Flags(@ptrCast(self.ptr));
     }
 
-    /// Inherited from Poppler::Annotation
+    /// ### DEPRECATED: Use `setFlags` instead
     ///
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1TextAnnotation.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__TextAnnotation `
-    ///
-    /// ` flags: flag of poppler_annotation_enums.Flag `
-    ///
-    pub fn SetFlags(self: Poppler__TextAnnotation, flags: i32) void {
-        qtc.Poppler__Annotation_SetFlags(@ptrCast(self.ptr), @bitCast(flags));
-    }
+    pub const SetFlags = setFlags;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -832,24 +1030,31 @@ pub const Poppler__TextAnnotation = extern struct {
     ///
     /// ` self: Poppler__TextAnnotation `
     ///
-    pub fn Boundary(self: Poppler__TextAnnotation) QRectF {
+    /// ` _flags: flag of poppler_annotation_enums.Flag `
+    ///
+    pub fn setFlags(self: Poppler__TextAnnotation, _flags: i32) void {
+        qtc.Poppler__Annotation_SetFlags(@ptrCast(self.ptr), @bitCast(_flags));
+    }
+
+    /// ### DEPRECATED: Use `boundary` instead
+    ///
+    pub const Boundary = boundary;
+
+    /// Inherited from Poppler::Annotation
+    ///
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1TextAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__TextAnnotation `
+    ///
+    pub fn boundary(self: Poppler__TextAnnotation) QRectF {
         return .{ .ptr = qtc.Poppler__Annotation_Boundary(@ptrCast(self.ptr)) };
     }
 
-    /// Inherited from Poppler::Annotation
+    /// ### DEPRECATED: Use `setBoundary` instead
     ///
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1TextAnnotation.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__TextAnnotation `
-    ///
-    /// ` boundary: QRectF `
-    ///
-    pub fn SetBoundary(self: Poppler__TextAnnotation, boundary: anytype) void {
-        comptime _ = @TypeOf(boundary)._is_QRectF;
-        qtc.Poppler__Annotation_SetBoundary(@ptrCast(self.ptr), @ptrCast(boundary.ptr));
-    }
+    pub const SetBoundary = setBoundary;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -859,24 +1064,32 @@ pub const Poppler__TextAnnotation = extern struct {
     ///
     /// ` self: Poppler__TextAnnotation `
     ///
-    pub fn Style(self: Poppler__TextAnnotation) Poppler__Annotation__Style {
+    /// ` _boundary: QRectF `
+    ///
+    pub fn setBoundary(self: Poppler__TextAnnotation, _boundary: anytype) void {
+        comptime _ = @TypeOf(_boundary)._is_QRectF;
+        qtc.Poppler__Annotation_SetBoundary(@ptrCast(self.ptr), @ptrCast(_boundary.ptr));
+    }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
+
+    /// Inherited from Poppler::Annotation
+    ///
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1TextAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__TextAnnotation `
+    ///
+    pub fn style(self: Poppler__TextAnnotation) Poppler__Annotation__Style {
         return .{ .ptr = qtc.Poppler__Annotation_Style(@ptrCast(self.ptr)) };
     }
 
-    /// Inherited from Poppler::Annotation
+    /// ### DEPRECATED: Use `setStyle` instead
     ///
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1TextAnnotation.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__TextAnnotation `
-    ///
-    /// ` style: Poppler__Annotation__Style `
-    ///
-    pub fn SetStyle(self: Poppler__TextAnnotation, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_Poppler__Annotation__Style;
-        qtc.Poppler__Annotation_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
-    }
+    pub const SetStyle = setStyle;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -886,10 +1099,33 @@ pub const Poppler__TextAnnotation = extern struct {
     ///
     /// ` self: Poppler__TextAnnotation `
     ///
-    pub fn Popup(self: Poppler__TextAnnotation) Poppler__Annotation__Popup {
+    /// ` _style: Poppler__Annotation__Style `
+    ///
+    pub fn setStyle(self: Poppler__TextAnnotation, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_Poppler__Annotation__Style;
+        qtc.Poppler__Annotation_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
+    }
+
+    /// ### DEPRECATED: Use `popup` instead
+    ///
+    pub const Popup = popup;
+
+    /// Inherited from Poppler::Annotation
+    ///
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1TextAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__TextAnnotation `
+    ///
+    pub fn popup(self: Poppler__TextAnnotation) Poppler__Annotation__Popup {
         return .{ .ptr = qtc.Poppler__Annotation_Popup(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setPopup` instead
+    ///
+    pub const SetPopup = setPopup;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1TextAnnotation.html)
@@ -898,12 +1134,16 @@ pub const Poppler__TextAnnotation = extern struct {
     ///
     /// ` self: Poppler__TextAnnotation `
     ///
-    /// ` popup: Poppler__Annotation__Popup `
+    /// ` _popup: Poppler__Annotation__Popup `
     ///
-    pub fn SetPopup(self: Poppler__TextAnnotation, popup: anytype) void {
-        comptime _ = @TypeOf(popup)._is_Poppler__Annotation__Popup;
-        qtc.Poppler__Annotation_SetPopup(@ptrCast(self.ptr), @ptrCast(popup.ptr));
+    pub fn setPopup(self: Poppler__TextAnnotation, _popup: anytype) void {
+        comptime _ = @TypeOf(_popup)._is_Poppler__Annotation__Popup;
+        qtc.Poppler__Annotation_SetPopup(@ptrCast(self.ptr), @ptrCast(_popup.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisionScope` instead
+    ///
+    pub const RevisionScope = revisionScope;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -917,9 +1157,13 @@ pub const Poppler__TextAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.RevScope `
     ///
-    pub fn RevisionScope(self: Poppler__TextAnnotation) i32 {
+    pub fn revisionScope(self: Poppler__TextAnnotation) i32 {
         return qtc.Poppler__Annotation_RevisionScope(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisionType` instead
+    ///
+    pub const RevisionType = revisionType;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -933,9 +1177,13 @@ pub const Poppler__TextAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.RevType `
     ///
-    pub fn RevisionType(self: Poppler__TextAnnotation) i32 {
+    pub fn revisionType(self: Poppler__TextAnnotation) i32 {
         return qtc.Poppler__Annotation_RevisionType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisions` instead
+    ///
+    pub const Revisions = revisions;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -947,16 +1195,20 @@ pub const Poppler__TextAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Revisions(self: Poppler__TextAnnotation, allocator: std.mem.Allocator) []Poppler__Annotation {
+    pub fn revisions(self: Poppler__TextAnnotation, allocator: std.mem.Allocator) []Poppler__Annotation {
         const _arr: qtc.libqt_list = qtc.Poppler__Annotation_Revisions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__TextAnnotation.Revisions: Memory allocation failed");
-        const _data: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__TextAnnotation.revisions: Memory allocation failed");
+        const _data_val: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `annotationAppearance` instead
+    ///
+    pub const AnnotationAppearance = annotationAppearance;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1TextAnnotation.html)
@@ -965,10 +1217,14 @@ pub const Poppler__TextAnnotation = extern struct {
     ///
     /// ` self: Poppler__TextAnnotation `
     ///
-    pub fn AnnotationAppearance(self: Poppler__TextAnnotation) Poppler__AnnotationAppearance {
+    pub fn annotationAppearance(self: Poppler__TextAnnotation) Poppler__AnnotationAppearance {
         return .{ .ptr = qtc.Poppler__Annotation_AnnotationAppearance(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setAnnotationAppearance` instead
+    ///
+    pub const SetAnnotationAppearance = setAnnotationAppearance;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1TextAnnotation.html)
@@ -977,26 +1233,26 @@ pub const Poppler__TextAnnotation = extern struct {
     ///
     /// ` self: Poppler__TextAnnotation `
     ///
-    /// ` annotationAppearance: Poppler__AnnotationAppearance `
+    /// ` _annotationAppearance: Poppler__AnnotationAppearance `
     ///
-    pub fn SetAnnotationAppearance(self: Poppler__TextAnnotation, annotationAppearance: anytype) void {
-        comptime _ = @TypeOf(annotationAppearance)._is_Poppler__AnnotationAppearance;
-        qtc.Poppler__Annotation_SetAnnotationAppearance(@ptrCast(self.ptr), @ptrCast(annotationAppearance.ptr));
+    pub fn setAnnotationAppearance(self: Poppler__TextAnnotation, _annotationAppearance: anytype) void {
+        comptime _ = @TypeOf(_annotationAppearance)._is_Poppler__AnnotationAppearance;
+        qtc.Poppler__Annotation_SetAnnotationAppearance(@ptrCast(self.ptr), @ptrCast(_annotationAppearance.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1TextAnnotation.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Poppler__TextAnnotation `
     ///
-    pub fn Delete(self: Poppler__TextAnnotation) void {
+    pub fn delete(self: Poppler__TextAnnotation) void {
         qtc.Poppler__TextAnnotation_Delete(@ptrCast(self.ptr));
     }
 };
@@ -1012,15 +1268,23 @@ pub const Poppler__LineAnnotation = extern struct {
     pub const _is_Poppler__LineAnnotation = {};
     pub const _is_Poppler__Annotation = {};
 
-    /// New constructs a new Poppler::LineAnnotation object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new Poppler::LineAnnotation object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` typeVal: poppler_annotation_enums.LineType `
     ///
-    pub fn New(typeVal: i32) Poppler__LineAnnotation {
+    pub fn new(typeVal: i32) Poppler__LineAnnotation {
         return .{ .ptr = qtc.Poppler__LineAnnotation_new(@bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `subType` instead
+    ///
+    pub const SubType = subType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LineAnnotation.html)
     ///
@@ -1032,9 +1296,13 @@ pub const Poppler__LineAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.SubType `
     ///
-    pub fn SubType(self: Poppler__LineAnnotation) i32 {
+    pub fn subType(self: Poppler__LineAnnotation) i32 {
         return qtc.Poppler__LineAnnotation_SubType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSubType` instead
+    ///
+    pub const OnSubType = onSubType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LineAnnotation.html)
     ///
@@ -1046,13 +1314,13 @@ pub const Poppler__LineAnnotation = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSubType(self: Poppler__LineAnnotation, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSubType(self: Poppler__LineAnnotation, callback: *const fn () callconv(.c) i32) void {
         qtc.Poppler__LineAnnotation_OnSubType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSubType` instead
+    /// ### DEPRECATED: Use `superSubType` instead
     ///
-    pub const QBaseSubType = SuperSubType;
+    pub const SuperSubType = superSubType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LineAnnotation.html)
     ///
@@ -1066,9 +1334,13 @@ pub const Poppler__LineAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.SubType `
     ///
-    pub fn SuperSubType(self: Poppler__LineAnnotation) i32 {
+    pub fn superSubType(self: Poppler__LineAnnotation) i32 {
         return qtc.Poppler__LineAnnotation_SuperSubType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lineType` instead
+    ///
+    pub const LineType = lineType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LineAnnotation.html)
     ///
@@ -1080,9 +1352,13 @@ pub const Poppler__LineAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.LineType `
     ///
-    pub fn LineType(self: Poppler__LineAnnotation) i32 {
+    pub fn lineType(self: Poppler__LineAnnotation) i32 {
         return qtc.Poppler__LineAnnotation_LineType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `linePoints` instead
+    ///
+    pub const LinePoints = linePoints;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LineAnnotation.html)
     ///
@@ -1092,15 +1368,19 @@ pub const Poppler__LineAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LinePoints(self: Poppler__LineAnnotation, allocator: std.mem.Allocator) []QPointF {
+    pub fn linePoints(self: Poppler__LineAnnotation, allocator: std.mem.Allocator) []QPointF {
         const _arr: qtc.libqt_list = qtc.Poppler__LineAnnotation_LinePoints(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("Poppler__LineAnnotation.LinePoints: Memory allocation failed");
-        const _data: [*]QtC.QPointF = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("Poppler__LineAnnotation.linePoints: Memory allocation failed");
+        const _data_val: [*]QtC.QPointF = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setLinePoints` instead
+    ///
+    pub const SetLinePoints = setLinePoints;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LineAnnotation.html)
     ///
@@ -1110,7 +1390,7 @@ pub const Poppler__LineAnnotation = extern struct {
     ///
     /// ` points: []QPointF `
     ///
-    pub fn SetLinePoints(self: Poppler__LineAnnotation, points: []QPointF) void {
+    pub fn setLinePoints(self: Poppler__LineAnnotation, points: []QPointF) void {
         const points_list = qtc.libqt_list{
             .len = points.len,
             .data = @ptrCast(points.ptr),
@@ -1118,6 +1398,10 @@ pub const Poppler__LineAnnotation = extern struct {
         qtc.Poppler__LineAnnotation_SetLinePoints(@ptrCast(self.ptr), points_list);
     }
 
+    /// ### DEPRECATED: Use `lineStartStyle` instead
+    ///
+    pub const LineStartStyle = lineStartStyle;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LineAnnotation.html)
     ///
     /// ## Parameter(s):
@@ -1128,21 +1412,29 @@ pub const Poppler__LineAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.TermStyle `
     ///
-    pub fn LineStartStyle(self: Poppler__LineAnnotation) i32 {
+    pub fn lineStartStyle(self: Poppler__LineAnnotation) i32 {
         return qtc.Poppler__LineAnnotation_LineStartStyle(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setLineStartStyle` instead
+    ///
+    pub const SetLineStartStyle = setLineStartStyle;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LineAnnotation.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Poppler__LineAnnotation `
     ///
-    /// ` style: poppler_annotation_enums.TermStyle `
+    /// ` _style: poppler_annotation_enums.TermStyle `
     ///
-    pub fn SetLineStartStyle(self: Poppler__LineAnnotation, style: i32) void {
-        qtc.Poppler__LineAnnotation_SetLineStartStyle(@ptrCast(self.ptr), @bitCast(style));
+    pub fn setLineStartStyle(self: Poppler__LineAnnotation, _style: i32) void {
+        qtc.Poppler__LineAnnotation_SetLineStartStyle(@ptrCast(self.ptr), @bitCast(_style));
     }
+
+    /// ### DEPRECATED: Use `lineEndStyle` instead
+    ///
+    pub const LineEndStyle = lineEndStyle;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LineAnnotation.html)
     ///
@@ -1154,21 +1446,13 @@ pub const Poppler__LineAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.TermStyle `
     ///
-    pub fn LineEndStyle(self: Poppler__LineAnnotation) i32 {
+    pub fn lineEndStyle(self: Poppler__LineAnnotation) i32 {
         return qtc.Poppler__LineAnnotation_LineEndStyle(@ptrCast(self.ptr));
     }
 
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LineAnnotation.html)
+    /// ### DEPRECATED: Use `setLineEndStyle` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__LineAnnotation `
-    ///
-    /// ` style: poppler_annotation_enums.TermStyle `
-    ///
-    pub fn SetLineEndStyle(self: Poppler__LineAnnotation, style: i32) void {
-        qtc.Poppler__LineAnnotation_SetLineEndStyle(@ptrCast(self.ptr), @bitCast(style));
-    }
+    pub const SetLineEndStyle = setLineEndStyle;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LineAnnotation.html)
     ///
@@ -1176,9 +1460,29 @@ pub const Poppler__LineAnnotation = extern struct {
     ///
     /// ` self: Poppler__LineAnnotation `
     ///
-    pub fn IsLineClosed(self: Poppler__LineAnnotation) bool {
+    /// ` _style: poppler_annotation_enums.TermStyle `
+    ///
+    pub fn setLineEndStyle(self: Poppler__LineAnnotation, _style: i32) void {
+        qtc.Poppler__LineAnnotation_SetLineEndStyle(@ptrCast(self.ptr), @bitCast(_style));
+    }
+
+    /// ### DEPRECATED: Use `isLineClosed` instead
+    ///
+    pub const IsLineClosed = isLineClosed;
+
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LineAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__LineAnnotation `
+    ///
+    pub fn isLineClosed(self: Poppler__LineAnnotation) bool {
         return qtc.Poppler__LineAnnotation_IsLineClosed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLineClosed` instead
+    ///
+    pub const SetLineClosed = setLineClosed;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LineAnnotation.html)
     ///
@@ -1188,9 +1492,13 @@ pub const Poppler__LineAnnotation = extern struct {
     ///
     /// ` closed: bool `
     ///
-    pub fn SetLineClosed(self: Poppler__LineAnnotation, closed: bool) void {
+    pub fn setLineClosed(self: Poppler__LineAnnotation, closed: bool) void {
         qtc.Poppler__LineAnnotation_SetLineClosed(@ptrCast(self.ptr), closed);
     }
+
+    /// ### DEPRECATED: Use `lineInnerColor` instead
+    ///
+    pub const LineInnerColor = lineInnerColor;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LineAnnotation.html)
     ///
@@ -1198,9 +1506,13 @@ pub const Poppler__LineAnnotation = extern struct {
     ///
     /// ` self: Poppler__LineAnnotation `
     ///
-    pub fn LineInnerColor(self: Poppler__LineAnnotation) QColor {
+    pub fn lineInnerColor(self: Poppler__LineAnnotation) QColor {
         return .{ .ptr = qtc.Poppler__LineAnnotation_LineInnerColor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLineInnerColor` instead
+    ///
+    pub const SetLineInnerColor = setLineInnerColor;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LineAnnotation.html)
     ///
@@ -1210,21 +1522,29 @@ pub const Poppler__LineAnnotation = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn SetLineInnerColor(self: Poppler__LineAnnotation, color: anytype) void {
+    pub fn setLineInnerColor(self: Poppler__LineAnnotation, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.Poppler__LineAnnotation_SetLineInnerColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
+    /// ### DEPRECATED: Use `lineLeadingForwardPoint` instead
+    ///
+    pub const LineLeadingForwardPoint = lineLeadingForwardPoint;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LineAnnotation.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Poppler__LineAnnotation `
     ///
-    pub fn LineLeadingForwardPoint(self: Poppler__LineAnnotation) f64 {
+    pub fn lineLeadingForwardPoint(self: Poppler__LineAnnotation) f64 {
         return qtc.Poppler__LineAnnotation_LineLeadingForwardPoint(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setLineLeadingForwardPoint` instead
+    ///
+    pub const SetLineLeadingForwardPoint = setLineLeadingForwardPoint;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LineAnnotation.html)
     ///
     /// ## Parameter(s):
@@ -1233,19 +1553,27 @@ pub const Poppler__LineAnnotation = extern struct {
     ///
     /// ` point: f64 `
     ///
-    pub fn SetLineLeadingForwardPoint(self: Poppler__LineAnnotation, point: f64) void {
+    pub fn setLineLeadingForwardPoint(self: Poppler__LineAnnotation, point: f64) void {
         qtc.Poppler__LineAnnotation_SetLineLeadingForwardPoint(@ptrCast(self.ptr), @bitCast(point));
     }
 
+    /// ### DEPRECATED: Use `lineLeadingBackPoint` instead
+    ///
+    pub const LineLeadingBackPoint = lineLeadingBackPoint;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LineAnnotation.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Poppler__LineAnnotation `
     ///
-    pub fn LineLeadingBackPoint(self: Poppler__LineAnnotation) f64 {
+    pub fn lineLeadingBackPoint(self: Poppler__LineAnnotation) f64 {
         return qtc.Poppler__LineAnnotation_LineLeadingBackPoint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLineLeadingBackPoint` instead
+    ///
+    pub const SetLineLeadingBackPoint = setLineLeadingBackPoint;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LineAnnotation.html)
     ///
@@ -1255,9 +1583,13 @@ pub const Poppler__LineAnnotation = extern struct {
     ///
     /// ` point: f64 `
     ///
-    pub fn SetLineLeadingBackPoint(self: Poppler__LineAnnotation, point: f64) void {
+    pub fn setLineLeadingBackPoint(self: Poppler__LineAnnotation, point: f64) void {
         qtc.Poppler__LineAnnotation_SetLineLeadingBackPoint(@ptrCast(self.ptr), @bitCast(point));
     }
+
+    /// ### DEPRECATED: Use `lineShowCaption` instead
+    ///
+    pub const LineShowCaption = lineShowCaption;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LineAnnotation.html)
     ///
@@ -1265,9 +1597,13 @@ pub const Poppler__LineAnnotation = extern struct {
     ///
     /// ` self: Poppler__LineAnnotation `
     ///
-    pub fn LineShowCaption(self: Poppler__LineAnnotation) bool {
+    pub fn lineShowCaption(self: Poppler__LineAnnotation) bool {
         return qtc.Poppler__LineAnnotation_LineShowCaption(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLineShowCaption` instead
+    ///
+    pub const SetLineShowCaption = setLineShowCaption;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LineAnnotation.html)
     ///
@@ -1277,9 +1613,13 @@ pub const Poppler__LineAnnotation = extern struct {
     ///
     /// ` show: bool `
     ///
-    pub fn SetLineShowCaption(self: Poppler__LineAnnotation, show: bool) void {
+    pub fn setLineShowCaption(self: Poppler__LineAnnotation, show: bool) void {
         qtc.Poppler__LineAnnotation_SetLineShowCaption(@ptrCast(self.ptr), show);
     }
+
+    /// ### DEPRECATED: Use `lineIntent` instead
+    ///
+    pub const LineIntent = lineIntent;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LineAnnotation.html)
     ///
@@ -1291,9 +1631,13 @@ pub const Poppler__LineAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.LineIntent `
     ///
-    pub fn LineIntent(self: Poppler__LineAnnotation) i32 {
+    pub fn lineIntent(self: Poppler__LineAnnotation) i32 {
         return qtc.Poppler__LineAnnotation_LineIntent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLineIntent` instead
+    ///
+    pub const SetLineIntent = setLineIntent;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LineAnnotation.html)
     ///
@@ -1303,9 +1647,13 @@ pub const Poppler__LineAnnotation = extern struct {
     ///
     /// ` intent: poppler_annotation_enums.LineIntent `
     ///
-    pub fn SetLineIntent(self: Poppler__LineAnnotation, intent: i32) void {
+    pub fn setLineIntent(self: Poppler__LineAnnotation, intent: i32) void {
         qtc.Poppler__LineAnnotation_SetLineIntent(@ptrCast(self.ptr), @bitCast(intent));
     }
+
+    /// ### DEPRECATED: Use `author` instead
+    ///
+    pub const Author = author;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -1317,13 +1665,17 @@ pub const Poppler__LineAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Author(self: Poppler__LineAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn author(self: Poppler__LineAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Author(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__LineAnnotation.Author: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__LineAnnotation.author: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAuthor` instead
+    ///
+    pub const SetAuthor = setAuthor;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -1333,16 +1685,20 @@ pub const Poppler__LineAnnotation = extern struct {
     ///
     /// ` self: Poppler__LineAnnotation `
     ///
-    /// ` author: []const u8 `
+    /// ` _author: []const u8 `
     ///
-    pub fn SetAuthor(self: Poppler__LineAnnotation, author: []const u8) void {
+    pub fn setAuthor(self: Poppler__LineAnnotation, _author: []const u8) void {
         const author_str = qtc.libqt_string{
-            .len = author.len,
-            .data = author.ptr,
+            .len = _author.len,
+            .data = _author.ptr,
         };
         qtc.Poppler__Annotation_SetAuthor(@ptrCast(self.ptr), author_str);
     }
 
+    /// ### DEPRECATED: Use `contents` instead
+    ///
+    pub const Contents = contents;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LineAnnotation.html)
@@ -1353,13 +1709,17 @@ pub const Poppler__LineAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Contents(self: Poppler__LineAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn contents(self: Poppler__LineAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Contents(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__LineAnnotation.Contents: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__LineAnnotation.contents: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setContents` instead
+    ///
+    pub const SetContents = setContents;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -1369,16 +1729,20 @@ pub const Poppler__LineAnnotation = extern struct {
     ///
     /// ` self: Poppler__LineAnnotation `
     ///
-    /// ` contents: []const u8 `
+    /// ` _contents: []const u8 `
     ///
-    pub fn SetContents(self: Poppler__LineAnnotation, contents: []const u8) void {
+    pub fn setContents(self: Poppler__LineAnnotation, _contents: []const u8) void {
         const contents_str = qtc.libqt_string{
-            .len = contents.len,
-            .data = contents.ptr,
+            .len = _contents.len,
+            .data = _contents.ptr,
         };
         qtc.Poppler__Annotation_SetContents(@ptrCast(self.ptr), contents_str);
     }
 
+    /// ### DEPRECATED: Use `uniqueName` instead
+    ///
+    pub const UniqueName = uniqueName;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LineAnnotation.html)
@@ -1389,14 +1753,18 @@ pub const Poppler__LineAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UniqueName(self: Poppler__LineAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn uniqueName(self: Poppler__LineAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_UniqueName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__LineAnnotation.UniqueName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__LineAnnotation.uniqueName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `setUniqueName` instead
+    ///
+    pub const SetUniqueName = setUniqueName;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LineAnnotation.html)
@@ -1405,16 +1773,20 @@ pub const Poppler__LineAnnotation = extern struct {
     ///
     /// ` self: Poppler__LineAnnotation `
     ///
-    /// ` uniqueName: []const u8 `
+    /// ` _uniqueName: []const u8 `
     ///
-    pub fn SetUniqueName(self: Poppler__LineAnnotation, uniqueName: []const u8) void {
+    pub fn setUniqueName(self: Poppler__LineAnnotation, _uniqueName: []const u8) void {
         const uniqueName_str = qtc.libqt_string{
-            .len = uniqueName.len,
-            .data = uniqueName.ptr,
+            .len = _uniqueName.len,
+            .data = _uniqueName.ptr,
         };
         qtc.Poppler__Annotation_SetUniqueName(@ptrCast(self.ptr), uniqueName_str);
     }
 
+    /// ### DEPRECATED: Use `modificationDate` instead
+    ///
+    pub const ModificationDate = modificationDate;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LineAnnotation.html)
@@ -1423,9 +1795,13 @@ pub const Poppler__LineAnnotation = extern struct {
     ///
     /// ` self: Poppler__LineAnnotation `
     ///
-    pub fn ModificationDate(self: Poppler__LineAnnotation) QDateTime {
+    pub fn modificationDate(self: Poppler__LineAnnotation) QDateTime {
         return .{ .ptr = qtc.Poppler__Annotation_ModificationDate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setModificationDate` instead
+    ///
+    pub const SetModificationDate = setModificationDate;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -1437,11 +1813,15 @@ pub const Poppler__LineAnnotation = extern struct {
     ///
     /// ` date: QDateTime `
     ///
-    pub fn SetModificationDate(self: Poppler__LineAnnotation, date: anytype) void {
+    pub fn setModificationDate(self: Poppler__LineAnnotation, date: anytype) void {
         comptime _ = @TypeOf(date)._is_QDateTime;
         qtc.Poppler__Annotation_SetModificationDate(@ptrCast(self.ptr), @ptrCast(date.ptr));
     }
 
+    /// ### DEPRECATED: Use `creationDate` instead
+    ///
+    pub const CreationDate = creationDate;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LineAnnotation.html)
@@ -1450,9 +1830,13 @@ pub const Poppler__LineAnnotation = extern struct {
     ///
     /// ` self: Poppler__LineAnnotation `
     ///
-    pub fn CreationDate(self: Poppler__LineAnnotation) QDateTime {
+    pub fn creationDate(self: Poppler__LineAnnotation) QDateTime {
         return .{ .ptr = qtc.Poppler__Annotation_CreationDate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCreationDate` instead
+    ///
+    pub const SetCreationDate = setCreationDate;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -1464,10 +1848,14 @@ pub const Poppler__LineAnnotation = extern struct {
     ///
     /// ` date: QDateTime `
     ///
-    pub fn SetCreationDate(self: Poppler__LineAnnotation, date: anytype) void {
+    pub fn setCreationDate(self: Poppler__LineAnnotation, date: anytype) void {
         comptime _ = @TypeOf(date)._is_QDateTime;
         qtc.Poppler__Annotation_SetCreationDate(@ptrCast(self.ptr), @ptrCast(date.ptr));
     }
+
+    /// ### DEPRECATED: Use `flags` instead
+    ///
+    pub const Flags = flags;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -1481,23 +1869,13 @@ pub const Poppler__LineAnnotation = extern struct {
     ///
     /// ` flag of poppler_annotation_enums.Flag `
     ///
-    pub fn Flags(self: Poppler__LineAnnotation) i32 {
+    pub fn flags(self: Poppler__LineAnnotation) i32 {
         return qtc.Poppler__Annotation_Flags(@ptrCast(self.ptr));
     }
 
-    /// Inherited from Poppler::Annotation
+    /// ### DEPRECATED: Use `setFlags` instead
     ///
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LineAnnotation.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__LineAnnotation `
-    ///
-    /// ` flags: flag of poppler_annotation_enums.Flag `
-    ///
-    pub fn SetFlags(self: Poppler__LineAnnotation, flags: i32) void {
-        qtc.Poppler__Annotation_SetFlags(@ptrCast(self.ptr), @bitCast(flags));
-    }
+    pub const SetFlags = setFlags;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -1507,24 +1885,31 @@ pub const Poppler__LineAnnotation = extern struct {
     ///
     /// ` self: Poppler__LineAnnotation `
     ///
-    pub fn Boundary(self: Poppler__LineAnnotation) QRectF {
+    /// ` _flags: flag of poppler_annotation_enums.Flag `
+    ///
+    pub fn setFlags(self: Poppler__LineAnnotation, _flags: i32) void {
+        qtc.Poppler__Annotation_SetFlags(@ptrCast(self.ptr), @bitCast(_flags));
+    }
+
+    /// ### DEPRECATED: Use `boundary` instead
+    ///
+    pub const Boundary = boundary;
+
+    /// Inherited from Poppler::Annotation
+    ///
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LineAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__LineAnnotation `
+    ///
+    pub fn boundary(self: Poppler__LineAnnotation) QRectF {
         return .{ .ptr = qtc.Poppler__Annotation_Boundary(@ptrCast(self.ptr)) };
     }
 
-    /// Inherited from Poppler::Annotation
+    /// ### DEPRECATED: Use `setBoundary` instead
     ///
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LineAnnotation.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__LineAnnotation `
-    ///
-    /// ` boundary: QRectF `
-    ///
-    pub fn SetBoundary(self: Poppler__LineAnnotation, boundary: anytype) void {
-        comptime _ = @TypeOf(boundary)._is_QRectF;
-        qtc.Poppler__Annotation_SetBoundary(@ptrCast(self.ptr), @ptrCast(boundary.ptr));
-    }
+    pub const SetBoundary = setBoundary;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -1534,24 +1919,32 @@ pub const Poppler__LineAnnotation = extern struct {
     ///
     /// ` self: Poppler__LineAnnotation `
     ///
-    pub fn Style(self: Poppler__LineAnnotation) Poppler__Annotation__Style {
+    /// ` _boundary: QRectF `
+    ///
+    pub fn setBoundary(self: Poppler__LineAnnotation, _boundary: anytype) void {
+        comptime _ = @TypeOf(_boundary)._is_QRectF;
+        qtc.Poppler__Annotation_SetBoundary(@ptrCast(self.ptr), @ptrCast(_boundary.ptr));
+    }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
+
+    /// Inherited from Poppler::Annotation
+    ///
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LineAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__LineAnnotation `
+    ///
+    pub fn style(self: Poppler__LineAnnotation) Poppler__Annotation__Style {
         return .{ .ptr = qtc.Poppler__Annotation_Style(@ptrCast(self.ptr)) };
     }
 
-    /// Inherited from Poppler::Annotation
+    /// ### DEPRECATED: Use `setStyle` instead
     ///
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LineAnnotation.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__LineAnnotation `
-    ///
-    /// ` style: Poppler__Annotation__Style `
-    ///
-    pub fn SetStyle(self: Poppler__LineAnnotation, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_Poppler__Annotation__Style;
-        qtc.Poppler__Annotation_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
-    }
+    pub const SetStyle = setStyle;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -1561,10 +1954,33 @@ pub const Poppler__LineAnnotation = extern struct {
     ///
     /// ` self: Poppler__LineAnnotation `
     ///
-    pub fn Popup(self: Poppler__LineAnnotation) Poppler__Annotation__Popup {
+    /// ` _style: Poppler__Annotation__Style `
+    ///
+    pub fn setStyle(self: Poppler__LineAnnotation, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_Poppler__Annotation__Style;
+        qtc.Poppler__Annotation_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
+    }
+
+    /// ### DEPRECATED: Use `popup` instead
+    ///
+    pub const Popup = popup;
+
+    /// Inherited from Poppler::Annotation
+    ///
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LineAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__LineAnnotation `
+    ///
+    pub fn popup(self: Poppler__LineAnnotation) Poppler__Annotation__Popup {
         return .{ .ptr = qtc.Poppler__Annotation_Popup(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setPopup` instead
+    ///
+    pub const SetPopup = setPopup;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LineAnnotation.html)
@@ -1573,12 +1989,16 @@ pub const Poppler__LineAnnotation = extern struct {
     ///
     /// ` self: Poppler__LineAnnotation `
     ///
-    /// ` popup: Poppler__Annotation__Popup `
+    /// ` _popup: Poppler__Annotation__Popup `
     ///
-    pub fn SetPopup(self: Poppler__LineAnnotation, popup: anytype) void {
-        comptime _ = @TypeOf(popup)._is_Poppler__Annotation__Popup;
-        qtc.Poppler__Annotation_SetPopup(@ptrCast(self.ptr), @ptrCast(popup.ptr));
+    pub fn setPopup(self: Poppler__LineAnnotation, _popup: anytype) void {
+        comptime _ = @TypeOf(_popup)._is_Poppler__Annotation__Popup;
+        qtc.Poppler__Annotation_SetPopup(@ptrCast(self.ptr), @ptrCast(_popup.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisionScope` instead
+    ///
+    pub const RevisionScope = revisionScope;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -1592,9 +2012,13 @@ pub const Poppler__LineAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.RevScope `
     ///
-    pub fn RevisionScope(self: Poppler__LineAnnotation) i32 {
+    pub fn revisionScope(self: Poppler__LineAnnotation) i32 {
         return qtc.Poppler__Annotation_RevisionScope(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisionType` instead
+    ///
+    pub const RevisionType = revisionType;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -1608,9 +2032,13 @@ pub const Poppler__LineAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.RevType `
     ///
-    pub fn RevisionType(self: Poppler__LineAnnotation) i32 {
+    pub fn revisionType(self: Poppler__LineAnnotation) i32 {
         return qtc.Poppler__Annotation_RevisionType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisions` instead
+    ///
+    pub const Revisions = revisions;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -1622,16 +2050,20 @@ pub const Poppler__LineAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Revisions(self: Poppler__LineAnnotation, allocator: std.mem.Allocator) []Poppler__Annotation {
+    pub fn revisions(self: Poppler__LineAnnotation, allocator: std.mem.Allocator) []Poppler__Annotation {
         const _arr: qtc.libqt_list = qtc.Poppler__Annotation_Revisions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__LineAnnotation.Revisions: Memory allocation failed");
-        const _data: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__LineAnnotation.revisions: Memory allocation failed");
+        const _data_val: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `annotationAppearance` instead
+    ///
+    pub const AnnotationAppearance = annotationAppearance;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LineAnnotation.html)
@@ -1640,10 +2072,14 @@ pub const Poppler__LineAnnotation = extern struct {
     ///
     /// ` self: Poppler__LineAnnotation `
     ///
-    pub fn AnnotationAppearance(self: Poppler__LineAnnotation) Poppler__AnnotationAppearance {
+    pub fn annotationAppearance(self: Poppler__LineAnnotation) Poppler__AnnotationAppearance {
         return .{ .ptr = qtc.Poppler__Annotation_AnnotationAppearance(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setAnnotationAppearance` instead
+    ///
+    pub const SetAnnotationAppearance = setAnnotationAppearance;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LineAnnotation.html)
@@ -1652,26 +2088,26 @@ pub const Poppler__LineAnnotation = extern struct {
     ///
     /// ` self: Poppler__LineAnnotation `
     ///
-    /// ` annotationAppearance: Poppler__AnnotationAppearance `
+    /// ` _annotationAppearance: Poppler__AnnotationAppearance `
     ///
-    pub fn SetAnnotationAppearance(self: Poppler__LineAnnotation, annotationAppearance: anytype) void {
-        comptime _ = @TypeOf(annotationAppearance)._is_Poppler__AnnotationAppearance;
-        qtc.Poppler__Annotation_SetAnnotationAppearance(@ptrCast(self.ptr), @ptrCast(annotationAppearance.ptr));
+    pub fn setAnnotationAppearance(self: Poppler__LineAnnotation, _annotationAppearance: anytype) void {
+        comptime _ = @TypeOf(_annotationAppearance)._is_Poppler__AnnotationAppearance;
+        qtc.Poppler__Annotation_SetAnnotationAppearance(@ptrCast(self.ptr), @ptrCast(_annotationAppearance.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LineAnnotation.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Poppler__LineAnnotation `
     ///
-    pub fn Delete(self: Poppler__LineAnnotation) void {
+    pub fn delete(self: Poppler__LineAnnotation) void {
         qtc.Poppler__LineAnnotation_Delete(@ptrCast(self.ptr));
     }
 };
@@ -1687,11 +2123,19 @@ pub const Poppler__GeomAnnotation = extern struct {
     pub const _is_Poppler__GeomAnnotation = {};
     pub const _is_Poppler__Annotation = {};
 
-    /// New constructs a new Poppler::GeomAnnotation object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() Poppler__GeomAnnotation {
+    pub const New = new;
+
+    /// Allocate a new Poppler::GeomAnnotation object in C++ memory
+    ///
+    pub fn new() Poppler__GeomAnnotation {
         return .{ .ptr = qtc.Poppler__GeomAnnotation_new() };
     }
+
+    /// ### DEPRECATED: Use `subType` instead
+    ///
+    pub const SubType = subType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1GeomAnnotation.html)
     ///
@@ -1703,9 +2147,13 @@ pub const Poppler__GeomAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.SubType `
     ///
-    pub fn SubType(self: Poppler__GeomAnnotation) i32 {
+    pub fn subType(self: Poppler__GeomAnnotation) i32 {
         return qtc.Poppler__GeomAnnotation_SubType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSubType` instead
+    ///
+    pub const OnSubType = onSubType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1GeomAnnotation.html)
     ///
@@ -1717,13 +2165,13 @@ pub const Poppler__GeomAnnotation = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSubType(self: Poppler__GeomAnnotation, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSubType(self: Poppler__GeomAnnotation, callback: *const fn () callconv(.c) i32) void {
         qtc.Poppler__GeomAnnotation_OnSubType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSubType` instead
+    /// ### DEPRECATED: Use `superSubType` instead
     ///
-    pub const QBaseSubType = SuperSubType;
+    pub const SuperSubType = superSubType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1GeomAnnotation.html)
     ///
@@ -1737,9 +2185,13 @@ pub const Poppler__GeomAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.SubType `
     ///
-    pub fn SuperSubType(self: Poppler__GeomAnnotation) i32 {
+    pub fn superSubType(self: Poppler__GeomAnnotation) i32 {
         return qtc.Poppler__GeomAnnotation_SuperSubType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `geomType` instead
+    ///
+    pub const GeomType = geomType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1GeomAnnotation.html)
     ///
@@ -1751,9 +2203,13 @@ pub const Poppler__GeomAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.GeomType `
     ///
-    pub fn GeomType(self: Poppler__GeomAnnotation) i32 {
+    pub fn geomType(self: Poppler__GeomAnnotation) i32 {
         return qtc.Poppler__GeomAnnotation_GeomType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeomType` instead
+    ///
+    pub const SetGeomType = setGeomType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1GeomAnnotation.html)
     ///
@@ -1763,9 +2219,13 @@ pub const Poppler__GeomAnnotation = extern struct {
     ///
     /// ` typeVal: poppler_annotation_enums.GeomType `
     ///
-    pub fn SetGeomType(self: Poppler__GeomAnnotation, typeVal: i32) void {
+    pub fn setGeomType(self: Poppler__GeomAnnotation, typeVal: i32) void {
         qtc.Poppler__GeomAnnotation_SetGeomType(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `geomInnerColor` instead
+    ///
+    pub const GeomInnerColor = geomInnerColor;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1GeomAnnotation.html)
     ///
@@ -1773,9 +2233,13 @@ pub const Poppler__GeomAnnotation = extern struct {
     ///
     /// ` self: Poppler__GeomAnnotation `
     ///
-    pub fn GeomInnerColor(self: Poppler__GeomAnnotation) QColor {
+    pub fn geomInnerColor(self: Poppler__GeomAnnotation) QColor {
         return .{ .ptr = qtc.Poppler__GeomAnnotation_GeomInnerColor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGeomInnerColor` instead
+    ///
+    pub const SetGeomInnerColor = setGeomInnerColor;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1GeomAnnotation.html)
     ///
@@ -1785,11 +2249,15 @@ pub const Poppler__GeomAnnotation = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn SetGeomInnerColor(self: Poppler__GeomAnnotation, color: anytype) void {
+    pub fn setGeomInnerColor(self: Poppler__GeomAnnotation, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.Poppler__GeomAnnotation_SetGeomInnerColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
+    /// ### DEPRECATED: Use `author` instead
+    ///
+    pub const Author = author;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1GeomAnnotation.html)
@@ -1800,13 +2268,17 @@ pub const Poppler__GeomAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Author(self: Poppler__GeomAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn author(self: Poppler__GeomAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Author(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__GeomAnnotation.Author: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__GeomAnnotation.author: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAuthor` instead
+    ///
+    pub const SetAuthor = setAuthor;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -1816,16 +2288,20 @@ pub const Poppler__GeomAnnotation = extern struct {
     ///
     /// ` self: Poppler__GeomAnnotation `
     ///
-    /// ` author: []const u8 `
+    /// ` _author: []const u8 `
     ///
-    pub fn SetAuthor(self: Poppler__GeomAnnotation, author: []const u8) void {
+    pub fn setAuthor(self: Poppler__GeomAnnotation, _author: []const u8) void {
         const author_str = qtc.libqt_string{
-            .len = author.len,
-            .data = author.ptr,
+            .len = _author.len,
+            .data = _author.ptr,
         };
         qtc.Poppler__Annotation_SetAuthor(@ptrCast(self.ptr), author_str);
     }
 
+    /// ### DEPRECATED: Use `contents` instead
+    ///
+    pub const Contents = contents;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1GeomAnnotation.html)
@@ -1836,13 +2312,17 @@ pub const Poppler__GeomAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Contents(self: Poppler__GeomAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn contents(self: Poppler__GeomAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Contents(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__GeomAnnotation.Contents: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__GeomAnnotation.contents: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setContents` instead
+    ///
+    pub const SetContents = setContents;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -1852,16 +2332,20 @@ pub const Poppler__GeomAnnotation = extern struct {
     ///
     /// ` self: Poppler__GeomAnnotation `
     ///
-    /// ` contents: []const u8 `
+    /// ` _contents: []const u8 `
     ///
-    pub fn SetContents(self: Poppler__GeomAnnotation, contents: []const u8) void {
+    pub fn setContents(self: Poppler__GeomAnnotation, _contents: []const u8) void {
         const contents_str = qtc.libqt_string{
-            .len = contents.len,
-            .data = contents.ptr,
+            .len = _contents.len,
+            .data = _contents.ptr,
         };
         qtc.Poppler__Annotation_SetContents(@ptrCast(self.ptr), contents_str);
     }
 
+    /// ### DEPRECATED: Use `uniqueName` instead
+    ///
+    pub const UniqueName = uniqueName;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1GeomAnnotation.html)
@@ -1872,14 +2356,18 @@ pub const Poppler__GeomAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UniqueName(self: Poppler__GeomAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn uniqueName(self: Poppler__GeomAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_UniqueName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__GeomAnnotation.UniqueName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__GeomAnnotation.uniqueName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `setUniqueName` instead
+    ///
+    pub const SetUniqueName = setUniqueName;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1GeomAnnotation.html)
@@ -1888,16 +2376,20 @@ pub const Poppler__GeomAnnotation = extern struct {
     ///
     /// ` self: Poppler__GeomAnnotation `
     ///
-    /// ` uniqueName: []const u8 `
+    /// ` _uniqueName: []const u8 `
     ///
-    pub fn SetUniqueName(self: Poppler__GeomAnnotation, uniqueName: []const u8) void {
+    pub fn setUniqueName(self: Poppler__GeomAnnotation, _uniqueName: []const u8) void {
         const uniqueName_str = qtc.libqt_string{
-            .len = uniqueName.len,
-            .data = uniqueName.ptr,
+            .len = _uniqueName.len,
+            .data = _uniqueName.ptr,
         };
         qtc.Poppler__Annotation_SetUniqueName(@ptrCast(self.ptr), uniqueName_str);
     }
 
+    /// ### DEPRECATED: Use `modificationDate` instead
+    ///
+    pub const ModificationDate = modificationDate;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1GeomAnnotation.html)
@@ -1906,9 +2398,13 @@ pub const Poppler__GeomAnnotation = extern struct {
     ///
     /// ` self: Poppler__GeomAnnotation `
     ///
-    pub fn ModificationDate(self: Poppler__GeomAnnotation) QDateTime {
+    pub fn modificationDate(self: Poppler__GeomAnnotation) QDateTime {
         return .{ .ptr = qtc.Poppler__Annotation_ModificationDate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setModificationDate` instead
+    ///
+    pub const SetModificationDate = setModificationDate;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -1920,11 +2416,15 @@ pub const Poppler__GeomAnnotation = extern struct {
     ///
     /// ` date: QDateTime `
     ///
-    pub fn SetModificationDate(self: Poppler__GeomAnnotation, date: anytype) void {
+    pub fn setModificationDate(self: Poppler__GeomAnnotation, date: anytype) void {
         comptime _ = @TypeOf(date)._is_QDateTime;
         qtc.Poppler__Annotation_SetModificationDate(@ptrCast(self.ptr), @ptrCast(date.ptr));
     }
 
+    /// ### DEPRECATED: Use `creationDate` instead
+    ///
+    pub const CreationDate = creationDate;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1GeomAnnotation.html)
@@ -1933,9 +2433,13 @@ pub const Poppler__GeomAnnotation = extern struct {
     ///
     /// ` self: Poppler__GeomAnnotation `
     ///
-    pub fn CreationDate(self: Poppler__GeomAnnotation) QDateTime {
+    pub fn creationDate(self: Poppler__GeomAnnotation) QDateTime {
         return .{ .ptr = qtc.Poppler__Annotation_CreationDate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCreationDate` instead
+    ///
+    pub const SetCreationDate = setCreationDate;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -1947,10 +2451,14 @@ pub const Poppler__GeomAnnotation = extern struct {
     ///
     /// ` date: QDateTime `
     ///
-    pub fn SetCreationDate(self: Poppler__GeomAnnotation, date: anytype) void {
+    pub fn setCreationDate(self: Poppler__GeomAnnotation, date: anytype) void {
         comptime _ = @TypeOf(date)._is_QDateTime;
         qtc.Poppler__Annotation_SetCreationDate(@ptrCast(self.ptr), @ptrCast(date.ptr));
     }
+
+    /// ### DEPRECATED: Use `flags` instead
+    ///
+    pub const Flags = flags;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -1964,23 +2472,13 @@ pub const Poppler__GeomAnnotation = extern struct {
     ///
     /// ` flag of poppler_annotation_enums.Flag `
     ///
-    pub fn Flags(self: Poppler__GeomAnnotation) i32 {
+    pub fn flags(self: Poppler__GeomAnnotation) i32 {
         return qtc.Poppler__Annotation_Flags(@ptrCast(self.ptr));
     }
 
-    /// Inherited from Poppler::Annotation
+    /// ### DEPRECATED: Use `setFlags` instead
     ///
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1GeomAnnotation.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__GeomAnnotation `
-    ///
-    /// ` flags: flag of poppler_annotation_enums.Flag `
-    ///
-    pub fn SetFlags(self: Poppler__GeomAnnotation, flags: i32) void {
-        qtc.Poppler__Annotation_SetFlags(@ptrCast(self.ptr), @bitCast(flags));
-    }
+    pub const SetFlags = setFlags;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -1990,24 +2488,31 @@ pub const Poppler__GeomAnnotation = extern struct {
     ///
     /// ` self: Poppler__GeomAnnotation `
     ///
-    pub fn Boundary(self: Poppler__GeomAnnotation) QRectF {
+    /// ` _flags: flag of poppler_annotation_enums.Flag `
+    ///
+    pub fn setFlags(self: Poppler__GeomAnnotation, _flags: i32) void {
+        qtc.Poppler__Annotation_SetFlags(@ptrCast(self.ptr), @bitCast(_flags));
+    }
+
+    /// ### DEPRECATED: Use `boundary` instead
+    ///
+    pub const Boundary = boundary;
+
+    /// Inherited from Poppler::Annotation
+    ///
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1GeomAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__GeomAnnotation `
+    ///
+    pub fn boundary(self: Poppler__GeomAnnotation) QRectF {
         return .{ .ptr = qtc.Poppler__Annotation_Boundary(@ptrCast(self.ptr)) };
     }
 
-    /// Inherited from Poppler::Annotation
+    /// ### DEPRECATED: Use `setBoundary` instead
     ///
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1GeomAnnotation.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__GeomAnnotation `
-    ///
-    /// ` boundary: QRectF `
-    ///
-    pub fn SetBoundary(self: Poppler__GeomAnnotation, boundary: anytype) void {
-        comptime _ = @TypeOf(boundary)._is_QRectF;
-        qtc.Poppler__Annotation_SetBoundary(@ptrCast(self.ptr), @ptrCast(boundary.ptr));
-    }
+    pub const SetBoundary = setBoundary;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -2017,24 +2522,32 @@ pub const Poppler__GeomAnnotation = extern struct {
     ///
     /// ` self: Poppler__GeomAnnotation `
     ///
-    pub fn Style(self: Poppler__GeomAnnotation) Poppler__Annotation__Style {
+    /// ` _boundary: QRectF `
+    ///
+    pub fn setBoundary(self: Poppler__GeomAnnotation, _boundary: anytype) void {
+        comptime _ = @TypeOf(_boundary)._is_QRectF;
+        qtc.Poppler__Annotation_SetBoundary(@ptrCast(self.ptr), @ptrCast(_boundary.ptr));
+    }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
+
+    /// Inherited from Poppler::Annotation
+    ///
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1GeomAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__GeomAnnotation `
+    ///
+    pub fn style(self: Poppler__GeomAnnotation) Poppler__Annotation__Style {
         return .{ .ptr = qtc.Poppler__Annotation_Style(@ptrCast(self.ptr)) };
     }
 
-    /// Inherited from Poppler::Annotation
+    /// ### DEPRECATED: Use `setStyle` instead
     ///
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1GeomAnnotation.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__GeomAnnotation `
-    ///
-    /// ` style: Poppler__Annotation__Style `
-    ///
-    pub fn SetStyle(self: Poppler__GeomAnnotation, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_Poppler__Annotation__Style;
-        qtc.Poppler__Annotation_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
-    }
+    pub const SetStyle = setStyle;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -2044,10 +2557,33 @@ pub const Poppler__GeomAnnotation = extern struct {
     ///
     /// ` self: Poppler__GeomAnnotation `
     ///
-    pub fn Popup(self: Poppler__GeomAnnotation) Poppler__Annotation__Popup {
+    /// ` _style: Poppler__Annotation__Style `
+    ///
+    pub fn setStyle(self: Poppler__GeomAnnotation, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_Poppler__Annotation__Style;
+        qtc.Poppler__Annotation_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
+    }
+
+    /// ### DEPRECATED: Use `popup` instead
+    ///
+    pub const Popup = popup;
+
+    /// Inherited from Poppler::Annotation
+    ///
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1GeomAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__GeomAnnotation `
+    ///
+    pub fn popup(self: Poppler__GeomAnnotation) Poppler__Annotation__Popup {
         return .{ .ptr = qtc.Poppler__Annotation_Popup(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setPopup` instead
+    ///
+    pub const SetPopup = setPopup;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1GeomAnnotation.html)
@@ -2056,12 +2592,16 @@ pub const Poppler__GeomAnnotation = extern struct {
     ///
     /// ` self: Poppler__GeomAnnotation `
     ///
-    /// ` popup: Poppler__Annotation__Popup `
+    /// ` _popup: Poppler__Annotation__Popup `
     ///
-    pub fn SetPopup(self: Poppler__GeomAnnotation, popup: anytype) void {
-        comptime _ = @TypeOf(popup)._is_Poppler__Annotation__Popup;
-        qtc.Poppler__Annotation_SetPopup(@ptrCast(self.ptr), @ptrCast(popup.ptr));
+    pub fn setPopup(self: Poppler__GeomAnnotation, _popup: anytype) void {
+        comptime _ = @TypeOf(_popup)._is_Poppler__Annotation__Popup;
+        qtc.Poppler__Annotation_SetPopup(@ptrCast(self.ptr), @ptrCast(_popup.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisionScope` instead
+    ///
+    pub const RevisionScope = revisionScope;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -2075,9 +2615,13 @@ pub const Poppler__GeomAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.RevScope `
     ///
-    pub fn RevisionScope(self: Poppler__GeomAnnotation) i32 {
+    pub fn revisionScope(self: Poppler__GeomAnnotation) i32 {
         return qtc.Poppler__Annotation_RevisionScope(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisionType` instead
+    ///
+    pub const RevisionType = revisionType;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -2091,9 +2635,13 @@ pub const Poppler__GeomAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.RevType `
     ///
-    pub fn RevisionType(self: Poppler__GeomAnnotation) i32 {
+    pub fn revisionType(self: Poppler__GeomAnnotation) i32 {
         return qtc.Poppler__Annotation_RevisionType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisions` instead
+    ///
+    pub const Revisions = revisions;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -2105,16 +2653,20 @@ pub const Poppler__GeomAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Revisions(self: Poppler__GeomAnnotation, allocator: std.mem.Allocator) []Poppler__Annotation {
+    pub fn revisions(self: Poppler__GeomAnnotation, allocator: std.mem.Allocator) []Poppler__Annotation {
         const _arr: qtc.libqt_list = qtc.Poppler__Annotation_Revisions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__GeomAnnotation.Revisions: Memory allocation failed");
-        const _data: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__GeomAnnotation.revisions: Memory allocation failed");
+        const _data_val: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `annotationAppearance` instead
+    ///
+    pub const AnnotationAppearance = annotationAppearance;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1GeomAnnotation.html)
@@ -2123,10 +2675,14 @@ pub const Poppler__GeomAnnotation = extern struct {
     ///
     /// ` self: Poppler__GeomAnnotation `
     ///
-    pub fn AnnotationAppearance(self: Poppler__GeomAnnotation) Poppler__AnnotationAppearance {
+    pub fn annotationAppearance(self: Poppler__GeomAnnotation) Poppler__AnnotationAppearance {
         return .{ .ptr = qtc.Poppler__Annotation_AnnotationAppearance(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setAnnotationAppearance` instead
+    ///
+    pub const SetAnnotationAppearance = setAnnotationAppearance;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1GeomAnnotation.html)
@@ -2135,26 +2691,26 @@ pub const Poppler__GeomAnnotation = extern struct {
     ///
     /// ` self: Poppler__GeomAnnotation `
     ///
-    /// ` annotationAppearance: Poppler__AnnotationAppearance `
+    /// ` _annotationAppearance: Poppler__AnnotationAppearance `
     ///
-    pub fn SetAnnotationAppearance(self: Poppler__GeomAnnotation, annotationAppearance: anytype) void {
-        comptime _ = @TypeOf(annotationAppearance)._is_Poppler__AnnotationAppearance;
-        qtc.Poppler__Annotation_SetAnnotationAppearance(@ptrCast(self.ptr), @ptrCast(annotationAppearance.ptr));
+    pub fn setAnnotationAppearance(self: Poppler__GeomAnnotation, _annotationAppearance: anytype) void {
+        comptime _ = @TypeOf(_annotationAppearance)._is_Poppler__AnnotationAppearance;
+        qtc.Poppler__Annotation_SetAnnotationAppearance(@ptrCast(self.ptr), @ptrCast(_annotationAppearance.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1GeomAnnotation.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Poppler__GeomAnnotation `
     ///
-    pub fn Delete(self: Poppler__GeomAnnotation) void {
+    pub fn delete(self: Poppler__GeomAnnotation) void {
         qtc.Poppler__GeomAnnotation_Delete(@ptrCast(self.ptr));
     }
 };
@@ -2170,11 +2726,19 @@ pub const Poppler__HighlightAnnotation = extern struct {
     pub const _is_Poppler__HighlightAnnotation = {};
     pub const _is_Poppler__Annotation = {};
 
-    /// New constructs a new Poppler::HighlightAnnotation object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() Poppler__HighlightAnnotation {
+    pub const New = new;
+
+    /// Allocate a new Poppler::HighlightAnnotation object in C++ memory
+    ///
+    pub fn new() Poppler__HighlightAnnotation {
         return .{ .ptr = qtc.Poppler__HighlightAnnotation_new() };
     }
+
+    /// ### DEPRECATED: Use `subType` instead
+    ///
+    pub const SubType = subType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1HighlightAnnotation.html)
     ///
@@ -2186,9 +2750,13 @@ pub const Poppler__HighlightAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.SubType `
     ///
-    pub fn SubType(self: Poppler__HighlightAnnotation) i32 {
+    pub fn subType(self: Poppler__HighlightAnnotation) i32 {
         return qtc.Poppler__HighlightAnnotation_SubType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSubType` instead
+    ///
+    pub const OnSubType = onSubType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1HighlightAnnotation.html)
     ///
@@ -2200,13 +2768,13 @@ pub const Poppler__HighlightAnnotation = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSubType(self: Poppler__HighlightAnnotation, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSubType(self: Poppler__HighlightAnnotation, callback: *const fn () callconv(.c) i32) void {
         qtc.Poppler__HighlightAnnotation_OnSubType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSubType` instead
+    /// ### DEPRECATED: Use `superSubType` instead
     ///
-    pub const QBaseSubType = SuperSubType;
+    pub const SuperSubType = superSubType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1HighlightAnnotation.html)
     ///
@@ -2220,9 +2788,13 @@ pub const Poppler__HighlightAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.SubType `
     ///
-    pub fn SuperSubType(self: Poppler__HighlightAnnotation) i32 {
+    pub fn superSubType(self: Poppler__HighlightAnnotation) i32 {
         return qtc.Poppler__HighlightAnnotation_SuperSubType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `highlightType` instead
+    ///
+    pub const HighlightType = highlightType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1HighlightAnnotation.html)
     ///
@@ -2234,9 +2806,13 @@ pub const Poppler__HighlightAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.HighlightType `
     ///
-    pub fn HighlightType(self: Poppler__HighlightAnnotation) i32 {
+    pub fn highlightType(self: Poppler__HighlightAnnotation) i32 {
         return qtc.Poppler__HighlightAnnotation_HighlightType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHighlightType` instead
+    ///
+    pub const SetHighlightType = setHighlightType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1HighlightAnnotation.html)
     ///
@@ -2246,9 +2822,13 @@ pub const Poppler__HighlightAnnotation = extern struct {
     ///
     /// ` typeVal: poppler_annotation_enums.HighlightType `
     ///
-    pub fn SetHighlightType(self: Poppler__HighlightAnnotation, typeVal: i32) void {
+    pub fn setHighlightType(self: Poppler__HighlightAnnotation, typeVal: i32) void {
         qtc.Poppler__HighlightAnnotation_SetHighlightType(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `highlightQuads` instead
+    ///
+    pub const HighlightQuads = highlightQuads;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1HighlightAnnotation.html)
     ///
@@ -2258,15 +2838,19 @@ pub const Poppler__HighlightAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn HighlightQuads(self: Poppler__HighlightAnnotation, allocator: std.mem.Allocator) []Poppler__HighlightAnnotation__Quad {
+    pub fn highlightQuads(self: Poppler__HighlightAnnotation, allocator: std.mem.Allocator) []Poppler__HighlightAnnotation__Quad {
         const _arr: qtc.libqt_list = qtc.Poppler__HighlightAnnotation_HighlightQuads(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__HighlightAnnotation__Quad, _arr.len) catch @panic("Poppler__HighlightAnnotation.HighlightQuads: Memory allocation failed");
-        const _data: [*]QtC.Poppler__HighlightAnnotation__Quad = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(Poppler__HighlightAnnotation__Quad, _arr.len) catch @panic("Poppler__HighlightAnnotation.highlightQuads: Memory allocation failed");
+        const _data_val: [*]QtC.Poppler__HighlightAnnotation__Quad = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setHighlightQuads` instead
+    ///
+    pub const SetHighlightQuads = setHighlightQuads;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1HighlightAnnotation.html)
     ///
@@ -2276,7 +2860,7 @@ pub const Poppler__HighlightAnnotation = extern struct {
     ///
     /// ` quads: []Poppler__HighlightAnnotation__Quad `
     ///
-    pub fn SetHighlightQuads(self: Poppler__HighlightAnnotation, quads: []Poppler__HighlightAnnotation__Quad) void {
+    pub fn setHighlightQuads(self: Poppler__HighlightAnnotation, quads: []Poppler__HighlightAnnotation__Quad) void {
         const quads_list = qtc.libqt_list{
             .len = quads.len,
             .data = @ptrCast(quads.ptr),
@@ -2284,6 +2868,10 @@ pub const Poppler__HighlightAnnotation = extern struct {
         qtc.Poppler__HighlightAnnotation_SetHighlightQuads(@ptrCast(self.ptr), quads_list);
     }
 
+    /// ### DEPRECATED: Use `author` instead
+    ///
+    pub const Author = author;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1HighlightAnnotation.html)
@@ -2294,13 +2882,17 @@ pub const Poppler__HighlightAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Author(self: Poppler__HighlightAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn author(self: Poppler__HighlightAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Author(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__HighlightAnnotation.Author: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__HighlightAnnotation.author: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAuthor` instead
+    ///
+    pub const SetAuthor = setAuthor;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -2310,16 +2902,20 @@ pub const Poppler__HighlightAnnotation = extern struct {
     ///
     /// ` self: Poppler__HighlightAnnotation `
     ///
-    /// ` author: []const u8 `
+    /// ` _author: []const u8 `
     ///
-    pub fn SetAuthor(self: Poppler__HighlightAnnotation, author: []const u8) void {
+    pub fn setAuthor(self: Poppler__HighlightAnnotation, _author: []const u8) void {
         const author_str = qtc.libqt_string{
-            .len = author.len,
-            .data = author.ptr,
+            .len = _author.len,
+            .data = _author.ptr,
         };
         qtc.Poppler__Annotation_SetAuthor(@ptrCast(self.ptr), author_str);
     }
 
+    /// ### DEPRECATED: Use `contents` instead
+    ///
+    pub const Contents = contents;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1HighlightAnnotation.html)
@@ -2330,13 +2926,17 @@ pub const Poppler__HighlightAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Contents(self: Poppler__HighlightAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn contents(self: Poppler__HighlightAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Contents(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__HighlightAnnotation.Contents: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__HighlightAnnotation.contents: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setContents` instead
+    ///
+    pub const SetContents = setContents;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -2346,16 +2946,20 @@ pub const Poppler__HighlightAnnotation = extern struct {
     ///
     /// ` self: Poppler__HighlightAnnotation `
     ///
-    /// ` contents: []const u8 `
+    /// ` _contents: []const u8 `
     ///
-    pub fn SetContents(self: Poppler__HighlightAnnotation, contents: []const u8) void {
+    pub fn setContents(self: Poppler__HighlightAnnotation, _contents: []const u8) void {
         const contents_str = qtc.libqt_string{
-            .len = contents.len,
-            .data = contents.ptr,
+            .len = _contents.len,
+            .data = _contents.ptr,
         };
         qtc.Poppler__Annotation_SetContents(@ptrCast(self.ptr), contents_str);
     }
 
+    /// ### DEPRECATED: Use `uniqueName` instead
+    ///
+    pub const UniqueName = uniqueName;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1HighlightAnnotation.html)
@@ -2366,14 +2970,18 @@ pub const Poppler__HighlightAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UniqueName(self: Poppler__HighlightAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn uniqueName(self: Poppler__HighlightAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_UniqueName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__HighlightAnnotation.UniqueName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__HighlightAnnotation.uniqueName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `setUniqueName` instead
+    ///
+    pub const SetUniqueName = setUniqueName;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1HighlightAnnotation.html)
@@ -2382,16 +2990,20 @@ pub const Poppler__HighlightAnnotation = extern struct {
     ///
     /// ` self: Poppler__HighlightAnnotation `
     ///
-    /// ` uniqueName: []const u8 `
+    /// ` _uniqueName: []const u8 `
     ///
-    pub fn SetUniqueName(self: Poppler__HighlightAnnotation, uniqueName: []const u8) void {
+    pub fn setUniqueName(self: Poppler__HighlightAnnotation, _uniqueName: []const u8) void {
         const uniqueName_str = qtc.libqt_string{
-            .len = uniqueName.len,
-            .data = uniqueName.ptr,
+            .len = _uniqueName.len,
+            .data = _uniqueName.ptr,
         };
         qtc.Poppler__Annotation_SetUniqueName(@ptrCast(self.ptr), uniqueName_str);
     }
 
+    /// ### DEPRECATED: Use `modificationDate` instead
+    ///
+    pub const ModificationDate = modificationDate;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1HighlightAnnotation.html)
@@ -2400,9 +3012,13 @@ pub const Poppler__HighlightAnnotation = extern struct {
     ///
     /// ` self: Poppler__HighlightAnnotation `
     ///
-    pub fn ModificationDate(self: Poppler__HighlightAnnotation) QDateTime {
+    pub fn modificationDate(self: Poppler__HighlightAnnotation) QDateTime {
         return .{ .ptr = qtc.Poppler__Annotation_ModificationDate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setModificationDate` instead
+    ///
+    pub const SetModificationDate = setModificationDate;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -2414,11 +3030,15 @@ pub const Poppler__HighlightAnnotation = extern struct {
     ///
     /// ` date: QDateTime `
     ///
-    pub fn SetModificationDate(self: Poppler__HighlightAnnotation, date: anytype) void {
+    pub fn setModificationDate(self: Poppler__HighlightAnnotation, date: anytype) void {
         comptime _ = @TypeOf(date)._is_QDateTime;
         qtc.Poppler__Annotation_SetModificationDate(@ptrCast(self.ptr), @ptrCast(date.ptr));
     }
 
+    /// ### DEPRECATED: Use `creationDate` instead
+    ///
+    pub const CreationDate = creationDate;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1HighlightAnnotation.html)
@@ -2427,9 +3047,13 @@ pub const Poppler__HighlightAnnotation = extern struct {
     ///
     /// ` self: Poppler__HighlightAnnotation `
     ///
-    pub fn CreationDate(self: Poppler__HighlightAnnotation) QDateTime {
+    pub fn creationDate(self: Poppler__HighlightAnnotation) QDateTime {
         return .{ .ptr = qtc.Poppler__Annotation_CreationDate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCreationDate` instead
+    ///
+    pub const SetCreationDate = setCreationDate;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -2441,10 +3065,14 @@ pub const Poppler__HighlightAnnotation = extern struct {
     ///
     /// ` date: QDateTime `
     ///
-    pub fn SetCreationDate(self: Poppler__HighlightAnnotation, date: anytype) void {
+    pub fn setCreationDate(self: Poppler__HighlightAnnotation, date: anytype) void {
         comptime _ = @TypeOf(date)._is_QDateTime;
         qtc.Poppler__Annotation_SetCreationDate(@ptrCast(self.ptr), @ptrCast(date.ptr));
     }
+
+    /// ### DEPRECATED: Use `flags` instead
+    ///
+    pub const Flags = flags;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -2458,23 +3086,13 @@ pub const Poppler__HighlightAnnotation = extern struct {
     ///
     /// ` flag of poppler_annotation_enums.Flag `
     ///
-    pub fn Flags(self: Poppler__HighlightAnnotation) i32 {
+    pub fn flags(self: Poppler__HighlightAnnotation) i32 {
         return qtc.Poppler__Annotation_Flags(@ptrCast(self.ptr));
     }
 
-    /// Inherited from Poppler::Annotation
+    /// ### DEPRECATED: Use `setFlags` instead
     ///
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1HighlightAnnotation.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__HighlightAnnotation `
-    ///
-    /// ` flags: flag of poppler_annotation_enums.Flag `
-    ///
-    pub fn SetFlags(self: Poppler__HighlightAnnotation, flags: i32) void {
-        qtc.Poppler__Annotation_SetFlags(@ptrCast(self.ptr), @bitCast(flags));
-    }
+    pub const SetFlags = setFlags;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -2484,24 +3102,31 @@ pub const Poppler__HighlightAnnotation = extern struct {
     ///
     /// ` self: Poppler__HighlightAnnotation `
     ///
-    pub fn Boundary(self: Poppler__HighlightAnnotation) QRectF {
+    /// ` _flags: flag of poppler_annotation_enums.Flag `
+    ///
+    pub fn setFlags(self: Poppler__HighlightAnnotation, _flags: i32) void {
+        qtc.Poppler__Annotation_SetFlags(@ptrCast(self.ptr), @bitCast(_flags));
+    }
+
+    /// ### DEPRECATED: Use `boundary` instead
+    ///
+    pub const Boundary = boundary;
+
+    /// Inherited from Poppler::Annotation
+    ///
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1HighlightAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__HighlightAnnotation `
+    ///
+    pub fn boundary(self: Poppler__HighlightAnnotation) QRectF {
         return .{ .ptr = qtc.Poppler__Annotation_Boundary(@ptrCast(self.ptr)) };
     }
 
-    /// Inherited from Poppler::Annotation
+    /// ### DEPRECATED: Use `setBoundary` instead
     ///
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1HighlightAnnotation.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__HighlightAnnotation `
-    ///
-    /// ` boundary: QRectF `
-    ///
-    pub fn SetBoundary(self: Poppler__HighlightAnnotation, boundary: anytype) void {
-        comptime _ = @TypeOf(boundary)._is_QRectF;
-        qtc.Poppler__Annotation_SetBoundary(@ptrCast(self.ptr), @ptrCast(boundary.ptr));
-    }
+    pub const SetBoundary = setBoundary;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -2511,24 +3136,32 @@ pub const Poppler__HighlightAnnotation = extern struct {
     ///
     /// ` self: Poppler__HighlightAnnotation `
     ///
-    pub fn Style(self: Poppler__HighlightAnnotation) Poppler__Annotation__Style {
+    /// ` _boundary: QRectF `
+    ///
+    pub fn setBoundary(self: Poppler__HighlightAnnotation, _boundary: anytype) void {
+        comptime _ = @TypeOf(_boundary)._is_QRectF;
+        qtc.Poppler__Annotation_SetBoundary(@ptrCast(self.ptr), @ptrCast(_boundary.ptr));
+    }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
+
+    /// Inherited from Poppler::Annotation
+    ///
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1HighlightAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__HighlightAnnotation `
+    ///
+    pub fn style(self: Poppler__HighlightAnnotation) Poppler__Annotation__Style {
         return .{ .ptr = qtc.Poppler__Annotation_Style(@ptrCast(self.ptr)) };
     }
 
-    /// Inherited from Poppler::Annotation
+    /// ### DEPRECATED: Use `setStyle` instead
     ///
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1HighlightAnnotation.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__HighlightAnnotation `
-    ///
-    /// ` style: Poppler__Annotation__Style `
-    ///
-    pub fn SetStyle(self: Poppler__HighlightAnnotation, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_Poppler__Annotation__Style;
-        qtc.Poppler__Annotation_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
-    }
+    pub const SetStyle = setStyle;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -2538,10 +3171,33 @@ pub const Poppler__HighlightAnnotation = extern struct {
     ///
     /// ` self: Poppler__HighlightAnnotation `
     ///
-    pub fn Popup(self: Poppler__HighlightAnnotation) Poppler__Annotation__Popup {
+    /// ` _style: Poppler__Annotation__Style `
+    ///
+    pub fn setStyle(self: Poppler__HighlightAnnotation, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_Poppler__Annotation__Style;
+        qtc.Poppler__Annotation_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
+    }
+
+    /// ### DEPRECATED: Use `popup` instead
+    ///
+    pub const Popup = popup;
+
+    /// Inherited from Poppler::Annotation
+    ///
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1HighlightAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__HighlightAnnotation `
+    ///
+    pub fn popup(self: Poppler__HighlightAnnotation) Poppler__Annotation__Popup {
         return .{ .ptr = qtc.Poppler__Annotation_Popup(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setPopup` instead
+    ///
+    pub const SetPopup = setPopup;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1HighlightAnnotation.html)
@@ -2550,12 +3206,16 @@ pub const Poppler__HighlightAnnotation = extern struct {
     ///
     /// ` self: Poppler__HighlightAnnotation `
     ///
-    /// ` popup: Poppler__Annotation__Popup `
+    /// ` _popup: Poppler__Annotation__Popup `
     ///
-    pub fn SetPopup(self: Poppler__HighlightAnnotation, popup: anytype) void {
-        comptime _ = @TypeOf(popup)._is_Poppler__Annotation__Popup;
-        qtc.Poppler__Annotation_SetPopup(@ptrCast(self.ptr), @ptrCast(popup.ptr));
+    pub fn setPopup(self: Poppler__HighlightAnnotation, _popup: anytype) void {
+        comptime _ = @TypeOf(_popup)._is_Poppler__Annotation__Popup;
+        qtc.Poppler__Annotation_SetPopup(@ptrCast(self.ptr), @ptrCast(_popup.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisionScope` instead
+    ///
+    pub const RevisionScope = revisionScope;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -2569,9 +3229,13 @@ pub const Poppler__HighlightAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.RevScope `
     ///
-    pub fn RevisionScope(self: Poppler__HighlightAnnotation) i32 {
+    pub fn revisionScope(self: Poppler__HighlightAnnotation) i32 {
         return qtc.Poppler__Annotation_RevisionScope(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisionType` instead
+    ///
+    pub const RevisionType = revisionType;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -2585,9 +3249,13 @@ pub const Poppler__HighlightAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.RevType `
     ///
-    pub fn RevisionType(self: Poppler__HighlightAnnotation) i32 {
+    pub fn revisionType(self: Poppler__HighlightAnnotation) i32 {
         return qtc.Poppler__Annotation_RevisionType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisions` instead
+    ///
+    pub const Revisions = revisions;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -2599,16 +3267,20 @@ pub const Poppler__HighlightAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Revisions(self: Poppler__HighlightAnnotation, allocator: std.mem.Allocator) []Poppler__Annotation {
+    pub fn revisions(self: Poppler__HighlightAnnotation, allocator: std.mem.Allocator) []Poppler__Annotation {
         const _arr: qtc.libqt_list = qtc.Poppler__Annotation_Revisions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__HighlightAnnotation.Revisions: Memory allocation failed");
-        const _data: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__HighlightAnnotation.revisions: Memory allocation failed");
+        const _data_val: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `annotationAppearance` instead
+    ///
+    pub const AnnotationAppearance = annotationAppearance;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1HighlightAnnotation.html)
@@ -2617,10 +3289,14 @@ pub const Poppler__HighlightAnnotation = extern struct {
     ///
     /// ` self: Poppler__HighlightAnnotation `
     ///
-    pub fn AnnotationAppearance(self: Poppler__HighlightAnnotation) Poppler__AnnotationAppearance {
+    pub fn annotationAppearance(self: Poppler__HighlightAnnotation) Poppler__AnnotationAppearance {
         return .{ .ptr = qtc.Poppler__Annotation_AnnotationAppearance(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setAnnotationAppearance` instead
+    ///
+    pub const SetAnnotationAppearance = setAnnotationAppearance;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1HighlightAnnotation.html)
@@ -2629,26 +3305,26 @@ pub const Poppler__HighlightAnnotation = extern struct {
     ///
     /// ` self: Poppler__HighlightAnnotation `
     ///
-    /// ` annotationAppearance: Poppler__AnnotationAppearance `
+    /// ` _annotationAppearance: Poppler__AnnotationAppearance `
     ///
-    pub fn SetAnnotationAppearance(self: Poppler__HighlightAnnotation, annotationAppearance: anytype) void {
-        comptime _ = @TypeOf(annotationAppearance)._is_Poppler__AnnotationAppearance;
-        qtc.Poppler__Annotation_SetAnnotationAppearance(@ptrCast(self.ptr), @ptrCast(annotationAppearance.ptr));
+    pub fn setAnnotationAppearance(self: Poppler__HighlightAnnotation, _annotationAppearance: anytype) void {
+        comptime _ = @TypeOf(_annotationAppearance)._is_Poppler__AnnotationAppearance;
+        qtc.Poppler__Annotation_SetAnnotationAppearance(@ptrCast(self.ptr), @ptrCast(_annotationAppearance.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1HighlightAnnotation.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Poppler__HighlightAnnotation `
     ///
-    pub fn Delete(self: Poppler__HighlightAnnotation) void {
+    pub fn delete(self: Poppler__HighlightAnnotation) void {
         qtc.Poppler__HighlightAnnotation_Delete(@ptrCast(self.ptr));
     }
 };
@@ -2664,11 +3340,19 @@ pub const Poppler__StampAnnotation = extern struct {
     pub const _is_Poppler__StampAnnotation = {};
     pub const _is_Poppler__Annotation = {};
 
-    /// New constructs a new Poppler::StampAnnotation object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() Poppler__StampAnnotation {
+    pub const New = new;
+
+    /// Allocate a new Poppler::StampAnnotation object in C++ memory
+    ///
+    pub fn new() Poppler__StampAnnotation {
         return .{ .ptr = qtc.Poppler__StampAnnotation_new() };
     }
+
+    /// ### DEPRECATED: Use `subType` instead
+    ///
+    pub const SubType = subType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1StampAnnotation.html)
     ///
@@ -2680,9 +3364,13 @@ pub const Poppler__StampAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.SubType `
     ///
-    pub fn SubType(self: Poppler__StampAnnotation) i32 {
+    pub fn subType(self: Poppler__StampAnnotation) i32 {
         return qtc.Poppler__StampAnnotation_SubType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSubType` instead
+    ///
+    pub const OnSubType = onSubType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1StampAnnotation.html)
     ///
@@ -2694,13 +3382,13 @@ pub const Poppler__StampAnnotation = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSubType(self: Poppler__StampAnnotation, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSubType(self: Poppler__StampAnnotation, callback: *const fn () callconv(.c) i32) void {
         qtc.Poppler__StampAnnotation_OnSubType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSubType` instead
+    /// ### DEPRECATED: Use `superSubType` instead
     ///
-    pub const QBaseSubType = SuperSubType;
+    pub const SuperSubType = superSubType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1StampAnnotation.html)
     ///
@@ -2714,9 +3402,13 @@ pub const Poppler__StampAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.SubType `
     ///
-    pub fn SuperSubType(self: Poppler__StampAnnotation) i32 {
+    pub fn superSubType(self: Poppler__StampAnnotation) i32 {
         return qtc.Poppler__StampAnnotation_SuperSubType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stampIconName` instead
+    ///
+    pub const StampIconName = stampIconName;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1StampAnnotation.html)
     ///
@@ -2726,13 +3418,17 @@ pub const Poppler__StampAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StampIconName(self: Poppler__StampAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn stampIconName(self: Poppler__StampAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__StampAnnotation_StampIconName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__StampAnnotation.StampIconName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__StampAnnotation.stampIconName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setStampIconName` instead
+    ///
+    pub const SetStampIconName = setStampIconName;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1StampAnnotation.html)
     ///
@@ -2742,13 +3438,17 @@ pub const Poppler__StampAnnotation = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetStampIconName(self: Poppler__StampAnnotation, name: []const u8) void {
+    pub fn setStampIconName(self: Poppler__StampAnnotation, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.Poppler__StampAnnotation_SetStampIconName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `setStampCustomImage` instead
+    ///
+    pub const SetStampCustomImage = setStampCustomImage;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1StampAnnotation.html)
     ///
@@ -2758,11 +3458,15 @@ pub const Poppler__StampAnnotation = extern struct {
     ///
     /// ` image: QImage `
     ///
-    pub fn SetStampCustomImage(self: Poppler__StampAnnotation, image: anytype) void {
+    pub fn setStampCustomImage(self: Poppler__StampAnnotation, image: anytype) void {
         comptime _ = @TypeOf(image)._is_QImage;
         qtc.Poppler__StampAnnotation_SetStampCustomImage(@ptrCast(self.ptr), @ptrCast(image.ptr));
     }
 
+    /// ### DEPRECATED: Use `author` instead
+    ///
+    pub const Author = author;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1StampAnnotation.html)
@@ -2773,13 +3477,17 @@ pub const Poppler__StampAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Author(self: Poppler__StampAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn author(self: Poppler__StampAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Author(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__StampAnnotation.Author: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__StampAnnotation.author: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAuthor` instead
+    ///
+    pub const SetAuthor = setAuthor;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -2789,16 +3497,20 @@ pub const Poppler__StampAnnotation = extern struct {
     ///
     /// ` self: Poppler__StampAnnotation `
     ///
-    /// ` author: []const u8 `
+    /// ` _author: []const u8 `
     ///
-    pub fn SetAuthor(self: Poppler__StampAnnotation, author: []const u8) void {
+    pub fn setAuthor(self: Poppler__StampAnnotation, _author: []const u8) void {
         const author_str = qtc.libqt_string{
-            .len = author.len,
-            .data = author.ptr,
+            .len = _author.len,
+            .data = _author.ptr,
         };
         qtc.Poppler__Annotation_SetAuthor(@ptrCast(self.ptr), author_str);
     }
 
+    /// ### DEPRECATED: Use `contents` instead
+    ///
+    pub const Contents = contents;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1StampAnnotation.html)
@@ -2809,13 +3521,17 @@ pub const Poppler__StampAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Contents(self: Poppler__StampAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn contents(self: Poppler__StampAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Contents(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__StampAnnotation.Contents: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__StampAnnotation.contents: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setContents` instead
+    ///
+    pub const SetContents = setContents;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -2825,16 +3541,20 @@ pub const Poppler__StampAnnotation = extern struct {
     ///
     /// ` self: Poppler__StampAnnotation `
     ///
-    /// ` contents: []const u8 `
+    /// ` _contents: []const u8 `
     ///
-    pub fn SetContents(self: Poppler__StampAnnotation, contents: []const u8) void {
+    pub fn setContents(self: Poppler__StampAnnotation, _contents: []const u8) void {
         const contents_str = qtc.libqt_string{
-            .len = contents.len,
-            .data = contents.ptr,
+            .len = _contents.len,
+            .data = _contents.ptr,
         };
         qtc.Poppler__Annotation_SetContents(@ptrCast(self.ptr), contents_str);
     }
 
+    /// ### DEPRECATED: Use `uniqueName` instead
+    ///
+    pub const UniqueName = uniqueName;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1StampAnnotation.html)
@@ -2845,14 +3565,18 @@ pub const Poppler__StampAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UniqueName(self: Poppler__StampAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn uniqueName(self: Poppler__StampAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_UniqueName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__StampAnnotation.UniqueName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__StampAnnotation.uniqueName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `setUniqueName` instead
+    ///
+    pub const SetUniqueName = setUniqueName;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1StampAnnotation.html)
@@ -2861,16 +3585,20 @@ pub const Poppler__StampAnnotation = extern struct {
     ///
     /// ` self: Poppler__StampAnnotation `
     ///
-    /// ` uniqueName: []const u8 `
+    /// ` _uniqueName: []const u8 `
     ///
-    pub fn SetUniqueName(self: Poppler__StampAnnotation, uniqueName: []const u8) void {
+    pub fn setUniqueName(self: Poppler__StampAnnotation, _uniqueName: []const u8) void {
         const uniqueName_str = qtc.libqt_string{
-            .len = uniqueName.len,
-            .data = uniqueName.ptr,
+            .len = _uniqueName.len,
+            .data = _uniqueName.ptr,
         };
         qtc.Poppler__Annotation_SetUniqueName(@ptrCast(self.ptr), uniqueName_str);
     }
 
+    /// ### DEPRECATED: Use `modificationDate` instead
+    ///
+    pub const ModificationDate = modificationDate;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1StampAnnotation.html)
@@ -2879,9 +3607,13 @@ pub const Poppler__StampAnnotation = extern struct {
     ///
     /// ` self: Poppler__StampAnnotation `
     ///
-    pub fn ModificationDate(self: Poppler__StampAnnotation) QDateTime {
+    pub fn modificationDate(self: Poppler__StampAnnotation) QDateTime {
         return .{ .ptr = qtc.Poppler__Annotation_ModificationDate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setModificationDate` instead
+    ///
+    pub const SetModificationDate = setModificationDate;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -2893,11 +3625,15 @@ pub const Poppler__StampAnnotation = extern struct {
     ///
     /// ` date: QDateTime `
     ///
-    pub fn SetModificationDate(self: Poppler__StampAnnotation, date: anytype) void {
+    pub fn setModificationDate(self: Poppler__StampAnnotation, date: anytype) void {
         comptime _ = @TypeOf(date)._is_QDateTime;
         qtc.Poppler__Annotation_SetModificationDate(@ptrCast(self.ptr), @ptrCast(date.ptr));
     }
 
+    /// ### DEPRECATED: Use `creationDate` instead
+    ///
+    pub const CreationDate = creationDate;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1StampAnnotation.html)
@@ -2906,9 +3642,13 @@ pub const Poppler__StampAnnotation = extern struct {
     ///
     /// ` self: Poppler__StampAnnotation `
     ///
-    pub fn CreationDate(self: Poppler__StampAnnotation) QDateTime {
+    pub fn creationDate(self: Poppler__StampAnnotation) QDateTime {
         return .{ .ptr = qtc.Poppler__Annotation_CreationDate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCreationDate` instead
+    ///
+    pub const SetCreationDate = setCreationDate;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -2920,10 +3660,14 @@ pub const Poppler__StampAnnotation = extern struct {
     ///
     /// ` date: QDateTime `
     ///
-    pub fn SetCreationDate(self: Poppler__StampAnnotation, date: anytype) void {
+    pub fn setCreationDate(self: Poppler__StampAnnotation, date: anytype) void {
         comptime _ = @TypeOf(date)._is_QDateTime;
         qtc.Poppler__Annotation_SetCreationDate(@ptrCast(self.ptr), @ptrCast(date.ptr));
     }
+
+    /// ### DEPRECATED: Use `flags` instead
+    ///
+    pub const Flags = flags;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -2937,23 +3681,13 @@ pub const Poppler__StampAnnotation = extern struct {
     ///
     /// ` flag of poppler_annotation_enums.Flag `
     ///
-    pub fn Flags(self: Poppler__StampAnnotation) i32 {
+    pub fn flags(self: Poppler__StampAnnotation) i32 {
         return qtc.Poppler__Annotation_Flags(@ptrCast(self.ptr));
     }
 
-    /// Inherited from Poppler::Annotation
+    /// ### DEPRECATED: Use `setFlags` instead
     ///
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1StampAnnotation.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__StampAnnotation `
-    ///
-    /// ` flags: flag of poppler_annotation_enums.Flag `
-    ///
-    pub fn SetFlags(self: Poppler__StampAnnotation, flags: i32) void {
-        qtc.Poppler__Annotation_SetFlags(@ptrCast(self.ptr), @bitCast(flags));
-    }
+    pub const SetFlags = setFlags;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -2963,24 +3697,31 @@ pub const Poppler__StampAnnotation = extern struct {
     ///
     /// ` self: Poppler__StampAnnotation `
     ///
-    pub fn Boundary(self: Poppler__StampAnnotation) QRectF {
+    /// ` _flags: flag of poppler_annotation_enums.Flag `
+    ///
+    pub fn setFlags(self: Poppler__StampAnnotation, _flags: i32) void {
+        qtc.Poppler__Annotation_SetFlags(@ptrCast(self.ptr), @bitCast(_flags));
+    }
+
+    /// ### DEPRECATED: Use `boundary` instead
+    ///
+    pub const Boundary = boundary;
+
+    /// Inherited from Poppler::Annotation
+    ///
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1StampAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__StampAnnotation `
+    ///
+    pub fn boundary(self: Poppler__StampAnnotation) QRectF {
         return .{ .ptr = qtc.Poppler__Annotation_Boundary(@ptrCast(self.ptr)) };
     }
 
-    /// Inherited from Poppler::Annotation
+    /// ### DEPRECATED: Use `setBoundary` instead
     ///
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1StampAnnotation.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__StampAnnotation `
-    ///
-    /// ` boundary: QRectF `
-    ///
-    pub fn SetBoundary(self: Poppler__StampAnnotation, boundary: anytype) void {
-        comptime _ = @TypeOf(boundary)._is_QRectF;
-        qtc.Poppler__Annotation_SetBoundary(@ptrCast(self.ptr), @ptrCast(boundary.ptr));
-    }
+    pub const SetBoundary = setBoundary;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -2990,24 +3731,32 @@ pub const Poppler__StampAnnotation = extern struct {
     ///
     /// ` self: Poppler__StampAnnotation `
     ///
-    pub fn Style(self: Poppler__StampAnnotation) Poppler__Annotation__Style {
+    /// ` _boundary: QRectF `
+    ///
+    pub fn setBoundary(self: Poppler__StampAnnotation, _boundary: anytype) void {
+        comptime _ = @TypeOf(_boundary)._is_QRectF;
+        qtc.Poppler__Annotation_SetBoundary(@ptrCast(self.ptr), @ptrCast(_boundary.ptr));
+    }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
+
+    /// Inherited from Poppler::Annotation
+    ///
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1StampAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__StampAnnotation `
+    ///
+    pub fn style(self: Poppler__StampAnnotation) Poppler__Annotation__Style {
         return .{ .ptr = qtc.Poppler__Annotation_Style(@ptrCast(self.ptr)) };
     }
 
-    /// Inherited from Poppler::Annotation
+    /// ### DEPRECATED: Use `setStyle` instead
     ///
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1StampAnnotation.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__StampAnnotation `
-    ///
-    /// ` style: Poppler__Annotation__Style `
-    ///
-    pub fn SetStyle(self: Poppler__StampAnnotation, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_Poppler__Annotation__Style;
-        qtc.Poppler__Annotation_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
-    }
+    pub const SetStyle = setStyle;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -3017,10 +3766,33 @@ pub const Poppler__StampAnnotation = extern struct {
     ///
     /// ` self: Poppler__StampAnnotation `
     ///
-    pub fn Popup(self: Poppler__StampAnnotation) Poppler__Annotation__Popup {
+    /// ` _style: Poppler__Annotation__Style `
+    ///
+    pub fn setStyle(self: Poppler__StampAnnotation, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_Poppler__Annotation__Style;
+        qtc.Poppler__Annotation_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
+    }
+
+    /// ### DEPRECATED: Use `popup` instead
+    ///
+    pub const Popup = popup;
+
+    /// Inherited from Poppler::Annotation
+    ///
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1StampAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__StampAnnotation `
+    ///
+    pub fn popup(self: Poppler__StampAnnotation) Poppler__Annotation__Popup {
         return .{ .ptr = qtc.Poppler__Annotation_Popup(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setPopup` instead
+    ///
+    pub const SetPopup = setPopup;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1StampAnnotation.html)
@@ -3029,12 +3801,16 @@ pub const Poppler__StampAnnotation = extern struct {
     ///
     /// ` self: Poppler__StampAnnotation `
     ///
-    /// ` popup: Poppler__Annotation__Popup `
+    /// ` _popup: Poppler__Annotation__Popup `
     ///
-    pub fn SetPopup(self: Poppler__StampAnnotation, popup: anytype) void {
-        comptime _ = @TypeOf(popup)._is_Poppler__Annotation__Popup;
-        qtc.Poppler__Annotation_SetPopup(@ptrCast(self.ptr), @ptrCast(popup.ptr));
+    pub fn setPopup(self: Poppler__StampAnnotation, _popup: anytype) void {
+        comptime _ = @TypeOf(_popup)._is_Poppler__Annotation__Popup;
+        qtc.Poppler__Annotation_SetPopup(@ptrCast(self.ptr), @ptrCast(_popup.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisionScope` instead
+    ///
+    pub const RevisionScope = revisionScope;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -3048,9 +3824,13 @@ pub const Poppler__StampAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.RevScope `
     ///
-    pub fn RevisionScope(self: Poppler__StampAnnotation) i32 {
+    pub fn revisionScope(self: Poppler__StampAnnotation) i32 {
         return qtc.Poppler__Annotation_RevisionScope(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisionType` instead
+    ///
+    pub const RevisionType = revisionType;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -3064,9 +3844,13 @@ pub const Poppler__StampAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.RevType `
     ///
-    pub fn RevisionType(self: Poppler__StampAnnotation) i32 {
+    pub fn revisionType(self: Poppler__StampAnnotation) i32 {
         return qtc.Poppler__Annotation_RevisionType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisions` instead
+    ///
+    pub const Revisions = revisions;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -3078,16 +3862,20 @@ pub const Poppler__StampAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Revisions(self: Poppler__StampAnnotation, allocator: std.mem.Allocator) []Poppler__Annotation {
+    pub fn revisions(self: Poppler__StampAnnotation, allocator: std.mem.Allocator) []Poppler__Annotation {
         const _arr: qtc.libqt_list = qtc.Poppler__Annotation_Revisions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__StampAnnotation.Revisions: Memory allocation failed");
-        const _data: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__StampAnnotation.revisions: Memory allocation failed");
+        const _data_val: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `annotationAppearance` instead
+    ///
+    pub const AnnotationAppearance = annotationAppearance;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1StampAnnotation.html)
@@ -3096,10 +3884,14 @@ pub const Poppler__StampAnnotation = extern struct {
     ///
     /// ` self: Poppler__StampAnnotation `
     ///
-    pub fn AnnotationAppearance(self: Poppler__StampAnnotation) Poppler__AnnotationAppearance {
+    pub fn annotationAppearance(self: Poppler__StampAnnotation) Poppler__AnnotationAppearance {
         return .{ .ptr = qtc.Poppler__Annotation_AnnotationAppearance(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setAnnotationAppearance` instead
+    ///
+    pub const SetAnnotationAppearance = setAnnotationAppearance;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1StampAnnotation.html)
@@ -3108,26 +3900,26 @@ pub const Poppler__StampAnnotation = extern struct {
     ///
     /// ` self: Poppler__StampAnnotation `
     ///
-    /// ` annotationAppearance: Poppler__AnnotationAppearance `
+    /// ` _annotationAppearance: Poppler__AnnotationAppearance `
     ///
-    pub fn SetAnnotationAppearance(self: Poppler__StampAnnotation, annotationAppearance: anytype) void {
-        comptime _ = @TypeOf(annotationAppearance)._is_Poppler__AnnotationAppearance;
-        qtc.Poppler__Annotation_SetAnnotationAppearance(@ptrCast(self.ptr), @ptrCast(annotationAppearance.ptr));
+    pub fn setAnnotationAppearance(self: Poppler__StampAnnotation, _annotationAppearance: anytype) void {
+        comptime _ = @TypeOf(_annotationAppearance)._is_Poppler__AnnotationAppearance;
+        qtc.Poppler__Annotation_SetAnnotationAppearance(@ptrCast(self.ptr), @ptrCast(_annotationAppearance.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1StampAnnotation.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Poppler__StampAnnotation `
     ///
-    pub fn Delete(self: Poppler__StampAnnotation) void {
+    pub fn delete(self: Poppler__StampAnnotation) void {
         qtc.Poppler__StampAnnotation_Delete(@ptrCast(self.ptr));
     }
 };
@@ -3143,11 +3935,19 @@ pub const Poppler__SignatureAnnotation = extern struct {
     pub const _is_Poppler__SignatureAnnotation = {};
     pub const _is_Poppler__Annotation = {};
 
-    /// New constructs a new Poppler::SignatureAnnotation object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() Poppler__SignatureAnnotation {
+    pub const New = new;
+
+    /// Allocate a new Poppler::SignatureAnnotation object in C++ memory
+    ///
+    pub fn new() Poppler__SignatureAnnotation {
         return .{ .ptr = qtc.Poppler__SignatureAnnotation_new() };
     }
+
+    /// ### DEPRECATED: Use `subType` instead
+    ///
+    pub const SubType = subType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureAnnotation.html)
     ///
@@ -3159,9 +3959,13 @@ pub const Poppler__SignatureAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.SubType `
     ///
-    pub fn SubType(self: Poppler__SignatureAnnotation) i32 {
+    pub fn subType(self: Poppler__SignatureAnnotation) i32 {
         return qtc.Poppler__SignatureAnnotation_SubType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSubType` instead
+    ///
+    pub const OnSubType = onSubType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureAnnotation.html)
     ///
@@ -3173,13 +3977,13 @@ pub const Poppler__SignatureAnnotation = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSubType(self: Poppler__SignatureAnnotation, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSubType(self: Poppler__SignatureAnnotation, callback: *const fn () callconv(.c) i32) void {
         qtc.Poppler__SignatureAnnotation_OnSubType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSubType` instead
+    /// ### DEPRECATED: Use `superSubType` instead
     ///
-    pub const QBaseSubType = SuperSubType;
+    pub const SuperSubType = superSubType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureAnnotation.html)
     ///
@@ -3193,9 +3997,13 @@ pub const Poppler__SignatureAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.SubType `
     ///
-    pub fn SuperSubType(self: Poppler__SignatureAnnotation) i32 {
+    pub fn superSubType(self: Poppler__SignatureAnnotation) i32 {
         return qtc.Poppler__SignatureAnnotation_SuperSubType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setText` instead
+    ///
+    pub const SetText = setText;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureAnnotation.html)
     ///
@@ -3205,7 +4013,7 @@ pub const Poppler__SignatureAnnotation = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetText(self: Poppler__SignatureAnnotation, text: []const u8) void {
+    pub fn setText(self: Poppler__SignatureAnnotation, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -3213,6 +4021,10 @@ pub const Poppler__SignatureAnnotation = extern struct {
         qtc.Poppler__SignatureAnnotation_SetText(@ptrCast(self.ptr), text_str);
     }
 
+    /// ### DEPRECATED: Use `setLeftText` instead
+    ///
+    pub const SetLeftText = setLeftText;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureAnnotation.html)
     ///
     /// ## Parameter(s):
@@ -3221,7 +4033,7 @@ pub const Poppler__SignatureAnnotation = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetLeftText(self: Poppler__SignatureAnnotation, text: []const u8) void {
+    pub fn setLeftText(self: Poppler__SignatureAnnotation, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -3229,27 +4041,23 @@ pub const Poppler__SignatureAnnotation = extern struct {
         qtc.Poppler__SignatureAnnotation_SetLeftText(@ptrCast(self.ptr), text_str);
     }
 
+    /// ### DEPRECATED: Use `fontSize` instead
+    ///
+    pub const FontSize = fontSize;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureAnnotation.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Poppler__SignatureAnnotation `
     ///
-    pub fn FontSize(self: Poppler__SignatureAnnotation) f64 {
+    pub fn fontSize(self: Poppler__SignatureAnnotation) f64 {
         return qtc.Poppler__SignatureAnnotation_FontSize(@ptrCast(self.ptr));
     }
 
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureAnnotation.html)
+    /// ### DEPRECATED: Use `setFontSize` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__SignatureAnnotation `
-    ///
-    /// ` fontSize: f64 `
-    ///
-    pub fn SetFontSize(self: Poppler__SignatureAnnotation, fontSize: f64) void {
-        qtc.Poppler__SignatureAnnotation_SetFontSize(@ptrCast(self.ptr), @bitCast(fontSize));
-    }
+    pub const SetFontSize = setFontSize;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureAnnotation.html)
     ///
@@ -3257,21 +4065,29 @@ pub const Poppler__SignatureAnnotation = extern struct {
     ///
     /// ` self: Poppler__SignatureAnnotation `
     ///
-    pub fn LeftFontSize(self: Poppler__SignatureAnnotation) f64 {
+    /// ` _fontSize: f64 `
+    ///
+    pub fn setFontSize(self: Poppler__SignatureAnnotation, _fontSize: f64) void {
+        qtc.Poppler__SignatureAnnotation_SetFontSize(@ptrCast(self.ptr), @bitCast(_fontSize));
+    }
+
+    /// ### DEPRECATED: Use `leftFontSize` instead
+    ///
+    pub const LeftFontSize = leftFontSize;
+
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__SignatureAnnotation `
+    ///
+    pub fn leftFontSize(self: Poppler__SignatureAnnotation) f64 {
         return qtc.Poppler__SignatureAnnotation_LeftFontSize(@ptrCast(self.ptr));
     }
 
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureAnnotation.html)
+    /// ### DEPRECATED: Use `setLeftFontSize` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__SignatureAnnotation `
-    ///
-    /// ` fontSize: f64 `
-    ///
-    pub fn SetLeftFontSize(self: Poppler__SignatureAnnotation, fontSize: f64) void {
-        qtc.Poppler__SignatureAnnotation_SetLeftFontSize(@ptrCast(self.ptr), @bitCast(fontSize));
-    }
+    pub const SetLeftFontSize = setLeftFontSize;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureAnnotation.html)
     ///
@@ -3279,9 +4095,29 @@ pub const Poppler__SignatureAnnotation = extern struct {
     ///
     /// ` self: Poppler__SignatureAnnotation `
     ///
-    pub fn FontColor(self: Poppler__SignatureAnnotation) QColor {
+    /// ` _fontSize: f64 `
+    ///
+    pub fn setLeftFontSize(self: Poppler__SignatureAnnotation, _fontSize: f64) void {
+        qtc.Poppler__SignatureAnnotation_SetLeftFontSize(@ptrCast(self.ptr), @bitCast(_fontSize));
+    }
+
+    /// ### DEPRECATED: Use `fontColor` instead
+    ///
+    pub const FontColor = fontColor;
+
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__SignatureAnnotation `
+    ///
+    pub fn fontColor(self: Poppler__SignatureAnnotation) QColor {
         return .{ .ptr = qtc.Poppler__SignatureAnnotation_FontColor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFontColor` instead
+    ///
+    pub const SetFontColor = setFontColor;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureAnnotation.html)
     ///
@@ -3291,20 +4127,28 @@ pub const Poppler__SignatureAnnotation = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn SetFontColor(self: Poppler__SignatureAnnotation, color: anytype) void {
+    pub fn setFontColor(self: Poppler__SignatureAnnotation, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.Poppler__SignatureAnnotation_SetFontColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
+    /// ### DEPRECATED: Use `borderColor` instead
+    ///
+    pub const BorderColor = borderColor;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureAnnotation.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Poppler__SignatureAnnotation `
     ///
-    pub fn BorderColor(self: Poppler__SignatureAnnotation) QColor {
+    pub fn borderColor(self: Poppler__SignatureAnnotation) QColor {
         return .{ .ptr = qtc.Poppler__SignatureAnnotation_BorderColor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBorderColor` instead
+    ///
+    pub const SetBorderColor = setBorderColor;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureAnnotation.html)
     ///
@@ -3314,10 +4158,14 @@ pub const Poppler__SignatureAnnotation = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn SetBorderColor(self: Poppler__SignatureAnnotation, color: anytype) void {
+    pub fn setBorderColor(self: Poppler__SignatureAnnotation, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.Poppler__SignatureAnnotation_SetBorderColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
+
+    /// ### DEPRECATED: Use `borderWidth` instead
+    ///
+    pub const BorderWidth = borderWidth;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureAnnotation.html)
     ///
@@ -3325,9 +4173,13 @@ pub const Poppler__SignatureAnnotation = extern struct {
     ///
     /// ` self: Poppler__SignatureAnnotation `
     ///
-    pub fn BorderWidth(self: Poppler__SignatureAnnotation) f64 {
+    pub fn borderWidth(self: Poppler__SignatureAnnotation) f64 {
         return qtc.Poppler__SignatureAnnotation_BorderWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBorderWidth` instead
+    ///
+    pub const SetBorderWidth = setBorderWidth;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureAnnotation.html)
     ///
@@ -3337,9 +4189,13 @@ pub const Poppler__SignatureAnnotation = extern struct {
     ///
     /// ` width: f64 `
     ///
-    pub fn SetBorderWidth(self: Poppler__SignatureAnnotation, width: f64) void {
+    pub fn setBorderWidth(self: Poppler__SignatureAnnotation, width: f64) void {
         qtc.Poppler__SignatureAnnotation_SetBorderWidth(@ptrCast(self.ptr), @bitCast(width));
     }
+
+    /// ### DEPRECATED: Use `backgroundColor` instead
+    ///
+    pub const BackgroundColor = backgroundColor;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureAnnotation.html)
     ///
@@ -3347,9 +4203,13 @@ pub const Poppler__SignatureAnnotation = extern struct {
     ///
     /// ` self: Poppler__SignatureAnnotation `
     ///
-    pub fn BackgroundColor(self: Poppler__SignatureAnnotation) QColor {
+    pub fn backgroundColor(self: Poppler__SignatureAnnotation) QColor {
         return .{ .ptr = qtc.Poppler__SignatureAnnotation_BackgroundColor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBackgroundColor` instead
+    ///
+    pub const SetBackgroundColor = setBackgroundColor;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureAnnotation.html)
     ///
@@ -3359,11 +4219,15 @@ pub const Poppler__SignatureAnnotation = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn SetBackgroundColor(self: Poppler__SignatureAnnotation, color: anytype) void {
+    pub fn setBackgroundColor(self: Poppler__SignatureAnnotation, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.Poppler__SignatureAnnotation_SetBackgroundColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
+    /// ### DEPRECATED: Use `imagePath` instead
+    ///
+    pub const ImagePath = imagePath;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureAnnotation.html)
     ///
     /// ## Parameter(s):
@@ -3372,13 +4236,17 @@ pub const Poppler__SignatureAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ImagePath(self: Poppler__SignatureAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn imagePath(self: Poppler__SignatureAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__SignatureAnnotation_ImagePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__SignatureAnnotation.ImagePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__SignatureAnnotation.imagePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setImagePath` instead
+    ///
+    pub const SetImagePath = setImagePath;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureAnnotation.html)
     ///
@@ -3386,16 +4254,20 @@ pub const Poppler__SignatureAnnotation = extern struct {
     ///
     /// ` self: Poppler__SignatureAnnotation `
     ///
-    /// ` imagePath: []const u8 `
+    /// ` _imagePath: []const u8 `
     ///
-    pub fn SetImagePath(self: Poppler__SignatureAnnotation, imagePath: []const u8) void {
+    pub fn setImagePath(self: Poppler__SignatureAnnotation, _imagePath: []const u8) void {
         const imagePath_str = qtc.libqt_string{
-            .len = imagePath.len,
-            .data = imagePath.ptr,
+            .len = _imagePath.len,
+            .data = _imagePath.ptr,
         };
         qtc.Poppler__SignatureAnnotation_SetImagePath(@ptrCast(self.ptr), imagePath_str);
     }
 
+    /// ### DEPRECATED: Use `fieldPartialName` instead
+    ///
+    pub const FieldPartialName = fieldPartialName;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureAnnotation.html)
     ///
     /// ## Parameter(s):
@@ -3404,13 +4276,17 @@ pub const Poppler__SignatureAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FieldPartialName(self: Poppler__SignatureAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn fieldPartialName(self: Poppler__SignatureAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__SignatureAnnotation_FieldPartialName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__SignatureAnnotation.FieldPartialName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__SignatureAnnotation.fieldPartialName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setFieldPartialName` instead
+    ///
+    pub const SetFieldPartialName = setFieldPartialName;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureAnnotation.html)
     ///
@@ -3418,15 +4294,19 @@ pub const Poppler__SignatureAnnotation = extern struct {
     ///
     /// ` self: Poppler__SignatureAnnotation `
     ///
-    /// ` fieldPartialName: []const u8 `
+    /// ` _fieldPartialName: []const u8 `
     ///
-    pub fn SetFieldPartialName(self: Poppler__SignatureAnnotation, fieldPartialName: []const u8) void {
+    pub fn setFieldPartialName(self: Poppler__SignatureAnnotation, _fieldPartialName: []const u8) void {
         const fieldPartialName_str = qtc.libqt_string{
-            .len = fieldPartialName.len,
-            .data = fieldPartialName.ptr,
+            .len = _fieldPartialName.len,
+            .data = _fieldPartialName.ptr,
         };
         qtc.Poppler__SignatureAnnotation_SetFieldPartialName(@ptrCast(self.ptr), fieldPartialName_str);
     }
+
+    /// ### DEPRECATED: Use `sign` instead
+    ///
+    pub const Sign = sign;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureAnnotation.html)
     ///
@@ -3442,7 +4322,7 @@ pub const Poppler__SignatureAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.SigningResult `
     ///
-    pub fn Sign(self: Poppler__SignatureAnnotation, outputFileName: []const u8, data: anytype) i32 {
+    pub fn sign(self: Poppler__SignatureAnnotation, outputFileName: []const u8, data: anytype) i32 {
         const outputFileName_str = qtc.libqt_string{
             .len = outputFileName.len,
             .data = outputFileName.ptr,
@@ -3451,6 +4331,10 @@ pub const Poppler__SignatureAnnotation = extern struct {
         return qtc.Poppler__SignatureAnnotation_Sign(@ptrCast(self.ptr), outputFileName_str, @ptrCast(data.ptr));
     }
 
+    /// ### DEPRECATED: Use `author` instead
+    ///
+    pub const Author = author;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureAnnotation.html)
@@ -3461,13 +4345,17 @@ pub const Poppler__SignatureAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Author(self: Poppler__SignatureAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn author(self: Poppler__SignatureAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Author(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__SignatureAnnotation.Author: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__SignatureAnnotation.author: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAuthor` instead
+    ///
+    pub const SetAuthor = setAuthor;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -3477,16 +4365,20 @@ pub const Poppler__SignatureAnnotation = extern struct {
     ///
     /// ` self: Poppler__SignatureAnnotation `
     ///
-    /// ` author: []const u8 `
+    /// ` _author: []const u8 `
     ///
-    pub fn SetAuthor(self: Poppler__SignatureAnnotation, author: []const u8) void {
+    pub fn setAuthor(self: Poppler__SignatureAnnotation, _author: []const u8) void {
         const author_str = qtc.libqt_string{
-            .len = author.len,
-            .data = author.ptr,
+            .len = _author.len,
+            .data = _author.ptr,
         };
         qtc.Poppler__Annotation_SetAuthor(@ptrCast(self.ptr), author_str);
     }
 
+    /// ### DEPRECATED: Use `contents` instead
+    ///
+    pub const Contents = contents;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureAnnotation.html)
@@ -3497,13 +4389,17 @@ pub const Poppler__SignatureAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Contents(self: Poppler__SignatureAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn contents(self: Poppler__SignatureAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Contents(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__SignatureAnnotation.Contents: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__SignatureAnnotation.contents: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setContents` instead
+    ///
+    pub const SetContents = setContents;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -3513,16 +4409,20 @@ pub const Poppler__SignatureAnnotation = extern struct {
     ///
     /// ` self: Poppler__SignatureAnnotation `
     ///
-    /// ` contents: []const u8 `
+    /// ` _contents: []const u8 `
     ///
-    pub fn SetContents(self: Poppler__SignatureAnnotation, contents: []const u8) void {
+    pub fn setContents(self: Poppler__SignatureAnnotation, _contents: []const u8) void {
         const contents_str = qtc.libqt_string{
-            .len = contents.len,
-            .data = contents.ptr,
+            .len = _contents.len,
+            .data = _contents.ptr,
         };
         qtc.Poppler__Annotation_SetContents(@ptrCast(self.ptr), contents_str);
     }
 
+    /// ### DEPRECATED: Use `uniqueName` instead
+    ///
+    pub const UniqueName = uniqueName;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureAnnotation.html)
@@ -3533,14 +4433,18 @@ pub const Poppler__SignatureAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UniqueName(self: Poppler__SignatureAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn uniqueName(self: Poppler__SignatureAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_UniqueName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__SignatureAnnotation.UniqueName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__SignatureAnnotation.uniqueName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `setUniqueName` instead
+    ///
+    pub const SetUniqueName = setUniqueName;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureAnnotation.html)
@@ -3549,16 +4453,20 @@ pub const Poppler__SignatureAnnotation = extern struct {
     ///
     /// ` self: Poppler__SignatureAnnotation `
     ///
-    /// ` uniqueName: []const u8 `
+    /// ` _uniqueName: []const u8 `
     ///
-    pub fn SetUniqueName(self: Poppler__SignatureAnnotation, uniqueName: []const u8) void {
+    pub fn setUniqueName(self: Poppler__SignatureAnnotation, _uniqueName: []const u8) void {
         const uniqueName_str = qtc.libqt_string{
-            .len = uniqueName.len,
-            .data = uniqueName.ptr,
+            .len = _uniqueName.len,
+            .data = _uniqueName.ptr,
         };
         qtc.Poppler__Annotation_SetUniqueName(@ptrCast(self.ptr), uniqueName_str);
     }
 
+    /// ### DEPRECATED: Use `modificationDate` instead
+    ///
+    pub const ModificationDate = modificationDate;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureAnnotation.html)
@@ -3567,9 +4475,13 @@ pub const Poppler__SignatureAnnotation = extern struct {
     ///
     /// ` self: Poppler__SignatureAnnotation `
     ///
-    pub fn ModificationDate(self: Poppler__SignatureAnnotation) QDateTime {
+    pub fn modificationDate(self: Poppler__SignatureAnnotation) QDateTime {
         return .{ .ptr = qtc.Poppler__Annotation_ModificationDate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setModificationDate` instead
+    ///
+    pub const SetModificationDate = setModificationDate;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -3581,11 +4493,15 @@ pub const Poppler__SignatureAnnotation = extern struct {
     ///
     /// ` date: QDateTime `
     ///
-    pub fn SetModificationDate(self: Poppler__SignatureAnnotation, date: anytype) void {
+    pub fn setModificationDate(self: Poppler__SignatureAnnotation, date: anytype) void {
         comptime _ = @TypeOf(date)._is_QDateTime;
         qtc.Poppler__Annotation_SetModificationDate(@ptrCast(self.ptr), @ptrCast(date.ptr));
     }
 
+    /// ### DEPRECATED: Use `creationDate` instead
+    ///
+    pub const CreationDate = creationDate;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureAnnotation.html)
@@ -3594,9 +4510,13 @@ pub const Poppler__SignatureAnnotation = extern struct {
     ///
     /// ` self: Poppler__SignatureAnnotation `
     ///
-    pub fn CreationDate(self: Poppler__SignatureAnnotation) QDateTime {
+    pub fn creationDate(self: Poppler__SignatureAnnotation) QDateTime {
         return .{ .ptr = qtc.Poppler__Annotation_CreationDate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCreationDate` instead
+    ///
+    pub const SetCreationDate = setCreationDate;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -3608,10 +4528,14 @@ pub const Poppler__SignatureAnnotation = extern struct {
     ///
     /// ` date: QDateTime `
     ///
-    pub fn SetCreationDate(self: Poppler__SignatureAnnotation, date: anytype) void {
+    pub fn setCreationDate(self: Poppler__SignatureAnnotation, date: anytype) void {
         comptime _ = @TypeOf(date)._is_QDateTime;
         qtc.Poppler__Annotation_SetCreationDate(@ptrCast(self.ptr), @ptrCast(date.ptr));
     }
+
+    /// ### DEPRECATED: Use `flags` instead
+    ///
+    pub const Flags = flags;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -3625,23 +4549,13 @@ pub const Poppler__SignatureAnnotation = extern struct {
     ///
     /// ` flag of poppler_annotation_enums.Flag `
     ///
-    pub fn Flags(self: Poppler__SignatureAnnotation) i32 {
+    pub fn flags(self: Poppler__SignatureAnnotation) i32 {
         return qtc.Poppler__Annotation_Flags(@ptrCast(self.ptr));
     }
 
-    /// Inherited from Poppler::Annotation
+    /// ### DEPRECATED: Use `setFlags` instead
     ///
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureAnnotation.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__SignatureAnnotation `
-    ///
-    /// ` flags: flag of poppler_annotation_enums.Flag `
-    ///
-    pub fn SetFlags(self: Poppler__SignatureAnnotation, flags: i32) void {
-        qtc.Poppler__Annotation_SetFlags(@ptrCast(self.ptr), @bitCast(flags));
-    }
+    pub const SetFlags = setFlags;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -3651,24 +4565,31 @@ pub const Poppler__SignatureAnnotation = extern struct {
     ///
     /// ` self: Poppler__SignatureAnnotation `
     ///
-    pub fn Boundary(self: Poppler__SignatureAnnotation) QRectF {
+    /// ` _flags: flag of poppler_annotation_enums.Flag `
+    ///
+    pub fn setFlags(self: Poppler__SignatureAnnotation, _flags: i32) void {
+        qtc.Poppler__Annotation_SetFlags(@ptrCast(self.ptr), @bitCast(_flags));
+    }
+
+    /// ### DEPRECATED: Use `boundary` instead
+    ///
+    pub const Boundary = boundary;
+
+    /// Inherited from Poppler::Annotation
+    ///
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__SignatureAnnotation `
+    ///
+    pub fn boundary(self: Poppler__SignatureAnnotation) QRectF {
         return .{ .ptr = qtc.Poppler__Annotation_Boundary(@ptrCast(self.ptr)) };
     }
 
-    /// Inherited from Poppler::Annotation
+    /// ### DEPRECATED: Use `setBoundary` instead
     ///
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureAnnotation.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__SignatureAnnotation `
-    ///
-    /// ` boundary: QRectF `
-    ///
-    pub fn SetBoundary(self: Poppler__SignatureAnnotation, boundary: anytype) void {
-        comptime _ = @TypeOf(boundary)._is_QRectF;
-        qtc.Poppler__Annotation_SetBoundary(@ptrCast(self.ptr), @ptrCast(boundary.ptr));
-    }
+    pub const SetBoundary = setBoundary;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -3678,24 +4599,32 @@ pub const Poppler__SignatureAnnotation = extern struct {
     ///
     /// ` self: Poppler__SignatureAnnotation `
     ///
-    pub fn Style(self: Poppler__SignatureAnnotation) Poppler__Annotation__Style {
+    /// ` _boundary: QRectF `
+    ///
+    pub fn setBoundary(self: Poppler__SignatureAnnotation, _boundary: anytype) void {
+        comptime _ = @TypeOf(_boundary)._is_QRectF;
+        qtc.Poppler__Annotation_SetBoundary(@ptrCast(self.ptr), @ptrCast(_boundary.ptr));
+    }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
+
+    /// Inherited from Poppler::Annotation
+    ///
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__SignatureAnnotation `
+    ///
+    pub fn style(self: Poppler__SignatureAnnotation) Poppler__Annotation__Style {
         return .{ .ptr = qtc.Poppler__Annotation_Style(@ptrCast(self.ptr)) };
     }
 
-    /// Inherited from Poppler::Annotation
+    /// ### DEPRECATED: Use `setStyle` instead
     ///
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureAnnotation.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__SignatureAnnotation `
-    ///
-    /// ` style: Poppler__Annotation__Style `
-    ///
-    pub fn SetStyle(self: Poppler__SignatureAnnotation, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_Poppler__Annotation__Style;
-        qtc.Poppler__Annotation_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
-    }
+    pub const SetStyle = setStyle;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -3705,10 +4634,33 @@ pub const Poppler__SignatureAnnotation = extern struct {
     ///
     /// ` self: Poppler__SignatureAnnotation `
     ///
-    pub fn Popup(self: Poppler__SignatureAnnotation) Poppler__Annotation__Popup {
+    /// ` _style: Poppler__Annotation__Style `
+    ///
+    pub fn setStyle(self: Poppler__SignatureAnnotation, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_Poppler__Annotation__Style;
+        qtc.Poppler__Annotation_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
+    }
+
+    /// ### DEPRECATED: Use `popup` instead
+    ///
+    pub const Popup = popup;
+
+    /// Inherited from Poppler::Annotation
+    ///
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__SignatureAnnotation `
+    ///
+    pub fn popup(self: Poppler__SignatureAnnotation) Poppler__Annotation__Popup {
         return .{ .ptr = qtc.Poppler__Annotation_Popup(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setPopup` instead
+    ///
+    pub const SetPopup = setPopup;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureAnnotation.html)
@@ -3717,12 +4669,16 @@ pub const Poppler__SignatureAnnotation = extern struct {
     ///
     /// ` self: Poppler__SignatureAnnotation `
     ///
-    /// ` popup: Poppler__Annotation__Popup `
+    /// ` _popup: Poppler__Annotation__Popup `
     ///
-    pub fn SetPopup(self: Poppler__SignatureAnnotation, popup: anytype) void {
-        comptime _ = @TypeOf(popup)._is_Poppler__Annotation__Popup;
-        qtc.Poppler__Annotation_SetPopup(@ptrCast(self.ptr), @ptrCast(popup.ptr));
+    pub fn setPopup(self: Poppler__SignatureAnnotation, _popup: anytype) void {
+        comptime _ = @TypeOf(_popup)._is_Poppler__Annotation__Popup;
+        qtc.Poppler__Annotation_SetPopup(@ptrCast(self.ptr), @ptrCast(_popup.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisionScope` instead
+    ///
+    pub const RevisionScope = revisionScope;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -3736,9 +4692,13 @@ pub const Poppler__SignatureAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.RevScope `
     ///
-    pub fn RevisionScope(self: Poppler__SignatureAnnotation) i32 {
+    pub fn revisionScope(self: Poppler__SignatureAnnotation) i32 {
         return qtc.Poppler__Annotation_RevisionScope(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisionType` instead
+    ///
+    pub const RevisionType = revisionType;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -3752,9 +4712,13 @@ pub const Poppler__SignatureAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.RevType `
     ///
-    pub fn RevisionType(self: Poppler__SignatureAnnotation) i32 {
+    pub fn revisionType(self: Poppler__SignatureAnnotation) i32 {
         return qtc.Poppler__Annotation_RevisionType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisions` instead
+    ///
+    pub const Revisions = revisions;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -3766,16 +4730,20 @@ pub const Poppler__SignatureAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Revisions(self: Poppler__SignatureAnnotation, allocator: std.mem.Allocator) []Poppler__Annotation {
+    pub fn revisions(self: Poppler__SignatureAnnotation, allocator: std.mem.Allocator) []Poppler__Annotation {
         const _arr: qtc.libqt_list = qtc.Poppler__Annotation_Revisions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__SignatureAnnotation.Revisions: Memory allocation failed");
-        const _data: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__SignatureAnnotation.revisions: Memory allocation failed");
+        const _data_val: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `annotationAppearance` instead
+    ///
+    pub const AnnotationAppearance = annotationAppearance;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureAnnotation.html)
@@ -3784,10 +4752,14 @@ pub const Poppler__SignatureAnnotation = extern struct {
     ///
     /// ` self: Poppler__SignatureAnnotation `
     ///
-    pub fn AnnotationAppearance(self: Poppler__SignatureAnnotation) Poppler__AnnotationAppearance {
+    pub fn annotationAppearance(self: Poppler__SignatureAnnotation) Poppler__AnnotationAppearance {
         return .{ .ptr = qtc.Poppler__Annotation_AnnotationAppearance(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setAnnotationAppearance` instead
+    ///
+    pub const SetAnnotationAppearance = setAnnotationAppearance;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureAnnotation.html)
@@ -3796,26 +4768,26 @@ pub const Poppler__SignatureAnnotation = extern struct {
     ///
     /// ` self: Poppler__SignatureAnnotation `
     ///
-    /// ` annotationAppearance: Poppler__AnnotationAppearance `
+    /// ` _annotationAppearance: Poppler__AnnotationAppearance `
     ///
-    pub fn SetAnnotationAppearance(self: Poppler__SignatureAnnotation, annotationAppearance: anytype) void {
-        comptime _ = @TypeOf(annotationAppearance)._is_Poppler__AnnotationAppearance;
-        qtc.Poppler__Annotation_SetAnnotationAppearance(@ptrCast(self.ptr), @ptrCast(annotationAppearance.ptr));
+    pub fn setAnnotationAppearance(self: Poppler__SignatureAnnotation, _annotationAppearance: anytype) void {
+        comptime _ = @TypeOf(_annotationAppearance)._is_Poppler__AnnotationAppearance;
+        qtc.Poppler__Annotation_SetAnnotationAppearance(@ptrCast(self.ptr), @ptrCast(_annotationAppearance.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureAnnotation.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Poppler__SignatureAnnotation `
     ///
-    pub fn Delete(self: Poppler__SignatureAnnotation) void {
+    pub fn delete(self: Poppler__SignatureAnnotation) void {
         qtc.Poppler__SignatureAnnotation_Delete(@ptrCast(self.ptr));
     }
 };
@@ -3831,11 +4803,19 @@ pub const Poppler__InkAnnotation = extern struct {
     pub const _is_Poppler__InkAnnotation = {};
     pub const _is_Poppler__Annotation = {};
 
-    /// New constructs a new Poppler::InkAnnotation object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() Poppler__InkAnnotation {
+    pub const New = new;
+
+    /// Allocate a new Poppler::InkAnnotation object in C++ memory
+    ///
+    pub fn new() Poppler__InkAnnotation {
         return .{ .ptr = qtc.Poppler__InkAnnotation_new() };
     }
+
+    /// ### DEPRECATED: Use `subType` instead
+    ///
+    pub const SubType = subType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1InkAnnotation.html)
     ///
@@ -3847,9 +4827,13 @@ pub const Poppler__InkAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.SubType `
     ///
-    pub fn SubType(self: Poppler__InkAnnotation) i32 {
+    pub fn subType(self: Poppler__InkAnnotation) i32 {
         return qtc.Poppler__InkAnnotation_SubType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSubType` instead
+    ///
+    pub const OnSubType = onSubType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1InkAnnotation.html)
     ///
@@ -3861,13 +4845,13 @@ pub const Poppler__InkAnnotation = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSubType(self: Poppler__InkAnnotation, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSubType(self: Poppler__InkAnnotation, callback: *const fn () callconv(.c) i32) void {
         qtc.Poppler__InkAnnotation_OnSubType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSubType` instead
+    /// ### DEPRECATED: Use `superSubType` instead
     ///
-    pub const QBaseSubType = SuperSubType;
+    pub const SuperSubType = superSubType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1InkAnnotation.html)
     ///
@@ -3881,9 +4865,13 @@ pub const Poppler__InkAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.SubType `
     ///
-    pub fn SuperSubType(self: Poppler__InkAnnotation) i32 {
+    pub fn superSubType(self: Poppler__InkAnnotation) i32 {
         return qtc.Poppler__InkAnnotation_SuperSubType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `inkPaths` instead
+    ///
+    pub const InkPaths = inkPaths;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1InkAnnotation.html)
     ///
@@ -3893,7 +4881,7 @@ pub const Poppler__InkAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn InkPaths(self: Poppler__InkAnnotation, allocator: std.mem.Allocator) [][]QPointF {
+    pub fn inkPaths(self: Poppler__InkAnnotation, allocator: std.mem.Allocator) [][]QPointF {
         const _arr: qtc.libqt_list = qtc.Poppler__InkAnnotation_InkPaths(@ptrCast(self.ptr));
         const _list: [*]qtc.libqt_list = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -3901,15 +4889,19 @@ pub const Poppler__InkAnnotation = extern struct {
                 qtc.libqt_free(_list[i].data);
             qtc.libqt_free(_list);
         }
-        const _ret = allocator.alloc([]QPointF, _arr.len) catch @panic("Poppler__InkAnnotation.InkPaths: Memory allocation failed");
+        const _ret = allocator.alloc([]QPointF, _arr.len) catch @panic("Poppler__InkAnnotation.inkPaths: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data: [*]QtC.QPointF = @ptrCast(@alignCast(_list[i].data));
-            _ret[i] = allocator.alloc(QPointF, _list[i].len) catch @panic("Poppler__InkAnnotation.InkPaths: Memory allocation failed");
+            const _data_val: [*]QtC.QPointF = @ptrCast(@alignCast(_list[i].data));
+            _ret[i] = allocator.alloc(QPointF, _list[i].len) catch @panic("Poppler__InkAnnotation.inkPaths: Memory allocation failed");
             for (0.._list[i].len) |j|
-                _ret[i][j] = .{ .ptr = _data[j] };
+                _ret[i][j] = .{ .ptr = _data_val[j] };
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setInkPaths` instead
+    ///
+    pub const SetInkPaths = setInkPaths;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1InkAnnotation.html)
     ///
@@ -3921,8 +4913,8 @@ pub const Poppler__InkAnnotation = extern struct {
     ///
     /// ` paths: [][]QPointF `
     ///
-    pub fn SetInkPaths(self: Poppler__InkAnnotation, allocator: std.mem.Allocator, paths: [][]QPointF) void {
-        const paths_arr = allocator.alloc(qtc.libqt_list, paths.len) catch @panic("Poppler__InkAnnotation.SetInkPaths: Memory allocation failed");
+    pub fn setInkPaths(self: Poppler__InkAnnotation, allocator: std.mem.Allocator, paths: [][]QPointF) void {
+        const paths_arr = allocator.alloc(qtc.libqt_list, paths.len) catch @panic("Poppler__InkAnnotation.setInkPaths: Memory allocation failed");
         defer allocator.free(paths_arr);
         for (paths, 0..) |paths_inner, i|
             paths_arr[i] = qtc.libqt_list{
@@ -3936,6 +4928,10 @@ pub const Poppler__InkAnnotation = extern struct {
         qtc.Poppler__InkAnnotation_SetInkPaths(@ptrCast(self.ptr), paths_list);
     }
 
+    /// ### DEPRECATED: Use `author` instead
+    ///
+    pub const Author = author;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1InkAnnotation.html)
@@ -3946,13 +4942,17 @@ pub const Poppler__InkAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Author(self: Poppler__InkAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn author(self: Poppler__InkAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Author(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__InkAnnotation.Author: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__InkAnnotation.author: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAuthor` instead
+    ///
+    pub const SetAuthor = setAuthor;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -3962,16 +4962,20 @@ pub const Poppler__InkAnnotation = extern struct {
     ///
     /// ` self: Poppler__InkAnnotation `
     ///
-    /// ` author: []const u8 `
+    /// ` _author: []const u8 `
     ///
-    pub fn SetAuthor(self: Poppler__InkAnnotation, author: []const u8) void {
+    pub fn setAuthor(self: Poppler__InkAnnotation, _author: []const u8) void {
         const author_str = qtc.libqt_string{
-            .len = author.len,
-            .data = author.ptr,
+            .len = _author.len,
+            .data = _author.ptr,
         };
         qtc.Poppler__Annotation_SetAuthor(@ptrCast(self.ptr), author_str);
     }
 
+    /// ### DEPRECATED: Use `contents` instead
+    ///
+    pub const Contents = contents;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1InkAnnotation.html)
@@ -3982,13 +4986,17 @@ pub const Poppler__InkAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Contents(self: Poppler__InkAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn contents(self: Poppler__InkAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Contents(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__InkAnnotation.Contents: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__InkAnnotation.contents: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setContents` instead
+    ///
+    pub const SetContents = setContents;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -3998,16 +5006,20 @@ pub const Poppler__InkAnnotation = extern struct {
     ///
     /// ` self: Poppler__InkAnnotation `
     ///
-    /// ` contents: []const u8 `
+    /// ` _contents: []const u8 `
     ///
-    pub fn SetContents(self: Poppler__InkAnnotation, contents: []const u8) void {
+    pub fn setContents(self: Poppler__InkAnnotation, _contents: []const u8) void {
         const contents_str = qtc.libqt_string{
-            .len = contents.len,
-            .data = contents.ptr,
+            .len = _contents.len,
+            .data = _contents.ptr,
         };
         qtc.Poppler__Annotation_SetContents(@ptrCast(self.ptr), contents_str);
     }
 
+    /// ### DEPRECATED: Use `uniqueName` instead
+    ///
+    pub const UniqueName = uniqueName;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1InkAnnotation.html)
@@ -4018,14 +5030,18 @@ pub const Poppler__InkAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UniqueName(self: Poppler__InkAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn uniqueName(self: Poppler__InkAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_UniqueName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__InkAnnotation.UniqueName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__InkAnnotation.uniqueName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `setUniqueName` instead
+    ///
+    pub const SetUniqueName = setUniqueName;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1InkAnnotation.html)
@@ -4034,16 +5050,20 @@ pub const Poppler__InkAnnotation = extern struct {
     ///
     /// ` self: Poppler__InkAnnotation `
     ///
-    /// ` uniqueName: []const u8 `
+    /// ` _uniqueName: []const u8 `
     ///
-    pub fn SetUniqueName(self: Poppler__InkAnnotation, uniqueName: []const u8) void {
+    pub fn setUniqueName(self: Poppler__InkAnnotation, _uniqueName: []const u8) void {
         const uniqueName_str = qtc.libqt_string{
-            .len = uniqueName.len,
-            .data = uniqueName.ptr,
+            .len = _uniqueName.len,
+            .data = _uniqueName.ptr,
         };
         qtc.Poppler__Annotation_SetUniqueName(@ptrCast(self.ptr), uniqueName_str);
     }
 
+    /// ### DEPRECATED: Use `modificationDate` instead
+    ///
+    pub const ModificationDate = modificationDate;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1InkAnnotation.html)
@@ -4052,9 +5072,13 @@ pub const Poppler__InkAnnotation = extern struct {
     ///
     /// ` self: Poppler__InkAnnotation `
     ///
-    pub fn ModificationDate(self: Poppler__InkAnnotation) QDateTime {
+    pub fn modificationDate(self: Poppler__InkAnnotation) QDateTime {
         return .{ .ptr = qtc.Poppler__Annotation_ModificationDate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setModificationDate` instead
+    ///
+    pub const SetModificationDate = setModificationDate;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -4066,11 +5090,15 @@ pub const Poppler__InkAnnotation = extern struct {
     ///
     /// ` date: QDateTime `
     ///
-    pub fn SetModificationDate(self: Poppler__InkAnnotation, date: anytype) void {
+    pub fn setModificationDate(self: Poppler__InkAnnotation, date: anytype) void {
         comptime _ = @TypeOf(date)._is_QDateTime;
         qtc.Poppler__Annotation_SetModificationDate(@ptrCast(self.ptr), @ptrCast(date.ptr));
     }
 
+    /// ### DEPRECATED: Use `creationDate` instead
+    ///
+    pub const CreationDate = creationDate;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1InkAnnotation.html)
@@ -4079,9 +5107,13 @@ pub const Poppler__InkAnnotation = extern struct {
     ///
     /// ` self: Poppler__InkAnnotation `
     ///
-    pub fn CreationDate(self: Poppler__InkAnnotation) QDateTime {
+    pub fn creationDate(self: Poppler__InkAnnotation) QDateTime {
         return .{ .ptr = qtc.Poppler__Annotation_CreationDate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCreationDate` instead
+    ///
+    pub const SetCreationDate = setCreationDate;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -4093,10 +5125,14 @@ pub const Poppler__InkAnnotation = extern struct {
     ///
     /// ` date: QDateTime `
     ///
-    pub fn SetCreationDate(self: Poppler__InkAnnotation, date: anytype) void {
+    pub fn setCreationDate(self: Poppler__InkAnnotation, date: anytype) void {
         comptime _ = @TypeOf(date)._is_QDateTime;
         qtc.Poppler__Annotation_SetCreationDate(@ptrCast(self.ptr), @ptrCast(date.ptr));
     }
+
+    /// ### DEPRECATED: Use `flags` instead
+    ///
+    pub const Flags = flags;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -4110,23 +5146,13 @@ pub const Poppler__InkAnnotation = extern struct {
     ///
     /// ` flag of poppler_annotation_enums.Flag `
     ///
-    pub fn Flags(self: Poppler__InkAnnotation) i32 {
+    pub fn flags(self: Poppler__InkAnnotation) i32 {
         return qtc.Poppler__Annotation_Flags(@ptrCast(self.ptr));
     }
 
-    /// Inherited from Poppler::Annotation
+    /// ### DEPRECATED: Use `setFlags` instead
     ///
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1InkAnnotation.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__InkAnnotation `
-    ///
-    /// ` flags: flag of poppler_annotation_enums.Flag `
-    ///
-    pub fn SetFlags(self: Poppler__InkAnnotation, flags: i32) void {
-        qtc.Poppler__Annotation_SetFlags(@ptrCast(self.ptr), @bitCast(flags));
-    }
+    pub const SetFlags = setFlags;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -4136,24 +5162,31 @@ pub const Poppler__InkAnnotation = extern struct {
     ///
     /// ` self: Poppler__InkAnnotation `
     ///
-    pub fn Boundary(self: Poppler__InkAnnotation) QRectF {
+    /// ` _flags: flag of poppler_annotation_enums.Flag `
+    ///
+    pub fn setFlags(self: Poppler__InkAnnotation, _flags: i32) void {
+        qtc.Poppler__Annotation_SetFlags(@ptrCast(self.ptr), @bitCast(_flags));
+    }
+
+    /// ### DEPRECATED: Use `boundary` instead
+    ///
+    pub const Boundary = boundary;
+
+    /// Inherited from Poppler::Annotation
+    ///
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1InkAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__InkAnnotation `
+    ///
+    pub fn boundary(self: Poppler__InkAnnotation) QRectF {
         return .{ .ptr = qtc.Poppler__Annotation_Boundary(@ptrCast(self.ptr)) };
     }
 
-    /// Inherited from Poppler::Annotation
+    /// ### DEPRECATED: Use `setBoundary` instead
     ///
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1InkAnnotation.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__InkAnnotation `
-    ///
-    /// ` boundary: QRectF `
-    ///
-    pub fn SetBoundary(self: Poppler__InkAnnotation, boundary: anytype) void {
-        comptime _ = @TypeOf(boundary)._is_QRectF;
-        qtc.Poppler__Annotation_SetBoundary(@ptrCast(self.ptr), @ptrCast(boundary.ptr));
-    }
+    pub const SetBoundary = setBoundary;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -4163,24 +5196,32 @@ pub const Poppler__InkAnnotation = extern struct {
     ///
     /// ` self: Poppler__InkAnnotation `
     ///
-    pub fn Style(self: Poppler__InkAnnotation) Poppler__Annotation__Style {
+    /// ` _boundary: QRectF `
+    ///
+    pub fn setBoundary(self: Poppler__InkAnnotation, _boundary: anytype) void {
+        comptime _ = @TypeOf(_boundary)._is_QRectF;
+        qtc.Poppler__Annotation_SetBoundary(@ptrCast(self.ptr), @ptrCast(_boundary.ptr));
+    }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
+
+    /// Inherited from Poppler::Annotation
+    ///
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1InkAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__InkAnnotation `
+    ///
+    pub fn style(self: Poppler__InkAnnotation) Poppler__Annotation__Style {
         return .{ .ptr = qtc.Poppler__Annotation_Style(@ptrCast(self.ptr)) };
     }
 
-    /// Inherited from Poppler::Annotation
+    /// ### DEPRECATED: Use `setStyle` instead
     ///
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1InkAnnotation.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__InkAnnotation `
-    ///
-    /// ` style: Poppler__Annotation__Style `
-    ///
-    pub fn SetStyle(self: Poppler__InkAnnotation, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_Poppler__Annotation__Style;
-        qtc.Poppler__Annotation_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
-    }
+    pub const SetStyle = setStyle;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -4190,10 +5231,33 @@ pub const Poppler__InkAnnotation = extern struct {
     ///
     /// ` self: Poppler__InkAnnotation `
     ///
-    pub fn Popup(self: Poppler__InkAnnotation) Poppler__Annotation__Popup {
+    /// ` _style: Poppler__Annotation__Style `
+    ///
+    pub fn setStyle(self: Poppler__InkAnnotation, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_Poppler__Annotation__Style;
+        qtc.Poppler__Annotation_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
+    }
+
+    /// ### DEPRECATED: Use `popup` instead
+    ///
+    pub const Popup = popup;
+
+    /// Inherited from Poppler::Annotation
+    ///
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1InkAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__InkAnnotation `
+    ///
+    pub fn popup(self: Poppler__InkAnnotation) Poppler__Annotation__Popup {
         return .{ .ptr = qtc.Poppler__Annotation_Popup(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setPopup` instead
+    ///
+    pub const SetPopup = setPopup;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1InkAnnotation.html)
@@ -4202,12 +5266,16 @@ pub const Poppler__InkAnnotation = extern struct {
     ///
     /// ` self: Poppler__InkAnnotation `
     ///
-    /// ` popup: Poppler__Annotation__Popup `
+    /// ` _popup: Poppler__Annotation__Popup `
     ///
-    pub fn SetPopup(self: Poppler__InkAnnotation, popup: anytype) void {
-        comptime _ = @TypeOf(popup)._is_Poppler__Annotation__Popup;
-        qtc.Poppler__Annotation_SetPopup(@ptrCast(self.ptr), @ptrCast(popup.ptr));
+    pub fn setPopup(self: Poppler__InkAnnotation, _popup: anytype) void {
+        comptime _ = @TypeOf(_popup)._is_Poppler__Annotation__Popup;
+        qtc.Poppler__Annotation_SetPopup(@ptrCast(self.ptr), @ptrCast(_popup.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisionScope` instead
+    ///
+    pub const RevisionScope = revisionScope;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -4221,9 +5289,13 @@ pub const Poppler__InkAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.RevScope `
     ///
-    pub fn RevisionScope(self: Poppler__InkAnnotation) i32 {
+    pub fn revisionScope(self: Poppler__InkAnnotation) i32 {
         return qtc.Poppler__Annotation_RevisionScope(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisionType` instead
+    ///
+    pub const RevisionType = revisionType;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -4237,9 +5309,13 @@ pub const Poppler__InkAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.RevType `
     ///
-    pub fn RevisionType(self: Poppler__InkAnnotation) i32 {
+    pub fn revisionType(self: Poppler__InkAnnotation) i32 {
         return qtc.Poppler__Annotation_RevisionType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisions` instead
+    ///
+    pub const Revisions = revisions;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -4251,16 +5327,20 @@ pub const Poppler__InkAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Revisions(self: Poppler__InkAnnotation, allocator: std.mem.Allocator) []Poppler__Annotation {
+    pub fn revisions(self: Poppler__InkAnnotation, allocator: std.mem.Allocator) []Poppler__Annotation {
         const _arr: qtc.libqt_list = qtc.Poppler__Annotation_Revisions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__InkAnnotation.Revisions: Memory allocation failed");
-        const _data: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__InkAnnotation.revisions: Memory allocation failed");
+        const _data_val: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `annotationAppearance` instead
+    ///
+    pub const AnnotationAppearance = annotationAppearance;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1InkAnnotation.html)
@@ -4269,10 +5349,14 @@ pub const Poppler__InkAnnotation = extern struct {
     ///
     /// ` self: Poppler__InkAnnotation `
     ///
-    pub fn AnnotationAppearance(self: Poppler__InkAnnotation) Poppler__AnnotationAppearance {
+    pub fn annotationAppearance(self: Poppler__InkAnnotation) Poppler__AnnotationAppearance {
         return .{ .ptr = qtc.Poppler__Annotation_AnnotationAppearance(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setAnnotationAppearance` instead
+    ///
+    pub const SetAnnotationAppearance = setAnnotationAppearance;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1InkAnnotation.html)
@@ -4281,26 +5365,26 @@ pub const Poppler__InkAnnotation = extern struct {
     ///
     /// ` self: Poppler__InkAnnotation `
     ///
-    /// ` annotationAppearance: Poppler__AnnotationAppearance `
+    /// ` _annotationAppearance: Poppler__AnnotationAppearance `
     ///
-    pub fn SetAnnotationAppearance(self: Poppler__InkAnnotation, annotationAppearance: anytype) void {
-        comptime _ = @TypeOf(annotationAppearance)._is_Poppler__AnnotationAppearance;
-        qtc.Poppler__Annotation_SetAnnotationAppearance(@ptrCast(self.ptr), @ptrCast(annotationAppearance.ptr));
+    pub fn setAnnotationAppearance(self: Poppler__InkAnnotation, _annotationAppearance: anytype) void {
+        comptime _ = @TypeOf(_annotationAppearance)._is_Poppler__AnnotationAppearance;
+        qtc.Poppler__Annotation_SetAnnotationAppearance(@ptrCast(self.ptr), @ptrCast(_annotationAppearance.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1InkAnnotation.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Poppler__InkAnnotation `
     ///
-    pub fn Delete(self: Poppler__InkAnnotation) void {
+    pub fn delete(self: Poppler__InkAnnotation) void {
         qtc.Poppler__InkAnnotation_Delete(@ptrCast(self.ptr));
     }
 };
@@ -4316,6 +5400,10 @@ pub const Poppler__LinkAnnotation = extern struct {
     pub const _is_Poppler__LinkAnnotation = {};
     pub const _is_Poppler__Annotation = {};
 
+    /// ### DEPRECATED: Use `subType` instead
+    ///
+    pub const SubType = subType;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkAnnotation.html)
     ///
     /// ## Parameter(s):
@@ -4326,9 +5414,13 @@ pub const Poppler__LinkAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.SubType `
     ///
-    pub fn SubType(self: Poppler__LinkAnnotation) i32 {
+    pub fn subType(self: Poppler__LinkAnnotation) i32 {
         return qtc.Poppler__LinkAnnotation_SubType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `linkDestination` instead
+    ///
+    pub const LinkDestination = linkDestination;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkAnnotation.html)
     ///
@@ -4336,9 +5428,13 @@ pub const Poppler__LinkAnnotation = extern struct {
     ///
     /// ` self: Poppler__LinkAnnotation `
     ///
-    pub fn LinkDestination(self: Poppler__LinkAnnotation) Poppler__Link {
+    pub fn linkDestination(self: Poppler__LinkAnnotation) Poppler__Link {
         return .{ .ptr = qtc.Poppler__LinkAnnotation_LinkDestination(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `linkHighlightMode` instead
+    ///
+    pub const LinkHighlightMode = linkHighlightMode;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkAnnotation.html)
     ///
@@ -4350,9 +5446,13 @@ pub const Poppler__LinkAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.HighlightMode `
     ///
-    pub fn LinkHighlightMode(self: Poppler__LinkAnnotation) i32 {
+    pub fn linkHighlightMode(self: Poppler__LinkAnnotation) i32 {
         return qtc.Poppler__LinkAnnotation_LinkHighlightMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLinkHighlightMode` instead
+    ///
+    pub const SetLinkHighlightMode = setLinkHighlightMode;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkAnnotation.html)
     ///
@@ -4362,9 +5462,13 @@ pub const Poppler__LinkAnnotation = extern struct {
     ///
     /// ` mode: poppler_annotation_enums.HighlightMode `
     ///
-    pub fn SetLinkHighlightMode(self: Poppler__LinkAnnotation, mode: i32) void {
+    pub fn setLinkHighlightMode(self: Poppler__LinkAnnotation, mode: i32) void {
         qtc.Poppler__LinkAnnotation_SetLinkHighlightMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `linkRegionPoint` instead
+    ///
+    pub const LinkRegionPoint = linkRegionPoint;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkAnnotation.html)
     ///
@@ -4374,9 +5478,13 @@ pub const Poppler__LinkAnnotation = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn LinkRegionPoint(self: Poppler__LinkAnnotation, id: i32) QPointF {
+    pub fn linkRegionPoint(self: Poppler__LinkAnnotation, id: i32) QPointF {
         return .{ .ptr = qtc.Poppler__LinkAnnotation_LinkRegionPoint(@ptrCast(self.ptr), @bitCast(id)) };
     }
+
+    /// ### DEPRECATED: Use `setLinkRegionPoint` instead
+    ///
+    pub const SetLinkRegionPoint = setLinkRegionPoint;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkAnnotation.html)
     ///
@@ -4388,11 +5496,15 @@ pub const Poppler__LinkAnnotation = extern struct {
     ///
     /// ` point: QPointF `
     ///
-    pub fn SetLinkRegionPoint(self: Poppler__LinkAnnotation, id: i32, point: anytype) void {
+    pub fn setLinkRegionPoint(self: Poppler__LinkAnnotation, id: i32, point: anytype) void {
         comptime _ = @TypeOf(point)._is_QPointF;
         qtc.Poppler__LinkAnnotation_SetLinkRegionPoint(@ptrCast(self.ptr), @bitCast(id), @ptrCast(point.ptr));
     }
 
+    /// ### DEPRECATED: Use `author` instead
+    ///
+    pub const Author = author;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkAnnotation.html)
@@ -4403,13 +5515,17 @@ pub const Poppler__LinkAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Author(self: Poppler__LinkAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn author(self: Poppler__LinkAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Author(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__LinkAnnotation.Author: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__LinkAnnotation.author: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAuthor` instead
+    ///
+    pub const SetAuthor = setAuthor;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -4419,16 +5535,20 @@ pub const Poppler__LinkAnnotation = extern struct {
     ///
     /// ` self: Poppler__LinkAnnotation `
     ///
-    /// ` author: []const u8 `
+    /// ` _author: []const u8 `
     ///
-    pub fn SetAuthor(self: Poppler__LinkAnnotation, author: []const u8) void {
+    pub fn setAuthor(self: Poppler__LinkAnnotation, _author: []const u8) void {
         const author_str = qtc.libqt_string{
-            .len = author.len,
-            .data = author.ptr,
+            .len = _author.len,
+            .data = _author.ptr,
         };
         qtc.Poppler__Annotation_SetAuthor(@ptrCast(self.ptr), author_str);
     }
 
+    /// ### DEPRECATED: Use `contents` instead
+    ///
+    pub const Contents = contents;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkAnnotation.html)
@@ -4439,13 +5559,17 @@ pub const Poppler__LinkAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Contents(self: Poppler__LinkAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn contents(self: Poppler__LinkAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Contents(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__LinkAnnotation.Contents: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__LinkAnnotation.contents: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setContents` instead
+    ///
+    pub const SetContents = setContents;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -4455,16 +5579,20 @@ pub const Poppler__LinkAnnotation = extern struct {
     ///
     /// ` self: Poppler__LinkAnnotation `
     ///
-    /// ` contents: []const u8 `
+    /// ` _contents: []const u8 `
     ///
-    pub fn SetContents(self: Poppler__LinkAnnotation, contents: []const u8) void {
+    pub fn setContents(self: Poppler__LinkAnnotation, _contents: []const u8) void {
         const contents_str = qtc.libqt_string{
-            .len = contents.len,
-            .data = contents.ptr,
+            .len = _contents.len,
+            .data = _contents.ptr,
         };
         qtc.Poppler__Annotation_SetContents(@ptrCast(self.ptr), contents_str);
     }
 
+    /// ### DEPRECATED: Use `uniqueName` instead
+    ///
+    pub const UniqueName = uniqueName;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkAnnotation.html)
@@ -4475,14 +5603,18 @@ pub const Poppler__LinkAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UniqueName(self: Poppler__LinkAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn uniqueName(self: Poppler__LinkAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_UniqueName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__LinkAnnotation.UniqueName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__LinkAnnotation.uniqueName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `setUniqueName` instead
+    ///
+    pub const SetUniqueName = setUniqueName;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkAnnotation.html)
@@ -4491,16 +5623,20 @@ pub const Poppler__LinkAnnotation = extern struct {
     ///
     /// ` self: Poppler__LinkAnnotation `
     ///
-    /// ` uniqueName: []const u8 `
+    /// ` _uniqueName: []const u8 `
     ///
-    pub fn SetUniqueName(self: Poppler__LinkAnnotation, uniqueName: []const u8) void {
+    pub fn setUniqueName(self: Poppler__LinkAnnotation, _uniqueName: []const u8) void {
         const uniqueName_str = qtc.libqt_string{
-            .len = uniqueName.len,
-            .data = uniqueName.ptr,
+            .len = _uniqueName.len,
+            .data = _uniqueName.ptr,
         };
         qtc.Poppler__Annotation_SetUniqueName(@ptrCast(self.ptr), uniqueName_str);
     }
 
+    /// ### DEPRECATED: Use `modificationDate` instead
+    ///
+    pub const ModificationDate = modificationDate;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkAnnotation.html)
@@ -4509,9 +5645,13 @@ pub const Poppler__LinkAnnotation = extern struct {
     ///
     /// ` self: Poppler__LinkAnnotation `
     ///
-    pub fn ModificationDate(self: Poppler__LinkAnnotation) QDateTime {
+    pub fn modificationDate(self: Poppler__LinkAnnotation) QDateTime {
         return .{ .ptr = qtc.Poppler__Annotation_ModificationDate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setModificationDate` instead
+    ///
+    pub const SetModificationDate = setModificationDate;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -4523,11 +5663,15 @@ pub const Poppler__LinkAnnotation = extern struct {
     ///
     /// ` date: QDateTime `
     ///
-    pub fn SetModificationDate(self: Poppler__LinkAnnotation, date: anytype) void {
+    pub fn setModificationDate(self: Poppler__LinkAnnotation, date: anytype) void {
         comptime _ = @TypeOf(date)._is_QDateTime;
         qtc.Poppler__Annotation_SetModificationDate(@ptrCast(self.ptr), @ptrCast(date.ptr));
     }
 
+    /// ### DEPRECATED: Use `creationDate` instead
+    ///
+    pub const CreationDate = creationDate;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkAnnotation.html)
@@ -4536,9 +5680,13 @@ pub const Poppler__LinkAnnotation = extern struct {
     ///
     /// ` self: Poppler__LinkAnnotation `
     ///
-    pub fn CreationDate(self: Poppler__LinkAnnotation) QDateTime {
+    pub fn creationDate(self: Poppler__LinkAnnotation) QDateTime {
         return .{ .ptr = qtc.Poppler__Annotation_CreationDate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCreationDate` instead
+    ///
+    pub const SetCreationDate = setCreationDate;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -4550,10 +5698,14 @@ pub const Poppler__LinkAnnotation = extern struct {
     ///
     /// ` date: QDateTime `
     ///
-    pub fn SetCreationDate(self: Poppler__LinkAnnotation, date: anytype) void {
+    pub fn setCreationDate(self: Poppler__LinkAnnotation, date: anytype) void {
         comptime _ = @TypeOf(date)._is_QDateTime;
         qtc.Poppler__Annotation_SetCreationDate(@ptrCast(self.ptr), @ptrCast(date.ptr));
     }
+
+    /// ### DEPRECATED: Use `flags` instead
+    ///
+    pub const Flags = flags;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -4567,23 +5719,13 @@ pub const Poppler__LinkAnnotation = extern struct {
     ///
     /// ` flag of poppler_annotation_enums.Flag `
     ///
-    pub fn Flags(self: Poppler__LinkAnnotation) i32 {
+    pub fn flags(self: Poppler__LinkAnnotation) i32 {
         return qtc.Poppler__Annotation_Flags(@ptrCast(self.ptr));
     }
 
-    /// Inherited from Poppler::Annotation
+    /// ### DEPRECATED: Use `setFlags` instead
     ///
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkAnnotation.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__LinkAnnotation `
-    ///
-    /// ` flags: flag of poppler_annotation_enums.Flag `
-    ///
-    pub fn SetFlags(self: Poppler__LinkAnnotation, flags: i32) void {
-        qtc.Poppler__Annotation_SetFlags(@ptrCast(self.ptr), @bitCast(flags));
-    }
+    pub const SetFlags = setFlags;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -4593,24 +5735,31 @@ pub const Poppler__LinkAnnotation = extern struct {
     ///
     /// ` self: Poppler__LinkAnnotation `
     ///
-    pub fn Boundary(self: Poppler__LinkAnnotation) QRectF {
+    /// ` _flags: flag of poppler_annotation_enums.Flag `
+    ///
+    pub fn setFlags(self: Poppler__LinkAnnotation, _flags: i32) void {
+        qtc.Poppler__Annotation_SetFlags(@ptrCast(self.ptr), @bitCast(_flags));
+    }
+
+    /// ### DEPRECATED: Use `boundary` instead
+    ///
+    pub const Boundary = boundary;
+
+    /// Inherited from Poppler::Annotation
+    ///
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__LinkAnnotation `
+    ///
+    pub fn boundary(self: Poppler__LinkAnnotation) QRectF {
         return .{ .ptr = qtc.Poppler__Annotation_Boundary(@ptrCast(self.ptr)) };
     }
 
-    /// Inherited from Poppler::Annotation
+    /// ### DEPRECATED: Use `setBoundary` instead
     ///
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkAnnotation.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__LinkAnnotation `
-    ///
-    /// ` boundary: QRectF `
-    ///
-    pub fn SetBoundary(self: Poppler__LinkAnnotation, boundary: anytype) void {
-        comptime _ = @TypeOf(boundary)._is_QRectF;
-        qtc.Poppler__Annotation_SetBoundary(@ptrCast(self.ptr), @ptrCast(boundary.ptr));
-    }
+    pub const SetBoundary = setBoundary;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -4620,24 +5769,32 @@ pub const Poppler__LinkAnnotation = extern struct {
     ///
     /// ` self: Poppler__LinkAnnotation `
     ///
-    pub fn Style(self: Poppler__LinkAnnotation) Poppler__Annotation__Style {
+    /// ` _boundary: QRectF `
+    ///
+    pub fn setBoundary(self: Poppler__LinkAnnotation, _boundary: anytype) void {
+        comptime _ = @TypeOf(_boundary)._is_QRectF;
+        qtc.Poppler__Annotation_SetBoundary(@ptrCast(self.ptr), @ptrCast(_boundary.ptr));
+    }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
+
+    /// Inherited from Poppler::Annotation
+    ///
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__LinkAnnotation `
+    ///
+    pub fn style(self: Poppler__LinkAnnotation) Poppler__Annotation__Style {
         return .{ .ptr = qtc.Poppler__Annotation_Style(@ptrCast(self.ptr)) };
     }
 
-    /// Inherited from Poppler::Annotation
+    /// ### DEPRECATED: Use `setStyle` instead
     ///
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkAnnotation.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__LinkAnnotation `
-    ///
-    /// ` style: Poppler__Annotation__Style `
-    ///
-    pub fn SetStyle(self: Poppler__LinkAnnotation, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_Poppler__Annotation__Style;
-        qtc.Poppler__Annotation_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
-    }
+    pub const SetStyle = setStyle;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -4647,10 +5804,33 @@ pub const Poppler__LinkAnnotation = extern struct {
     ///
     /// ` self: Poppler__LinkAnnotation `
     ///
-    pub fn Popup(self: Poppler__LinkAnnotation) Poppler__Annotation__Popup {
+    /// ` _style: Poppler__Annotation__Style `
+    ///
+    pub fn setStyle(self: Poppler__LinkAnnotation, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_Poppler__Annotation__Style;
+        qtc.Poppler__Annotation_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
+    }
+
+    /// ### DEPRECATED: Use `popup` instead
+    ///
+    pub const Popup = popup;
+
+    /// Inherited from Poppler::Annotation
+    ///
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__LinkAnnotation `
+    ///
+    pub fn popup(self: Poppler__LinkAnnotation) Poppler__Annotation__Popup {
         return .{ .ptr = qtc.Poppler__Annotation_Popup(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setPopup` instead
+    ///
+    pub const SetPopup = setPopup;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkAnnotation.html)
@@ -4659,12 +5839,16 @@ pub const Poppler__LinkAnnotation = extern struct {
     ///
     /// ` self: Poppler__LinkAnnotation `
     ///
-    /// ` popup: Poppler__Annotation__Popup `
+    /// ` _popup: Poppler__Annotation__Popup `
     ///
-    pub fn SetPopup(self: Poppler__LinkAnnotation, popup: anytype) void {
-        comptime _ = @TypeOf(popup)._is_Poppler__Annotation__Popup;
-        qtc.Poppler__Annotation_SetPopup(@ptrCast(self.ptr), @ptrCast(popup.ptr));
+    pub fn setPopup(self: Poppler__LinkAnnotation, _popup: anytype) void {
+        comptime _ = @TypeOf(_popup)._is_Poppler__Annotation__Popup;
+        qtc.Poppler__Annotation_SetPopup(@ptrCast(self.ptr), @ptrCast(_popup.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisionScope` instead
+    ///
+    pub const RevisionScope = revisionScope;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -4678,9 +5862,13 @@ pub const Poppler__LinkAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.RevScope `
     ///
-    pub fn RevisionScope(self: Poppler__LinkAnnotation) i32 {
+    pub fn revisionScope(self: Poppler__LinkAnnotation) i32 {
         return qtc.Poppler__Annotation_RevisionScope(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisionType` instead
+    ///
+    pub const RevisionType = revisionType;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -4694,9 +5882,13 @@ pub const Poppler__LinkAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.RevType `
     ///
-    pub fn RevisionType(self: Poppler__LinkAnnotation) i32 {
+    pub fn revisionType(self: Poppler__LinkAnnotation) i32 {
         return qtc.Poppler__Annotation_RevisionType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisions` instead
+    ///
+    pub const Revisions = revisions;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -4708,16 +5900,20 @@ pub const Poppler__LinkAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Revisions(self: Poppler__LinkAnnotation, allocator: std.mem.Allocator) []Poppler__Annotation {
+    pub fn revisions(self: Poppler__LinkAnnotation, allocator: std.mem.Allocator) []Poppler__Annotation {
         const _arr: qtc.libqt_list = qtc.Poppler__Annotation_Revisions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__LinkAnnotation.Revisions: Memory allocation failed");
-        const _data: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__LinkAnnotation.revisions: Memory allocation failed");
+        const _data_val: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `annotationAppearance` instead
+    ///
+    pub const AnnotationAppearance = annotationAppearance;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkAnnotation.html)
@@ -4726,10 +5922,14 @@ pub const Poppler__LinkAnnotation = extern struct {
     ///
     /// ` self: Poppler__LinkAnnotation `
     ///
-    pub fn AnnotationAppearance(self: Poppler__LinkAnnotation) Poppler__AnnotationAppearance {
+    pub fn annotationAppearance(self: Poppler__LinkAnnotation) Poppler__AnnotationAppearance {
         return .{ .ptr = qtc.Poppler__Annotation_AnnotationAppearance(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setAnnotationAppearance` instead
+    ///
+    pub const SetAnnotationAppearance = setAnnotationAppearance;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkAnnotation.html)
@@ -4738,26 +5938,26 @@ pub const Poppler__LinkAnnotation = extern struct {
     ///
     /// ` self: Poppler__LinkAnnotation `
     ///
-    /// ` annotationAppearance: Poppler__AnnotationAppearance `
+    /// ` _annotationAppearance: Poppler__AnnotationAppearance `
     ///
-    pub fn SetAnnotationAppearance(self: Poppler__LinkAnnotation, annotationAppearance: anytype) void {
-        comptime _ = @TypeOf(annotationAppearance)._is_Poppler__AnnotationAppearance;
-        qtc.Poppler__Annotation_SetAnnotationAppearance(@ptrCast(self.ptr), @ptrCast(annotationAppearance.ptr));
+    pub fn setAnnotationAppearance(self: Poppler__LinkAnnotation, _annotationAppearance: anytype) void {
+        comptime _ = @TypeOf(_annotationAppearance)._is_Poppler__AnnotationAppearance;
+        qtc.Poppler__Annotation_SetAnnotationAppearance(@ptrCast(self.ptr), @ptrCast(_annotationAppearance.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkAnnotation.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Poppler__LinkAnnotation `
     ///
-    pub fn Delete(self: Poppler__LinkAnnotation) void {
+    pub fn delete(self: Poppler__LinkAnnotation) void {
         qtc.Poppler__LinkAnnotation_Delete(@ptrCast(self.ptr));
     }
 };
@@ -4773,11 +5973,19 @@ pub const Poppler__CaretAnnotation = extern struct {
     pub const _is_Poppler__CaretAnnotation = {};
     pub const _is_Poppler__Annotation = {};
 
-    /// New constructs a new Poppler::CaretAnnotation object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() Poppler__CaretAnnotation {
+    pub const New = new;
+
+    /// Allocate a new Poppler::CaretAnnotation object in C++ memory
+    ///
+    pub fn new() Poppler__CaretAnnotation {
         return .{ .ptr = qtc.Poppler__CaretAnnotation_new() };
     }
+
+    /// ### DEPRECATED: Use `subType` instead
+    ///
+    pub const SubType = subType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1CaretAnnotation.html)
     ///
@@ -4789,9 +5997,13 @@ pub const Poppler__CaretAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.SubType `
     ///
-    pub fn SubType(self: Poppler__CaretAnnotation) i32 {
+    pub fn subType(self: Poppler__CaretAnnotation) i32 {
         return qtc.Poppler__CaretAnnotation_SubType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSubType` instead
+    ///
+    pub const OnSubType = onSubType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1CaretAnnotation.html)
     ///
@@ -4803,13 +6015,13 @@ pub const Poppler__CaretAnnotation = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSubType(self: Poppler__CaretAnnotation, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSubType(self: Poppler__CaretAnnotation, callback: *const fn () callconv(.c) i32) void {
         qtc.Poppler__CaretAnnotation_OnSubType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSubType` instead
+    /// ### DEPRECATED: Use `superSubType` instead
     ///
-    pub const QBaseSubType = SuperSubType;
+    pub const SuperSubType = superSubType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1CaretAnnotation.html)
     ///
@@ -4823,9 +6035,13 @@ pub const Poppler__CaretAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.SubType `
     ///
-    pub fn SuperSubType(self: Poppler__CaretAnnotation) i32 {
+    pub fn superSubType(self: Poppler__CaretAnnotation) i32 {
         return qtc.Poppler__CaretAnnotation_SuperSubType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `caretSymbol` instead
+    ///
+    pub const CaretSymbol = caretSymbol;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1CaretAnnotation.html)
     ///
@@ -4837,9 +6053,13 @@ pub const Poppler__CaretAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.CaretSymbol `
     ///
-    pub fn CaretSymbol(self: Poppler__CaretAnnotation) i32 {
+    pub fn caretSymbol(self: Poppler__CaretAnnotation) i32 {
         return qtc.Poppler__CaretAnnotation_CaretSymbol(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCaretSymbol` instead
+    ///
+    pub const SetCaretSymbol = setCaretSymbol;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1CaretAnnotation.html)
     ///
@@ -4849,9 +6069,13 @@ pub const Poppler__CaretAnnotation = extern struct {
     ///
     /// ` symbol: poppler_annotation_enums.CaretSymbol `
     ///
-    pub fn SetCaretSymbol(self: Poppler__CaretAnnotation, symbol: i32) void {
+    pub fn setCaretSymbol(self: Poppler__CaretAnnotation, symbol: i32) void {
         qtc.Poppler__CaretAnnotation_SetCaretSymbol(@ptrCast(self.ptr), @bitCast(symbol));
     }
+
+    /// ### DEPRECATED: Use `author` instead
+    ///
+    pub const Author = author;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -4863,13 +6087,17 @@ pub const Poppler__CaretAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Author(self: Poppler__CaretAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn author(self: Poppler__CaretAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Author(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__CaretAnnotation.Author: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__CaretAnnotation.author: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAuthor` instead
+    ///
+    pub const SetAuthor = setAuthor;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -4879,16 +6107,20 @@ pub const Poppler__CaretAnnotation = extern struct {
     ///
     /// ` self: Poppler__CaretAnnotation `
     ///
-    /// ` author: []const u8 `
+    /// ` _author: []const u8 `
     ///
-    pub fn SetAuthor(self: Poppler__CaretAnnotation, author: []const u8) void {
+    pub fn setAuthor(self: Poppler__CaretAnnotation, _author: []const u8) void {
         const author_str = qtc.libqt_string{
-            .len = author.len,
-            .data = author.ptr,
+            .len = _author.len,
+            .data = _author.ptr,
         };
         qtc.Poppler__Annotation_SetAuthor(@ptrCast(self.ptr), author_str);
     }
 
+    /// ### DEPRECATED: Use `contents` instead
+    ///
+    pub const Contents = contents;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1CaretAnnotation.html)
@@ -4899,13 +6131,17 @@ pub const Poppler__CaretAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Contents(self: Poppler__CaretAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn contents(self: Poppler__CaretAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Contents(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__CaretAnnotation.Contents: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__CaretAnnotation.contents: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setContents` instead
+    ///
+    pub const SetContents = setContents;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -4915,16 +6151,20 @@ pub const Poppler__CaretAnnotation = extern struct {
     ///
     /// ` self: Poppler__CaretAnnotation `
     ///
-    /// ` contents: []const u8 `
+    /// ` _contents: []const u8 `
     ///
-    pub fn SetContents(self: Poppler__CaretAnnotation, contents: []const u8) void {
+    pub fn setContents(self: Poppler__CaretAnnotation, _contents: []const u8) void {
         const contents_str = qtc.libqt_string{
-            .len = contents.len,
-            .data = contents.ptr,
+            .len = _contents.len,
+            .data = _contents.ptr,
         };
         qtc.Poppler__Annotation_SetContents(@ptrCast(self.ptr), contents_str);
     }
 
+    /// ### DEPRECATED: Use `uniqueName` instead
+    ///
+    pub const UniqueName = uniqueName;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1CaretAnnotation.html)
@@ -4935,14 +6175,18 @@ pub const Poppler__CaretAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UniqueName(self: Poppler__CaretAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn uniqueName(self: Poppler__CaretAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_UniqueName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__CaretAnnotation.UniqueName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__CaretAnnotation.uniqueName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `setUniqueName` instead
+    ///
+    pub const SetUniqueName = setUniqueName;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1CaretAnnotation.html)
@@ -4951,16 +6195,20 @@ pub const Poppler__CaretAnnotation = extern struct {
     ///
     /// ` self: Poppler__CaretAnnotation `
     ///
-    /// ` uniqueName: []const u8 `
+    /// ` _uniqueName: []const u8 `
     ///
-    pub fn SetUniqueName(self: Poppler__CaretAnnotation, uniqueName: []const u8) void {
+    pub fn setUniqueName(self: Poppler__CaretAnnotation, _uniqueName: []const u8) void {
         const uniqueName_str = qtc.libqt_string{
-            .len = uniqueName.len,
-            .data = uniqueName.ptr,
+            .len = _uniqueName.len,
+            .data = _uniqueName.ptr,
         };
         qtc.Poppler__Annotation_SetUniqueName(@ptrCast(self.ptr), uniqueName_str);
     }
 
+    /// ### DEPRECATED: Use `modificationDate` instead
+    ///
+    pub const ModificationDate = modificationDate;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1CaretAnnotation.html)
@@ -4969,9 +6217,13 @@ pub const Poppler__CaretAnnotation = extern struct {
     ///
     /// ` self: Poppler__CaretAnnotation `
     ///
-    pub fn ModificationDate(self: Poppler__CaretAnnotation) QDateTime {
+    pub fn modificationDate(self: Poppler__CaretAnnotation) QDateTime {
         return .{ .ptr = qtc.Poppler__Annotation_ModificationDate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setModificationDate` instead
+    ///
+    pub const SetModificationDate = setModificationDate;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -4983,11 +6235,15 @@ pub const Poppler__CaretAnnotation = extern struct {
     ///
     /// ` date: QDateTime `
     ///
-    pub fn SetModificationDate(self: Poppler__CaretAnnotation, date: anytype) void {
+    pub fn setModificationDate(self: Poppler__CaretAnnotation, date: anytype) void {
         comptime _ = @TypeOf(date)._is_QDateTime;
         qtc.Poppler__Annotation_SetModificationDate(@ptrCast(self.ptr), @ptrCast(date.ptr));
     }
 
+    /// ### DEPRECATED: Use `creationDate` instead
+    ///
+    pub const CreationDate = creationDate;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1CaretAnnotation.html)
@@ -4996,9 +6252,13 @@ pub const Poppler__CaretAnnotation = extern struct {
     ///
     /// ` self: Poppler__CaretAnnotation `
     ///
-    pub fn CreationDate(self: Poppler__CaretAnnotation) QDateTime {
+    pub fn creationDate(self: Poppler__CaretAnnotation) QDateTime {
         return .{ .ptr = qtc.Poppler__Annotation_CreationDate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCreationDate` instead
+    ///
+    pub const SetCreationDate = setCreationDate;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -5010,10 +6270,14 @@ pub const Poppler__CaretAnnotation = extern struct {
     ///
     /// ` date: QDateTime `
     ///
-    pub fn SetCreationDate(self: Poppler__CaretAnnotation, date: anytype) void {
+    pub fn setCreationDate(self: Poppler__CaretAnnotation, date: anytype) void {
         comptime _ = @TypeOf(date)._is_QDateTime;
         qtc.Poppler__Annotation_SetCreationDate(@ptrCast(self.ptr), @ptrCast(date.ptr));
     }
+
+    /// ### DEPRECATED: Use `flags` instead
+    ///
+    pub const Flags = flags;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -5027,23 +6291,13 @@ pub const Poppler__CaretAnnotation = extern struct {
     ///
     /// ` flag of poppler_annotation_enums.Flag `
     ///
-    pub fn Flags(self: Poppler__CaretAnnotation) i32 {
+    pub fn flags(self: Poppler__CaretAnnotation) i32 {
         return qtc.Poppler__Annotation_Flags(@ptrCast(self.ptr));
     }
 
-    /// Inherited from Poppler::Annotation
+    /// ### DEPRECATED: Use `setFlags` instead
     ///
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1CaretAnnotation.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__CaretAnnotation `
-    ///
-    /// ` flags: flag of poppler_annotation_enums.Flag `
-    ///
-    pub fn SetFlags(self: Poppler__CaretAnnotation, flags: i32) void {
-        qtc.Poppler__Annotation_SetFlags(@ptrCast(self.ptr), @bitCast(flags));
-    }
+    pub const SetFlags = setFlags;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -5053,24 +6307,31 @@ pub const Poppler__CaretAnnotation = extern struct {
     ///
     /// ` self: Poppler__CaretAnnotation `
     ///
-    pub fn Boundary(self: Poppler__CaretAnnotation) QRectF {
+    /// ` _flags: flag of poppler_annotation_enums.Flag `
+    ///
+    pub fn setFlags(self: Poppler__CaretAnnotation, _flags: i32) void {
+        qtc.Poppler__Annotation_SetFlags(@ptrCast(self.ptr), @bitCast(_flags));
+    }
+
+    /// ### DEPRECATED: Use `boundary` instead
+    ///
+    pub const Boundary = boundary;
+
+    /// Inherited from Poppler::Annotation
+    ///
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1CaretAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__CaretAnnotation `
+    ///
+    pub fn boundary(self: Poppler__CaretAnnotation) QRectF {
         return .{ .ptr = qtc.Poppler__Annotation_Boundary(@ptrCast(self.ptr)) };
     }
 
-    /// Inherited from Poppler::Annotation
+    /// ### DEPRECATED: Use `setBoundary` instead
     ///
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1CaretAnnotation.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__CaretAnnotation `
-    ///
-    /// ` boundary: QRectF `
-    ///
-    pub fn SetBoundary(self: Poppler__CaretAnnotation, boundary: anytype) void {
-        comptime _ = @TypeOf(boundary)._is_QRectF;
-        qtc.Poppler__Annotation_SetBoundary(@ptrCast(self.ptr), @ptrCast(boundary.ptr));
-    }
+    pub const SetBoundary = setBoundary;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -5080,24 +6341,32 @@ pub const Poppler__CaretAnnotation = extern struct {
     ///
     /// ` self: Poppler__CaretAnnotation `
     ///
-    pub fn Style(self: Poppler__CaretAnnotation) Poppler__Annotation__Style {
+    /// ` _boundary: QRectF `
+    ///
+    pub fn setBoundary(self: Poppler__CaretAnnotation, _boundary: anytype) void {
+        comptime _ = @TypeOf(_boundary)._is_QRectF;
+        qtc.Poppler__Annotation_SetBoundary(@ptrCast(self.ptr), @ptrCast(_boundary.ptr));
+    }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
+
+    /// Inherited from Poppler::Annotation
+    ///
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1CaretAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__CaretAnnotation `
+    ///
+    pub fn style(self: Poppler__CaretAnnotation) Poppler__Annotation__Style {
         return .{ .ptr = qtc.Poppler__Annotation_Style(@ptrCast(self.ptr)) };
     }
 
-    /// Inherited from Poppler::Annotation
+    /// ### DEPRECATED: Use `setStyle` instead
     ///
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1CaretAnnotation.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__CaretAnnotation `
-    ///
-    /// ` style: Poppler__Annotation__Style `
-    ///
-    pub fn SetStyle(self: Poppler__CaretAnnotation, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_Poppler__Annotation__Style;
-        qtc.Poppler__Annotation_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
-    }
+    pub const SetStyle = setStyle;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -5107,10 +6376,33 @@ pub const Poppler__CaretAnnotation = extern struct {
     ///
     /// ` self: Poppler__CaretAnnotation `
     ///
-    pub fn Popup(self: Poppler__CaretAnnotation) Poppler__Annotation__Popup {
+    /// ` _style: Poppler__Annotation__Style `
+    ///
+    pub fn setStyle(self: Poppler__CaretAnnotation, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_Poppler__Annotation__Style;
+        qtc.Poppler__Annotation_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
+    }
+
+    /// ### DEPRECATED: Use `popup` instead
+    ///
+    pub const Popup = popup;
+
+    /// Inherited from Poppler::Annotation
+    ///
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1CaretAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__CaretAnnotation `
+    ///
+    pub fn popup(self: Poppler__CaretAnnotation) Poppler__Annotation__Popup {
         return .{ .ptr = qtc.Poppler__Annotation_Popup(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setPopup` instead
+    ///
+    pub const SetPopup = setPopup;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1CaretAnnotation.html)
@@ -5119,12 +6411,16 @@ pub const Poppler__CaretAnnotation = extern struct {
     ///
     /// ` self: Poppler__CaretAnnotation `
     ///
-    /// ` popup: Poppler__Annotation__Popup `
+    /// ` _popup: Poppler__Annotation__Popup `
     ///
-    pub fn SetPopup(self: Poppler__CaretAnnotation, popup: anytype) void {
-        comptime _ = @TypeOf(popup)._is_Poppler__Annotation__Popup;
-        qtc.Poppler__Annotation_SetPopup(@ptrCast(self.ptr), @ptrCast(popup.ptr));
+    pub fn setPopup(self: Poppler__CaretAnnotation, _popup: anytype) void {
+        comptime _ = @TypeOf(_popup)._is_Poppler__Annotation__Popup;
+        qtc.Poppler__Annotation_SetPopup(@ptrCast(self.ptr), @ptrCast(_popup.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisionScope` instead
+    ///
+    pub const RevisionScope = revisionScope;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -5138,9 +6434,13 @@ pub const Poppler__CaretAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.RevScope `
     ///
-    pub fn RevisionScope(self: Poppler__CaretAnnotation) i32 {
+    pub fn revisionScope(self: Poppler__CaretAnnotation) i32 {
         return qtc.Poppler__Annotation_RevisionScope(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisionType` instead
+    ///
+    pub const RevisionType = revisionType;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -5154,9 +6454,13 @@ pub const Poppler__CaretAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.RevType `
     ///
-    pub fn RevisionType(self: Poppler__CaretAnnotation) i32 {
+    pub fn revisionType(self: Poppler__CaretAnnotation) i32 {
         return qtc.Poppler__Annotation_RevisionType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisions` instead
+    ///
+    pub const Revisions = revisions;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -5168,16 +6472,20 @@ pub const Poppler__CaretAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Revisions(self: Poppler__CaretAnnotation, allocator: std.mem.Allocator) []Poppler__Annotation {
+    pub fn revisions(self: Poppler__CaretAnnotation, allocator: std.mem.Allocator) []Poppler__Annotation {
         const _arr: qtc.libqt_list = qtc.Poppler__Annotation_Revisions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__CaretAnnotation.Revisions: Memory allocation failed");
-        const _data: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__CaretAnnotation.revisions: Memory allocation failed");
+        const _data_val: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `annotationAppearance` instead
+    ///
+    pub const AnnotationAppearance = annotationAppearance;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1CaretAnnotation.html)
@@ -5186,10 +6494,14 @@ pub const Poppler__CaretAnnotation = extern struct {
     ///
     /// ` self: Poppler__CaretAnnotation `
     ///
-    pub fn AnnotationAppearance(self: Poppler__CaretAnnotation) Poppler__AnnotationAppearance {
+    pub fn annotationAppearance(self: Poppler__CaretAnnotation) Poppler__AnnotationAppearance {
         return .{ .ptr = qtc.Poppler__Annotation_AnnotationAppearance(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setAnnotationAppearance` instead
+    ///
+    pub const SetAnnotationAppearance = setAnnotationAppearance;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1CaretAnnotation.html)
@@ -5198,26 +6510,26 @@ pub const Poppler__CaretAnnotation = extern struct {
     ///
     /// ` self: Poppler__CaretAnnotation `
     ///
-    /// ` annotationAppearance: Poppler__AnnotationAppearance `
+    /// ` _annotationAppearance: Poppler__AnnotationAppearance `
     ///
-    pub fn SetAnnotationAppearance(self: Poppler__CaretAnnotation, annotationAppearance: anytype) void {
-        comptime _ = @TypeOf(annotationAppearance)._is_Poppler__AnnotationAppearance;
-        qtc.Poppler__Annotation_SetAnnotationAppearance(@ptrCast(self.ptr), @ptrCast(annotationAppearance.ptr));
+    pub fn setAnnotationAppearance(self: Poppler__CaretAnnotation, _annotationAppearance: anytype) void {
+        comptime _ = @TypeOf(_annotationAppearance)._is_Poppler__AnnotationAppearance;
+        qtc.Poppler__Annotation_SetAnnotationAppearance(@ptrCast(self.ptr), @ptrCast(_annotationAppearance.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1CaretAnnotation.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Poppler__CaretAnnotation `
     ///
-    pub fn Delete(self: Poppler__CaretAnnotation) void {
+    pub fn delete(self: Poppler__CaretAnnotation) void {
         qtc.Poppler__CaretAnnotation_Delete(@ptrCast(self.ptr));
     }
 };
@@ -5233,6 +6545,10 @@ pub const Poppler__FileAttachmentAnnotation = extern struct {
     pub const _is_Poppler__FileAttachmentAnnotation = {};
     pub const _is_Poppler__Annotation = {};
 
+    /// ### DEPRECATED: Use `subType` instead
+    ///
+    pub const SubType = subType;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FileAttachmentAnnotation.html)
     ///
     /// ## Parameter(s):
@@ -5243,9 +6559,13 @@ pub const Poppler__FileAttachmentAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.SubType `
     ///
-    pub fn SubType(self: Poppler__FileAttachmentAnnotation) i32 {
+    pub fn subType(self: Poppler__FileAttachmentAnnotation) i32 {
         return qtc.Poppler__FileAttachmentAnnotation_SubType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `fileIconName` instead
+    ///
+    pub const FileIconName = fileIconName;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FileAttachmentAnnotation.html)
     ///
@@ -5255,13 +6575,17 @@ pub const Poppler__FileAttachmentAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FileIconName(self: Poppler__FileAttachmentAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn fileIconName(self: Poppler__FileAttachmentAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__FileAttachmentAnnotation_FileIconName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__FileAttachmentAnnotation.FileIconName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__FileAttachmentAnnotation.fileIconName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setFileIconName` instead
+    ///
+    pub const SetFileIconName = setFileIconName;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FileAttachmentAnnotation.html)
     ///
@@ -5271,7 +6595,7 @@ pub const Poppler__FileAttachmentAnnotation = extern struct {
     ///
     /// ` icon: []const u8 `
     ///
-    pub fn SetFileIconName(self: Poppler__FileAttachmentAnnotation, icon: []const u8) void {
+    pub fn setFileIconName(self: Poppler__FileAttachmentAnnotation, icon: []const u8) void {
         const icon_str = qtc.libqt_string{
             .len = icon.len,
             .data = icon.ptr,
@@ -5279,15 +6603,23 @@ pub const Poppler__FileAttachmentAnnotation = extern struct {
         qtc.Poppler__FileAttachmentAnnotation_SetFileIconName(@ptrCast(self.ptr), icon_str);
     }
 
+    /// ### DEPRECATED: Use `embeddedFile` instead
+    ///
+    pub const EmbeddedFile = embeddedFile;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FileAttachmentAnnotation.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Poppler__FileAttachmentAnnotation `
     ///
-    pub fn EmbeddedFile(self: Poppler__FileAttachmentAnnotation) Poppler__EmbeddedFile {
+    pub fn embeddedFile(self: Poppler__FileAttachmentAnnotation) Poppler__EmbeddedFile {
         return .{ .ptr = qtc.Poppler__FileAttachmentAnnotation_EmbeddedFile(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setEmbeddedFile` instead
+    ///
+    pub const SetEmbeddedFile = setEmbeddedFile;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FileAttachmentAnnotation.html)
     ///
@@ -5297,11 +6629,15 @@ pub const Poppler__FileAttachmentAnnotation = extern struct {
     ///
     /// ` ef: Poppler__EmbeddedFile `
     ///
-    pub fn SetEmbeddedFile(self: Poppler__FileAttachmentAnnotation, ef: anytype) void {
+    pub fn setEmbeddedFile(self: Poppler__FileAttachmentAnnotation, ef: anytype) void {
         comptime _ = @TypeOf(ef)._is_Poppler__EmbeddedFile;
         qtc.Poppler__FileAttachmentAnnotation_SetEmbeddedFile(@ptrCast(self.ptr), @ptrCast(ef.ptr));
     }
 
+    /// ### DEPRECATED: Use `author` instead
+    ///
+    pub const Author = author;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FileAttachmentAnnotation.html)
@@ -5312,13 +6648,17 @@ pub const Poppler__FileAttachmentAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Author(self: Poppler__FileAttachmentAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn author(self: Poppler__FileAttachmentAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Author(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__FileAttachmentAnnotation.Author: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__FileAttachmentAnnotation.author: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAuthor` instead
+    ///
+    pub const SetAuthor = setAuthor;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -5328,16 +6668,20 @@ pub const Poppler__FileAttachmentAnnotation = extern struct {
     ///
     /// ` self: Poppler__FileAttachmentAnnotation `
     ///
-    /// ` author: []const u8 `
+    /// ` _author: []const u8 `
     ///
-    pub fn SetAuthor(self: Poppler__FileAttachmentAnnotation, author: []const u8) void {
+    pub fn setAuthor(self: Poppler__FileAttachmentAnnotation, _author: []const u8) void {
         const author_str = qtc.libqt_string{
-            .len = author.len,
-            .data = author.ptr,
+            .len = _author.len,
+            .data = _author.ptr,
         };
         qtc.Poppler__Annotation_SetAuthor(@ptrCast(self.ptr), author_str);
     }
 
+    /// ### DEPRECATED: Use `contents` instead
+    ///
+    pub const Contents = contents;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FileAttachmentAnnotation.html)
@@ -5348,13 +6692,17 @@ pub const Poppler__FileAttachmentAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Contents(self: Poppler__FileAttachmentAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn contents(self: Poppler__FileAttachmentAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Contents(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__FileAttachmentAnnotation.Contents: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__FileAttachmentAnnotation.contents: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setContents` instead
+    ///
+    pub const SetContents = setContents;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -5364,16 +6712,20 @@ pub const Poppler__FileAttachmentAnnotation = extern struct {
     ///
     /// ` self: Poppler__FileAttachmentAnnotation `
     ///
-    /// ` contents: []const u8 `
+    /// ` _contents: []const u8 `
     ///
-    pub fn SetContents(self: Poppler__FileAttachmentAnnotation, contents: []const u8) void {
+    pub fn setContents(self: Poppler__FileAttachmentAnnotation, _contents: []const u8) void {
         const contents_str = qtc.libqt_string{
-            .len = contents.len,
-            .data = contents.ptr,
+            .len = _contents.len,
+            .data = _contents.ptr,
         };
         qtc.Poppler__Annotation_SetContents(@ptrCast(self.ptr), contents_str);
     }
 
+    /// ### DEPRECATED: Use `uniqueName` instead
+    ///
+    pub const UniqueName = uniqueName;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FileAttachmentAnnotation.html)
@@ -5384,14 +6736,18 @@ pub const Poppler__FileAttachmentAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UniqueName(self: Poppler__FileAttachmentAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn uniqueName(self: Poppler__FileAttachmentAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_UniqueName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__FileAttachmentAnnotation.UniqueName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__FileAttachmentAnnotation.uniqueName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `setUniqueName` instead
+    ///
+    pub const SetUniqueName = setUniqueName;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FileAttachmentAnnotation.html)
@@ -5400,16 +6756,20 @@ pub const Poppler__FileAttachmentAnnotation = extern struct {
     ///
     /// ` self: Poppler__FileAttachmentAnnotation `
     ///
-    /// ` uniqueName: []const u8 `
+    /// ` _uniqueName: []const u8 `
     ///
-    pub fn SetUniqueName(self: Poppler__FileAttachmentAnnotation, uniqueName: []const u8) void {
+    pub fn setUniqueName(self: Poppler__FileAttachmentAnnotation, _uniqueName: []const u8) void {
         const uniqueName_str = qtc.libqt_string{
-            .len = uniqueName.len,
-            .data = uniqueName.ptr,
+            .len = _uniqueName.len,
+            .data = _uniqueName.ptr,
         };
         qtc.Poppler__Annotation_SetUniqueName(@ptrCast(self.ptr), uniqueName_str);
     }
 
+    /// ### DEPRECATED: Use `modificationDate` instead
+    ///
+    pub const ModificationDate = modificationDate;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FileAttachmentAnnotation.html)
@@ -5418,9 +6778,13 @@ pub const Poppler__FileAttachmentAnnotation = extern struct {
     ///
     /// ` self: Poppler__FileAttachmentAnnotation `
     ///
-    pub fn ModificationDate(self: Poppler__FileAttachmentAnnotation) QDateTime {
+    pub fn modificationDate(self: Poppler__FileAttachmentAnnotation) QDateTime {
         return .{ .ptr = qtc.Poppler__Annotation_ModificationDate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setModificationDate` instead
+    ///
+    pub const SetModificationDate = setModificationDate;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -5432,11 +6796,15 @@ pub const Poppler__FileAttachmentAnnotation = extern struct {
     ///
     /// ` date: QDateTime `
     ///
-    pub fn SetModificationDate(self: Poppler__FileAttachmentAnnotation, date: anytype) void {
+    pub fn setModificationDate(self: Poppler__FileAttachmentAnnotation, date: anytype) void {
         comptime _ = @TypeOf(date)._is_QDateTime;
         qtc.Poppler__Annotation_SetModificationDate(@ptrCast(self.ptr), @ptrCast(date.ptr));
     }
 
+    /// ### DEPRECATED: Use `creationDate` instead
+    ///
+    pub const CreationDate = creationDate;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FileAttachmentAnnotation.html)
@@ -5445,9 +6813,13 @@ pub const Poppler__FileAttachmentAnnotation = extern struct {
     ///
     /// ` self: Poppler__FileAttachmentAnnotation `
     ///
-    pub fn CreationDate(self: Poppler__FileAttachmentAnnotation) QDateTime {
+    pub fn creationDate(self: Poppler__FileAttachmentAnnotation) QDateTime {
         return .{ .ptr = qtc.Poppler__Annotation_CreationDate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCreationDate` instead
+    ///
+    pub const SetCreationDate = setCreationDate;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -5459,10 +6831,14 @@ pub const Poppler__FileAttachmentAnnotation = extern struct {
     ///
     /// ` date: QDateTime `
     ///
-    pub fn SetCreationDate(self: Poppler__FileAttachmentAnnotation, date: anytype) void {
+    pub fn setCreationDate(self: Poppler__FileAttachmentAnnotation, date: anytype) void {
         comptime _ = @TypeOf(date)._is_QDateTime;
         qtc.Poppler__Annotation_SetCreationDate(@ptrCast(self.ptr), @ptrCast(date.ptr));
     }
+
+    /// ### DEPRECATED: Use `flags` instead
+    ///
+    pub const Flags = flags;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -5476,23 +6852,13 @@ pub const Poppler__FileAttachmentAnnotation = extern struct {
     ///
     /// ` flag of poppler_annotation_enums.Flag `
     ///
-    pub fn Flags(self: Poppler__FileAttachmentAnnotation) i32 {
+    pub fn flags(self: Poppler__FileAttachmentAnnotation) i32 {
         return qtc.Poppler__Annotation_Flags(@ptrCast(self.ptr));
     }
 
-    /// Inherited from Poppler::Annotation
+    /// ### DEPRECATED: Use `setFlags` instead
     ///
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FileAttachmentAnnotation.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__FileAttachmentAnnotation `
-    ///
-    /// ` flags: flag of poppler_annotation_enums.Flag `
-    ///
-    pub fn SetFlags(self: Poppler__FileAttachmentAnnotation, flags: i32) void {
-        qtc.Poppler__Annotation_SetFlags(@ptrCast(self.ptr), @bitCast(flags));
-    }
+    pub const SetFlags = setFlags;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -5502,24 +6868,31 @@ pub const Poppler__FileAttachmentAnnotation = extern struct {
     ///
     /// ` self: Poppler__FileAttachmentAnnotation `
     ///
-    pub fn Boundary(self: Poppler__FileAttachmentAnnotation) QRectF {
+    /// ` _flags: flag of poppler_annotation_enums.Flag `
+    ///
+    pub fn setFlags(self: Poppler__FileAttachmentAnnotation, _flags: i32) void {
+        qtc.Poppler__Annotation_SetFlags(@ptrCast(self.ptr), @bitCast(_flags));
+    }
+
+    /// ### DEPRECATED: Use `boundary` instead
+    ///
+    pub const Boundary = boundary;
+
+    /// Inherited from Poppler::Annotation
+    ///
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FileAttachmentAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__FileAttachmentAnnotation `
+    ///
+    pub fn boundary(self: Poppler__FileAttachmentAnnotation) QRectF {
         return .{ .ptr = qtc.Poppler__Annotation_Boundary(@ptrCast(self.ptr)) };
     }
 
-    /// Inherited from Poppler::Annotation
+    /// ### DEPRECATED: Use `setBoundary` instead
     ///
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FileAttachmentAnnotation.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__FileAttachmentAnnotation `
-    ///
-    /// ` boundary: QRectF `
-    ///
-    pub fn SetBoundary(self: Poppler__FileAttachmentAnnotation, boundary: anytype) void {
-        comptime _ = @TypeOf(boundary)._is_QRectF;
-        qtc.Poppler__Annotation_SetBoundary(@ptrCast(self.ptr), @ptrCast(boundary.ptr));
-    }
+    pub const SetBoundary = setBoundary;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -5529,24 +6902,32 @@ pub const Poppler__FileAttachmentAnnotation = extern struct {
     ///
     /// ` self: Poppler__FileAttachmentAnnotation `
     ///
-    pub fn Style(self: Poppler__FileAttachmentAnnotation) Poppler__Annotation__Style {
+    /// ` _boundary: QRectF `
+    ///
+    pub fn setBoundary(self: Poppler__FileAttachmentAnnotation, _boundary: anytype) void {
+        comptime _ = @TypeOf(_boundary)._is_QRectF;
+        qtc.Poppler__Annotation_SetBoundary(@ptrCast(self.ptr), @ptrCast(_boundary.ptr));
+    }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
+
+    /// Inherited from Poppler::Annotation
+    ///
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FileAttachmentAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__FileAttachmentAnnotation `
+    ///
+    pub fn style(self: Poppler__FileAttachmentAnnotation) Poppler__Annotation__Style {
         return .{ .ptr = qtc.Poppler__Annotation_Style(@ptrCast(self.ptr)) };
     }
 
-    /// Inherited from Poppler::Annotation
+    /// ### DEPRECATED: Use `setStyle` instead
     ///
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FileAttachmentAnnotation.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__FileAttachmentAnnotation `
-    ///
-    /// ` style: Poppler__Annotation__Style `
-    ///
-    pub fn SetStyle(self: Poppler__FileAttachmentAnnotation, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_Poppler__Annotation__Style;
-        qtc.Poppler__Annotation_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
-    }
+    pub const SetStyle = setStyle;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -5556,10 +6937,33 @@ pub const Poppler__FileAttachmentAnnotation = extern struct {
     ///
     /// ` self: Poppler__FileAttachmentAnnotation `
     ///
-    pub fn Popup(self: Poppler__FileAttachmentAnnotation) Poppler__Annotation__Popup {
+    /// ` _style: Poppler__Annotation__Style `
+    ///
+    pub fn setStyle(self: Poppler__FileAttachmentAnnotation, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_Poppler__Annotation__Style;
+        qtc.Poppler__Annotation_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
+    }
+
+    /// ### DEPRECATED: Use `popup` instead
+    ///
+    pub const Popup = popup;
+
+    /// Inherited from Poppler::Annotation
+    ///
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FileAttachmentAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__FileAttachmentAnnotation `
+    ///
+    pub fn popup(self: Poppler__FileAttachmentAnnotation) Poppler__Annotation__Popup {
         return .{ .ptr = qtc.Poppler__Annotation_Popup(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setPopup` instead
+    ///
+    pub const SetPopup = setPopup;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FileAttachmentAnnotation.html)
@@ -5568,12 +6972,16 @@ pub const Poppler__FileAttachmentAnnotation = extern struct {
     ///
     /// ` self: Poppler__FileAttachmentAnnotation `
     ///
-    /// ` popup: Poppler__Annotation__Popup `
+    /// ` _popup: Poppler__Annotation__Popup `
     ///
-    pub fn SetPopup(self: Poppler__FileAttachmentAnnotation, popup: anytype) void {
-        comptime _ = @TypeOf(popup)._is_Poppler__Annotation__Popup;
-        qtc.Poppler__Annotation_SetPopup(@ptrCast(self.ptr), @ptrCast(popup.ptr));
+    pub fn setPopup(self: Poppler__FileAttachmentAnnotation, _popup: anytype) void {
+        comptime _ = @TypeOf(_popup)._is_Poppler__Annotation__Popup;
+        qtc.Poppler__Annotation_SetPopup(@ptrCast(self.ptr), @ptrCast(_popup.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisionScope` instead
+    ///
+    pub const RevisionScope = revisionScope;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -5587,9 +6995,13 @@ pub const Poppler__FileAttachmentAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.RevScope `
     ///
-    pub fn RevisionScope(self: Poppler__FileAttachmentAnnotation) i32 {
+    pub fn revisionScope(self: Poppler__FileAttachmentAnnotation) i32 {
         return qtc.Poppler__Annotation_RevisionScope(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisionType` instead
+    ///
+    pub const RevisionType = revisionType;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -5603,9 +7015,13 @@ pub const Poppler__FileAttachmentAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.RevType `
     ///
-    pub fn RevisionType(self: Poppler__FileAttachmentAnnotation) i32 {
+    pub fn revisionType(self: Poppler__FileAttachmentAnnotation) i32 {
         return qtc.Poppler__Annotation_RevisionType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisions` instead
+    ///
+    pub const Revisions = revisions;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -5617,16 +7033,20 @@ pub const Poppler__FileAttachmentAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Revisions(self: Poppler__FileAttachmentAnnotation, allocator: std.mem.Allocator) []Poppler__Annotation {
+    pub fn revisions(self: Poppler__FileAttachmentAnnotation, allocator: std.mem.Allocator) []Poppler__Annotation {
         const _arr: qtc.libqt_list = qtc.Poppler__Annotation_Revisions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__FileAttachmentAnnotation.Revisions: Memory allocation failed");
-        const _data: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__FileAttachmentAnnotation.revisions: Memory allocation failed");
+        const _data_val: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `annotationAppearance` instead
+    ///
+    pub const AnnotationAppearance = annotationAppearance;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FileAttachmentAnnotation.html)
@@ -5635,10 +7055,14 @@ pub const Poppler__FileAttachmentAnnotation = extern struct {
     ///
     /// ` self: Poppler__FileAttachmentAnnotation `
     ///
-    pub fn AnnotationAppearance(self: Poppler__FileAttachmentAnnotation) Poppler__AnnotationAppearance {
+    pub fn annotationAppearance(self: Poppler__FileAttachmentAnnotation) Poppler__AnnotationAppearance {
         return .{ .ptr = qtc.Poppler__Annotation_AnnotationAppearance(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setAnnotationAppearance` instead
+    ///
+    pub const SetAnnotationAppearance = setAnnotationAppearance;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FileAttachmentAnnotation.html)
@@ -5647,26 +7071,26 @@ pub const Poppler__FileAttachmentAnnotation = extern struct {
     ///
     /// ` self: Poppler__FileAttachmentAnnotation `
     ///
-    /// ` annotationAppearance: Poppler__AnnotationAppearance `
+    /// ` _annotationAppearance: Poppler__AnnotationAppearance `
     ///
-    pub fn SetAnnotationAppearance(self: Poppler__FileAttachmentAnnotation, annotationAppearance: anytype) void {
-        comptime _ = @TypeOf(annotationAppearance)._is_Poppler__AnnotationAppearance;
-        qtc.Poppler__Annotation_SetAnnotationAppearance(@ptrCast(self.ptr), @ptrCast(annotationAppearance.ptr));
+    pub fn setAnnotationAppearance(self: Poppler__FileAttachmentAnnotation, _annotationAppearance: anytype) void {
+        comptime _ = @TypeOf(_annotationAppearance)._is_Poppler__AnnotationAppearance;
+        qtc.Poppler__Annotation_SetAnnotationAppearance(@ptrCast(self.ptr), @ptrCast(_annotationAppearance.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FileAttachmentAnnotation.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Poppler__FileAttachmentAnnotation `
     ///
-    pub fn Delete(self: Poppler__FileAttachmentAnnotation) void {
+    pub fn delete(self: Poppler__FileAttachmentAnnotation) void {
         qtc.Poppler__FileAttachmentAnnotation_Delete(@ptrCast(self.ptr));
     }
 };
@@ -5682,6 +7106,10 @@ pub const Poppler__SoundAnnotation = extern struct {
     pub const _is_Poppler__SoundAnnotation = {};
     pub const _is_Poppler__Annotation = {};
 
+    /// ### DEPRECATED: Use `subType` instead
+    ///
+    pub const SubType = subType;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SoundAnnotation.html)
     ///
     /// ## Parameter(s):
@@ -5692,9 +7120,13 @@ pub const Poppler__SoundAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.SubType `
     ///
-    pub fn SubType(self: Poppler__SoundAnnotation) i32 {
+    pub fn subType(self: Poppler__SoundAnnotation) i32 {
         return qtc.Poppler__SoundAnnotation_SubType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `soundIconName` instead
+    ///
+    pub const SoundIconName = soundIconName;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SoundAnnotation.html)
     ///
@@ -5704,13 +7136,17 @@ pub const Poppler__SoundAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SoundIconName(self: Poppler__SoundAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn soundIconName(self: Poppler__SoundAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__SoundAnnotation_SoundIconName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__SoundAnnotation.SoundIconName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__SoundAnnotation.soundIconName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setSoundIconName` instead
+    ///
+    pub const SetSoundIconName = setSoundIconName;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SoundAnnotation.html)
     ///
@@ -5720,7 +7156,7 @@ pub const Poppler__SoundAnnotation = extern struct {
     ///
     /// ` icon: []const u8 `
     ///
-    pub fn SetSoundIconName(self: Poppler__SoundAnnotation, icon: []const u8) void {
+    pub fn setSoundIconName(self: Poppler__SoundAnnotation, icon: []const u8) void {
         const icon_str = qtc.libqt_string{
             .len = icon.len,
             .data = icon.ptr,
@@ -5728,15 +7164,23 @@ pub const Poppler__SoundAnnotation = extern struct {
         qtc.Poppler__SoundAnnotation_SetSoundIconName(@ptrCast(self.ptr), icon_str);
     }
 
+    /// ### DEPRECATED: Use `sound` instead
+    ///
+    pub const Sound = sound;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SoundAnnotation.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Poppler__SoundAnnotation `
     ///
-    pub fn Sound(self: Poppler__SoundAnnotation) Poppler__SoundObject {
+    pub fn sound(self: Poppler__SoundAnnotation) Poppler__SoundObject {
         return .{ .ptr = qtc.Poppler__SoundAnnotation_Sound(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSound` instead
+    ///
+    pub const SetSound = setSound;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SoundAnnotation.html)
     ///
@@ -5746,11 +7190,15 @@ pub const Poppler__SoundAnnotation = extern struct {
     ///
     /// ` s: Poppler__SoundObject `
     ///
-    pub fn SetSound(self: Poppler__SoundAnnotation, s: anytype) void {
+    pub fn setSound(self: Poppler__SoundAnnotation, s: anytype) void {
         comptime _ = @TypeOf(s)._is_Poppler__SoundObject;
         qtc.Poppler__SoundAnnotation_SetSound(@ptrCast(self.ptr), @ptrCast(s.ptr));
     }
 
+    /// ### DEPRECATED: Use `author` instead
+    ///
+    pub const Author = author;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SoundAnnotation.html)
@@ -5761,13 +7209,17 @@ pub const Poppler__SoundAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Author(self: Poppler__SoundAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn author(self: Poppler__SoundAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Author(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__SoundAnnotation.Author: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__SoundAnnotation.author: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAuthor` instead
+    ///
+    pub const SetAuthor = setAuthor;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -5777,16 +7229,20 @@ pub const Poppler__SoundAnnotation = extern struct {
     ///
     /// ` self: Poppler__SoundAnnotation `
     ///
-    /// ` author: []const u8 `
+    /// ` _author: []const u8 `
     ///
-    pub fn SetAuthor(self: Poppler__SoundAnnotation, author: []const u8) void {
+    pub fn setAuthor(self: Poppler__SoundAnnotation, _author: []const u8) void {
         const author_str = qtc.libqt_string{
-            .len = author.len,
-            .data = author.ptr,
+            .len = _author.len,
+            .data = _author.ptr,
         };
         qtc.Poppler__Annotation_SetAuthor(@ptrCast(self.ptr), author_str);
     }
 
+    /// ### DEPRECATED: Use `contents` instead
+    ///
+    pub const Contents = contents;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SoundAnnotation.html)
@@ -5797,13 +7253,17 @@ pub const Poppler__SoundAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Contents(self: Poppler__SoundAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn contents(self: Poppler__SoundAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Contents(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__SoundAnnotation.Contents: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__SoundAnnotation.contents: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setContents` instead
+    ///
+    pub const SetContents = setContents;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -5813,16 +7273,20 @@ pub const Poppler__SoundAnnotation = extern struct {
     ///
     /// ` self: Poppler__SoundAnnotation `
     ///
-    /// ` contents: []const u8 `
+    /// ` _contents: []const u8 `
     ///
-    pub fn SetContents(self: Poppler__SoundAnnotation, contents: []const u8) void {
+    pub fn setContents(self: Poppler__SoundAnnotation, _contents: []const u8) void {
         const contents_str = qtc.libqt_string{
-            .len = contents.len,
-            .data = contents.ptr,
+            .len = _contents.len,
+            .data = _contents.ptr,
         };
         qtc.Poppler__Annotation_SetContents(@ptrCast(self.ptr), contents_str);
     }
 
+    /// ### DEPRECATED: Use `uniqueName` instead
+    ///
+    pub const UniqueName = uniqueName;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SoundAnnotation.html)
@@ -5833,14 +7297,18 @@ pub const Poppler__SoundAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UniqueName(self: Poppler__SoundAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn uniqueName(self: Poppler__SoundAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_UniqueName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__SoundAnnotation.UniqueName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__SoundAnnotation.uniqueName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `setUniqueName` instead
+    ///
+    pub const SetUniqueName = setUniqueName;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SoundAnnotation.html)
@@ -5849,16 +7317,20 @@ pub const Poppler__SoundAnnotation = extern struct {
     ///
     /// ` self: Poppler__SoundAnnotation `
     ///
-    /// ` uniqueName: []const u8 `
+    /// ` _uniqueName: []const u8 `
     ///
-    pub fn SetUniqueName(self: Poppler__SoundAnnotation, uniqueName: []const u8) void {
+    pub fn setUniqueName(self: Poppler__SoundAnnotation, _uniqueName: []const u8) void {
         const uniqueName_str = qtc.libqt_string{
-            .len = uniqueName.len,
-            .data = uniqueName.ptr,
+            .len = _uniqueName.len,
+            .data = _uniqueName.ptr,
         };
         qtc.Poppler__Annotation_SetUniqueName(@ptrCast(self.ptr), uniqueName_str);
     }
 
+    /// ### DEPRECATED: Use `modificationDate` instead
+    ///
+    pub const ModificationDate = modificationDate;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SoundAnnotation.html)
@@ -5867,9 +7339,13 @@ pub const Poppler__SoundAnnotation = extern struct {
     ///
     /// ` self: Poppler__SoundAnnotation `
     ///
-    pub fn ModificationDate(self: Poppler__SoundAnnotation) QDateTime {
+    pub fn modificationDate(self: Poppler__SoundAnnotation) QDateTime {
         return .{ .ptr = qtc.Poppler__Annotation_ModificationDate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setModificationDate` instead
+    ///
+    pub const SetModificationDate = setModificationDate;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -5881,11 +7357,15 @@ pub const Poppler__SoundAnnotation = extern struct {
     ///
     /// ` date: QDateTime `
     ///
-    pub fn SetModificationDate(self: Poppler__SoundAnnotation, date: anytype) void {
+    pub fn setModificationDate(self: Poppler__SoundAnnotation, date: anytype) void {
         comptime _ = @TypeOf(date)._is_QDateTime;
         qtc.Poppler__Annotation_SetModificationDate(@ptrCast(self.ptr), @ptrCast(date.ptr));
     }
 
+    /// ### DEPRECATED: Use `creationDate` instead
+    ///
+    pub const CreationDate = creationDate;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SoundAnnotation.html)
@@ -5894,9 +7374,13 @@ pub const Poppler__SoundAnnotation = extern struct {
     ///
     /// ` self: Poppler__SoundAnnotation `
     ///
-    pub fn CreationDate(self: Poppler__SoundAnnotation) QDateTime {
+    pub fn creationDate(self: Poppler__SoundAnnotation) QDateTime {
         return .{ .ptr = qtc.Poppler__Annotation_CreationDate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCreationDate` instead
+    ///
+    pub const SetCreationDate = setCreationDate;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -5908,10 +7392,14 @@ pub const Poppler__SoundAnnotation = extern struct {
     ///
     /// ` date: QDateTime `
     ///
-    pub fn SetCreationDate(self: Poppler__SoundAnnotation, date: anytype) void {
+    pub fn setCreationDate(self: Poppler__SoundAnnotation, date: anytype) void {
         comptime _ = @TypeOf(date)._is_QDateTime;
         qtc.Poppler__Annotation_SetCreationDate(@ptrCast(self.ptr), @ptrCast(date.ptr));
     }
+
+    /// ### DEPRECATED: Use `flags` instead
+    ///
+    pub const Flags = flags;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -5925,23 +7413,13 @@ pub const Poppler__SoundAnnotation = extern struct {
     ///
     /// ` flag of poppler_annotation_enums.Flag `
     ///
-    pub fn Flags(self: Poppler__SoundAnnotation) i32 {
+    pub fn flags(self: Poppler__SoundAnnotation) i32 {
         return qtc.Poppler__Annotation_Flags(@ptrCast(self.ptr));
     }
 
-    /// Inherited from Poppler::Annotation
+    /// ### DEPRECATED: Use `setFlags` instead
     ///
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SoundAnnotation.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__SoundAnnotation `
-    ///
-    /// ` flags: flag of poppler_annotation_enums.Flag `
-    ///
-    pub fn SetFlags(self: Poppler__SoundAnnotation, flags: i32) void {
-        qtc.Poppler__Annotation_SetFlags(@ptrCast(self.ptr), @bitCast(flags));
-    }
+    pub const SetFlags = setFlags;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -5951,24 +7429,31 @@ pub const Poppler__SoundAnnotation = extern struct {
     ///
     /// ` self: Poppler__SoundAnnotation `
     ///
-    pub fn Boundary(self: Poppler__SoundAnnotation) QRectF {
+    /// ` _flags: flag of poppler_annotation_enums.Flag `
+    ///
+    pub fn setFlags(self: Poppler__SoundAnnotation, _flags: i32) void {
+        qtc.Poppler__Annotation_SetFlags(@ptrCast(self.ptr), @bitCast(_flags));
+    }
+
+    /// ### DEPRECATED: Use `boundary` instead
+    ///
+    pub const Boundary = boundary;
+
+    /// Inherited from Poppler::Annotation
+    ///
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SoundAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__SoundAnnotation `
+    ///
+    pub fn boundary(self: Poppler__SoundAnnotation) QRectF {
         return .{ .ptr = qtc.Poppler__Annotation_Boundary(@ptrCast(self.ptr)) };
     }
 
-    /// Inherited from Poppler::Annotation
+    /// ### DEPRECATED: Use `setBoundary` instead
     ///
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SoundAnnotation.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__SoundAnnotation `
-    ///
-    /// ` boundary: QRectF `
-    ///
-    pub fn SetBoundary(self: Poppler__SoundAnnotation, boundary: anytype) void {
-        comptime _ = @TypeOf(boundary)._is_QRectF;
-        qtc.Poppler__Annotation_SetBoundary(@ptrCast(self.ptr), @ptrCast(boundary.ptr));
-    }
+    pub const SetBoundary = setBoundary;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -5978,24 +7463,32 @@ pub const Poppler__SoundAnnotation = extern struct {
     ///
     /// ` self: Poppler__SoundAnnotation `
     ///
-    pub fn Style(self: Poppler__SoundAnnotation) Poppler__Annotation__Style {
+    /// ` _boundary: QRectF `
+    ///
+    pub fn setBoundary(self: Poppler__SoundAnnotation, _boundary: anytype) void {
+        comptime _ = @TypeOf(_boundary)._is_QRectF;
+        qtc.Poppler__Annotation_SetBoundary(@ptrCast(self.ptr), @ptrCast(_boundary.ptr));
+    }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
+
+    /// Inherited from Poppler::Annotation
+    ///
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SoundAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__SoundAnnotation `
+    ///
+    pub fn style(self: Poppler__SoundAnnotation) Poppler__Annotation__Style {
         return .{ .ptr = qtc.Poppler__Annotation_Style(@ptrCast(self.ptr)) };
     }
 
-    /// Inherited from Poppler::Annotation
+    /// ### DEPRECATED: Use `setStyle` instead
     ///
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SoundAnnotation.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__SoundAnnotation `
-    ///
-    /// ` style: Poppler__Annotation__Style `
-    ///
-    pub fn SetStyle(self: Poppler__SoundAnnotation, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_Poppler__Annotation__Style;
-        qtc.Poppler__Annotation_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
-    }
+    pub const SetStyle = setStyle;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -6005,10 +7498,33 @@ pub const Poppler__SoundAnnotation = extern struct {
     ///
     /// ` self: Poppler__SoundAnnotation `
     ///
-    pub fn Popup(self: Poppler__SoundAnnotation) Poppler__Annotation__Popup {
+    /// ` _style: Poppler__Annotation__Style `
+    ///
+    pub fn setStyle(self: Poppler__SoundAnnotation, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_Poppler__Annotation__Style;
+        qtc.Poppler__Annotation_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
+    }
+
+    /// ### DEPRECATED: Use `popup` instead
+    ///
+    pub const Popup = popup;
+
+    /// Inherited from Poppler::Annotation
+    ///
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SoundAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__SoundAnnotation `
+    ///
+    pub fn popup(self: Poppler__SoundAnnotation) Poppler__Annotation__Popup {
         return .{ .ptr = qtc.Poppler__Annotation_Popup(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setPopup` instead
+    ///
+    pub const SetPopup = setPopup;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SoundAnnotation.html)
@@ -6017,12 +7533,16 @@ pub const Poppler__SoundAnnotation = extern struct {
     ///
     /// ` self: Poppler__SoundAnnotation `
     ///
-    /// ` popup: Poppler__Annotation__Popup `
+    /// ` _popup: Poppler__Annotation__Popup `
     ///
-    pub fn SetPopup(self: Poppler__SoundAnnotation, popup: anytype) void {
-        comptime _ = @TypeOf(popup)._is_Poppler__Annotation__Popup;
-        qtc.Poppler__Annotation_SetPopup(@ptrCast(self.ptr), @ptrCast(popup.ptr));
+    pub fn setPopup(self: Poppler__SoundAnnotation, _popup: anytype) void {
+        comptime _ = @TypeOf(_popup)._is_Poppler__Annotation__Popup;
+        qtc.Poppler__Annotation_SetPopup(@ptrCast(self.ptr), @ptrCast(_popup.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisionScope` instead
+    ///
+    pub const RevisionScope = revisionScope;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -6036,9 +7556,13 @@ pub const Poppler__SoundAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.RevScope `
     ///
-    pub fn RevisionScope(self: Poppler__SoundAnnotation) i32 {
+    pub fn revisionScope(self: Poppler__SoundAnnotation) i32 {
         return qtc.Poppler__Annotation_RevisionScope(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisionType` instead
+    ///
+    pub const RevisionType = revisionType;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -6052,9 +7576,13 @@ pub const Poppler__SoundAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.RevType `
     ///
-    pub fn RevisionType(self: Poppler__SoundAnnotation) i32 {
+    pub fn revisionType(self: Poppler__SoundAnnotation) i32 {
         return qtc.Poppler__Annotation_RevisionType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisions` instead
+    ///
+    pub const Revisions = revisions;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -6066,16 +7594,20 @@ pub const Poppler__SoundAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Revisions(self: Poppler__SoundAnnotation, allocator: std.mem.Allocator) []Poppler__Annotation {
+    pub fn revisions(self: Poppler__SoundAnnotation, allocator: std.mem.Allocator) []Poppler__Annotation {
         const _arr: qtc.libqt_list = qtc.Poppler__Annotation_Revisions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__SoundAnnotation.Revisions: Memory allocation failed");
-        const _data: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__SoundAnnotation.revisions: Memory allocation failed");
+        const _data_val: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `annotationAppearance` instead
+    ///
+    pub const AnnotationAppearance = annotationAppearance;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SoundAnnotation.html)
@@ -6084,10 +7616,14 @@ pub const Poppler__SoundAnnotation = extern struct {
     ///
     /// ` self: Poppler__SoundAnnotation `
     ///
-    pub fn AnnotationAppearance(self: Poppler__SoundAnnotation) Poppler__AnnotationAppearance {
+    pub fn annotationAppearance(self: Poppler__SoundAnnotation) Poppler__AnnotationAppearance {
         return .{ .ptr = qtc.Poppler__Annotation_AnnotationAppearance(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setAnnotationAppearance` instead
+    ///
+    pub const SetAnnotationAppearance = setAnnotationAppearance;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SoundAnnotation.html)
@@ -6096,26 +7632,26 @@ pub const Poppler__SoundAnnotation = extern struct {
     ///
     /// ` self: Poppler__SoundAnnotation `
     ///
-    /// ` annotationAppearance: Poppler__AnnotationAppearance `
+    /// ` _annotationAppearance: Poppler__AnnotationAppearance `
     ///
-    pub fn SetAnnotationAppearance(self: Poppler__SoundAnnotation, annotationAppearance: anytype) void {
-        comptime _ = @TypeOf(annotationAppearance)._is_Poppler__AnnotationAppearance;
-        qtc.Poppler__Annotation_SetAnnotationAppearance(@ptrCast(self.ptr), @ptrCast(annotationAppearance.ptr));
+    pub fn setAnnotationAppearance(self: Poppler__SoundAnnotation, _annotationAppearance: anytype) void {
+        comptime _ = @TypeOf(_annotationAppearance)._is_Poppler__AnnotationAppearance;
+        qtc.Poppler__Annotation_SetAnnotationAppearance(@ptrCast(self.ptr), @ptrCast(_annotationAppearance.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SoundAnnotation.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Poppler__SoundAnnotation `
     ///
-    pub fn Delete(self: Poppler__SoundAnnotation) void {
+    pub fn delete(self: Poppler__SoundAnnotation) void {
         qtc.Poppler__SoundAnnotation_Delete(@ptrCast(self.ptr));
     }
 };
@@ -6131,6 +7667,10 @@ pub const Poppler__MovieAnnotation = extern struct {
     pub const _is_Poppler__MovieAnnotation = {};
     pub const _is_Poppler__Annotation = {};
 
+    /// ### DEPRECATED: Use `subType` instead
+    ///
+    pub const SubType = subType;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1MovieAnnotation.html)
     ///
     /// ## Parameter(s):
@@ -6141,19 +7681,13 @@ pub const Poppler__MovieAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.SubType `
     ///
-    pub fn SubType(self: Poppler__MovieAnnotation) i32 {
+    pub fn subType(self: Poppler__MovieAnnotation) i32 {
         return qtc.Poppler__MovieAnnotation_SubType(@ptrCast(self.ptr));
     }
 
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1MovieAnnotation.html)
+    /// ### DEPRECATED: Use `movie` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__MovieAnnotation `
-    ///
-    pub fn Movie(self: Poppler__MovieAnnotation) Poppler__MovieObject {
-        return .{ .ptr = qtc.Poppler__MovieAnnotation_Movie(@ptrCast(self.ptr)) };
-    }
+    pub const Movie = movie;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1MovieAnnotation.html)
     ///
@@ -6161,12 +7695,30 @@ pub const Poppler__MovieAnnotation = extern struct {
     ///
     /// ` self: Poppler__MovieAnnotation `
     ///
-    /// ` movie: Poppler__MovieObject `
-    ///
-    pub fn SetMovie(self: Poppler__MovieAnnotation, movie: anytype) void {
-        comptime _ = @TypeOf(movie)._is_Poppler__MovieObject;
-        qtc.Poppler__MovieAnnotation_SetMovie(@ptrCast(self.ptr), @ptrCast(movie.ptr));
+    pub fn movie(self: Poppler__MovieAnnotation) Poppler__MovieObject {
+        return .{ .ptr = qtc.Poppler__MovieAnnotation_Movie(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setMovie` instead
+    ///
+    pub const SetMovie = setMovie;
+
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1MovieAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__MovieAnnotation `
+    ///
+    /// ` _movie: Poppler__MovieObject `
+    ///
+    pub fn setMovie(self: Poppler__MovieAnnotation, _movie: anytype) void {
+        comptime _ = @TypeOf(_movie)._is_Poppler__MovieObject;
+        qtc.Poppler__MovieAnnotation_SetMovie(@ptrCast(self.ptr), @ptrCast(_movie.ptr));
+    }
+
+    /// ### DEPRECATED: Use `movieTitle` instead
+    ///
+    pub const MovieTitle = movieTitle;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1MovieAnnotation.html)
     ///
@@ -6176,13 +7728,17 @@ pub const Poppler__MovieAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MovieTitle(self: Poppler__MovieAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn movieTitle(self: Poppler__MovieAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__MovieAnnotation_MovieTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__MovieAnnotation.MovieTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__MovieAnnotation.movieTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setMovieTitle` instead
+    ///
+    pub const SetMovieTitle = setMovieTitle;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1MovieAnnotation.html)
     ///
@@ -6192,7 +7748,7 @@ pub const Poppler__MovieAnnotation = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn SetMovieTitle(self: Poppler__MovieAnnotation, title: []const u8) void {
+    pub fn setMovieTitle(self: Poppler__MovieAnnotation, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -6200,6 +7756,10 @@ pub const Poppler__MovieAnnotation = extern struct {
         qtc.Poppler__MovieAnnotation_SetMovieTitle(@ptrCast(self.ptr), title_str);
     }
 
+    /// ### DEPRECATED: Use `author` instead
+    ///
+    pub const Author = author;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1MovieAnnotation.html)
@@ -6210,13 +7770,17 @@ pub const Poppler__MovieAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Author(self: Poppler__MovieAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn author(self: Poppler__MovieAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Author(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__MovieAnnotation.Author: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__MovieAnnotation.author: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAuthor` instead
+    ///
+    pub const SetAuthor = setAuthor;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -6226,16 +7790,20 @@ pub const Poppler__MovieAnnotation = extern struct {
     ///
     /// ` self: Poppler__MovieAnnotation `
     ///
-    /// ` author: []const u8 `
+    /// ` _author: []const u8 `
     ///
-    pub fn SetAuthor(self: Poppler__MovieAnnotation, author: []const u8) void {
+    pub fn setAuthor(self: Poppler__MovieAnnotation, _author: []const u8) void {
         const author_str = qtc.libqt_string{
-            .len = author.len,
-            .data = author.ptr,
+            .len = _author.len,
+            .data = _author.ptr,
         };
         qtc.Poppler__Annotation_SetAuthor(@ptrCast(self.ptr), author_str);
     }
 
+    /// ### DEPRECATED: Use `contents` instead
+    ///
+    pub const Contents = contents;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1MovieAnnotation.html)
@@ -6246,13 +7814,17 @@ pub const Poppler__MovieAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Contents(self: Poppler__MovieAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn contents(self: Poppler__MovieAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Contents(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__MovieAnnotation.Contents: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__MovieAnnotation.contents: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setContents` instead
+    ///
+    pub const SetContents = setContents;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -6262,16 +7834,20 @@ pub const Poppler__MovieAnnotation = extern struct {
     ///
     /// ` self: Poppler__MovieAnnotation `
     ///
-    /// ` contents: []const u8 `
+    /// ` _contents: []const u8 `
     ///
-    pub fn SetContents(self: Poppler__MovieAnnotation, contents: []const u8) void {
+    pub fn setContents(self: Poppler__MovieAnnotation, _contents: []const u8) void {
         const contents_str = qtc.libqt_string{
-            .len = contents.len,
-            .data = contents.ptr,
+            .len = _contents.len,
+            .data = _contents.ptr,
         };
         qtc.Poppler__Annotation_SetContents(@ptrCast(self.ptr), contents_str);
     }
 
+    /// ### DEPRECATED: Use `uniqueName` instead
+    ///
+    pub const UniqueName = uniqueName;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1MovieAnnotation.html)
@@ -6282,14 +7858,18 @@ pub const Poppler__MovieAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UniqueName(self: Poppler__MovieAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn uniqueName(self: Poppler__MovieAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_UniqueName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__MovieAnnotation.UniqueName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__MovieAnnotation.uniqueName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `setUniqueName` instead
+    ///
+    pub const SetUniqueName = setUniqueName;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1MovieAnnotation.html)
@@ -6298,16 +7878,20 @@ pub const Poppler__MovieAnnotation = extern struct {
     ///
     /// ` self: Poppler__MovieAnnotation `
     ///
-    /// ` uniqueName: []const u8 `
+    /// ` _uniqueName: []const u8 `
     ///
-    pub fn SetUniqueName(self: Poppler__MovieAnnotation, uniqueName: []const u8) void {
+    pub fn setUniqueName(self: Poppler__MovieAnnotation, _uniqueName: []const u8) void {
         const uniqueName_str = qtc.libqt_string{
-            .len = uniqueName.len,
-            .data = uniqueName.ptr,
+            .len = _uniqueName.len,
+            .data = _uniqueName.ptr,
         };
         qtc.Poppler__Annotation_SetUniqueName(@ptrCast(self.ptr), uniqueName_str);
     }
 
+    /// ### DEPRECATED: Use `modificationDate` instead
+    ///
+    pub const ModificationDate = modificationDate;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1MovieAnnotation.html)
@@ -6316,9 +7900,13 @@ pub const Poppler__MovieAnnotation = extern struct {
     ///
     /// ` self: Poppler__MovieAnnotation `
     ///
-    pub fn ModificationDate(self: Poppler__MovieAnnotation) QDateTime {
+    pub fn modificationDate(self: Poppler__MovieAnnotation) QDateTime {
         return .{ .ptr = qtc.Poppler__Annotation_ModificationDate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setModificationDate` instead
+    ///
+    pub const SetModificationDate = setModificationDate;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -6330,11 +7918,15 @@ pub const Poppler__MovieAnnotation = extern struct {
     ///
     /// ` date: QDateTime `
     ///
-    pub fn SetModificationDate(self: Poppler__MovieAnnotation, date: anytype) void {
+    pub fn setModificationDate(self: Poppler__MovieAnnotation, date: anytype) void {
         comptime _ = @TypeOf(date)._is_QDateTime;
         qtc.Poppler__Annotation_SetModificationDate(@ptrCast(self.ptr), @ptrCast(date.ptr));
     }
 
+    /// ### DEPRECATED: Use `creationDate` instead
+    ///
+    pub const CreationDate = creationDate;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1MovieAnnotation.html)
@@ -6343,9 +7935,13 @@ pub const Poppler__MovieAnnotation = extern struct {
     ///
     /// ` self: Poppler__MovieAnnotation `
     ///
-    pub fn CreationDate(self: Poppler__MovieAnnotation) QDateTime {
+    pub fn creationDate(self: Poppler__MovieAnnotation) QDateTime {
         return .{ .ptr = qtc.Poppler__Annotation_CreationDate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCreationDate` instead
+    ///
+    pub const SetCreationDate = setCreationDate;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -6357,10 +7953,14 @@ pub const Poppler__MovieAnnotation = extern struct {
     ///
     /// ` date: QDateTime `
     ///
-    pub fn SetCreationDate(self: Poppler__MovieAnnotation, date: anytype) void {
+    pub fn setCreationDate(self: Poppler__MovieAnnotation, date: anytype) void {
         comptime _ = @TypeOf(date)._is_QDateTime;
         qtc.Poppler__Annotation_SetCreationDate(@ptrCast(self.ptr), @ptrCast(date.ptr));
     }
+
+    /// ### DEPRECATED: Use `flags` instead
+    ///
+    pub const Flags = flags;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -6374,23 +7974,13 @@ pub const Poppler__MovieAnnotation = extern struct {
     ///
     /// ` flag of poppler_annotation_enums.Flag `
     ///
-    pub fn Flags(self: Poppler__MovieAnnotation) i32 {
+    pub fn flags(self: Poppler__MovieAnnotation) i32 {
         return qtc.Poppler__Annotation_Flags(@ptrCast(self.ptr));
     }
 
-    /// Inherited from Poppler::Annotation
+    /// ### DEPRECATED: Use `setFlags` instead
     ///
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1MovieAnnotation.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__MovieAnnotation `
-    ///
-    /// ` flags: flag of poppler_annotation_enums.Flag `
-    ///
-    pub fn SetFlags(self: Poppler__MovieAnnotation, flags: i32) void {
-        qtc.Poppler__Annotation_SetFlags(@ptrCast(self.ptr), @bitCast(flags));
-    }
+    pub const SetFlags = setFlags;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -6400,24 +7990,31 @@ pub const Poppler__MovieAnnotation = extern struct {
     ///
     /// ` self: Poppler__MovieAnnotation `
     ///
-    pub fn Boundary(self: Poppler__MovieAnnotation) QRectF {
+    /// ` _flags: flag of poppler_annotation_enums.Flag `
+    ///
+    pub fn setFlags(self: Poppler__MovieAnnotation, _flags: i32) void {
+        qtc.Poppler__Annotation_SetFlags(@ptrCast(self.ptr), @bitCast(_flags));
+    }
+
+    /// ### DEPRECATED: Use `boundary` instead
+    ///
+    pub const Boundary = boundary;
+
+    /// Inherited from Poppler::Annotation
+    ///
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1MovieAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__MovieAnnotation `
+    ///
+    pub fn boundary(self: Poppler__MovieAnnotation) QRectF {
         return .{ .ptr = qtc.Poppler__Annotation_Boundary(@ptrCast(self.ptr)) };
     }
 
-    /// Inherited from Poppler::Annotation
+    /// ### DEPRECATED: Use `setBoundary` instead
     ///
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1MovieAnnotation.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__MovieAnnotation `
-    ///
-    /// ` boundary: QRectF `
-    ///
-    pub fn SetBoundary(self: Poppler__MovieAnnotation, boundary: anytype) void {
-        comptime _ = @TypeOf(boundary)._is_QRectF;
-        qtc.Poppler__Annotation_SetBoundary(@ptrCast(self.ptr), @ptrCast(boundary.ptr));
-    }
+    pub const SetBoundary = setBoundary;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -6427,24 +8024,32 @@ pub const Poppler__MovieAnnotation = extern struct {
     ///
     /// ` self: Poppler__MovieAnnotation `
     ///
-    pub fn Style(self: Poppler__MovieAnnotation) Poppler__Annotation__Style {
+    /// ` _boundary: QRectF `
+    ///
+    pub fn setBoundary(self: Poppler__MovieAnnotation, _boundary: anytype) void {
+        comptime _ = @TypeOf(_boundary)._is_QRectF;
+        qtc.Poppler__Annotation_SetBoundary(@ptrCast(self.ptr), @ptrCast(_boundary.ptr));
+    }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
+
+    /// Inherited from Poppler::Annotation
+    ///
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1MovieAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__MovieAnnotation `
+    ///
+    pub fn style(self: Poppler__MovieAnnotation) Poppler__Annotation__Style {
         return .{ .ptr = qtc.Poppler__Annotation_Style(@ptrCast(self.ptr)) };
     }
 
-    /// Inherited from Poppler::Annotation
+    /// ### DEPRECATED: Use `setStyle` instead
     ///
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1MovieAnnotation.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__MovieAnnotation `
-    ///
-    /// ` style: Poppler__Annotation__Style `
-    ///
-    pub fn SetStyle(self: Poppler__MovieAnnotation, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_Poppler__Annotation__Style;
-        qtc.Poppler__Annotation_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
-    }
+    pub const SetStyle = setStyle;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -6454,10 +8059,33 @@ pub const Poppler__MovieAnnotation = extern struct {
     ///
     /// ` self: Poppler__MovieAnnotation `
     ///
-    pub fn Popup(self: Poppler__MovieAnnotation) Poppler__Annotation__Popup {
+    /// ` _style: Poppler__Annotation__Style `
+    ///
+    pub fn setStyle(self: Poppler__MovieAnnotation, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_Poppler__Annotation__Style;
+        qtc.Poppler__Annotation_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
+    }
+
+    /// ### DEPRECATED: Use `popup` instead
+    ///
+    pub const Popup = popup;
+
+    /// Inherited from Poppler::Annotation
+    ///
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1MovieAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__MovieAnnotation `
+    ///
+    pub fn popup(self: Poppler__MovieAnnotation) Poppler__Annotation__Popup {
         return .{ .ptr = qtc.Poppler__Annotation_Popup(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setPopup` instead
+    ///
+    pub const SetPopup = setPopup;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1MovieAnnotation.html)
@@ -6466,12 +8094,16 @@ pub const Poppler__MovieAnnotation = extern struct {
     ///
     /// ` self: Poppler__MovieAnnotation `
     ///
-    /// ` popup: Poppler__Annotation__Popup `
+    /// ` _popup: Poppler__Annotation__Popup `
     ///
-    pub fn SetPopup(self: Poppler__MovieAnnotation, popup: anytype) void {
-        comptime _ = @TypeOf(popup)._is_Poppler__Annotation__Popup;
-        qtc.Poppler__Annotation_SetPopup(@ptrCast(self.ptr), @ptrCast(popup.ptr));
+    pub fn setPopup(self: Poppler__MovieAnnotation, _popup: anytype) void {
+        comptime _ = @TypeOf(_popup)._is_Poppler__Annotation__Popup;
+        qtc.Poppler__Annotation_SetPopup(@ptrCast(self.ptr), @ptrCast(_popup.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisionScope` instead
+    ///
+    pub const RevisionScope = revisionScope;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -6485,9 +8117,13 @@ pub const Poppler__MovieAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.RevScope `
     ///
-    pub fn RevisionScope(self: Poppler__MovieAnnotation) i32 {
+    pub fn revisionScope(self: Poppler__MovieAnnotation) i32 {
         return qtc.Poppler__Annotation_RevisionScope(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisionType` instead
+    ///
+    pub const RevisionType = revisionType;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -6501,9 +8137,13 @@ pub const Poppler__MovieAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.RevType `
     ///
-    pub fn RevisionType(self: Poppler__MovieAnnotation) i32 {
+    pub fn revisionType(self: Poppler__MovieAnnotation) i32 {
         return qtc.Poppler__Annotation_RevisionType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisions` instead
+    ///
+    pub const Revisions = revisions;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -6515,16 +8155,20 @@ pub const Poppler__MovieAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Revisions(self: Poppler__MovieAnnotation, allocator: std.mem.Allocator) []Poppler__Annotation {
+    pub fn revisions(self: Poppler__MovieAnnotation, allocator: std.mem.Allocator) []Poppler__Annotation {
         const _arr: qtc.libqt_list = qtc.Poppler__Annotation_Revisions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__MovieAnnotation.Revisions: Memory allocation failed");
-        const _data: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__MovieAnnotation.revisions: Memory allocation failed");
+        const _data_val: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `annotationAppearance` instead
+    ///
+    pub const AnnotationAppearance = annotationAppearance;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1MovieAnnotation.html)
@@ -6533,10 +8177,14 @@ pub const Poppler__MovieAnnotation = extern struct {
     ///
     /// ` self: Poppler__MovieAnnotation `
     ///
-    pub fn AnnotationAppearance(self: Poppler__MovieAnnotation) Poppler__AnnotationAppearance {
+    pub fn annotationAppearance(self: Poppler__MovieAnnotation) Poppler__AnnotationAppearance {
         return .{ .ptr = qtc.Poppler__Annotation_AnnotationAppearance(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setAnnotationAppearance` instead
+    ///
+    pub const SetAnnotationAppearance = setAnnotationAppearance;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1MovieAnnotation.html)
@@ -6545,26 +8193,26 @@ pub const Poppler__MovieAnnotation = extern struct {
     ///
     /// ` self: Poppler__MovieAnnotation `
     ///
-    /// ` annotationAppearance: Poppler__AnnotationAppearance `
+    /// ` _annotationAppearance: Poppler__AnnotationAppearance `
     ///
-    pub fn SetAnnotationAppearance(self: Poppler__MovieAnnotation, annotationAppearance: anytype) void {
-        comptime _ = @TypeOf(annotationAppearance)._is_Poppler__AnnotationAppearance;
-        qtc.Poppler__Annotation_SetAnnotationAppearance(@ptrCast(self.ptr), @ptrCast(annotationAppearance.ptr));
+    pub fn setAnnotationAppearance(self: Poppler__MovieAnnotation, _annotationAppearance: anytype) void {
+        comptime _ = @TypeOf(_annotationAppearance)._is_Poppler__AnnotationAppearance;
+        qtc.Poppler__Annotation_SetAnnotationAppearance(@ptrCast(self.ptr), @ptrCast(_annotationAppearance.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1MovieAnnotation.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Poppler__MovieAnnotation `
     ///
-    pub fn Delete(self: Poppler__MovieAnnotation) void {
+    pub fn delete(self: Poppler__MovieAnnotation) void {
         qtc.Poppler__MovieAnnotation_Delete(@ptrCast(self.ptr));
     }
 };
@@ -6580,6 +8228,10 @@ pub const Poppler__ScreenAnnotation = extern struct {
     pub const _is_Poppler__ScreenAnnotation = {};
     pub const _is_Poppler__Annotation = {};
 
+    /// ### DEPRECATED: Use `subType` instead
+    ///
+    pub const SubType = subType;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1ScreenAnnotation.html)
     ///
     /// ## Parameter(s):
@@ -6590,19 +8242,13 @@ pub const Poppler__ScreenAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.SubType `
     ///
-    pub fn SubType(self: Poppler__ScreenAnnotation) i32 {
+    pub fn subType(self: Poppler__ScreenAnnotation) i32 {
         return qtc.Poppler__ScreenAnnotation_SubType(@ptrCast(self.ptr));
     }
 
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1ScreenAnnotation.html)
+    /// ### DEPRECATED: Use `action` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__ScreenAnnotation `
-    ///
-    pub fn Action(self: Poppler__ScreenAnnotation) Poppler__LinkRendition {
-        return .{ .ptr = qtc.Poppler__ScreenAnnotation_Action(@ptrCast(self.ptr)) };
-    }
+    pub const Action = action;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1ScreenAnnotation.html)
     ///
@@ -6610,12 +8256,30 @@ pub const Poppler__ScreenAnnotation = extern struct {
     ///
     /// ` self: Poppler__ScreenAnnotation `
     ///
-    /// ` action: Poppler__LinkRendition `
-    ///
-    pub fn SetAction(self: Poppler__ScreenAnnotation, action: anytype) void {
-        comptime _ = @TypeOf(action)._is_Poppler__LinkRendition;
-        qtc.Poppler__ScreenAnnotation_SetAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
+    pub fn action(self: Poppler__ScreenAnnotation) Poppler__LinkRendition {
+        return .{ .ptr = qtc.Poppler__ScreenAnnotation_Action(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAction` instead
+    ///
+    pub const SetAction = setAction;
+
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1ScreenAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__ScreenAnnotation `
+    ///
+    /// ` _action: Poppler__LinkRendition `
+    ///
+    pub fn setAction(self: Poppler__ScreenAnnotation, _action: anytype) void {
+        comptime _ = @TypeOf(_action)._is_Poppler__LinkRendition;
+        qtc.Poppler__ScreenAnnotation_SetAction(@ptrCast(self.ptr), @ptrCast(_action.ptr));
+    }
+
+    /// ### DEPRECATED: Use `screenTitle` instead
+    ///
+    pub const ScreenTitle = screenTitle;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1ScreenAnnotation.html)
     ///
@@ -6625,13 +8289,17 @@ pub const Poppler__ScreenAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ScreenTitle(self: Poppler__ScreenAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn screenTitle(self: Poppler__ScreenAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__ScreenAnnotation_ScreenTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__ScreenAnnotation.ScreenTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__ScreenAnnotation.screenTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setScreenTitle` instead
+    ///
+    pub const SetScreenTitle = setScreenTitle;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1ScreenAnnotation.html)
     ///
@@ -6641,13 +8309,17 @@ pub const Poppler__ScreenAnnotation = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn SetScreenTitle(self: Poppler__ScreenAnnotation, title: []const u8) void {
+    pub fn setScreenTitle(self: Poppler__ScreenAnnotation, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.Poppler__ScreenAnnotation_SetScreenTitle(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `additionalAction` instead
+    ///
+    pub const AdditionalAction = additionalAction;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1ScreenAnnotation.html)
     ///
@@ -6657,9 +8329,13 @@ pub const Poppler__ScreenAnnotation = extern struct {
     ///
     /// ` typeVal: poppler_annotation_enums.AdditionalActionType `
     ///
-    pub fn AdditionalAction(self: Poppler__ScreenAnnotation, typeVal: i32) Poppler__Link {
+    pub fn additionalAction(self: Poppler__ScreenAnnotation, typeVal: i32) Poppler__Link {
         return .{ .ptr = qtc.Poppler__ScreenAnnotation_AdditionalAction(@ptrCast(self.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `author` instead
+    ///
+    pub const Author = author;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -6671,13 +8347,17 @@ pub const Poppler__ScreenAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Author(self: Poppler__ScreenAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn author(self: Poppler__ScreenAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Author(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__ScreenAnnotation.Author: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__ScreenAnnotation.author: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAuthor` instead
+    ///
+    pub const SetAuthor = setAuthor;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -6687,16 +8367,20 @@ pub const Poppler__ScreenAnnotation = extern struct {
     ///
     /// ` self: Poppler__ScreenAnnotation `
     ///
-    /// ` author: []const u8 `
+    /// ` _author: []const u8 `
     ///
-    pub fn SetAuthor(self: Poppler__ScreenAnnotation, author: []const u8) void {
+    pub fn setAuthor(self: Poppler__ScreenAnnotation, _author: []const u8) void {
         const author_str = qtc.libqt_string{
-            .len = author.len,
-            .data = author.ptr,
+            .len = _author.len,
+            .data = _author.ptr,
         };
         qtc.Poppler__Annotation_SetAuthor(@ptrCast(self.ptr), author_str);
     }
 
+    /// ### DEPRECATED: Use `contents` instead
+    ///
+    pub const Contents = contents;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1ScreenAnnotation.html)
@@ -6707,13 +8391,17 @@ pub const Poppler__ScreenAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Contents(self: Poppler__ScreenAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn contents(self: Poppler__ScreenAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Contents(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__ScreenAnnotation.Contents: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__ScreenAnnotation.contents: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setContents` instead
+    ///
+    pub const SetContents = setContents;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -6723,16 +8411,20 @@ pub const Poppler__ScreenAnnotation = extern struct {
     ///
     /// ` self: Poppler__ScreenAnnotation `
     ///
-    /// ` contents: []const u8 `
+    /// ` _contents: []const u8 `
     ///
-    pub fn SetContents(self: Poppler__ScreenAnnotation, contents: []const u8) void {
+    pub fn setContents(self: Poppler__ScreenAnnotation, _contents: []const u8) void {
         const contents_str = qtc.libqt_string{
-            .len = contents.len,
-            .data = contents.ptr,
+            .len = _contents.len,
+            .data = _contents.ptr,
         };
         qtc.Poppler__Annotation_SetContents(@ptrCast(self.ptr), contents_str);
     }
 
+    /// ### DEPRECATED: Use `uniqueName` instead
+    ///
+    pub const UniqueName = uniqueName;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1ScreenAnnotation.html)
@@ -6743,14 +8435,18 @@ pub const Poppler__ScreenAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UniqueName(self: Poppler__ScreenAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn uniqueName(self: Poppler__ScreenAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_UniqueName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__ScreenAnnotation.UniqueName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__ScreenAnnotation.uniqueName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `setUniqueName` instead
+    ///
+    pub const SetUniqueName = setUniqueName;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1ScreenAnnotation.html)
@@ -6759,16 +8455,20 @@ pub const Poppler__ScreenAnnotation = extern struct {
     ///
     /// ` self: Poppler__ScreenAnnotation `
     ///
-    /// ` uniqueName: []const u8 `
+    /// ` _uniqueName: []const u8 `
     ///
-    pub fn SetUniqueName(self: Poppler__ScreenAnnotation, uniqueName: []const u8) void {
+    pub fn setUniqueName(self: Poppler__ScreenAnnotation, _uniqueName: []const u8) void {
         const uniqueName_str = qtc.libqt_string{
-            .len = uniqueName.len,
-            .data = uniqueName.ptr,
+            .len = _uniqueName.len,
+            .data = _uniqueName.ptr,
         };
         qtc.Poppler__Annotation_SetUniqueName(@ptrCast(self.ptr), uniqueName_str);
     }
 
+    /// ### DEPRECATED: Use `modificationDate` instead
+    ///
+    pub const ModificationDate = modificationDate;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1ScreenAnnotation.html)
@@ -6777,9 +8477,13 @@ pub const Poppler__ScreenAnnotation = extern struct {
     ///
     /// ` self: Poppler__ScreenAnnotation `
     ///
-    pub fn ModificationDate(self: Poppler__ScreenAnnotation) QDateTime {
+    pub fn modificationDate(self: Poppler__ScreenAnnotation) QDateTime {
         return .{ .ptr = qtc.Poppler__Annotation_ModificationDate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setModificationDate` instead
+    ///
+    pub const SetModificationDate = setModificationDate;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -6791,11 +8495,15 @@ pub const Poppler__ScreenAnnotation = extern struct {
     ///
     /// ` date: QDateTime `
     ///
-    pub fn SetModificationDate(self: Poppler__ScreenAnnotation, date: anytype) void {
+    pub fn setModificationDate(self: Poppler__ScreenAnnotation, date: anytype) void {
         comptime _ = @TypeOf(date)._is_QDateTime;
         qtc.Poppler__Annotation_SetModificationDate(@ptrCast(self.ptr), @ptrCast(date.ptr));
     }
 
+    /// ### DEPRECATED: Use `creationDate` instead
+    ///
+    pub const CreationDate = creationDate;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1ScreenAnnotation.html)
@@ -6804,9 +8512,13 @@ pub const Poppler__ScreenAnnotation = extern struct {
     ///
     /// ` self: Poppler__ScreenAnnotation `
     ///
-    pub fn CreationDate(self: Poppler__ScreenAnnotation) QDateTime {
+    pub fn creationDate(self: Poppler__ScreenAnnotation) QDateTime {
         return .{ .ptr = qtc.Poppler__Annotation_CreationDate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCreationDate` instead
+    ///
+    pub const SetCreationDate = setCreationDate;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -6818,10 +8530,14 @@ pub const Poppler__ScreenAnnotation = extern struct {
     ///
     /// ` date: QDateTime `
     ///
-    pub fn SetCreationDate(self: Poppler__ScreenAnnotation, date: anytype) void {
+    pub fn setCreationDate(self: Poppler__ScreenAnnotation, date: anytype) void {
         comptime _ = @TypeOf(date)._is_QDateTime;
         qtc.Poppler__Annotation_SetCreationDate(@ptrCast(self.ptr), @ptrCast(date.ptr));
     }
+
+    /// ### DEPRECATED: Use `flags` instead
+    ///
+    pub const Flags = flags;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -6835,23 +8551,13 @@ pub const Poppler__ScreenAnnotation = extern struct {
     ///
     /// ` flag of poppler_annotation_enums.Flag `
     ///
-    pub fn Flags(self: Poppler__ScreenAnnotation) i32 {
+    pub fn flags(self: Poppler__ScreenAnnotation) i32 {
         return qtc.Poppler__Annotation_Flags(@ptrCast(self.ptr));
     }
 
-    /// Inherited from Poppler::Annotation
+    /// ### DEPRECATED: Use `setFlags` instead
     ///
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1ScreenAnnotation.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__ScreenAnnotation `
-    ///
-    /// ` flags: flag of poppler_annotation_enums.Flag `
-    ///
-    pub fn SetFlags(self: Poppler__ScreenAnnotation, flags: i32) void {
-        qtc.Poppler__Annotation_SetFlags(@ptrCast(self.ptr), @bitCast(flags));
-    }
+    pub const SetFlags = setFlags;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -6861,24 +8567,31 @@ pub const Poppler__ScreenAnnotation = extern struct {
     ///
     /// ` self: Poppler__ScreenAnnotation `
     ///
-    pub fn Boundary(self: Poppler__ScreenAnnotation) QRectF {
+    /// ` _flags: flag of poppler_annotation_enums.Flag `
+    ///
+    pub fn setFlags(self: Poppler__ScreenAnnotation, _flags: i32) void {
+        qtc.Poppler__Annotation_SetFlags(@ptrCast(self.ptr), @bitCast(_flags));
+    }
+
+    /// ### DEPRECATED: Use `boundary` instead
+    ///
+    pub const Boundary = boundary;
+
+    /// Inherited from Poppler::Annotation
+    ///
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1ScreenAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__ScreenAnnotation `
+    ///
+    pub fn boundary(self: Poppler__ScreenAnnotation) QRectF {
         return .{ .ptr = qtc.Poppler__Annotation_Boundary(@ptrCast(self.ptr)) };
     }
 
-    /// Inherited from Poppler::Annotation
+    /// ### DEPRECATED: Use `setBoundary` instead
     ///
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1ScreenAnnotation.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__ScreenAnnotation `
-    ///
-    /// ` boundary: QRectF `
-    ///
-    pub fn SetBoundary(self: Poppler__ScreenAnnotation, boundary: anytype) void {
-        comptime _ = @TypeOf(boundary)._is_QRectF;
-        qtc.Poppler__Annotation_SetBoundary(@ptrCast(self.ptr), @ptrCast(boundary.ptr));
-    }
+    pub const SetBoundary = setBoundary;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -6888,24 +8601,32 @@ pub const Poppler__ScreenAnnotation = extern struct {
     ///
     /// ` self: Poppler__ScreenAnnotation `
     ///
-    pub fn Style(self: Poppler__ScreenAnnotation) Poppler__Annotation__Style {
+    /// ` _boundary: QRectF `
+    ///
+    pub fn setBoundary(self: Poppler__ScreenAnnotation, _boundary: anytype) void {
+        comptime _ = @TypeOf(_boundary)._is_QRectF;
+        qtc.Poppler__Annotation_SetBoundary(@ptrCast(self.ptr), @ptrCast(_boundary.ptr));
+    }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
+
+    /// Inherited from Poppler::Annotation
+    ///
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1ScreenAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__ScreenAnnotation `
+    ///
+    pub fn style(self: Poppler__ScreenAnnotation) Poppler__Annotation__Style {
         return .{ .ptr = qtc.Poppler__Annotation_Style(@ptrCast(self.ptr)) };
     }
 
-    /// Inherited from Poppler::Annotation
+    /// ### DEPRECATED: Use `setStyle` instead
     ///
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1ScreenAnnotation.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__ScreenAnnotation `
-    ///
-    /// ` style: Poppler__Annotation__Style `
-    ///
-    pub fn SetStyle(self: Poppler__ScreenAnnotation, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_Poppler__Annotation__Style;
-        qtc.Poppler__Annotation_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
-    }
+    pub const SetStyle = setStyle;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -6915,10 +8636,33 @@ pub const Poppler__ScreenAnnotation = extern struct {
     ///
     /// ` self: Poppler__ScreenAnnotation `
     ///
-    pub fn Popup(self: Poppler__ScreenAnnotation) Poppler__Annotation__Popup {
+    /// ` _style: Poppler__Annotation__Style `
+    ///
+    pub fn setStyle(self: Poppler__ScreenAnnotation, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_Poppler__Annotation__Style;
+        qtc.Poppler__Annotation_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
+    }
+
+    /// ### DEPRECATED: Use `popup` instead
+    ///
+    pub const Popup = popup;
+
+    /// Inherited from Poppler::Annotation
+    ///
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1ScreenAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__ScreenAnnotation `
+    ///
+    pub fn popup(self: Poppler__ScreenAnnotation) Poppler__Annotation__Popup {
         return .{ .ptr = qtc.Poppler__Annotation_Popup(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setPopup` instead
+    ///
+    pub const SetPopup = setPopup;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1ScreenAnnotation.html)
@@ -6927,12 +8671,16 @@ pub const Poppler__ScreenAnnotation = extern struct {
     ///
     /// ` self: Poppler__ScreenAnnotation `
     ///
-    /// ` popup: Poppler__Annotation__Popup `
+    /// ` _popup: Poppler__Annotation__Popup `
     ///
-    pub fn SetPopup(self: Poppler__ScreenAnnotation, popup: anytype) void {
-        comptime _ = @TypeOf(popup)._is_Poppler__Annotation__Popup;
-        qtc.Poppler__Annotation_SetPopup(@ptrCast(self.ptr), @ptrCast(popup.ptr));
+    pub fn setPopup(self: Poppler__ScreenAnnotation, _popup: anytype) void {
+        comptime _ = @TypeOf(_popup)._is_Poppler__Annotation__Popup;
+        qtc.Poppler__Annotation_SetPopup(@ptrCast(self.ptr), @ptrCast(_popup.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisionScope` instead
+    ///
+    pub const RevisionScope = revisionScope;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -6946,9 +8694,13 @@ pub const Poppler__ScreenAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.RevScope `
     ///
-    pub fn RevisionScope(self: Poppler__ScreenAnnotation) i32 {
+    pub fn revisionScope(self: Poppler__ScreenAnnotation) i32 {
         return qtc.Poppler__Annotation_RevisionScope(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisionType` instead
+    ///
+    pub const RevisionType = revisionType;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -6962,9 +8714,13 @@ pub const Poppler__ScreenAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.RevType `
     ///
-    pub fn RevisionType(self: Poppler__ScreenAnnotation) i32 {
+    pub fn revisionType(self: Poppler__ScreenAnnotation) i32 {
         return qtc.Poppler__Annotation_RevisionType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisions` instead
+    ///
+    pub const Revisions = revisions;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -6976,16 +8732,20 @@ pub const Poppler__ScreenAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Revisions(self: Poppler__ScreenAnnotation, allocator: std.mem.Allocator) []Poppler__Annotation {
+    pub fn revisions(self: Poppler__ScreenAnnotation, allocator: std.mem.Allocator) []Poppler__Annotation {
         const _arr: qtc.libqt_list = qtc.Poppler__Annotation_Revisions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__ScreenAnnotation.Revisions: Memory allocation failed");
-        const _data: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__ScreenAnnotation.revisions: Memory allocation failed");
+        const _data_val: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `annotationAppearance` instead
+    ///
+    pub const AnnotationAppearance = annotationAppearance;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1ScreenAnnotation.html)
@@ -6994,10 +8754,14 @@ pub const Poppler__ScreenAnnotation = extern struct {
     ///
     /// ` self: Poppler__ScreenAnnotation `
     ///
-    pub fn AnnotationAppearance(self: Poppler__ScreenAnnotation) Poppler__AnnotationAppearance {
+    pub fn annotationAppearance(self: Poppler__ScreenAnnotation) Poppler__AnnotationAppearance {
         return .{ .ptr = qtc.Poppler__Annotation_AnnotationAppearance(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setAnnotationAppearance` instead
+    ///
+    pub const SetAnnotationAppearance = setAnnotationAppearance;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1ScreenAnnotation.html)
@@ -7006,26 +8770,26 @@ pub const Poppler__ScreenAnnotation = extern struct {
     ///
     /// ` self: Poppler__ScreenAnnotation `
     ///
-    /// ` annotationAppearance: Poppler__AnnotationAppearance `
+    /// ` _annotationAppearance: Poppler__AnnotationAppearance `
     ///
-    pub fn SetAnnotationAppearance(self: Poppler__ScreenAnnotation, annotationAppearance: anytype) void {
-        comptime _ = @TypeOf(annotationAppearance)._is_Poppler__AnnotationAppearance;
-        qtc.Poppler__Annotation_SetAnnotationAppearance(@ptrCast(self.ptr), @ptrCast(annotationAppearance.ptr));
+    pub fn setAnnotationAppearance(self: Poppler__ScreenAnnotation, _annotationAppearance: anytype) void {
+        comptime _ = @TypeOf(_annotationAppearance)._is_Poppler__AnnotationAppearance;
+        qtc.Poppler__Annotation_SetAnnotationAppearance(@ptrCast(self.ptr), @ptrCast(_annotationAppearance.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1ScreenAnnotation.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Poppler__ScreenAnnotation `
     ///
-    pub fn Delete(self: Poppler__ScreenAnnotation) void {
+    pub fn delete(self: Poppler__ScreenAnnotation) void {
         qtc.Poppler__ScreenAnnotation_Delete(@ptrCast(self.ptr));
     }
 };
@@ -7041,6 +8805,10 @@ pub const Poppler__WidgetAnnotation = extern struct {
     pub const _is_Poppler__WidgetAnnotation = {};
     pub const _is_Poppler__Annotation = {};
 
+    /// ### DEPRECATED: Use `subType` instead
+    ///
+    pub const SubType = subType;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1WidgetAnnotation.html)
     ///
     /// ## Parameter(s):
@@ -7051,9 +8819,13 @@ pub const Poppler__WidgetAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.SubType `
     ///
-    pub fn SubType(self: Poppler__WidgetAnnotation) i32 {
+    pub fn subType(self: Poppler__WidgetAnnotation) i32 {
         return qtc.Poppler__WidgetAnnotation_SubType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `additionalAction` instead
+    ///
+    pub const AdditionalAction = additionalAction;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1WidgetAnnotation.html)
     ///
@@ -7063,9 +8835,13 @@ pub const Poppler__WidgetAnnotation = extern struct {
     ///
     /// ` typeVal: poppler_annotation_enums.AdditionalActionType `
     ///
-    pub fn AdditionalAction(self: Poppler__WidgetAnnotation, typeVal: i32) Poppler__Link {
+    pub fn additionalAction(self: Poppler__WidgetAnnotation, typeVal: i32) Poppler__Link {
         return .{ .ptr = qtc.Poppler__WidgetAnnotation_AdditionalAction(@ptrCast(self.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `author` instead
+    ///
+    pub const Author = author;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -7077,13 +8853,17 @@ pub const Poppler__WidgetAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Author(self: Poppler__WidgetAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn author(self: Poppler__WidgetAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Author(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__WidgetAnnotation.Author: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__WidgetAnnotation.author: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAuthor` instead
+    ///
+    pub const SetAuthor = setAuthor;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -7093,16 +8873,20 @@ pub const Poppler__WidgetAnnotation = extern struct {
     ///
     /// ` self: Poppler__WidgetAnnotation `
     ///
-    /// ` author: []const u8 `
+    /// ` _author: []const u8 `
     ///
-    pub fn SetAuthor(self: Poppler__WidgetAnnotation, author: []const u8) void {
+    pub fn setAuthor(self: Poppler__WidgetAnnotation, _author: []const u8) void {
         const author_str = qtc.libqt_string{
-            .len = author.len,
-            .data = author.ptr,
+            .len = _author.len,
+            .data = _author.ptr,
         };
         qtc.Poppler__Annotation_SetAuthor(@ptrCast(self.ptr), author_str);
     }
 
+    /// ### DEPRECATED: Use `contents` instead
+    ///
+    pub const Contents = contents;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1WidgetAnnotation.html)
@@ -7113,13 +8897,17 @@ pub const Poppler__WidgetAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Contents(self: Poppler__WidgetAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn contents(self: Poppler__WidgetAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Contents(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__WidgetAnnotation.Contents: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__WidgetAnnotation.contents: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setContents` instead
+    ///
+    pub const SetContents = setContents;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -7129,16 +8917,20 @@ pub const Poppler__WidgetAnnotation = extern struct {
     ///
     /// ` self: Poppler__WidgetAnnotation `
     ///
-    /// ` contents: []const u8 `
+    /// ` _contents: []const u8 `
     ///
-    pub fn SetContents(self: Poppler__WidgetAnnotation, contents: []const u8) void {
+    pub fn setContents(self: Poppler__WidgetAnnotation, _contents: []const u8) void {
         const contents_str = qtc.libqt_string{
-            .len = contents.len,
-            .data = contents.ptr,
+            .len = _contents.len,
+            .data = _contents.ptr,
         };
         qtc.Poppler__Annotation_SetContents(@ptrCast(self.ptr), contents_str);
     }
 
+    /// ### DEPRECATED: Use `uniqueName` instead
+    ///
+    pub const UniqueName = uniqueName;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1WidgetAnnotation.html)
@@ -7149,14 +8941,18 @@ pub const Poppler__WidgetAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UniqueName(self: Poppler__WidgetAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn uniqueName(self: Poppler__WidgetAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_UniqueName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__WidgetAnnotation.UniqueName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__WidgetAnnotation.uniqueName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `setUniqueName` instead
+    ///
+    pub const SetUniqueName = setUniqueName;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1WidgetAnnotation.html)
@@ -7165,16 +8961,20 @@ pub const Poppler__WidgetAnnotation = extern struct {
     ///
     /// ` self: Poppler__WidgetAnnotation `
     ///
-    /// ` uniqueName: []const u8 `
+    /// ` _uniqueName: []const u8 `
     ///
-    pub fn SetUniqueName(self: Poppler__WidgetAnnotation, uniqueName: []const u8) void {
+    pub fn setUniqueName(self: Poppler__WidgetAnnotation, _uniqueName: []const u8) void {
         const uniqueName_str = qtc.libqt_string{
-            .len = uniqueName.len,
-            .data = uniqueName.ptr,
+            .len = _uniqueName.len,
+            .data = _uniqueName.ptr,
         };
         qtc.Poppler__Annotation_SetUniqueName(@ptrCast(self.ptr), uniqueName_str);
     }
 
+    /// ### DEPRECATED: Use `modificationDate` instead
+    ///
+    pub const ModificationDate = modificationDate;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1WidgetAnnotation.html)
@@ -7183,9 +8983,13 @@ pub const Poppler__WidgetAnnotation = extern struct {
     ///
     /// ` self: Poppler__WidgetAnnotation `
     ///
-    pub fn ModificationDate(self: Poppler__WidgetAnnotation) QDateTime {
+    pub fn modificationDate(self: Poppler__WidgetAnnotation) QDateTime {
         return .{ .ptr = qtc.Poppler__Annotation_ModificationDate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setModificationDate` instead
+    ///
+    pub const SetModificationDate = setModificationDate;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -7197,11 +9001,15 @@ pub const Poppler__WidgetAnnotation = extern struct {
     ///
     /// ` date: QDateTime `
     ///
-    pub fn SetModificationDate(self: Poppler__WidgetAnnotation, date: anytype) void {
+    pub fn setModificationDate(self: Poppler__WidgetAnnotation, date: anytype) void {
         comptime _ = @TypeOf(date)._is_QDateTime;
         qtc.Poppler__Annotation_SetModificationDate(@ptrCast(self.ptr), @ptrCast(date.ptr));
     }
 
+    /// ### DEPRECATED: Use `creationDate` instead
+    ///
+    pub const CreationDate = creationDate;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1WidgetAnnotation.html)
@@ -7210,9 +9018,13 @@ pub const Poppler__WidgetAnnotation = extern struct {
     ///
     /// ` self: Poppler__WidgetAnnotation `
     ///
-    pub fn CreationDate(self: Poppler__WidgetAnnotation) QDateTime {
+    pub fn creationDate(self: Poppler__WidgetAnnotation) QDateTime {
         return .{ .ptr = qtc.Poppler__Annotation_CreationDate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCreationDate` instead
+    ///
+    pub const SetCreationDate = setCreationDate;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -7224,10 +9036,14 @@ pub const Poppler__WidgetAnnotation = extern struct {
     ///
     /// ` date: QDateTime `
     ///
-    pub fn SetCreationDate(self: Poppler__WidgetAnnotation, date: anytype) void {
+    pub fn setCreationDate(self: Poppler__WidgetAnnotation, date: anytype) void {
         comptime _ = @TypeOf(date)._is_QDateTime;
         qtc.Poppler__Annotation_SetCreationDate(@ptrCast(self.ptr), @ptrCast(date.ptr));
     }
+
+    /// ### DEPRECATED: Use `flags` instead
+    ///
+    pub const Flags = flags;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -7241,23 +9057,13 @@ pub const Poppler__WidgetAnnotation = extern struct {
     ///
     /// ` flag of poppler_annotation_enums.Flag `
     ///
-    pub fn Flags(self: Poppler__WidgetAnnotation) i32 {
+    pub fn flags(self: Poppler__WidgetAnnotation) i32 {
         return qtc.Poppler__Annotation_Flags(@ptrCast(self.ptr));
     }
 
-    /// Inherited from Poppler::Annotation
+    /// ### DEPRECATED: Use `setFlags` instead
     ///
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1WidgetAnnotation.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__WidgetAnnotation `
-    ///
-    /// ` flags: flag of poppler_annotation_enums.Flag `
-    ///
-    pub fn SetFlags(self: Poppler__WidgetAnnotation, flags: i32) void {
-        qtc.Poppler__Annotation_SetFlags(@ptrCast(self.ptr), @bitCast(flags));
-    }
+    pub const SetFlags = setFlags;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -7267,24 +9073,31 @@ pub const Poppler__WidgetAnnotation = extern struct {
     ///
     /// ` self: Poppler__WidgetAnnotation `
     ///
-    pub fn Boundary(self: Poppler__WidgetAnnotation) QRectF {
+    /// ` _flags: flag of poppler_annotation_enums.Flag `
+    ///
+    pub fn setFlags(self: Poppler__WidgetAnnotation, _flags: i32) void {
+        qtc.Poppler__Annotation_SetFlags(@ptrCast(self.ptr), @bitCast(_flags));
+    }
+
+    /// ### DEPRECATED: Use `boundary` instead
+    ///
+    pub const Boundary = boundary;
+
+    /// Inherited from Poppler::Annotation
+    ///
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1WidgetAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__WidgetAnnotation `
+    ///
+    pub fn boundary(self: Poppler__WidgetAnnotation) QRectF {
         return .{ .ptr = qtc.Poppler__Annotation_Boundary(@ptrCast(self.ptr)) };
     }
 
-    /// Inherited from Poppler::Annotation
+    /// ### DEPRECATED: Use `setBoundary` instead
     ///
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1WidgetAnnotation.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__WidgetAnnotation `
-    ///
-    /// ` boundary: QRectF `
-    ///
-    pub fn SetBoundary(self: Poppler__WidgetAnnotation, boundary: anytype) void {
-        comptime _ = @TypeOf(boundary)._is_QRectF;
-        qtc.Poppler__Annotation_SetBoundary(@ptrCast(self.ptr), @ptrCast(boundary.ptr));
-    }
+    pub const SetBoundary = setBoundary;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -7294,24 +9107,32 @@ pub const Poppler__WidgetAnnotation = extern struct {
     ///
     /// ` self: Poppler__WidgetAnnotation `
     ///
-    pub fn Style(self: Poppler__WidgetAnnotation) Poppler__Annotation__Style {
+    /// ` _boundary: QRectF `
+    ///
+    pub fn setBoundary(self: Poppler__WidgetAnnotation, _boundary: anytype) void {
+        comptime _ = @TypeOf(_boundary)._is_QRectF;
+        qtc.Poppler__Annotation_SetBoundary(@ptrCast(self.ptr), @ptrCast(_boundary.ptr));
+    }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
+
+    /// Inherited from Poppler::Annotation
+    ///
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1WidgetAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__WidgetAnnotation `
+    ///
+    pub fn style(self: Poppler__WidgetAnnotation) Poppler__Annotation__Style {
         return .{ .ptr = qtc.Poppler__Annotation_Style(@ptrCast(self.ptr)) };
     }
 
-    /// Inherited from Poppler::Annotation
+    /// ### DEPRECATED: Use `setStyle` instead
     ///
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1WidgetAnnotation.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__WidgetAnnotation `
-    ///
-    /// ` style: Poppler__Annotation__Style `
-    ///
-    pub fn SetStyle(self: Poppler__WidgetAnnotation, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_Poppler__Annotation__Style;
-        qtc.Poppler__Annotation_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
-    }
+    pub const SetStyle = setStyle;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -7321,10 +9142,33 @@ pub const Poppler__WidgetAnnotation = extern struct {
     ///
     /// ` self: Poppler__WidgetAnnotation `
     ///
-    pub fn Popup(self: Poppler__WidgetAnnotation) Poppler__Annotation__Popup {
+    /// ` _style: Poppler__Annotation__Style `
+    ///
+    pub fn setStyle(self: Poppler__WidgetAnnotation, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_Poppler__Annotation__Style;
+        qtc.Poppler__Annotation_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
+    }
+
+    /// ### DEPRECATED: Use `popup` instead
+    ///
+    pub const Popup = popup;
+
+    /// Inherited from Poppler::Annotation
+    ///
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1WidgetAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__WidgetAnnotation `
+    ///
+    pub fn popup(self: Poppler__WidgetAnnotation) Poppler__Annotation__Popup {
         return .{ .ptr = qtc.Poppler__Annotation_Popup(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setPopup` instead
+    ///
+    pub const SetPopup = setPopup;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1WidgetAnnotation.html)
@@ -7333,12 +9177,16 @@ pub const Poppler__WidgetAnnotation = extern struct {
     ///
     /// ` self: Poppler__WidgetAnnotation `
     ///
-    /// ` popup: Poppler__Annotation__Popup `
+    /// ` _popup: Poppler__Annotation__Popup `
     ///
-    pub fn SetPopup(self: Poppler__WidgetAnnotation, popup: anytype) void {
-        comptime _ = @TypeOf(popup)._is_Poppler__Annotation__Popup;
-        qtc.Poppler__Annotation_SetPopup(@ptrCast(self.ptr), @ptrCast(popup.ptr));
+    pub fn setPopup(self: Poppler__WidgetAnnotation, _popup: anytype) void {
+        comptime _ = @TypeOf(_popup)._is_Poppler__Annotation__Popup;
+        qtc.Poppler__Annotation_SetPopup(@ptrCast(self.ptr), @ptrCast(_popup.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisionScope` instead
+    ///
+    pub const RevisionScope = revisionScope;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -7352,9 +9200,13 @@ pub const Poppler__WidgetAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.RevScope `
     ///
-    pub fn RevisionScope(self: Poppler__WidgetAnnotation) i32 {
+    pub fn revisionScope(self: Poppler__WidgetAnnotation) i32 {
         return qtc.Poppler__Annotation_RevisionScope(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisionType` instead
+    ///
+    pub const RevisionType = revisionType;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -7368,9 +9220,13 @@ pub const Poppler__WidgetAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.RevType `
     ///
-    pub fn RevisionType(self: Poppler__WidgetAnnotation) i32 {
+    pub fn revisionType(self: Poppler__WidgetAnnotation) i32 {
         return qtc.Poppler__Annotation_RevisionType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisions` instead
+    ///
+    pub const Revisions = revisions;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -7382,16 +9238,20 @@ pub const Poppler__WidgetAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Revisions(self: Poppler__WidgetAnnotation, allocator: std.mem.Allocator) []Poppler__Annotation {
+    pub fn revisions(self: Poppler__WidgetAnnotation, allocator: std.mem.Allocator) []Poppler__Annotation {
         const _arr: qtc.libqt_list = qtc.Poppler__Annotation_Revisions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__WidgetAnnotation.Revisions: Memory allocation failed");
-        const _data: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__WidgetAnnotation.revisions: Memory allocation failed");
+        const _data_val: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `annotationAppearance` instead
+    ///
+    pub const AnnotationAppearance = annotationAppearance;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1WidgetAnnotation.html)
@@ -7400,10 +9260,14 @@ pub const Poppler__WidgetAnnotation = extern struct {
     ///
     /// ` self: Poppler__WidgetAnnotation `
     ///
-    pub fn AnnotationAppearance(self: Poppler__WidgetAnnotation) Poppler__AnnotationAppearance {
+    pub fn annotationAppearance(self: Poppler__WidgetAnnotation) Poppler__AnnotationAppearance {
         return .{ .ptr = qtc.Poppler__Annotation_AnnotationAppearance(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setAnnotationAppearance` instead
+    ///
+    pub const SetAnnotationAppearance = setAnnotationAppearance;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1WidgetAnnotation.html)
@@ -7412,26 +9276,26 @@ pub const Poppler__WidgetAnnotation = extern struct {
     ///
     /// ` self: Poppler__WidgetAnnotation `
     ///
-    /// ` annotationAppearance: Poppler__AnnotationAppearance `
+    /// ` _annotationAppearance: Poppler__AnnotationAppearance `
     ///
-    pub fn SetAnnotationAppearance(self: Poppler__WidgetAnnotation, annotationAppearance: anytype) void {
-        comptime _ = @TypeOf(annotationAppearance)._is_Poppler__AnnotationAppearance;
-        qtc.Poppler__Annotation_SetAnnotationAppearance(@ptrCast(self.ptr), @ptrCast(annotationAppearance.ptr));
+    pub fn setAnnotationAppearance(self: Poppler__WidgetAnnotation, _annotationAppearance: anytype) void {
+        comptime _ = @TypeOf(_annotationAppearance)._is_Poppler__AnnotationAppearance;
+        qtc.Poppler__Annotation_SetAnnotationAppearance(@ptrCast(self.ptr), @ptrCast(_annotationAppearance.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1WidgetAnnotation.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Poppler__WidgetAnnotation `
     ///
-    pub fn Delete(self: Poppler__WidgetAnnotation) void {
+    pub fn delete(self: Poppler__WidgetAnnotation) void {
         qtc.Poppler__WidgetAnnotation_Delete(@ptrCast(self.ptr));
     }
 };
@@ -7447,6 +9311,10 @@ pub const Poppler__RichMediaAnnotation = extern struct {
     pub const _is_Poppler__RichMediaAnnotation = {};
     pub const _is_Poppler__Annotation = {};
 
+    /// ### DEPRECATED: Use `subType` instead
+    ///
+    pub const SubType = subType;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1RichMediaAnnotation.html)
     ///
     /// ## Parameter(s):
@@ -7457,19 +9325,13 @@ pub const Poppler__RichMediaAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.SubType `
     ///
-    pub fn SubType(self: Poppler__RichMediaAnnotation) i32 {
+    pub fn subType(self: Poppler__RichMediaAnnotation) i32 {
         return qtc.Poppler__RichMediaAnnotation_SubType(@ptrCast(self.ptr));
     }
 
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1RichMediaAnnotation.html)
+    /// ### DEPRECATED: Use `settings` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__RichMediaAnnotation `
-    ///
-    pub fn Settings(self: Poppler__RichMediaAnnotation) Poppler__RichMediaAnnotation__Settings {
-        return .{ .ptr = qtc.Poppler__RichMediaAnnotation_Settings(@ptrCast(self.ptr)) };
-    }
+    pub const Settings = settings;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1RichMediaAnnotation.html)
     ///
@@ -7477,9 +9339,27 @@ pub const Poppler__RichMediaAnnotation = extern struct {
     ///
     /// ` self: Poppler__RichMediaAnnotation `
     ///
-    pub fn Content(self: Poppler__RichMediaAnnotation) Poppler__RichMediaAnnotation__Content {
+    pub fn settings(self: Poppler__RichMediaAnnotation) Poppler__RichMediaAnnotation__Settings {
+        return .{ .ptr = qtc.Poppler__RichMediaAnnotation_Settings(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `content` instead
+    ///
+    pub const Content = content;
+
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1RichMediaAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__RichMediaAnnotation `
+    ///
+    pub fn content(self: Poppler__RichMediaAnnotation) Poppler__RichMediaAnnotation__Content {
         return .{ .ptr = qtc.Poppler__RichMediaAnnotation_Content(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `author` instead
+    ///
+    pub const Author = author;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -7491,13 +9371,17 @@ pub const Poppler__RichMediaAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Author(self: Poppler__RichMediaAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn author(self: Poppler__RichMediaAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Author(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__RichMediaAnnotation.Author: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__RichMediaAnnotation.author: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAuthor` instead
+    ///
+    pub const SetAuthor = setAuthor;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -7507,16 +9391,20 @@ pub const Poppler__RichMediaAnnotation = extern struct {
     ///
     /// ` self: Poppler__RichMediaAnnotation `
     ///
-    /// ` author: []const u8 `
+    /// ` _author: []const u8 `
     ///
-    pub fn SetAuthor(self: Poppler__RichMediaAnnotation, author: []const u8) void {
+    pub fn setAuthor(self: Poppler__RichMediaAnnotation, _author: []const u8) void {
         const author_str = qtc.libqt_string{
-            .len = author.len,
-            .data = author.ptr,
+            .len = _author.len,
+            .data = _author.ptr,
         };
         qtc.Poppler__Annotation_SetAuthor(@ptrCast(self.ptr), author_str);
     }
 
+    /// ### DEPRECATED: Use `contents` instead
+    ///
+    pub const Contents = contents;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1RichMediaAnnotation.html)
@@ -7527,13 +9415,17 @@ pub const Poppler__RichMediaAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Contents(self: Poppler__RichMediaAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn contents(self: Poppler__RichMediaAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Contents(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__RichMediaAnnotation.Contents: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__RichMediaAnnotation.contents: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setContents` instead
+    ///
+    pub const SetContents = setContents;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -7543,16 +9435,20 @@ pub const Poppler__RichMediaAnnotation = extern struct {
     ///
     /// ` self: Poppler__RichMediaAnnotation `
     ///
-    /// ` contents: []const u8 `
+    /// ` _contents: []const u8 `
     ///
-    pub fn SetContents(self: Poppler__RichMediaAnnotation, contents: []const u8) void {
+    pub fn setContents(self: Poppler__RichMediaAnnotation, _contents: []const u8) void {
         const contents_str = qtc.libqt_string{
-            .len = contents.len,
-            .data = contents.ptr,
+            .len = _contents.len,
+            .data = _contents.ptr,
         };
         qtc.Poppler__Annotation_SetContents(@ptrCast(self.ptr), contents_str);
     }
 
+    /// ### DEPRECATED: Use `uniqueName` instead
+    ///
+    pub const UniqueName = uniqueName;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1RichMediaAnnotation.html)
@@ -7563,14 +9459,18 @@ pub const Poppler__RichMediaAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UniqueName(self: Poppler__RichMediaAnnotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn uniqueName(self: Poppler__RichMediaAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_UniqueName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__RichMediaAnnotation.UniqueName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__RichMediaAnnotation.uniqueName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `setUniqueName` instead
+    ///
+    pub const SetUniqueName = setUniqueName;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1RichMediaAnnotation.html)
@@ -7579,16 +9479,20 @@ pub const Poppler__RichMediaAnnotation = extern struct {
     ///
     /// ` self: Poppler__RichMediaAnnotation `
     ///
-    /// ` uniqueName: []const u8 `
+    /// ` _uniqueName: []const u8 `
     ///
-    pub fn SetUniqueName(self: Poppler__RichMediaAnnotation, uniqueName: []const u8) void {
+    pub fn setUniqueName(self: Poppler__RichMediaAnnotation, _uniqueName: []const u8) void {
         const uniqueName_str = qtc.libqt_string{
-            .len = uniqueName.len,
-            .data = uniqueName.ptr,
+            .len = _uniqueName.len,
+            .data = _uniqueName.ptr,
         };
         qtc.Poppler__Annotation_SetUniqueName(@ptrCast(self.ptr), uniqueName_str);
     }
 
+    /// ### DEPRECATED: Use `modificationDate` instead
+    ///
+    pub const ModificationDate = modificationDate;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1RichMediaAnnotation.html)
@@ -7597,9 +9501,13 @@ pub const Poppler__RichMediaAnnotation = extern struct {
     ///
     /// ` self: Poppler__RichMediaAnnotation `
     ///
-    pub fn ModificationDate(self: Poppler__RichMediaAnnotation) QDateTime {
+    pub fn modificationDate(self: Poppler__RichMediaAnnotation) QDateTime {
         return .{ .ptr = qtc.Poppler__Annotation_ModificationDate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setModificationDate` instead
+    ///
+    pub const SetModificationDate = setModificationDate;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -7611,11 +9519,15 @@ pub const Poppler__RichMediaAnnotation = extern struct {
     ///
     /// ` date: QDateTime `
     ///
-    pub fn SetModificationDate(self: Poppler__RichMediaAnnotation, date: anytype) void {
+    pub fn setModificationDate(self: Poppler__RichMediaAnnotation, date: anytype) void {
         comptime _ = @TypeOf(date)._is_QDateTime;
         qtc.Poppler__Annotation_SetModificationDate(@ptrCast(self.ptr), @ptrCast(date.ptr));
     }
 
+    /// ### DEPRECATED: Use `creationDate` instead
+    ///
+    pub const CreationDate = creationDate;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1RichMediaAnnotation.html)
@@ -7624,9 +9536,13 @@ pub const Poppler__RichMediaAnnotation = extern struct {
     ///
     /// ` self: Poppler__RichMediaAnnotation `
     ///
-    pub fn CreationDate(self: Poppler__RichMediaAnnotation) QDateTime {
+    pub fn creationDate(self: Poppler__RichMediaAnnotation) QDateTime {
         return .{ .ptr = qtc.Poppler__Annotation_CreationDate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCreationDate` instead
+    ///
+    pub const SetCreationDate = setCreationDate;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -7638,10 +9554,14 @@ pub const Poppler__RichMediaAnnotation = extern struct {
     ///
     /// ` date: QDateTime `
     ///
-    pub fn SetCreationDate(self: Poppler__RichMediaAnnotation, date: anytype) void {
+    pub fn setCreationDate(self: Poppler__RichMediaAnnotation, date: anytype) void {
         comptime _ = @TypeOf(date)._is_QDateTime;
         qtc.Poppler__Annotation_SetCreationDate(@ptrCast(self.ptr), @ptrCast(date.ptr));
     }
+
+    /// ### DEPRECATED: Use `flags` instead
+    ///
+    pub const Flags = flags;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -7655,23 +9575,13 @@ pub const Poppler__RichMediaAnnotation = extern struct {
     ///
     /// ` flag of poppler_annotation_enums.Flag `
     ///
-    pub fn Flags(self: Poppler__RichMediaAnnotation) i32 {
+    pub fn flags(self: Poppler__RichMediaAnnotation) i32 {
         return qtc.Poppler__Annotation_Flags(@ptrCast(self.ptr));
     }
 
-    /// Inherited from Poppler::Annotation
+    /// ### DEPRECATED: Use `setFlags` instead
     ///
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1RichMediaAnnotation.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__RichMediaAnnotation `
-    ///
-    /// ` flags: flag of poppler_annotation_enums.Flag `
-    ///
-    pub fn SetFlags(self: Poppler__RichMediaAnnotation, flags: i32) void {
-        qtc.Poppler__Annotation_SetFlags(@ptrCast(self.ptr), @bitCast(flags));
-    }
+    pub const SetFlags = setFlags;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -7681,24 +9591,31 @@ pub const Poppler__RichMediaAnnotation = extern struct {
     ///
     /// ` self: Poppler__RichMediaAnnotation `
     ///
-    pub fn Boundary(self: Poppler__RichMediaAnnotation) QRectF {
+    /// ` _flags: flag of poppler_annotation_enums.Flag `
+    ///
+    pub fn setFlags(self: Poppler__RichMediaAnnotation, _flags: i32) void {
+        qtc.Poppler__Annotation_SetFlags(@ptrCast(self.ptr), @bitCast(_flags));
+    }
+
+    /// ### DEPRECATED: Use `boundary` instead
+    ///
+    pub const Boundary = boundary;
+
+    /// Inherited from Poppler::Annotation
+    ///
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1RichMediaAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__RichMediaAnnotation `
+    ///
+    pub fn boundary(self: Poppler__RichMediaAnnotation) QRectF {
         return .{ .ptr = qtc.Poppler__Annotation_Boundary(@ptrCast(self.ptr)) };
     }
 
-    /// Inherited from Poppler::Annotation
+    /// ### DEPRECATED: Use `setBoundary` instead
     ///
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1RichMediaAnnotation.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__RichMediaAnnotation `
-    ///
-    /// ` boundary: QRectF `
-    ///
-    pub fn SetBoundary(self: Poppler__RichMediaAnnotation, boundary: anytype) void {
-        comptime _ = @TypeOf(boundary)._is_QRectF;
-        qtc.Poppler__Annotation_SetBoundary(@ptrCast(self.ptr), @ptrCast(boundary.ptr));
-    }
+    pub const SetBoundary = setBoundary;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -7708,24 +9625,32 @@ pub const Poppler__RichMediaAnnotation = extern struct {
     ///
     /// ` self: Poppler__RichMediaAnnotation `
     ///
-    pub fn Style(self: Poppler__RichMediaAnnotation) Poppler__Annotation__Style {
+    /// ` _boundary: QRectF `
+    ///
+    pub fn setBoundary(self: Poppler__RichMediaAnnotation, _boundary: anytype) void {
+        comptime _ = @TypeOf(_boundary)._is_QRectF;
+        qtc.Poppler__Annotation_SetBoundary(@ptrCast(self.ptr), @ptrCast(_boundary.ptr));
+    }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
+
+    /// Inherited from Poppler::Annotation
+    ///
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1RichMediaAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__RichMediaAnnotation `
+    ///
+    pub fn style(self: Poppler__RichMediaAnnotation) Poppler__Annotation__Style {
         return .{ .ptr = qtc.Poppler__Annotation_Style(@ptrCast(self.ptr)) };
     }
 
-    /// Inherited from Poppler::Annotation
+    /// ### DEPRECATED: Use `setStyle` instead
     ///
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1RichMediaAnnotation.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__RichMediaAnnotation `
-    ///
-    /// ` style: Poppler__Annotation__Style `
-    ///
-    pub fn SetStyle(self: Poppler__RichMediaAnnotation, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_Poppler__Annotation__Style;
-        qtc.Poppler__Annotation_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
-    }
+    pub const SetStyle = setStyle;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -7735,10 +9660,33 @@ pub const Poppler__RichMediaAnnotation = extern struct {
     ///
     /// ` self: Poppler__RichMediaAnnotation `
     ///
-    pub fn Popup(self: Poppler__RichMediaAnnotation) Poppler__Annotation__Popup {
+    /// ` _style: Poppler__Annotation__Style `
+    ///
+    pub fn setStyle(self: Poppler__RichMediaAnnotation, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_Poppler__Annotation__Style;
+        qtc.Poppler__Annotation_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
+    }
+
+    /// ### DEPRECATED: Use `popup` instead
+    ///
+    pub const Popup = popup;
+
+    /// Inherited from Poppler::Annotation
+    ///
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1RichMediaAnnotation.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__RichMediaAnnotation `
+    ///
+    pub fn popup(self: Poppler__RichMediaAnnotation) Poppler__Annotation__Popup {
         return .{ .ptr = qtc.Poppler__Annotation_Popup(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setPopup` instead
+    ///
+    pub const SetPopup = setPopup;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1RichMediaAnnotation.html)
@@ -7747,12 +9695,16 @@ pub const Poppler__RichMediaAnnotation = extern struct {
     ///
     /// ` self: Poppler__RichMediaAnnotation `
     ///
-    /// ` popup: Poppler__Annotation__Popup `
+    /// ` _popup: Poppler__Annotation__Popup `
     ///
-    pub fn SetPopup(self: Poppler__RichMediaAnnotation, popup: anytype) void {
-        comptime _ = @TypeOf(popup)._is_Poppler__Annotation__Popup;
-        qtc.Poppler__Annotation_SetPopup(@ptrCast(self.ptr), @ptrCast(popup.ptr));
+    pub fn setPopup(self: Poppler__RichMediaAnnotation, _popup: anytype) void {
+        comptime _ = @TypeOf(_popup)._is_Poppler__Annotation__Popup;
+        qtc.Poppler__Annotation_SetPopup(@ptrCast(self.ptr), @ptrCast(_popup.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisionScope` instead
+    ///
+    pub const RevisionScope = revisionScope;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -7766,9 +9718,13 @@ pub const Poppler__RichMediaAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.RevScope `
     ///
-    pub fn RevisionScope(self: Poppler__RichMediaAnnotation) i32 {
+    pub fn revisionScope(self: Poppler__RichMediaAnnotation) i32 {
         return qtc.Poppler__Annotation_RevisionScope(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisionType` instead
+    ///
+    pub const RevisionType = revisionType;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -7782,9 +9738,13 @@ pub const Poppler__RichMediaAnnotation = extern struct {
     ///
     /// ` poppler_annotation_enums.RevType `
     ///
-    pub fn RevisionType(self: Poppler__RichMediaAnnotation) i32 {
+    pub fn revisionType(self: Poppler__RichMediaAnnotation) i32 {
         return qtc.Poppler__Annotation_RevisionType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `revisions` instead
+    ///
+    pub const Revisions = revisions;
 
     /// Inherited from Poppler::Annotation
     ///
@@ -7796,16 +9756,20 @@ pub const Poppler__RichMediaAnnotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Revisions(self: Poppler__RichMediaAnnotation, allocator: std.mem.Allocator) []Poppler__Annotation {
+    pub fn revisions(self: Poppler__RichMediaAnnotation, allocator: std.mem.Allocator) []Poppler__Annotation {
         const _arr: qtc.libqt_list = qtc.Poppler__Annotation_Revisions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__RichMediaAnnotation.Revisions: Memory allocation failed");
-        const _data: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__RichMediaAnnotation.revisions: Memory allocation failed");
+        const _data_val: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `annotationAppearance` instead
+    ///
+    pub const AnnotationAppearance = annotationAppearance;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1RichMediaAnnotation.html)
@@ -7814,10 +9778,14 @@ pub const Poppler__RichMediaAnnotation = extern struct {
     ///
     /// ` self: Poppler__RichMediaAnnotation `
     ///
-    pub fn AnnotationAppearance(self: Poppler__RichMediaAnnotation) Poppler__AnnotationAppearance {
+    pub fn annotationAppearance(self: Poppler__RichMediaAnnotation) Poppler__AnnotationAppearance {
         return .{ .ptr = qtc.Poppler__Annotation_AnnotationAppearance(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setAnnotationAppearance` instead
+    ///
+    pub const SetAnnotationAppearance = setAnnotationAppearance;
+
     /// Inherited from Poppler::Annotation
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1RichMediaAnnotation.html)
@@ -7826,26 +9794,26 @@ pub const Poppler__RichMediaAnnotation = extern struct {
     ///
     /// ` self: Poppler__RichMediaAnnotation `
     ///
-    /// ` annotationAppearance: Poppler__AnnotationAppearance `
+    /// ` _annotationAppearance: Poppler__AnnotationAppearance `
     ///
-    pub fn SetAnnotationAppearance(self: Poppler__RichMediaAnnotation, annotationAppearance: anytype) void {
-        comptime _ = @TypeOf(annotationAppearance)._is_Poppler__AnnotationAppearance;
-        qtc.Poppler__Annotation_SetAnnotationAppearance(@ptrCast(self.ptr), @ptrCast(annotationAppearance.ptr));
+    pub fn setAnnotationAppearance(self: Poppler__RichMediaAnnotation, _annotationAppearance: anytype) void {
+        comptime _ = @TypeOf(_annotationAppearance)._is_Poppler__AnnotationAppearance;
+        qtc.Poppler__Annotation_SetAnnotationAppearance(@ptrCast(self.ptr), @ptrCast(_annotationAppearance.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1RichMediaAnnotation.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Poppler__RichMediaAnnotation `
     ///
-    pub fn Delete(self: Poppler__RichMediaAnnotation) void {
+    pub fn delete(self: Poppler__RichMediaAnnotation) void {
         qtc.Poppler__RichMediaAnnotation_Delete(@ptrCast(self.ptr));
     }
 };
@@ -7860,23 +9828,35 @@ pub const Poppler__Annotation__Style = extern struct {
 
     pub const _is_Poppler__Annotation__Style = {};
 
-    /// New constructs a new Poppler::Annotation::Style object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() Poppler__Annotation__Style {
+    pub const New = new;
+
+    /// Allocate a new Poppler::Annotation::Style object in C++ memory
+    ///
+    pub fn new() Poppler__Annotation__Style {
         return .{ .ptr = qtc.Poppler__Annotation__Style_new() };
     }
 
-    /// New2 constructs a new Poppler::Annotation::Style object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new Poppler::Annotation::Style object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: Poppler__Annotation__Style `
     ///
-    pub fn New2(other: anytype) Poppler__Annotation__Style {
+    pub fn new2(other: anytype) Poppler__Annotation__Style {
         comptime _ = @TypeOf(other)._is_Poppler__Annotation__Style;
         return .{ .ptr = qtc.Poppler__Annotation__Style_new2(@ptrCast(other.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation_1_1Style.html)
     ///
     /// ## Parameter(s):
@@ -7885,33 +9865,28 @@ pub const Poppler__Annotation__Style = extern struct {
     ///
     /// ` other: Poppler__Annotation__Style `
     ///
-    pub fn OperatorAssign(self: Poppler__Annotation__Style, other: anytype) void {
+    pub fn operatorAssign(self: Poppler__Annotation__Style, other: anytype) void {
         comptime _ = @TypeOf(other)._is_Poppler__Annotation__Style;
         qtc.Poppler__Annotation__Style_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
+    /// ### DEPRECATED: Use `color` instead
+    ///
+    pub const Color = color;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation_1_1Style.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Poppler__Annotation__Style `
     ///
-    pub fn Color(self: Poppler__Annotation__Style) QColor {
+    pub fn color(self: Poppler__Annotation__Style) QColor {
         return .{ .ptr = qtc.Poppler__Annotation__Style_Color(@ptrCast(self.ptr)) };
     }
 
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation_1_1Style.html)
+    /// ### DEPRECATED: Use `setColor` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__Annotation__Style `
-    ///
-    /// ` color: QColor `
-    ///
-    pub fn SetColor(self: Poppler__Annotation__Style, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.Poppler__Annotation__Style_SetColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
-    }
+    pub const SetColor = setColor;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation_1_1Style.html)
     ///
@@ -7919,21 +9894,30 @@ pub const Poppler__Annotation__Style = extern struct {
     ///
     /// ` self: Poppler__Annotation__Style `
     ///
-    pub fn Opacity(self: Poppler__Annotation__Style) f64 {
+    /// ` _color: QColor `
+    ///
+    pub fn setColor(self: Poppler__Annotation__Style, _color: anytype) void {
+        comptime _ = @TypeOf(_color)._is_QColor;
+        qtc.Poppler__Annotation__Style_SetColor(@ptrCast(self.ptr), @ptrCast(_color.ptr));
+    }
+
+    /// ### DEPRECATED: Use `opacity` instead
+    ///
+    pub const Opacity = opacity;
+
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation_1_1Style.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__Annotation__Style `
+    ///
+    pub fn opacity(self: Poppler__Annotation__Style) f64 {
         return qtc.Poppler__Annotation__Style_Opacity(@ptrCast(self.ptr));
     }
 
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation_1_1Style.html)
+    /// ### DEPRECATED: Use `setOpacity` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__Annotation__Style `
-    ///
-    /// ` opacity: f64 `
-    ///
-    pub fn SetOpacity(self: Poppler__Annotation__Style, opacity: f64) void {
-        qtc.Poppler__Annotation__Style_SetOpacity(@ptrCast(self.ptr), @bitCast(opacity));
-    }
+    pub const SetOpacity = setOpacity;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation_1_1Style.html)
     ///
@@ -7941,21 +9925,45 @@ pub const Poppler__Annotation__Style = extern struct {
     ///
     /// ` self: Poppler__Annotation__Style `
     ///
-    pub fn Width(self: Poppler__Annotation__Style) f64 {
+    /// ` _opacity: f64 `
+    ///
+    pub fn setOpacity(self: Poppler__Annotation__Style, _opacity: f64) void {
+        qtc.Poppler__Annotation__Style_SetOpacity(@ptrCast(self.ptr), @bitCast(_opacity));
+    }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
+
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation_1_1Style.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__Annotation__Style `
+    ///
+    pub fn width(self: Poppler__Annotation__Style) f64 {
         return qtc.Poppler__Annotation__Style_Width(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setWidth` instead
+    ///
+    pub const SetWidth = setWidth;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation_1_1Style.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Poppler__Annotation__Style `
     ///
-    /// ` width: f64 `
+    /// ` _width: f64 `
     ///
-    pub fn SetWidth(self: Poppler__Annotation__Style, width: f64) void {
-        qtc.Poppler__Annotation__Style_SetWidth(@ptrCast(self.ptr), @bitCast(width));
+    pub fn setWidth(self: Poppler__Annotation__Style, _width: f64) void {
+        qtc.Poppler__Annotation__Style_SetWidth(@ptrCast(self.ptr), @bitCast(_width));
     }
+
+    /// ### DEPRECATED: Use `lineStyle` instead
+    ///
+    pub const LineStyle = lineStyle;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation_1_1Style.html)
     ///
@@ -7967,21 +9975,13 @@ pub const Poppler__Annotation__Style = extern struct {
     ///
     /// ` poppler_annotation_enums.LineStyle `
     ///
-    pub fn LineStyle(self: Poppler__Annotation__Style) i32 {
+    pub fn lineStyle(self: Poppler__Annotation__Style) i32 {
         return qtc.Poppler__Annotation__Style_LineStyle(@ptrCast(self.ptr));
     }
 
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation_1_1Style.html)
+    /// ### DEPRECATED: Use `setLineStyle` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__Annotation__Style `
-    ///
-    /// ` style: poppler_annotation_enums.LineStyle `
-    ///
-    pub fn SetLineStyle(self: Poppler__Annotation__Style, style: i32) void {
-        qtc.Poppler__Annotation__Style_SetLineStyle(@ptrCast(self.ptr), @bitCast(style));
-    }
+    pub const SetLineStyle = setLineStyle;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation_1_1Style.html)
     ///
@@ -7989,10 +9989,30 @@ pub const Poppler__Annotation__Style = extern struct {
     ///
     /// ` self: Poppler__Annotation__Style `
     ///
-    pub fn XCorners(self: Poppler__Annotation__Style) f64 {
+    /// ` _style: poppler_annotation_enums.LineStyle `
+    ///
+    pub fn setLineStyle(self: Poppler__Annotation__Style, _style: i32) void {
+        qtc.Poppler__Annotation__Style_SetLineStyle(@ptrCast(self.ptr), @bitCast(_style));
+    }
+
+    /// ### DEPRECATED: Use `xCorners` instead
+    ///
+    pub const XCorners = xCorners;
+
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation_1_1Style.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__Annotation__Style `
+    ///
+    pub fn xCorners(self: Poppler__Annotation__Style) f64 {
         return qtc.Poppler__Annotation__Style_XCorners(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setXCorners` instead
+    ///
+    pub const SetXCorners = setXCorners;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation_1_1Style.html)
     ///
     /// ## Parameter(s):
@@ -8001,19 +10021,27 @@ pub const Poppler__Annotation__Style = extern struct {
     ///
     /// ` radius: f64 `
     ///
-    pub fn SetXCorners(self: Poppler__Annotation__Style, radius: f64) void {
+    pub fn setXCorners(self: Poppler__Annotation__Style, radius: f64) void {
         qtc.Poppler__Annotation__Style_SetXCorners(@ptrCast(self.ptr), @bitCast(radius));
     }
 
+    /// ### DEPRECATED: Use `yCorners` instead
+    ///
+    pub const YCorners = yCorners;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation_1_1Style.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Poppler__Annotation__Style `
     ///
-    pub fn YCorners(self: Poppler__Annotation__Style) f64 {
+    pub fn yCorners(self: Poppler__Annotation__Style) f64 {
         return qtc.Poppler__Annotation__Style_YCorners(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setYCorners` instead
+    ///
+    pub const SetYCorners = setYCorners;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation_1_1Style.html)
     ///
@@ -8023,9 +10051,13 @@ pub const Poppler__Annotation__Style = extern struct {
     ///
     /// ` radius: f64 `
     ///
-    pub fn SetYCorners(self: Poppler__Annotation__Style, radius: f64) void {
+    pub fn setYCorners(self: Poppler__Annotation__Style, radius: f64) void {
         qtc.Poppler__Annotation__Style_SetYCorners(@ptrCast(self.ptr), @bitCast(radius));
     }
+
+    /// ### DEPRECATED: Use `dashArray` instead
+    ///
+    pub const DashArray = dashArray;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation_1_1Style.html)
     ///
@@ -8035,14 +10067,18 @@ pub const Poppler__Annotation__Style = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DashArray(self: Poppler__Annotation__Style, allocator: std.mem.Allocator) []f64 {
+    pub fn dashArray(self: Poppler__Annotation__Style, allocator: std.mem.Allocator) []f64 {
         const _arr: qtc.libqt_list = qtc.Poppler__Annotation__Style_DashArray(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f64, _arr.len) catch @panic("Poppler__Annotation__Style.DashArray: Memory allocation failed");
-        const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        const _ret = allocator.alloc(f64, _arr.len) catch @panic("Poppler__Annotation__Style.dashArray: Memory allocation failed");
+        const _data_val: [*]f64 = @ptrCast(@alignCast(_arr.data));
+        @memcpy(_ret, _data_val[0.._arr.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setDashArray` instead
+    ///
+    pub const SetDashArray = setDashArray;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation_1_1Style.html)
     ///
@@ -8052,13 +10088,17 @@ pub const Poppler__Annotation__Style = extern struct {
     ///
     /// ` array: []f64 `
     ///
-    pub fn SetDashArray(self: Poppler__Annotation__Style, array: []f64) void {
+    pub fn setDashArray(self: Poppler__Annotation__Style, array: []f64) void {
         const array_list = qtc.libqt_list{
             .len = array.len,
             .data = array.ptr,
         };
         qtc.Poppler__Annotation__Style_SetDashArray(@ptrCast(self.ptr), array_list);
     }
+
+    /// ### DEPRECATED: Use `lineEffect` instead
+    ///
+    pub const LineEffect = lineEffect;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation_1_1Style.html)
     ///
@@ -8070,9 +10110,13 @@ pub const Poppler__Annotation__Style = extern struct {
     ///
     /// ` poppler_annotation_enums.LineEffect `
     ///
-    pub fn LineEffect(self: Poppler__Annotation__Style) i32 {
+    pub fn lineEffect(self: Poppler__Annotation__Style) i32 {
         return qtc.Poppler__Annotation__Style_LineEffect(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLineEffect` instead
+    ///
+    pub const SetLineEffect = setLineEffect;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation_1_1Style.html)
     ///
@@ -8082,9 +10126,13 @@ pub const Poppler__Annotation__Style = extern struct {
     ///
     /// ` effect: poppler_annotation_enums.LineEffect `
     ///
-    pub fn SetLineEffect(self: Poppler__Annotation__Style, effect: i32) void {
+    pub fn setLineEffect(self: Poppler__Annotation__Style, effect: i32) void {
         qtc.Poppler__Annotation__Style_SetLineEffect(@ptrCast(self.ptr), @bitCast(effect));
     }
+
+    /// ### DEPRECATED: Use `effectIntensity` instead
+    ///
+    pub const EffectIntensity = effectIntensity;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation_1_1Style.html)
     ///
@@ -8092,9 +10140,13 @@ pub const Poppler__Annotation__Style = extern struct {
     ///
     /// ` self: Poppler__Annotation__Style `
     ///
-    pub fn EffectIntensity(self: Poppler__Annotation__Style) f64 {
+    pub fn effectIntensity(self: Poppler__Annotation__Style) f64 {
         return qtc.Poppler__Annotation__Style_EffectIntensity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEffectIntensity` instead
+    ///
+    pub const SetEffectIntensity = setEffectIntensity;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation_1_1Style.html)
     ///
@@ -8104,23 +10156,23 @@ pub const Poppler__Annotation__Style = extern struct {
     ///
     /// ` intens: f64 `
     ///
-    pub fn SetEffectIntensity(self: Poppler__Annotation__Style, intens: f64) void {
+    pub fn setEffectIntensity(self: Poppler__Annotation__Style, intens: f64) void {
         qtc.Poppler__Annotation__Style_SetEffectIntensity(@ptrCast(self.ptr), @bitCast(intens));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation_1_1Style.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Poppler__Annotation__Style `
     ///
-    pub fn Delete(self: Poppler__Annotation__Style) void {
+    pub fn delete(self: Poppler__Annotation__Style) void {
         qtc.Poppler__Annotation__Style_Delete(@ptrCast(self.ptr));
     }
 };
@@ -8135,23 +10187,35 @@ pub const Poppler__Annotation__Popup = extern struct {
 
     pub const _is_Poppler__Annotation__Popup = {};
 
-    /// New constructs a new Poppler::Annotation::Popup object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() Poppler__Annotation__Popup {
+    pub const New = new;
+
+    /// Allocate a new Poppler::Annotation::Popup object in C++ memory
+    ///
+    pub fn new() Poppler__Annotation__Popup {
         return .{ .ptr = qtc.Poppler__Annotation__Popup_new() };
     }
 
-    /// New2 constructs a new Poppler::Annotation::Popup object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new Poppler::Annotation::Popup object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: Poppler__Annotation__Popup `
     ///
-    pub fn New2(other: anytype) Poppler__Annotation__Popup {
+    pub fn new2(other: anytype) Poppler__Annotation__Popup {
         comptime _ = @TypeOf(other)._is_Poppler__Annotation__Popup;
         return .{ .ptr = qtc.Poppler__Annotation__Popup_new2(@ptrCast(other.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation_1_1Popup.html)
     ///
     /// ## Parameter(s):
@@ -8160,32 +10224,28 @@ pub const Poppler__Annotation__Popup = extern struct {
     ///
     /// ` other: Poppler__Annotation__Popup `
     ///
-    pub fn OperatorAssign(self: Poppler__Annotation__Popup, other: anytype) void {
+    pub fn operatorAssign(self: Poppler__Annotation__Popup, other: anytype) void {
         comptime _ = @TypeOf(other)._is_Poppler__Annotation__Popup;
         qtc.Poppler__Annotation__Popup_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
+    /// ### DEPRECATED: Use `flags` instead
+    ///
+    pub const Flags = flags;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation_1_1Popup.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Poppler__Annotation__Popup `
     ///
-    pub fn Flags(self: Poppler__Annotation__Popup) i32 {
+    pub fn flags(self: Poppler__Annotation__Popup) i32 {
         return qtc.Poppler__Annotation__Popup_Flags(@ptrCast(self.ptr));
     }
 
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation_1_1Popup.html)
+    /// ### DEPRECATED: Use `setFlags` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__Annotation__Popup `
-    ///
-    /// ` flags: i32 `
-    ///
-    pub fn SetFlags(self: Poppler__Annotation__Popup, flags: i32) void {
-        qtc.Poppler__Annotation__Popup_SetFlags(@ptrCast(self.ptr), @bitCast(flags));
-    }
+    pub const SetFlags = setFlags;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation_1_1Popup.html)
     ///
@@ -8193,9 +10253,29 @@ pub const Poppler__Annotation__Popup = extern struct {
     ///
     /// ` self: Poppler__Annotation__Popup `
     ///
-    pub fn Geometry(self: Poppler__Annotation__Popup) QRectF {
+    /// ` _flags: i32 `
+    ///
+    pub fn setFlags(self: Poppler__Annotation__Popup, _flags: i32) void {
+        qtc.Poppler__Annotation__Popup_SetFlags(@ptrCast(self.ptr), @bitCast(_flags));
+    }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
+
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation_1_1Popup.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__Annotation__Popup `
+    ///
+    pub fn geometry(self: Poppler__Annotation__Popup) QRectF {
         return .{ .ptr = qtc.Poppler__Annotation__Popup_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation_1_1Popup.html)
     ///
@@ -8205,11 +10285,15 @@ pub const Poppler__Annotation__Popup = extern struct {
     ///
     /// ` geom: QRectF `
     ///
-    pub fn SetGeometry(self: Poppler__Annotation__Popup, geom: anytype) void {
+    pub fn setGeometry(self: Poppler__Annotation__Popup, geom: anytype) void {
         comptime _ = @TypeOf(geom)._is_QRectF;
         qtc.Poppler__Annotation__Popup_SetGeometry(@ptrCast(self.ptr), @ptrCast(geom.ptr));
     }
 
+    /// ### DEPRECATED: Use `title` instead
+    ///
+    pub const Title = title;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation_1_1Popup.html)
     ///
     /// ## Parameter(s):
@@ -8218,13 +10302,17 @@ pub const Poppler__Annotation__Popup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Title(self: Poppler__Annotation__Popup, allocator: std.mem.Allocator) []const u8 {
+    pub fn title(self: Poppler__Annotation__Popup, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation__Popup_Title(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__Annotation__Popup.Title: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__Annotation__Popup.title: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setTitle` instead
+    ///
+    pub const SetTitle = setTitle;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation_1_1Popup.html)
     ///
@@ -8232,16 +10320,20 @@ pub const Poppler__Annotation__Popup = extern struct {
     ///
     /// ` self: Poppler__Annotation__Popup `
     ///
-    /// ` title: []const u8 `
+    /// ` _title: []const u8 `
     ///
-    pub fn SetTitle(self: Poppler__Annotation__Popup, title: []const u8) void {
+    pub fn setTitle(self: Poppler__Annotation__Popup, _title: []const u8) void {
         const title_str = qtc.libqt_string{
-            .len = title.len,
-            .data = title.ptr,
+            .len = _title.len,
+            .data = _title.ptr,
         };
         qtc.Poppler__Annotation__Popup_SetTitle(@ptrCast(self.ptr), title_str);
     }
 
+    /// ### DEPRECATED: Use `summary` instead
+    ///
+    pub const Summary = summary;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation_1_1Popup.html)
     ///
     /// ## Parameter(s):
@@ -8250,13 +10342,17 @@ pub const Poppler__Annotation__Popup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Summary(self: Poppler__Annotation__Popup, allocator: std.mem.Allocator) []const u8 {
+    pub fn summary(self: Poppler__Annotation__Popup, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation__Popup_Summary(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__Annotation__Popup.Summary: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__Annotation__Popup.summary: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setSummary` instead
+    ///
+    pub const SetSummary = setSummary;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation_1_1Popup.html)
     ///
@@ -8264,16 +10360,20 @@ pub const Poppler__Annotation__Popup = extern struct {
     ///
     /// ` self: Poppler__Annotation__Popup `
     ///
-    /// ` summary: []const u8 `
+    /// ` _summary: []const u8 `
     ///
-    pub fn SetSummary(self: Poppler__Annotation__Popup, summary: []const u8) void {
+    pub fn setSummary(self: Poppler__Annotation__Popup, _summary: []const u8) void {
         const summary_str = qtc.libqt_string{
-            .len = summary.len,
-            .data = summary.ptr,
+            .len = _summary.len,
+            .data = _summary.ptr,
         };
         qtc.Poppler__Annotation__Popup_SetSummary(@ptrCast(self.ptr), summary_str);
     }
 
+    /// ### DEPRECATED: Use `text` instead
+    ///
+    pub const Text = text;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation_1_1Popup.html)
     ///
     /// ## Parameter(s):
@@ -8282,13 +10382,17 @@ pub const Poppler__Annotation__Popup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: Poppler__Annotation__Popup, allocator: std.mem.Allocator) []const u8 {
+    pub fn text(self: Poppler__Annotation__Popup, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation__Popup_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__Annotation__Popup.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__Annotation__Popup.text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setText` instead
+    ///
+    pub const SetText = setText;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation_1_1Popup.html)
     ///
@@ -8296,29 +10400,29 @@ pub const Poppler__Annotation__Popup = extern struct {
     ///
     /// ` self: Poppler__Annotation__Popup `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn SetText(self: Poppler__Annotation__Popup, text: []const u8) void {
+    pub fn setText(self: Poppler__Annotation__Popup, _text: []const u8) void {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.Poppler__Annotation__Popup_SetText(@ptrCast(self.ptr), text_str);
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Annotation_1_1Popup.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Poppler__Annotation__Popup `
     ///
-    pub fn Delete(self: Poppler__Annotation__Popup) void {
+    pub fn delete(self: Poppler__Annotation__Popup) void {
         qtc.Poppler__Annotation__Popup_Delete(@ptrCast(self.ptr));
     }
 };
@@ -8333,33 +10437,33 @@ pub const Poppler__HighlightAnnotation__Quad = extern struct {
 
     pub const _is_Poppler__HighlightAnnotation__Quad = {};
 
-    /// New constructs a new Poppler::HighlightAnnotation::Quad object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() Poppler__HighlightAnnotation__Quad {
+    pub const New = new;
+
+    /// Allocate a new Poppler::HighlightAnnotation::Quad object in C++ memory
+    ///
+    pub fn new() Poppler__HighlightAnnotation__Quad {
         return .{ .ptr = qtc.Poppler__HighlightAnnotation__Quad_new() };
     }
 
+    /// ### DEPRECATED: Use `capStart` instead
+    ///
+    pub const CapStart = capStart;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/structPoppler_1_1HighlightAnnotation_1_1Quad.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Poppler__HighlightAnnotation__Quad `
     ///
-    pub fn CapStart(self: Poppler__HighlightAnnotation__Quad) bool {
+    pub fn capStart(self: Poppler__HighlightAnnotation__Quad) bool {
         return qtc.Poppler__HighlightAnnotation__Quad_CapStart(@ptrCast(self.ptr));
     }
 
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/structPoppler_1_1HighlightAnnotation_1_1Quad.html)
+    /// ### DEPRECATED: Use `setCapStart` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__HighlightAnnotation__Quad `
-    ///
-    /// ` capStart: bool `
-    ///
-    pub fn SetCapStart(self: Poppler__HighlightAnnotation__Quad, capStart: bool) void {
-        qtc.Poppler__HighlightAnnotation__Quad_SetCapStart(@ptrCast(self.ptr), capStart);
-    }
+    pub const SetCapStart = setCapStart;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/structPoppler_1_1HighlightAnnotation_1_1Quad.html)
     ///
@@ -8367,21 +10471,29 @@ pub const Poppler__HighlightAnnotation__Quad = extern struct {
     ///
     /// ` self: Poppler__HighlightAnnotation__Quad `
     ///
-    pub fn CapEnd(self: Poppler__HighlightAnnotation__Quad) bool {
+    /// ` _capStart: bool `
+    ///
+    pub fn setCapStart(self: Poppler__HighlightAnnotation__Quad, _capStart: bool) void {
+        qtc.Poppler__HighlightAnnotation__Quad_SetCapStart(@ptrCast(self.ptr), _capStart);
+    }
+
+    /// ### DEPRECATED: Use `capEnd` instead
+    ///
+    pub const CapEnd = capEnd;
+
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/structPoppler_1_1HighlightAnnotation_1_1Quad.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__HighlightAnnotation__Quad `
+    ///
+    pub fn capEnd(self: Poppler__HighlightAnnotation__Quad) bool {
         return qtc.Poppler__HighlightAnnotation__Quad_CapEnd(@ptrCast(self.ptr));
     }
 
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/structPoppler_1_1HighlightAnnotation_1_1Quad.html)
+    /// ### DEPRECATED: Use `setCapEnd` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__HighlightAnnotation__Quad `
-    ///
-    /// ` capEnd: bool `
-    ///
-    pub fn SetCapEnd(self: Poppler__HighlightAnnotation__Quad, capEnd: bool) void {
-        qtc.Poppler__HighlightAnnotation__Quad_SetCapEnd(@ptrCast(self.ptr), capEnd);
-    }
+    pub const SetCapEnd = setCapEnd;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/structPoppler_1_1HighlightAnnotation_1_1Quad.html)
     ///
@@ -8389,35 +10501,55 @@ pub const Poppler__HighlightAnnotation__Quad = extern struct {
     ///
     /// ` self: Poppler__HighlightAnnotation__Quad `
     ///
-    pub fn Feather(self: Poppler__HighlightAnnotation__Quad) f64 {
+    /// ` _capEnd: bool `
+    ///
+    pub fn setCapEnd(self: Poppler__HighlightAnnotation__Quad, _capEnd: bool) void {
+        qtc.Poppler__HighlightAnnotation__Quad_SetCapEnd(@ptrCast(self.ptr), _capEnd);
+    }
+
+    /// ### DEPRECATED: Use `feather` instead
+    ///
+    pub const Feather = feather;
+
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/structPoppler_1_1HighlightAnnotation_1_1Quad.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__HighlightAnnotation__Quad `
+    ///
+    pub fn feather(self: Poppler__HighlightAnnotation__Quad) f64 {
         return qtc.Poppler__HighlightAnnotation__Quad_Feather(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setFeather` instead
+    ///
+    pub const SetFeather = setFeather;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/structPoppler_1_1HighlightAnnotation_1_1Quad.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Poppler__HighlightAnnotation__Quad `
     ///
-    /// ` feather: f64 `
+    /// ` _feather: f64 `
     ///
-    pub fn SetFeather(self: Poppler__HighlightAnnotation__Quad, feather: f64) void {
-        qtc.Poppler__HighlightAnnotation__Quad_SetFeather(@ptrCast(self.ptr), @bitCast(feather));
+    pub fn setFeather(self: Poppler__HighlightAnnotation__Quad, _feather: f64) void {
+        qtc.Poppler__HighlightAnnotation__Quad_SetFeather(@ptrCast(self.ptr), @bitCast(_feather));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/structPoppler_1_1HighlightAnnotation_1_1Quad.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Poppler__HighlightAnnotation__Quad `
     ///
-    pub fn Delete(self: Poppler__HighlightAnnotation__Quad) void {
+    pub fn delete(self: Poppler__HighlightAnnotation__Quad) void {
         qtc.Poppler__HighlightAnnotation__Quad_Delete(@ptrCast(self.ptr));
     }
 };
@@ -8432,11 +10564,19 @@ pub const Poppler__RichMediaAnnotation__Params = extern struct {
 
     pub const _is_Poppler__RichMediaAnnotation__Params = {};
 
-    /// New constructs a new Poppler::RichMediaAnnotation::Params object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() Poppler__RichMediaAnnotation__Params {
+    pub const New = new;
+
+    /// Allocate a new Poppler::RichMediaAnnotation::Params object in C++ memory
+    ///
+    pub fn new() Poppler__RichMediaAnnotation__Params {
         return .{ .ptr = qtc.Poppler__RichMediaAnnotation__Params_new() };
     }
+
+    /// ### DEPRECATED: Use `flashVars` instead
+    ///
+    pub const FlashVars = flashVars;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1RichMediaAnnotation_1_1Params.html)
     ///
@@ -8446,27 +10586,27 @@ pub const Poppler__RichMediaAnnotation__Params = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FlashVars(self: Poppler__RichMediaAnnotation__Params, allocator: std.mem.Allocator) []const u8 {
+    pub fn flashVars(self: Poppler__RichMediaAnnotation__Params, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__RichMediaAnnotation__Params_FlashVars(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__RichMediaAnnotation__Params.FlashVars: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__RichMediaAnnotation__Params.flashVars: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1RichMediaAnnotation_1_1Params.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Poppler__RichMediaAnnotation__Params `
     ///
-    pub fn Delete(self: Poppler__RichMediaAnnotation__Params) void {
+    pub fn delete(self: Poppler__RichMediaAnnotation__Params) void {
         qtc.Poppler__RichMediaAnnotation__Params_Delete(@ptrCast(self.ptr));
     }
 };
@@ -8481,11 +10621,21 @@ pub const Poppler__RichMediaAnnotation__Instance = extern struct {
 
     pub const _is_Poppler__RichMediaAnnotation__Instance = {};
 
-    /// New constructs a new Poppler::RichMediaAnnotation::Instance object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() Poppler__RichMediaAnnotation__Instance {
+    pub const New = new;
+
+    /// Allocate a new Poppler::RichMediaAnnotation::Instance object in C++ memory
+    ///
+    pub fn new() Poppler__RichMediaAnnotation__Instance {
         return .{ .ptr = qtc.Poppler__RichMediaAnnotation__Instance_new() };
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1RichMediaAnnotation_1_1Instance.html)
     ///
@@ -8497,9 +10647,13 @@ pub const Poppler__RichMediaAnnotation__Instance = extern struct {
     ///
     /// ` poppler_annotation_enums.Type `
     ///
-    pub fn Type(self: Poppler__RichMediaAnnotation__Instance) i32 {
+    pub fn type0(self: Poppler__RichMediaAnnotation__Instance) i32 {
         return qtc.Poppler__RichMediaAnnotation__Instance_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `params` instead
+    ///
+    pub const Params = params;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1RichMediaAnnotation_1_1Instance.html)
     ///
@@ -8507,23 +10661,23 @@ pub const Poppler__RichMediaAnnotation__Instance = extern struct {
     ///
     /// ` self: Poppler__RichMediaAnnotation__Instance `
     ///
-    pub fn Params(self: Poppler__RichMediaAnnotation__Instance) Poppler__RichMediaAnnotation__Params {
+    pub fn params(self: Poppler__RichMediaAnnotation__Instance) Poppler__RichMediaAnnotation__Params {
         return .{ .ptr = qtc.Poppler__RichMediaAnnotation__Instance_Params(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1RichMediaAnnotation_1_1Instance.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Poppler__RichMediaAnnotation__Instance `
     ///
-    pub fn Delete(self: Poppler__RichMediaAnnotation__Instance) void {
+    pub fn delete(self: Poppler__RichMediaAnnotation__Instance) void {
         qtc.Poppler__RichMediaAnnotation__Instance_Delete(@ptrCast(self.ptr));
     }
 };
@@ -8538,11 +10692,21 @@ pub const Poppler__RichMediaAnnotation__Configuration = extern struct {
 
     pub const _is_Poppler__RichMediaAnnotation__Configuration = {};
 
-    /// New constructs a new Poppler::RichMediaAnnotation::Configuration object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() Poppler__RichMediaAnnotation__Configuration {
+    pub const New = new;
+
+    /// Allocate a new Poppler::RichMediaAnnotation::Configuration object in C++ memory
+    ///
+    pub fn new() Poppler__RichMediaAnnotation__Configuration {
         return .{ .ptr = qtc.Poppler__RichMediaAnnotation__Configuration_new() };
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1RichMediaAnnotation_1_1Configuration.html)
     ///
@@ -8554,9 +10718,13 @@ pub const Poppler__RichMediaAnnotation__Configuration = extern struct {
     ///
     /// ` poppler_annotation_enums.Type `
     ///
-    pub fn Type(self: Poppler__RichMediaAnnotation__Configuration) i32 {
+    pub fn type0(self: Poppler__RichMediaAnnotation__Configuration) i32 {
         return qtc.Poppler__RichMediaAnnotation__Configuration_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1RichMediaAnnotation_1_1Configuration.html)
     ///
@@ -8566,14 +10734,18 @@ pub const Poppler__RichMediaAnnotation__Configuration = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: Poppler__RichMediaAnnotation__Configuration, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: Poppler__RichMediaAnnotation__Configuration, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__RichMediaAnnotation__Configuration_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__RichMediaAnnotation__Configuration.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__RichMediaAnnotation__Configuration.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `instances` instead
+    ///
+    pub const Instances = instances;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1RichMediaAnnotation_1_1Configuration.html)
     ///
     /// ## Parameter(s):
@@ -8582,29 +10754,29 @@ pub const Poppler__RichMediaAnnotation__Configuration = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Instances(self: Poppler__RichMediaAnnotation__Configuration, allocator: std.mem.Allocator) []Poppler__RichMediaAnnotation__Instance {
+    pub fn instances(self: Poppler__RichMediaAnnotation__Configuration, allocator: std.mem.Allocator) []Poppler__RichMediaAnnotation__Instance {
         const _arr: qtc.libqt_list = qtc.Poppler__RichMediaAnnotation__Configuration_Instances(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__RichMediaAnnotation__Instance, _arr.len) catch @panic("Poppler__RichMediaAnnotation__Configuration.Instances: Memory allocation failed");
-        const _data: [*]QtC.Poppler__RichMediaAnnotation__Instance = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(Poppler__RichMediaAnnotation__Instance, _arr.len) catch @panic("Poppler__RichMediaAnnotation__Configuration.instances: Memory allocation failed");
+        const _data_val: [*]QtC.Poppler__RichMediaAnnotation__Instance = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1RichMediaAnnotation_1_1Configuration.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Poppler__RichMediaAnnotation__Configuration `
     ///
-    pub fn Delete(self: Poppler__RichMediaAnnotation__Configuration) void {
+    pub fn delete(self: Poppler__RichMediaAnnotation__Configuration) void {
         qtc.Poppler__RichMediaAnnotation__Configuration_Delete(@ptrCast(self.ptr));
     }
 };
@@ -8619,11 +10791,19 @@ pub const Poppler__RichMediaAnnotation__Asset = extern struct {
 
     pub const _is_Poppler__RichMediaAnnotation__Asset = {};
 
-    /// New constructs a new Poppler::RichMediaAnnotation::Asset object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() Poppler__RichMediaAnnotation__Asset {
+    pub const New = new;
+
+    /// Allocate a new Poppler::RichMediaAnnotation::Asset object in C++ memory
+    ///
+    pub fn new() Poppler__RichMediaAnnotation__Asset {
         return .{ .ptr = qtc.Poppler__RichMediaAnnotation__Asset_new() };
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1RichMediaAnnotation_1_1Asset.html)
     ///
@@ -8633,13 +10813,17 @@ pub const Poppler__RichMediaAnnotation__Asset = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: Poppler__RichMediaAnnotation__Asset, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: Poppler__RichMediaAnnotation__Asset, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__RichMediaAnnotation__Asset_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__RichMediaAnnotation__Asset.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__RichMediaAnnotation__Asset.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `embeddedFile` instead
+    ///
+    pub const EmbeddedFile = embeddedFile;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1RichMediaAnnotation_1_1Asset.html)
     ///
@@ -8647,23 +10831,23 @@ pub const Poppler__RichMediaAnnotation__Asset = extern struct {
     ///
     /// ` self: Poppler__RichMediaAnnotation__Asset `
     ///
-    pub fn EmbeddedFile(self: Poppler__RichMediaAnnotation__Asset) Poppler__EmbeddedFile {
+    pub fn embeddedFile(self: Poppler__RichMediaAnnotation__Asset) Poppler__EmbeddedFile {
         return .{ .ptr = qtc.Poppler__RichMediaAnnotation__Asset_EmbeddedFile(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1RichMediaAnnotation_1_1Asset.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Poppler__RichMediaAnnotation__Asset `
     ///
-    pub fn Delete(self: Poppler__RichMediaAnnotation__Asset) void {
+    pub fn delete(self: Poppler__RichMediaAnnotation__Asset) void {
         qtc.Poppler__RichMediaAnnotation__Asset_Delete(@ptrCast(self.ptr));
     }
 };
@@ -8678,12 +10862,20 @@ pub const Poppler__RichMediaAnnotation__Content = extern struct {
 
     pub const _is_Poppler__RichMediaAnnotation__Content = {};
 
-    /// New constructs a new Poppler::RichMediaAnnotation::Content object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() Poppler__RichMediaAnnotation__Content {
+    pub const New = new;
+
+    /// Allocate a new Poppler::RichMediaAnnotation::Content object in C++ memory
+    ///
+    pub fn new() Poppler__RichMediaAnnotation__Content {
         return .{ .ptr = qtc.Poppler__RichMediaAnnotation__Content_new() };
     }
 
+    /// ### DEPRECATED: Use `configurations` instead
+    ///
+    pub const Configurations = configurations;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1RichMediaAnnotation_1_1Content.html)
     ///
     /// ## Parameter(s):
@@ -8692,15 +10884,19 @@ pub const Poppler__RichMediaAnnotation__Content = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Configurations(self: Poppler__RichMediaAnnotation__Content, allocator: std.mem.Allocator) []Poppler__RichMediaAnnotation__Configuration {
+    pub fn configurations(self: Poppler__RichMediaAnnotation__Content, allocator: std.mem.Allocator) []Poppler__RichMediaAnnotation__Configuration {
         const _arr: qtc.libqt_list = qtc.Poppler__RichMediaAnnotation__Content_Configurations(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__RichMediaAnnotation__Configuration, _arr.len) catch @panic("Poppler__RichMediaAnnotation__Content.Configurations: Memory allocation failed");
-        const _data: [*]QtC.Poppler__RichMediaAnnotation__Configuration = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(Poppler__RichMediaAnnotation__Configuration, _arr.len) catch @panic("Poppler__RichMediaAnnotation__Content.configurations: Memory allocation failed");
+        const _data_val: [*]QtC.Poppler__RichMediaAnnotation__Configuration = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `assets` instead
+    ///
+    pub const Assets = assets;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1RichMediaAnnotation_1_1Content.html)
     ///
@@ -8710,29 +10906,29 @@ pub const Poppler__RichMediaAnnotation__Content = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Assets(self: Poppler__RichMediaAnnotation__Content, allocator: std.mem.Allocator) []Poppler__RichMediaAnnotation__Asset {
+    pub fn assets(self: Poppler__RichMediaAnnotation__Content, allocator: std.mem.Allocator) []Poppler__RichMediaAnnotation__Asset {
         const _arr: qtc.libqt_list = qtc.Poppler__RichMediaAnnotation__Content_Assets(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__RichMediaAnnotation__Asset, _arr.len) catch @panic("Poppler__RichMediaAnnotation__Content.Assets: Memory allocation failed");
-        const _data: [*]QtC.Poppler__RichMediaAnnotation__Asset = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(Poppler__RichMediaAnnotation__Asset, _arr.len) catch @panic("Poppler__RichMediaAnnotation__Content.assets: Memory allocation failed");
+        const _data_val: [*]QtC.Poppler__RichMediaAnnotation__Asset = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1RichMediaAnnotation_1_1Content.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Poppler__RichMediaAnnotation__Content `
     ///
-    pub fn Delete(self: Poppler__RichMediaAnnotation__Content) void {
+    pub fn delete(self: Poppler__RichMediaAnnotation__Content) void {
         qtc.Poppler__RichMediaAnnotation__Content_Delete(@ptrCast(self.ptr));
     }
 };
@@ -8747,11 +10943,19 @@ pub const Poppler__RichMediaAnnotation__Activation = extern struct {
 
     pub const _is_Poppler__RichMediaAnnotation__Activation = {};
 
-    /// New constructs a new Poppler::RichMediaAnnotation::Activation object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() Poppler__RichMediaAnnotation__Activation {
+    pub const New = new;
+
+    /// Allocate a new Poppler::RichMediaAnnotation::Activation object in C++ memory
+    ///
+    pub fn new() Poppler__RichMediaAnnotation__Activation {
         return .{ .ptr = qtc.Poppler__RichMediaAnnotation__Activation_new() };
     }
+
+    /// ### DEPRECATED: Use `condition` instead
+    ///
+    pub const Condition = condition;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1RichMediaAnnotation_1_1Activation.html)
     ///
@@ -8763,23 +10967,23 @@ pub const Poppler__RichMediaAnnotation__Activation = extern struct {
     ///
     /// ` poppler_annotation_enums.Condition `
     ///
-    pub fn Condition(self: Poppler__RichMediaAnnotation__Activation) i32 {
+    pub fn condition(self: Poppler__RichMediaAnnotation__Activation) i32 {
         return qtc.Poppler__RichMediaAnnotation__Activation_Condition(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1RichMediaAnnotation_1_1Activation.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Poppler__RichMediaAnnotation__Activation `
     ///
-    pub fn Delete(self: Poppler__RichMediaAnnotation__Activation) void {
+    pub fn delete(self: Poppler__RichMediaAnnotation__Activation) void {
         qtc.Poppler__RichMediaAnnotation__Activation_Delete(@ptrCast(self.ptr));
     }
 };
@@ -8794,11 +10998,19 @@ pub const Poppler__RichMediaAnnotation__Deactivation = extern struct {
 
     pub const _is_Poppler__RichMediaAnnotation__Deactivation = {};
 
-    /// New constructs a new Poppler::RichMediaAnnotation::Deactivation object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() Poppler__RichMediaAnnotation__Deactivation {
+    pub const New = new;
+
+    /// Allocate a new Poppler::RichMediaAnnotation::Deactivation object in C++ memory
+    ///
+    pub fn new() Poppler__RichMediaAnnotation__Deactivation {
         return .{ .ptr = qtc.Poppler__RichMediaAnnotation__Deactivation_new() };
     }
+
+    /// ### DEPRECATED: Use `condition` instead
+    ///
+    pub const Condition = condition;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1RichMediaAnnotation_1_1Deactivation.html)
     ///
@@ -8810,23 +11022,23 @@ pub const Poppler__RichMediaAnnotation__Deactivation = extern struct {
     ///
     /// ` poppler_annotation_enums.Condition `
     ///
-    pub fn Condition(self: Poppler__RichMediaAnnotation__Deactivation) i32 {
+    pub fn condition(self: Poppler__RichMediaAnnotation__Deactivation) i32 {
         return qtc.Poppler__RichMediaAnnotation__Deactivation_Condition(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1RichMediaAnnotation_1_1Deactivation.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Poppler__RichMediaAnnotation__Deactivation `
     ///
-    pub fn Delete(self: Poppler__RichMediaAnnotation__Deactivation) void {
+    pub fn delete(self: Poppler__RichMediaAnnotation__Deactivation) void {
         qtc.Poppler__RichMediaAnnotation__Deactivation_Delete(@ptrCast(self.ptr));
     }
 };
@@ -8841,45 +11053,57 @@ pub const Poppler__RichMediaAnnotation__Settings = extern struct {
 
     pub const _is_Poppler__RichMediaAnnotation__Settings = {};
 
-    /// New constructs a new Poppler::RichMediaAnnotation::Settings object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() Poppler__RichMediaAnnotation__Settings {
+    pub const New = new;
+
+    /// Allocate a new Poppler::RichMediaAnnotation::Settings object in C++ memory
+    ///
+    pub fn new() Poppler__RichMediaAnnotation__Settings {
         return .{ .ptr = qtc.Poppler__RichMediaAnnotation__Settings_new() };
     }
 
+    /// ### DEPRECATED: Use `activation` instead
+    ///
+    pub const Activation = activation;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1RichMediaAnnotation_1_1Settings.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Poppler__RichMediaAnnotation__Settings `
     ///
-    pub fn Activation(self: Poppler__RichMediaAnnotation__Settings) Poppler__RichMediaAnnotation__Activation {
+    pub fn activation(self: Poppler__RichMediaAnnotation__Settings) Poppler__RichMediaAnnotation__Activation {
         return .{ .ptr = qtc.Poppler__RichMediaAnnotation__Settings_Activation(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `deactivation` instead
+    ///
+    pub const Deactivation = deactivation;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1RichMediaAnnotation_1_1Settings.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Poppler__RichMediaAnnotation__Settings `
     ///
-    pub fn Deactivation(self: Poppler__RichMediaAnnotation__Settings) Poppler__RichMediaAnnotation__Deactivation {
+    pub fn deactivation(self: Poppler__RichMediaAnnotation__Settings) Poppler__RichMediaAnnotation__Deactivation {
         return .{ .ptr = qtc.Poppler__RichMediaAnnotation__Settings_Deactivation(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1RichMediaAnnotation_1_1Settings.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Poppler__RichMediaAnnotation__Settings `
     ///
-    pub fn Delete(self: Poppler__RichMediaAnnotation__Settings) void {
+    pub fn delete(self: Poppler__RichMediaAnnotation__Settings) void {
         qtc.Poppler__RichMediaAnnotation__Settings_Delete(@ptrCast(self.ptr));
     }
 };

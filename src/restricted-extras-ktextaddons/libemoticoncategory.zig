@@ -12,23 +12,35 @@ pub const TextEmoticonsCore__EmoticonCategory = extern struct {
 
     pub const _is_TextEmoticonsCore__EmoticonCategory = {};
 
-    /// New constructs a new TextEmoticonsCore::EmoticonCategory object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() TextEmoticonsCore__EmoticonCategory {
+    pub const New = new;
+
+    /// Allocate a new TextEmoticonsCore::EmoticonCategory object in C++ memory
+    ///
+    pub fn new() TextEmoticonsCore__EmoticonCategory {
         return .{ .ptr = qtc.TextEmoticonsCore__EmoticonCategory_new() };
     }
 
-    /// New2 constructs a new TextEmoticonsCore::EmoticonCategory object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new TextEmoticonsCore::EmoticonCategory object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: TextEmoticonsCore__EmoticonCategory `
     ///
-    pub fn New2(param1: anytype) TextEmoticonsCore__EmoticonCategory {
+    pub fn new2(param1: anytype) TextEmoticonsCore__EmoticonCategory {
         comptime _ = @TypeOf(param1)._is_TextEmoticonsCore__EmoticonCategory;
         return .{ .ptr = qtc.TextEmoticonsCore__EmoticonCategory_new2(@ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEmoticonsCore_1_1EmoticonCategory.html)
     ///
     /// ## Parameter(s):
@@ -37,13 +49,17 @@ pub const TextEmoticonsCore__EmoticonCategory = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: TextEmoticonsCore__EmoticonCategory, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: TextEmoticonsCore__EmoticonCategory, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextEmoticonsCore__EmoticonCategory_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEmoticonsCore__EmoticonCategory.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEmoticonsCore__EmoticonCategory.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setName` instead
+    ///
+    pub const SetName = setName;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEmoticonsCore_1_1EmoticonCategory.html)
     ///
@@ -51,16 +67,20 @@ pub const TextEmoticonsCore__EmoticonCategory = extern struct {
     ///
     /// ` self: TextEmoticonsCore__EmoticonCategory `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn SetName(self: TextEmoticonsCore__EmoticonCategory, name: []const u8) void {
+    pub fn setName(self: TextEmoticonsCore__EmoticonCategory, _name: []const u8) void {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         qtc.TextEmoticonsCore__EmoticonCategory_SetName(@ptrCast(self.ptr), name_str);
     }
 
+    /// ### DEPRECATED: Use `category` instead
+    ///
+    pub const Category = category;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEmoticonsCore_1_1EmoticonCategory.html)
     ///
     /// ## Parameter(s):
@@ -69,13 +89,17 @@ pub const TextEmoticonsCore__EmoticonCategory = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Category(self: TextEmoticonsCore__EmoticonCategory, allocator: std.mem.Allocator) []const u8 {
+    pub fn category(self: TextEmoticonsCore__EmoticonCategory, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextEmoticonsCore__EmoticonCategory_Category(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEmoticonsCore__EmoticonCategory.Category: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEmoticonsCore__EmoticonCategory.category: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setCategory` instead
+    ///
+    pub const SetCategory = setCategory;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEmoticonsCore_1_1EmoticonCategory.html)
     ///
@@ -83,16 +107,20 @@ pub const TextEmoticonsCore__EmoticonCategory = extern struct {
     ///
     /// ` self: TextEmoticonsCore__EmoticonCategory `
     ///
-    /// ` category: []const u8 `
+    /// ` _category: []const u8 `
     ///
-    pub fn SetCategory(self: TextEmoticonsCore__EmoticonCategory, category: []const u8) void {
+    pub fn setCategory(self: TextEmoticonsCore__EmoticonCategory, _category: []const u8) void {
         const category_str = qtc.libqt_string{
-            .len = category.len,
-            .data = category.ptr,
+            .len = _category.len,
+            .data = _category.ptr,
         };
         qtc.TextEmoticonsCore__EmoticonCategory_SetCategory(@ptrCast(self.ptr), category_str);
     }
 
+    /// ### DEPRECATED: Use `i18nName` instead
+    ///
+    pub const I18nName = i18nName;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEmoticonsCore_1_1EmoticonCategory.html)
     ///
     /// ## Parameter(s):
@@ -101,13 +129,17 @@ pub const TextEmoticonsCore__EmoticonCategory = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn I18nName(self: TextEmoticonsCore__EmoticonCategory, allocator: std.mem.Allocator) []const u8 {
+    pub fn i18nName(self: TextEmoticonsCore__EmoticonCategory, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextEmoticonsCore__EmoticonCategory_I18nName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEmoticonsCore__EmoticonCategory.I18nName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEmoticonsCore__EmoticonCategory.i18nName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setI18nName` instead
+    ///
+    pub const SetI18nName = setI18nName;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEmoticonsCore_1_1EmoticonCategory.html)
     ///
@@ -117,13 +149,17 @@ pub const TextEmoticonsCore__EmoticonCategory = extern struct {
     ///
     /// ` newI18nName: []const u8 `
     ///
-    pub fn SetI18nName(self: TextEmoticonsCore__EmoticonCategory, newI18nName: []const u8) void {
+    pub fn setI18nName(self: TextEmoticonsCore__EmoticonCategory, newI18nName: []const u8) void {
         const newI18nName_str = qtc.libqt_string{
             .len = newI18nName.len,
             .data = newI18nName.ptr,
         };
         qtc.TextEmoticonsCore__EmoticonCategory_SetI18nName(@ptrCast(self.ptr), newI18nName_str);
     }
+
+    /// ### DEPRECATED: Use `operatorLesser` instead
+    ///
+    pub const OperatorLesser = operatorLesser;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEmoticonsCore_1_1EmoticonCategory.html)
     ///
@@ -133,10 +169,14 @@ pub const TextEmoticonsCore__EmoticonCategory = extern struct {
     ///
     /// ` other: TextEmoticonsCore__EmoticonCategory `
     ///
-    pub fn OperatorLesser(self: TextEmoticonsCore__EmoticonCategory, other: anytype) bool {
+    pub fn operatorLesser(self: TextEmoticonsCore__EmoticonCategory, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_TextEmoticonsCore__EmoticonCategory;
         return qtc.TextEmoticonsCore__EmoticonCategory_OperatorLesser(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `order` instead
+    ///
+    pub const Order = order;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEmoticonsCore_1_1EmoticonCategory.html)
     ///
@@ -144,9 +184,13 @@ pub const TextEmoticonsCore__EmoticonCategory = extern struct {
     ///
     /// ` self: TextEmoticonsCore__EmoticonCategory `
     ///
-    pub fn Order(self: TextEmoticonsCore__EmoticonCategory) i32 {
+    pub fn order(self: TextEmoticonsCore__EmoticonCategory) i32 {
         return qtc.TextEmoticonsCore__EmoticonCategory_Order(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setOrder` instead
+    ///
+    pub const SetOrder = setOrder;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEmoticonsCore_1_1EmoticonCategory.html)
     ///
@@ -156,23 +200,23 @@ pub const TextEmoticonsCore__EmoticonCategory = extern struct {
     ///
     /// ` newOrder: i32 `
     ///
-    pub fn SetOrder(self: TextEmoticonsCore__EmoticonCategory, newOrder: i32) void {
+    pub fn setOrder(self: TextEmoticonsCore__EmoticonCategory, newOrder: i32) void {
         qtc.TextEmoticonsCore__EmoticonCategory_SetOrder(@ptrCast(self.ptr), @bitCast(newOrder));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEmoticonsCore_1_1EmoticonCategory.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: TextEmoticonsCore__EmoticonCategory `
     ///
-    pub fn Delete(self: TextEmoticonsCore__EmoticonCategory) void {
+    pub fn delete(self: TextEmoticonsCore__EmoticonCategory) void {
         qtc.TextEmoticonsCore__EmoticonCategory_Delete(@ptrCast(self.ptr));
     }
 };

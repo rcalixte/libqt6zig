@@ -35,15 +35,23 @@ pub const QTextObject = extern struct {
     pub const _is_QTextObject = {};
     pub const _is_QObject = {};
 
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QTextObject `
     ///
-    pub fn MetaObject(self: QTextObject) QMetaObject {
+    pub fn metaObject(self: QTextObject) QMetaObject {
         return .{ .ptr = qtc.QTextObject_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -51,10 +59,14 @@ pub const QTextObject = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QTextObject, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QTextObject, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QTextObject_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -66,9 +78,13 @@ pub const QTextObject = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QTextObject, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QTextObject, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QTextObject_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -78,14 +94,18 @@ pub const QTextObject = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextObject.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextObject.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `format` instead
+    ///
+    pub const Format = format;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextobject.html#format)
     ///
@@ -93,9 +113,13 @@ pub const QTextObject = extern struct {
     ///
     /// ` self: QTextObject `
     ///
-    pub fn Format(self: QTextObject) QTextFormat {
+    pub fn format(self: QTextObject) QTextFormat {
         return .{ .ptr = qtc.QTextObject_Format(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `formatIndex` instead
+    ///
+    pub const FormatIndex = formatIndex;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextobject.html#formatIndex)
     ///
@@ -103,9 +127,13 @@ pub const QTextObject = extern struct {
     ///
     /// ` self: QTextObject `
     ///
-    pub fn FormatIndex(self: QTextObject) i32 {
+    pub fn formatIndex(self: QTextObject) i32 {
         return qtc.QTextObject_FormatIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `document` instead
+    ///
+    pub const Document = document;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextobject.html#document)
     ///
@@ -113,9 +141,13 @@ pub const QTextObject = extern struct {
     ///
     /// ` self: QTextObject `
     ///
-    pub fn Document(self: QTextObject) QTextDocument {
+    pub fn document(self: QTextObject) QTextDocument {
         return .{ .ptr = qtc.QTextObject_Document(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `objectIndex` instead
+    ///
+    pub const ObjectIndex = objectIndex;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextobject.html#objectIndex)
     ///
@@ -123,9 +155,13 @@ pub const QTextObject = extern struct {
     ///
     /// ` self: QTextObject `
     ///
-    pub fn ObjectIndex(self: QTextObject) i32 {
+    pub fn objectIndex(self: QTextObject) i32 {
         return qtc.QTextObject_ObjectIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -137,15 +173,19 @@ pub const QTextObject = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextObject.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextObject.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -159,15 +199,19 @@ pub const QTextObject = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextObject.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextObject.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -177,12 +221,16 @@ pub const QTextObject = extern struct {
     ///
     /// ` self: QTextObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QTextObject, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QObject_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QTextObject, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QObject_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -194,13 +242,17 @@ pub const QTextObject = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QTextObject, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QTextObject, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -212,13 +264,17 @@ pub const QTextObject = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QTextObject, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QTextObject, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextObject.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextObject.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -230,13 +286,17 @@ pub const QTextObject = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QTextObject, name: []const u8) void {
+    pub fn setObjectName(self: QTextObject, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -246,9 +306,13 @@ pub const QTextObject = extern struct {
     ///
     /// ` self: QTextObject `
     ///
-    pub fn IsWidgetType(self: QTextObject) bool {
+    pub fn isWidgetType(self: QTextObject) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -258,9 +322,13 @@ pub const QTextObject = extern struct {
     ///
     /// ` self: QTextObject `
     ///
-    pub fn IsWindowType(self: QTextObject) bool {
+    pub fn isWindowType(self: QTextObject) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -270,9 +338,13 @@ pub const QTextObject = extern struct {
     ///
     /// ` self: QTextObject `
     ///
-    pub fn IsQuickItemType(self: QTextObject) bool {
+    pub fn isQuickItemType(self: QTextObject) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -282,9 +354,13 @@ pub const QTextObject = extern struct {
     ///
     /// ` self: QTextObject `
     ///
-    pub fn SignalsBlocked(self: QTextObject) bool {
+    pub fn signalsBlocked(self: QTextObject) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -296,9 +372,13 @@ pub const QTextObject = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QTextObject, b: bool) bool {
+    pub fn blockSignals(self: QTextObject, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -308,9 +388,13 @@ pub const QTextObject = extern struct {
     ///
     /// ` self: QTextObject `
     ///
-    pub fn Thread(self: QTextObject) QThread {
+    pub fn thread(self: QTextObject) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -320,12 +404,16 @@ pub const QTextObject = extern struct {
     ///
     /// ` self: QTextObject `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QTextObject, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QTextObject, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -337,9 +425,13 @@ pub const QTextObject = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QTextObject, interval: i32) i32 {
+    pub fn startTimer(self: QTextObject, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -351,9 +443,13 @@ pub const QTextObject = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QTextObject, time: i64) i32 {
+    pub fn startTimer2(self: QTextObject, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -365,9 +461,13 @@ pub const QTextObject = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QTextObject, id: i32) void {
+    pub fn killTimer(self: QTextObject, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -379,9 +479,13 @@ pub const QTextObject = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QTextObject, id: i32) void {
+    pub fn killTimer2(self: QTextObject, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -393,15 +497,19 @@ pub const QTextObject = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QTextObject, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QTextObject, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QTextObject.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QTextObject.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -411,12 +519,16 @@ pub const QTextObject = extern struct {
     ///
     /// ` self: QTextObject `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QTextObject, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QTextObject, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -428,10 +540,14 @@ pub const QTextObject = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QTextObject, filterObj: anytype) void {
+    pub fn installEventFilter(self: QTextObject, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -443,10 +559,14 @@ pub const QTextObject = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QTextObject, obj: anytype) void {
+    pub fn removeEventFilter(self: QTextObject, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -454,7 +574,7 @@ pub const QTextObject = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -462,13 +582,17 @@ pub const QTextObject = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -476,7 +600,7 @@ pub const QTextObject = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -484,13 +608,17 @@ pub const QTextObject = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -500,18 +628,22 @@ pub const QTextObject = extern struct {
     ///
     /// ` self: QTextObject `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QTextObject, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QTextObject, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -519,7 +651,7 @@ pub const QTextObject = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -527,13 +659,17 @@ pub const QTextObject = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -541,7 +677,7 @@ pub const QTextObject = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -549,13 +685,17 @@ pub const QTextObject = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -565,9 +705,13 @@ pub const QTextObject = extern struct {
     ///
     /// ` self: QTextObject `
     ///
-    pub fn Disconnect3(self: QTextObject) bool {
+    pub fn disconnect3(self: QTextObject) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -579,10 +723,14 @@ pub const QTextObject = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QTextObject, receiver: anytype) bool {
+    pub fn disconnect4(self: QTextObject, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -592,10 +740,14 @@ pub const QTextObject = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -605,9 +757,13 @@ pub const QTextObject = extern struct {
     ///
     /// ` self: QTextObject `
     ///
-    pub fn DumpObjectTree(self: QTextObject) void {
+    pub fn dumpObjectTree(self: QTextObject) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -617,9 +773,13 @@ pub const QTextObject = extern struct {
     ///
     /// ` self: QTextObject `
     ///
-    pub fn DumpObjectInfo(self: QTextObject) void {
+    pub fn dumpObjectInfo(self: QTextObject) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -633,11 +793,15 @@ pub const QTextObject = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QTextObject, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QTextObject, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -649,10 +813,14 @@ pub const QTextObject = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QTextObject, name: [:0]const u8) QVariant {
+    pub fn property(self: QTextObject, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -664,7 +832,7 @@ pub const QTextObject = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QTextObject, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QTextObject, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -672,27 +840,19 @@ pub const QTextObject = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QTextObject.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QTextObject.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QTextObject.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QTextObject.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextObject `
-    ///
-    pub fn BindingStorage(self: QTextObject) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -702,9 +862,29 @@ pub const QTextObject = extern struct {
     ///
     /// ` self: QTextObject `
     ///
-    pub fn BindingStorage2(self: QTextObject) QBindingStorage {
+    pub fn bindingStorage(self: QTextObject) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QTextObject `
+    ///
+    pub fn bindingStorage2(self: QTextObject) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -714,9 +894,13 @@ pub const QTextObject = extern struct {
     ///
     /// ` self: QTextObject `
     ///
-    pub fn Destroyed(self: QTextObject) void {
+    pub fn destroyed(self: QTextObject) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -728,9 +912,13 @@ pub const QTextObject = extern struct {
     ///
     /// ` callback: *const fn (self: QTextObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QTextObject, callback: *const fn (QTextObject) callconv(.c) void) void {
+    pub fn onDestroyed(self: QTextObject, callback: *const fn (QTextObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -740,9 +928,13 @@ pub const QTextObject = extern struct {
     ///
     /// ` self: QTextObject `
     ///
-    pub fn Parent(self: QTextObject) QObject {
+    pub fn parent(self: QTextObject) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -754,10 +946,14 @@ pub const QTextObject = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QTextObject, classname: [:0]const u8) bool {
+    pub fn inherits(self: QTextObject, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -767,9 +963,13 @@ pub const QTextObject = extern struct {
     ///
     /// ` self: QTextObject `
     ///
-    pub fn DeleteLater(self: QTextObject) void {
+    pub fn deleteLater(self: QTextObject) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -783,9 +983,13 @@ pub const QTextObject = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QTextObject, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QTextObject, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -799,9 +1003,13 @@ pub const QTextObject = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QTextObject, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QTextObject, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -809,7 +1017,7 @@ pub const QTextObject = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -819,13 +1027,17 @@ pub const QTextObject = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -833,7 +1045,7 @@ pub const QTextObject = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -843,13 +1055,17 @@ pub const QTextObject = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -859,7 +1075,7 @@ pub const QTextObject = extern struct {
     ///
     /// ` self: QTextObject `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -867,12 +1083,16 @@ pub const QTextObject = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QTextObject, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QTextObject, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -884,10 +1104,14 @@ pub const QTextObject = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QTextObject, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QTextObject, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -901,11 +1125,15 @@ pub const QTextObject = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QTextObject, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QTextObject, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -921,13 +1149,17 @@ pub const QTextObject = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QTextObject, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QTextObject, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -940,11 +1172,15 @@ pub const QTextObject = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QTextObject, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QTextObject, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -956,10 +1192,14 @@ pub const QTextObject = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QTextObject, param1: anytype) void {
+    pub fn destroyed1(self: QTextObject, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -971,9 +1211,13 @@ pub const QTextObject = extern struct {
     ///
     /// ` callback: *const fn (self: QTextObject, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QTextObject, callback: *const fn (QTextObject, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QTextObject, callback: *const fn (QTextObject, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -987,7 +1231,7 @@ pub const QTextObject = extern struct {
     ///
     /// ` callback: *const fn (self: QTextObject, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QTextObject, callback: *const fn (QTextObject, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QTextObject, callback: *const fn (QTextObject, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 };
@@ -1004,15 +1248,23 @@ pub const QTextBlockGroup = extern struct {
     pub const _is_QTextObject = {};
     pub const _is_QObject = {};
 
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QTextBlockGroup `
     ///
-    pub fn MetaObject(self: QTextBlockGroup) QMetaObject {
+    pub fn metaObject(self: QTextBlockGroup) QMetaObject {
         return .{ .ptr = qtc.QTextBlockGroup_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -1020,10 +1272,14 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QTextBlockGroup, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QTextBlockGroup, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QTextBlockGroup_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -1035,9 +1291,13 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QTextBlockGroup, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QTextBlockGroup, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QTextBlockGroup_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1047,14 +1307,18 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextBlockGroup.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextBlockGroup.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1066,15 +1330,19 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextBlockGroup.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextBlockGroup.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1088,15 +1356,19 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextBlockGroup.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextBlockGroup.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `format` instead
+    ///
+    pub const Format = format;
 
     /// Inherited from QTextObject
     ///
@@ -1106,9 +1378,13 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` self: QTextBlockGroup `
     ///
-    pub fn Format(self: QTextBlockGroup) QTextFormat {
+    pub fn format(self: QTextBlockGroup) QTextFormat {
         return .{ .ptr = qtc.QTextObject_Format(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `formatIndex` instead
+    ///
+    pub const FormatIndex = formatIndex;
 
     /// Inherited from QTextObject
     ///
@@ -1118,9 +1394,13 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` self: QTextBlockGroup `
     ///
-    pub fn FormatIndex(self: QTextBlockGroup) i32 {
+    pub fn formatIndex(self: QTextBlockGroup) i32 {
         return qtc.QTextObject_FormatIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `document` instead
+    ///
+    pub const Document = document;
 
     /// Inherited from QTextObject
     ///
@@ -1130,9 +1410,13 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` self: QTextBlockGroup `
     ///
-    pub fn Document(self: QTextBlockGroup) QTextDocument {
+    pub fn document(self: QTextBlockGroup) QTextDocument {
         return .{ .ptr = qtc.QTextObject_Document(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `objectIndex` instead
+    ///
+    pub const ObjectIndex = objectIndex;
 
     /// Inherited from QTextObject
     ///
@@ -1142,9 +1426,13 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` self: QTextBlockGroup `
     ///
-    pub fn ObjectIndex(self: QTextBlockGroup) i32 {
+    pub fn objectIndex(self: QTextBlockGroup) i32 {
         return qtc.QTextObject_ObjectIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1154,12 +1442,16 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` self: QTextBlockGroup `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QTextBlockGroup, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QObject_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QTextBlockGroup, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QObject_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1171,13 +1463,17 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QTextBlockGroup, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QTextBlockGroup, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -1189,13 +1485,17 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QTextBlockGroup, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QTextBlockGroup, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextBlockGroup.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextBlockGroup.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -1207,13 +1507,17 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QTextBlockGroup, name: []const u8) void {
+    pub fn setObjectName(self: QTextBlockGroup, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -1223,9 +1527,13 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` self: QTextBlockGroup `
     ///
-    pub fn IsWidgetType(self: QTextBlockGroup) bool {
+    pub fn isWidgetType(self: QTextBlockGroup) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -1235,9 +1543,13 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` self: QTextBlockGroup `
     ///
-    pub fn IsWindowType(self: QTextBlockGroup) bool {
+    pub fn isWindowType(self: QTextBlockGroup) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -1247,9 +1559,13 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` self: QTextBlockGroup `
     ///
-    pub fn IsQuickItemType(self: QTextBlockGroup) bool {
+    pub fn isQuickItemType(self: QTextBlockGroup) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -1259,9 +1575,13 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` self: QTextBlockGroup `
     ///
-    pub fn SignalsBlocked(self: QTextBlockGroup) bool {
+    pub fn signalsBlocked(self: QTextBlockGroup) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -1273,9 +1593,13 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QTextBlockGroup, b: bool) bool {
+    pub fn blockSignals(self: QTextBlockGroup, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -1285,9 +1609,13 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` self: QTextBlockGroup `
     ///
-    pub fn Thread(self: QTextBlockGroup) QThread {
+    pub fn thread(self: QTextBlockGroup) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -1297,12 +1625,16 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` self: QTextBlockGroup `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QTextBlockGroup, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QTextBlockGroup, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -1314,9 +1646,13 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QTextBlockGroup, interval: i32) i32 {
+    pub fn startTimer(self: QTextBlockGroup, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -1328,9 +1664,13 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QTextBlockGroup, time: i64) i32 {
+    pub fn startTimer2(self: QTextBlockGroup, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -1342,9 +1682,13 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QTextBlockGroup, id: i32) void {
+    pub fn killTimer(self: QTextBlockGroup, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -1356,9 +1700,13 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QTextBlockGroup, id: i32) void {
+    pub fn killTimer2(self: QTextBlockGroup, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -1370,15 +1718,19 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QTextBlockGroup, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QTextBlockGroup, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QTextBlockGroup.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QTextBlockGroup.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -1388,12 +1740,16 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` self: QTextBlockGroup `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QTextBlockGroup, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QTextBlockGroup, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1405,10 +1761,14 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QTextBlockGroup, filterObj: anytype) void {
+    pub fn installEventFilter(self: QTextBlockGroup, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1420,10 +1780,14 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QTextBlockGroup, obj: anytype) void {
+    pub fn removeEventFilter(self: QTextBlockGroup, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -1431,7 +1795,7 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1439,13 +1803,17 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -1453,7 +1821,7 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1461,13 +1829,17 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1477,18 +1849,22 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` self: QTextBlockGroup `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QTextBlockGroup, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QTextBlockGroup, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1496,7 +1872,7 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1504,13 +1880,17 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1518,7 +1898,7 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1526,13 +1906,17 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1542,9 +1926,13 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` self: QTextBlockGroup `
     ///
-    pub fn Disconnect3(self: QTextBlockGroup) bool {
+    pub fn disconnect3(self: QTextBlockGroup) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1556,10 +1944,14 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QTextBlockGroup, receiver: anytype) bool {
+    pub fn disconnect4(self: QTextBlockGroup, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1569,10 +1961,14 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1582,9 +1978,13 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` self: QTextBlockGroup `
     ///
-    pub fn DumpObjectTree(self: QTextBlockGroup) void {
+    pub fn dumpObjectTree(self: QTextBlockGroup) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1594,9 +1994,13 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` self: QTextBlockGroup `
     ///
-    pub fn DumpObjectInfo(self: QTextBlockGroup) void {
+    pub fn dumpObjectInfo(self: QTextBlockGroup) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1610,11 +2014,15 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QTextBlockGroup, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QTextBlockGroup, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1626,10 +2034,14 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QTextBlockGroup, name: [:0]const u8) QVariant {
+    pub fn property(self: QTextBlockGroup, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1641,7 +2053,7 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QTextBlockGroup, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QTextBlockGroup, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1649,27 +2061,19 @@ pub const QTextBlockGroup = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QTextBlockGroup.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QTextBlockGroup.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QTextBlockGroup.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QTextBlockGroup.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextBlockGroup `
-    ///
-    pub fn BindingStorage(self: QTextBlockGroup) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1679,9 +2083,29 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` self: QTextBlockGroup `
     ///
-    pub fn BindingStorage2(self: QTextBlockGroup) QBindingStorage {
+    pub fn bindingStorage(self: QTextBlockGroup) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QTextBlockGroup `
+    ///
+    pub fn bindingStorage2(self: QTextBlockGroup) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1691,9 +2115,13 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` self: QTextBlockGroup `
     ///
-    pub fn Destroyed(self: QTextBlockGroup) void {
+    pub fn destroyed(self: QTextBlockGroup) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1705,9 +2133,13 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QTextBlockGroup) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QTextBlockGroup, callback: *const fn (QTextBlockGroup) callconv(.c) void) void {
+    pub fn onDestroyed(self: QTextBlockGroup, callback: *const fn (QTextBlockGroup) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1717,9 +2149,13 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` self: QTextBlockGroup `
     ///
-    pub fn Parent(self: QTextBlockGroup) QObject {
+    pub fn parent(self: QTextBlockGroup) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1731,10 +2167,14 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QTextBlockGroup, classname: [:0]const u8) bool {
+    pub fn inherits(self: QTextBlockGroup, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1744,9 +2184,13 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` self: QTextBlockGroup `
     ///
-    pub fn DeleteLater(self: QTextBlockGroup) void {
+    pub fn deleteLater(self: QTextBlockGroup) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1760,9 +2204,13 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QTextBlockGroup, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QTextBlockGroup, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1776,9 +2224,13 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QTextBlockGroup, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QTextBlockGroup, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1786,7 +2238,7 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1796,13 +2248,17 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1810,7 +2266,7 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1820,13 +2276,17 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1836,7 +2296,7 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` self: QTextBlockGroup `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1844,12 +2304,16 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QTextBlockGroup, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QTextBlockGroup, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1861,10 +2325,14 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QTextBlockGroup, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QTextBlockGroup, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1878,11 +2346,15 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QTextBlockGroup, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QTextBlockGroup, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1898,13 +2370,17 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QTextBlockGroup, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QTextBlockGroup, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1917,11 +2393,15 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QTextBlockGroup, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QTextBlockGroup, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1933,10 +2413,14 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QTextBlockGroup, param1: anytype) void {
+    pub fn destroyed1(self: QTextBlockGroup, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1948,9 +2432,13 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QTextBlockGroup, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QTextBlockGroup, callback: *const fn (QTextBlockGroup, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QTextBlockGroup, callback: *const fn (QTextBlockGroup, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -1964,7 +2452,7 @@ pub const QTextBlockGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QTextBlockGroup, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QTextBlockGroup, callback: *const fn (QTextBlockGroup, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QTextBlockGroup, callback: *const fn (QTextBlockGroup, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 };
@@ -1981,16 +2469,24 @@ pub const QTextFrame = extern struct {
     pub const _is_QTextObject = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QTextFrame object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QTextFrame object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` doc: QTextDocument `
     ///
-    pub fn New(doc: anytype) QTextFrame {
+    pub fn new(doc: anytype) QTextFrame {
         comptime _ = @TypeOf(doc)._is_QTextDocument;
         return .{ .ptr = qtc.QTextFrame_new(@ptrCast(doc.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -1998,9 +2494,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` self: QTextFrame `
     ///
-    pub fn MetaObject(self: QTextFrame) QMetaObject {
+    pub fn metaObject(self: QTextFrame) QMetaObject {
         return .{ .ptr = qtc.QTextFrame_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -2012,13 +2512,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QTextFrame, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QTextFrame, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QTextFrame_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -2028,9 +2528,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` self: QTextFrame `
     ///
-    pub fn SuperMetaObject(self: QTextFrame) QMetaObject {
+    pub fn superMetaObject(self: QTextFrame) QMetaObject {
         return .{ .ptr = qtc.QTextFrame_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -2038,10 +2542,14 @@ pub const QTextFrame = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QTextFrame, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QTextFrame, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QTextFrame_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -2051,13 +2559,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QTextFrame, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QTextFrame, callback: *const fn (QTextFrame, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QTextFrame, callback: *const fn (QTextFrame, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QTextFrame_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -2067,10 +2575,14 @@ pub const QTextFrame = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QTextFrame, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QTextFrame, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QTextFrame_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -2082,9 +2594,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QTextFrame, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QTextFrame, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QTextFrame_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -2094,13 +2610,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QTextFrame, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QTextFrame, callback: *const fn (QTextFrame, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QTextFrame, callback: *const fn (QTextFrame, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QTextFrame_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -2114,9 +2630,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QTextFrame, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QTextFrame, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QTextFrame_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -2126,14 +2646,18 @@ pub const QTextFrame = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextFrame.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextFrame.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setFrameFormat` instead
+    ///
+    pub const SetFrameFormat = setFrameFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframe.html#setFrameFormat)
     ///
@@ -2141,12 +2665,16 @@ pub const QTextFrame = extern struct {
     ///
     /// ` self: QTextFrame `
     ///
-    /// ` format: QTextFrameFormat `
+    /// ` _format: QTextFrameFormat `
     ///
-    pub fn SetFrameFormat(self: QTextFrame, format: anytype) void {
-        comptime _ = @TypeOf(format)._is_QTextFrameFormat;
-        qtc.QTextFrame_SetFrameFormat(@ptrCast(self.ptr), @ptrCast(format.ptr));
+    pub fn setFrameFormat(self: QTextFrame, _format: anytype) void {
+        comptime _ = @TypeOf(_format)._is_QTextFrameFormat;
+        qtc.QTextFrame_SetFrameFormat(@ptrCast(self.ptr), @ptrCast(_format.ptr));
     }
+
+    /// ### DEPRECATED: Use `frameFormat` instead
+    ///
+    pub const FrameFormat = frameFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframe.html#frameFormat)
     ///
@@ -2154,9 +2682,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` self: QTextFrame `
     ///
-    pub fn FrameFormat(self: QTextFrame) QTextFrameFormat {
+    pub fn frameFormat(self: QTextFrame) QTextFrameFormat {
         return .{ .ptr = qtc.QTextFrame_FrameFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `firstCursorPosition` instead
+    ///
+    pub const FirstCursorPosition = firstCursorPosition;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframe.html#firstCursorPosition)
     ///
@@ -2164,9 +2696,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` self: QTextFrame `
     ///
-    pub fn FirstCursorPosition(self: QTextFrame) QTextCursor {
+    pub fn firstCursorPosition(self: QTextFrame) QTextCursor {
         return .{ .ptr = qtc.QTextFrame_FirstCursorPosition(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lastCursorPosition` instead
+    ///
+    pub const LastCursorPosition = lastCursorPosition;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframe.html#lastCursorPosition)
     ///
@@ -2174,9 +2710,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` self: QTextFrame `
     ///
-    pub fn LastCursorPosition(self: QTextFrame) QTextCursor {
+    pub fn lastCursorPosition(self: QTextFrame) QTextCursor {
         return .{ .ptr = qtc.QTextFrame_LastCursorPosition(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `firstPosition` instead
+    ///
+    pub const FirstPosition = firstPosition;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframe.html#firstPosition)
     ///
@@ -2184,9 +2724,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` self: QTextFrame `
     ///
-    pub fn FirstPosition(self: QTextFrame) i32 {
+    pub fn firstPosition(self: QTextFrame) i32 {
         return qtc.QTextFrame_FirstPosition(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lastPosition` instead
+    ///
+    pub const LastPosition = lastPosition;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframe.html#lastPosition)
     ///
@@ -2194,9 +2738,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` self: QTextFrame `
     ///
-    pub fn LastPosition(self: QTextFrame) i32 {
+    pub fn lastPosition(self: QTextFrame) i32 {
         return qtc.QTextFrame_LastPosition(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `childFrames` instead
+    ///
+    pub const ChildFrames = childFrames;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframe.html#childFrames)
     ///
@@ -2206,15 +2754,19 @@ pub const QTextFrame = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ChildFrames(self: QTextFrame, allocator: std.mem.Allocator) []QTextFrame {
+    pub fn childFrames(self: QTextFrame, allocator: std.mem.Allocator) []QTextFrame {
         const _arr: qtc.libqt_list = qtc.QTextFrame_ChildFrames(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QTextFrame, _arr.len) catch @panic("QTextFrame.ChildFrames: Memory allocation failed");
-        const _data: [*]QtC.QTextFrame = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QTextFrame, _arr.len) catch @panic("QTextFrame.childFrames: Memory allocation failed");
+        const _data_val: [*]QtC.QTextFrame = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `parentFrame` instead
+    ///
+    pub const ParentFrame = parentFrame;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframe.html#parentFrame)
     ///
@@ -2222,9 +2774,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` self: QTextFrame `
     ///
-    pub fn ParentFrame(self: QTextFrame) QTextFrame {
+    pub fn parentFrame(self: QTextFrame) QTextFrame {
         return .{ .ptr = qtc.QTextFrame_ParentFrame(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `begin` instead
+    ///
+    pub const Begin = begin;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframe.html#begin)
     ///
@@ -2232,9 +2788,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` self: QTextFrame `
     ///
-    pub fn Begin(self: QTextFrame) QTextFrame__iterator {
+    pub fn begin(self: QTextFrame) QTextFrame__iterator {
         return .{ .ptr = qtc.QTextFrame_Begin(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `end` instead
+    ///
+    pub const End = end;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframe.html#end)
     ///
@@ -2242,9 +2802,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` self: QTextFrame `
     ///
-    pub fn End(self: QTextFrame) QTextFrame__iterator {
+    pub fn end(self: QTextFrame) QTextFrame__iterator {
         return .{ .ptr = qtc.QTextFrame_End(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -2256,15 +2820,19 @@ pub const QTextFrame = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextFrame.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextFrame.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -2278,15 +2846,19 @@ pub const QTextFrame = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextFrame.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextFrame.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `format` instead
+    ///
+    pub const Format = format;
 
     /// Inherited from QTextObject
     ///
@@ -2296,9 +2868,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` self: QTextFrame `
     ///
-    pub fn Format(self: QTextFrame) QTextFormat {
+    pub fn format(self: QTextFrame) QTextFormat {
         return .{ .ptr = qtc.QTextObject_Format(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `formatIndex` instead
+    ///
+    pub const FormatIndex = formatIndex;
 
     /// Inherited from QTextObject
     ///
@@ -2308,9 +2884,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` self: QTextFrame `
     ///
-    pub fn FormatIndex(self: QTextFrame) i32 {
+    pub fn formatIndex(self: QTextFrame) i32 {
         return qtc.QTextObject_FormatIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `document` instead
+    ///
+    pub const Document = document;
 
     /// Inherited from QTextObject
     ///
@@ -2320,9 +2900,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` self: QTextFrame `
     ///
-    pub fn Document(self: QTextFrame) QTextDocument {
+    pub fn document(self: QTextFrame) QTextDocument {
         return .{ .ptr = qtc.QTextObject_Document(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `objectIndex` instead
+    ///
+    pub const ObjectIndex = objectIndex;
 
     /// Inherited from QTextObject
     ///
@@ -2332,9 +2916,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` self: QTextFrame `
     ///
-    pub fn ObjectIndex(self: QTextFrame) i32 {
+    pub fn objectIndex(self: QTextFrame) i32 {
         return qtc.QTextObject_ObjectIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -2346,13 +2934,17 @@ pub const QTextFrame = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QTextFrame, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QTextFrame, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextFrame.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextFrame.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -2364,13 +2956,17 @@ pub const QTextFrame = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QTextFrame, name: []const u8) void {
+    pub fn setObjectName(self: QTextFrame, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -2380,9 +2976,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` self: QTextFrame `
     ///
-    pub fn IsWidgetType(self: QTextFrame) bool {
+    pub fn isWidgetType(self: QTextFrame) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -2392,9 +2992,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` self: QTextFrame `
     ///
-    pub fn IsWindowType(self: QTextFrame) bool {
+    pub fn isWindowType(self: QTextFrame) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -2404,9 +3008,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` self: QTextFrame `
     ///
-    pub fn IsQuickItemType(self: QTextFrame) bool {
+    pub fn isQuickItemType(self: QTextFrame) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -2416,9 +3024,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` self: QTextFrame `
     ///
-    pub fn SignalsBlocked(self: QTextFrame) bool {
+    pub fn signalsBlocked(self: QTextFrame) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -2430,9 +3042,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QTextFrame, b: bool) bool {
+    pub fn blockSignals(self: QTextFrame, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -2442,9 +3058,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` self: QTextFrame `
     ///
-    pub fn Thread(self: QTextFrame) QThread {
+    pub fn thread(self: QTextFrame) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -2454,12 +3074,16 @@ pub const QTextFrame = extern struct {
     ///
     /// ` self: QTextFrame `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QTextFrame, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QTextFrame, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -2471,9 +3095,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QTextFrame, interval: i32) i32 {
+    pub fn startTimer(self: QTextFrame, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -2485,9 +3113,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QTextFrame, time: i64) i32 {
+    pub fn startTimer2(self: QTextFrame, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -2499,9 +3131,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QTextFrame, id: i32) void {
+    pub fn killTimer(self: QTextFrame, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -2513,9 +3149,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QTextFrame, id: i32) void {
+    pub fn killTimer2(self: QTextFrame, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -2527,15 +3167,19 @@ pub const QTextFrame = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QTextFrame, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QTextFrame, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QTextFrame.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QTextFrame.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -2545,12 +3189,16 @@ pub const QTextFrame = extern struct {
     ///
     /// ` self: QTextFrame `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QTextFrame, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QTextFrame, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2562,10 +3210,14 @@ pub const QTextFrame = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QTextFrame, filterObj: anytype) void {
+    pub fn installEventFilter(self: QTextFrame, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2577,10 +3229,14 @@ pub const QTextFrame = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QTextFrame, obj: anytype) void {
+    pub fn removeEventFilter(self: QTextFrame, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -2588,7 +3244,7 @@ pub const QTextFrame = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2596,13 +3252,17 @@ pub const QTextFrame = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -2610,7 +3270,7 @@ pub const QTextFrame = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2618,13 +3278,17 @@ pub const QTextFrame = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -2634,18 +3298,22 @@ pub const QTextFrame = extern struct {
     ///
     /// ` self: QTextFrame `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QTextFrame, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QTextFrame, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -2653,7 +3321,7 @@ pub const QTextFrame = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2661,13 +3329,17 @@ pub const QTextFrame = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -2675,7 +3347,7 @@ pub const QTextFrame = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2683,13 +3355,17 @@ pub const QTextFrame = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -2699,9 +3375,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` self: QTextFrame `
     ///
-    pub fn Disconnect3(self: QTextFrame) bool {
+    pub fn disconnect3(self: QTextFrame) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -2713,10 +3393,14 @@ pub const QTextFrame = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QTextFrame, receiver: anytype) bool {
+    pub fn disconnect4(self: QTextFrame, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -2726,10 +3410,14 @@ pub const QTextFrame = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -2739,9 +3427,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` self: QTextFrame `
     ///
-    pub fn DumpObjectTree(self: QTextFrame) void {
+    pub fn dumpObjectTree(self: QTextFrame) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -2751,9 +3443,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` self: QTextFrame `
     ///
-    pub fn DumpObjectInfo(self: QTextFrame) void {
+    pub fn dumpObjectInfo(self: QTextFrame) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -2767,11 +3463,15 @@ pub const QTextFrame = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QTextFrame, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QTextFrame, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -2783,10 +3483,14 @@ pub const QTextFrame = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QTextFrame, name: [:0]const u8) QVariant {
+    pub fn property(self: QTextFrame, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -2798,7 +3502,7 @@ pub const QTextFrame = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QTextFrame, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QTextFrame, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -2806,27 +3510,19 @@ pub const QTextFrame = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QTextFrame.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QTextFrame.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QTextFrame.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QTextFrame.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextFrame `
-    ///
-    pub fn BindingStorage(self: QTextFrame) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -2836,9 +3532,29 @@ pub const QTextFrame = extern struct {
     ///
     /// ` self: QTextFrame `
     ///
-    pub fn BindingStorage2(self: QTextFrame) QBindingStorage {
+    pub fn bindingStorage(self: QTextFrame) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QTextFrame `
+    ///
+    pub fn bindingStorage2(self: QTextFrame) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -2848,9 +3564,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` self: QTextFrame `
     ///
-    pub fn Destroyed(self: QTextFrame) void {
+    pub fn destroyed(self: QTextFrame) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -2862,9 +3582,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QTextFrame) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QTextFrame, callback: *const fn (QTextFrame) callconv(.c) void) void {
+    pub fn onDestroyed(self: QTextFrame, callback: *const fn (QTextFrame) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -2874,9 +3598,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` self: QTextFrame `
     ///
-    pub fn Parent(self: QTextFrame) QObject {
+    pub fn parent(self: QTextFrame) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -2888,10 +3616,14 @@ pub const QTextFrame = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QTextFrame, classname: [:0]const u8) bool {
+    pub fn inherits(self: QTextFrame, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -2901,9 +3633,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` self: QTextFrame `
     ///
-    pub fn DeleteLater(self: QTextFrame) void {
+    pub fn deleteLater(self: QTextFrame) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -2917,9 +3653,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QTextFrame, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QTextFrame, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -2933,9 +3673,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QTextFrame, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QTextFrame, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -2943,7 +3687,7 @@ pub const QTextFrame = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2953,13 +3697,17 @@ pub const QTextFrame = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -2967,7 +3715,7 @@ pub const QTextFrame = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2977,13 +3725,17 @@ pub const QTextFrame = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -2993,7 +3745,7 @@ pub const QTextFrame = extern struct {
     ///
     /// ` self: QTextFrame `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -3001,12 +3753,16 @@ pub const QTextFrame = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QTextFrame, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QTextFrame, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -3018,10 +3774,14 @@ pub const QTextFrame = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QTextFrame, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QTextFrame, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -3035,11 +3795,15 @@ pub const QTextFrame = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QTextFrame, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QTextFrame, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -3055,13 +3819,17 @@ pub const QTextFrame = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QTextFrame, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QTextFrame, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -3074,11 +3842,15 @@ pub const QTextFrame = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QTextFrame, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QTextFrame, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -3090,10 +3862,14 @@ pub const QTextFrame = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QTextFrame, param1: anytype) void {
+    pub fn destroyed1(self: QTextFrame, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -3105,9 +3881,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QTextFrame, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QTextFrame, callback: *const fn (QTextFrame, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QTextFrame, callback: *const fn (QTextFrame, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -3119,16 +3899,16 @@ pub const QTextFrame = extern struct {
     ///
     /// ` self: QTextFrame `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QTextFrame, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QTextFrame_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QTextFrame, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QTextFrame_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -3140,12 +3920,16 @@ pub const QTextFrame = extern struct {
     ///
     /// ` self: QTextFrame `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QTextFrame, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QTextFrame_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QTextFrame, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QTextFrame_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -3159,9 +3943,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QTextFrame, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QTextFrame, callback: *const fn (QTextFrame, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QTextFrame, callback: *const fn (QTextFrame, QEvent) callconv(.c) bool) void {
         qtc.QTextFrame_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -3175,17 +3963,17 @@ pub const QTextFrame = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QTextFrame, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QTextFrame, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QTextFrame_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QTextFrame_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -3199,13 +3987,17 @@ pub const QTextFrame = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QTextFrame, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QTextFrame, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QTextFrame_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QTextFrame_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -3219,9 +4011,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QTextFrame, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QTextFrame, callback: *const fn (QTextFrame, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QTextFrame, callback: *const fn (QTextFrame, QObject, QEvent) callconv(.c) bool) void {
         qtc.QTextFrame_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -3233,16 +4029,16 @@ pub const QTextFrame = extern struct {
     ///
     /// ` self: QTextFrame `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QTextFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QTextFrame_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QTextFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QTextFrame_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -3254,12 +4050,16 @@ pub const QTextFrame = extern struct {
     ///
     /// ` self: QTextFrame `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QTextFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QTextFrame_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QTextFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QTextFrame_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -3273,9 +4073,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QTextFrame, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QTextFrame, callback: *const fn (QTextFrame, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QTextFrame, callback: *const fn (QTextFrame, QTimerEvent) callconv(.c) void) void {
         qtc.QTextFrame_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -3287,16 +4091,16 @@ pub const QTextFrame = extern struct {
     ///
     /// ` self: QTextFrame `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QTextFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QTextFrame_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QTextFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QTextFrame_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -3308,12 +4112,16 @@ pub const QTextFrame = extern struct {
     ///
     /// ` self: QTextFrame `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QTextFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QTextFrame_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QTextFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QTextFrame_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -3327,9 +4135,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QTextFrame, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QTextFrame, callback: *const fn (QTextFrame, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QTextFrame, callback: *const fn (QTextFrame, QChildEvent) callconv(.c) void) void {
         qtc.QTextFrame_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -3341,16 +4153,16 @@ pub const QTextFrame = extern struct {
     ///
     /// ` self: QTextFrame `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QTextFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QTextFrame_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QTextFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QTextFrame_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -3362,12 +4174,16 @@ pub const QTextFrame = extern struct {
     ///
     /// ` self: QTextFrame `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QTextFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QTextFrame_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QTextFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QTextFrame_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -3381,9 +4197,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QTextFrame, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QTextFrame, callback: *const fn (QTextFrame, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QTextFrame, callback: *const fn (QTextFrame, QEvent) callconv(.c) void) void {
         qtc.QTextFrame_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -3397,14 +4217,14 @@ pub const QTextFrame = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QTextFrame, signal: anytype) void {
+    pub fn connectNotify(self: QTextFrame, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QTextFrame_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3418,11 +4238,15 @@ pub const QTextFrame = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QTextFrame, signal: anytype) void {
+    pub fn superConnectNotify(self: QTextFrame, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QTextFrame_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -3435,9 +4259,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QTextFrame, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QTextFrame, callback: *const fn (QTextFrame, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QTextFrame, callback: *const fn (QTextFrame, QMetaMethod) callconv(.c) void) void {
         qtc.QTextFrame_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3451,14 +4279,14 @@ pub const QTextFrame = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QTextFrame, signal: anytype) void {
+    pub fn disconnectNotify(self: QTextFrame, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QTextFrame_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3472,10 +4300,14 @@ pub const QTextFrame = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QTextFrame, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QTextFrame, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QTextFrame_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3489,9 +4321,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QTextFrame, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QTextFrame, callback: *const fn (QTextFrame, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QTextFrame, callback: *const fn (QTextFrame, QMetaMethod) callconv(.c) void) void {
         qtc.QTextFrame_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setFormat` instead
+    ///
+    pub const SetFormat = setFormat;
 
     /// Inherited from QTextObject
     ///
@@ -3503,16 +4339,16 @@ pub const QTextFrame = extern struct {
     ///
     /// ` self: QTextFrame `
     ///
-    /// ` format: QTextFormat `
+    /// ` _format: QTextFormat `
     ///
-    pub fn SetFormat(self: QTextFrame, format: anytype) void {
-        comptime _ = @TypeOf(format)._is_QTextFormat;
-        qtc.QTextFrame_SetFormat(@ptrCast(self.ptr), @ptrCast(format.ptr));
+    pub fn setFormat(self: QTextFrame, _format: anytype) void {
+        comptime _ = @TypeOf(_format)._is_QTextFormat;
+        qtc.QTextFrame_SetFormat(@ptrCast(self.ptr), @ptrCast(_format.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetFormat` instead
+    /// ### DEPRECATED: Use `superSetFormat` instead
     ///
-    pub const QBaseSetFormat = SuperSetFormat;
+    pub const SuperSetFormat = superSetFormat;
 
     /// Inherited from QTextObject
     ///
@@ -3524,12 +4360,16 @@ pub const QTextFrame = extern struct {
     ///
     /// ` self: QTextFrame `
     ///
-    /// ` format: QTextFormat `
+    /// ` _format: QTextFormat `
     ///
-    pub fn SuperSetFormat(self: QTextFrame, format: anytype) void {
-        comptime _ = @TypeOf(format)._is_QTextFormat;
-        qtc.QTextFrame_SuperSetFormat(@ptrCast(self.ptr), @ptrCast(format.ptr));
+    pub fn superSetFormat(self: QTextFrame, _format: anytype) void {
+        comptime _ = @TypeOf(_format)._is_QTextFormat;
+        qtc.QTextFrame_SuperSetFormat(@ptrCast(self.ptr), @ptrCast(_format.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetFormat` instead
+    ///
+    pub const OnSetFormat = onSetFormat;
 
     /// Inherited from QTextObject
     ///
@@ -3543,9 +4383,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QTextFrame, format: QTextFormat) callconv(.c) void `
     ///
-    pub fn OnSetFormat(self: QTextFrame, callback: *const fn (QTextFrame, QTextFormat) callconv(.c) void) void {
+    pub fn onSetFormat(self: QTextFrame, callback: *const fn (QTextFrame, QTextFormat) callconv(.c) void) void {
         qtc.QTextFrame_OnSetFormat(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -3557,13 +4401,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` self: QTextFrame `
     ///
-    pub fn Sender(self: QTextFrame) QObject {
+    pub fn sender(self: QTextFrame) QObject {
         return .{ .ptr = qtc.QTextFrame_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -3575,9 +4419,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` self: QTextFrame `
     ///
-    pub fn SuperSender(self: QTextFrame) QObject {
+    pub fn superSender(self: QTextFrame) QObject {
         return .{ .ptr = qtc.QTextFrame_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -3591,9 +4439,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QTextFrame, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QTextFrame, callback: *const fn () callconv(.c) QObject) void {
         qtc.QTextFrame_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -3605,13 +4457,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` self: QTextFrame `
     ///
-    pub fn SenderSignalIndex(self: QTextFrame) i32 {
+    pub fn senderSignalIndex(self: QTextFrame) i32 {
         return qtc.QTextFrame_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -3623,9 +4475,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` self: QTextFrame `
     ///
-    pub fn SuperSenderSignalIndex(self: QTextFrame) i32 {
+    pub fn superSenderSignalIndex(self: QTextFrame) i32 {
         return qtc.QTextFrame_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -3639,9 +4495,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QTextFrame, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QTextFrame, callback: *const fn () callconv(.c) i32) void {
         qtc.QTextFrame_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -3655,14 +4515,14 @@ pub const QTextFrame = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QTextFrame, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QTextFrame, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QTextFrame_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -3676,10 +4536,14 @@ pub const QTextFrame = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QTextFrame, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QTextFrame, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QTextFrame_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -3693,9 +4557,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QTextFrame, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QTextFrame, callback: *const fn (QTextFrame, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QTextFrame, callback: *const fn (QTextFrame, [*:0]const u8) callconv(.c) i32) void {
         qtc.QTextFrame_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -3709,14 +4577,14 @@ pub const QTextFrame = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QTextFrame, signal: anytype) bool {
+    pub fn isSignalConnected(self: QTextFrame, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QTextFrame_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -3730,10 +4598,14 @@ pub const QTextFrame = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QTextFrame, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QTextFrame, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QTextFrame_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -3747,9 +4619,13 @@ pub const QTextFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QTextFrame, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QTextFrame, callback: *const fn (QTextFrame, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QTextFrame, callback: *const fn (QTextFrame, QMetaMethod) callconv(.c) bool) void {
         qtc.QTextFrame_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -3763,23 +4639,23 @@ pub const QTextFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QTextFrame, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QTextFrame, callback: *const fn (QTextFrame, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QTextFrame, callback: *const fn (QTextFrame, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframe.html#dtor.QTextFrame)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QTextFrame `
     ///
-    pub fn Delete(self: QTextFrame) void {
+    pub fn delete(self: QTextFrame) void {
         qtc.QTextFrame_Delete(@ptrCast(self.ptr));
     }
 };
@@ -3794,11 +4670,19 @@ pub const QTextBlockUserData = extern struct {
 
     pub const _is_QTextBlockUserData = {};
 
-    /// New constructs a new QTextBlockUserData object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QTextBlockUserData {
+    pub const New = new;
+
+    /// Allocate a new QTextBlockUserData object in C++ memory
+    ///
+    pub fn new() QTextBlockUserData {
         return .{ .ptr = qtc.QTextBlockUserData_new() };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockuserdata.html#operator-eq)
     ///
@@ -3808,24 +4692,24 @@ pub const QTextBlockUserData = extern struct {
     ///
     /// ` param1: QTextBlockUserData `
     ///
-    pub fn OperatorAssign(self: QTextBlockUserData, param1: anytype) void {
+    pub fn operatorAssign(self: QTextBlockUserData, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QTextBlockUserData;
         qtc.QTextBlockUserData_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockuserdata.html#dtor.QTextBlockUserData)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QTextBlockUserData `
     ///
-    pub fn Delete(self: QTextBlockUserData) void {
+    pub fn delete(self: QTextBlockUserData) void {
         qtc.QTextBlockUserData_Delete(@ptrCast(self.ptr));
     }
 };
@@ -3840,22 +4724,34 @@ pub const QTextBlock = extern struct {
 
     pub const _is_QTextBlock = {};
 
-    /// New constructs a new QTextBlock object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QTextBlock {
+    pub const New = new;
+
+    /// Allocate a new QTextBlock object in C++ memory
+    ///
+    pub fn new() QTextBlock {
         return .{ .ptr = qtc.QTextBlock_new() };
     }
 
-    /// New2 constructs a new QTextBlock object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QTextBlock object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` o: QTextBlock `
     ///
-    pub fn New2(o: anytype) QTextBlock {
+    pub fn new2(o: anytype) QTextBlock {
         comptime _ = @TypeOf(o)._is_QTextBlock;
         return .{ .ptr = qtc.QTextBlock_new2(@ptrCast(o.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblock.html#operator-eq)
     ///
@@ -3865,10 +4761,14 @@ pub const QTextBlock = extern struct {
     ///
     /// ` o: QTextBlock `
     ///
-    pub fn OperatorAssign(self: QTextBlock, o: anytype) void {
+    pub fn operatorAssign(self: QTextBlock, o: anytype) void {
         comptime _ = @TypeOf(o)._is_QTextBlock;
         qtc.QTextBlock_OperatorAssign(@ptrCast(self.ptr), @ptrCast(o.ptr));
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblock.html#isValid)
     ///
@@ -3876,9 +4776,13 @@ pub const QTextBlock = extern struct {
     ///
     /// ` self: QTextBlock `
     ///
-    pub fn IsValid(self: QTextBlock) bool {
+    pub fn isValid(self: QTextBlock) bool {
         return qtc.QTextBlock_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblock.html#operator-eq-eq)
     ///
@@ -3888,10 +4792,14 @@ pub const QTextBlock = extern struct {
     ///
     /// ` o: QTextBlock `
     ///
-    pub fn OperatorEqual(self: QTextBlock, o: anytype) bool {
+    pub fn operatorEqual(self: QTextBlock, o: anytype) bool {
         comptime _ = @TypeOf(o)._is_QTextBlock;
         return qtc.QTextBlock_OperatorEqual(@ptrCast(self.ptr), @ptrCast(o.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblock.html#operator-not-eq)
     ///
@@ -3901,10 +4809,14 @@ pub const QTextBlock = extern struct {
     ///
     /// ` o: QTextBlock `
     ///
-    pub fn OperatorNotEqual(self: QTextBlock, o: anytype) bool {
+    pub fn operatorNotEqual(self: QTextBlock, o: anytype) bool {
         comptime _ = @TypeOf(o)._is_QTextBlock;
         return qtc.QTextBlock_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(o.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorLesser` instead
+    ///
+    pub const OperatorLesser = operatorLesser;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblock.html#operator-lt)
     ///
@@ -3914,10 +4826,14 @@ pub const QTextBlock = extern struct {
     ///
     /// ` o: QTextBlock `
     ///
-    pub fn OperatorLesser(self: QTextBlock, o: anytype) bool {
+    pub fn operatorLesser(self: QTextBlock, o: anytype) bool {
         comptime _ = @TypeOf(o)._is_QTextBlock;
         return qtc.QTextBlock_OperatorLesser(@ptrCast(self.ptr), @ptrCast(o.ptr));
     }
+
+    /// ### DEPRECATED: Use `position` instead
+    ///
+    pub const Position = position;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblock.html#position)
     ///
@@ -3925,9 +4841,13 @@ pub const QTextBlock = extern struct {
     ///
     /// ` self: QTextBlock `
     ///
-    pub fn Position(self: QTextBlock) i32 {
+    pub fn position(self: QTextBlock) i32 {
         return qtc.QTextBlock_Position(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `length` instead
+    ///
+    pub const Length = length;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblock.html#length)
     ///
@@ -3935,9 +4855,13 @@ pub const QTextBlock = extern struct {
     ///
     /// ` self: QTextBlock `
     ///
-    pub fn Length(self: QTextBlock) i32 {
+    pub fn length(self: QTextBlock) i32 {
         return qtc.QTextBlock_Length(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `contains` instead
+    ///
+    pub const Contains = contains;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblock.html#contains)
     ///
@@ -3945,11 +4869,15 @@ pub const QTextBlock = extern struct {
     ///
     /// ` self: QTextBlock `
     ///
-    /// ` position: i32 `
+    /// ` _position: i32 `
     ///
-    pub fn Contains(self: QTextBlock, position: i32) bool {
-        return qtc.QTextBlock_Contains(@ptrCast(self.ptr), @bitCast(position));
+    pub fn contains(self: QTextBlock, _position: i32) bool {
+        return qtc.QTextBlock_Contains(@ptrCast(self.ptr), @bitCast(_position));
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblock.html#layout)
     ///
@@ -3957,9 +4885,13 @@ pub const QTextBlock = extern struct {
     ///
     /// ` self: QTextBlock `
     ///
-    pub fn Layout(self: QTextBlock) QTextLayout {
+    pub fn layout(self: QTextBlock) QTextLayout {
         return .{ .ptr = qtc.QTextBlock_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearLayout` instead
+    ///
+    pub const ClearLayout = clearLayout;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblock.html#clearLayout)
     ///
@@ -3967,9 +4899,13 @@ pub const QTextBlock = extern struct {
     ///
     /// ` self: QTextBlock `
     ///
-    pub fn ClearLayout(self: QTextBlock) void {
+    pub fn clearLayout(self: QTextBlock) void {
         qtc.QTextBlock_ClearLayout(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockFormat` instead
+    ///
+    pub const BlockFormat = blockFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblock.html#blockFormat)
     ///
@@ -3977,9 +4913,13 @@ pub const QTextBlock = extern struct {
     ///
     /// ` self: QTextBlock `
     ///
-    pub fn BlockFormat(self: QTextBlock) QTextBlockFormat {
+    pub fn blockFormat(self: QTextBlock) QTextBlockFormat {
         return .{ .ptr = qtc.QTextBlock_BlockFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `blockFormatIndex` instead
+    ///
+    pub const BlockFormatIndex = blockFormatIndex;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblock.html#blockFormatIndex)
     ///
@@ -3987,9 +4927,13 @@ pub const QTextBlock = extern struct {
     ///
     /// ` self: QTextBlock `
     ///
-    pub fn BlockFormatIndex(self: QTextBlock) i32 {
+    pub fn blockFormatIndex(self: QTextBlock) i32 {
         return qtc.QTextBlock_BlockFormatIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `charFormat` instead
+    ///
+    pub const CharFormat = charFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblock.html#charFormat)
     ///
@@ -3997,9 +4941,13 @@ pub const QTextBlock = extern struct {
     ///
     /// ` self: QTextBlock `
     ///
-    pub fn CharFormat(self: QTextBlock) QTextCharFormat {
+    pub fn charFormat(self: QTextBlock) QTextCharFormat {
         return .{ .ptr = qtc.QTextBlock_CharFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `charFormatIndex` instead
+    ///
+    pub const CharFormatIndex = charFormatIndex;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblock.html#charFormatIndex)
     ///
@@ -4007,9 +4955,13 @@ pub const QTextBlock = extern struct {
     ///
     /// ` self: QTextBlock `
     ///
-    pub fn CharFormatIndex(self: QTextBlock) i32 {
+    pub fn charFormatIndex(self: QTextBlock) i32 {
         return qtc.QTextBlock_CharFormatIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `textDirection` instead
+    ///
+    pub const TextDirection = textDirection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblock.html#textDirection)
     ///
@@ -4021,9 +4973,13 @@ pub const QTextBlock = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn TextDirection(self: QTextBlock) i32 {
+    pub fn textDirection(self: QTextBlock) i32 {
         return qtc.QTextBlock_TextDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `text` instead
+    ///
+    pub const Text = text;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblock.html#text)
     ///
@@ -4033,13 +4989,17 @@ pub const QTextBlock = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: QTextBlock, allocator: std.mem.Allocator) []const u8 {
+    pub fn text(self: QTextBlock, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextBlock_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextBlock.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextBlock.text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `textFormats` instead
+    ///
+    pub const TextFormats = textFormats;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblock.html#textFormats)
     ///
@@ -4049,15 +5009,19 @@ pub const QTextBlock = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TextFormats(self: QTextBlock, allocator: std.mem.Allocator) []QTextLayout__FormatRange {
+    pub fn textFormats(self: QTextBlock, allocator: std.mem.Allocator) []QTextLayout__FormatRange {
         const _arr: qtc.libqt_list = qtc.QTextBlock_TextFormats(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QTextLayout__FormatRange, _arr.len) catch @panic("QTextBlock.TextFormats: Memory allocation failed");
-        const _data: [*]QtC.QTextLayout__FormatRange = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QTextLayout__FormatRange, _arr.len) catch @panic("QTextBlock.textFormats: Memory allocation failed");
+        const _data_val: [*]QtC.QTextLayout__FormatRange = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `document` instead
+    ///
+    pub const Document = document;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblock.html#document)
     ///
@@ -4065,9 +5029,13 @@ pub const QTextBlock = extern struct {
     ///
     /// ` self: QTextBlock `
     ///
-    pub fn Document(self: QTextBlock) QTextDocument {
+    pub fn document(self: QTextBlock) QTextDocument {
         return .{ .ptr = qtc.QTextBlock_Document(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `textList` instead
+    ///
+    pub const TextList = textList;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblock.html#textList)
     ///
@@ -4075,9 +5043,13 @@ pub const QTextBlock = extern struct {
     ///
     /// ` self: QTextBlock `
     ///
-    pub fn TextList(self: QTextBlock) QTextList {
+    pub fn textList(self: QTextBlock) QTextList {
         return .{ .ptr = qtc.QTextBlock_TextList(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `userData` instead
+    ///
+    pub const UserData = userData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblock.html#userData)
     ///
@@ -4085,9 +5057,13 @@ pub const QTextBlock = extern struct {
     ///
     /// ` self: QTextBlock `
     ///
-    pub fn UserData(self: QTextBlock) QTextBlockUserData {
+    pub fn userData(self: QTextBlock) QTextBlockUserData {
         return .{ .ptr = qtc.QTextBlock_UserData(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setUserData` instead
+    ///
+    pub const SetUserData = setUserData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblock.html#setUserData)
     ///
@@ -4097,10 +5073,14 @@ pub const QTextBlock = extern struct {
     ///
     /// ` data: QTextBlockUserData `
     ///
-    pub fn SetUserData(self: QTextBlock, data: anytype) void {
+    pub fn setUserData(self: QTextBlock, data: anytype) void {
         comptime _ = @TypeOf(data)._is_QTextBlockUserData;
         qtc.QTextBlock_SetUserData(@ptrCast(self.ptr), @ptrCast(data.ptr));
     }
+
+    /// ### DEPRECATED: Use `userState` instead
+    ///
+    pub const UserState = userState;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblock.html#userState)
     ///
@@ -4108,9 +5088,13 @@ pub const QTextBlock = extern struct {
     ///
     /// ` self: QTextBlock `
     ///
-    pub fn UserState(self: QTextBlock) i32 {
+    pub fn userState(self: QTextBlock) i32 {
         return qtc.QTextBlock_UserState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUserState` instead
+    ///
+    pub const SetUserState = setUserState;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblock.html#setUserState)
     ///
@@ -4120,9 +5104,13 @@ pub const QTextBlock = extern struct {
     ///
     /// ` state: i32 `
     ///
-    pub fn SetUserState(self: QTextBlock, state: i32) void {
+    pub fn setUserState(self: QTextBlock, state: i32) void {
         qtc.QTextBlock_SetUserState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `revision` instead
+    ///
+    pub const Revision = revision;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblock.html#revision)
     ///
@@ -4130,9 +5118,13 @@ pub const QTextBlock = extern struct {
     ///
     /// ` self: QTextBlock `
     ///
-    pub fn Revision(self: QTextBlock) i32 {
+    pub fn revision(self: QTextBlock) i32 {
         return qtc.QTextBlock_Revision(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setRevision` instead
+    ///
+    pub const SetRevision = setRevision;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblock.html#setRevision)
     ///
@@ -4142,9 +5134,13 @@ pub const QTextBlock = extern struct {
     ///
     /// ` rev: i32 `
     ///
-    pub fn SetRevision(self: QTextBlock, rev: i32) void {
+    pub fn setRevision(self: QTextBlock, rev: i32) void {
         qtc.QTextBlock_SetRevision(@ptrCast(self.ptr), @bitCast(rev));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblock.html#isVisible)
     ///
@@ -4152,9 +5148,13 @@ pub const QTextBlock = extern struct {
     ///
     /// ` self: QTextBlock `
     ///
-    pub fn IsVisible(self: QTextBlock) bool {
+    pub fn isVisible(self: QTextBlock) bool {
         return qtc.QTextBlock_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblock.html#setVisible)
     ///
@@ -4164,9 +5164,13 @@ pub const QTextBlock = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: QTextBlock, visible: bool) void {
+    pub fn setVisible(self: QTextBlock, visible: bool) void {
         qtc.QTextBlock_SetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `blockNumber` instead
+    ///
+    pub const BlockNumber = blockNumber;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblock.html#blockNumber)
     ///
@@ -4174,9 +5178,13 @@ pub const QTextBlock = extern struct {
     ///
     /// ` self: QTextBlock `
     ///
-    pub fn BlockNumber(self: QTextBlock) i32 {
+    pub fn blockNumber(self: QTextBlock) i32 {
         return qtc.QTextBlock_BlockNumber(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `firstLineNumber` instead
+    ///
+    pub const FirstLineNumber = firstLineNumber;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblock.html#firstLineNumber)
     ///
@@ -4184,9 +5192,13 @@ pub const QTextBlock = extern struct {
     ///
     /// ` self: QTextBlock `
     ///
-    pub fn FirstLineNumber(self: QTextBlock) i32 {
+    pub fn firstLineNumber(self: QTextBlock) i32 {
         return qtc.QTextBlock_FirstLineNumber(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLineCount` instead
+    ///
+    pub const SetLineCount = setLineCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblock.html#setLineCount)
     ///
@@ -4196,9 +5208,13 @@ pub const QTextBlock = extern struct {
     ///
     /// ` count: i32 `
     ///
-    pub fn SetLineCount(self: QTextBlock, count: i32) void {
+    pub fn setLineCount(self: QTextBlock, count: i32) void {
         qtc.QTextBlock_SetLineCount(@ptrCast(self.ptr), @bitCast(count));
     }
+
+    /// ### DEPRECATED: Use `lineCount` instead
+    ///
+    pub const LineCount = lineCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblock.html#lineCount)
     ///
@@ -4206,9 +5222,13 @@ pub const QTextBlock = extern struct {
     ///
     /// ` self: QTextBlock `
     ///
-    pub fn LineCount(self: QTextBlock) i32 {
+    pub fn lineCount(self: QTextBlock) i32 {
         return qtc.QTextBlock_LineCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `begin` instead
+    ///
+    pub const Begin = begin;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblock.html#begin)
     ///
@@ -4216,9 +5236,13 @@ pub const QTextBlock = extern struct {
     ///
     /// ` self: QTextBlock `
     ///
-    pub fn Begin(self: QTextBlock) QTextBlock__iterator {
+    pub fn begin(self: QTextBlock) QTextBlock__iterator {
         return .{ .ptr = qtc.QTextBlock_Begin(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `end` instead
+    ///
+    pub const End = end;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblock.html#end)
     ///
@@ -4226,9 +5250,13 @@ pub const QTextBlock = extern struct {
     ///
     /// ` self: QTextBlock `
     ///
-    pub fn End(self: QTextBlock) QTextBlock__iterator {
+    pub fn end(self: QTextBlock) QTextBlock__iterator {
         return .{ .ptr = qtc.QTextBlock_End(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `next` instead
+    ///
+    pub const Next = next;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblock.html#next)
     ///
@@ -4236,9 +5264,13 @@ pub const QTextBlock = extern struct {
     ///
     /// ` self: QTextBlock `
     ///
-    pub fn Next(self: QTextBlock) QTextBlock {
+    pub fn next(self: QTextBlock) QTextBlock {
         return .{ .ptr = qtc.QTextBlock_Next(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previous` instead
+    ///
+    pub const Previous = previous;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblock.html#previous)
     ///
@@ -4246,9 +5278,13 @@ pub const QTextBlock = extern struct {
     ///
     /// ` self: QTextBlock `
     ///
-    pub fn Previous(self: QTextBlock) QTextBlock {
+    pub fn previous(self: QTextBlock) QTextBlock {
         return .{ .ptr = qtc.QTextBlock_Previous(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fragmentIndex` instead
+    ///
+    pub const FragmentIndex = fragmentIndex;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblock.html#fragmentIndex)
     ///
@@ -4256,23 +5292,23 @@ pub const QTextBlock = extern struct {
     ///
     /// ` self: QTextBlock `
     ///
-    pub fn FragmentIndex(self: QTextBlock) i32 {
+    pub fn fragmentIndex(self: QTextBlock) i32 {
         return qtc.QTextBlock_FragmentIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblock.html#dtor.QTextBlock)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QTextBlock `
     ///
-    pub fn Delete(self: QTextBlock) void {
+    pub fn delete(self: QTextBlock) void {
         qtc.QTextBlock_Delete(@ptrCast(self.ptr));
     }
 };
@@ -4287,22 +5323,34 @@ pub const QTextFragment = extern struct {
 
     pub const _is_QTextFragment = {};
 
-    /// New constructs a new QTextFragment object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QTextFragment {
+    pub const New = new;
+
+    /// Allocate a new QTextFragment object in C++ memory
+    ///
+    pub fn new() QTextFragment {
         return .{ .ptr = qtc.QTextFragment_new() };
     }
 
-    /// New2 constructs a new QTextFragment object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QTextFragment object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` o: QTextFragment `
     ///
-    pub fn New2(o: anytype) QTextFragment {
+    pub fn new2(o: anytype) QTextFragment {
         comptime _ = @TypeOf(o)._is_QTextFragment;
         return .{ .ptr = qtc.QTextFragment_new2(@ptrCast(o.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextfragment.html#operator-eq)
     ///
@@ -4312,10 +5360,14 @@ pub const QTextFragment = extern struct {
     ///
     /// ` o: QTextFragment `
     ///
-    pub fn OperatorAssign(self: QTextFragment, o: anytype) void {
+    pub fn operatorAssign(self: QTextFragment, o: anytype) void {
         comptime _ = @TypeOf(o)._is_QTextFragment;
         qtc.QTextFragment_OperatorAssign(@ptrCast(self.ptr), @ptrCast(o.ptr));
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextfragment.html#isValid)
     ///
@@ -4323,9 +5375,13 @@ pub const QTextFragment = extern struct {
     ///
     /// ` self: QTextFragment `
     ///
-    pub fn IsValid(self: QTextFragment) bool {
+    pub fn isValid(self: QTextFragment) bool {
         return qtc.QTextFragment_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextfragment.html#operator-eq-eq)
     ///
@@ -4335,10 +5391,14 @@ pub const QTextFragment = extern struct {
     ///
     /// ` o: QTextFragment `
     ///
-    pub fn OperatorEqual(self: QTextFragment, o: anytype) bool {
+    pub fn operatorEqual(self: QTextFragment, o: anytype) bool {
         comptime _ = @TypeOf(o)._is_QTextFragment;
         return qtc.QTextFragment_OperatorEqual(@ptrCast(self.ptr), @ptrCast(o.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextfragment.html#operator-not-eq)
     ///
@@ -4348,10 +5408,14 @@ pub const QTextFragment = extern struct {
     ///
     /// ` o: QTextFragment `
     ///
-    pub fn OperatorNotEqual(self: QTextFragment, o: anytype) bool {
+    pub fn operatorNotEqual(self: QTextFragment, o: anytype) bool {
         comptime _ = @TypeOf(o)._is_QTextFragment;
         return qtc.QTextFragment_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(o.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorLesser` instead
+    ///
+    pub const OperatorLesser = operatorLesser;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextfragment.html#operator-lt)
     ///
@@ -4361,10 +5425,14 @@ pub const QTextFragment = extern struct {
     ///
     /// ` o: QTextFragment `
     ///
-    pub fn OperatorLesser(self: QTextFragment, o: anytype) bool {
+    pub fn operatorLesser(self: QTextFragment, o: anytype) bool {
         comptime _ = @TypeOf(o)._is_QTextFragment;
         return qtc.QTextFragment_OperatorLesser(@ptrCast(self.ptr), @ptrCast(o.ptr));
     }
+
+    /// ### DEPRECATED: Use `position` instead
+    ///
+    pub const Position = position;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextfragment.html#position)
     ///
@@ -4372,9 +5440,13 @@ pub const QTextFragment = extern struct {
     ///
     /// ` self: QTextFragment `
     ///
-    pub fn Position(self: QTextFragment) i32 {
+    pub fn position(self: QTextFragment) i32 {
         return qtc.QTextFragment_Position(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `length` instead
+    ///
+    pub const Length = length;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextfragment.html#length)
     ///
@@ -4382,9 +5454,13 @@ pub const QTextFragment = extern struct {
     ///
     /// ` self: QTextFragment `
     ///
-    pub fn Length(self: QTextFragment) i32 {
+    pub fn length(self: QTextFragment) i32 {
         return qtc.QTextFragment_Length(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `contains` instead
+    ///
+    pub const Contains = contains;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextfragment.html#contains)
     ///
@@ -4392,11 +5468,15 @@ pub const QTextFragment = extern struct {
     ///
     /// ` self: QTextFragment `
     ///
-    /// ` position: i32 `
+    /// ` _position: i32 `
     ///
-    pub fn Contains(self: QTextFragment, position: i32) bool {
-        return qtc.QTextFragment_Contains(@ptrCast(self.ptr), @bitCast(position));
+    pub fn contains(self: QTextFragment, _position: i32) bool {
+        return qtc.QTextFragment_Contains(@ptrCast(self.ptr), @bitCast(_position));
     }
+
+    /// ### DEPRECATED: Use `charFormat` instead
+    ///
+    pub const CharFormat = charFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextfragment.html#charFormat)
     ///
@@ -4404,9 +5484,13 @@ pub const QTextFragment = extern struct {
     ///
     /// ` self: QTextFragment `
     ///
-    pub fn CharFormat(self: QTextFragment) QTextCharFormat {
+    pub fn charFormat(self: QTextFragment) QTextCharFormat {
         return .{ .ptr = qtc.QTextFragment_CharFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `charFormatIndex` instead
+    ///
+    pub const CharFormatIndex = charFormatIndex;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextfragment.html#charFormatIndex)
     ///
@@ -4414,9 +5498,13 @@ pub const QTextFragment = extern struct {
     ///
     /// ` self: QTextFragment `
     ///
-    pub fn CharFormatIndex(self: QTextFragment) i32 {
+    pub fn charFormatIndex(self: QTextFragment) i32 {
         return qtc.QTextFragment_CharFormatIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `text` instead
+    ///
+    pub const Text = text;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextfragment.html#text)
     ///
@@ -4426,14 +5514,18 @@ pub const QTextFragment = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: QTextFragment, allocator: std.mem.Allocator) []const u8 {
+    pub fn text(self: QTextFragment, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextFragment_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextFragment.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextFragment.text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `glyphRuns` instead
+    ///
+    pub const GlyphRuns = glyphRuns;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextfragment.html#glyphRuns)
     ///
     /// ## Parameter(s):
@@ -4442,15 +5534,19 @@ pub const QTextFragment = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GlyphRuns(self: QTextFragment, allocator: std.mem.Allocator) []QGlyphRun {
+    pub fn glyphRuns(self: QTextFragment, allocator: std.mem.Allocator) []QGlyphRun {
         const _arr: qtc.libqt_list = qtc.QTextFragment_GlyphRuns(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGlyphRun, _arr.len) catch @panic("QTextFragment.GlyphRuns: Memory allocation failed");
-        const _data: [*]QtC.QGlyphRun = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QGlyphRun, _arr.len) catch @panic("QTextFragment.glyphRuns: Memory allocation failed");
+        const _data_val: [*]QtC.QGlyphRun = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `glyphRuns1` instead
+    ///
+    pub const GlyphRuns1 = glyphRuns1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextfragment.html#glyphRuns)
     ///
@@ -4462,15 +5558,19 @@ pub const QTextFragment = extern struct {
     ///
     /// ` from: i32 `
     ///
-    pub fn GlyphRuns1(self: QTextFragment, allocator: std.mem.Allocator, from: i32) []QGlyphRun {
+    pub fn glyphRuns1(self: QTextFragment, allocator: std.mem.Allocator, from: i32) []QGlyphRun {
         const _arr: qtc.libqt_list = qtc.QTextFragment_GlyphRuns1(@ptrCast(self.ptr), @bitCast(from));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGlyphRun, _arr.len) catch @panic("QTextFragment.GlyphRuns1: Memory allocation failed");
-        const _data: [*]QtC.QGlyphRun = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QGlyphRun, _arr.len) catch @panic("QTextFragment.glyphRuns1: Memory allocation failed");
+        const _data_val: [*]QtC.QGlyphRun = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `glyphRuns2` instead
+    ///
+    pub const GlyphRuns2 = glyphRuns2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextfragment.html#glyphRuns)
     ///
@@ -4482,31 +5582,31 @@ pub const QTextFragment = extern struct {
     ///
     /// ` from: i32 `
     ///
-    /// ` length: i32 `
+    /// ` _length: i32 `
     ///
-    pub fn GlyphRuns2(self: QTextFragment, allocator: std.mem.Allocator, from: i32, length: i32) []QGlyphRun {
-        const _arr: qtc.libqt_list = qtc.QTextFragment_GlyphRuns2(@ptrCast(self.ptr), @bitCast(from), @bitCast(length));
+    pub fn glyphRuns2(self: QTextFragment, allocator: std.mem.Allocator, from: i32, _length: i32) []QGlyphRun {
+        const _arr: qtc.libqt_list = qtc.QTextFragment_GlyphRuns2(@ptrCast(self.ptr), @bitCast(from), @bitCast(_length));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGlyphRun, _arr.len) catch @panic("QTextFragment.GlyphRuns2: Memory allocation failed");
-        const _data: [*]QtC.QGlyphRun = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QGlyphRun, _arr.len) catch @panic("QTextFragment.glyphRuns2: Memory allocation failed");
+        const _data_val: [*]QtC.QGlyphRun = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextfragment.html#dtor.QTextFragment)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QTextFragment `
     ///
-    pub fn Delete(self: QTextFragment) void {
+    pub fn delete(self: QTextFragment) void {
         qtc.QTextFragment_Delete(@ptrCast(self.ptr));
     }
 };
@@ -4521,46 +5621,65 @@ pub const QTextFrame__iterator = extern struct {
 
     pub const _is_QTextFrame__iterator = {};
 
-    /// New constructs a new QTextFrame::iterator object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QTextFrame__iterator {
+    pub const New = new;
+
+    /// Allocate a new QTextFrame::iterator object in C++ memory
+    ///
+    pub fn new() QTextFrame__iterator {
         return .{ .ptr = qtc.QTextFrame__iterator_new() };
     }
 
-    /// New2 constructs a new QTextFrame::iterator object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QTextFrame::iterator object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QTextFrame__iterator `
     ///
-    pub fn New2(other: anytype) QTextFrame__iterator {
+    pub fn new2(other: anytype) QTextFrame__iterator {
         comptime _ = @TypeOf(other)._is_QTextFrame__iterator;
         return .{ .ptr = qtc.QTextFrame__iterator_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QTextFrame::iterator object and invalidates the source QTextFrame::iterator object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QTextFrame::iterator object and invalidate the source QTextFrame::iterator object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QTextFrame__iterator `
     ///
-    pub fn New3(other: anytype) QTextFrame__iterator {
+    pub fn new3(other: anytype) QTextFrame__iterator {
         comptime _ = @TypeOf(other)._is_QTextFrame__iterator;
         return .{ .ptr = qtc.QTextFrame__iterator_new3(@ptrCast(other.ptr)) };
     }
 
-    /// New4 constructs a new QTextFrame::iterator object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QTextFrame::iterator object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QTextFrame__iterator `
     ///
-    pub fn New4(param1: anytype) QTextFrame__iterator {
+    pub fn new4(param1: anytype) QTextFrame__iterator {
         comptime _ = @TypeOf(param1)._is_QTextFrame__iterator;
         return .{ .ptr = qtc.QTextFrame__iterator_new4(@ptrCast(param1.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -4568,11 +5687,14 @@ pub const QTextFrame__iterator = extern struct {
     ///
     /// ` other: QTextFrame__iterator `
     ///
-    pub fn CopyAssign(self: QTextFrame__iterator, other: QTextFrame__iterator) void {
+    pub fn copyAssign(self: QTextFrame__iterator, other: QTextFrame__iterator) void {
         qtc.QTextFrame__iterator_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -4580,9 +5702,13 @@ pub const QTextFrame__iterator = extern struct {
     ///
     /// ` other: QTextFrame__iterator `
     ///
-    pub fn MoveAssign(self: QTextFrame__iterator, other: QTextFrame__iterator) void {
+    pub fn moveAssign(self: QTextFrame__iterator, other: QTextFrame__iterator) void {
         qtc.QTextFrame__iterator_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `parentFrame` instead
+    ///
+    pub const ParentFrame = parentFrame;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframe-iterator.html#parentFrame)
     ///
@@ -4590,9 +5716,13 @@ pub const QTextFrame__iterator = extern struct {
     ///
     /// ` self: QTextFrame__iterator `
     ///
-    pub fn ParentFrame(self: QTextFrame__iterator) QTextFrame {
+    pub fn parentFrame(self: QTextFrame__iterator) QTextFrame {
         return .{ .ptr = qtc.QTextFrame__iterator_ParentFrame(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `currentFrame` instead
+    ///
+    pub const CurrentFrame = currentFrame;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframe-iterator.html#currentFrame)
     ///
@@ -4600,9 +5730,13 @@ pub const QTextFrame__iterator = extern struct {
     ///
     /// ` self: QTextFrame__iterator `
     ///
-    pub fn CurrentFrame(self: QTextFrame__iterator) QTextFrame {
+    pub fn currentFrame(self: QTextFrame__iterator) QTextFrame {
         return .{ .ptr = qtc.QTextFrame__iterator_CurrentFrame(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `currentBlock` instead
+    ///
+    pub const CurrentBlock = currentBlock;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframe-iterator.html#currentBlock)
     ///
@@ -4610,9 +5744,13 @@ pub const QTextFrame__iterator = extern struct {
     ///
     /// ` self: QTextFrame__iterator `
     ///
-    pub fn CurrentBlock(self: QTextFrame__iterator) QTextBlock {
+    pub fn currentBlock(self: QTextFrame__iterator) QTextBlock {
         return .{ .ptr = qtc.QTextFrame__iterator_CurrentBlock(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `atEnd` instead
+    ///
+    pub const AtEnd = atEnd;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframe-iterator.html#atEnd)
     ///
@@ -4620,9 +5758,13 @@ pub const QTextFrame__iterator = extern struct {
     ///
     /// ` self: QTextFrame__iterator `
     ///
-    pub fn AtEnd(self: QTextFrame__iterator) bool {
+    pub fn atEnd(self: QTextFrame__iterator) bool {
         return qtc.QTextFrame__iterator_AtEnd(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframe-iterator.html#operator-eq-eq)
     ///
@@ -4632,10 +5774,14 @@ pub const QTextFrame__iterator = extern struct {
     ///
     /// ` o: QTextFrame__iterator `
     ///
-    pub fn OperatorEqual(self: QTextFrame__iterator, o: anytype) bool {
+    pub fn operatorEqual(self: QTextFrame__iterator, o: anytype) bool {
         comptime _ = @TypeOf(o)._is_QTextFrame__iterator;
         return qtc.QTextFrame__iterator_OperatorEqual(@ptrCast(self.ptr), @ptrCast(o.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframe-iterator.html#operator-not-eq)
     ///
@@ -4645,21 +5791,29 @@ pub const QTextFrame__iterator = extern struct {
     ///
     /// ` o: QTextFrame__iterator `
     ///
-    pub fn OperatorNotEqual(self: QTextFrame__iterator, o: anytype) bool {
+    pub fn operatorNotEqual(self: QTextFrame__iterator, o: anytype) bool {
         comptime _ = @TypeOf(o)._is_QTextFrame__iterator;
         return qtc.QTextFrame__iterator_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(o.ptr));
     }
 
+    /// ### DEPRECATED: Use `operatorPlusPlus` instead
+    ///
+    pub const OperatorPlusPlus = operatorPlusPlus;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframe-iterator.html#operator-2b-2b)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QTextFrame__iterator `
     ///
-    pub fn OperatorPlusPlus(self: QTextFrame__iterator) QTextFrame__iterator {
+    pub fn operatorPlusPlus(self: QTextFrame__iterator) QTextFrame__iterator {
         return .{ .ptr = qtc.QTextFrame__iterator_OperatorPlusPlus(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `operatorPlusPlus2` instead
+    ///
+    pub const OperatorPlusPlus2 = operatorPlusPlus2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframe-iterator.html#operator-2b-2b)
     ///
     /// ## Parameter(s):
@@ -4668,9 +5822,13 @@ pub const QTextFrame__iterator = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn OperatorPlusPlus2(self: QTextFrame__iterator, param1: i32) QTextFrame__iterator {
+    pub fn operatorPlusPlus2(self: QTextFrame__iterator, param1: i32) QTextFrame__iterator {
         return .{ .ptr = qtc.QTextFrame__iterator_OperatorPlusPlus2(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMinusMinus` instead
+    ///
+    pub const OperatorMinusMinus = operatorMinusMinus;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframe-iterator.html#operator--)
     ///
@@ -4678,9 +5836,13 @@ pub const QTextFrame__iterator = extern struct {
     ///
     /// ` self: QTextFrame__iterator `
     ///
-    pub fn OperatorMinusMinus(self: QTextFrame__iterator) QTextFrame__iterator {
+    pub fn operatorMinusMinus(self: QTextFrame__iterator) QTextFrame__iterator {
         return .{ .ptr = qtc.QTextFrame__iterator_OperatorMinusMinus(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMinusMinus2` instead
+    ///
+    pub const OperatorMinusMinus2 = operatorMinusMinus2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframe-iterator.html#operator--)
     ///
@@ -4690,21 +5852,21 @@ pub const QTextFrame__iterator = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn OperatorMinusMinus2(self: QTextFrame__iterator, param1: i32) QTextFrame__iterator {
+    pub fn operatorMinusMinus2(self: QTextFrame__iterator, param1: i32) QTextFrame__iterator {
         return .{ .ptr = qtc.QTextFrame__iterator_OperatorMinusMinus2(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QTextFrame__iterator `
     ///
-    pub fn Delete(self: QTextFrame__iterator) void {
+    pub fn delete(self: QTextFrame__iterator) void {
         qtc.QTextFrame__iterator_Delete(@ptrCast(self.ptr));
     }
 };
@@ -4719,46 +5881,65 @@ pub const QTextBlock__iterator = extern struct {
 
     pub const _is_QTextBlock__iterator = {};
 
-    /// New constructs a new QTextBlock::iterator object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QTextBlock__iterator {
+    pub const New = new;
+
+    /// Allocate a new QTextBlock::iterator object in C++ memory
+    ///
+    pub fn new() QTextBlock__iterator {
         return .{ .ptr = qtc.QTextBlock__iterator_new() };
     }
 
-    /// New2 constructs a new QTextBlock::iterator object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QTextBlock::iterator object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QTextBlock__iterator `
     ///
-    pub fn New2(other: anytype) QTextBlock__iterator {
+    pub fn new2(other: anytype) QTextBlock__iterator {
         comptime _ = @TypeOf(other)._is_QTextBlock__iterator;
         return .{ .ptr = qtc.QTextBlock__iterator_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QTextBlock::iterator object and invalidates the source QTextBlock::iterator object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QTextBlock::iterator object and invalidate the source QTextBlock::iterator object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QTextBlock__iterator `
     ///
-    pub fn New3(other: anytype) QTextBlock__iterator {
+    pub fn new3(other: anytype) QTextBlock__iterator {
         comptime _ = @TypeOf(other)._is_QTextBlock__iterator;
         return .{ .ptr = qtc.QTextBlock__iterator_new3(@ptrCast(other.ptr)) };
     }
 
-    /// New4 constructs a new QTextBlock::iterator object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QTextBlock::iterator object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QTextBlock__iterator `
     ///
-    pub fn New4(param1: anytype) QTextBlock__iterator {
+    pub fn new4(param1: anytype) QTextBlock__iterator {
         comptime _ = @TypeOf(param1)._is_QTextBlock__iterator;
         return .{ .ptr = qtc.QTextBlock__iterator_new4(@ptrCast(param1.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -4766,11 +5947,14 @@ pub const QTextBlock__iterator = extern struct {
     ///
     /// ` other: QTextBlock__iterator `
     ///
-    pub fn CopyAssign(self: QTextBlock__iterator, other: QTextBlock__iterator) void {
+    pub fn copyAssign(self: QTextBlock__iterator, other: QTextBlock__iterator) void {
         qtc.QTextBlock__iterator_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -4778,9 +5962,13 @@ pub const QTextBlock__iterator = extern struct {
     ///
     /// ` other: QTextBlock__iterator `
     ///
-    pub fn MoveAssign(self: QTextBlock__iterator, other: QTextBlock__iterator) void {
+    pub fn moveAssign(self: QTextBlock__iterator, other: QTextBlock__iterator) void {
         qtc.QTextBlock__iterator_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `fragment` instead
+    ///
+    pub const Fragment = fragment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblock-iterator.html#fragment)
     ///
@@ -4788,9 +5976,13 @@ pub const QTextBlock__iterator = extern struct {
     ///
     /// ` self: QTextBlock__iterator `
     ///
-    pub fn Fragment(self: QTextBlock__iterator) QTextFragment {
+    pub fn fragment(self: QTextBlock__iterator) QTextFragment {
         return .{ .ptr = qtc.QTextBlock__iterator_Fragment(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `atEnd` instead
+    ///
+    pub const AtEnd = atEnd;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblock-iterator.html#atEnd)
     ///
@@ -4798,9 +5990,13 @@ pub const QTextBlock__iterator = extern struct {
     ///
     /// ` self: QTextBlock__iterator `
     ///
-    pub fn AtEnd(self: QTextBlock__iterator) bool {
+    pub fn atEnd(self: QTextBlock__iterator) bool {
         return qtc.QTextBlock__iterator_AtEnd(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblock-iterator.html#operator-eq-eq)
     ///
@@ -4810,10 +6006,14 @@ pub const QTextBlock__iterator = extern struct {
     ///
     /// ` o: QTextBlock__iterator `
     ///
-    pub fn OperatorEqual(self: QTextBlock__iterator, o: anytype) bool {
+    pub fn operatorEqual(self: QTextBlock__iterator, o: anytype) bool {
         comptime _ = @TypeOf(o)._is_QTextBlock__iterator;
         return qtc.QTextBlock__iterator_OperatorEqual(@ptrCast(self.ptr), @ptrCast(o.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblock-iterator.html#operator-not-eq)
     ///
@@ -4823,21 +6023,29 @@ pub const QTextBlock__iterator = extern struct {
     ///
     /// ` o: QTextBlock__iterator `
     ///
-    pub fn OperatorNotEqual(self: QTextBlock__iterator, o: anytype) bool {
+    pub fn operatorNotEqual(self: QTextBlock__iterator, o: anytype) bool {
         comptime _ = @TypeOf(o)._is_QTextBlock__iterator;
         return qtc.QTextBlock__iterator_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(o.ptr));
     }
 
+    /// ### DEPRECATED: Use `operatorPlusPlus` instead
+    ///
+    pub const OperatorPlusPlus = operatorPlusPlus;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblock-iterator.html#operator-2b-2b)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QTextBlock__iterator `
     ///
-    pub fn OperatorPlusPlus(self: QTextBlock__iterator) QTextBlock__iterator {
+    pub fn operatorPlusPlus(self: QTextBlock__iterator) QTextBlock__iterator {
         return .{ .ptr = qtc.QTextBlock__iterator_OperatorPlusPlus(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `operatorPlusPlus2` instead
+    ///
+    pub const OperatorPlusPlus2 = operatorPlusPlus2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblock-iterator.html#operator-2b-2b)
     ///
     /// ## Parameter(s):
@@ -4846,9 +6054,13 @@ pub const QTextBlock__iterator = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn OperatorPlusPlus2(self: QTextBlock__iterator, param1: i32) QTextBlock__iterator {
+    pub fn operatorPlusPlus2(self: QTextBlock__iterator, param1: i32) QTextBlock__iterator {
         return .{ .ptr = qtc.QTextBlock__iterator_OperatorPlusPlus2(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMinusMinus` instead
+    ///
+    pub const OperatorMinusMinus = operatorMinusMinus;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblock-iterator.html#operator--)
     ///
@@ -4856,9 +6068,13 @@ pub const QTextBlock__iterator = extern struct {
     ///
     /// ` self: QTextBlock__iterator `
     ///
-    pub fn OperatorMinusMinus(self: QTextBlock__iterator) QTextBlock__iterator {
+    pub fn operatorMinusMinus(self: QTextBlock__iterator) QTextBlock__iterator {
         return .{ .ptr = qtc.QTextBlock__iterator_OperatorMinusMinus(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMinusMinus2` instead
+    ///
+    pub const OperatorMinusMinus2 = operatorMinusMinus2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblock-iterator.html#operator--)
     ///
@@ -4868,21 +6084,21 @@ pub const QTextBlock__iterator = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn OperatorMinusMinus2(self: QTextBlock__iterator, param1: i32) QTextBlock__iterator {
+    pub fn operatorMinusMinus2(self: QTextBlock__iterator, param1: i32) QTextBlock__iterator {
         return .{ .ptr = qtc.QTextBlock__iterator_OperatorMinusMinus2(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QTextBlock__iterator `
     ///
-    pub fn Delete(self: QTextBlock__iterator) void {
+    pub fn delete(self: QTextBlock__iterator) void {
         qtc.QTextBlock__iterator_Delete(@ptrCast(self.ptr));
     }
 };

@@ -14,16 +14,24 @@ pub const QPdfSelection = extern struct {
 
     pub const _is_QPdfSelection = {};
 
-    /// New constructs a new QPdfSelection object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QPdfSelection object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QPdfSelection `
     ///
-    pub fn New(other: anytype) QPdfSelection {
+    pub fn new(other: anytype) QPdfSelection {
         comptime _ = @TypeOf(other)._is_QPdfSelection;
         return .{ .ptr = qtc.QPdfSelection_new(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfselection.html#operator-eq)
     ///
@@ -33,10 +41,14 @@ pub const QPdfSelection = extern struct {
     ///
     /// ` other: QPdfSelection `
     ///
-    pub fn OperatorAssign(self: QPdfSelection, other: anytype) void {
+    pub fn operatorAssign(self: QPdfSelection, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QPdfSelection;
         qtc.QPdfSelection_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfselection.html#swap)
     ///
@@ -46,10 +58,14 @@ pub const QPdfSelection = extern struct {
     ///
     /// ` other: QPdfSelection `
     ///
-    pub fn Swap(self: QPdfSelection, other: anytype) void {
+    pub fn swap(self: QPdfSelection, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QPdfSelection;
         qtc.QPdfSelection_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfselection.html#isValid)
     ///
@@ -57,9 +73,13 @@ pub const QPdfSelection = extern struct {
     ///
     /// ` self: QPdfSelection `
     ///
-    pub fn IsValid(self: QPdfSelection) bool {
+    pub fn isValid(self: QPdfSelection) bool {
         return qtc.QPdfSelection_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `text` instead
+    ///
+    pub const Text = text;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfselection.html#text)
     ///
@@ -69,13 +89,17 @@ pub const QPdfSelection = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: QPdfSelection, allocator: std.mem.Allocator) []const u8 {
+    pub fn text(self: QPdfSelection, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QPdfSelection_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPdfSelection.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPdfSelection.text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `boundingRectangle` instead
+    ///
+    pub const BoundingRectangle = boundingRectangle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfselection.html#boundingRectangle)
     ///
@@ -83,9 +107,13 @@ pub const QPdfSelection = extern struct {
     ///
     /// ` self: QPdfSelection `
     ///
-    pub fn BoundingRectangle(self: QPdfSelection) QRectF {
+    pub fn boundingRectangle(self: QPdfSelection) QRectF {
         return .{ .ptr = qtc.QPdfSelection_BoundingRectangle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `startIndex` instead
+    ///
+    pub const StartIndex = startIndex;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfselection.html#startIndex)
     ///
@@ -93,9 +121,13 @@ pub const QPdfSelection = extern struct {
     ///
     /// ` self: QPdfSelection `
     ///
-    pub fn StartIndex(self: QPdfSelection) i32 {
+    pub fn startIndex(self: QPdfSelection) i32 {
         return qtc.QPdfSelection_StartIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `endIndex` instead
+    ///
+    pub const EndIndex = endIndex;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfselection.html#endIndex)
     ///
@@ -103,9 +135,13 @@ pub const QPdfSelection = extern struct {
     ///
     /// ` self: QPdfSelection `
     ///
-    pub fn EndIndex(self: QPdfSelection) i32 {
+    pub fn endIndex(self: QPdfSelection) i32 {
         return qtc.QPdfSelection_EndIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `copyToClipboard` instead
+    ///
+    pub const CopyToClipboard = copyToClipboard;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfselection.html#copyToClipboard)
     ///
@@ -113,9 +149,13 @@ pub const QPdfSelection = extern struct {
     ///
     /// ` self: QPdfSelection `
     ///
-    pub fn CopyToClipboard(self: QPdfSelection) void {
+    pub fn copyToClipboard(self: QPdfSelection) void {
         qtc.QPdfSelection_CopyToClipboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `copyToClipboard1` instead
+    ///
+    pub const CopyToClipboard1 = copyToClipboard1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfselection.html#copyToClipboard)
     ///
@@ -125,23 +165,23 @@ pub const QPdfSelection = extern struct {
     ///
     /// ` mode: qclipboard_enums.Mode `
     ///
-    pub fn CopyToClipboard1(self: QPdfSelection, mode: i32) void {
+    pub fn copyToClipboard1(self: QPdfSelection, mode: i32) void {
         qtc.QPdfSelection_CopyToClipboard1(@ptrCast(self.ptr), @bitCast(mode));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfselection.html#dtor.QPdfSelection)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QPdfSelection `
     ///
-    pub fn Delete(self: QPdfSelection) void {
+    pub fn delete(self: QPdfSelection) void {
         qtc.QPdfSelection_Delete(@ptrCast(self.ptr));
     }
 };

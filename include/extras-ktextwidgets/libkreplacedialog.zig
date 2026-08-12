@@ -81,114 +81,138 @@ pub const KReplaceDialog = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new KReplaceDialog object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KReplaceDialog object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) KReplaceDialog {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KReplaceDialog_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) KReplaceDialog {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KReplaceDialog_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new KReplaceDialog object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() KReplaceDialog {
+    pub const New2 = new2;
+
+    /// Allocate a new KReplaceDialog object in C++ memory
+    ///
+    pub fn new2() KReplaceDialog {
         return .{ .ptr = qtc.KReplaceDialog_new2() };
     }
 
-    /// New3 constructs a new KReplaceDialog object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new KReplaceDialog object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    /// ` options: isize `
+    /// ` _options: isize `
     ///
-    pub fn New3(parent: anytype, options: isize) KReplaceDialog {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KReplaceDialog_new3(@ptrCast(parent.ptr), @bitCast(options)) };
+    pub fn new3(_parent: anytype, _options: isize) KReplaceDialog {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KReplaceDialog_new3(@ptrCast(_parent.ptr), @bitCast(_options)) };
     }
 
-    /// New4 constructs a new KReplaceDialog object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new KReplaceDialog object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    /// ` options: isize `
+    /// ` _options: isize `
     ///
     /// ` findStrings: []const []const u8 `
     ///
-    pub fn New4(allocator: std.mem.Allocator, parent: anytype, options: isize, findStrings: []const []const u8) KReplaceDialog {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        const findStrings_arr = allocator.alloc(qtc.libqt_string, findStrings.len) catch @panic("KReplaceDialog.New4: Memory allocation failed");
+    pub fn new4(allocator: std.mem.Allocator, _parent: anytype, _options: isize, findStrings: []const []const u8) KReplaceDialog {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        const findStrings_arr = allocator.alloc(qtc.libqt_string, findStrings.len) catch @panic("KReplaceDialog.new4: Memory allocation failed");
         defer allocator.free(findStrings_arr);
-        for (findStrings, 0..findStrings.len) |item, i|
+        for (findStrings, 0..findStrings.len) |str_item, i|
             findStrings_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const findStrings_list = qtc.libqt_list{
             .len = findStrings.len,
             .data = findStrings_arr.ptr,
         };
-        return .{ .ptr = qtc.KReplaceDialog_new4(@ptrCast(parent.ptr), @bitCast(options), findStrings_list) };
+        return .{ .ptr = qtc.KReplaceDialog_new4(@ptrCast(_parent.ptr), @bitCast(_options), findStrings_list) };
     }
 
-    /// New5 constructs a new KReplaceDialog object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new KReplaceDialog object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    /// ` options: isize `
+    /// ` _options: isize `
     ///
     /// ` findStrings: []const []const u8 `
     ///
     /// ` replaceStrings: []const []const u8 `
     ///
-    pub fn New5(allocator: std.mem.Allocator, parent: anytype, options: isize, findStrings: []const []const u8, replaceStrings: []const []const u8) KReplaceDialog {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        const findStrings_arr = allocator.alloc(qtc.libqt_string, findStrings.len) catch @panic("KReplaceDialog.New5: Memory allocation failed");
+    pub fn new5(allocator: std.mem.Allocator, _parent: anytype, _options: isize, findStrings: []const []const u8, replaceStrings: []const []const u8) KReplaceDialog {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        const findStrings_arr = allocator.alloc(qtc.libqt_string, findStrings.len) catch @panic("KReplaceDialog.new5: Memory allocation failed");
         defer allocator.free(findStrings_arr);
-        for (findStrings, 0..findStrings.len) |item, i|
+        for (findStrings, 0..findStrings.len) |str_item, i|
             findStrings_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const findStrings_list = qtc.libqt_list{
             .len = findStrings.len,
             .data = findStrings_arr.ptr,
         };
-        const replaceStrings_arr = allocator.alloc(qtc.libqt_string, replaceStrings.len) catch @panic("KReplaceDialog.New5: Memory allocation failed");
+        const replaceStrings_arr = allocator.alloc(qtc.libqt_string, replaceStrings.len) catch @panic("KReplaceDialog.new5: Memory allocation failed");
         defer allocator.free(replaceStrings_arr);
-        for (replaceStrings, 0..replaceStrings.len) |item, i|
+        for (replaceStrings, 0..replaceStrings.len) |str_item, i|
             replaceStrings_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const replaceStrings_list = qtc.libqt_list{
             .len = replaceStrings.len,
             .data = replaceStrings_arr.ptr,
         };
-        return .{ .ptr = qtc.KReplaceDialog_new5(@ptrCast(parent.ptr), @bitCast(options), findStrings_list, replaceStrings_list) };
+        return .{ .ptr = qtc.KReplaceDialog_new5(@ptrCast(_parent.ptr), @bitCast(_options), findStrings_list, replaceStrings_list) };
     }
 
-    /// New6 constructs a new KReplaceDialog object.
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new KReplaceDialog object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    /// ` options: isize `
+    /// ` _options: isize `
     ///
     /// ` findStrings: []const []const u8 `
     ///
@@ -196,32 +220,36 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` hasSelection: bool `
     ///
-    pub fn New6(allocator: std.mem.Allocator, parent: anytype, options: isize, findStrings: []const []const u8, replaceStrings: []const []const u8, hasSelection: bool) KReplaceDialog {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        const findStrings_arr = allocator.alloc(qtc.libqt_string, findStrings.len) catch @panic("KReplaceDialog.New6: Memory allocation failed");
+    pub fn new6(allocator: std.mem.Allocator, _parent: anytype, _options: isize, findStrings: []const []const u8, replaceStrings: []const []const u8, hasSelection: bool) KReplaceDialog {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        const findStrings_arr = allocator.alloc(qtc.libqt_string, findStrings.len) catch @panic("KReplaceDialog.new6: Memory allocation failed");
         defer allocator.free(findStrings_arr);
-        for (findStrings, 0..findStrings.len) |item, i|
+        for (findStrings, 0..findStrings.len) |str_item, i|
             findStrings_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const findStrings_list = qtc.libqt_list{
             .len = findStrings.len,
             .data = findStrings_arr.ptr,
         };
-        const replaceStrings_arr = allocator.alloc(qtc.libqt_string, replaceStrings.len) catch @panic("KReplaceDialog.New6: Memory allocation failed");
+        const replaceStrings_arr = allocator.alloc(qtc.libqt_string, replaceStrings.len) catch @panic("KReplaceDialog.new6: Memory allocation failed");
         defer allocator.free(replaceStrings_arr);
-        for (replaceStrings, 0..replaceStrings.len) |item, i|
+        for (replaceStrings, 0..replaceStrings.len) |str_item, i|
             replaceStrings_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const replaceStrings_list = qtc.libqt_list{
             .len = replaceStrings.len,
             .data = replaceStrings_arr.ptr,
         };
-        return .{ .ptr = qtc.KReplaceDialog_new6(@ptrCast(parent.ptr), @bitCast(options), findStrings_list, replaceStrings_list, hasSelection) };
+        return .{ .ptr = qtc.KReplaceDialog_new6(@ptrCast(_parent.ptr), @bitCast(_options), findStrings_list, replaceStrings_list, hasSelection) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -229,9 +257,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn MetaObject(self: KReplaceDialog) QMetaObject {
+    pub fn metaObject(self: KReplaceDialog) QMetaObject {
         return .{ .ptr = qtc.KReplaceDialog_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -243,13 +275,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KReplaceDialog, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KReplaceDialog, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KReplaceDialog_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -259,9 +291,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn SuperMetaObject(self: KReplaceDialog) QMetaObject {
+    pub fn superMetaObject(self: KReplaceDialog) QMetaObject {
         return .{ .ptr = qtc.KReplaceDialog_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -269,10 +305,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KReplaceDialog, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KReplaceDialog, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KReplaceDialog_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -282,13 +322,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KReplaceDialog, callback: *const fn (KReplaceDialog, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KReplaceDialog, callback: *const fn (KReplaceDialog, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KReplaceDialog_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -298,10 +338,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KReplaceDialog, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KReplaceDialog, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KReplaceDialog_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -313,9 +357,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KReplaceDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KReplaceDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KReplaceDialog_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -325,13 +373,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KReplaceDialog, callback: *const fn (KReplaceDialog, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KReplaceDialog, callback: *const fn (KReplaceDialog, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KReplaceDialog_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -345,9 +393,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KReplaceDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KReplaceDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KReplaceDialog_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -357,14 +409,18 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setReplacementHistory` instead
+    ///
+    pub const SetReplacementHistory = setReplacementHistory;
 
     /// ### [Upstream resources](https://api.kde.org/kreplacedialog.html#setReplacementHistory)
     ///
@@ -376,13 +432,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` history: []const []const u8 `
     ///
-    pub fn SetReplacementHistory(self: KReplaceDialog, allocator: std.mem.Allocator, history: []const []const u8) void {
-        const history_arr = allocator.alloc(qtc.libqt_string, history.len) catch @panic("KReplaceDialog.SetReplacementHistory: Memory allocation failed");
+    pub fn setReplacementHistory(self: KReplaceDialog, allocator: std.mem.Allocator, history: []const []const u8) void {
+        const history_arr = allocator.alloc(qtc.libqt_string, history.len) catch @panic("KReplaceDialog.setReplacementHistory: Memory allocation failed");
         defer allocator.free(history_arr);
-        for (history, 0..history.len) |item, i|
+        for (history, 0..history.len) |str_item, i|
             history_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const history_list = qtc.libqt_list{
             .len = history.len,
@@ -390,6 +446,10 @@ pub const KReplaceDialog = extern struct {
         };
         qtc.KReplaceDialog_SetReplacementHistory(@ptrCast(self.ptr), history_list);
     }
+
+    /// ### DEPRECATED: Use `replacementHistory` instead
+    ///
+    pub const ReplacementHistory = replacementHistory;
 
     /// ### [Upstream resources](https://api.kde.org/kreplacedialog.html#replacementHistory)
     ///
@@ -399,7 +459,7 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReplacementHistory(self: KReplaceDialog, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn replacementHistory(self: KReplaceDialog, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KReplaceDialog_ReplacementHistory(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -407,15 +467,19 @@ pub const KReplaceDialog = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KReplaceDialog.ReplacementHistory: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KReplaceDialog.replacementHistory: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KReplaceDialog.ReplacementHistory: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KReplaceDialog.replacementHistory: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setOptions` instead
+    ///
+    pub const SetOptions = setOptions;
 
     /// ### [Upstream resources](https://api.kde.org/kreplacedialog.html#setOptions)
     ///
@@ -423,11 +487,15 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` options: isize `
+    /// ` _options: isize `
     ///
-    pub fn SetOptions(self: KReplaceDialog, options: isize) void {
-        qtc.KReplaceDialog_SetOptions(@ptrCast(self.ptr), @bitCast(options));
+    pub fn setOptions(self: KReplaceDialog, _options: isize) void {
+        qtc.KReplaceDialog_SetOptions(@ptrCast(self.ptr), @bitCast(_options));
     }
+
+    /// ### DEPRECATED: Use `options` instead
+    ///
+    pub const Options = options;
 
     /// ### [Upstream resources](https://api.kde.org/kreplacedialog.html#options)
     ///
@@ -435,9 +503,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn Options(self: KReplaceDialog) isize {
+    pub fn options(self: KReplaceDialog) isize {
         return qtc.KReplaceDialog_Options(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `replacement` instead
+    ///
+    pub const Replacement = replacement;
 
     /// ### [Upstream resources](https://api.kde.org/kreplacedialog.html#replacement)
     ///
@@ -447,13 +519,17 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Replacement(self: KReplaceDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn replacement(self: KReplaceDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KReplaceDialog_Replacement(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.Replacement: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.replacement: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `replaceExtension` instead
+    ///
+    pub const ReplaceExtension = replaceExtension;
 
     /// ### [Upstream resources](https://api.kde.org/kreplacedialog.html#replaceExtension)
     ///
@@ -461,9 +537,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn ReplaceExtension(self: KReplaceDialog) QWidget {
+    pub fn replaceExtension(self: KReplaceDialog) QWidget {
         return .{ .ptr = qtc.KReplaceDialog_ReplaceExtension(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kreplacedialog.html#showEvent)
     ///
@@ -473,10 +553,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: QShowEvent `
     ///
-    pub fn ShowEvent(self: KReplaceDialog, param1: anytype) void {
+    pub fn showEvent(self: KReplaceDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QShowEvent;
         qtc.KReplaceDialog_ShowEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kreplacedialog.html#showEvent)
     ///
@@ -488,13 +572,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, param1: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QShowEvent) callconv(.c) void) void {
         qtc.KReplaceDialog_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kreplacedialog.html#showEvent)
     ///
@@ -506,10 +590,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: KReplaceDialog, param1: anytype) void {
+    pub fn superShowEvent(self: KReplaceDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QShowEvent;
         qtc.KReplaceDialog_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -521,15 +609,19 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -543,15 +635,19 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setFindHistory` instead
+    ///
+    pub const SetFindHistory = setFindHistory;
 
     /// Inherited from KFindDialog
     ///
@@ -565,13 +661,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` history: []const []const u8 `
     ///
-    pub fn SetFindHistory(self: KReplaceDialog, allocator: std.mem.Allocator, history: []const []const u8) void {
-        const history_arr = allocator.alloc(qtc.libqt_string, history.len) catch @panic("KReplaceDialog.SetFindHistory: Memory allocation failed");
+    pub fn setFindHistory(self: KReplaceDialog, allocator: std.mem.Allocator, history: []const []const u8) void {
+        const history_arr = allocator.alloc(qtc.libqt_string, history.len) catch @panic("KReplaceDialog.setFindHistory: Memory allocation failed");
         defer allocator.free(history_arr);
-        for (history, 0..history.len) |item, i|
+        for (history, 0..history.len) |str_item, i|
             history_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const history_list = qtc.libqt_list{
             .len = history.len,
@@ -579,6 +675,10 @@ pub const KReplaceDialog = extern struct {
         };
         qtc.KFindDialog_SetFindHistory(@ptrCast(self.ptr), history_list);
     }
+
+    /// ### DEPRECATED: Use `findHistory` instead
+    ///
+    pub const FindHistory = findHistory;
 
     /// Inherited from KFindDialog
     ///
@@ -590,7 +690,7 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FindHistory(self: KReplaceDialog, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn findHistory(self: KReplaceDialog, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KFindDialog_FindHistory(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -598,15 +698,19 @@ pub const KReplaceDialog = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KReplaceDialog.FindHistory: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KReplaceDialog.findHistory: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KReplaceDialog.FindHistory: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KReplaceDialog.findHistory: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setHasSelection` instead
+    ///
+    pub const SetHasSelection = setHasSelection;
 
     /// Inherited from KFindDialog
     ///
@@ -618,9 +722,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` hasSelection: bool `
     ///
-    pub fn SetHasSelection(self: KReplaceDialog, hasSelection: bool) void {
+    pub fn setHasSelection(self: KReplaceDialog, hasSelection: bool) void {
         qtc.KFindDialog_SetHasSelection(@ptrCast(self.ptr), hasSelection);
     }
+
+    /// ### DEPRECATED: Use `setHasCursor` instead
+    ///
+    pub const SetHasCursor = setHasCursor;
 
     /// Inherited from KFindDialog
     ///
@@ -632,9 +740,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` hasCursor: bool `
     ///
-    pub fn SetHasCursor(self: KReplaceDialog, hasCursor: bool) void {
+    pub fn setHasCursor(self: KReplaceDialog, hasCursor: bool) void {
         qtc.KFindDialog_SetHasCursor(@ptrCast(self.ptr), hasCursor);
     }
+
+    /// ### DEPRECATED: Use `setSupportsBackwardsFind` instead
+    ///
+    pub const SetSupportsBackwardsFind = setSupportsBackwardsFind;
 
     /// Inherited from KFindDialog
     ///
@@ -646,9 +758,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` supports: bool `
     ///
-    pub fn SetSupportsBackwardsFind(self: KReplaceDialog, supports: bool) void {
+    pub fn setSupportsBackwardsFind(self: KReplaceDialog, supports: bool) void {
         qtc.KFindDialog_SetSupportsBackwardsFind(@ptrCast(self.ptr), supports);
     }
+
+    /// ### DEPRECATED: Use `setSupportsCaseSensitiveFind` instead
+    ///
+    pub const SetSupportsCaseSensitiveFind = setSupportsCaseSensitiveFind;
 
     /// Inherited from KFindDialog
     ///
@@ -660,9 +776,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` supports: bool `
     ///
-    pub fn SetSupportsCaseSensitiveFind(self: KReplaceDialog, supports: bool) void {
+    pub fn setSupportsCaseSensitiveFind(self: KReplaceDialog, supports: bool) void {
         qtc.KFindDialog_SetSupportsCaseSensitiveFind(@ptrCast(self.ptr), supports);
     }
+
+    /// ### DEPRECATED: Use `setSupportsWholeWordsFind` instead
+    ///
+    pub const SetSupportsWholeWordsFind = setSupportsWholeWordsFind;
 
     /// Inherited from KFindDialog
     ///
@@ -674,9 +794,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` supports: bool `
     ///
-    pub fn SetSupportsWholeWordsFind(self: KReplaceDialog, supports: bool) void {
+    pub fn setSupportsWholeWordsFind(self: KReplaceDialog, supports: bool) void {
         qtc.KFindDialog_SetSupportsWholeWordsFind(@ptrCast(self.ptr), supports);
     }
+
+    /// ### DEPRECATED: Use `setSupportsRegularExpressionFind` instead
+    ///
+    pub const SetSupportsRegularExpressionFind = setSupportsRegularExpressionFind;
 
     /// Inherited from KFindDialog
     ///
@@ -688,9 +812,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` supports: bool `
     ///
-    pub fn SetSupportsRegularExpressionFind(self: KReplaceDialog, supports: bool) void {
+    pub fn setSupportsRegularExpressionFind(self: KReplaceDialog, supports: bool) void {
         qtc.KFindDialog_SetSupportsRegularExpressionFind(@ptrCast(self.ptr), supports);
     }
+
+    /// ### DEPRECATED: Use `pattern` instead
+    ///
+    pub const Pattern = pattern;
 
     /// Inherited from KFindDialog
     ///
@@ -702,13 +830,17 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Pattern(self: KReplaceDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn pattern(self: KReplaceDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFindDialog_Pattern(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.Pattern: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.pattern: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setPattern` instead
+    ///
+    pub const SetPattern = setPattern;
 
     /// Inherited from KFindDialog
     ///
@@ -718,15 +850,19 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` pattern: []const u8 `
+    /// ` _pattern: []const u8 `
     ///
-    pub fn SetPattern(self: KReplaceDialog, pattern: []const u8) void {
+    pub fn setPattern(self: KReplaceDialog, _pattern: []const u8) void {
         const pattern_str = qtc.libqt_string{
-            .len = pattern.len,
-            .data = pattern.ptr,
+            .len = _pattern.len,
+            .data = _pattern.ptr,
         };
         qtc.KFindDialog_SetPattern(@ptrCast(self.ptr), pattern_str);
     }
+
+    /// ### DEPRECATED: Use `findExtension` instead
+    ///
+    pub const FindExtension = findExtension;
 
     /// Inherited from KFindDialog
     ///
@@ -736,10 +872,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn FindExtension(self: KReplaceDialog) QWidget {
+    pub fn findExtension(self: KReplaceDialog) QWidget {
         return .{ .ptr = qtc.KFindDialog_FindExtension(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `optionsChanged` instead
+    ///
+    pub const OptionsChanged = optionsChanged;
+
     /// Inherited from KFindDialog
     ///
     /// ### [Upstream resources](https://api.kde.org/kfinddialog.html#optionsChanged)
@@ -748,10 +888,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn OptionsChanged(self: KReplaceDialog) void {
+    pub fn optionsChanged(self: KReplaceDialog) void {
         qtc.KFindDialog_OptionsChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onOptionsChanged` instead
+    ///
+    pub const OnOptionsChanged = onOptionsChanged;
+
     /// Inherited from KFindDialog
     ///
     /// ### [Upstream resources](https://api.kde.org/kfinddialog.html#optionsChanged)
@@ -762,10 +906,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog) callconv(.c) void `
     ///
-    pub fn OnOptionsChanged(self: KReplaceDialog, callback: *const fn (KReplaceDialog) callconv(.c) void) void {
+    pub fn onOptionsChanged(self: KReplaceDialog, callback: *const fn (KReplaceDialog) callconv(.c) void) void {
         qtc.KFindDialog_Connect_OptionsChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `okClicked` instead
+    ///
+    pub const OkClicked = okClicked;
+
     /// Inherited from KFindDialog
     ///
     /// ### [Upstream resources](https://api.kde.org/kfinddialog.html#okClicked)
@@ -774,10 +922,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn OkClicked(self: KReplaceDialog) void {
+    pub fn okClicked(self: KReplaceDialog) void {
         qtc.KFindDialog_OkClicked(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onOkClicked` instead
+    ///
+    pub const OnOkClicked = onOkClicked;
+
     /// Inherited from KFindDialog
     ///
     /// ### [Upstream resources](https://api.kde.org/kfinddialog.html#okClicked)
@@ -788,9 +940,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog) callconv(.c) void `
     ///
-    pub fn OnOkClicked(self: KReplaceDialog, callback: *const fn (KReplaceDialog) callconv(.c) void) void {
+    pub fn onOkClicked(self: KReplaceDialog, callback: *const fn (KReplaceDialog) callconv(.c) void) void {
         qtc.KFindDialog_Connect_OkClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `cancelClicked` instead
+    ///
+    pub const CancelClicked = cancelClicked;
 
     /// Inherited from KFindDialog
     ///
@@ -800,9 +956,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn CancelClicked(self: KReplaceDialog) void {
+    pub fn cancelClicked(self: KReplaceDialog) void {
         qtc.KFindDialog_CancelClicked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCancelClicked` instead
+    ///
+    pub const OnCancelClicked = onCancelClicked;
 
     /// Inherited from KFindDialog
     ///
@@ -814,9 +974,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog) callconv(.c) void `
     ///
-    pub fn OnCancelClicked(self: KReplaceDialog, callback: *const fn (KReplaceDialog) callconv(.c) void) void {
+    pub fn onCancelClicked(self: KReplaceDialog, callback: *const fn (KReplaceDialog) callconv(.c) void) void {
         qtc.KFindDialog_Connect_CancelClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `result` instead
+    ///
+    pub const Result = result;
 
     /// Inherited from QDialog
     ///
@@ -826,9 +990,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn Result(self: KReplaceDialog) i32 {
+    pub fn result(self: KReplaceDialog) i32 {
         return qtc.QDialog_Result(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeGripEnabled` instead
+    ///
+    pub const SetSizeGripEnabled = setSizeGripEnabled;
 
     /// Inherited from QDialog
     ///
@@ -840,9 +1008,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` sizeGripEnabled: bool `
     ///
-    pub fn SetSizeGripEnabled(self: KReplaceDialog, sizeGripEnabled: bool) void {
+    pub fn setSizeGripEnabled(self: KReplaceDialog, sizeGripEnabled: bool) void {
         qtc.QDialog_SetSizeGripEnabled(@ptrCast(self.ptr), sizeGripEnabled);
     }
+
+    /// ### DEPRECATED: Use `isSizeGripEnabled` instead
+    ///
+    pub const IsSizeGripEnabled = isSizeGripEnabled;
 
     /// Inherited from QDialog
     ///
@@ -852,9 +1024,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn IsSizeGripEnabled(self: KReplaceDialog) bool {
+    pub fn isSizeGripEnabled(self: KReplaceDialog) bool {
         return qtc.QDialog_IsSizeGripEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setModal` instead
+    ///
+    pub const SetModal = setModal;
 
     /// Inherited from QDialog
     ///
@@ -866,9 +1042,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` modal: bool `
     ///
-    pub fn SetModal(self: KReplaceDialog, modal: bool) void {
+    pub fn setModal(self: KReplaceDialog, modal: bool) void {
         qtc.QDialog_SetModal(@ptrCast(self.ptr), modal);
     }
+
+    /// ### DEPRECATED: Use `setResult` instead
+    ///
+    pub const SetResult = setResult;
 
     /// Inherited from QDialog
     ///
@@ -880,9 +1060,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` r: i32 `
     ///
-    pub fn SetResult(self: KReplaceDialog, r: i32) void {
+    pub fn setResult(self: KReplaceDialog, r: i32) void {
         qtc.QDialog_SetResult(@ptrCast(self.ptr), @bitCast(r));
     }
+
+    /// ### DEPRECATED: Use `finished` instead
+    ///
+    pub const Finished = finished;
 
     /// Inherited from QDialog
     ///
@@ -892,11 +1076,15 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` result: i32 `
+    /// ` _result: i32 `
     ///
-    pub fn Finished(self: KReplaceDialog, result: i32) void {
-        qtc.QDialog_Finished(@ptrCast(self.ptr), @bitCast(result));
+    pub fn finished(self: KReplaceDialog, _result: i32) void {
+        qtc.QDialog_Finished(@ptrCast(self.ptr), @bitCast(_result));
     }
+
+    /// ### DEPRECATED: Use `onFinished` instead
+    ///
+    pub const OnFinished = onFinished;
 
     /// Inherited from QDialog
     ///
@@ -908,10 +1096,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, result: i32) callconv(.c) void `
     ///
-    pub fn OnFinished(self: KReplaceDialog, callback: *const fn (KReplaceDialog, i32) callconv(.c) void) void {
+    pub fn onFinished(self: KReplaceDialog, callback: *const fn (KReplaceDialog, i32) callconv(.c) void) void {
         qtc.QDialog_Connect_Finished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `accepted` instead
+    ///
+    pub const Accepted = accepted;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#accepted)
@@ -920,10 +1112,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn Accepted(self: KReplaceDialog) void {
+    pub fn accepted(self: KReplaceDialog) void {
         qtc.QDialog_Accepted(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onAccepted` instead
+    ///
+    pub const OnAccepted = onAccepted;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#accepted)
@@ -934,9 +1130,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog) callconv(.c) void `
     ///
-    pub fn OnAccepted(self: KReplaceDialog, callback: *const fn (KReplaceDialog) callconv(.c) void) void {
+    pub fn onAccepted(self: KReplaceDialog, callback: *const fn (KReplaceDialog) callconv(.c) void) void {
         qtc.QDialog_Connect_Accepted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `rejected` instead
+    ///
+    pub const Rejected = rejected;
 
     /// Inherited from QDialog
     ///
@@ -946,9 +1146,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn Rejected(self: KReplaceDialog) void {
+    pub fn rejected(self: KReplaceDialog) void {
         qtc.QDialog_Rejected(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onRejected` instead
+    ///
+    pub const OnRejected = onRejected;
 
     /// Inherited from QDialog
     ///
@@ -960,9 +1164,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog) callconv(.c) void `
     ///
-    pub fn OnRejected(self: KReplaceDialog, callback: *const fn (KReplaceDialog) callconv(.c) void) void {
+    pub fn onRejected(self: KReplaceDialog, callback: *const fn (KReplaceDialog) callconv(.c) void) void {
         qtc.QDialog_Connect_Rejected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -972,9 +1180,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn WinId(self: KReplaceDialog) usize {
+    pub fn winId(self: KReplaceDialog) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -984,9 +1196,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn CreateWinId(self: KReplaceDialog) void {
+    pub fn createWinId(self: KReplaceDialog) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -996,9 +1212,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn InternalWinId(self: KReplaceDialog) usize {
+    pub fn internalWinId(self: KReplaceDialog) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -1008,9 +1228,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn EffectiveWinId(self: KReplaceDialog) usize {
+    pub fn effectiveWinId(self: KReplaceDialog) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -1020,9 +1244,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn Style(self: KReplaceDialog) QStyle {
+    pub fn style(self: KReplaceDialog) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -1032,12 +1260,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: KReplaceDialog, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: KReplaceDialog, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -1047,9 +1279,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn IsTopLevel(self: KReplaceDialog) bool {
+    pub fn isTopLevel(self: KReplaceDialog) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -1059,9 +1295,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn IsWindow(self: KReplaceDialog) bool {
+    pub fn isWindow(self: KReplaceDialog) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -1071,9 +1311,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn IsModal(self: KReplaceDialog) bool {
+    pub fn isModal(self: KReplaceDialog) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -1087,9 +1331,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: KReplaceDialog) i32 {
+    pub fn windowModality(self: KReplaceDialog) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -1099,11 +1347,15 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: KReplaceDialog, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: KReplaceDialog, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1113,9 +1365,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn IsEnabled(self: KReplaceDialog) bool {
+    pub fn isEnabled(self: KReplaceDialog) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -1127,10 +1383,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: KReplaceDialog, param1: anytype) bool {
+    pub fn isEnabledTo(self: KReplaceDialog, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1142,9 +1402,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: KReplaceDialog, enabled: bool) void {
+    pub fn setEnabled(self: KReplaceDialog, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -1156,9 +1420,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: KReplaceDialog, disabled: bool) void {
+    pub fn setDisabled(self: KReplaceDialog, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -1170,9 +1438,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: KReplaceDialog, windowModified: bool) void {
+    pub fn setWindowModified(self: KReplaceDialog, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1182,9 +1454,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn FrameGeometry(self: KReplaceDialog) QRect {
+    pub fn frameGeometry(self: KReplaceDialog) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -1194,9 +1470,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn Geometry(self: KReplaceDialog) QRect {
+    pub fn geometry(self: KReplaceDialog) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1206,9 +1486,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn NormalGeometry(self: KReplaceDialog) QRect {
+    pub fn normalGeometry(self: KReplaceDialog) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -1218,9 +1502,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn X(self: KReplaceDialog) i32 {
+    pub fn x(self: KReplaceDialog) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -1230,9 +1518,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn Y(self: KReplaceDialog) i32 {
+    pub fn y(self: KReplaceDialog) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -1242,9 +1534,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn Pos(self: KReplaceDialog) QPoint {
+    pub fn pos(self: KReplaceDialog) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -1254,9 +1550,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn FrameSize(self: KReplaceDialog) QSize {
+    pub fn frameSize(self: KReplaceDialog) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -1266,9 +1566,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn Size(self: KReplaceDialog) QSize {
+    pub fn size(self: KReplaceDialog) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -1278,9 +1582,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn Width(self: KReplaceDialog) i32 {
+    pub fn width(self: KReplaceDialog) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -1290,9 +1598,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn Height(self: KReplaceDialog) i32 {
+    pub fn height(self: KReplaceDialog) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -1302,9 +1614,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn Rect(self: KReplaceDialog) QRect {
+    pub fn rect(self: KReplaceDialog) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -1314,9 +1630,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn ChildrenRect(self: KReplaceDialog) QRect {
+    pub fn childrenRect(self: KReplaceDialog) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -1326,9 +1646,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn ChildrenRegion(self: KReplaceDialog) QRegion {
+    pub fn childrenRegion(self: KReplaceDialog) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1338,9 +1662,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn MinimumSize(self: KReplaceDialog) QSize {
+    pub fn minimumSize(self: KReplaceDialog) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1350,9 +1678,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn MaximumSize(self: KReplaceDialog) QSize {
+    pub fn maximumSize(self: KReplaceDialog) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1362,9 +1694,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn MinimumWidth(self: KReplaceDialog) i32 {
+    pub fn minimumWidth(self: KReplaceDialog) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1374,9 +1710,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn MinimumHeight(self: KReplaceDialog) i32 {
+    pub fn minimumHeight(self: KReplaceDialog) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1386,9 +1726,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn MaximumWidth(self: KReplaceDialog) i32 {
+    pub fn maximumWidth(self: KReplaceDialog) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1398,9 +1742,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn MaximumHeight(self: KReplaceDialog) i32 {
+    pub fn maximumHeight(self: KReplaceDialog) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1410,12 +1758,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: KReplaceDialog, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: KReplaceDialog, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1429,9 +1781,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: KReplaceDialog, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: KReplaceDialog, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1441,12 +1797,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: KReplaceDialog, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: KReplaceDialog, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1460,9 +1820,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: KReplaceDialog, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: KReplaceDialog, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1474,9 +1838,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: KReplaceDialog, minw: i32) void {
+    pub fn setMinimumWidth(self: KReplaceDialog, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1488,9 +1856,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: KReplaceDialog, minh: i32) void {
+    pub fn setMinimumHeight(self: KReplaceDialog, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1502,9 +1874,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: KReplaceDialog, maxw: i32) void {
+    pub fn setMaximumWidth(self: KReplaceDialog, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1516,9 +1892,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: KReplaceDialog, maxh: i32) void {
+    pub fn setMaximumHeight(self: KReplaceDialog, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1528,9 +1908,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn SizeIncrement(self: KReplaceDialog) QSize {
+    pub fn sizeIncrement(self: KReplaceDialog) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1540,12 +1924,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: KReplaceDialog, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: KReplaceDialog, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -1559,9 +1947,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: KReplaceDialog, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: KReplaceDialog, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -1571,9 +1963,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn BaseSize(self: KReplaceDialog) QSize {
+    pub fn baseSize(self: KReplaceDialog) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -1583,12 +1979,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: KReplaceDialog, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: KReplaceDialog, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -1602,9 +2002,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: KReplaceDialog, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: KReplaceDialog, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -1616,10 +2020,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: KReplaceDialog, fixedSize: anytype) void {
+    pub fn setFixedSize(self: KReplaceDialog, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -1633,9 +2041,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: KReplaceDialog, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: KReplaceDialog, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -1647,9 +2059,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: KReplaceDialog, w: i32) void {
+    pub fn setFixedWidth(self: KReplaceDialog, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -1661,9 +2077,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: KReplaceDialog, h: i32) void {
+    pub fn setFixedHeight(self: KReplaceDialog, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -1675,11 +2095,15 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: KReplaceDialog, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: KReplaceDialog, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -1690,11 +2114,15 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: KReplaceDialog, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: KReplaceDialog, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1705,11 +2133,15 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: KReplaceDialog, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: KReplaceDialog, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1720,11 +2152,15 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: KReplaceDialog, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: KReplaceDialog, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1735,11 +2171,15 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: KReplaceDialog, param1: anytype) QPointF {
+    pub fn mapToParent(self: KReplaceDialog, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1750,10 +2190,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: KReplaceDialog, param1: anytype) QPoint {
+    pub fn mapToParent2(self: KReplaceDialog, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -1765,10 +2209,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: KReplaceDialog, param1: anytype) QPointF {
+    pub fn mapFromParent(self: KReplaceDialog, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -1780,10 +2228,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: KReplaceDialog, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: KReplaceDialog, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -1797,12 +2249,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: KReplaceDialog, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: KReplaceDialog, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -1815,11 +2271,15 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: KReplaceDialog, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: KReplaceDialog, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -1833,11 +2293,15 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: KReplaceDialog, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: KReplaceDialog, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -1851,11 +2315,15 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: KReplaceDialog, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: KReplaceDialog, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -1865,9 +2333,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn Window(self: KReplaceDialog) QWidget {
+    pub fn window(self: KReplaceDialog) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -1877,9 +2349,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn NativeParentWidget(self: KReplaceDialog) QWidget {
+    pub fn nativeParentWidget(self: KReplaceDialog) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -1889,9 +2365,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn TopLevelWidget(self: KReplaceDialog) QWidget {
+    pub fn topLevelWidget(self: KReplaceDialog) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -1901,9 +2381,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn Palette(self: KReplaceDialog) QPalette {
+    pub fn palette(self: KReplaceDialog) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -1913,12 +2397,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: KReplaceDialog, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: KReplaceDialog, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1928,11 +2416,15 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: KReplaceDialog, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: KReplaceDialog, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1946,9 +2438,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: KReplaceDialog) i32 {
+    pub fn backgroundRole(self: KReplaceDialog) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1958,11 +2454,15 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: KReplaceDialog, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: KReplaceDialog, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1976,9 +2476,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: KReplaceDialog) i32 {
+    pub fn foregroundRole(self: KReplaceDialog) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -1988,9 +2492,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn Font(self: KReplaceDialog) QFont {
+    pub fn font(self: KReplaceDialog) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -2000,12 +2508,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: KReplaceDialog, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: KReplaceDialog, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -2015,9 +2527,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn FontMetrics(self: KReplaceDialog) QFontMetrics {
+    pub fn fontMetrics(self: KReplaceDialog) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -2027,9 +2543,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn FontInfo(self: KReplaceDialog) QFontInfo {
+    pub fn fontInfo(self: KReplaceDialog) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -2039,9 +2559,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn Cursor(self: KReplaceDialog) QCursor {
+    pub fn cursor(self: KReplaceDialog) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -2051,12 +2575,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: KReplaceDialog, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: KReplaceDialog, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -2066,9 +2594,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn UnsetCursor(self: KReplaceDialog) void {
+    pub fn unsetCursor(self: KReplaceDialog) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2080,9 +2612,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: KReplaceDialog, enable: bool) void {
+    pub fn setMouseTracking(self: KReplaceDialog, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2092,9 +2628,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn HasMouseTracking(self: KReplaceDialog) bool {
+    pub fn hasMouseTracking(self: KReplaceDialog) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -2104,9 +2644,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn UnderMouse(self: KReplaceDialog) bool {
+    pub fn underMouse(self: KReplaceDialog) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2118,9 +2662,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: KReplaceDialog, enable: bool) void {
+    pub fn setTabletTracking(self: KReplaceDialog, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2130,24 +2678,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn HasTabletTracking(self: KReplaceDialog) bool {
+    pub fn hasTabletTracking(self: KReplaceDialog) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KReplaceDialog `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: KReplaceDialog, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -2157,12 +2694,35 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: KReplaceDialog, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: KReplaceDialog, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KReplaceDialog `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: KReplaceDialog, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -2172,9 +2732,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn Mask(self: KReplaceDialog) QRegion {
+    pub fn mask(self: KReplaceDialog) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -2184,9 +2748,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn ClearMask(self: KReplaceDialog) void {
+    pub fn clearMask(self: KReplaceDialog) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -2198,10 +2766,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: KReplaceDialog, target: anytype) void {
+    pub fn render(self: KReplaceDialog, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -2213,10 +2785,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: KReplaceDialog, painter: anytype) void {
+    pub fn render2(self: KReplaceDialog, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -2226,9 +2802,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn Grab(self: KReplaceDialog) QPixmap {
+    pub fn grab(self: KReplaceDialog) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2238,9 +2818,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn GraphicsEffect(self: KReplaceDialog) QGraphicsEffect {
+    pub fn graphicsEffect(self: KReplaceDialog) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2252,10 +2836,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: KReplaceDialog, effect: anytype) void {
+    pub fn setGraphicsEffect(self: KReplaceDialog, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2267,9 +2855,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: KReplaceDialog, typeVal: i32) void {
+    pub fn grabGesture(self: KReplaceDialog, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2281,9 +2873,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: KReplaceDialog, typeVal: i32) void {
+    pub fn ungrabGesture(self: KReplaceDialog, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2293,15 +2889,19 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: KReplaceDialog, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: KReplaceDialog, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2311,15 +2911,19 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: KReplaceDialog, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: KReplaceDialog, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2331,13 +2935,17 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: KReplaceDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: KReplaceDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2349,13 +2957,17 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: KReplaceDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: KReplaceDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2367,10 +2979,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: KReplaceDialog, icon: anytype) void {
+    pub fn setWindowIcon(self: KReplaceDialog, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2380,9 +2996,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn WindowIcon(self: KReplaceDialog) QIcon {
+    pub fn windowIcon(self: KReplaceDialog) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2392,15 +3012,19 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: KReplaceDialog, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: KReplaceDialog, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2412,13 +3036,17 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: KReplaceDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: KReplaceDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -2428,15 +3056,19 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: KReplaceDialog, windowRole: []const u8) void {
+    pub fn setWindowRole(self: KReplaceDialog, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -2448,13 +3080,17 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: KReplaceDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: KReplaceDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2466,13 +3102,17 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: KReplaceDialog, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: KReplaceDialog, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2484,13 +3124,17 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: KReplaceDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: KReplaceDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2502,9 +3146,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: KReplaceDialog, level: f64) void {
+    pub fn setWindowOpacity(self: KReplaceDialog, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2514,9 +3162,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn WindowOpacity(self: KReplaceDialog) f64 {
+    pub fn windowOpacity(self: KReplaceDialog) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -2526,9 +3178,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn IsWindowModified(self: KReplaceDialog) bool {
+    pub fn isWindowModified(self: KReplaceDialog) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -2538,15 +3194,19 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: KReplaceDialog, toolTip: []const u8) void {
+    pub fn setToolTip(self: KReplaceDialog, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -2558,13 +3218,17 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: KReplaceDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: KReplaceDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2576,9 +3240,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: KReplaceDialog, msec: i32) void {
+    pub fn setToolTipDuration(self: KReplaceDialog, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2588,9 +3256,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn ToolTipDuration(self: KReplaceDialog) i32 {
+    pub fn toolTipDuration(self: KReplaceDialog) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -2600,15 +3272,19 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: KReplaceDialog, statusTip: []const u8) void {
+    pub fn setStatusTip(self: KReplaceDialog, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -2620,13 +3296,17 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: KReplaceDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: KReplaceDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2636,15 +3316,19 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: KReplaceDialog, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: KReplaceDialog, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2656,13 +3340,17 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: KReplaceDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: KReplaceDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2674,13 +3362,17 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: KReplaceDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: KReplaceDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2692,13 +3384,17 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: KReplaceDialog, name: []const u8) void {
+    pub fn setAccessibleName(self: KReplaceDialog, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2710,13 +3406,17 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: KReplaceDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: KReplaceDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2728,13 +3428,17 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: KReplaceDialog, description: []const u8) void {
+    pub fn setAccessibleDescription(self: KReplaceDialog, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2746,9 +3450,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: KReplaceDialog, direction: i32) void {
+    pub fn setLayoutDirection(self: KReplaceDialog, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2762,9 +3470,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: KReplaceDialog) i32 {
+    pub fn layoutDirection(self: KReplaceDialog) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2774,9 +3486,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn UnsetLayoutDirection(self: KReplaceDialog) void {
+    pub fn unsetLayoutDirection(self: KReplaceDialog) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -2786,12 +3502,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: KReplaceDialog, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: KReplaceDialog, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -2801,9 +3521,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn Locale(self: KReplaceDialog) QLocale {
+    pub fn locale(self: KReplaceDialog) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -2813,9 +3537,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn UnsetLocale(self: KReplaceDialog) void {
+    pub fn unsetLocale(self: KReplaceDialog) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -2825,9 +3553,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn IsRightToLeft(self: KReplaceDialog) bool {
+    pub fn isRightToLeft(self: KReplaceDialog) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -2837,9 +3569,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn IsLeftToRight(self: KReplaceDialog) bool {
+    pub fn isLeftToRight(self: KReplaceDialog) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -2849,9 +3585,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn SetFocus(self: KReplaceDialog) void {
+    pub fn setFocus(self: KReplaceDialog) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -2861,9 +3601,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn IsActiveWindow(self: KReplaceDialog) bool {
+    pub fn isActiveWindow(self: KReplaceDialog) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -2873,9 +3617,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn ActivateWindow(self: KReplaceDialog) void {
+    pub fn activateWindow(self: KReplaceDialog) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -2885,9 +3633,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn ClearFocus(self: KReplaceDialog) void {
+    pub fn clearFocus(self: KReplaceDialog) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -2899,9 +3651,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: KReplaceDialog, reason: i32) void {
+    pub fn setFocus2(self: KReplaceDialog, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2915,9 +3671,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: KReplaceDialog) i32 {
+    pub fn focusPolicy(self: KReplaceDialog) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2929,9 +3689,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: KReplaceDialog, policy: i32) void {
+    pub fn setFocusPolicy(self: KReplaceDialog, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -2941,9 +3705,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn HasFocus(self: KReplaceDialog) bool {
+    pub fn hasFocus(self: KReplaceDialog) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -2955,11 +3723,15 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2969,12 +3741,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: KReplaceDialog, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: KReplaceDialog, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2984,9 +3760,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn FocusProxy(self: KReplaceDialog) QWidget {
+    pub fn focusProxy(self: KReplaceDialog) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3000,9 +3780,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: KReplaceDialog) i32 {
+    pub fn contextMenuPolicy(self: KReplaceDialog) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3014,9 +3798,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: KReplaceDialog, policy: i32) void {
+    pub fn setContextMenuPolicy(self: KReplaceDialog, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -3026,9 +3814,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn GrabMouse(self: KReplaceDialog) void {
+    pub fn grabMouse(self: KReplaceDialog) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -3040,10 +3832,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: KReplaceDialog, param1: anytype) void {
+    pub fn grabMouse2(self: KReplaceDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -3053,9 +3849,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn ReleaseMouse(self: KReplaceDialog) void {
+    pub fn releaseMouse(self: KReplaceDialog) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3065,9 +3865,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn GrabKeyboard(self: KReplaceDialog) void {
+    pub fn grabKeyboard(self: KReplaceDialog) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3077,9 +3881,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn ReleaseKeyboard(self: KReplaceDialog) void {
+    pub fn releaseKeyboard(self: KReplaceDialog) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3091,10 +3899,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: KReplaceDialog, key: anytype) i32 {
+    pub fn grabShortcut(self: KReplaceDialog, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3106,9 +3918,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: KReplaceDialog, id: i32) void {
+    pub fn releaseShortcut(self: KReplaceDialog, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3120,9 +3936,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: KReplaceDialog, id: i32) void {
+    pub fn setShortcutEnabled(self: KReplaceDialog, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -3134,25 +3954,37 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: KReplaceDialog, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: KReplaceDialog, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3162,9 +3994,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn UpdatesEnabled(self: KReplaceDialog) bool {
+    pub fn updatesEnabled(self: KReplaceDialog) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3176,9 +4012,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: KReplaceDialog, enable: bool) void {
+    pub fn setUpdatesEnabled(self: KReplaceDialog, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -3188,9 +4028,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn GraphicsProxyWidget(self: KReplaceDialog) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: KReplaceDialog) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -3200,9 +4044,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn Update(self: KReplaceDialog) void {
+    pub fn update(self: KReplaceDialog) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -3212,9 +4060,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn Repaint(self: KReplaceDialog) void {
+    pub fn repaint(self: KReplaceDialog) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -3224,17 +4076,21 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: KReplaceDialog, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: KReplaceDialog, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -3246,11 +4102,15 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: KReplaceDialog, param1: anytype) void {
+    pub fn update3(self: KReplaceDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -3261,10 +4121,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: KReplaceDialog, param1: anytype) void {
+    pub fn update4(self: KReplaceDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -3274,17 +4138,21 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: KReplaceDialog, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: KReplaceDialog, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -3296,10 +4164,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: KReplaceDialog, param1: anytype) void {
+    pub fn repaint3(self: KReplaceDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -3311,10 +4183,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: KReplaceDialog, param1: anytype) void {
+    pub fn repaint4(self: KReplaceDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -3326,9 +4202,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: KReplaceDialog, hidden: bool) void {
+    pub fn setHidden(self: KReplaceDialog, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -3338,9 +4218,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn Show(self: KReplaceDialog) void {
+    pub fn show(self: KReplaceDialog) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -3350,9 +4234,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn Hide(self: KReplaceDialog) void {
+    pub fn hide(self: KReplaceDialog) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3362,9 +4250,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn ShowMinimized(self: KReplaceDialog) void {
+    pub fn showMinimized(self: KReplaceDialog) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3374,9 +4266,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn ShowMaximized(self: KReplaceDialog) void {
+    pub fn showMaximized(self: KReplaceDialog) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3386,9 +4282,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn ShowFullScreen(self: KReplaceDialog) void {
+    pub fn showFullScreen(self: KReplaceDialog) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -3398,9 +4298,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn ShowNormal(self: KReplaceDialog) void {
+    pub fn showNormal(self: KReplaceDialog) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -3410,9 +4314,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn Close(self: KReplaceDialog) bool {
+    pub fn close(self: KReplaceDialog) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -3422,9 +4330,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn Raise(self: KReplaceDialog) void {
+    pub fn raise(self: KReplaceDialog) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -3434,9 +4346,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn Lower(self: KReplaceDialog) void {
+    pub fn lower(self: KReplaceDialog) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -3448,10 +4364,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: KReplaceDialog, param1: anytype) void {
+    pub fn stackUnder(self: KReplaceDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -3461,13 +4381,17 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: KReplaceDialog, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: KReplaceDialog, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -3479,10 +4403,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: KReplaceDialog, param1: anytype) void {
+    pub fn move2(self: KReplaceDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -3496,9 +4424,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: KReplaceDialog, w: i32, h: i32) void {
+    pub fn resize(self: KReplaceDialog, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -3510,10 +4442,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: KReplaceDialog, param1: anytype) void {
+    pub fn resize2(self: KReplaceDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3523,17 +4459,21 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: KReplaceDialog, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: KReplaceDialog, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -3543,12 +4483,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: KReplaceDialog, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: KReplaceDialog, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3560,13 +4504,17 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: KReplaceDialog, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: KReplaceDialog, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KReplaceDialog.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KReplaceDialog.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3576,15 +4524,19 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: KReplaceDialog, geometry: []u8) bool {
+    pub fn restoreGeometry(self: KReplaceDialog, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -3594,9 +4546,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn AdjustSize(self: KReplaceDialog) void {
+    pub fn adjustSize(self: KReplaceDialog) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -3606,9 +4562,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn IsVisible(self: KReplaceDialog) bool {
+    pub fn isVisible(self: KReplaceDialog) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -3620,10 +4580,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: KReplaceDialog, param1: anytype) bool {
+    pub fn isVisibleTo(self: KReplaceDialog, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -3633,9 +4597,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn IsHidden(self: KReplaceDialog) bool {
+    pub fn isHidden(self: KReplaceDialog) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3645,9 +4613,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn IsMinimized(self: KReplaceDialog) bool {
+    pub fn isMinimized(self: KReplaceDialog) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3657,9 +4629,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn IsMaximized(self: KReplaceDialog) bool {
+    pub fn isMaximized(self: KReplaceDialog) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3669,9 +4645,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn IsFullScreen(self: KReplaceDialog) bool {
+    pub fn isFullScreen(self: KReplaceDialog) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -3685,9 +4665,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: KReplaceDialog) i32 {
+    pub fn windowState(self: KReplaceDialog) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3699,9 +4683,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: KReplaceDialog, state: i32) void {
+    pub fn setWindowState(self: KReplaceDialog, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3713,9 +4701,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: KReplaceDialog, state: i32) void {
+    pub fn overrideWindowState(self: KReplaceDialog, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3725,9 +4717,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn SizePolicy(self: KReplaceDialog) QSizePolicy {
+    pub fn sizePolicy(self: KReplaceDialog) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3737,12 +4733,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: KReplaceDialog, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: KReplaceDialog, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -3756,9 +4756,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: KReplaceDialog, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: KReplaceDialog, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -3768,9 +4772,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn VisibleRegion(self: KReplaceDialog) QRegion {
+    pub fn visibleRegion(self: KReplaceDialog) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3788,9 +4796,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: KReplaceDialog, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: KReplaceDialog, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -3802,10 +4814,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: KReplaceDialog, margins: anytype) void {
+    pub fn setContentsMargins2(self: KReplaceDialog, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3815,9 +4831,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn ContentsMargins(self: KReplaceDialog) QMargins {
+    pub fn contentsMargins(self: KReplaceDialog) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -3827,9 +4847,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn ContentsRect(self: KReplaceDialog) QRect {
+    pub fn contentsRect(self: KReplaceDialog) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -3839,9 +4863,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn Layout(self: KReplaceDialog) QLayout {
+    pub fn layout(self: KReplaceDialog) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -3851,12 +4879,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: KReplaceDialog, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: KReplaceDialog, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3866,24 +4898,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn UpdateGeometry(self: KReplaceDialog) void {
+    pub fn updateGeometry(self: KReplaceDialog) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KReplaceDialog `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: KReplaceDialog, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -3893,14 +4914,37 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: KReplaceDialog, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KReplaceDialog `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: KReplaceDialog, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: KReplaceDialog, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -3914,9 +4958,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: KReplaceDialog, dx: i32, dy: i32) void {
+    pub fn scroll(self: KReplaceDialog, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -3932,10 +4980,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: KReplaceDialog, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: KReplaceDialog, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -3945,9 +4997,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn FocusWidget(self: KReplaceDialog) QWidget {
+    pub fn focusWidget(self: KReplaceDialog) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3957,9 +5013,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn NextInFocusChain(self: KReplaceDialog) QWidget {
+    pub fn nextInFocusChain(self: KReplaceDialog) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3969,9 +5029,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn PreviousInFocusChain(self: KReplaceDialog) QWidget {
+    pub fn previousInFocusChain(self: KReplaceDialog) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3981,9 +5045,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn AcceptDrops(self: KReplaceDialog) bool {
+    pub fn acceptDrops(self: KReplaceDialog) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3995,9 +5063,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: KReplaceDialog, on: bool) void {
+    pub fn setAcceptDrops(self: KReplaceDialog, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -4009,10 +5081,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: KReplaceDialog, action: anytype) void {
+    pub fn addAction(self: KReplaceDialog, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -4022,15 +5098,19 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: KReplaceDialog, actions: []QAction) void {
+    pub fn addActions(self: KReplaceDialog, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -4042,16 +5122,20 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: KReplaceDialog, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: KReplaceDialog, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -4065,11 +5149,15 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: KReplaceDialog, before: anytype, action: anytype) void {
+    pub fn insertAction(self: KReplaceDialog, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -4081,10 +5169,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: KReplaceDialog, action: anytype) void {
+    pub fn removeAction(self: KReplaceDialog, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -4096,15 +5188,19 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: KReplaceDialog, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: KReplaceDialog, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KReplaceDialog.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KReplaceDialog.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -4116,13 +5212,17 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: KReplaceDialog, text: []const u8) QAction {
+    pub fn addAction2(self: KReplaceDialog, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -4136,7 +5236,7 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: KReplaceDialog, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: KReplaceDialog, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -4145,6 +5245,10 @@ pub const KReplaceDialog = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -4157,7 +5261,7 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: KReplaceDialog, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: KReplaceDialog, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -4165,6 +5269,10 @@ pub const KReplaceDialog = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -4180,7 +5288,7 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: KReplaceDialog, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: KReplaceDialog, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -4190,6 +5298,10 @@ pub const KReplaceDialog = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -4198,9 +5310,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn ParentWidget(self: KReplaceDialog) QWidget {
+    pub fn parentWidget(self: KReplaceDialog) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4212,9 +5328,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: KReplaceDialog, typeVal: i32) void {
+    pub fn setWindowFlags(self: KReplaceDialog, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4228,9 +5348,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: KReplaceDialog) i32 {
+    pub fn windowFlags(self: KReplaceDialog) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -4242,9 +5366,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: KReplaceDialog, param1: i32) void {
+    pub fn setWindowFlag(self: KReplaceDialog, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4256,9 +5384,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: KReplaceDialog, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: KReplaceDialog, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -4272,9 +5404,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: KReplaceDialog) i32 {
+    pub fn windowType(self: KReplaceDialog) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -4284,9 +5420,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -4296,13 +5436,17 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: KReplaceDialog, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: KReplaceDialog, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -4314,10 +5458,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: KReplaceDialog, p: anytype) QWidget {
+    pub fn childAt2(self: KReplaceDialog, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -4329,10 +5477,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: KReplaceDialog, p: anytype) QWidget {
+    pub fn childAt3(self: KReplaceDialog, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4344,9 +5496,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: KReplaceDialog, param1: i32) void {
+    pub fn setAttribute(self: KReplaceDialog, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4358,9 +5514,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: KReplaceDialog, param1: i32) bool {
+    pub fn testAttribute(self: KReplaceDialog, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -4370,9 +5530,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn EnsurePolished(self: KReplaceDialog) void {
+    pub fn ensurePolished(self: KReplaceDialog) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -4384,10 +5548,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: KReplaceDialog, child: anytype) bool {
+    pub fn isAncestorOf(self: KReplaceDialog, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4397,9 +5565,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn AutoFillBackground(self: KReplaceDialog) bool {
+    pub fn autoFillBackground(self: KReplaceDialog) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4411,9 +5583,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: KReplaceDialog, enabled: bool) void {
+    pub fn setAutoFillBackground(self: KReplaceDialog, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -4423,9 +5599,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn BackingStore(self: KReplaceDialog) QBackingStore {
+    pub fn backingStore(self: KReplaceDialog) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -4435,9 +5615,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn WindowHandle(self: KReplaceDialog) QWindow {
+    pub fn windowHandle(self: KReplaceDialog) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -4447,9 +5631,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn Screen(self: KReplaceDialog) QScreen {
+    pub fn screen(self: KReplaceDialog) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -4459,12 +5647,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: KReplaceDialog, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: KReplaceDialog, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -4472,12 +5664,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4489,13 +5685,17 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: KReplaceDialog, title: []const u8) void {
+    pub fn windowTitleChanged(self: KReplaceDialog, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4507,9 +5707,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: KReplaceDialog, callback: *const fn (KReplaceDialog, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: KReplaceDialog, callback: *const fn (KReplaceDialog, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4521,10 +5725,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: KReplaceDialog, icon: anytype) void {
+    pub fn windowIconChanged(self: KReplaceDialog, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4536,9 +5744,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4550,13 +5762,17 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: KReplaceDialog, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: KReplaceDialog, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4568,9 +5784,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: KReplaceDialog, callback: *const fn (KReplaceDialog, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: KReplaceDialog, callback: *const fn (KReplaceDialog, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4580,12 +5800,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: KReplaceDialog, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: KReplaceDialog, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4597,9 +5821,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4613,9 +5841,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: KReplaceDialog) i32 {
+    pub fn inputMethodHints(self: KReplaceDialog) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4627,9 +5859,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: KReplaceDialog, hints: i32) void {
+    pub fn setInputMethodHints(self: KReplaceDialog, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -4643,11 +5879,15 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: KReplaceDialog, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: KReplaceDialog, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -4663,13 +5903,17 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: KReplaceDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: KReplaceDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -4686,12 +5930,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: KReplaceDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: KReplaceDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -4705,11 +5953,15 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: KReplaceDialog, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: KReplaceDialog, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -4725,12 +5977,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: KReplaceDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: KReplaceDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -4748,12 +6004,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: KReplaceDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: KReplaceDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -4765,10 +6025,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: KReplaceDialog, rectangle: anytype) QPixmap {
+    pub fn grab1(self: KReplaceDialog, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -4782,9 +6046,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: KReplaceDialog, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: KReplaceDialog, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -4798,10 +6066,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: KReplaceDialog, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: KReplaceDialog, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -4815,9 +6087,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: KReplaceDialog, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: KReplaceDialog, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -4831,9 +6107,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: KReplaceDialog, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: KReplaceDialog, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -4847,9 +6127,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: KReplaceDialog, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: KReplaceDialog, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -4863,25 +6147,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: KReplaceDialog, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: KReplaceDialog, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -4889,17 +6161,41 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -4911,13 +6207,17 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KReplaceDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KReplaceDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -4929,13 +6229,17 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KReplaceDialog, name: []const u8) void {
+    pub fn setObjectName(self: KReplaceDialog, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -4945,9 +6249,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn IsWidgetType(self: KReplaceDialog) bool {
+    pub fn isWidgetType(self: KReplaceDialog) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -4957,9 +6265,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn IsWindowType(self: KReplaceDialog) bool {
+    pub fn isWindowType(self: KReplaceDialog) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -4969,9 +6281,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn IsQuickItemType(self: KReplaceDialog) bool {
+    pub fn isQuickItemType(self: KReplaceDialog) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -4981,9 +6297,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn SignalsBlocked(self: KReplaceDialog) bool {
+    pub fn signalsBlocked(self: KReplaceDialog) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -4995,9 +6315,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KReplaceDialog, b: bool) bool {
+    pub fn blockSignals(self: KReplaceDialog, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -5007,9 +6331,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn Thread(self: KReplaceDialog) QThread {
+    pub fn thread(self: KReplaceDialog) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -5019,12 +6347,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KReplaceDialog, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KReplaceDialog, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -5036,9 +6368,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KReplaceDialog, interval: i32) i32 {
+    pub fn startTimer(self: KReplaceDialog, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -5050,9 +6386,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KReplaceDialog, time: i64) i32 {
+    pub fn startTimer2(self: KReplaceDialog, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -5064,9 +6404,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KReplaceDialog, id: i32) void {
+    pub fn killTimer(self: KReplaceDialog, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -5078,9 +6422,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KReplaceDialog, id: i32) void {
+    pub fn killTimer2(self: KReplaceDialog, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -5092,15 +6440,19 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KReplaceDialog, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KReplaceDialog, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KReplaceDialog.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KReplaceDialog.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5112,10 +6464,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KReplaceDialog, filterObj: anytype) void {
+    pub fn installEventFilter(self: KReplaceDialog, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5127,10 +6483,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KReplaceDialog, obj: anytype) void {
+    pub fn removeEventFilter(self: KReplaceDialog, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -5138,7 +6498,7 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5146,13 +6506,17 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -5160,7 +6524,7 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5168,13 +6532,17 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -5184,18 +6552,22 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KReplaceDialog, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KReplaceDialog, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -5203,7 +6575,7 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5211,13 +6583,17 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -5225,7 +6601,7 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5233,13 +6609,17 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -5249,9 +6629,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn Disconnect3(self: KReplaceDialog) bool {
+    pub fn disconnect3(self: KReplaceDialog) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -5263,10 +6647,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KReplaceDialog, receiver: anytype) bool {
+    pub fn disconnect4(self: KReplaceDialog, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -5276,10 +6664,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -5289,9 +6681,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn DumpObjectTree(self: KReplaceDialog) void {
+    pub fn dumpObjectTree(self: KReplaceDialog) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -5301,9 +6697,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn DumpObjectInfo(self: KReplaceDialog) void {
+    pub fn dumpObjectInfo(self: KReplaceDialog) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -5317,11 +6717,15 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KReplaceDialog, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KReplaceDialog, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -5333,10 +6737,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KReplaceDialog, name: [:0]const u8) QVariant {
+    pub fn property(self: KReplaceDialog, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -5348,7 +6756,7 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KReplaceDialog, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KReplaceDialog, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -5356,27 +6764,19 @@ pub const KReplaceDialog = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KReplaceDialog.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KReplaceDialog.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KReplaceDialog.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KReplaceDialog.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KReplaceDialog `
-    ///
-    pub fn BindingStorage(self: KReplaceDialog) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -5386,9 +6786,29 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn BindingStorage2(self: KReplaceDialog) QBindingStorage {
+    pub fn bindingStorage(self: KReplaceDialog) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KReplaceDialog `
+    ///
+    pub fn bindingStorage2(self: KReplaceDialog) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -5398,9 +6818,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn Destroyed(self: KReplaceDialog) void {
+    pub fn destroyed(self: KReplaceDialog) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -5412,9 +6836,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KReplaceDialog, callback: *const fn (KReplaceDialog) callconv(.c) void) void {
+    pub fn onDestroyed(self: KReplaceDialog, callback: *const fn (KReplaceDialog) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -5424,9 +6852,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn Parent(self: KReplaceDialog) QObject {
+    pub fn parent(self: KReplaceDialog) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -5438,10 +6870,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KReplaceDialog, classname: [:0]const u8) bool {
+    pub fn inherits(self: KReplaceDialog, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -5451,9 +6887,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn DeleteLater(self: KReplaceDialog) void {
+    pub fn deleteLater(self: KReplaceDialog) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -5467,9 +6907,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KReplaceDialog, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KReplaceDialog, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -5483,9 +6927,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KReplaceDialog, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KReplaceDialog, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -5493,7 +6941,7 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5503,13 +6951,17 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -5517,7 +6969,7 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5527,13 +6979,17 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -5543,7 +6999,7 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5551,12 +7007,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KReplaceDialog, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KReplaceDialog, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -5568,10 +7028,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KReplaceDialog, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KReplaceDialog, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -5585,11 +7049,15 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KReplaceDialog, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KReplaceDialog, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -5605,13 +7073,17 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KReplaceDialog, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KReplaceDialog, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -5624,11 +7096,15 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KReplaceDialog, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KReplaceDialog, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -5640,10 +7116,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KReplaceDialog, param1: anytype) void {
+    pub fn destroyed1(self: KReplaceDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -5655,9 +7135,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -5667,9 +7151,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn PaintingActive(self: KReplaceDialog) bool {
+    pub fn paintingActive(self: KReplaceDialog) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5679,9 +7167,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn WidthMM(self: KReplaceDialog) i32 {
+    pub fn widthMM(self: KReplaceDialog) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5691,9 +7183,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn HeightMM(self: KReplaceDialog) i32 {
+    pub fn heightMM(self: KReplaceDialog) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5703,9 +7199,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn LogicalDpiX(self: KReplaceDialog) i32 {
+    pub fn logicalDpiX(self: KReplaceDialog) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5715,9 +7215,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn LogicalDpiY(self: KReplaceDialog) i32 {
+    pub fn logicalDpiY(self: KReplaceDialog) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5727,9 +7231,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn PhysicalDpiX(self: KReplaceDialog) i32 {
+    pub fn physicalDpiX(self: KReplaceDialog) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5739,9 +7247,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn PhysicalDpiY(self: KReplaceDialog) i32 {
+    pub fn physicalDpiY(self: KReplaceDialog) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -5751,9 +7263,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn DevicePixelRatio(self: KReplaceDialog) f64 {
+    pub fn devicePixelRatio(self: KReplaceDialog) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5763,9 +7279,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn DevicePixelRatioF(self: KReplaceDialog) f64 {
+    pub fn devicePixelRatioF(self: KReplaceDialog) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -5775,9 +7295,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn ColorCount(self: KReplaceDialog) i32 {
+    pub fn colorCount(self: KReplaceDialog) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -5787,17 +7311,25 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn Depth(self: KReplaceDialog) i32 {
+    pub fn depth(self: KReplaceDialog) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5805,13 +7337,17 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QDialog
     ///
@@ -5825,13 +7361,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: KReplaceDialog, visible: bool) void {
+    pub fn setVisible(self: KReplaceDialog, visible: bool) void {
         qtc.KReplaceDialog_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QDialog
     ///
@@ -5845,9 +7381,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: KReplaceDialog, visible: bool) void {
+    pub fn superSetVisible(self: KReplaceDialog, visible: bool) void {
         qtc.KReplaceDialog_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QDialog
     ///
@@ -5861,10 +7401,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: KReplaceDialog, callback: *const fn (KReplaceDialog, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: KReplaceDialog, callback: *const fn (KReplaceDialog, bool) callconv(.c) void) void {
         qtc.KReplaceDialog_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#sizeHint)
@@ -5875,13 +7419,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn SizeHint(self: KReplaceDialog) QSize {
+    pub fn sizeHint(self: KReplaceDialog) QSize {
         return .{ .ptr = qtc.KReplaceDialog_SizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// Inherited from QDialog
     ///
@@ -5893,10 +7437,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn SuperSizeHint(self: KReplaceDialog) QSize {
+    pub fn superSizeHint(self: KReplaceDialog) QSize {
         return .{ .ptr = qtc.KReplaceDialog_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#sizeHint)
@@ -5911,9 +7459,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: KReplaceDialog, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KReplaceDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.KReplaceDialog_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QDialog
     ///
@@ -5925,13 +7477,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn MinimumSizeHint(self: KReplaceDialog) QSize {
+    pub fn minimumSizeHint(self: KReplaceDialog) QSize {
         return .{ .ptr = qtc.KReplaceDialog_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QDialog
     ///
@@ -5943,9 +7495,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn SuperMinimumSizeHint(self: KReplaceDialog) QSize {
+    pub fn superMinimumSizeHint(self: KReplaceDialog) QSize {
         return .{ .ptr = qtc.KReplaceDialog_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QDialog
     ///
@@ -5961,9 +7517,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: KReplaceDialog, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KReplaceDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.KReplaceDialog_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `open` instead
+    ///
+    pub const Open = open;
 
     /// Inherited from QDialog
     ///
@@ -5975,13 +7535,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn Open(self: KReplaceDialog) void {
+    pub fn open(self: KReplaceDialog) void {
         qtc.KReplaceDialog_Open(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperOpen` instead
+    /// ### DEPRECATED: Use `superOpen` instead
     ///
-    pub const QBaseOpen = SuperOpen;
+    pub const SuperOpen = superOpen;
 
     /// Inherited from QDialog
     ///
@@ -5993,9 +7553,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn SuperOpen(self: KReplaceDialog) void {
+    pub fn superOpen(self: KReplaceDialog) void {
         qtc.KReplaceDialog_SuperOpen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onOpen` instead
+    ///
+    pub const OnOpen = onOpen;
 
     /// Inherited from QDialog
     ///
@@ -6009,9 +7573,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnOpen(self: KReplaceDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onOpen(self: KReplaceDialog, callback: *const fn () callconv(.c) void) void {
         qtc.KReplaceDialog_OnOpen(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `exec` instead
+    ///
+    pub const Exec = exec;
 
     /// Inherited from QDialog
     ///
@@ -6023,13 +7591,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn Exec(self: KReplaceDialog) i32 {
+    pub fn exec(self: KReplaceDialog) i32 {
         return qtc.KReplaceDialog_Exec(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperExec` instead
+    /// ### DEPRECATED: Use `superExec` instead
     ///
-    pub const QBaseExec = SuperExec;
+    pub const SuperExec = superExec;
 
     /// Inherited from QDialog
     ///
@@ -6041,9 +7609,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn SuperExec(self: KReplaceDialog) i32 {
+    pub fn superExec(self: KReplaceDialog) i32 {
         return qtc.KReplaceDialog_SuperExec(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onExec` instead
+    ///
+    pub const OnExec = onExec;
 
     /// Inherited from QDialog
     ///
@@ -6057,9 +7629,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnExec(self: KReplaceDialog, callback: *const fn () callconv(.c) i32) void {
+    pub fn onExec(self: KReplaceDialog, callback: *const fn () callconv(.c) i32) void {
         qtc.KReplaceDialog_OnExec(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `done` instead
+    ///
+    pub const Done = done;
 
     /// Inherited from QDialog
     ///
@@ -6073,13 +7649,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn Done(self: KReplaceDialog, param1: i32) void {
+    pub fn done(self: KReplaceDialog, param1: i32) void {
         qtc.KReplaceDialog_Done(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperDone` instead
+    /// ### DEPRECATED: Use `superDone` instead
     ///
-    pub const QBaseDone = SuperDone;
+    pub const SuperDone = superDone;
 
     /// Inherited from QDialog
     ///
@@ -6093,9 +7669,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperDone(self: KReplaceDialog, param1: i32) void {
+    pub fn superDone(self: KReplaceDialog, param1: i32) void {
         qtc.KReplaceDialog_SuperDone(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onDone` instead
+    ///
+    pub const OnDone = onDone;
 
     /// Inherited from QDialog
     ///
@@ -6109,10 +7689,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, param1: i32) callconv(.c) void `
     ///
-    pub fn OnDone(self: KReplaceDialog, callback: *const fn (KReplaceDialog, i32) callconv(.c) void) void {
+    pub fn onDone(self: KReplaceDialog, callback: *const fn (KReplaceDialog, i32) callconv(.c) void) void {
         qtc.KReplaceDialog_OnDone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `accept` instead
+    ///
+    pub const Accept = accept;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#accept)
@@ -6123,13 +7707,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn Accept(self: KReplaceDialog) void {
+    pub fn accept(self: KReplaceDialog) void {
         qtc.KReplaceDialog_Accept(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperAccept` instead
+    /// ### DEPRECATED: Use `superAccept` instead
     ///
-    pub const QBaseAccept = SuperAccept;
+    pub const SuperAccept = superAccept;
 
     /// Inherited from QDialog
     ///
@@ -6141,9 +7725,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn SuperAccept(self: KReplaceDialog) void {
+    pub fn superAccept(self: KReplaceDialog) void {
         qtc.KReplaceDialog_SuperAccept(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onAccept` instead
+    ///
+    pub const OnAccept = onAccept;
 
     /// Inherited from QDialog
     ///
@@ -6157,9 +7745,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnAccept(self: KReplaceDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onAccept(self: KReplaceDialog, callback: *const fn () callconv(.c) void) void {
         qtc.KReplaceDialog_OnAccept(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `reject` instead
+    ///
+    pub const Reject = reject;
 
     /// Inherited from QDialog
     ///
@@ -6171,13 +7763,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn Reject(self: KReplaceDialog) void {
+    pub fn reject(self: KReplaceDialog) void {
         qtc.KReplaceDialog_Reject(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperReject` instead
+    /// ### DEPRECATED: Use `superReject` instead
     ///
-    pub const QBaseReject = SuperReject;
+    pub const SuperReject = superReject;
 
     /// Inherited from QDialog
     ///
@@ -6189,9 +7781,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn SuperReject(self: KReplaceDialog) void {
+    pub fn superReject(self: KReplaceDialog) void {
         qtc.KReplaceDialog_SuperReject(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onReject` instead
+    ///
+    pub const OnReject = onReject;
 
     /// Inherited from QDialog
     ///
@@ -6205,9 +7801,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnReject(self: KReplaceDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onReject(self: KReplaceDialog, callback: *const fn () callconv(.c) void) void {
         qtc.KReplaceDialog_OnReject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
 
     /// Inherited from QDialog
     ///
@@ -6221,14 +7821,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: KReplaceDialog, param1: anytype) void {
+    pub fn keyPressEvent(self: KReplaceDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QKeyEvent;
         qtc.KReplaceDialog_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QDialog
     ///
@@ -6242,10 +7842,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: KReplaceDialog, param1: anytype) void {
+    pub fn superKeyPressEvent(self: KReplaceDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QKeyEvent;
         qtc.KReplaceDialog_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// Inherited from QDialog
     ///
@@ -6259,9 +7863,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, param1: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QKeyEvent) callconv(.c) void) void {
         qtc.KReplaceDialog_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QDialog
     ///
@@ -6275,14 +7883,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: QCloseEvent `
     ///
-    pub fn CloseEvent(self: KReplaceDialog, param1: anytype) void {
+    pub fn closeEvent(self: KReplaceDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCloseEvent;
         qtc.KReplaceDialog_CloseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QDialog
     ///
@@ -6296,10 +7904,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: KReplaceDialog, param1: anytype) void {
+    pub fn superCloseEvent(self: KReplaceDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCloseEvent;
         qtc.KReplaceDialog_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QDialog
     ///
@@ -6313,9 +7925,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, param1: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QCloseEvent) callconv(.c) void) void {
         qtc.KReplaceDialog_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QDialog
     ///
@@ -6329,14 +7945,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: KReplaceDialog, param1: anytype) void {
+    pub fn resizeEvent(self: KReplaceDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QResizeEvent;
         qtc.KReplaceDialog_ResizeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QDialog
     ///
@@ -6350,10 +7966,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: KReplaceDialog, param1: anytype) void {
+    pub fn superResizeEvent(self: KReplaceDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QResizeEvent;
         qtc.KReplaceDialog_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QDialog
     ///
@@ -6367,9 +7987,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, param1: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QResizeEvent) callconv(.c) void) void {
         qtc.KReplaceDialog_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QDialog
     ///
@@ -6383,14 +8007,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: KReplaceDialog, param1: anytype) void {
+    pub fn contextMenuEvent(self: KReplaceDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
         qtc.KReplaceDialog_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QDialog
     ///
@@ -6404,10 +8028,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: KReplaceDialog, param1: anytype) void {
+    pub fn superContextMenuEvent(self: KReplaceDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
         qtc.KReplaceDialog_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QDialog
     ///
@@ -6421,9 +8049,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, param1: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QContextMenuEvent) callconv(.c) void) void {
         qtc.KReplaceDialog_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QDialog
     ///
@@ -6439,15 +8071,15 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param2: QEvent `
     ///
-    pub fn EventFilter(self: KReplaceDialog, param1: anytype, param2: anytype) bool {
+    pub fn eventFilter(self: KReplaceDialog, param1: anytype, param2: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QObject;
         comptime _ = @TypeOf(param2)._is_QEvent;
         return qtc.KReplaceDialog_EventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QDialog
     ///
@@ -6463,11 +8095,15 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param2: QEvent `
     ///
-    pub fn SuperEventFilter(self: KReplaceDialog, param1: anytype, param2: anytype) bool {
+    pub fn superEventFilter(self: KReplaceDialog, param1: anytype, param2: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QObject;
         comptime _ = @TypeOf(param2)._is_QEvent;
         return qtc.KReplaceDialog_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QDialog
     ///
@@ -6481,9 +8117,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, param1: QObject, param2: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QObject, QEvent) callconv(.c) bool) void {
         qtc.KReplaceDialog_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -6495,13 +8135,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn DevType(self: KReplaceDialog) i32 {
+    pub fn devType(self: KReplaceDialog) i32 {
         return qtc.KReplaceDialog_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -6513,9 +8153,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn SuperDevType(self: KReplaceDialog) i32 {
+    pub fn superDevType(self: KReplaceDialog) i32 {
         return qtc.KReplaceDialog_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -6529,9 +8173,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: KReplaceDialog, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KReplaceDialog, callback: *const fn () callconv(.c) i32) void {
         qtc.KReplaceDialog_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6545,13 +8193,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: KReplaceDialog, param1: i32) i32 {
+    pub fn heightForWidth(self: KReplaceDialog, param1: i32) i32 {
         return qtc.KReplaceDialog_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6565,9 +8213,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: KReplaceDialog, param1: i32) i32 {
+    pub fn superHeightForWidth(self: KReplaceDialog, param1: i32) i32 {
         return qtc.KReplaceDialog_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6581,9 +8233,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: KReplaceDialog, callback: *const fn (KReplaceDialog, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: KReplaceDialog, callback: *const fn (KReplaceDialog, i32) callconv(.c) i32) void {
         qtc.KReplaceDialog_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6595,13 +8251,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn HasHeightForWidth(self: KReplaceDialog) bool {
+    pub fn hasHeightForWidth(self: KReplaceDialog) bool {
         return qtc.KReplaceDialog_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6613,9 +8269,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn SuperHasHeightForWidth(self: KReplaceDialog) bool {
+    pub fn superHasHeightForWidth(self: KReplaceDialog) bool {
         return qtc.KReplaceDialog_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6629,9 +8289,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: KReplaceDialog, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KReplaceDialog, callback: *const fn () callconv(.c) bool) void {
         qtc.KReplaceDialog_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6643,13 +8307,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn PaintEngine(self: KReplaceDialog) QPaintEngine {
+    pub fn paintEngine(self: KReplaceDialog) QPaintEngine {
         return .{ .ptr = qtc.KReplaceDialog_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6661,9 +8325,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn SuperPaintEngine(self: KReplaceDialog) QPaintEngine {
+    pub fn superPaintEngine(self: KReplaceDialog) QPaintEngine {
         return .{ .ptr = qtc.KReplaceDialog_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6677,9 +8345,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: KReplaceDialog, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KReplaceDialog, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.KReplaceDialog_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QWidget
     ///
@@ -6691,16 +8363,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: KReplaceDialog, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KReplaceDialog_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: KReplaceDialog, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KReplaceDialog_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QWidget
     ///
@@ -6712,12 +8384,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: KReplaceDialog, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KReplaceDialog_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: KReplaceDialog, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KReplaceDialog_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QWidget
     ///
@@ -6731,10 +8407,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QEvent) callconv(.c) bool) void {
         qtc.KReplaceDialog_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
@@ -6745,16 +8425,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: KReplaceDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KReplaceDialog_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mousePressEvent(self: KReplaceDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KReplaceDialog_MousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6766,12 +8446,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: KReplaceDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KReplaceDialog_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMousePressEvent(self: KReplaceDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KReplaceDialog_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6785,10 +8469,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QMouseEvent) callconv(.c) void) void {
         qtc.KReplaceDialog_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
@@ -6799,16 +8487,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: KReplaceDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KReplaceDialog_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseReleaseEvent(self: KReplaceDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KReplaceDialog_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6820,12 +8508,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: KReplaceDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KReplaceDialog_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseReleaseEvent(self: KReplaceDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KReplaceDialog_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6839,10 +8531,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QMouseEvent) callconv(.c) void) void {
         qtc.KReplaceDialog_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -6853,16 +8549,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: KReplaceDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KReplaceDialog_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: KReplaceDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KReplaceDialog_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -6874,12 +8570,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: KReplaceDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KReplaceDialog_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: KReplaceDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KReplaceDialog_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -6893,10 +8593,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QMouseEvent) callconv(.c) void) void {
         qtc.KReplaceDialog_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -6907,16 +8611,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: KReplaceDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KReplaceDialog_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: KReplaceDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KReplaceDialog_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6928,12 +8632,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: KReplaceDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KReplaceDialog_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: KReplaceDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KReplaceDialog_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6947,9 +8655,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QMouseEvent) callconv(.c) void) void {
         qtc.KReplaceDialog_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6961,16 +8673,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: KReplaceDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KReplaceDialog_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: KReplaceDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KReplaceDialog_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6982,12 +8694,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: KReplaceDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KReplaceDialog_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: KReplaceDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KReplaceDialog_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -7001,9 +8717,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QWheelEvent) callconv(.c) void) void {
         qtc.KReplaceDialog_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7015,16 +8735,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: KReplaceDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KReplaceDialog_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: KReplaceDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KReplaceDialog_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7036,12 +8756,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: KReplaceDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KReplaceDialog_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: KReplaceDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KReplaceDialog_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7055,10 +8779,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QKeyEvent) callconv(.c) void) void {
         qtc.KReplaceDialog_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -7069,16 +8797,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: KReplaceDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KReplaceDialog_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: KReplaceDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KReplaceDialog_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -7090,12 +8818,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: KReplaceDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KReplaceDialog_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: KReplaceDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KReplaceDialog_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -7109,10 +8841,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QFocusEvent) callconv(.c) void) void {
         qtc.KReplaceDialog_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -7123,16 +8859,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: KReplaceDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KReplaceDialog_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: KReplaceDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KReplaceDialog_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -7144,12 +8880,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: KReplaceDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KReplaceDialog_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: KReplaceDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KReplaceDialog_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -7163,9 +8903,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QFocusEvent) callconv(.c) void) void {
         qtc.KReplaceDialog_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7177,16 +8921,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: KReplaceDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KReplaceDialog_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: KReplaceDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KReplaceDialog_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7198,12 +8942,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: KReplaceDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KReplaceDialog_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: KReplaceDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KReplaceDialog_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7217,9 +8965,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QEnterEvent) callconv(.c) void) void {
         qtc.KReplaceDialog_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7231,16 +8983,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: KReplaceDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KReplaceDialog_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: KReplaceDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KReplaceDialog_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7252,12 +9004,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: KReplaceDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KReplaceDialog_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: KReplaceDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KReplaceDialog_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7271,9 +9027,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QEvent) callconv(.c) void) void {
         qtc.KReplaceDialog_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QWidget
     ///
@@ -7285,16 +9045,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn PaintEvent(self: KReplaceDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.KReplaceDialog_PaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn paintEvent(self: KReplaceDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.KReplaceDialog_PaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -7306,12 +9066,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: KReplaceDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.KReplaceDialog_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superPaintEvent(self: KReplaceDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.KReplaceDialog_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -7325,9 +9089,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, event: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QPaintEvent) callconv(.c) void) void {
         qtc.KReplaceDialog_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7339,16 +9107,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: KReplaceDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KReplaceDialog_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: KReplaceDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KReplaceDialog_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7360,12 +9128,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: KReplaceDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KReplaceDialog_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: KReplaceDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KReplaceDialog_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7379,9 +9151,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QMoveEvent) callconv(.c) void) void {
         qtc.KReplaceDialog_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7393,16 +9169,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: KReplaceDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KReplaceDialog_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: KReplaceDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KReplaceDialog_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7414,12 +9190,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: KReplaceDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KReplaceDialog_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: KReplaceDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KReplaceDialog_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7433,9 +9213,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QTabletEvent) callconv(.c) void) void {
         qtc.KReplaceDialog_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7447,16 +9231,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: KReplaceDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KReplaceDialog_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: KReplaceDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KReplaceDialog_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7468,12 +9252,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: KReplaceDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KReplaceDialog_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: KReplaceDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KReplaceDialog_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7487,9 +9275,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QActionEvent) callconv(.c) void) void {
         qtc.KReplaceDialog_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7501,16 +9293,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: KReplaceDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KReplaceDialog_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: KReplaceDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KReplaceDialog_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7522,12 +9314,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: KReplaceDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KReplaceDialog_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: KReplaceDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KReplaceDialog_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7541,9 +9337,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QDragEnterEvent) callconv(.c) void) void {
         qtc.KReplaceDialog_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7555,16 +9355,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: KReplaceDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KReplaceDialog_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: KReplaceDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KReplaceDialog_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7576,12 +9376,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: KReplaceDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KReplaceDialog_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: KReplaceDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KReplaceDialog_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7595,9 +9399,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QDragMoveEvent) callconv(.c) void) void {
         qtc.KReplaceDialog_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7609,16 +9417,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: KReplaceDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KReplaceDialog_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: KReplaceDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KReplaceDialog_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7630,12 +9438,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: KReplaceDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KReplaceDialog_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: KReplaceDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KReplaceDialog_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7649,9 +9461,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QDragLeaveEvent) callconv(.c) void) void {
         qtc.KReplaceDialog_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7663,16 +9479,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: KReplaceDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KReplaceDialog_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: KReplaceDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KReplaceDialog_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7684,12 +9500,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: KReplaceDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KReplaceDialog_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: KReplaceDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KReplaceDialog_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7703,9 +9523,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QDropEvent) callconv(.c) void) void {
         qtc.KReplaceDialog_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7717,16 +9541,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: KReplaceDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KReplaceDialog_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: KReplaceDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KReplaceDialog_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7738,12 +9562,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: KReplaceDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KReplaceDialog_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: KReplaceDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KReplaceDialog_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7757,9 +9585,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QHideEvent) callconv(.c) void) void {
         qtc.KReplaceDialog_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7775,19 +9607,19 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` message: ?*anyopaque `
     ///
-    /// ` result: *isize `
+    /// ` _result: *isize `
     ///
-    pub fn NativeEvent(self: KReplaceDialog, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: KReplaceDialog, eventType: []u8, message: ?*anyopaque, _result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.KReplaceDialog_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.KReplaceDialog_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(_result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7803,15 +9635,19 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` message: ?*anyopaque `
     ///
-    /// ` result: *isize `
+    /// ` _result: *isize `
     ///
-    pub fn SuperNativeEvent(self: KReplaceDialog, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: KReplaceDialog, eventType: []u8, message: ?*anyopaque, _result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.KReplaceDialog_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.KReplaceDialog_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(_result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7825,9 +9661,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KReplaceDialog_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7841,14 +9681,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: KReplaceDialog, param1: anytype) void {
+    pub fn changeEvent(self: KReplaceDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KReplaceDialog_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7862,10 +9702,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: KReplaceDialog, param1: anytype) void {
+    pub fn superChangeEvent(self: KReplaceDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KReplaceDialog_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7879,9 +9723,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QEvent) callconv(.c) void) void {
         qtc.KReplaceDialog_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -7895,13 +9743,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: KReplaceDialog, param1: i32) i32 {
+    pub fn metric(self: KReplaceDialog, param1: i32) i32 {
         return qtc.KReplaceDialog_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -7915,9 +9763,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: KReplaceDialog, param1: i32) i32 {
+    pub fn superMetric(self: KReplaceDialog, param1: i32) i32 {
         return qtc.KReplaceDialog_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -7931,9 +9783,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: KReplaceDialog, callback: *const fn (KReplaceDialog, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: KReplaceDialog, callback: *const fn (KReplaceDialog, i32) callconv(.c) i32) void {
         qtc.KReplaceDialog_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -7947,14 +9803,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: KReplaceDialog, painter: anytype) void {
+    pub fn initPainter(self: KReplaceDialog, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KReplaceDialog_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7968,10 +9824,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: KReplaceDialog, painter: anytype) void {
+    pub fn superInitPainter(self: KReplaceDialog, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KReplaceDialog_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7985,9 +9845,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QPainter) callconv(.c) void) void {
         qtc.KReplaceDialog_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -8001,14 +9865,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: KReplaceDialog, offset: anytype) QPaintDevice {
+    pub fn redirected(self: KReplaceDialog, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KReplaceDialog_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -8022,10 +9886,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: KReplaceDialog, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: KReplaceDialog, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KReplaceDialog_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -8039,9 +9907,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QPoint) callconv(.c) QPaintDevice) void {
         qtc.KReplaceDialog_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8053,13 +9925,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn SharedPainter(self: KReplaceDialog) QPainter {
+    pub fn sharedPainter(self: KReplaceDialog) QPainter {
         return .{ .ptr = qtc.KReplaceDialog_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8071,9 +9943,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn SuperSharedPainter(self: KReplaceDialog) QPainter {
+    pub fn superSharedPainter(self: KReplaceDialog) QPainter {
         return .{ .ptr = qtc.KReplaceDialog_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8087,9 +9963,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: KReplaceDialog, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KReplaceDialog, callback: *const fn () callconv(.c) QPainter) void {
         qtc.KReplaceDialog_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -8103,14 +9983,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: KReplaceDialog, param1: anytype) void {
+    pub fn inputMethodEvent(self: KReplaceDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KReplaceDialog_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -8124,10 +10004,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: KReplaceDialog, param1: anytype) void {
+    pub fn superInputMethodEvent(self: KReplaceDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KReplaceDialog_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -8141,9 +10025,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QInputMethodEvent) callconv(.c) void) void {
         qtc.KReplaceDialog_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -8157,13 +10045,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: KReplaceDialog, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: KReplaceDialog, param1: i32) QVariant {
         return .{ .ptr = qtc.KReplaceDialog_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -8177,9 +10065,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: KReplaceDialog, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: KReplaceDialog, param1: i32) QVariant {
         return .{ .ptr = qtc.KReplaceDialog_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -8195,9 +10087,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: KReplaceDialog, callback: *const fn (KReplaceDialog, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: KReplaceDialog, callback: *const fn (KReplaceDialog, i32) callconv(.c) QVariant) void {
         qtc.KReplaceDialog_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8211,13 +10107,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: KReplaceDialog, next: bool) bool {
+    pub fn focusNextPrevChild(self: KReplaceDialog, next: bool) bool {
         return qtc.KReplaceDialog_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8231,9 +10127,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: KReplaceDialog, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: KReplaceDialog, next: bool) bool {
         return qtc.KReplaceDialog_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8247,9 +10147,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: KReplaceDialog, callback: *const fn (KReplaceDialog, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: KReplaceDialog, callback: *const fn (KReplaceDialog, bool) callconv(.c) bool) void {
         qtc.KReplaceDialog_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -8261,16 +10165,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KReplaceDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KReplaceDialog_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KReplaceDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KReplaceDialog_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -8282,12 +10186,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KReplaceDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KReplaceDialog_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KReplaceDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KReplaceDialog_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -8301,9 +10209,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QTimerEvent) callconv(.c) void) void {
         qtc.KReplaceDialog_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -8315,16 +10227,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KReplaceDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KReplaceDialog_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KReplaceDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KReplaceDialog_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8336,12 +10248,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KReplaceDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KReplaceDialog_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KReplaceDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KReplaceDialog_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8355,9 +10271,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QChildEvent) callconv(.c) void) void {
         qtc.KReplaceDialog_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -8369,16 +10289,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KReplaceDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KReplaceDialog_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KReplaceDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KReplaceDialog_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8390,12 +10310,16 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KReplaceDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KReplaceDialog_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KReplaceDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KReplaceDialog_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8409,9 +10333,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QEvent) callconv(.c) void) void {
         qtc.KReplaceDialog_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -8425,14 +10353,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KReplaceDialog, signal: anytype) void {
+    pub fn connectNotify(self: KReplaceDialog, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KReplaceDialog_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8446,11 +10374,15 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KReplaceDialog, signal: anytype) void {
+    pub fn superConnectNotify(self: KReplaceDialog, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KReplaceDialog_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -8463,9 +10395,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QMetaMethod) callconv(.c) void) void {
         qtc.KReplaceDialog_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8479,14 +10415,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KReplaceDialog, signal: anytype) void {
+    pub fn disconnectNotify(self: KReplaceDialog, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KReplaceDialog_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8500,10 +10436,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KReplaceDialog, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KReplaceDialog, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KReplaceDialog_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8517,9 +10457,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QMetaMethod) callconv(.c) void) void {
         qtc.KReplaceDialog_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `adjustPosition` instead
+    ///
+    pub const AdjustPosition = adjustPosition;
 
     /// Inherited from QDialog
     ///
@@ -8533,14 +10477,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn AdjustPosition(self: KReplaceDialog, param1: anytype) void {
+    pub fn adjustPosition(self: KReplaceDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.KReplaceDialog_AdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperAdjustPosition` instead
+    /// ### DEPRECATED: Use `superAdjustPosition` instead
     ///
-    pub const QBaseAdjustPosition = SuperAdjustPosition;
+    pub const SuperAdjustPosition = superAdjustPosition;
 
     /// Inherited from QDialog
     ///
@@ -8554,10 +10498,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn SuperAdjustPosition(self: KReplaceDialog, param1: anytype) void {
+    pub fn superAdjustPosition(self: KReplaceDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.KReplaceDialog_SuperAdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onAdjustPosition` instead
+    ///
+    pub const OnAdjustPosition = onAdjustPosition;
 
     /// Inherited from QDialog
     ///
@@ -8571,10 +10519,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, param1: QWidget) callconv(.c) void `
     ///
-    pub fn OnAdjustPosition(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QWidget) callconv(.c) void) void {
+    pub fn onAdjustPosition(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QWidget) callconv(.c) void) void {
         qtc.KReplaceDialog_OnAdjustPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8585,13 +10537,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn UpdateMicroFocus(self: KReplaceDialog) void {
+    pub fn updateMicroFocus(self: KReplaceDialog) void {
         qtc.KReplaceDialog_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -8603,10 +10555,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn SuperUpdateMicroFocus(self: KReplaceDialog) void {
+    pub fn superUpdateMicroFocus(self: KReplaceDialog) void {
         qtc.KReplaceDialog_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8619,10 +10575,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: KReplaceDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: KReplaceDialog, callback: *const fn () callconv(.c) void) void {
         qtc.KReplaceDialog_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8633,13 +10593,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn Create(self: KReplaceDialog) void {
+    pub fn create(self: KReplaceDialog) void {
         qtc.KReplaceDialog_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -8651,10 +10611,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn SuperCreate(self: KReplaceDialog) void {
+    pub fn superCreate(self: KReplaceDialog) void {
         qtc.KReplaceDialog_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8667,9 +10631,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: KReplaceDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: KReplaceDialog, callback: *const fn () callconv(.c) void) void {
         qtc.KReplaceDialog_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -8681,13 +10649,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn Destroy(self: KReplaceDialog) void {
+    pub fn destroy(self: KReplaceDialog) void {
         qtc.KReplaceDialog_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8699,9 +10667,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn SuperDestroy(self: KReplaceDialog) void {
+    pub fn superDestroy(self: KReplaceDialog) void {
         qtc.KReplaceDialog_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8715,10 +10687,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: KReplaceDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: KReplaceDialog, callback: *const fn () callconv(.c) void) void {
         qtc.KReplaceDialog_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8729,13 +10705,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn FocusNextChild(self: KReplaceDialog) bool {
+    pub fn focusNextChild(self: KReplaceDialog) bool {
         return qtc.KReplaceDialog_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -8747,10 +10723,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn SuperFocusNextChild(self: KReplaceDialog) bool {
+    pub fn superFocusNextChild(self: KReplaceDialog) bool {
         return qtc.KReplaceDialog_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8763,9 +10743,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: KReplaceDialog, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: KReplaceDialog, callback: *const fn () callconv(.c) bool) void {
         qtc.KReplaceDialog_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8777,13 +10761,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn FocusPreviousChild(self: KReplaceDialog) bool {
+    pub fn focusPreviousChild(self: KReplaceDialog) bool {
         return qtc.KReplaceDialog_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8795,9 +10779,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn SuperFocusPreviousChild(self: KReplaceDialog) bool {
+    pub fn superFocusPreviousChild(self: KReplaceDialog) bool {
         return qtc.KReplaceDialog_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8811,9 +10799,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: KReplaceDialog, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: KReplaceDialog, callback: *const fn () callconv(.c) bool) void {
         qtc.KReplaceDialog_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -8825,13 +10817,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn Sender(self: KReplaceDialog) QObject {
+    pub fn sender(self: KReplaceDialog) QObject {
         return .{ .ptr = qtc.KReplaceDialog_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -8843,9 +10835,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn SuperSender(self: KReplaceDialog) QObject {
+    pub fn superSender(self: KReplaceDialog) QObject {
         return .{ .ptr = qtc.KReplaceDialog_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -8859,9 +10855,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KReplaceDialog, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KReplaceDialog, callback: *const fn () callconv(.c) QObject) void {
         qtc.KReplaceDialog_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8873,13 +10873,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn SenderSignalIndex(self: KReplaceDialog) i32 {
+    pub fn senderSignalIndex(self: KReplaceDialog) i32 {
         return qtc.KReplaceDialog_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8891,9 +10891,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn SuperSenderSignalIndex(self: KReplaceDialog) i32 {
+    pub fn superSenderSignalIndex(self: KReplaceDialog) i32 {
         return qtc.KReplaceDialog_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8907,9 +10911,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KReplaceDialog, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KReplaceDialog, callback: *const fn () callconv(.c) i32) void {
         qtc.KReplaceDialog_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -8923,14 +10931,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KReplaceDialog, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KReplaceDialog, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KReplaceDialog_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -8944,10 +10952,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KReplaceDialog, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KReplaceDialog, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KReplaceDialog_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -8961,9 +10973,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KReplaceDialog, callback: *const fn (KReplaceDialog, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KReplaceDialog, callback: *const fn (KReplaceDialog, [*:0]const u8) callconv(.c) i32) void {
         qtc.KReplaceDialog_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8977,14 +10993,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KReplaceDialog, signal: anytype) bool {
+    pub fn isSignalConnected(self: KReplaceDialog, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KReplaceDialog_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8998,10 +11014,14 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KReplaceDialog, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KReplaceDialog, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KReplaceDialog_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -9015,9 +11035,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KReplaceDialog, callback: *const fn (KReplaceDialog, QMetaMethod) callconv(.c) bool) void {
         qtc.KReplaceDialog_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9033,13 +11057,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: KReplaceDialog, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: KReplaceDialog, metricA: i32, metricB: i32) f64 {
         return qtc.KReplaceDialog_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9055,9 +11079,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: KReplaceDialog, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: KReplaceDialog, metricA: i32, metricB: i32) f64 {
         return qtc.KReplaceDialog_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9071,9 +11099,13 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: KReplaceDialog, callback: *const fn (KReplaceDialog, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: KReplaceDialog, callback: *const fn (KReplaceDialog, i32, i32) callconv(.c) f64) void {
         qtc.KReplaceDialog_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -9087,23 +11119,23 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KReplaceDialog, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KReplaceDialog, callback: *const fn (KReplaceDialog, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KReplaceDialog, callback: *const fn (KReplaceDialog, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kreplacedialog.html#dtor.KReplaceDialog)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KReplaceDialog `
     ///
-    pub fn Delete(self: KReplaceDialog) void {
+    pub fn delete(self: KReplaceDialog) void {
         qtc.KReplaceDialog_Delete(@ptrCast(self.ptr));
     }
 };

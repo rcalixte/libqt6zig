@@ -13,6 +13,10 @@ pub const QsciCommand = extern struct {
 
     pub const _is_QsciCommand = {};
 
+    /// ### DEPRECATED: Use `command` instead
+    ///
+    pub const Command = command;
+
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
     ///
     /// ## Parameter(s):
@@ -23,19 +27,13 @@ pub const QsciCommand = extern struct {
     ///
     /// ` qscicommand_enums.Command `
     ///
-    pub fn Command(self: QsciCommand) i32 {
+    pub fn command(self: QsciCommand) i32 {
         return qtc.QsciCommand_Command(@ptrCast(self.ptr));
     }
 
-    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
+    /// ### DEPRECATED: Use `execute` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciCommand `
-    ///
-    pub fn Execute(self: QsciCommand) void {
-        qtc.QsciCommand_Execute(@ptrCast(self.ptr));
-    }
+    pub const Execute = execute;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
     ///
@@ -43,11 +41,29 @@ pub const QsciCommand = extern struct {
     ///
     /// ` self: QsciCommand `
     ///
-    /// ` key: i32 `
-    ///
-    pub fn SetKey(self: QsciCommand, key: i32) void {
-        qtc.QsciCommand_SetKey(@ptrCast(self.ptr), @bitCast(key));
+    pub fn execute(self: QsciCommand) void {
+        qtc.QsciCommand_Execute(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setKey` instead
+    ///
+    pub const SetKey = setKey;
+
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QsciCommand `
+    ///
+    /// ` _key: i32 `
+    ///
+    pub fn setKey(self: QsciCommand, _key: i32) void {
+        qtc.QsciCommand_SetKey(@ptrCast(self.ptr), @bitCast(_key));
+    }
+
+    /// ### DEPRECATED: Use `setAlternateKey` instead
+    ///
+    pub const SetAlternateKey = setAlternateKey;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
     ///
@@ -57,39 +73,55 @@ pub const QsciCommand = extern struct {
     ///
     /// ` altkey: i32 `
     ///
-    pub fn SetAlternateKey(self: QsciCommand, altkey: i32) void {
+    pub fn setAlternateKey(self: QsciCommand, altkey: i32) void {
         qtc.QsciCommand_SetAlternateKey(@ptrCast(self.ptr), @bitCast(altkey));
     }
 
+    /// ### DEPRECATED: Use `key` instead
+    ///
+    pub const Key = key;
+
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QsciCommand `
     ///
-    pub fn Key(self: QsciCommand) i32 {
+    pub fn key(self: QsciCommand) i32 {
         return qtc.QsciCommand_Key(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `alternateKey` instead
+    ///
+    pub const AlternateKey = alternateKey;
+
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QsciCommand `
     ///
-    pub fn AlternateKey(self: QsciCommand) i32 {
+    pub fn alternateKey(self: QsciCommand) i32 {
         return qtc.QsciCommand_AlternateKey(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `validKey` instead
+    ///
+    pub const ValidKey = validKey;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` key: i32 `
+    /// ` _key: i32 `
     ///
-    pub fn ValidKey(key: i32) bool {
-        return qtc.QsciCommand_ValidKey(@bitCast(key));
+    pub fn validKey(_key: i32) bool {
+        return qtc.QsciCommand_ValidKey(@bitCast(_key));
     }
+
+    /// ### DEPRECATED: Use `description` instead
+    ///
+    pub const Description = description;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
     ///
@@ -99,27 +131,27 @@ pub const QsciCommand = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Description(self: QsciCommand, allocator: std.mem.Allocator) []const u8 {
+    pub fn description(self: QsciCommand, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QsciCommand_Description(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciCommand.Description: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciCommand.description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QsciCommand `
     ///
-    pub fn Delete(self: QsciCommand) void {
+    pub fn delete(self: QsciCommand) void {
         qtc.QsciCommand_Delete(@ptrCast(self.ptr));
     }
 };

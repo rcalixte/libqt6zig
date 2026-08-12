@@ -13,21 +13,33 @@ pub const QReadWriteLock = extern struct {
 
     pub const _is_QReadWriteLock = {};
 
-    /// New constructs a new QReadWriteLock object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QReadWriteLock {
+    pub const New = new;
+
+    /// Allocate a new QReadWriteLock object in C++ memory
+    ///
+    pub fn new() QReadWriteLock {
         return .{ .ptr = qtc.QReadWriteLock_new() };
     }
 
-    /// New2 constructs a new QReadWriteLock object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QReadWriteLock object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` recursionMode: qreadwritelock_enums.RecursionMode `
     ///
-    pub fn New2(recursionMode: i32) QReadWriteLock {
+    pub fn new2(recursionMode: i32) QReadWriteLock {
         return .{ .ptr = qtc.QReadWriteLock_new2(@bitCast(recursionMode)) };
     }
+
+    /// ### DEPRECATED: Use `lockForRead` instead
+    ///
+    pub const LockForRead = lockForRead;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qreadwritelock.html#lockForRead)
     ///
@@ -35,9 +47,13 @@ pub const QReadWriteLock = extern struct {
     ///
     /// ` self: QReadWriteLock `
     ///
-    pub fn LockForRead(self: QReadWriteLock) void {
+    pub fn lockForRead(self: QReadWriteLock) void {
         qtc.QReadWriteLock_LockForRead(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `tryLockForRead` instead
+    ///
+    pub const TryLockForRead = tryLockForRead;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qreadwritelock.html#tryLockForRead)
     ///
@@ -47,9 +63,13 @@ pub const QReadWriteLock = extern struct {
     ///
     /// ` timeout: i32 `
     ///
-    pub fn TryLockForRead(self: QReadWriteLock, timeout: i32) bool {
+    pub fn tryLockForRead(self: QReadWriteLock, timeout: i32) bool {
         return qtc.QReadWriteLock_TryLockForRead(@ptrCast(self.ptr), @bitCast(timeout));
     }
+
+    /// ### DEPRECATED: Use `tryLockForRead2` instead
+    ///
+    pub const TryLockForRead2 = tryLockForRead2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qreadwritelock.html#tryLockForRead)
     ///
@@ -57,9 +77,13 @@ pub const QReadWriteLock = extern struct {
     ///
     /// ` self: QReadWriteLock `
     ///
-    pub fn TryLockForRead2(self: QReadWriteLock) bool {
+    pub fn tryLockForRead2(self: QReadWriteLock) bool {
         return qtc.QReadWriteLock_TryLockForRead2(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lockForWrite` instead
+    ///
+    pub const LockForWrite = lockForWrite;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qreadwritelock.html#lockForWrite)
     ///
@@ -67,9 +91,13 @@ pub const QReadWriteLock = extern struct {
     ///
     /// ` self: QReadWriteLock `
     ///
-    pub fn LockForWrite(self: QReadWriteLock) void {
+    pub fn lockForWrite(self: QReadWriteLock) void {
         qtc.QReadWriteLock_LockForWrite(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `tryLockForWrite` instead
+    ///
+    pub const TryLockForWrite = tryLockForWrite;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qreadwritelock.html#tryLockForWrite)
     ///
@@ -79,9 +107,13 @@ pub const QReadWriteLock = extern struct {
     ///
     /// ` timeout: i32 `
     ///
-    pub fn TryLockForWrite(self: QReadWriteLock, timeout: i32) bool {
+    pub fn tryLockForWrite(self: QReadWriteLock, timeout: i32) bool {
         return qtc.QReadWriteLock_TryLockForWrite(@ptrCast(self.ptr), @bitCast(timeout));
     }
+
+    /// ### DEPRECATED: Use `tryLockForWrite2` instead
+    ///
+    pub const TryLockForWrite2 = tryLockForWrite2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qreadwritelock.html#tryLockForWrite)
     ///
@@ -89,9 +121,13 @@ pub const QReadWriteLock = extern struct {
     ///
     /// ` self: QReadWriteLock `
     ///
-    pub fn TryLockForWrite2(self: QReadWriteLock) bool {
+    pub fn tryLockForWrite2(self: QReadWriteLock) bool {
         return qtc.QReadWriteLock_TryLockForWrite2(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unlock` instead
+    ///
+    pub const Unlock = unlock;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qreadwritelock.html#unlock)
     ///
@@ -99,9 +135,13 @@ pub const QReadWriteLock = extern struct {
     ///
     /// ` self: QReadWriteLock `
     ///
-    pub fn Unlock(self: QReadWriteLock) void {
+    pub fn unlock(self: QReadWriteLock) void {
         qtc.QReadWriteLock_Unlock(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `tryLockForRead1` instead
+    ///
+    pub const TryLockForRead1 = tryLockForRead1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qreadwritelock.html#tryLockForRead)
     ///
@@ -111,10 +151,14 @@ pub const QReadWriteLock = extern struct {
     ///
     /// ` timeout: QDeadlineTimer `
     ///
-    pub fn TryLockForRead1(self: QReadWriteLock, timeout: anytype) bool {
+    pub fn tryLockForRead1(self: QReadWriteLock, timeout: anytype) bool {
         comptime _ = @TypeOf(timeout)._is_QDeadlineTimer;
         return qtc.QReadWriteLock_TryLockForRead1(@ptrCast(self.ptr), @ptrCast(timeout.ptr));
     }
+
+    /// ### DEPRECATED: Use `tryLockForWrite1` instead
+    ///
+    pub const TryLockForWrite1 = tryLockForWrite1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qreadwritelock.html#tryLockForWrite)
     ///
@@ -124,24 +168,24 @@ pub const QReadWriteLock = extern struct {
     ///
     /// ` timeout: QDeadlineTimer `
     ///
-    pub fn TryLockForWrite1(self: QReadWriteLock, timeout: anytype) bool {
+    pub fn tryLockForWrite1(self: QReadWriteLock, timeout: anytype) bool {
         comptime _ = @TypeOf(timeout)._is_QDeadlineTimer;
         return qtc.QReadWriteLock_TryLockForWrite1(@ptrCast(self.ptr), @ptrCast(timeout.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qreadwritelock.html#dtor.QReadWriteLock)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QReadWriteLock `
     ///
-    pub fn Delete(self: QReadWriteLock) void {
+    pub fn delete(self: QReadWriteLock) void {
         qtc.QReadWriteLock_Delete(@ptrCast(self.ptr));
     }
 };
@@ -156,16 +200,24 @@ pub const QReadLocker = extern struct {
 
     pub const _is_QReadLocker = {};
 
-    /// New constructs a new QReadLocker object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QReadLocker object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` readWriteLock: QReadWriteLock `
+    /// ` _readWriteLock: QReadWriteLock `
     ///
-    pub fn New(readWriteLock: anytype) QReadLocker {
-        comptime _ = @TypeOf(readWriteLock)._is_QReadWriteLock;
-        return .{ .ptr = qtc.QReadLocker_new(@ptrCast(readWriteLock.ptr)) };
+    pub fn new(_readWriteLock: anytype) QReadLocker {
+        comptime _ = @TypeOf(_readWriteLock)._is_QReadWriteLock;
+        return .{ .ptr = qtc.QReadLocker_new(@ptrCast(_readWriteLock.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unlock` instead
+    ///
+    pub const Unlock = unlock;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qreadlocker.html#unlock)
     ///
@@ -173,9 +225,13 @@ pub const QReadLocker = extern struct {
     ///
     /// ` self: QReadLocker `
     ///
-    pub fn Unlock(self: QReadLocker) void {
+    pub fn unlock(self: QReadLocker) void {
         qtc.QReadLocker_Unlock(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `relock` instead
+    ///
+    pub const Relock = relock;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qreadlocker.html#relock)
     ///
@@ -183,9 +239,13 @@ pub const QReadLocker = extern struct {
     ///
     /// ` self: QReadLocker `
     ///
-    pub fn Relock(self: QReadLocker) void {
+    pub fn relock(self: QReadLocker) void {
         qtc.QReadLocker_Relock(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `readWriteLock` instead
+    ///
+    pub const ReadWriteLock = readWriteLock;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qreadlocker.html#readWriteLock)
     ///
@@ -193,23 +253,23 @@ pub const QReadLocker = extern struct {
     ///
     /// ` self: QReadLocker `
     ///
-    pub fn ReadWriteLock(self: QReadLocker) QReadWriteLock {
+    pub fn readWriteLock(self: QReadLocker) QReadWriteLock {
         return .{ .ptr = qtc.QReadLocker_ReadWriteLock(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qreadlocker.html#dtor.QReadLocker)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QReadLocker `
     ///
-    pub fn Delete(self: QReadLocker) void {
+    pub fn delete(self: QReadLocker) void {
         qtc.QReadLocker_Delete(@ptrCast(self.ptr));
     }
 };
@@ -224,16 +284,24 @@ pub const QWriteLocker = extern struct {
 
     pub const _is_QWriteLocker = {};
 
-    /// New constructs a new QWriteLocker object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QWriteLocker object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` readWriteLock: QReadWriteLock `
+    /// ` _readWriteLock: QReadWriteLock `
     ///
-    pub fn New(readWriteLock: anytype) QWriteLocker {
-        comptime _ = @TypeOf(readWriteLock)._is_QReadWriteLock;
-        return .{ .ptr = qtc.QWriteLocker_new(@ptrCast(readWriteLock.ptr)) };
+    pub fn new(_readWriteLock: anytype) QWriteLocker {
+        comptime _ = @TypeOf(_readWriteLock)._is_QReadWriteLock;
+        return .{ .ptr = qtc.QWriteLocker_new(@ptrCast(_readWriteLock.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unlock` instead
+    ///
+    pub const Unlock = unlock;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwritelocker.html#unlock)
     ///
@@ -241,9 +309,13 @@ pub const QWriteLocker = extern struct {
     ///
     /// ` self: QWriteLocker `
     ///
-    pub fn Unlock(self: QWriteLocker) void {
+    pub fn unlock(self: QWriteLocker) void {
         qtc.QWriteLocker_Unlock(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `relock` instead
+    ///
+    pub const Relock = relock;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwritelocker.html#relock)
     ///
@@ -251,9 +323,13 @@ pub const QWriteLocker = extern struct {
     ///
     /// ` self: QWriteLocker `
     ///
-    pub fn Relock(self: QWriteLocker) void {
+    pub fn relock(self: QWriteLocker) void {
         qtc.QWriteLocker_Relock(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `readWriteLock` instead
+    ///
+    pub const ReadWriteLock = readWriteLock;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwritelocker.html#readWriteLock)
     ///
@@ -261,23 +337,23 @@ pub const QWriteLocker = extern struct {
     ///
     /// ` self: QWriteLocker `
     ///
-    pub fn ReadWriteLock(self: QWriteLocker) QReadWriteLock {
+    pub fn readWriteLock(self: QWriteLocker) QReadWriteLock {
         return .{ .ptr = qtc.QWriteLocker_ReadWriteLock(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwritelocker.html#dtor.QWriteLocker)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QWriteLocker `
     ///
-    pub fn Delete(self: QWriteLocker) void {
+    pub fn delete(self: QWriteLocker) void {
         qtc.QWriteLocker_Delete(@ptrCast(self.ptr));
     }
 };

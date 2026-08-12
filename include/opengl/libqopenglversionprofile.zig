@@ -14,33 +14,49 @@ pub const QOpenGLVersionProfile = extern struct {
 
     pub const _is_QOpenGLVersionProfile = {};
 
-    /// New constructs a new QOpenGLVersionProfile object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QOpenGLVersionProfile {
+    pub const New = new;
+
+    /// Allocate a new QOpenGLVersionProfile object in C++ memory
+    ///
+    pub fn new() QOpenGLVersionProfile {
         return .{ .ptr = qtc.QOpenGLVersionProfile_new() };
     }
 
-    /// New2 constructs a new QOpenGLVersionProfile object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QOpenGLVersionProfile object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` format: QSurfaceFormat `
     ///
-    pub fn New2(format: anytype) QOpenGLVersionProfile {
+    pub fn new2(format: anytype) QOpenGLVersionProfile {
         comptime _ = @TypeOf(format)._is_QSurfaceFormat;
         return .{ .ptr = qtc.QOpenGLVersionProfile_new2(@ptrCast(format.ptr)) };
     }
 
-    /// New3 constructs a new QOpenGLVersionProfile object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QOpenGLVersionProfile object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QOpenGLVersionProfile `
     ///
-    pub fn New3(other: anytype) QOpenGLVersionProfile {
+    pub fn new3(other: anytype) QOpenGLVersionProfile {
         comptime _ = @TypeOf(other)._is_QOpenGLVersionProfile;
         return .{ .ptr = qtc.QOpenGLVersionProfile_new3(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionprofile.html#operator-eq)
     ///
@@ -50,10 +66,14 @@ pub const QOpenGLVersionProfile = extern struct {
     ///
     /// ` rhs: QOpenGLVersionProfile `
     ///
-    pub fn OperatorAssign(self: QOpenGLVersionProfile, rhs: anytype) void {
+    pub fn operatorAssign(self: QOpenGLVersionProfile, rhs: anytype) void {
         comptime _ = @TypeOf(rhs)._is_QOpenGLVersionProfile;
         qtc.QOpenGLVersionProfile_OperatorAssign(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
+
+    /// ### DEPRECATED: Use `version` instead
+    ///
+    pub const Version = version;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionprofile.html#version)
     ///
@@ -61,13 +81,17 @@ pub const QOpenGLVersionProfile = extern struct {
     ///
     /// ` self: QOpenGLVersionProfile `
     ///
-    pub fn Version(self: QOpenGLVersionProfile) Struct_i32_i32 {
+    pub fn version(self: QOpenGLVersionProfile) Struct_i32_i32 {
         const _pair = qtc.QOpenGLVersionProfile_Version(@ptrCast(self.ptr));
         return .{
             .first = @bitCast(_pair.first),
             .second = @bitCast(_pair.second),
         };
     }
+
+    /// ### DEPRECATED: Use `setVersion` instead
+    ///
+    pub const SetVersion = setVersion;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionprofile.html#setVersion)
     ///
@@ -79,9 +103,13 @@ pub const QOpenGLVersionProfile = extern struct {
     ///
     /// ` minorVersion: i32 `
     ///
-    pub fn SetVersion(self: QOpenGLVersionProfile, majorVersion: i32, minorVersion: i32) void {
+    pub fn setVersion(self: QOpenGLVersionProfile, majorVersion: i32, minorVersion: i32) void {
         qtc.QOpenGLVersionProfile_SetVersion(@ptrCast(self.ptr), @bitCast(majorVersion), @bitCast(minorVersion));
     }
+
+    /// ### DEPRECATED: Use `profile` instead
+    ///
+    pub const Profile = profile;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionprofile.html#profile)
     ///
@@ -93,9 +121,13 @@ pub const QOpenGLVersionProfile = extern struct {
     ///
     /// ` qsurfaceformat_enums.OpenGLContextProfile `
     ///
-    pub fn Profile(self: QOpenGLVersionProfile) i32 {
+    pub fn profile(self: QOpenGLVersionProfile) i32 {
         return qtc.QOpenGLVersionProfile_Profile(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProfile` instead
+    ///
+    pub const SetProfile = setProfile;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionprofile.html#setProfile)
     ///
@@ -103,11 +135,15 @@ pub const QOpenGLVersionProfile = extern struct {
     ///
     /// ` self: QOpenGLVersionProfile `
     ///
-    /// ` profile: qsurfaceformat_enums.OpenGLContextProfile `
+    /// ` _profile: qsurfaceformat_enums.OpenGLContextProfile `
     ///
-    pub fn SetProfile(self: QOpenGLVersionProfile, profile: i32) void {
-        qtc.QOpenGLVersionProfile_SetProfile(@ptrCast(self.ptr), @bitCast(profile));
+    pub fn setProfile(self: QOpenGLVersionProfile, _profile: i32) void {
+        qtc.QOpenGLVersionProfile_SetProfile(@ptrCast(self.ptr), @bitCast(_profile));
     }
+
+    /// ### DEPRECATED: Use `hasProfiles` instead
+    ///
+    pub const HasProfiles = hasProfiles;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionprofile.html#hasProfiles)
     ///
@@ -115,9 +151,13 @@ pub const QOpenGLVersionProfile = extern struct {
     ///
     /// ` self: QOpenGLVersionProfile `
     ///
-    pub fn HasProfiles(self: QOpenGLVersionProfile) bool {
+    pub fn hasProfiles(self: QOpenGLVersionProfile) bool {
         return qtc.QOpenGLVersionProfile_HasProfiles(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLegacyVersion` instead
+    ///
+    pub const IsLegacyVersion = isLegacyVersion;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionprofile.html#isLegacyVersion)
     ///
@@ -125,9 +165,13 @@ pub const QOpenGLVersionProfile = extern struct {
     ///
     /// ` self: QOpenGLVersionProfile `
     ///
-    pub fn IsLegacyVersion(self: QOpenGLVersionProfile) bool {
+    pub fn isLegacyVersion(self: QOpenGLVersionProfile) bool {
         return qtc.QOpenGLVersionProfile_IsLegacyVersion(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionprofile.html#isValid)
     ///
@@ -135,23 +179,23 @@ pub const QOpenGLVersionProfile = extern struct {
     ///
     /// ` self: QOpenGLVersionProfile `
     ///
-    pub fn IsValid(self: QOpenGLVersionProfile) bool {
+    pub fn isValid(self: QOpenGLVersionProfile) bool {
         return qtc.QOpenGLVersionProfile_IsValid(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionprofile.html#dtor.QOpenGLVersionProfile)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QOpenGLVersionProfile `
     ///
-    pub fn Delete(self: QOpenGLVersionProfile) void {
+    pub fn delete(self: QOpenGLVersionProfile) void {
         qtc.QOpenGLVersionProfile_Delete(@ptrCast(self.ptr));
     }
 };

@@ -12,6 +12,10 @@ pub const KApplicationTrader = extern struct {
 
     pub const _is_KApplicationTrader = {};
 
+    /// ### DEPRECATED: Use `isSubsequence` instead
+    ///
+    pub const IsSubsequence = isSubsequence;
+
     /// ### [Upstream resources](https://api.kde.org/kapplicationtrader.html#isSubsequence)
     ///
     /// ## Parameter(s):
@@ -22,7 +26,7 @@ pub const KApplicationTrader = extern struct {
     ///
     /// ` cs: qnamespace_enums.CaseSensitivity `
     ///
-    pub fn IsSubsequence(pattern: []const u8, text: []const u8, cs: i32) bool {
+    pub fn isSubsequence(pattern: []const u8, text: []const u8, cs: i32) bool {
         const pattern_str = qtc.libqt_string{
             .len = pattern.len,
             .data = pattern.ptr,

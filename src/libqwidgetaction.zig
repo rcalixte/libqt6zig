@@ -33,16 +33,24 @@ pub const QWidgetAction = extern struct {
     pub const _is_QAction = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QWidgetAction object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QWidgetAction object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New(parent: anytype) QWidgetAction {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QWidgetAction_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) QWidgetAction {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QWidgetAction_new(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -50,9 +58,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    pub fn MetaObject(self: QWidgetAction) QMetaObject {
+    pub fn metaObject(self: QWidgetAction) QMetaObject {
         return .{ .ptr = qtc.QWidgetAction_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -64,13 +76,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QWidgetAction, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QWidgetAction, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QWidgetAction_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -80,9 +92,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    pub fn SuperMetaObject(self: QWidgetAction) QMetaObject {
+    pub fn superMetaObject(self: QWidgetAction) QMetaObject {
         return .{ .ptr = qtc.QWidgetAction_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -90,10 +106,14 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QWidgetAction, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QWidgetAction, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QWidgetAction_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -103,13 +123,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` callback: *const fn (self: QWidgetAction, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QWidgetAction, callback: *const fn (QWidgetAction, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QWidgetAction, callback: *const fn (QWidgetAction, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QWidgetAction_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -119,10 +139,14 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QWidgetAction, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QWidgetAction, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QWidgetAction_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -134,9 +158,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QWidgetAction, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QWidgetAction, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QWidgetAction_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -146,13 +174,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` callback: *const fn (self: QWidgetAction, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QWidgetAction, callback: *const fn (QWidgetAction, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QWidgetAction, callback: *const fn (QWidgetAction, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QWidgetAction_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -166,9 +194,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QWidgetAction, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QWidgetAction, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QWidgetAction_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -178,14 +210,18 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWidgetAction.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWidgetAction.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setDefaultWidget` instead
+    ///
+    pub const SetDefaultWidget = setDefaultWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#setDefaultWidget)
     ///
@@ -195,10 +231,14 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` w: QWidget `
     ///
-    pub fn SetDefaultWidget(self: QWidgetAction, w: anytype) void {
+    pub fn setDefaultWidget(self: QWidgetAction, w: anytype) void {
         comptime _ = @TypeOf(w)._is_QWidget;
         qtc.QWidgetAction_SetDefaultWidget(@ptrCast(self.ptr), @ptrCast(w.ptr));
     }
+
+    /// ### DEPRECATED: Use `defaultWidget` instead
+    ///
+    pub const DefaultWidget = defaultWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#defaultWidget)
     ///
@@ -206,9 +246,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    pub fn DefaultWidget(self: QWidgetAction) QWidget {
+    pub fn defaultWidget(self: QWidgetAction) QWidget {
         return .{ .ptr = qtc.QWidgetAction_DefaultWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `requestWidget` instead
+    ///
+    pub const RequestWidget = requestWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#requestWidget)
     ///
@@ -216,12 +260,16 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn RequestWidget(self: QWidgetAction, parent: anytype) QWidget {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidgetAction_RequestWidget(@ptrCast(self.ptr), @ptrCast(parent.ptr)) };
+    pub fn requestWidget(self: QWidgetAction, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidgetAction_RequestWidget(@ptrCast(self.ptr), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `releaseWidget` instead
+    ///
+    pub const ReleaseWidget = releaseWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#releaseWidget)
     ///
@@ -231,10 +279,14 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn ReleaseWidget(self: QWidgetAction, widget: anytype) void {
+    pub fn releaseWidget(self: QWidgetAction, widget: anytype) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QWidgetAction_ReleaseWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#event)
     ///
@@ -244,10 +296,14 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn Event(self: QWidgetAction, param1: anytype) bool {
+    pub fn event(self: QWidgetAction, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QEvent;
         return qtc.QWidgetAction_Event(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#event)
     ///
@@ -259,13 +315,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` callback: *const fn (self: QWidgetAction, param1: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QWidgetAction, callback: *const fn (QWidgetAction, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QWidgetAction, callback: *const fn (QWidgetAction, QEvent) callconv(.c) bool) void {
         qtc.QWidgetAction_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#event)
     ///
@@ -277,10 +333,14 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperEvent(self: QWidgetAction, param1: anytype) bool {
+    pub fn superEvent(self: QWidgetAction, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QEvent;
         return qtc.QWidgetAction_SuperEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#eventFilter)
     ///
@@ -292,11 +352,15 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` param2: QEvent `
     ///
-    pub fn EventFilter(self: QWidgetAction, param1: anytype, param2: anytype) bool {
+    pub fn eventFilter(self: QWidgetAction, param1: anytype, param2: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QObject;
         comptime _ = @TypeOf(param2)._is_QEvent;
         return qtc.QWidgetAction_EventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#eventFilter)
     ///
@@ -308,13 +372,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` callback: *const fn (self: QWidgetAction, param1: QObject, param2: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QWidgetAction, callback: *const fn (QWidgetAction, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QWidgetAction, callback: *const fn (QWidgetAction, QObject, QEvent) callconv(.c) bool) void {
         qtc.QWidgetAction_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#eventFilter)
     ///
@@ -328,11 +392,15 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` param2: QEvent `
     ///
-    pub fn SuperEventFilter(self: QWidgetAction, param1: anytype, param2: anytype) bool {
+    pub fn superEventFilter(self: QWidgetAction, param1: anytype, param2: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QObject;
         comptime _ = @TypeOf(param2)._is_QEvent;
         return qtc.QWidgetAction_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWidget` instead
+    ///
+    pub const CreateWidget = createWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#createWidget)
     ///
@@ -340,12 +408,16 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn CreateWidget(self: QWidgetAction, parent: anytype) QWidget {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidgetAction_CreateWidget(@ptrCast(self.ptr), @ptrCast(parent.ptr)) };
+    pub fn createWidget(self: QWidgetAction, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidgetAction_CreateWidget(@ptrCast(self.ptr), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onCreateWidget` instead
+    ///
+    pub const OnCreateWidget = onCreateWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#createWidget)
     ///
@@ -357,13 +429,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` callback: *const fn (self: QWidgetAction, parent: QWidget) callconv(.c) QWidget `
     ///
-    pub fn OnCreateWidget(self: QWidgetAction, callback: *const fn (QWidgetAction, QWidget) callconv(.c) QWidget) void {
+    pub fn onCreateWidget(self: QWidgetAction, callback: *const fn (QWidgetAction, QWidget) callconv(.c) QWidget) void {
         qtc.QWidgetAction_OnCreateWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCreateWidget` instead
+    /// ### DEPRECATED: Use `superCreateWidget` instead
     ///
-    pub const QBaseCreateWidget = SuperCreateWidget;
+    pub const SuperCreateWidget = superCreateWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#createWidget)
     ///
@@ -373,12 +445,16 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn SuperCreateWidget(self: QWidgetAction, parent: anytype) QWidget {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidgetAction_SuperCreateWidget(@ptrCast(self.ptr), @ptrCast(parent.ptr)) };
+    pub fn superCreateWidget(self: QWidgetAction, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidgetAction_SuperCreateWidget(@ptrCast(self.ptr), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `deleteWidget` instead
+    ///
+    pub const DeleteWidget = deleteWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#deleteWidget)
     ///
@@ -388,10 +464,14 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn DeleteWidget(self: QWidgetAction, widget: anytype) void {
+    pub fn deleteWidget(self: QWidgetAction, widget: anytype) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QWidgetAction_DeleteWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDeleteWidget` instead
+    ///
+    pub const OnDeleteWidget = onDeleteWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#deleteWidget)
     ///
@@ -403,13 +483,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` callback: *const fn (self: QWidgetAction, widget: QWidget) callconv(.c) void `
     ///
-    pub fn OnDeleteWidget(self: QWidgetAction, callback: *const fn (QWidgetAction, QWidget) callconv(.c) void) void {
+    pub fn onDeleteWidget(self: QWidgetAction, callback: *const fn (QWidgetAction, QWidget) callconv(.c) void) void {
         qtc.QWidgetAction_OnDeleteWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDeleteWidget` instead
+    /// ### DEPRECATED: Use `superDeleteWidget` instead
     ///
-    pub const QBaseDeleteWidget = SuperDeleteWidget;
+    pub const SuperDeleteWidget = superDeleteWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#deleteWidget)
     ///
@@ -421,10 +501,14 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn SuperDeleteWidget(self: QWidgetAction, widget: anytype) void {
+    pub fn superDeleteWidget(self: QWidgetAction, widget: anytype) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QWidgetAction_SuperDeleteWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `createdWidgets` instead
+    ///
+    pub const CreatedWidgets = createdWidgets;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
     ///
@@ -434,15 +518,19 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CreatedWidgets(self: QWidgetAction, allocator: std.mem.Allocator) []QWidget {
+    pub fn createdWidgets(self: QWidgetAction, allocator: std.mem.Allocator) []QWidget {
         const _arr: qtc.libqt_list = qtc.QWidgetAction_CreatedWidgets(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("QWidgetAction.CreatedWidgets: Memory allocation failed");
-        const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("QWidgetAction.createdWidgets: Memory allocation failed");
+        const _data_val: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onCreatedWidgets` instead
+    ///
+    pub const OnCreatedWidgets = onCreatedWidgets;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
     ///
@@ -460,13 +548,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` C ABI representation of []QWidget `
     ///
-    pub fn OnCreatedWidgets(self: QWidgetAction, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+    pub fn onCreatedWidgets(self: QWidgetAction, callback: *const fn () callconv(.c) qtc.libqt_list) void {
         qtc.QWidgetAction_OnCreatedWidgets(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCreatedWidgets` instead
+    /// ### DEPRECATED: Use `superCreatedWidgets` instead
     ///
-    pub const QBaseCreatedWidgets = SuperCreatedWidgets;
+    pub const SuperCreatedWidgets = superCreatedWidgets;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
     ///
@@ -478,15 +566,19 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperCreatedWidgets(self: QWidgetAction, allocator: std.mem.Allocator) []QWidget {
+    pub fn superCreatedWidgets(self: QWidgetAction, allocator: std.mem.Allocator) []QWidget {
         const _arr: qtc.libqt_list = qtc.QWidgetAction_SuperCreatedWidgets(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("QWidgetAction.CreatedWidgets: Memory allocation failed");
-        const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("QWidgetAction.createdWidgets: Memory allocation failed");
+        const _data_val: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -498,15 +590,19 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWidgetAction.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWidgetAction.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -520,15 +616,19 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWidgetAction.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWidgetAction.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `associatedObjects` instead
+    ///
+    pub const AssociatedObjects = associatedObjects;
 
     /// Inherited from QAction
     ///
@@ -540,15 +640,19 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AssociatedObjects(self: QWidgetAction, allocator: std.mem.Allocator) []QObject {
+    pub fn associatedObjects(self: QWidgetAction, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QAction_AssociatedObjects(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QWidgetAction.AssociatedObjects: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QWidgetAction.associatedObjects: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setActionGroup` instead
+    ///
+    pub const SetActionGroup = setActionGroup;
 
     /// Inherited from QAction
     ///
@@ -560,10 +664,14 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` group: QActionGroup `
     ///
-    pub fn SetActionGroup(self: QWidgetAction, group: anytype) void {
+    pub fn setActionGroup(self: QWidgetAction, group: anytype) void {
         comptime _ = @TypeOf(group)._is_QActionGroup;
         qtc.QAction_SetActionGroup(@ptrCast(self.ptr), @ptrCast(group.ptr));
     }
+
+    /// ### DEPRECATED: Use `actionGroup` instead
+    ///
+    pub const ActionGroup = actionGroup;
 
     /// Inherited from QAction
     ///
@@ -573,9 +681,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    pub fn ActionGroup(self: QWidgetAction) QActionGroup {
+    pub fn actionGroup(self: QWidgetAction) QActionGroup {
         return .{ .ptr = qtc.QAction_ActionGroup(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setIcon` instead
+    ///
+    pub const SetIcon = setIcon;
 
     /// Inherited from QAction
     ///
@@ -585,12 +697,16 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    pub fn SetIcon(self: QWidgetAction, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        qtc.QAction_SetIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn setIcon(self: QWidgetAction, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        qtc.QAction_SetIcon(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `icon` instead
+    ///
+    pub const Icon = icon;
 
     /// Inherited from QAction
     ///
@@ -600,9 +716,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    pub fn Icon(self: QWidgetAction) QIcon {
+    pub fn icon(self: QWidgetAction) QIcon {
         return .{ .ptr = qtc.QAction_Icon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setText` instead
+    ///
+    pub const SetText = setText;
 
     /// Inherited from QAction
     ///
@@ -612,15 +732,19 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn SetText(self: QWidgetAction, text: []const u8) void {
+    pub fn setText(self: QWidgetAction, _text: []const u8) void {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.QAction_SetText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `text` instead
+    ///
+    pub const Text = text;
 
     /// Inherited from QAction
     ///
@@ -632,13 +756,17 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: QWidgetAction, allocator: std.mem.Allocator) []const u8 {
+    pub fn text(self: QWidgetAction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAction_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWidgetAction.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWidgetAction.text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setIconText` instead
+    ///
+    pub const SetIconText = setIconText;
 
     /// Inherited from QAction
     ///
@@ -648,15 +776,19 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn SetIconText(self: QWidgetAction, text: []const u8) void {
+    pub fn setIconText(self: QWidgetAction, _text: []const u8) void {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.QAction_SetIconText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `iconText` instead
+    ///
+    pub const IconText = iconText;
 
     /// Inherited from QAction
     ///
@@ -668,13 +800,17 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn IconText(self: QWidgetAction, allocator: std.mem.Allocator) []const u8 {
+    pub fn iconText(self: QWidgetAction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAction_IconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWidgetAction.IconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWidgetAction.iconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QAction
     ///
@@ -686,13 +822,17 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` tip: []const u8 `
     ///
-    pub fn SetToolTip(self: QWidgetAction, tip: []const u8) void {
+    pub fn setToolTip(self: QWidgetAction, tip: []const u8) void {
         const tip_str = qtc.libqt_string{
             .len = tip.len,
             .data = tip.ptr,
         };
         qtc.QAction_SetToolTip(@ptrCast(self.ptr), tip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QAction
     ///
@@ -704,13 +844,17 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: QWidgetAction, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: QWidgetAction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAction_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWidgetAction.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWidgetAction.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QAction
     ///
@@ -720,15 +864,19 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: QWidgetAction, statusTip: []const u8) void {
+    pub fn setStatusTip(self: QWidgetAction, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QAction_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QAction
     ///
@@ -740,13 +888,17 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: QWidgetAction, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: QWidgetAction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAction_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWidgetAction.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWidgetAction.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QAction
     ///
@@ -758,13 +910,17 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` what: []const u8 `
     ///
-    pub fn SetWhatsThis(self: QWidgetAction, what: []const u8) void {
+    pub fn setWhatsThis(self: QWidgetAction, what: []const u8) void {
         const what_str = qtc.libqt_string{
             .len = what.len,
             .data = what.ptr,
         };
         qtc.QAction_SetWhatsThis(@ptrCast(self.ptr), what_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QAction
     ///
@@ -776,13 +932,17 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: QWidgetAction, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: QWidgetAction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAction_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWidgetAction.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWidgetAction.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setPriority` instead
+    ///
+    pub const SetPriority = setPriority;
 
     /// Inherited from QAction
     ///
@@ -792,11 +952,15 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    /// ` priority: qaction_enums.Priority `
+    /// ` _priority: qaction_enums.Priority `
     ///
-    pub fn SetPriority(self: QWidgetAction, priority: i32) void {
-        qtc.QAction_SetPriority(@ptrCast(self.ptr), @bitCast(priority));
+    pub fn setPriority(self: QWidgetAction, _priority: i32) void {
+        qtc.QAction_SetPriority(@ptrCast(self.ptr), @bitCast(_priority));
     }
+
+    /// ### DEPRECATED: Use `priority` instead
+    ///
+    pub const Priority = priority;
 
     /// Inherited from QAction
     ///
@@ -810,9 +974,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` qaction_enums.Priority `
     ///
-    pub fn Priority(self: QWidgetAction) i32 {
+    pub fn priority(self: QWidgetAction) i32 {
         return qtc.QAction_Priority(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSeparator` instead
+    ///
+    pub const SetSeparator = setSeparator;
 
     /// Inherited from QAction
     ///
@@ -824,9 +992,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetSeparator(self: QWidgetAction, b: bool) void {
+    pub fn setSeparator(self: QWidgetAction, b: bool) void {
         qtc.QAction_SetSeparator(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `isSeparator` instead
+    ///
+    pub const IsSeparator = isSeparator;
 
     /// Inherited from QAction
     ///
@@ -836,9 +1008,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    pub fn IsSeparator(self: QWidgetAction) bool {
+    pub fn isSeparator(self: QWidgetAction) bool {
         return qtc.QAction_IsSeparator(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setShortcut` instead
+    ///
+    pub const SetShortcut = setShortcut;
 
     /// Inherited from QAction
     ///
@@ -848,12 +1024,16 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    /// ` shortcut: QKeySequence `
+    /// ` _shortcut: QKeySequence `
     ///
-    pub fn SetShortcut(self: QWidgetAction, shortcut: anytype) void {
-        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
-        qtc.QAction_SetShortcut(@ptrCast(self.ptr), @ptrCast(shortcut.ptr));
+    pub fn setShortcut(self: QWidgetAction, _shortcut: anytype) void {
+        comptime _ = @TypeOf(_shortcut)._is_QKeySequence;
+        qtc.QAction_SetShortcut(@ptrCast(self.ptr), @ptrCast(_shortcut.ptr));
     }
+
+    /// ### DEPRECATED: Use `shortcut` instead
+    ///
+    pub const Shortcut = shortcut;
 
     /// Inherited from QAction
     ///
@@ -863,9 +1043,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    pub fn Shortcut(self: QWidgetAction) QKeySequence {
+    pub fn shortcut(self: QWidgetAction) QKeySequence {
         return .{ .ptr = qtc.QAction_Shortcut(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setShortcuts` instead
+    ///
+    pub const SetShortcuts = setShortcuts;
 
     /// Inherited from QAction
     ///
@@ -875,16 +1059,20 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    /// ` shortcuts: []QKeySequence `
+    /// ` _shortcuts: []QKeySequence `
     ///
-    pub fn SetShortcuts(self: QWidgetAction, shortcuts: []QKeySequence) void {
+    pub fn setShortcuts(self: QWidgetAction, _shortcuts: []QKeySequence) void {
         const shortcuts_list = qtc.libqt_list{
-            .len = shortcuts.len,
-            .data = @ptrCast(shortcuts.ptr),
+            .len = _shortcuts.len,
+            .data = @ptrCast(_shortcuts.ptr),
         };
         qtc.QAction_SetShortcuts(@ptrCast(self.ptr), shortcuts_list);
     }
 
+    /// ### DEPRECATED: Use `setShortcuts2` instead
+    ///
+    pub const SetShortcuts2 = setShortcuts2;
+
     /// Inherited from QAction
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setShortcuts)
@@ -893,11 +1081,15 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    /// ` shortcuts: qkeysequence_enums.StandardKey `
+    /// ` _shortcuts: qkeysequence_enums.StandardKey `
     ///
-    pub fn SetShortcuts2(self: QWidgetAction, shortcuts: i32) void {
-        qtc.QAction_SetShortcuts2(@ptrCast(self.ptr), @bitCast(shortcuts));
+    pub fn setShortcuts2(self: QWidgetAction, _shortcuts: i32) void {
+        qtc.QAction_SetShortcuts2(@ptrCast(self.ptr), @bitCast(_shortcuts));
     }
+
+    /// ### DEPRECATED: Use `shortcuts` instead
+    ///
+    pub const Shortcuts = shortcuts;
 
     /// Inherited from QAction
     ///
@@ -909,15 +1101,19 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Shortcuts(self: QWidgetAction, allocator: std.mem.Allocator) []QKeySequence {
+    pub fn shortcuts(self: QWidgetAction, allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.QAction_Shortcuts(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("QWidgetAction.Shortcuts: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("QWidgetAction.shortcuts: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setShortcutContext` instead
+    ///
+    pub const SetShortcutContext = setShortcutContext;
 
     /// Inherited from QAction
     ///
@@ -929,9 +1125,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn SetShortcutContext(self: QWidgetAction, context: i32) void {
+    pub fn setShortcutContext(self: QWidgetAction, context: i32) void {
         qtc.QAction_SetShortcutContext(@ptrCast(self.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `shortcutContext` instead
+    ///
+    pub const ShortcutContext = shortcutContext;
 
     /// Inherited from QAction
     ///
@@ -945,9 +1145,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` qnamespace_enums.ShortcutContext `
     ///
-    pub fn ShortcutContext(self: QWidgetAction) i32 {
+    pub fn shortcutContext(self: QWidgetAction) i32 {
         return qtc.QAction_ShortcutContext(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoRepeat` instead
+    ///
+    pub const SetAutoRepeat = setAutoRepeat;
 
     /// Inherited from QAction
     ///
@@ -957,11 +1161,15 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    /// ` autoRepeat: bool `
+    /// ` _autoRepeat: bool `
     ///
-    pub fn SetAutoRepeat(self: QWidgetAction, autoRepeat: bool) void {
-        qtc.QAction_SetAutoRepeat(@ptrCast(self.ptr), autoRepeat);
+    pub fn setAutoRepeat(self: QWidgetAction, _autoRepeat: bool) void {
+        qtc.QAction_SetAutoRepeat(@ptrCast(self.ptr), _autoRepeat);
     }
+
+    /// ### DEPRECATED: Use `autoRepeat` instead
+    ///
+    pub const AutoRepeat = autoRepeat;
 
     /// Inherited from QAction
     ///
@@ -971,9 +1179,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    pub fn AutoRepeat(self: QWidgetAction) bool {
+    pub fn autoRepeat(self: QWidgetAction) bool {
         return qtc.QAction_AutoRepeat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QAction
     ///
@@ -983,12 +1195,16 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: QWidgetAction, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QAction_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: QWidgetAction, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QAction_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QAction
     ///
@@ -998,9 +1214,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    pub fn Font(self: QWidgetAction) QFont {
+    pub fn font(self: QWidgetAction) QFont {
         return .{ .ptr = qtc.QAction_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCheckable` instead
+    ///
+    pub const SetCheckable = setCheckable;
 
     /// Inherited from QAction
     ///
@@ -1012,9 +1232,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` checkable: bool `
     ///
-    pub fn SetCheckable(self: QWidgetAction, checkable: bool) void {
+    pub fn setCheckable(self: QWidgetAction, checkable: bool) void {
         qtc.QAction_SetCheckable(@ptrCast(self.ptr), checkable);
     }
+
+    /// ### DEPRECATED: Use `isCheckable` instead
+    ///
+    pub const IsCheckable = isCheckable;
 
     /// Inherited from QAction
     ///
@@ -1024,9 +1248,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    pub fn IsCheckable(self: QWidgetAction) bool {
+    pub fn isCheckable(self: QWidgetAction) bool {
         return qtc.QAction_IsCheckable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `data` instead
+    ///
+    pub const Data = data;
 
     /// Inherited from QAction
     ///
@@ -1036,9 +1264,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    pub fn Data(self: QWidgetAction) QVariant {
+    pub fn data(self: QWidgetAction) QVariant {
         return .{ .ptr = qtc.QAction_Data(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setData` instead
+    ///
+    pub const SetData = setData;
 
     /// Inherited from QAction
     ///
@@ -1050,10 +1282,14 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` varVal: QVariant `
     ///
-    pub fn SetData(self: QWidgetAction, varVal: anytype) void {
+    pub fn setData(self: QWidgetAction, varVal: anytype) void {
         comptime _ = @TypeOf(varVal)._is_QVariant;
         qtc.QAction_SetData(@ptrCast(self.ptr), @ptrCast(varVal.ptr));
     }
+
+    /// ### DEPRECATED: Use `isChecked` instead
+    ///
+    pub const IsChecked = isChecked;
 
     /// Inherited from QAction
     ///
@@ -1063,9 +1299,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    pub fn IsChecked(self: QWidgetAction) bool {
+    pub fn isChecked(self: QWidgetAction) bool {
         return qtc.QAction_IsChecked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QAction
     ///
@@ -1075,9 +1315,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    pub fn IsEnabled(self: QWidgetAction) bool {
+    pub fn isEnabled(self: QWidgetAction) bool {
         return qtc.QAction_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QAction
     ///
@@ -1087,9 +1331,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    pub fn IsVisible(self: QWidgetAction) bool {
+    pub fn isVisible(self: QWidgetAction) bool {
         return qtc.QAction_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activate` instead
+    ///
+    pub const Activate = activate;
 
     /// Inherited from QAction
     ///
@@ -1099,11 +1347,15 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    /// ` event: qaction_enums.ActionEvent `
+    /// ` _event: qaction_enums.ActionEvent `
     ///
-    pub fn Activate(self: QWidgetAction, event: i32) void {
-        qtc.QAction_Activate(@ptrCast(self.ptr), @bitCast(event));
+    pub fn activate(self: QWidgetAction, _event: i32) void {
+        qtc.QAction_Activate(@ptrCast(self.ptr), @bitCast(_event));
     }
+
+    /// ### DEPRECATED: Use `setMenuRole` instead
+    ///
+    pub const SetMenuRole = setMenuRole;
 
     /// Inherited from QAction
     ///
@@ -1113,11 +1365,15 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    /// ` menuRole: qaction_enums.MenuRole `
+    /// ` _menuRole: qaction_enums.MenuRole `
     ///
-    pub fn SetMenuRole(self: QWidgetAction, menuRole: i32) void {
-        qtc.QAction_SetMenuRole(@ptrCast(self.ptr), @bitCast(menuRole));
+    pub fn setMenuRole(self: QWidgetAction, _menuRole: i32) void {
+        qtc.QAction_SetMenuRole(@ptrCast(self.ptr), @bitCast(_menuRole));
     }
+
+    /// ### DEPRECATED: Use `menuRole` instead
+    ///
+    pub const MenuRole = menuRole;
 
     /// Inherited from QAction
     ///
@@ -1131,9 +1387,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` qaction_enums.MenuRole `
     ///
-    pub fn MenuRole(self: QWidgetAction) i32 {
+    pub fn menuRole(self: QWidgetAction) i32 {
         return qtc.QAction_MenuRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setIconVisibleInMenu` instead
+    ///
+    pub const SetIconVisibleInMenu = setIconVisibleInMenu;
 
     /// Inherited from QAction
     ///
@@ -1145,9 +1405,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetIconVisibleInMenu(self: QWidgetAction, visible: bool) void {
+    pub fn setIconVisibleInMenu(self: QWidgetAction, visible: bool) void {
         qtc.QAction_SetIconVisibleInMenu(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `isIconVisibleInMenu` instead
+    ///
+    pub const IsIconVisibleInMenu = isIconVisibleInMenu;
 
     /// Inherited from QAction
     ///
@@ -1157,9 +1421,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    pub fn IsIconVisibleInMenu(self: QWidgetAction) bool {
+    pub fn isIconVisibleInMenu(self: QWidgetAction) bool {
         return qtc.QAction_IsIconVisibleInMenu(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setShortcutVisibleInContextMenu` instead
+    ///
+    pub const SetShortcutVisibleInContextMenu = setShortcutVisibleInContextMenu;
 
     /// Inherited from QAction
     ///
@@ -1171,9 +1439,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` show: bool `
     ///
-    pub fn SetShortcutVisibleInContextMenu(self: QWidgetAction, show: bool) void {
+    pub fn setShortcutVisibleInContextMenu(self: QWidgetAction, show: bool) void {
         qtc.QAction_SetShortcutVisibleInContextMenu(@ptrCast(self.ptr), show);
     }
+
+    /// ### DEPRECATED: Use `isShortcutVisibleInContextMenu` instead
+    ///
+    pub const IsShortcutVisibleInContextMenu = isShortcutVisibleInContextMenu;
 
     /// Inherited from QAction
     ///
@@ -1183,9 +1455,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    pub fn IsShortcutVisibleInContextMenu(self: QWidgetAction) bool {
+    pub fn isShortcutVisibleInContextMenu(self: QWidgetAction) bool {
         return qtc.QAction_IsShortcutVisibleInContextMenu(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showStatusText` instead
+    ///
+    pub const ShowStatusText = showStatusText;
 
     /// Inherited from QAction
     ///
@@ -1195,9 +1471,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    pub fn ShowStatusText(self: QWidgetAction) bool {
+    pub fn showStatusText(self: QWidgetAction) bool {
         return qtc.QAction_ShowStatusText(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `trigger` instead
+    ///
+    pub const Trigger = trigger;
 
     /// Inherited from QAction
     ///
@@ -1207,9 +1487,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    pub fn Trigger(self: QWidgetAction) void {
+    pub fn trigger(self: QWidgetAction) void {
         qtc.QAction_Trigger(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hover` instead
+    ///
+    pub const Hover = hover;
 
     /// Inherited from QAction
     ///
@@ -1219,9 +1503,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    pub fn Hover(self: QWidgetAction) void {
+    pub fn hover(self: QWidgetAction) void {
         qtc.QAction_Hover(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setChecked` instead
+    ///
+    pub const SetChecked = setChecked;
 
     /// Inherited from QAction
     ///
@@ -1233,9 +1521,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` checked: bool `
     ///
-    pub fn SetChecked(self: QWidgetAction, checked: bool) void {
+    pub fn setChecked(self: QWidgetAction, checked: bool) void {
         qtc.QAction_SetChecked(@ptrCast(self.ptr), checked);
     }
+
+    /// ### DEPRECATED: Use `toggle` instead
+    ///
+    pub const Toggle = toggle;
 
     /// Inherited from QAction
     ///
@@ -1245,9 +1537,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    pub fn Toggle(self: QWidgetAction) void {
+    pub fn toggle(self: QWidgetAction) void {
         qtc.QAction_Toggle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QAction
     ///
@@ -1259,9 +1555,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: QWidgetAction, enabled: bool) void {
+    pub fn setEnabled(self: QWidgetAction, enabled: bool) void {
         qtc.QAction_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `resetEnabled` instead
+    ///
+    pub const ResetEnabled = resetEnabled;
 
     /// Inherited from QAction
     ///
@@ -1271,9 +1571,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    pub fn ResetEnabled(self: QWidgetAction) void {
+    pub fn resetEnabled(self: QWidgetAction) void {
         qtc.QAction_ResetEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QAction
     ///
@@ -1285,9 +1589,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetDisabled(self: QWidgetAction, b: bool) void {
+    pub fn setDisabled(self: QWidgetAction, b: bool) void {
         qtc.QAction_SetDisabled(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QAction
     ///
@@ -1299,9 +1607,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: QWidgetAction, visible: bool) void {
+    pub fn setVisible(self: QWidgetAction, visible: bool) void {
         qtc.QAction_SetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `changed` instead
+    ///
+    pub const Changed = changed;
 
     /// Inherited from QAction
     ///
@@ -1311,9 +1623,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    pub fn Changed(self: QWidgetAction) void {
+    pub fn changed(self: QWidgetAction) void {
         qtc.QAction_Changed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChanged` instead
+    ///
+    pub const OnChanged = onChanged;
 
     /// Inherited from QAction
     ///
@@ -1325,9 +1641,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` callback: *const fn (self: QWidgetAction) callconv(.c) void `
     ///
-    pub fn OnChanged(self: QWidgetAction, callback: *const fn (QWidgetAction) callconv(.c) void) void {
+    pub fn onChanged(self: QWidgetAction, callback: *const fn (QWidgetAction) callconv(.c) void) void {
         qtc.QAction_Connect_Changed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enabledChanged` instead
+    ///
+    pub const EnabledChanged = enabledChanged;
 
     /// Inherited from QAction
     ///
@@ -1339,9 +1659,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn EnabledChanged(self: QWidgetAction, enabled: bool) void {
+    pub fn enabledChanged(self: QWidgetAction, enabled: bool) void {
         qtc.QAction_EnabledChanged(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `onEnabledChanged` instead
+    ///
+    pub const OnEnabledChanged = onEnabledChanged;
 
     /// Inherited from QAction
     ///
@@ -1353,9 +1677,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` callback: *const fn (self: QWidgetAction, enabled: bool) callconv(.c) void `
     ///
-    pub fn OnEnabledChanged(self: QWidgetAction, callback: *const fn (QWidgetAction, bool) callconv(.c) void) void {
+    pub fn onEnabledChanged(self: QWidgetAction, callback: *const fn (QWidgetAction, bool) callconv(.c) void) void {
         qtc.QAction_Connect_EnabledChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `checkableChanged` instead
+    ///
+    pub const CheckableChanged = checkableChanged;
 
     /// Inherited from QAction
     ///
@@ -1367,9 +1695,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` checkable: bool `
     ///
-    pub fn CheckableChanged(self: QWidgetAction, checkable: bool) void {
+    pub fn checkableChanged(self: QWidgetAction, checkable: bool) void {
         qtc.QAction_CheckableChanged(@ptrCast(self.ptr), checkable);
     }
+
+    /// ### DEPRECATED: Use `onCheckableChanged` instead
+    ///
+    pub const OnCheckableChanged = onCheckableChanged;
 
     /// Inherited from QAction
     ///
@@ -1381,10 +1713,14 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` callback: *const fn (self: QWidgetAction, checkable: bool) callconv(.c) void `
     ///
-    pub fn OnCheckableChanged(self: QWidgetAction, callback: *const fn (QWidgetAction, bool) callconv(.c) void) void {
+    pub fn onCheckableChanged(self: QWidgetAction, callback: *const fn (QWidgetAction, bool) callconv(.c) void) void {
         qtc.QAction_Connect_CheckableChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `visibleChanged` instead
+    ///
+    pub const VisibleChanged = visibleChanged;
+
     /// Inherited from QAction
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#visibleChanged)
@@ -1393,10 +1729,14 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    pub fn VisibleChanged(self: QWidgetAction) void {
+    pub fn visibleChanged(self: QWidgetAction) void {
         qtc.QAction_VisibleChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onVisibleChanged` instead
+    ///
+    pub const OnVisibleChanged = onVisibleChanged;
+
     /// Inherited from QAction
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#visibleChanged)
@@ -1407,10 +1747,14 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` callback: *const fn (self: QWidgetAction) callconv(.c) void `
     ///
-    pub fn OnVisibleChanged(self: QWidgetAction, callback: *const fn (QWidgetAction) callconv(.c) void) void {
+    pub fn onVisibleChanged(self: QWidgetAction, callback: *const fn (QWidgetAction) callconv(.c) void) void {
         qtc.QAction_Connect_VisibleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `triggered` instead
+    ///
+    pub const Triggered = triggered;
+
     /// Inherited from QAction
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#triggered)
@@ -1419,10 +1763,14 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    pub fn Triggered(self: QWidgetAction) void {
+    pub fn triggered(self: QWidgetAction) void {
         qtc.QAction_Triggered(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onTriggered` instead
+    ///
+    pub const OnTriggered = onTriggered;
+
     /// Inherited from QAction
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#triggered)
@@ -1433,9 +1781,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` callback: *const fn (self: QWidgetAction) callconv(.c) void `
     ///
-    pub fn OnTriggered(self: QWidgetAction, callback: *const fn (QWidgetAction) callconv(.c) void) void {
+    pub fn onTriggered(self: QWidgetAction, callback: *const fn (QWidgetAction) callconv(.c) void) void {
         qtc.QAction_Connect_Triggered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hovered` instead
+    ///
+    pub const Hovered = hovered;
 
     /// Inherited from QAction
     ///
@@ -1445,9 +1797,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    pub fn Hovered(self: QWidgetAction) void {
+    pub fn hovered(self: QWidgetAction) void {
         qtc.QAction_Hovered(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHovered` instead
+    ///
+    pub const OnHovered = onHovered;
 
     /// Inherited from QAction
     ///
@@ -1459,9 +1815,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` callback: *const fn (self: QWidgetAction) callconv(.c) void `
     ///
-    pub fn OnHovered(self: QWidgetAction, callback: *const fn (QWidgetAction) callconv(.c) void) void {
+    pub fn onHovered(self: QWidgetAction, callback: *const fn (QWidgetAction) callconv(.c) void) void {
         qtc.QAction_Connect_Hovered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `toggled` instead
+    ///
+    pub const Toggled = toggled;
 
     /// Inherited from QAction
     ///
@@ -1473,9 +1833,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` param1: bool `
     ///
-    pub fn Toggled(self: QWidgetAction, param1: bool) void {
+    pub fn toggled(self: QWidgetAction, param1: bool) void {
         qtc.QAction_Toggled(@ptrCast(self.ptr), param1);
     }
+
+    /// ### DEPRECATED: Use `onToggled` instead
+    ///
+    pub const OnToggled = onToggled;
 
     /// Inherited from QAction
     ///
@@ -1487,9 +1851,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` callback: *const fn (self: QWidgetAction, param1: bool) callconv(.c) void `
     ///
-    pub fn OnToggled(self: QWidgetAction, callback: *const fn (QWidgetAction, bool) callconv(.c) void) void {
+    pub fn onToggled(self: QWidgetAction, callback: *const fn (QWidgetAction, bool) callconv(.c) void) void {
         qtc.QAction_Connect_Toggled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showStatusText1` instead
+    ///
+    pub const ShowStatusText1 = showStatusText1;
 
     /// Inherited from QAction
     ///
@@ -1501,10 +1869,14 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` object: QObject `
     ///
-    pub fn ShowStatusText1(self: QWidgetAction, object: anytype) bool {
+    pub fn showStatusText1(self: QWidgetAction, object: anytype) bool {
         comptime _ = @TypeOf(object)._is_QObject;
         return qtc.QAction_ShowStatusText1(@ptrCast(self.ptr), @ptrCast(object.ptr));
     }
+
+    /// ### DEPRECATED: Use `triggered1` instead
+    ///
+    pub const Triggered1 = triggered1;
 
     /// Inherited from QAction
     ///
@@ -1516,9 +1888,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` checked: bool `
     ///
-    pub fn Triggered1(self: QWidgetAction, checked: bool) void {
+    pub fn triggered1(self: QWidgetAction, checked: bool) void {
         qtc.QAction_Triggered1(@ptrCast(self.ptr), checked);
     }
+
+    /// ### DEPRECATED: Use `onTriggered1` instead
+    ///
+    pub const OnTriggered1 = onTriggered1;
 
     /// Inherited from QAction
     ///
@@ -1530,9 +1906,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` callback: *const fn (self: QWidgetAction, checked: bool) callconv(.c) void `
     ///
-    pub fn OnTriggered1(self: QWidgetAction, callback: *const fn (QWidgetAction, bool) callconv(.c) void) void {
+    pub fn onTriggered1(self: QWidgetAction, callback: *const fn (QWidgetAction, bool) callconv(.c) void) void {
         qtc.QAction_Connect_Triggered1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -1544,13 +1924,17 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QWidgetAction, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QWidgetAction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWidgetAction.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWidgetAction.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -1562,13 +1946,17 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QWidgetAction, name: []const u8) void {
+    pub fn setObjectName(self: QWidgetAction, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -1578,9 +1966,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    pub fn IsWidgetType(self: QWidgetAction) bool {
+    pub fn isWidgetType(self: QWidgetAction) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -1590,9 +1982,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    pub fn IsWindowType(self: QWidgetAction) bool {
+    pub fn isWindowType(self: QWidgetAction) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -1602,9 +1998,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    pub fn IsQuickItemType(self: QWidgetAction) bool {
+    pub fn isQuickItemType(self: QWidgetAction) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -1614,9 +2014,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    pub fn SignalsBlocked(self: QWidgetAction) bool {
+    pub fn signalsBlocked(self: QWidgetAction) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -1628,9 +2032,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QWidgetAction, b: bool) bool {
+    pub fn blockSignals(self: QWidgetAction, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -1640,9 +2048,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    pub fn Thread(self: QWidgetAction) QThread {
+    pub fn thread(self: QWidgetAction) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -1652,12 +2064,16 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QWidgetAction, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QWidgetAction, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -1669,9 +2085,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QWidgetAction, interval: i32) i32 {
+    pub fn startTimer(self: QWidgetAction, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -1683,9 +2103,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QWidgetAction, time: i64) i32 {
+    pub fn startTimer2(self: QWidgetAction, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -1697,9 +2121,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QWidgetAction, id: i32) void {
+    pub fn killTimer(self: QWidgetAction, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -1711,9 +2139,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QWidgetAction, id: i32) void {
+    pub fn killTimer2(self: QWidgetAction, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -1725,15 +2157,19 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QWidgetAction, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QWidgetAction, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QWidgetAction.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QWidgetAction.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -1743,12 +2179,16 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QWidgetAction, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QWidgetAction, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1760,10 +2200,14 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QWidgetAction, filterObj: anytype) void {
+    pub fn installEventFilter(self: QWidgetAction, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1775,10 +2219,14 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QWidgetAction, obj: anytype) void {
+    pub fn removeEventFilter(self: QWidgetAction, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -1786,7 +2234,7 @@ pub const QWidgetAction = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1794,13 +2242,17 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -1808,7 +2260,7 @@ pub const QWidgetAction = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1816,13 +2268,17 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1832,18 +2288,22 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QWidgetAction, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QWidgetAction, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1851,7 +2311,7 @@ pub const QWidgetAction = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1859,13 +2319,17 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1873,7 +2337,7 @@ pub const QWidgetAction = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1881,13 +2345,17 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1897,9 +2365,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    pub fn Disconnect3(self: QWidgetAction) bool {
+    pub fn disconnect3(self: QWidgetAction) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1911,10 +2383,14 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QWidgetAction, receiver: anytype) bool {
+    pub fn disconnect4(self: QWidgetAction, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1924,10 +2400,14 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1937,9 +2417,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    pub fn DumpObjectTree(self: QWidgetAction) void {
+    pub fn dumpObjectTree(self: QWidgetAction) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1949,9 +2433,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    pub fn DumpObjectInfo(self: QWidgetAction) void {
+    pub fn dumpObjectInfo(self: QWidgetAction) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1965,11 +2453,15 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QWidgetAction, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QWidgetAction, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1981,10 +2473,14 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QWidgetAction, name: [:0]const u8) QVariant {
+    pub fn property(self: QWidgetAction, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1996,7 +2492,7 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QWidgetAction, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QWidgetAction, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -2004,27 +2500,19 @@ pub const QWidgetAction = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QWidgetAction.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QWidgetAction.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QWidgetAction.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QWidgetAction.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QWidgetAction `
-    ///
-    pub fn BindingStorage(self: QWidgetAction) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -2034,9 +2522,29 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    pub fn BindingStorage2(self: QWidgetAction) QBindingStorage {
+    pub fn bindingStorage(self: QWidgetAction) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QWidgetAction `
+    ///
+    pub fn bindingStorage2(self: QWidgetAction) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -2046,9 +2554,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    pub fn Destroyed(self: QWidgetAction) void {
+    pub fn destroyed(self: QWidgetAction) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -2060,9 +2572,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` callback: *const fn (self: QWidgetAction) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QWidgetAction, callback: *const fn (QWidgetAction) callconv(.c) void) void {
+    pub fn onDestroyed(self: QWidgetAction, callback: *const fn (QWidgetAction) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -2072,9 +2588,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    pub fn Parent(self: QWidgetAction) QObject {
+    pub fn parent(self: QWidgetAction) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -2086,10 +2606,14 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QWidgetAction, classname: [:0]const u8) bool {
+    pub fn inherits(self: QWidgetAction, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -2099,9 +2623,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    pub fn DeleteLater(self: QWidgetAction) void {
+    pub fn deleteLater(self: QWidgetAction) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -2115,9 +2643,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QWidgetAction, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QWidgetAction, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -2131,9 +2663,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QWidgetAction, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QWidgetAction, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -2141,7 +2677,7 @@ pub const QWidgetAction = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2151,13 +2687,17 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -2165,7 +2705,7 @@ pub const QWidgetAction = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2175,13 +2715,17 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -2191,7 +2735,7 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2199,12 +2743,16 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QWidgetAction, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QWidgetAction, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -2216,10 +2764,14 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QWidgetAction, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QWidgetAction, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -2233,11 +2785,15 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QWidgetAction, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QWidgetAction, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -2253,13 +2809,17 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QWidgetAction, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QWidgetAction, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -2272,11 +2832,15 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QWidgetAction, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QWidgetAction, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -2288,10 +2852,14 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QWidgetAction, param1: anytype) void {
+    pub fn destroyed1(self: QWidgetAction, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -2303,9 +2871,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` callback: *const fn (self: QWidgetAction, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QWidgetAction, callback: *const fn (QWidgetAction, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QWidgetAction, callback: *const fn (QWidgetAction, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -2317,16 +2889,16 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QWidgetAction, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QWidgetAction_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QWidgetAction, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QWidgetAction_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -2338,12 +2910,16 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QWidgetAction, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QWidgetAction_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QWidgetAction, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QWidgetAction_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -2357,9 +2933,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` callback: *const fn (self: QWidgetAction, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QWidgetAction, callback: *const fn (QWidgetAction, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QWidgetAction, callback: *const fn (QWidgetAction, QTimerEvent) callconv(.c) void) void {
         qtc.QWidgetAction_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -2371,16 +2951,16 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QWidgetAction, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QWidgetAction_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QWidgetAction, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QWidgetAction_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2392,12 +2972,16 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QWidgetAction, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QWidgetAction_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QWidgetAction, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QWidgetAction_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2411,9 +2995,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` callback: *const fn (self: QWidgetAction, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QWidgetAction, callback: *const fn (QWidgetAction, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QWidgetAction, callback: *const fn (QWidgetAction, QChildEvent) callconv(.c) void) void {
         qtc.QWidgetAction_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -2425,16 +3013,16 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QWidgetAction, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QWidgetAction_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QWidgetAction, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QWidgetAction_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2446,12 +3034,16 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QWidgetAction, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QWidgetAction_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QWidgetAction, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QWidgetAction_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2465,9 +3057,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` callback: *const fn (self: QWidgetAction, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QWidgetAction, callback: *const fn (QWidgetAction, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QWidgetAction, callback: *const fn (QWidgetAction, QEvent) callconv(.c) void) void {
         qtc.QWidgetAction_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -2481,14 +3077,14 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QWidgetAction, signal: anytype) void {
+    pub fn connectNotify(self: QWidgetAction, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QWidgetAction_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2502,11 +3098,15 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QWidgetAction, signal: anytype) void {
+    pub fn superConnectNotify(self: QWidgetAction, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QWidgetAction_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -2519,9 +3119,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` callback: *const fn (self: QWidgetAction, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QWidgetAction, callback: *const fn (QWidgetAction, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QWidgetAction, callback: *const fn (QWidgetAction, QMetaMethod) callconv(.c) void) void {
         qtc.QWidgetAction_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2535,14 +3139,14 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QWidgetAction, signal: anytype) void {
+    pub fn disconnectNotify(self: QWidgetAction, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QWidgetAction_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2556,10 +3160,14 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QWidgetAction, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QWidgetAction, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QWidgetAction_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2573,9 +3181,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` callback: *const fn (self: QWidgetAction, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QWidgetAction, callback: *const fn (QWidgetAction, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QWidgetAction, callback: *const fn (QWidgetAction, QMetaMethod) callconv(.c) void) void {
         qtc.QWidgetAction_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -2587,13 +3199,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    pub fn Sender(self: QWidgetAction) QObject {
+    pub fn sender(self: QWidgetAction) QObject {
         return .{ .ptr = qtc.QWidgetAction_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -2605,9 +3217,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    pub fn SuperSender(self: QWidgetAction) QObject {
+    pub fn superSender(self: QWidgetAction) QObject {
         return .{ .ptr = qtc.QWidgetAction_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -2621,9 +3237,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QWidgetAction, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QWidgetAction, callback: *const fn () callconv(.c) QObject) void {
         qtc.QWidgetAction_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2635,13 +3255,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    pub fn SenderSignalIndex(self: QWidgetAction) i32 {
+    pub fn senderSignalIndex(self: QWidgetAction) i32 {
         return qtc.QWidgetAction_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2653,9 +3273,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` self: QWidgetAction `
     ///
-    pub fn SuperSenderSignalIndex(self: QWidgetAction) i32 {
+    pub fn superSenderSignalIndex(self: QWidgetAction) i32 {
         return qtc.QWidgetAction_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2669,9 +3293,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QWidgetAction, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QWidgetAction, callback: *const fn () callconv(.c) i32) void {
         qtc.QWidgetAction_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -2685,14 +3313,14 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QWidgetAction, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QWidgetAction, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QWidgetAction_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -2706,10 +3334,14 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QWidgetAction, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QWidgetAction, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QWidgetAction_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -2723,9 +3355,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` callback: *const fn (self: QWidgetAction, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QWidgetAction, callback: *const fn (QWidgetAction, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QWidgetAction, callback: *const fn (QWidgetAction, [*:0]const u8) callconv(.c) i32) void {
         qtc.QWidgetAction_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2739,14 +3375,14 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QWidgetAction, signal: anytype) bool {
+    pub fn isSignalConnected(self: QWidgetAction, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QWidgetAction_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2760,10 +3396,14 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QWidgetAction, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QWidgetAction, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QWidgetAction_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2777,9 +3417,13 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` callback: *const fn (self: QWidgetAction, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QWidgetAction, callback: *const fn (QWidgetAction, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QWidgetAction, callback: *const fn (QWidgetAction, QMetaMethod) callconv(.c) bool) void {
         qtc.QWidgetAction_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -2793,23 +3437,23 @@ pub const QWidgetAction = extern struct {
     ///
     /// ` callback: *const fn (self: QWidgetAction, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QWidgetAction, callback: *const fn (QWidgetAction, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QWidgetAction, callback: *const fn (QWidgetAction, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#dtor.QWidgetAction)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QWidgetAction `
     ///
-    pub fn Delete(self: QWidgetAction) void {
+    pub fn delete(self: QWidgetAction) void {
         qtc.QWidgetAction_Delete(@ptrCast(self.ptr));
     }
 };

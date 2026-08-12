@@ -14,11 +14,19 @@ pub const QDBusContext = extern struct {
 
     pub const _is_QDBusContext = {};
 
-    /// New constructs a new QDBusContext object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QDBusContext {
+    pub const New = new;
+
+    /// Allocate a new QDBusContext object in C++ memory
+    ///
+    pub fn new() QDBusContext {
         return .{ .ptr = qtc.QDBusContext_new() };
     }
+
+    /// ### DEPRECATED: Use `calledFromDBus` instead
+    ///
+    pub const CalledFromDBus = calledFromDBus;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuscontext.html#calledFromDBus)
     ///
@@ -26,9 +34,13 @@ pub const QDBusContext = extern struct {
     ///
     /// ` self: QDBusContext `
     ///
-    pub fn CalledFromDBus(self: QDBusContext) bool {
+    pub fn calledFromDBus(self: QDBusContext) bool {
         return qtc.QDBusContext_CalledFromDBus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `connection` instead
+    ///
+    pub const Connection = connection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuscontext.html#connection)
     ///
@@ -36,9 +48,13 @@ pub const QDBusContext = extern struct {
     ///
     /// ` self: QDBusContext `
     ///
-    pub fn Connection(self: QDBusContext) QDBusConnection {
+    pub fn connection(self: QDBusContext) QDBusConnection {
         return .{ .ptr = qtc.QDBusContext_Connection(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `message` instead
+    ///
+    pub const Message = message;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuscontext.html#message)
     ///
@@ -46,9 +62,13 @@ pub const QDBusContext = extern struct {
     ///
     /// ` self: QDBusContext `
     ///
-    pub fn Message(self: QDBusContext) QDBusMessage {
+    pub fn message(self: QDBusContext) QDBusMessage {
         return .{ .ptr = qtc.QDBusContext_Message(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isDelayedReply` instead
+    ///
+    pub const IsDelayedReply = isDelayedReply;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuscontext.html#isDelayedReply)
     ///
@@ -56,9 +76,13 @@ pub const QDBusContext = extern struct {
     ///
     /// ` self: QDBusContext `
     ///
-    pub fn IsDelayedReply(self: QDBusContext) bool {
+    pub fn isDelayedReply(self: QDBusContext) bool {
         return qtc.QDBusContext_IsDelayedReply(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDelayedReply` instead
+    ///
+    pub const SetDelayedReply = setDelayedReply;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuscontext.html#setDelayedReply)
     ///
@@ -68,9 +92,13 @@ pub const QDBusContext = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetDelayedReply(self: QDBusContext, enable: bool) void {
+    pub fn setDelayedReply(self: QDBusContext, enable: bool) void {
         qtc.QDBusContext_SetDelayedReply(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `sendErrorReply` instead
+    ///
+    pub const SendErrorReply = sendErrorReply;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuscontext.html#sendErrorReply)
     ///
@@ -80,13 +108,17 @@ pub const QDBusContext = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SendErrorReply(self: QDBusContext, name: []const u8) void {
+    pub fn sendErrorReply(self: QDBusContext, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QDBusContext_SendErrorReply(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `sendErrorReply2` instead
+    ///
+    pub const SendErrorReply2 = sendErrorReply2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuscontext.html#sendErrorReply)
     ///
@@ -96,9 +128,13 @@ pub const QDBusContext = extern struct {
     ///
     /// ` typeVal: qdbuserror_enums.ErrorType `
     ///
-    pub fn SendErrorReply2(self: QDBusContext, typeVal: i32) void {
+    pub fn sendErrorReply2(self: QDBusContext, typeVal: i32) void {
         qtc.QDBusContext_SendErrorReply2(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `sendErrorReply22` instead
+    ///
+    pub const SendErrorReply22 = sendErrorReply22;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuscontext.html#sendErrorReply)
     ///
@@ -110,7 +146,7 @@ pub const QDBusContext = extern struct {
     ///
     /// ` msg: []const u8 `
     ///
-    pub fn SendErrorReply22(self: QDBusContext, name: []const u8, msg: []const u8) void {
+    pub fn sendErrorReply22(self: QDBusContext, name: []const u8, msg: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -122,6 +158,10 @@ pub const QDBusContext = extern struct {
         qtc.QDBusContext_SendErrorReply22(@ptrCast(self.ptr), name_str, msg_str);
     }
 
+    /// ### DEPRECATED: Use `sendErrorReply23` instead
+    ///
+    pub const SendErrorReply23 = sendErrorReply23;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuscontext.html#sendErrorReply)
     ///
     /// ## Parameter(s):
@@ -132,7 +172,7 @@ pub const QDBusContext = extern struct {
     ///
     /// ` msg: []const u8 `
     ///
-    pub fn SendErrorReply23(self: QDBusContext, typeVal: i32, msg: []const u8) void {
+    pub fn sendErrorReply23(self: QDBusContext, typeVal: i32, msg: []const u8) void {
         const msg_str = qtc.libqt_string{
             .len = msg.len,
             .data = msg.ptr,
@@ -140,19 +180,19 @@ pub const QDBusContext = extern struct {
         qtc.QDBusContext_SendErrorReply23(@ptrCast(self.ptr), @bitCast(typeVal), msg_str);
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuscontext.html#dtor.QDBusContext)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDBusContext `
     ///
-    pub fn Delete(self: QDBusContext) void {
+    pub fn delete(self: QDBusContext) void {
         qtc.QDBusContext_Delete(@ptrCast(self.ptr));
     }
 };

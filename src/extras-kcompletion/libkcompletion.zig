@@ -27,11 +27,19 @@ pub const KCompletion = extern struct {
     pub const _is_KCompletion = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new KCompletion object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KCompletion {
+    pub const New = new;
+
+    /// Allocate a new KCompletion object in C++ memory
+    ///
+    pub fn new() KCompletion {
         return .{ .ptr = qtc.KCompletion_new() };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -39,9 +47,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` self: KCompletion `
     ///
-    pub fn MetaObject(self: KCompletion) QMetaObject {
+    pub fn metaObject(self: KCompletion) QMetaObject {
         return .{ .ptr = qtc.KCompletion_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -53,13 +65,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KCompletion, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KCompletion, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KCompletion_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -69,9 +81,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` self: KCompletion `
     ///
-    pub fn SuperMetaObject(self: KCompletion) QMetaObject {
+    pub fn superMetaObject(self: KCompletion) QMetaObject {
         return .{ .ptr = qtc.KCompletion_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -79,10 +95,14 @@ pub const KCompletion = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KCompletion, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KCompletion, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KCompletion_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -92,13 +112,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletion, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KCompletion, callback: *const fn (KCompletion, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KCompletion, callback: *const fn (KCompletion, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KCompletion_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -108,10 +128,14 @@ pub const KCompletion = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KCompletion, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KCompletion, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KCompletion_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -123,9 +147,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KCompletion, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KCompletion, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KCompletion_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -135,13 +163,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletion, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KCompletion, callback: *const fn (KCompletion, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KCompletion, callback: *const fn (KCompletion, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KCompletion_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -155,9 +183,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KCompletion, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KCompletion, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KCompletion_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -167,14 +199,18 @@ pub const KCompletion = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletion.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletion.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `substringCompletion` instead
+    ///
+    pub const SubstringCompletion = substringCompletion;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#substringCompletion)
     ///
@@ -186,7 +222,7 @@ pub const KCompletion = extern struct {
     ///
     /// ` string: []const u8 `
     ///
-    pub fn SubstringCompletion(self: KCompletion, allocator: std.mem.Allocator, string: []const u8) []const []const u8 {
+    pub fn substringCompletion(self: KCompletion, allocator: std.mem.Allocator, string: []const u8) []const []const u8 {
         const string_str = qtc.libqt_string{
             .len = string.len,
             .data = string.ptr,
@@ -198,15 +234,19 @@ pub const KCompletion = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KCompletion.SubstringCompletion: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KCompletion.substringCompletion: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KCompletion.SubstringCompletion: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KCompletion.substringCompletion: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `lastMatch` instead
+    ///
+    pub const LastMatch = lastMatch;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#lastMatch)
     ///
@@ -216,13 +256,17 @@ pub const KCompletion = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LastMatch(self: KCompletion, allocator: std.mem.Allocator) []const u8 {
+    pub fn lastMatch(self: KCompletion, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KCompletion_LastMatch(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletion.LastMatch: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletion.lastMatch: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onLastMatch` instead
+    ///
+    pub const OnLastMatch = onLastMatch;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#lastMatch)
     ///
@@ -234,13 +278,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnLastMatch(self: KCompletion, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onLastMatch(self: KCompletion, callback: *const fn () callconv(.c) [*:0]const u8) void {
         qtc.KCompletion_OnLastMatch(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperLastMatch` instead
+    /// ### DEPRECATED: Use `superLastMatch` instead
     ///
-    pub const QBaseLastMatch = SuperLastMatch;
+    pub const SuperLastMatch = superLastMatch;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#lastMatch)
     ///
@@ -252,13 +296,17 @@ pub const KCompletion = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperLastMatch(self: KCompletion, allocator: std.mem.Allocator) []const u8 {
+    pub fn superLastMatch(self: KCompletion, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KCompletion_SuperLastMatch(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletion.LastMatch: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletion.lastMatch: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `items` instead
+    ///
+    pub const Items = items;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#items)
     ///
@@ -268,7 +316,7 @@ pub const KCompletion = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Items(self: KCompletion, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn items(self: KCompletion, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KCompletion_Items(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -276,15 +324,19 @@ pub const KCompletion = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KCompletion.Items: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KCompletion.items: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KCompletion.Items: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KCompletion.items: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isEmpty` instead
+    ///
+    pub const IsEmpty = isEmpty;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#isEmpty)
     ///
@@ -292,9 +344,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` self: KCompletion `
     ///
-    pub fn IsEmpty(self: KCompletion) bool {
+    pub fn isEmpty(self: KCompletion) bool {
         return qtc.KCompletion_IsEmpty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCompletionMode` instead
+    ///
+    pub const SetCompletionMode = setCompletionMode;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#setCompletionMode)
     ///
@@ -304,9 +360,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` mode: kcompletion_enums.CompletionMode `
     ///
-    pub fn SetCompletionMode(self: KCompletion, mode: i32) void {
+    pub fn setCompletionMode(self: KCompletion, mode: i32) void {
         qtc.KCompletion_SetCompletionMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `onSetCompletionMode` instead
+    ///
+    pub const OnSetCompletionMode = onSetCompletionMode;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#setCompletionMode)
     ///
@@ -318,13 +378,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletion, mode: kcompletion_enums.CompletionMode) callconv(.c) void `
     ///
-    pub fn OnSetCompletionMode(self: KCompletion, callback: *const fn (KCompletion, i32) callconv(.c) void) void {
+    pub fn onSetCompletionMode(self: KCompletion, callback: *const fn (KCompletion, i32) callconv(.c) void) void {
         qtc.KCompletion_OnSetCompletionMode(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetCompletionMode` instead
+    /// ### DEPRECATED: Use `superSetCompletionMode` instead
     ///
-    pub const QBaseSetCompletionMode = SuperSetCompletionMode;
+    pub const SuperSetCompletionMode = superSetCompletionMode;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#setCompletionMode)
     ///
@@ -336,9 +396,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` mode: kcompletion_enums.CompletionMode `
     ///
-    pub fn SuperSetCompletionMode(self: KCompletion, mode: i32) void {
+    pub fn superSetCompletionMode(self: KCompletion, mode: i32) void {
         qtc.KCompletion_SuperSetCompletionMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `completionMode` instead
+    ///
+    pub const CompletionMode = completionMode;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#completionMode)
     ///
@@ -350,9 +414,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` kcompletion_enums.CompletionMode `
     ///
-    pub fn CompletionMode(self: KCompletion) i32 {
+    pub fn completionMode(self: KCompletion) i32 {
         return qtc.KCompletion_CompletionMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setOrder` instead
+    ///
+    pub const SetOrder = setOrder;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#setOrder)
     ///
@@ -360,11 +428,15 @@ pub const KCompletion = extern struct {
     ///
     /// ` self: KCompletion `
     ///
-    /// ` order: kcompletion_enums.CompOrder `
+    /// ` _order: kcompletion_enums.CompOrder `
     ///
-    pub fn SetOrder(self: KCompletion, order: i32) void {
-        qtc.KCompletion_SetOrder(@ptrCast(self.ptr), @bitCast(order));
+    pub fn setOrder(self: KCompletion, _order: i32) void {
+        qtc.KCompletion_SetOrder(@ptrCast(self.ptr), @bitCast(_order));
     }
+
+    /// ### DEPRECATED: Use `onSetOrder` instead
+    ///
+    pub const OnSetOrder = onSetOrder;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#setOrder)
     ///
@@ -376,13 +448,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletion, order: kcompletion_enums.CompOrder) callconv(.c) void `
     ///
-    pub fn OnSetOrder(self: KCompletion, callback: *const fn (KCompletion, i32) callconv(.c) void) void {
+    pub fn onSetOrder(self: KCompletion, callback: *const fn (KCompletion, i32) callconv(.c) void) void {
         qtc.KCompletion_OnSetOrder(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetOrder` instead
+    /// ### DEPRECATED: Use `superSetOrder` instead
     ///
-    pub const QBaseSetOrder = SuperSetOrder;
+    pub const SuperSetOrder = superSetOrder;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#setOrder)
     ///
@@ -392,11 +464,15 @@ pub const KCompletion = extern struct {
     ///
     /// ` self: KCompletion `
     ///
-    /// ` order: kcompletion_enums.CompOrder `
+    /// ` _order: kcompletion_enums.CompOrder `
     ///
-    pub fn SuperSetOrder(self: KCompletion, order: i32) void {
-        qtc.KCompletion_SuperSetOrder(@ptrCast(self.ptr), @bitCast(order));
+    pub fn superSetOrder(self: KCompletion, _order: i32) void {
+        qtc.KCompletion_SuperSetOrder(@ptrCast(self.ptr), @bitCast(_order));
     }
+
+    /// ### DEPRECATED: Use `order` instead
+    ///
+    pub const Order = order;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#order)
     ///
@@ -408,9 +484,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` kcompletion_enums.CompOrder `
     ///
-    pub fn Order(self: KCompletion) i32 {
+    pub fn order(self: KCompletion) i32 {
         return qtc.KCompletion_Order(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setIgnoreCase` instead
+    ///
+    pub const SetIgnoreCase = setIgnoreCase;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#setIgnoreCase)
     ///
@@ -418,11 +498,15 @@ pub const KCompletion = extern struct {
     ///
     /// ` self: KCompletion `
     ///
-    /// ` ignoreCase: bool `
+    /// ` _ignoreCase: bool `
     ///
-    pub fn SetIgnoreCase(self: KCompletion, ignoreCase: bool) void {
-        qtc.KCompletion_SetIgnoreCase(@ptrCast(self.ptr), ignoreCase);
+    pub fn setIgnoreCase(self: KCompletion, _ignoreCase: bool) void {
+        qtc.KCompletion_SetIgnoreCase(@ptrCast(self.ptr), _ignoreCase);
     }
+
+    /// ### DEPRECATED: Use `onSetIgnoreCase` instead
+    ///
+    pub const OnSetIgnoreCase = onSetIgnoreCase;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#setIgnoreCase)
     ///
@@ -434,13 +518,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletion, ignoreCase: bool) callconv(.c) void `
     ///
-    pub fn OnSetIgnoreCase(self: KCompletion, callback: *const fn (KCompletion, bool) callconv(.c) void) void {
+    pub fn onSetIgnoreCase(self: KCompletion, callback: *const fn (KCompletion, bool) callconv(.c) void) void {
         qtc.KCompletion_OnSetIgnoreCase(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetIgnoreCase` instead
+    /// ### DEPRECATED: Use `superSetIgnoreCase` instead
     ///
-    pub const QBaseSetIgnoreCase = SuperSetIgnoreCase;
+    pub const SuperSetIgnoreCase = superSetIgnoreCase;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#setIgnoreCase)
     ///
@@ -450,11 +534,15 @@ pub const KCompletion = extern struct {
     ///
     /// ` self: KCompletion `
     ///
-    /// ` ignoreCase: bool `
+    /// ` _ignoreCase: bool `
     ///
-    pub fn SuperSetIgnoreCase(self: KCompletion, ignoreCase: bool) void {
-        qtc.KCompletion_SuperSetIgnoreCase(@ptrCast(self.ptr), ignoreCase);
+    pub fn superSetIgnoreCase(self: KCompletion, _ignoreCase: bool) void {
+        qtc.KCompletion_SuperSetIgnoreCase(@ptrCast(self.ptr), _ignoreCase);
     }
+
+    /// ### DEPRECATED: Use `ignoreCase` instead
+    ///
+    pub const IgnoreCase = ignoreCase;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#ignoreCase)
     ///
@@ -462,9 +550,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` self: KCompletion `
     ///
-    pub fn IgnoreCase(self: KCompletion) bool {
+    pub fn ignoreCase(self: KCompletion) bool {
         return qtc.KCompletion_IgnoreCase(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `shouldAutoSuggest` instead
+    ///
+    pub const ShouldAutoSuggest = shouldAutoSuggest;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#shouldAutoSuggest)
     ///
@@ -472,9 +564,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` self: KCompletion `
     ///
-    pub fn ShouldAutoSuggest(self: KCompletion) bool {
+    pub fn shouldAutoSuggest(self: KCompletion) bool {
         return qtc.KCompletion_ShouldAutoSuggest(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `allMatches` instead
+    ///
+    pub const AllMatches = allMatches;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#allMatches)
     ///
@@ -484,7 +580,7 @@ pub const KCompletion = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AllMatches(self: KCompletion, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn allMatches(self: KCompletion, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KCompletion_AllMatches(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -492,15 +588,19 @@ pub const KCompletion = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KCompletion.AllMatches: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KCompletion.allMatches: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KCompletion.AllMatches: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KCompletion.allMatches: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `allMatches2` instead
+    ///
+    pub const AllMatches2 = allMatches2;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#allMatches)
     ///
@@ -512,7 +612,7 @@ pub const KCompletion = extern struct {
     ///
     /// ` string: []const u8 `
     ///
-    pub fn AllMatches2(self: KCompletion, allocator: std.mem.Allocator, string: []const u8) []const []const u8 {
+    pub fn allMatches2(self: KCompletion, allocator: std.mem.Allocator, string: []const u8) []const []const u8 {
         const string_str = qtc.libqt_string{
             .len = string.len,
             .data = string.ptr,
@@ -524,15 +624,19 @@ pub const KCompletion = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KCompletion.AllMatches2: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KCompletion.allMatches2: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KCompletion.AllMatches2: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KCompletion.allMatches2: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `allWeightedMatches` instead
+    ///
+    pub const AllWeightedMatches = allWeightedMatches;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#allWeightedMatches)
     ///
@@ -540,9 +644,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` self: KCompletion `
     ///
-    pub fn AllWeightedMatches(self: KCompletion) KCompletionMatches {
+    pub fn allWeightedMatches(self: KCompletion) KCompletionMatches {
         return .{ .ptr = qtc.KCompletion_AllWeightedMatches(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `allWeightedMatches2` instead
+    ///
+    pub const AllWeightedMatches2 = allWeightedMatches2;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#allWeightedMatches)
     ///
@@ -552,13 +660,17 @@ pub const KCompletion = extern struct {
     ///
     /// ` string: []const u8 `
     ///
-    pub fn AllWeightedMatches2(self: KCompletion, string: []const u8) KCompletionMatches {
+    pub fn allWeightedMatches2(self: KCompletion, string: []const u8) KCompletionMatches {
         const string_str = qtc.libqt_string{
             .len = string.len,
             .data = string.ptr,
         };
         return .{ .ptr = qtc.KCompletion_AllWeightedMatches2(@ptrCast(self.ptr), string_str) };
     }
+
+    /// ### DEPRECATED: Use `setSoundsEnabled` instead
+    ///
+    pub const SetSoundsEnabled = setSoundsEnabled;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#setSoundsEnabled)
     ///
@@ -568,9 +680,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetSoundsEnabled(self: KCompletion, enable: bool) void {
+    pub fn setSoundsEnabled(self: KCompletion, enable: bool) void {
         qtc.KCompletion_SetSoundsEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `onSetSoundsEnabled` instead
+    ///
+    pub const OnSetSoundsEnabled = onSetSoundsEnabled;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#setSoundsEnabled)
     ///
@@ -582,13 +698,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletion, enable: bool) callconv(.c) void `
     ///
-    pub fn OnSetSoundsEnabled(self: KCompletion, callback: *const fn (KCompletion, bool) callconv(.c) void) void {
+    pub fn onSetSoundsEnabled(self: KCompletion, callback: *const fn (KCompletion, bool) callconv(.c) void) void {
         qtc.KCompletion_OnSetSoundsEnabled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetSoundsEnabled` instead
+    /// ### DEPRECATED: Use `superSetSoundsEnabled` instead
     ///
-    pub const QBaseSetSoundsEnabled = SuperSetSoundsEnabled;
+    pub const SuperSetSoundsEnabled = superSetSoundsEnabled;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#setSoundsEnabled)
     ///
@@ -600,9 +716,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SuperSetSoundsEnabled(self: KCompletion, enable: bool) void {
+    pub fn superSetSoundsEnabled(self: KCompletion, enable: bool) void {
         qtc.KCompletion_SuperSetSoundsEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `soundsEnabled` instead
+    ///
+    pub const SoundsEnabled = soundsEnabled;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#soundsEnabled)
     ///
@@ -610,9 +730,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` self: KCompletion `
     ///
-    pub fn SoundsEnabled(self: KCompletion) bool {
+    pub fn soundsEnabled(self: KCompletion) bool {
         return qtc.KCompletion_SoundsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasMultipleMatches` instead
+    ///
+    pub const HasMultipleMatches = hasMultipleMatches;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#hasMultipleMatches)
     ///
@@ -620,9 +744,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` self: KCompletion `
     ///
-    pub fn HasMultipleMatches(self: KCompletion) bool {
+    pub fn hasMultipleMatches(self: KCompletion) bool {
         return qtc.KCompletion_HasMultipleMatches(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `makeCompletion` instead
+    ///
+    pub const MakeCompletion = makeCompletion;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#makeCompletion)
     ///
@@ -634,17 +762,21 @@ pub const KCompletion = extern struct {
     ///
     /// ` string: []const u8 `
     ///
-    pub fn MakeCompletion(self: KCompletion, allocator: std.mem.Allocator, string: []const u8) []const u8 {
+    pub fn makeCompletion(self: KCompletion, allocator: std.mem.Allocator, string: []const u8) []const u8 {
         const string_str = qtc.libqt_string{
             .len = string.len,
             .data = string.ptr,
         };
         var _str = qtc.KCompletion_MakeCompletion(@ptrCast(self.ptr), string_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletion.MakeCompletion: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletion.makeCompletion: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onMakeCompletion` instead
+    ///
+    pub const OnMakeCompletion = onMakeCompletion;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#makeCompletion)
     ///
@@ -656,13 +788,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletion, string: [*:0]const u8) callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnMakeCompletion(self: KCompletion, callback: *const fn (KCompletion, [*:0]const u8) callconv(.c) [*:0]const u8) void {
+    pub fn onMakeCompletion(self: KCompletion, callback: *const fn (KCompletion, [*:0]const u8) callconv(.c) [*:0]const u8) void {
         qtc.KCompletion_OnMakeCompletion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMakeCompletion` instead
+    /// ### DEPRECATED: Use `superMakeCompletion` instead
     ///
-    pub const QBaseMakeCompletion = SuperMakeCompletion;
+    pub const SuperMakeCompletion = superMakeCompletion;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#makeCompletion)
     ///
@@ -676,17 +808,21 @@ pub const KCompletion = extern struct {
     ///
     /// ` string: []const u8 `
     ///
-    pub fn SuperMakeCompletion(self: KCompletion, allocator: std.mem.Allocator, string: []const u8) []const u8 {
+    pub fn superMakeCompletion(self: KCompletion, allocator: std.mem.Allocator, string: []const u8) []const u8 {
         const string_str = qtc.libqt_string{
             .len = string.len,
             .data = string.ptr,
         };
         var _str = qtc.KCompletion_SuperMakeCompletion(@ptrCast(self.ptr), string_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletion.MakeCompletion: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletion.makeCompletion: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `previousMatch` instead
+    ///
+    pub const PreviousMatch = previousMatch;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#previousMatch)
     ///
@@ -696,13 +832,17 @@ pub const KCompletion = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PreviousMatch(self: KCompletion, allocator: std.mem.Allocator) []const u8 {
+    pub fn previousMatch(self: KCompletion, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KCompletion_PreviousMatch(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletion.PreviousMatch: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletion.previousMatch: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `nextMatch` instead
+    ///
+    pub const NextMatch = nextMatch;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#nextMatch)
     ///
@@ -712,13 +852,17 @@ pub const KCompletion = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NextMatch(self: KCompletion, allocator: std.mem.Allocator) []const u8 {
+    pub fn nextMatch(self: KCompletion, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KCompletion_NextMatch(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletion.NextMatch: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletion.nextMatch: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `insertItems` instead
+    ///
+    pub const InsertItems = insertItems;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#insertItems)
     ///
@@ -728,22 +872,26 @@ pub const KCompletion = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` items: []const []const u8 `
+    /// ` _items: []const []const u8 `
     ///
-    pub fn InsertItems(self: KCompletion, allocator: std.mem.Allocator, items: []const []const u8) void {
-        const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("KCompletion.InsertItems: Memory allocation failed");
+    pub fn insertItems(self: KCompletion, allocator: std.mem.Allocator, _items: []const []const u8) void {
+        const items_arr = allocator.alloc(qtc.libqt_string, _items.len) catch @panic("KCompletion.insertItems: Memory allocation failed");
         defer allocator.free(items_arr);
-        for (items, 0..items.len) |item, i|
+        for (_items, 0.._items.len) |str_item, i|
             items_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const items_list = qtc.libqt_list{
-            .len = items.len,
+            .len = _items.len,
             .data = items_arr.ptr,
         };
         qtc.KCompletion_InsertItems(@ptrCast(self.ptr), items_list);
     }
+
+    /// ### DEPRECATED: Use `setItems` instead
+    ///
+    pub const SetItems = setItems;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#setItems)
     ///
@@ -755,13 +903,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` itemList: []const []const u8 `
     ///
-    pub fn SetItems(self: KCompletion, allocator: std.mem.Allocator, itemList: []const []const u8) void {
-        const itemList_arr = allocator.alloc(qtc.libqt_string, itemList.len) catch @panic("KCompletion.SetItems: Memory allocation failed");
+    pub fn setItems(self: KCompletion, allocator: std.mem.Allocator, itemList: []const []const u8) void {
+        const itemList_arr = allocator.alloc(qtc.libqt_string, itemList.len) catch @panic("KCompletion.setItems: Memory allocation failed");
         defer allocator.free(itemList_arr);
-        for (itemList, 0..itemList.len) |item, i|
+        for (itemList, 0..itemList.len) |str_item, i|
             itemList_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const itemList_list = qtc.libqt_list{
             .len = itemList.len,
@@ -769,6 +917,10 @@ pub const KCompletion = extern struct {
         };
         qtc.KCompletion_SetItems(@ptrCast(self.ptr), itemList_list);
     }
+
+    /// ### DEPRECATED: Use `onSetItems` instead
+    ///
+    pub const OnSetItems = onSetItems;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#setItems)
     ///
@@ -780,13 +932,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletion, itemList: ?[*:null]?[*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetItems(self: KCompletion, callback: *const fn (KCompletion, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
+    pub fn onSetItems(self: KCompletion, callback: *const fn (KCompletion, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
         qtc.KCompletion_OnSetItems(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetItems` instead
+    /// ### DEPRECATED: Use `superSetItems` instead
     ///
-    pub const QBaseSetItems = SuperSetItems;
+    pub const SuperSetItems = superSetItems;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#setItems)
     ///
@@ -800,13 +952,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` itemList: []const []const u8 `
     ///
-    pub fn SuperSetItems(self: KCompletion, allocator: std.mem.Allocator, itemList: []const []const u8) void {
-        const itemList_arr = allocator.alloc(qtc.libqt_string, itemList.len) catch @panic("KCompletion.SetItems: Memory allocation failed");
+    pub fn superSetItems(self: KCompletion, allocator: std.mem.Allocator, itemList: []const []const u8) void {
+        const itemList_arr = allocator.alloc(qtc.libqt_string, itemList.len) catch @panic("KCompletion.setItems: Memory allocation failed");
         defer allocator.free(itemList_arr);
-        for (itemList, 0..itemList.len) |item, i|
+        for (itemList, 0..itemList.len) |str_item, i|
             itemList_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const itemList_list = qtc.libqt_list{
             .len = itemList.len,
@@ -814,6 +966,10 @@ pub const KCompletion = extern struct {
         };
         qtc.KCompletion_SuperSetItems(@ptrCast(self.ptr), itemList_list);
     }
+
+    /// ### DEPRECATED: Use `addItem` instead
+    ///
+    pub const AddItem = addItem;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#addItem)
     ///
@@ -823,13 +979,17 @@ pub const KCompletion = extern struct {
     ///
     /// ` item: []const u8 `
     ///
-    pub fn AddItem(self: KCompletion, item: []const u8) void {
+    pub fn addItem(self: KCompletion, item: []const u8) void {
         const item_str = qtc.libqt_string{
             .len = item.len,
             .data = item.ptr,
         };
         qtc.KCompletion_AddItem(@ptrCast(self.ptr), item_str);
     }
+
+    /// ### DEPRECATED: Use `addItem2` instead
+    ///
+    pub const AddItem2 = addItem2;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#addItem)
     ///
@@ -841,13 +1001,17 @@ pub const KCompletion = extern struct {
     ///
     /// ` weight: u32 `
     ///
-    pub fn AddItem2(self: KCompletion, item: []const u8, weight: u32) void {
+    pub fn addItem2(self: KCompletion, item: []const u8, weight: u32) void {
         const item_str = qtc.libqt_string{
             .len = item.len,
             .data = item.ptr,
         };
         qtc.KCompletion_AddItem2(@ptrCast(self.ptr), item_str, @bitCast(weight));
     }
+
+    /// ### DEPRECATED: Use `removeItem` instead
+    ///
+    pub const RemoveItem = removeItem;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#removeItem)
     ///
@@ -857,7 +1021,7 @@ pub const KCompletion = extern struct {
     ///
     /// ` item: []const u8 `
     ///
-    pub fn RemoveItem(self: KCompletion, item: []const u8) void {
+    pub fn removeItem(self: KCompletion, item: []const u8) void {
         const item_str = qtc.libqt_string{
             .len = item.len,
             .data = item.ptr,
@@ -865,15 +1029,23 @@ pub const KCompletion = extern struct {
         qtc.KCompletion_RemoveItem(@ptrCast(self.ptr), item_str);
     }
 
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
+
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#clear)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KCompletion `
     ///
-    pub fn Clear(self: KCompletion) void {
+    pub fn clear(self: KCompletion) void {
         qtc.KCompletion_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onClear` instead
+    ///
+    pub const OnClear = onClear;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#clear)
     ///
@@ -885,13 +1057,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnClear(self: KCompletion, callback: *const fn () callconv(.c) void) void {
+    pub fn onClear(self: KCompletion, callback: *const fn () callconv(.c) void) void {
         qtc.KCompletion_OnClear(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperClear` instead
+    /// ### DEPRECATED: Use `superClear` instead
     ///
-    pub const QBaseClear = SuperClear;
+    pub const SuperClear = superClear;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#clear)
     ///
@@ -901,9 +1073,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` self: KCompletion `
     ///
-    pub fn SuperClear(self: KCompletion) void {
+    pub fn superClear(self: KCompletion) void {
         qtc.KCompletion_SuperClear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `match` instead
+    ///
+    pub const Match = match;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#match)
     ///
@@ -913,13 +1089,17 @@ pub const KCompletion = extern struct {
     ///
     /// ` item: []const u8 `
     ///
-    pub fn Match(self: KCompletion, item: []const u8) void {
+    pub fn match(self: KCompletion, item: []const u8) void {
         const item_str = qtc.libqt_string{
             .len = item.len,
             .data = item.ptr,
         };
         qtc.KCompletion_Match(@ptrCast(self.ptr), item_str);
     }
+
+    /// ### DEPRECATED: Use `onMatch` instead
+    ///
+    pub const OnMatch = onMatch;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#match)
     ///
@@ -929,9 +1109,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletion, item: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnMatch(self: KCompletion, callback: *const fn (KCompletion, [*:0]const u8) callconv(.c) void) void {
+    pub fn onMatch(self: KCompletion, callback: *const fn (KCompletion, [*:0]const u8) callconv(.c) void) void {
         qtc.KCompletion_Connect_Match(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `matches` instead
+    ///
+    pub const Matches = matches;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#matches)
     ///
@@ -943,13 +1127,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` matchlist: []const []const u8 `
     ///
-    pub fn Matches(self: KCompletion, allocator: std.mem.Allocator, matchlist: []const []const u8) void {
-        const matchlist_arr = allocator.alloc(qtc.libqt_string, matchlist.len) catch @panic("KCompletion.Matches: Memory allocation failed");
+    pub fn matches(self: KCompletion, allocator: std.mem.Allocator, matchlist: []const []const u8) void {
+        const matchlist_arr = allocator.alloc(qtc.libqt_string, matchlist.len) catch @panic("KCompletion.matches: Memory allocation failed");
         defer allocator.free(matchlist_arr);
-        for (matchlist, 0..matchlist.len) |item, i|
+        for (matchlist, 0..matchlist.len) |str_item, i|
             matchlist_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const matchlist_list = qtc.libqt_list{
             .len = matchlist.len,
@@ -957,6 +1141,10 @@ pub const KCompletion = extern struct {
         };
         qtc.KCompletion_Matches(@ptrCast(self.ptr), matchlist_list);
     }
+
+    /// ### DEPRECATED: Use `onMatches` instead
+    ///
+    pub const OnMatches = onMatches;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#matches)
     ///
@@ -966,9 +1154,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletion, matchlist: ?[*:null]?[*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnMatches(self: KCompletion, callback: *const fn (KCompletion, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
+    pub fn onMatches(self: KCompletion, callback: *const fn (KCompletion, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
         qtc.KCompletion_Connect_Matches(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `multipleMatches` instead
+    ///
+    pub const MultipleMatches = multipleMatches;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#multipleMatches)
     ///
@@ -976,9 +1168,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` self: KCompletion `
     ///
-    pub fn MultipleMatches(self: KCompletion) void {
+    pub fn multipleMatches(self: KCompletion) void {
         qtc.KCompletion_MultipleMatches(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMultipleMatches` instead
+    ///
+    pub const OnMultipleMatches = onMultipleMatches;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#multipleMatches)
     ///
@@ -988,9 +1184,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletion) callconv(.c) void `
     ///
-    pub fn OnMultipleMatches(self: KCompletion, callback: *const fn (KCompletion) callconv(.c) void) void {
+    pub fn onMultipleMatches(self: KCompletion, callback: *const fn (KCompletion) callconv(.c) void) void {
         qtc.KCompletion_Connect_MultipleMatches(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `postProcessMatches` instead
+    ///
+    pub const PostProcessMatches = postProcessMatches;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#postProcessMatches)
     ///
@@ -1002,13 +1202,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` matchList: []const []const u8 `
     ///
-    pub fn PostProcessMatches(self: KCompletion, allocator: std.mem.Allocator, matchList: []const []const u8) void {
-        const matchList_arr = allocator.alloc(qtc.libqt_string, matchList.len) catch @panic("KCompletion.PostProcessMatches: Memory allocation failed");
+    pub fn postProcessMatches(self: KCompletion, allocator: std.mem.Allocator, matchList: []const []const u8) void {
+        const matchList_arr = allocator.alloc(qtc.libqt_string, matchList.len) catch @panic("KCompletion.postProcessMatches: Memory allocation failed");
         defer allocator.free(matchList_arr);
-        for (matchList, 0..matchList.len) |item, i|
+        for (matchList, 0..matchList.len) |str_item, i|
             matchList_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const matchList_list = qtc.libqt_list{
             .len = matchList.len,
@@ -1016,6 +1216,10 @@ pub const KCompletion = extern struct {
         };
         qtc.KCompletion_PostProcessMatches(@ptrCast(self.ptr), matchList_list);
     }
+
+    /// ### DEPRECATED: Use `onPostProcessMatches` instead
+    ///
+    pub const OnPostProcessMatches = onPostProcessMatches;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#postProcessMatches)
     ///
@@ -1027,13 +1231,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletion, matchList: ?[*:null]?[*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnPostProcessMatches(self: KCompletion, callback: *const fn (KCompletion, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
+    pub fn onPostProcessMatches(self: KCompletion, callback: *const fn (KCompletion, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
         qtc.KCompletion_OnPostProcessMatches(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPostProcessMatches` instead
+    /// ### DEPRECATED: Use `superPostProcessMatches` instead
     ///
-    pub const QBasePostProcessMatches = SuperPostProcessMatches;
+    pub const SuperPostProcessMatches = superPostProcessMatches;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#postProcessMatches)
     ///
@@ -1047,13 +1251,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` matchList: []const []const u8 `
     ///
-    pub fn SuperPostProcessMatches(self: KCompletion, allocator: std.mem.Allocator, matchList: []const []const u8) void {
-        const matchList_arr = allocator.alloc(qtc.libqt_string, matchList.len) catch @panic("KCompletion.PostProcessMatches: Memory allocation failed");
+    pub fn superPostProcessMatches(self: KCompletion, allocator: std.mem.Allocator, matchList: []const []const u8) void {
+        const matchList_arr = allocator.alloc(qtc.libqt_string, matchList.len) catch @panic("KCompletion.postProcessMatches: Memory allocation failed");
         defer allocator.free(matchList_arr);
-        for (matchList, 0..matchList.len) |item, i|
+        for (matchList, 0..matchList.len) |str_item, i|
             matchList_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const matchList_list = qtc.libqt_list{
             .len = matchList.len,
@@ -1062,18 +1266,26 @@ pub const KCompletion = extern struct {
         qtc.KCompletion_SuperPostProcessMatches(@ptrCast(self.ptr), matchList_list);
     }
 
+    /// ### DEPRECATED: Use `postProcessMatches2` instead
+    ///
+    pub const PostProcessMatches2 = postProcessMatches2;
+
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#postProcessMatches)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KCompletion `
     ///
-    /// ` matches: KCompletionMatches `
+    /// ` _matches: KCompletionMatches `
     ///
-    pub fn PostProcessMatches2(self: KCompletion, matches: anytype) void {
-        comptime _ = @TypeOf(matches)._is_KCompletionMatches;
-        qtc.KCompletion_PostProcessMatches2(@ptrCast(self.ptr), @ptrCast(matches.ptr));
+    pub fn postProcessMatches2(self: KCompletion, _matches: anytype) void {
+        comptime _ = @TypeOf(_matches)._is_KCompletionMatches;
+        qtc.KCompletion_PostProcessMatches2(@ptrCast(self.ptr), @ptrCast(_matches.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPostProcessMatches2` instead
+    ///
+    pub const OnPostProcessMatches2 = onPostProcessMatches2;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#postProcessMatches)
     ///
@@ -1085,13 +1297,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletion, matches: KCompletionMatches) callconv(.c) void `
     ///
-    pub fn OnPostProcessMatches2(self: KCompletion, callback: *const fn (KCompletion, KCompletionMatches) callconv(.c) void) void {
+    pub fn onPostProcessMatches2(self: KCompletion, callback: *const fn (KCompletion, KCompletionMatches) callconv(.c) void) void {
         qtc.KCompletion_OnPostProcessMatches2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPostProcessMatches2` instead
+    /// ### DEPRECATED: Use `superPostProcessMatches2` instead
     ///
-    pub const QBasePostProcessMatches2 = SuperPostProcessMatches2;
+    pub const SuperPostProcessMatches2 = superPostProcessMatches2;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#postProcessMatches)
     ///
@@ -1101,12 +1313,16 @@ pub const KCompletion = extern struct {
     ///
     /// ` self: KCompletion `
     ///
-    /// ` matches: KCompletionMatches `
+    /// ` _matches: KCompletionMatches `
     ///
-    pub fn SuperPostProcessMatches2(self: KCompletion, matches: anytype) void {
-        comptime _ = @TypeOf(matches)._is_KCompletionMatches;
-        qtc.KCompletion_SuperPostProcessMatches2(@ptrCast(self.ptr), @ptrCast(matches.ptr));
+    pub fn superPostProcessMatches2(self: KCompletion, _matches: anytype) void {
+        comptime _ = @TypeOf(_matches)._is_KCompletionMatches;
+        qtc.KCompletion_SuperPostProcessMatches2(@ptrCast(self.ptr), @ptrCast(_matches.ptr));
     }
+
+    /// ### DEPRECATED: Use `setShouldAutoSuggest` instead
+    ///
+    pub const SetShouldAutoSuggest = setShouldAutoSuggest;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#setShouldAutoSuggest)
     ///
@@ -1116,9 +1332,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` shouldAutosuggest: bool `
     ///
-    pub fn SetShouldAutoSuggest(self: KCompletion, shouldAutosuggest: bool) void {
+    pub fn setShouldAutoSuggest(self: KCompletion, shouldAutosuggest: bool) void {
         qtc.KCompletion_SetShouldAutoSuggest(@ptrCast(self.ptr), shouldAutosuggest);
     }
+
+    /// ### DEPRECATED: Use `onSetShouldAutoSuggest` instead
+    ///
+    pub const OnSetShouldAutoSuggest = onSetShouldAutoSuggest;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#setShouldAutoSuggest)
     ///
@@ -1130,13 +1350,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletion, shouldAutosuggest: bool) callconv(.c) void `
     ///
-    pub fn OnSetShouldAutoSuggest(self: KCompletion, callback: *const fn (KCompletion, bool) callconv(.c) void) void {
+    pub fn onSetShouldAutoSuggest(self: KCompletion, callback: *const fn (KCompletion, bool) callconv(.c) void) void {
         qtc.KCompletion_OnSetShouldAutoSuggest(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetShouldAutoSuggest` instead
+    /// ### DEPRECATED: Use `superSetShouldAutoSuggest` instead
     ///
-    pub const QBaseSetShouldAutoSuggest = SuperSetShouldAutoSuggest;
+    pub const SuperSetShouldAutoSuggest = superSetShouldAutoSuggest;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#setShouldAutoSuggest)
     ///
@@ -1148,9 +1368,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` shouldAutosuggest: bool `
     ///
-    pub fn SuperSetShouldAutoSuggest(self: KCompletion, shouldAutosuggest: bool) void {
+    pub fn superSetShouldAutoSuggest(self: KCompletion, shouldAutosuggest: bool) void {
         qtc.KCompletion_SuperSetShouldAutoSuggest(@ptrCast(self.ptr), shouldAutosuggest);
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1162,15 +1386,19 @@ pub const KCompletion = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletion.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletion.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1184,15 +1412,19 @@ pub const KCompletion = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletion.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletion.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -1204,13 +1436,17 @@ pub const KCompletion = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KCompletion, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KCompletion, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletion.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletion.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -1222,13 +1458,17 @@ pub const KCompletion = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KCompletion, name: []const u8) void {
+    pub fn setObjectName(self: KCompletion, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -1238,9 +1478,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` self: KCompletion `
     ///
-    pub fn IsWidgetType(self: KCompletion) bool {
+    pub fn isWidgetType(self: KCompletion) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -1250,9 +1494,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` self: KCompletion `
     ///
-    pub fn IsWindowType(self: KCompletion) bool {
+    pub fn isWindowType(self: KCompletion) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -1262,9 +1510,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` self: KCompletion `
     ///
-    pub fn IsQuickItemType(self: KCompletion) bool {
+    pub fn isQuickItemType(self: KCompletion) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -1274,9 +1526,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` self: KCompletion `
     ///
-    pub fn SignalsBlocked(self: KCompletion) bool {
+    pub fn signalsBlocked(self: KCompletion) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -1288,9 +1544,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KCompletion, b: bool) bool {
+    pub fn blockSignals(self: KCompletion, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -1300,9 +1560,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` self: KCompletion `
     ///
-    pub fn Thread(self: KCompletion) QThread {
+    pub fn thread(self: KCompletion) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -1312,12 +1576,16 @@ pub const KCompletion = extern struct {
     ///
     /// ` self: KCompletion `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KCompletion, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KCompletion, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -1329,9 +1597,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KCompletion, interval: i32) i32 {
+    pub fn startTimer(self: KCompletion, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -1343,9 +1615,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KCompletion, time: i64) i32 {
+    pub fn startTimer2(self: KCompletion, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -1357,9 +1633,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KCompletion, id: i32) void {
+    pub fn killTimer(self: KCompletion, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -1371,9 +1651,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KCompletion, id: i32) void {
+    pub fn killTimer2(self: KCompletion, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -1385,15 +1669,19 @@ pub const KCompletion = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KCompletion, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KCompletion, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KCompletion.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KCompletion.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -1403,12 +1691,16 @@ pub const KCompletion = extern struct {
     ///
     /// ` self: KCompletion `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: KCompletion, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: KCompletion, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1420,10 +1712,14 @@ pub const KCompletion = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KCompletion, filterObj: anytype) void {
+    pub fn installEventFilter(self: KCompletion, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1435,10 +1731,14 @@ pub const KCompletion = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KCompletion, obj: anytype) void {
+    pub fn removeEventFilter(self: KCompletion, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -1446,7 +1746,7 @@ pub const KCompletion = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1454,13 +1754,17 @@ pub const KCompletion = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -1468,7 +1772,7 @@ pub const KCompletion = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1476,13 +1780,17 @@ pub const KCompletion = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1492,18 +1800,22 @@ pub const KCompletion = extern struct {
     ///
     /// ` self: KCompletion `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KCompletion, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KCompletion, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1511,7 +1823,7 @@ pub const KCompletion = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1519,13 +1831,17 @@ pub const KCompletion = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1533,7 +1849,7 @@ pub const KCompletion = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1541,13 +1857,17 @@ pub const KCompletion = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1557,9 +1877,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` self: KCompletion `
     ///
-    pub fn Disconnect3(self: KCompletion) bool {
+    pub fn disconnect3(self: KCompletion) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1571,10 +1895,14 @@ pub const KCompletion = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KCompletion, receiver: anytype) bool {
+    pub fn disconnect4(self: KCompletion, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1584,10 +1912,14 @@ pub const KCompletion = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1597,9 +1929,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` self: KCompletion `
     ///
-    pub fn DumpObjectTree(self: KCompletion) void {
+    pub fn dumpObjectTree(self: KCompletion) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1609,9 +1945,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` self: KCompletion `
     ///
-    pub fn DumpObjectInfo(self: KCompletion) void {
+    pub fn dumpObjectInfo(self: KCompletion) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1625,11 +1965,15 @@ pub const KCompletion = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KCompletion, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KCompletion, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1641,10 +1985,14 @@ pub const KCompletion = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KCompletion, name: [:0]const u8) QVariant {
+    pub fn property(self: KCompletion, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1656,7 +2004,7 @@ pub const KCompletion = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KCompletion, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KCompletion, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1664,27 +2012,19 @@ pub const KCompletion = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KCompletion.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KCompletion.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KCompletion.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KCompletion.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCompletion `
-    ///
-    pub fn BindingStorage(self: KCompletion) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1694,9 +2034,29 @@ pub const KCompletion = extern struct {
     ///
     /// ` self: KCompletion `
     ///
-    pub fn BindingStorage2(self: KCompletion) QBindingStorage {
+    pub fn bindingStorage(self: KCompletion) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KCompletion `
+    ///
+    pub fn bindingStorage2(self: KCompletion) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1706,9 +2066,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` self: KCompletion `
     ///
-    pub fn Destroyed(self: KCompletion) void {
+    pub fn destroyed(self: KCompletion) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1720,9 +2084,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletion) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KCompletion, callback: *const fn (KCompletion) callconv(.c) void) void {
+    pub fn onDestroyed(self: KCompletion, callback: *const fn (KCompletion) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1732,9 +2100,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` self: KCompletion `
     ///
-    pub fn Parent(self: KCompletion) QObject {
+    pub fn parent(self: KCompletion) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1746,10 +2118,14 @@ pub const KCompletion = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KCompletion, classname: [:0]const u8) bool {
+    pub fn inherits(self: KCompletion, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1759,9 +2135,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` self: KCompletion `
     ///
-    pub fn DeleteLater(self: KCompletion) void {
+    pub fn deleteLater(self: KCompletion) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1775,9 +2155,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KCompletion, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KCompletion, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1791,9 +2175,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KCompletion, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KCompletion, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1801,7 +2189,7 @@ pub const KCompletion = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1811,13 +2199,17 @@ pub const KCompletion = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1825,7 +2217,7 @@ pub const KCompletion = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1835,13 +2227,17 @@ pub const KCompletion = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1851,7 +2247,7 @@ pub const KCompletion = extern struct {
     ///
     /// ` self: KCompletion `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1859,12 +2255,16 @@ pub const KCompletion = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KCompletion, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KCompletion, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1876,10 +2276,14 @@ pub const KCompletion = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KCompletion, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KCompletion, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1893,11 +2297,15 @@ pub const KCompletion = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KCompletion, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KCompletion, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1913,13 +2321,17 @@ pub const KCompletion = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KCompletion, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KCompletion, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1932,11 +2344,15 @@ pub const KCompletion = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KCompletion, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KCompletion, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1948,10 +2364,14 @@ pub const KCompletion = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KCompletion, param1: anytype) void {
+    pub fn destroyed1(self: KCompletion, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1963,9 +2383,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletion, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KCompletion, callback: *const fn (KCompletion, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KCompletion, callback: *const fn (KCompletion, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1977,16 +2401,16 @@ pub const KCompletion = extern struct {
     ///
     /// ` self: KCompletion `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: KCompletion, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KCompletion_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: KCompletion, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KCompletion_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1998,12 +2422,16 @@ pub const KCompletion = extern struct {
     ///
     /// ` self: KCompletion `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: KCompletion, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KCompletion_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: KCompletion, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KCompletion_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -2017,9 +2445,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletion, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KCompletion, callback: *const fn (KCompletion, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KCompletion, callback: *const fn (KCompletion, QEvent) callconv(.c) bool) void {
         qtc.KCompletion_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -2033,17 +2465,17 @@ pub const KCompletion = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KCompletion, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KCompletion, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KCompletion_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KCompletion_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2057,13 +2489,17 @@ pub const KCompletion = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: KCompletion, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: KCompletion, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KCompletion_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KCompletion_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2077,9 +2513,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletion, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KCompletion, callback: *const fn (KCompletion, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KCompletion, callback: *const fn (KCompletion, QObject, QEvent) callconv(.c) bool) void {
         qtc.KCompletion_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -2091,16 +2531,16 @@ pub const KCompletion = extern struct {
     ///
     /// ` self: KCompletion `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KCompletion, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KCompletion_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KCompletion, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KCompletion_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -2112,12 +2552,16 @@ pub const KCompletion = extern struct {
     ///
     /// ` self: KCompletion `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KCompletion, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KCompletion_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KCompletion, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KCompletion_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -2131,9 +2575,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletion, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KCompletion, callback: *const fn (KCompletion, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KCompletion, callback: *const fn (KCompletion, QTimerEvent) callconv(.c) void) void {
         qtc.KCompletion_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -2145,16 +2593,16 @@ pub const KCompletion = extern struct {
     ///
     /// ` self: KCompletion `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KCompletion, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KCompletion_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KCompletion, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KCompletion_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2166,12 +2614,16 @@ pub const KCompletion = extern struct {
     ///
     /// ` self: KCompletion `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KCompletion, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KCompletion_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KCompletion, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KCompletion_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2185,9 +2637,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletion, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KCompletion, callback: *const fn (KCompletion, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KCompletion, callback: *const fn (KCompletion, QChildEvent) callconv(.c) void) void {
         qtc.KCompletion_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -2199,16 +2655,16 @@ pub const KCompletion = extern struct {
     ///
     /// ` self: KCompletion `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KCompletion, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KCompletion_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KCompletion, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KCompletion_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2220,12 +2676,16 @@ pub const KCompletion = extern struct {
     ///
     /// ` self: KCompletion `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KCompletion, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KCompletion_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KCompletion, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KCompletion_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2239,9 +2699,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletion, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KCompletion, callback: *const fn (KCompletion, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KCompletion, callback: *const fn (KCompletion, QEvent) callconv(.c) void) void {
         qtc.KCompletion_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -2255,14 +2719,14 @@ pub const KCompletion = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KCompletion, signal: anytype) void {
+    pub fn connectNotify(self: KCompletion, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KCompletion_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2276,11 +2740,15 @@ pub const KCompletion = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KCompletion, signal: anytype) void {
+    pub fn superConnectNotify(self: KCompletion, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KCompletion_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -2293,9 +2761,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletion, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KCompletion, callback: *const fn (KCompletion, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KCompletion, callback: *const fn (KCompletion, QMetaMethod) callconv(.c) void) void {
         qtc.KCompletion_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2309,14 +2781,14 @@ pub const KCompletion = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KCompletion, signal: anytype) void {
+    pub fn disconnectNotify(self: KCompletion, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KCompletion_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2330,10 +2802,14 @@ pub const KCompletion = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KCompletion, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KCompletion, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KCompletion_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2347,9 +2823,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletion, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KCompletion, callback: *const fn (KCompletion, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KCompletion, callback: *const fn (KCompletion, QMetaMethod) callconv(.c) void) void {
         qtc.KCompletion_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -2361,13 +2841,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` self: KCompletion `
     ///
-    pub fn Sender(self: KCompletion) QObject {
+    pub fn sender(self: KCompletion) QObject {
         return .{ .ptr = qtc.KCompletion_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -2379,9 +2859,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` self: KCompletion `
     ///
-    pub fn SuperSender(self: KCompletion) QObject {
+    pub fn superSender(self: KCompletion) QObject {
         return .{ .ptr = qtc.KCompletion_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -2395,9 +2879,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KCompletion, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KCompletion, callback: *const fn () callconv(.c) QObject) void {
         qtc.KCompletion_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2409,13 +2897,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` self: KCompletion `
     ///
-    pub fn SenderSignalIndex(self: KCompletion) i32 {
+    pub fn senderSignalIndex(self: KCompletion) i32 {
         return qtc.KCompletion_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2427,9 +2915,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` self: KCompletion `
     ///
-    pub fn SuperSenderSignalIndex(self: KCompletion) i32 {
+    pub fn superSenderSignalIndex(self: KCompletion) i32 {
         return qtc.KCompletion_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2443,9 +2935,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KCompletion, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KCompletion, callback: *const fn () callconv(.c) i32) void {
         qtc.KCompletion_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -2459,14 +2955,14 @@ pub const KCompletion = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KCompletion, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KCompletion, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KCompletion_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -2480,10 +2976,14 @@ pub const KCompletion = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KCompletion, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KCompletion, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KCompletion_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -2497,9 +2997,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletion, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KCompletion, callback: *const fn (KCompletion, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KCompletion, callback: *const fn (KCompletion, [*:0]const u8) callconv(.c) i32) void {
         qtc.KCompletion_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2513,14 +3017,14 @@ pub const KCompletion = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KCompletion, signal: anytype) bool {
+    pub fn isSignalConnected(self: KCompletion, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KCompletion_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2534,10 +3038,14 @@ pub const KCompletion = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KCompletion, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KCompletion, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KCompletion_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2551,9 +3059,13 @@ pub const KCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletion, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KCompletion, callback: *const fn (KCompletion, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KCompletion, callback: *const fn (KCompletion, QMetaMethod) callconv(.c) bool) void {
         qtc.KCompletion_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -2567,23 +3079,23 @@ pub const KCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletion, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KCompletion, callback: *const fn (KCompletion, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KCompletion, callback: *const fn (KCompletion, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#dtor.KCompletion)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KCompletion `
     ///
-    pub fn Delete(self: KCompletion) void {
+    pub fn delete(self: KCompletion) void {
         qtc.KCompletion_Delete(@ptrCast(self.ptr));
     }
 };

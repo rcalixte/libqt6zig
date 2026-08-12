@@ -11,23 +11,27 @@ pub const KFileMetaData__EmbeddedImageData = extern struct {
 
     pub const _is_KFileMetaData__EmbeddedImageData = {};
 
-    /// New constructs a new KFileMetaData::EmbeddedImageData object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KFileMetaData__EmbeddedImageData {
+    pub const New = new;
+
+    /// Allocate a new KFileMetaData::EmbeddedImageData object in C++ memory
+    ///
+    pub fn new() KFileMetaData__EmbeddedImageData {
         return .{ .ptr = qtc.KFileMetaData__EmbeddedImageData_new() };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KFileMetaData__EmbeddedImageData `
     ///
-    pub fn Delete(self: KFileMetaData__EmbeddedImageData) void {
+    pub fn delete(self: KFileMetaData__EmbeddedImageData) void {
         qtc.KFileMetaData__EmbeddedImageData_Delete(@ptrCast(self.ptr));
     }
 };

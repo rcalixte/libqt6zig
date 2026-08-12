@@ -758,11 +758,14 @@ nextMethod:
 
 			var fieldType CppParameter
 			var skipSetter bool
+			var origName string
 
 			if typobj, ok := node["type"].(map[string]any); ok {
 				qualType := getPreferredType(typobj)
 				if qualType != "" {
 					fieldType = parseSingleTypeString(qualType, addNamePrefix)
+					origName = fieldName
+					fieldName = strings.TrimPrefix(fieldName, "_")
 					fieldType.ParameterName = fieldName
 
 					if err := AllowType(fieldType, false); err != nil {
@@ -800,29 +803,30 @@ nextMethod:
 
 					if fieldType.IsFunctionPointer {
 						fieldType.ParameterType = qualType
-						fieldType.ParameterName = strings.ToLower(fieldName[:1]) + fieldName[1:]
 					}
 				}
 			}
 
 			getter := CppMethod{
-				MethodName:        fieldName,
-				ReturnType:        fieldType,
-				Parameters:        []CppParameter{},
-				IsConst:           true,
-				IsVariable:        true,
-				VariableFieldName: fieldName,
+				MethodName:         fieldName,
+				ReturnType:         fieldType,
+				Parameters:         []CppParameter{},
+				IsConst:            true,
+				IsVariable:         true,
+				VariableFieldName:  fieldName,
+				OverrideMethodName: origName,
 			}
 
 			ret.Methods = append(ret.Methods, getter)
 
 			if !skipSetter {
 				setter := CppMethod{
-					MethodName:        "set" + strings.ToUpper(fieldName[:1]) + fieldName[1:],
-					ReturnType:        CppParameter{ParameterType: "void"},
-					Parameters:        []CppParameter{fieldType},
-					IsVariable:        true,
-					VariableFieldName: fieldName,
+					MethodName:         "set" + strings.ToUpper(fieldName[:1]) + fieldName[1:],
+					ReturnType:         CppParameter{ParameterType: "void"},
+					Parameters:         []CppParameter{fieldType},
+					IsVariable:         true,
+					VariableFieldName:  fieldName,
+					OverrideMethodName: origName,
 				}
 				ret.Methods = append(ret.Methods, setter)
 			}

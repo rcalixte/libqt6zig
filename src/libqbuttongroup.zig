@@ -26,22 +26,34 @@ pub const QButtonGroup = extern struct {
     pub const _is_QButtonGroup = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QButtonGroup object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QButtonGroup {
+    pub const New = new;
+
+    /// Allocate a new QButtonGroup object in C++ memory
+    ///
+    pub fn new() QButtonGroup {
         return .{ .ptr = qtc.QButtonGroup_new() };
     }
 
-    /// New2 constructs a new QButtonGroup object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QButtonGroup object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) QButtonGroup {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QButtonGroup_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) QButtonGroup {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QButtonGroup_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -49,9 +61,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` self: QButtonGroup `
     ///
-    pub fn MetaObject(self: QButtonGroup) QMetaObject {
+    pub fn metaObject(self: QButtonGroup) QMetaObject {
         return .{ .ptr = qtc.QButtonGroup_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -63,13 +79,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QButtonGroup, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QButtonGroup, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QButtonGroup_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -79,9 +95,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` self: QButtonGroup `
     ///
-    pub fn SuperMetaObject(self: QButtonGroup) QMetaObject {
+    pub fn superMetaObject(self: QButtonGroup) QMetaObject {
         return .{ .ptr = qtc.QButtonGroup_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -89,10 +109,14 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QButtonGroup, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QButtonGroup, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QButtonGroup_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -102,13 +126,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QButtonGroup, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QButtonGroup, callback: *const fn (QButtonGroup, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QButtonGroup, callback: *const fn (QButtonGroup, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QButtonGroup_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -118,10 +142,14 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QButtonGroup, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QButtonGroup, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QButtonGroup_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -133,9 +161,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QButtonGroup, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QButtonGroup, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QButtonGroup_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -145,13 +177,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QButtonGroup, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QButtonGroup, callback: *const fn (QButtonGroup, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QButtonGroup, callback: *const fn (QButtonGroup, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QButtonGroup_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -165,9 +197,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QButtonGroup, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QButtonGroup, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QButtonGroup_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -177,14 +213,18 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QButtonGroup.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QButtonGroup.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setExclusive` instead
+    ///
+    pub const SetExclusive = setExclusive;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuttongroup.html#setExclusive)
     ///
@@ -192,11 +232,15 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` self: QButtonGroup `
     ///
-    /// ` exclusive: bool `
+    /// ` _exclusive: bool `
     ///
-    pub fn SetExclusive(self: QButtonGroup, exclusive: bool) void {
-        qtc.QButtonGroup_SetExclusive(@ptrCast(self.ptr), exclusive);
+    pub fn setExclusive(self: QButtonGroup, _exclusive: bool) void {
+        qtc.QButtonGroup_SetExclusive(@ptrCast(self.ptr), _exclusive);
     }
+
+    /// ### DEPRECATED: Use `exclusive` instead
+    ///
+    pub const Exclusive = exclusive;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuttongroup.html#exclusive)
     ///
@@ -204,9 +248,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` self: QButtonGroup `
     ///
-    pub fn Exclusive(self: QButtonGroup) bool {
+    pub fn exclusive(self: QButtonGroup) bool {
         return qtc.QButtonGroup_Exclusive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `addButton` instead
+    ///
+    pub const AddButton = addButton;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuttongroup.html#addButton)
     ///
@@ -216,10 +264,14 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` param1: QAbstractButton `
     ///
-    pub fn AddButton(self: QButtonGroup, param1: anytype) void {
+    pub fn addButton(self: QButtonGroup, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QAbstractButton;
         qtc.QButtonGroup_AddButton(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeButton` instead
+    ///
+    pub const RemoveButton = removeButton;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuttongroup.html#removeButton)
     ///
@@ -229,10 +281,14 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` param1: QAbstractButton `
     ///
-    pub fn RemoveButton(self: QButtonGroup, param1: anytype) void {
+    pub fn removeButton(self: QButtonGroup, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QAbstractButton;
         qtc.QButtonGroup_RemoveButton(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `buttons` instead
+    ///
+    pub const Buttons = buttons;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuttongroup.html#buttons)
     ///
@@ -242,15 +298,19 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Buttons(self: QButtonGroup, allocator: std.mem.Allocator) []QAbstractButton {
+    pub fn buttons(self: QButtonGroup, allocator: std.mem.Allocator) []QAbstractButton {
         const _arr: qtc.libqt_list = qtc.QButtonGroup_Buttons(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAbstractButton, _arr.len) catch @panic("QButtonGroup.Buttons: Memory allocation failed");
-        const _data: [*]QtC.QAbstractButton = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAbstractButton, _arr.len) catch @panic("QButtonGroup.buttons: Memory allocation failed");
+        const _data_val: [*]QtC.QAbstractButton = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `checkedButton` instead
+    ///
+    pub const CheckedButton = checkedButton;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuttongroup.html#checkedButton)
     ///
@@ -258,9 +318,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` self: QButtonGroup `
     ///
-    pub fn CheckedButton(self: QButtonGroup) QAbstractButton {
+    pub fn checkedButton(self: QButtonGroup) QAbstractButton {
         return .{ .ptr = qtc.QButtonGroup_CheckedButton(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `button` instead
+    ///
+    pub const Button = button;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuttongroup.html#button)
     ///
@@ -268,11 +332,15 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` self: QButtonGroup `
     ///
-    /// ` id: i32 `
+    /// ` _id: i32 `
     ///
-    pub fn Button(self: QButtonGroup, id: i32) QAbstractButton {
-        return .{ .ptr = qtc.QButtonGroup_Button(@ptrCast(self.ptr), @bitCast(id)) };
+    pub fn button(self: QButtonGroup, _id: i32) QAbstractButton {
+        return .{ .ptr = qtc.QButtonGroup_Button(@ptrCast(self.ptr), @bitCast(_id)) };
     }
+
+    /// ### DEPRECATED: Use `setId` instead
+    ///
+    pub const SetId = setId;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuttongroup.html#setId)
     ///
@@ -280,14 +348,18 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` self: QButtonGroup `
     ///
-    /// ` button: QAbstractButton `
+    /// ` _button: QAbstractButton `
     ///
-    /// ` id: i32 `
+    /// ` _id: i32 `
     ///
-    pub fn SetId(self: QButtonGroup, button: anytype, id: i32) void {
-        comptime _ = @TypeOf(button)._is_QAbstractButton;
-        qtc.QButtonGroup_SetId(@ptrCast(self.ptr), @ptrCast(button.ptr), @bitCast(id));
+    pub fn setId(self: QButtonGroup, _button: anytype, _id: i32) void {
+        comptime _ = @TypeOf(_button)._is_QAbstractButton;
+        qtc.QButtonGroup_SetId(@ptrCast(self.ptr), @ptrCast(_button.ptr), @bitCast(_id));
     }
+
+    /// ### DEPRECATED: Use `id` instead
+    ///
+    pub const Id = id;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuttongroup.html#id)
     ///
@@ -295,12 +367,16 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` self: QButtonGroup `
     ///
-    /// ` button: QAbstractButton `
+    /// ` _button: QAbstractButton `
     ///
-    pub fn Id(self: QButtonGroup, button: anytype) i32 {
-        comptime _ = @TypeOf(button)._is_QAbstractButton;
-        return qtc.QButtonGroup_Id(@ptrCast(self.ptr), @ptrCast(button.ptr));
+    pub fn id(self: QButtonGroup, _button: anytype) i32 {
+        comptime _ = @TypeOf(_button)._is_QAbstractButton;
+        return qtc.QButtonGroup_Id(@ptrCast(self.ptr), @ptrCast(_button.ptr));
     }
+
+    /// ### DEPRECATED: Use `checkedId` instead
+    ///
+    pub const CheckedId = checkedId;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuttongroup.html#checkedId)
     ///
@@ -308,9 +384,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` self: QButtonGroup `
     ///
-    pub fn CheckedId(self: QButtonGroup) i32 {
+    pub fn checkedId(self: QButtonGroup) i32 {
         return qtc.QButtonGroup_CheckedId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `buttonClicked` instead
+    ///
+    pub const ButtonClicked = buttonClicked;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuttongroup.html#buttonClicked)
     ///
@@ -320,11 +400,15 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` param1: QAbstractButton `
     ///
-    pub fn ButtonClicked(self: QButtonGroup, param1: anytype) void {
+    pub fn buttonClicked(self: QButtonGroup, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QAbstractButton;
         qtc.QButtonGroup_ButtonClicked(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `onButtonClicked` instead
+    ///
+    pub const OnButtonClicked = onButtonClicked;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuttongroup.html#buttonClicked)
     ///
     /// ## Parameters:
@@ -333,9 +417,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QButtonGroup, param1: QAbstractButton) callconv(.c) void `
     ///
-    pub fn OnButtonClicked(self: QButtonGroup, callback: *const fn (QButtonGroup, QAbstractButton) callconv(.c) void) void {
+    pub fn onButtonClicked(self: QButtonGroup, callback: *const fn (QButtonGroup, QAbstractButton) callconv(.c) void) void {
         qtc.QButtonGroup_Connect_ButtonClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `buttonPressed` instead
+    ///
+    pub const ButtonPressed = buttonPressed;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuttongroup.html#buttonPressed)
     ///
@@ -345,11 +433,15 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` param1: QAbstractButton `
     ///
-    pub fn ButtonPressed(self: QButtonGroup, param1: anytype) void {
+    pub fn buttonPressed(self: QButtonGroup, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QAbstractButton;
         qtc.QButtonGroup_ButtonPressed(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `onButtonPressed` instead
+    ///
+    pub const OnButtonPressed = onButtonPressed;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuttongroup.html#buttonPressed)
     ///
     /// ## Parameters:
@@ -358,9 +450,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QButtonGroup, param1: QAbstractButton) callconv(.c) void `
     ///
-    pub fn OnButtonPressed(self: QButtonGroup, callback: *const fn (QButtonGroup, QAbstractButton) callconv(.c) void) void {
+    pub fn onButtonPressed(self: QButtonGroup, callback: *const fn (QButtonGroup, QAbstractButton) callconv(.c) void) void {
         qtc.QButtonGroup_Connect_ButtonPressed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `buttonReleased` instead
+    ///
+    pub const ButtonReleased = buttonReleased;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuttongroup.html#buttonReleased)
     ///
@@ -370,10 +466,14 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` param1: QAbstractButton `
     ///
-    pub fn ButtonReleased(self: QButtonGroup, param1: anytype) void {
+    pub fn buttonReleased(self: QButtonGroup, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QAbstractButton;
         qtc.QButtonGroup_ButtonReleased(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onButtonReleased` instead
+    ///
+    pub const OnButtonReleased = onButtonReleased;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuttongroup.html#buttonReleased)
     ///
@@ -383,9 +483,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QButtonGroup, param1: QAbstractButton) callconv(.c) void `
     ///
-    pub fn OnButtonReleased(self: QButtonGroup, callback: *const fn (QButtonGroup, QAbstractButton) callconv(.c) void) void {
+    pub fn onButtonReleased(self: QButtonGroup, callback: *const fn (QButtonGroup, QAbstractButton) callconv(.c) void) void {
         qtc.QButtonGroup_Connect_ButtonReleased(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `buttonToggled` instead
+    ///
+    pub const ButtonToggled = buttonToggled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuttongroup.html#buttonToggled)
     ///
@@ -397,10 +501,14 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` param2: bool `
     ///
-    pub fn ButtonToggled(self: QButtonGroup, param1: anytype, param2: bool) void {
+    pub fn buttonToggled(self: QButtonGroup, param1: anytype, param2: bool) void {
         comptime _ = @TypeOf(param1)._is_QAbstractButton;
         qtc.QButtonGroup_ButtonToggled(@ptrCast(self.ptr), @ptrCast(param1.ptr), param2);
     }
+
+    /// ### DEPRECATED: Use `onButtonToggled` instead
+    ///
+    pub const OnButtonToggled = onButtonToggled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuttongroup.html#buttonToggled)
     ///
@@ -410,10 +518,14 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QButtonGroup, param1: QAbstractButton, param2: bool) callconv(.c) void `
     ///
-    pub fn OnButtonToggled(self: QButtonGroup, callback: *const fn (QButtonGroup, QAbstractButton, bool) callconv(.c) void) void {
+    pub fn onButtonToggled(self: QButtonGroup, callback: *const fn (QButtonGroup, QAbstractButton, bool) callconv(.c) void) void {
         qtc.QButtonGroup_Connect_ButtonToggled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `idClicked` instead
+    ///
+    pub const IdClicked = idClicked;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuttongroup.html#idClicked)
     ///
     /// ## Parameter(s):
@@ -422,10 +534,14 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn IdClicked(self: QButtonGroup, param1: i32) void {
+    pub fn idClicked(self: QButtonGroup, param1: i32) void {
         qtc.QButtonGroup_IdClicked(@ptrCast(self.ptr), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `onIdClicked` instead
+    ///
+    pub const OnIdClicked = onIdClicked;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuttongroup.html#idClicked)
     ///
     /// ## Parameters:
@@ -434,10 +550,14 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QButtonGroup, param1: i32) callconv(.c) void `
     ///
-    pub fn OnIdClicked(self: QButtonGroup, callback: *const fn (QButtonGroup, i32) callconv(.c) void) void {
+    pub fn onIdClicked(self: QButtonGroup, callback: *const fn (QButtonGroup, i32) callconv(.c) void) void {
         qtc.QButtonGroup_Connect_IdClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `idPressed` instead
+    ///
+    pub const IdPressed = idPressed;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuttongroup.html#idPressed)
     ///
     /// ## Parameter(s):
@@ -446,10 +566,14 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn IdPressed(self: QButtonGroup, param1: i32) void {
+    pub fn idPressed(self: QButtonGroup, param1: i32) void {
         qtc.QButtonGroup_IdPressed(@ptrCast(self.ptr), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `onIdPressed` instead
+    ///
+    pub const OnIdPressed = onIdPressed;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuttongroup.html#idPressed)
     ///
     /// ## Parameters:
@@ -458,9 +582,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QButtonGroup, param1: i32) callconv(.c) void `
     ///
-    pub fn OnIdPressed(self: QButtonGroup, callback: *const fn (QButtonGroup, i32) callconv(.c) void) void {
+    pub fn onIdPressed(self: QButtonGroup, callback: *const fn (QButtonGroup, i32) callconv(.c) void) void {
         qtc.QButtonGroup_Connect_IdPressed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `idReleased` instead
+    ///
+    pub const IdReleased = idReleased;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuttongroup.html#idReleased)
     ///
@@ -470,9 +598,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn IdReleased(self: QButtonGroup, param1: i32) void {
+    pub fn idReleased(self: QButtonGroup, param1: i32) void {
         qtc.QButtonGroup_IdReleased(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onIdReleased` instead
+    ///
+    pub const OnIdReleased = onIdReleased;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuttongroup.html#idReleased)
     ///
@@ -482,9 +614,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QButtonGroup, param1: i32) callconv(.c) void `
     ///
-    pub fn OnIdReleased(self: QButtonGroup, callback: *const fn (QButtonGroup, i32) callconv(.c) void) void {
+    pub fn onIdReleased(self: QButtonGroup, callback: *const fn (QButtonGroup, i32) callconv(.c) void) void {
         qtc.QButtonGroup_Connect_IdReleased(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `idToggled` instead
+    ///
+    pub const IdToggled = idToggled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuttongroup.html#idToggled)
     ///
@@ -496,9 +632,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` param2: bool `
     ///
-    pub fn IdToggled(self: QButtonGroup, param1: i32, param2: bool) void {
+    pub fn idToggled(self: QButtonGroup, param1: i32, param2: bool) void {
         qtc.QButtonGroup_IdToggled(@ptrCast(self.ptr), @bitCast(param1), param2);
     }
+
+    /// ### DEPRECATED: Use `onIdToggled` instead
+    ///
+    pub const OnIdToggled = onIdToggled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuttongroup.html#idToggled)
     ///
@@ -508,9 +648,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QButtonGroup, param1: i32, param2: bool) callconv(.c) void `
     ///
-    pub fn OnIdToggled(self: QButtonGroup, callback: *const fn (QButtonGroup, i32, bool) callconv(.c) void) void {
+    pub fn onIdToggled(self: QButtonGroup, callback: *const fn (QButtonGroup, i32, bool) callconv(.c) void) void {
         qtc.QButtonGroup_Connect_IdToggled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -522,15 +666,19 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QButtonGroup.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QButtonGroup.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -544,15 +692,19 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QButtonGroup.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QButtonGroup.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addButton2` instead
+    ///
+    pub const AddButton2 = addButton2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuttongroup.html#addButton)
     ///
@@ -562,12 +714,16 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` param1: QAbstractButton `
     ///
-    /// ` id: i32 `
+    /// ` _id: i32 `
     ///
-    pub fn AddButton2(self: QButtonGroup, param1: anytype, id: i32) void {
+    pub fn addButton2(self: QButtonGroup, param1: anytype, _id: i32) void {
         comptime _ = @TypeOf(param1)._is_QAbstractButton;
-        qtc.QButtonGroup_AddButton2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(id));
+        qtc.QButtonGroup_AddButton2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(_id));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -579,13 +735,17 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QButtonGroup, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QButtonGroup, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QButtonGroup.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QButtonGroup.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -597,13 +757,17 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QButtonGroup, name: []const u8) void {
+    pub fn setObjectName(self: QButtonGroup, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -613,9 +777,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` self: QButtonGroup `
     ///
-    pub fn IsWidgetType(self: QButtonGroup) bool {
+    pub fn isWidgetType(self: QButtonGroup) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -625,9 +793,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` self: QButtonGroup `
     ///
-    pub fn IsWindowType(self: QButtonGroup) bool {
+    pub fn isWindowType(self: QButtonGroup) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -637,9 +809,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` self: QButtonGroup `
     ///
-    pub fn IsQuickItemType(self: QButtonGroup) bool {
+    pub fn isQuickItemType(self: QButtonGroup) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -649,9 +825,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` self: QButtonGroup `
     ///
-    pub fn SignalsBlocked(self: QButtonGroup) bool {
+    pub fn signalsBlocked(self: QButtonGroup) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -663,9 +843,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QButtonGroup, b: bool) bool {
+    pub fn blockSignals(self: QButtonGroup, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -675,9 +859,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` self: QButtonGroup `
     ///
-    pub fn Thread(self: QButtonGroup) QThread {
+    pub fn thread(self: QButtonGroup) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -687,12 +875,16 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` self: QButtonGroup `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QButtonGroup, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QButtonGroup, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -704,9 +896,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QButtonGroup, interval: i32) i32 {
+    pub fn startTimer(self: QButtonGroup, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -718,23 +914,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QButtonGroup, time: i64) i32 {
+    pub fn startTimer2(self: QButtonGroup, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `killTimer` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QButtonGroup `
-    ///
-    /// ` id: i32 `
-    ///
-    pub fn KillTimer(self: QButtonGroup, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
-    }
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -744,11 +930,33 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` self: QButtonGroup `
     ///
-    /// ` id: qnamespace_enums.TimerId `
+    /// ` _id: i32 `
     ///
-    pub fn KillTimer2(self: QButtonGroup, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
+    pub fn killTimer(self: QButtonGroup, _id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(_id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QButtonGroup `
+    ///
+    /// ` _id: qnamespace_enums.TimerId `
+    ///
+    pub fn killTimer2(self: QButtonGroup, _id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(_id));
+    }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -760,15 +968,19 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QButtonGroup, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QButtonGroup, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QButtonGroup.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QButtonGroup.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -778,12 +990,16 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` self: QButtonGroup `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QButtonGroup, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QButtonGroup, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -795,10 +1011,14 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QButtonGroup, filterObj: anytype) void {
+    pub fn installEventFilter(self: QButtonGroup, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -810,10 +1030,14 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QButtonGroup, obj: anytype) void {
+    pub fn removeEventFilter(self: QButtonGroup, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -821,7 +1045,7 @@ pub const QButtonGroup = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -829,13 +1053,17 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -843,7 +1071,7 @@ pub const QButtonGroup = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -851,13 +1079,17 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -867,18 +1099,22 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` self: QButtonGroup `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QButtonGroup, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QButtonGroup, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -886,7 +1122,7 @@ pub const QButtonGroup = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -894,13 +1130,17 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -908,7 +1148,7 @@ pub const QButtonGroup = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -916,13 +1156,17 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -932,9 +1176,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` self: QButtonGroup `
     ///
-    pub fn Disconnect3(self: QButtonGroup) bool {
+    pub fn disconnect3(self: QButtonGroup) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -946,10 +1194,14 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QButtonGroup, receiver: anytype) bool {
+    pub fn disconnect4(self: QButtonGroup, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -959,10 +1211,14 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -972,9 +1228,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` self: QButtonGroup `
     ///
-    pub fn DumpObjectTree(self: QButtonGroup) void {
+    pub fn dumpObjectTree(self: QButtonGroup) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -984,9 +1244,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` self: QButtonGroup `
     ///
-    pub fn DumpObjectInfo(self: QButtonGroup) void {
+    pub fn dumpObjectInfo(self: QButtonGroup) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1000,11 +1264,15 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QButtonGroup, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QButtonGroup, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1016,10 +1284,14 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QButtonGroup, name: [:0]const u8) QVariant {
+    pub fn property(self: QButtonGroup, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1031,7 +1303,7 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QButtonGroup, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QButtonGroup, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1039,27 +1311,19 @@ pub const QButtonGroup = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QButtonGroup.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QButtonGroup.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QButtonGroup.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QButtonGroup.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QButtonGroup `
-    ///
-    pub fn BindingStorage(self: QButtonGroup) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1069,9 +1333,29 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` self: QButtonGroup `
     ///
-    pub fn BindingStorage2(self: QButtonGroup) QBindingStorage {
+    pub fn bindingStorage(self: QButtonGroup) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QButtonGroup `
+    ///
+    pub fn bindingStorage2(self: QButtonGroup) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1081,9 +1365,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` self: QButtonGroup `
     ///
-    pub fn Destroyed(self: QButtonGroup) void {
+    pub fn destroyed(self: QButtonGroup) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1095,9 +1383,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QButtonGroup) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QButtonGroup, callback: *const fn (QButtonGroup) callconv(.c) void) void {
+    pub fn onDestroyed(self: QButtonGroup, callback: *const fn (QButtonGroup) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1107,9 +1399,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` self: QButtonGroup `
     ///
-    pub fn Parent(self: QButtonGroup) QObject {
+    pub fn parent(self: QButtonGroup) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1121,10 +1417,14 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QButtonGroup, classname: [:0]const u8) bool {
+    pub fn inherits(self: QButtonGroup, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1134,9 +1434,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` self: QButtonGroup `
     ///
-    pub fn DeleteLater(self: QButtonGroup) void {
+    pub fn deleteLater(self: QButtonGroup) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1150,9 +1454,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QButtonGroup, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QButtonGroup, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1166,9 +1474,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QButtonGroup, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QButtonGroup, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1176,7 +1488,7 @@ pub const QButtonGroup = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1186,13 +1498,17 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1200,7 +1516,7 @@ pub const QButtonGroup = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1210,13 +1526,17 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1226,7 +1546,7 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` self: QButtonGroup `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1234,12 +1554,16 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QButtonGroup, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QButtonGroup, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1251,10 +1575,14 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QButtonGroup, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QButtonGroup, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1268,11 +1596,15 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QButtonGroup, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QButtonGroup, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1288,13 +1620,17 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QButtonGroup, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QButtonGroup, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1307,11 +1643,15 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QButtonGroup, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QButtonGroup, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1323,10 +1663,14 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QButtonGroup, param1: anytype) void {
+    pub fn destroyed1(self: QButtonGroup, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1338,9 +1682,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QButtonGroup, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QButtonGroup, callback: *const fn (QButtonGroup, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QButtonGroup, callback: *const fn (QButtonGroup, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1352,16 +1700,16 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` self: QButtonGroup `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QButtonGroup, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QButtonGroup_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QButtonGroup, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QButtonGroup_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1373,12 +1721,16 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` self: QButtonGroup `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QButtonGroup, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QButtonGroup_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QButtonGroup, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QButtonGroup_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -1392,9 +1744,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QButtonGroup, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QButtonGroup, callback: *const fn (QButtonGroup, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QButtonGroup, callback: *const fn (QButtonGroup, QEvent) callconv(.c) bool) void {
         qtc.QButtonGroup_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1408,17 +1764,17 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QButtonGroup, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QButtonGroup, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QButtonGroup_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QButtonGroup_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1432,13 +1788,17 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QButtonGroup, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QButtonGroup, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QButtonGroup_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QButtonGroup_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1452,9 +1812,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QButtonGroup, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QButtonGroup, callback: *const fn (QButtonGroup, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QButtonGroup, callback: *const fn (QButtonGroup, QObject, QEvent) callconv(.c) bool) void {
         qtc.QButtonGroup_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1466,16 +1830,16 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` self: QButtonGroup `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QButtonGroup, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QButtonGroup_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QButtonGroup, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QButtonGroup_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1487,12 +1851,16 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` self: QButtonGroup `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QButtonGroup, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QButtonGroup_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QButtonGroup, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QButtonGroup_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1506,9 +1874,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QButtonGroup, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QButtonGroup, callback: *const fn (QButtonGroup, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QButtonGroup, callback: *const fn (QButtonGroup, QTimerEvent) callconv(.c) void) void {
         qtc.QButtonGroup_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -1520,16 +1892,16 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` self: QButtonGroup `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QButtonGroup, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QButtonGroup_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QButtonGroup, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QButtonGroup_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1541,12 +1913,16 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` self: QButtonGroup `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QButtonGroup, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QButtonGroup_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QButtonGroup, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QButtonGroup_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1560,9 +1936,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QButtonGroup, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QButtonGroup, callback: *const fn (QButtonGroup, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QButtonGroup, callback: *const fn (QButtonGroup, QChildEvent) callconv(.c) void) void {
         qtc.QButtonGroup_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -1574,16 +1954,16 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` self: QButtonGroup `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QButtonGroup, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QButtonGroup_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QButtonGroup, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QButtonGroup_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1595,12 +1975,16 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` self: QButtonGroup `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QButtonGroup, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QButtonGroup_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QButtonGroup, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QButtonGroup_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1614,9 +1998,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QButtonGroup, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QButtonGroup, callback: *const fn (QButtonGroup, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QButtonGroup, callback: *const fn (QButtonGroup, QEvent) callconv(.c) void) void {
         qtc.QButtonGroup_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -1630,14 +2018,14 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QButtonGroup, signal: anytype) void {
+    pub fn connectNotify(self: QButtonGroup, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QButtonGroup_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1651,11 +2039,15 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QButtonGroup, signal: anytype) void {
+    pub fn superConnectNotify(self: QButtonGroup, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QButtonGroup_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1668,9 +2060,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QButtonGroup, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QButtonGroup, callback: *const fn (QButtonGroup, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QButtonGroup, callback: *const fn (QButtonGroup, QMetaMethod) callconv(.c) void) void {
         qtc.QButtonGroup_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1684,14 +2080,14 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QButtonGroup, signal: anytype) void {
+    pub fn disconnectNotify(self: QButtonGroup, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QButtonGroup_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1705,10 +2101,14 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QButtonGroup, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QButtonGroup, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QButtonGroup_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1722,9 +2122,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QButtonGroup, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QButtonGroup, callback: *const fn (QButtonGroup, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QButtonGroup, callback: *const fn (QButtonGroup, QMetaMethod) callconv(.c) void) void {
         qtc.QButtonGroup_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -1736,13 +2140,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` self: QButtonGroup `
     ///
-    pub fn Sender(self: QButtonGroup) QObject {
+    pub fn sender(self: QButtonGroup) QObject {
         return .{ .ptr = qtc.QButtonGroup_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -1754,9 +2158,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` self: QButtonGroup `
     ///
-    pub fn SuperSender(self: QButtonGroup) QObject {
+    pub fn superSender(self: QButtonGroup) QObject {
         return .{ .ptr = qtc.QButtonGroup_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -1770,9 +2178,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QButtonGroup, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QButtonGroup, callback: *const fn () callconv(.c) QObject) void {
         qtc.QButtonGroup_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1784,13 +2196,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` self: QButtonGroup `
     ///
-    pub fn SenderSignalIndex(self: QButtonGroup) i32 {
+    pub fn senderSignalIndex(self: QButtonGroup) i32 {
         return qtc.QButtonGroup_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1802,9 +2214,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` self: QButtonGroup `
     ///
-    pub fn SuperSenderSignalIndex(self: QButtonGroup) i32 {
+    pub fn superSenderSignalIndex(self: QButtonGroup) i32 {
         return qtc.QButtonGroup_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1818,9 +2234,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QButtonGroup, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QButtonGroup, callback: *const fn () callconv(.c) i32) void {
         qtc.QButtonGroup_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -1834,14 +2254,14 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QButtonGroup, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QButtonGroup, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QButtonGroup_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -1855,10 +2275,14 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QButtonGroup, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QButtonGroup, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QButtonGroup_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -1872,9 +2296,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QButtonGroup, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QButtonGroup, callback: *const fn (QButtonGroup, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QButtonGroup, callback: *const fn (QButtonGroup, [*:0]const u8) callconv(.c) i32) void {
         qtc.QButtonGroup_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1888,14 +2316,14 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QButtonGroup, signal: anytype) bool {
+    pub fn isSignalConnected(self: QButtonGroup, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QButtonGroup_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1909,10 +2337,14 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QButtonGroup, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QButtonGroup, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QButtonGroup_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1926,9 +2358,13 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QButtonGroup, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QButtonGroup, callback: *const fn (QButtonGroup, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QButtonGroup, callback: *const fn (QButtonGroup, QMetaMethod) callconv(.c) bool) void {
         qtc.QButtonGroup_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -1942,23 +2378,23 @@ pub const QButtonGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QButtonGroup, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QButtonGroup, callback: *const fn (QButtonGroup, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QButtonGroup, callback: *const fn (QButtonGroup, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuttongroup.html#dtor.QButtonGroup)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QButtonGroup `
     ///
-    pub fn Delete(self: QButtonGroup) void {
+    pub fn delete(self: QButtonGroup) void {
         qtc.QButtonGroup_Delete(@ptrCast(self.ptr));
     }
 };

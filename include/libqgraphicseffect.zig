@@ -33,22 +33,34 @@ pub const QGraphicsEffect = extern struct {
     pub const _is_QGraphicsEffect = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QGraphicsEffect object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QGraphicsEffect {
+    pub const New = new;
+
+    /// Allocate a new QGraphicsEffect object in C++ memory
+    ///
+    pub fn new() QGraphicsEffect {
         return .{ .ptr = qtc.QGraphicsEffect_new() };
     }
 
-    /// New2 constructs a new QGraphicsEffect object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QGraphicsEffect object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) QGraphicsEffect {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QGraphicsEffect_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) QGraphicsEffect {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QGraphicsEffect_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -56,9 +68,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` self: QGraphicsEffect `
     ///
-    pub fn MetaObject(self: QGraphicsEffect) QMetaObject {
+    pub fn metaObject(self: QGraphicsEffect) QMetaObject {
         return .{ .ptr = qtc.QGraphicsEffect_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -70,13 +86,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QGraphicsEffect, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QGraphicsEffect, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QGraphicsEffect_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -86,9 +102,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` self: QGraphicsEffect `
     ///
-    pub fn SuperMetaObject(self: QGraphicsEffect) QMetaObject {
+    pub fn superMetaObject(self: QGraphicsEffect) QMetaObject {
         return .{ .ptr = qtc.QGraphicsEffect_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -96,10 +116,14 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QGraphicsEffect, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QGraphicsEffect, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QGraphicsEffect_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -109,13 +133,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsEffect, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QGraphicsEffect_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -125,10 +149,14 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QGraphicsEffect, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QGraphicsEffect, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QGraphicsEffect_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -140,9 +168,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QGraphicsEffect, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QGraphicsEffect, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QGraphicsEffect_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -152,13 +184,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsEffect, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QGraphicsEffect_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -172,9 +204,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QGraphicsEffect, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QGraphicsEffect, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QGraphicsEffect_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -184,14 +220,18 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsEffect.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsEffect.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `boundingRectFor` instead
+    ///
+    pub const BoundingRectFor = boundingRectFor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRectFor)
     ///
@@ -201,10 +241,14 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` sourceRect: QRectF `
     ///
-    pub fn BoundingRectFor(self: QGraphicsEffect, sourceRect: anytype) QRectF {
+    pub fn boundingRectFor(self: QGraphicsEffect, sourceRect: anytype) QRectF {
         comptime _ = @TypeOf(sourceRect)._is_QRectF;
         return .{ .ptr = qtc.QGraphicsEffect_BoundingRectFor(@ptrCast(self.ptr), @ptrCast(sourceRect.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onBoundingRectFor` instead
+    ///
+    pub const OnBoundingRectFor = onBoundingRectFor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRectFor)
     ///
@@ -218,13 +262,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnBoundingRectFor(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, QRectF) callconv(.c) QRectF) void {
+    pub fn onBoundingRectFor(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, QRectF) callconv(.c) QRectF) void {
         qtc.QGraphicsEffect_OnBoundingRectFor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperBoundingRectFor` instead
+    /// ### DEPRECATED: Use `superBoundingRectFor` instead
     ///
-    pub const QBaseBoundingRectFor = SuperBoundingRectFor;
+    pub const SuperBoundingRectFor = superBoundingRectFor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRectFor)
     ///
@@ -236,10 +280,14 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` sourceRect: QRectF `
     ///
-    pub fn SuperBoundingRectFor(self: QGraphicsEffect, sourceRect: anytype) QRectF {
+    pub fn superBoundingRectFor(self: QGraphicsEffect, sourceRect: anytype) QRectF {
         comptime _ = @TypeOf(sourceRect)._is_QRectF;
         return .{ .ptr = qtc.QGraphicsEffect_SuperBoundingRectFor(@ptrCast(self.ptr), @ptrCast(sourceRect.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `boundingRect` instead
+    ///
+    pub const BoundingRect = boundingRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRect)
     ///
@@ -247,9 +295,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` self: QGraphicsEffect `
     ///
-    pub fn BoundingRect(self: QGraphicsEffect) QRectF {
+    pub fn boundingRect(self: QGraphicsEffect) QRectF {
         return .{ .ptr = qtc.QGraphicsEffect_BoundingRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#isEnabled)
     ///
@@ -257,9 +309,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` self: QGraphicsEffect `
     ///
-    pub fn IsEnabled(self: QGraphicsEffect) bool {
+    pub fn isEnabled(self: QGraphicsEffect) bool {
         return qtc.QGraphicsEffect_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#setEnabled)
     ///
@@ -269,9 +325,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetEnabled(self: QGraphicsEffect, enable: bool) void {
+    pub fn setEnabled(self: QGraphicsEffect, enable: bool) void {
         qtc.QGraphicsEffect_SetEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#update)
     ///
@@ -279,9 +339,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` self: QGraphicsEffect `
     ///
-    pub fn Update(self: QGraphicsEffect) void {
+    pub fn update(self: QGraphicsEffect) void {
         qtc.QGraphicsEffect_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `enabledChanged` instead
+    ///
+    pub const EnabledChanged = enabledChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#enabledChanged)
     ///
@@ -291,9 +355,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn EnabledChanged(self: QGraphicsEffect, enabled: bool) void {
+    pub fn enabledChanged(self: QGraphicsEffect, enabled: bool) void {
         qtc.QGraphicsEffect_EnabledChanged(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `onEnabledChanged` instead
+    ///
+    pub const OnEnabledChanged = onEnabledChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#enabledChanged)
     ///
@@ -303,9 +371,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsEffect, enabled: bool) callconv(.c) void `
     ///
-    pub fn OnEnabledChanged(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, bool) callconv(.c) void) void {
+    pub fn onEnabledChanged(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, bool) callconv(.c) void) void {
         qtc.QGraphicsEffect_Connect_EnabledChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `draw` instead
+    ///
+    pub const Draw = draw;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#draw)
     ///
@@ -315,10 +387,14 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Draw(self: QGraphicsEffect, painter: anytype) void {
+    pub fn draw(self: QGraphicsEffect, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QGraphicsEffect_Draw(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDraw` instead
+    ///
+    pub const OnDraw = onDraw;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#draw)
     ///
@@ -330,13 +406,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsEffect, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnDraw(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, QPainter) callconv(.c) void) void {
+    pub fn onDraw(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, QPainter) callconv(.c) void) void {
         qtc.QGraphicsEffect_OnDraw(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDraw` instead
+    /// ### DEPRECATED: Use `superDraw` instead
     ///
-    pub const QBaseDraw = SuperDraw;
+    pub const SuperDraw = superDraw;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#draw)
     ///
@@ -348,10 +424,14 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperDraw(self: QGraphicsEffect, painter: anytype) void {
+    pub fn superDraw(self: QGraphicsEffect, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QGraphicsEffect_SuperDraw(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `sourceChanged` instead
+    ///
+    pub const SourceChanged = sourceChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
     ///
@@ -361,9 +441,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` flags: flag of qgraphicseffect_enums.ChangeFlag `
     ///
-    pub fn SourceChanged(self: QGraphicsEffect, flags: i32) void {
+    pub fn sourceChanged(self: QGraphicsEffect, flags: i32) void {
         qtc.QGraphicsEffect_SourceChanged(@ptrCast(self.ptr), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `onSourceChanged` instead
+    ///
+    pub const OnSourceChanged = onSourceChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
     ///
@@ -375,13 +459,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsEffect, flags: flag of qgraphicseffect_enums.ChangeFlag) callconv(.c) void `
     ///
-    pub fn OnSourceChanged(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, i32) callconv(.c) void) void {
+    pub fn onSourceChanged(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, i32) callconv(.c) void) void {
         qtc.QGraphicsEffect_OnSourceChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSourceChanged` instead
+    /// ### DEPRECATED: Use `superSourceChanged` instead
     ///
-    pub const QBaseSourceChanged = SuperSourceChanged;
+    pub const SuperSourceChanged = superSourceChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
     ///
@@ -393,9 +477,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` flags: flag of qgraphicseffect_enums.ChangeFlag `
     ///
-    pub fn SuperSourceChanged(self: QGraphicsEffect, flags: i32) void {
+    pub fn superSourceChanged(self: QGraphicsEffect, flags: i32) void {
         qtc.QGraphicsEffect_SuperSourceChanged(@ptrCast(self.ptr), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `updateBoundingRect` instead
+    ///
+    pub const UpdateBoundingRect = updateBoundingRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
     ///
@@ -403,9 +491,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` self: QGraphicsEffect `
     ///
-    pub fn UpdateBoundingRect(self: QGraphicsEffect) void {
+    pub fn updateBoundingRect(self: QGraphicsEffect) void {
         qtc.QGraphicsEffect_UpdateBoundingRect(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onUpdateBoundingRect` instead
+    ///
+    pub const OnUpdateBoundingRect = onUpdateBoundingRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
     ///
@@ -417,13 +509,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateBoundingRect(self: QGraphicsEffect, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateBoundingRect(self: QGraphicsEffect, callback: *const fn () callconv(.c) void) void {
         qtc.QGraphicsEffect_OnUpdateBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateBoundingRect` instead
+    /// ### DEPRECATED: Use `superUpdateBoundingRect` instead
     ///
-    pub const QBaseUpdateBoundingRect = SuperUpdateBoundingRect;
+    pub const SuperUpdateBoundingRect = superUpdateBoundingRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
     ///
@@ -433,9 +525,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` self: QGraphicsEffect `
     ///
-    pub fn SuperUpdateBoundingRect(self: QGraphicsEffect) void {
+    pub fn superUpdateBoundingRect(self: QGraphicsEffect) void {
         qtc.QGraphicsEffect_SuperUpdateBoundingRect(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `sourceIsPixmap` instead
+    ///
+    pub const SourceIsPixmap = sourceIsPixmap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
     ///
@@ -443,9 +539,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` self: QGraphicsEffect `
     ///
-    pub fn SourceIsPixmap(self: QGraphicsEffect) bool {
+    pub fn sourceIsPixmap(self: QGraphicsEffect) bool {
         return qtc.QGraphicsEffect_SourceIsPixmap(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSourceIsPixmap` instead
+    ///
+    pub const OnSourceIsPixmap = onSourceIsPixmap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
     ///
@@ -457,13 +557,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnSourceIsPixmap(self: QGraphicsEffect, callback: *const fn () callconv(.c) bool) void {
+    pub fn onSourceIsPixmap(self: QGraphicsEffect, callback: *const fn () callconv(.c) bool) void {
         qtc.QGraphicsEffect_OnSourceIsPixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSourceIsPixmap` instead
+    /// ### DEPRECATED: Use `superSourceIsPixmap` instead
     ///
-    pub const QBaseSourceIsPixmap = SuperSourceIsPixmap;
+    pub const SuperSourceIsPixmap = superSourceIsPixmap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
     ///
@@ -473,9 +573,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` self: QGraphicsEffect `
     ///
-    pub fn SuperSourceIsPixmap(self: QGraphicsEffect) bool {
+    pub fn superSourceIsPixmap(self: QGraphicsEffect) bool {
         return qtc.QGraphicsEffect_SuperSourceIsPixmap(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `sourceBoundingRect` instead
+    ///
+    pub const SourceBoundingRect = sourceBoundingRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
     ///
@@ -483,9 +587,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` self: QGraphicsEffect `
     ///
-    pub fn SourceBoundingRect(self: QGraphicsEffect) QRectF {
+    pub fn sourceBoundingRect(self: QGraphicsEffect) QRectF {
         return .{ .ptr = qtc.QGraphicsEffect_SourceBoundingRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSourceBoundingRect` instead
+    ///
+    pub const OnSourceBoundingRect = onSourceBoundingRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
     ///
@@ -499,13 +607,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSourceBoundingRect(self: QGraphicsEffect, callback: *const fn () callconv(.c) QRectF) void {
+    pub fn onSourceBoundingRect(self: QGraphicsEffect, callback: *const fn () callconv(.c) QRectF) void {
         qtc.QGraphicsEffect_OnSourceBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSourceBoundingRect` instead
+    /// ### DEPRECATED: Use `superSourceBoundingRect` instead
     ///
-    pub const QBaseSourceBoundingRect = SuperSourceBoundingRect;
+    pub const SuperSourceBoundingRect = superSourceBoundingRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
     ///
@@ -515,9 +623,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` self: QGraphicsEffect `
     ///
-    pub fn SuperSourceBoundingRect(self: QGraphicsEffect) QRectF {
+    pub fn superSourceBoundingRect(self: QGraphicsEffect) QRectF {
         return .{ .ptr = qtc.QGraphicsEffect_SuperSourceBoundingRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `drawSource` instead
+    ///
+    pub const DrawSource = drawSource;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
     ///
@@ -527,10 +639,14 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn DrawSource(self: QGraphicsEffect, painter: anytype) void {
+    pub fn drawSource(self: QGraphicsEffect, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QGraphicsEffect_DrawSource(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDrawSource` instead
+    ///
+    pub const OnDrawSource = onDrawSource;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
     ///
@@ -542,13 +658,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsEffect, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnDrawSource(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, QPainter) callconv(.c) void) void {
+    pub fn onDrawSource(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, QPainter) callconv(.c) void) void {
         qtc.QGraphicsEffect_OnDrawSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawSource` instead
+    /// ### DEPRECATED: Use `superDrawSource` instead
     ///
-    pub const QBaseDrawSource = SuperDrawSource;
+    pub const SuperDrawSource = superDrawSource;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
     ///
@@ -560,10 +676,14 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperDrawSource(self: QGraphicsEffect, painter: anytype) void {
+    pub fn superDrawSource(self: QGraphicsEffect, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QGraphicsEffect_SuperDrawSource(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `sourcePixmap` instead
+    ///
+    pub const SourcePixmap = sourcePixmap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
@@ -571,9 +691,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` self: QGraphicsEffect `
     ///
-    pub fn SourcePixmap(self: QGraphicsEffect) QPixmap {
+    pub fn sourcePixmap(self: QGraphicsEffect) QPixmap {
         return .{ .ptr = qtc.QGraphicsEffect_SourcePixmap(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSourcePixmap` instead
+    ///
+    pub const OnSourcePixmap = onSourcePixmap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
@@ -587,13 +711,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSourcePixmap(self: QGraphicsEffect, callback: *const fn () callconv(.c) QPixmap) void {
+    pub fn onSourcePixmap(self: QGraphicsEffect, callback: *const fn () callconv(.c) QPixmap) void {
         qtc.QGraphicsEffect_OnSourcePixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSourcePixmap` instead
+    /// ### DEPRECATED: Use `superSourcePixmap` instead
     ///
-    pub const QBaseSourcePixmap = SuperSourcePixmap;
+    pub const SuperSourcePixmap = superSourcePixmap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
@@ -603,9 +727,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` self: QGraphicsEffect `
     ///
-    pub fn SuperSourcePixmap(self: QGraphicsEffect) QPixmap {
+    pub fn superSourcePixmap(self: QGraphicsEffect) QPixmap {
         return .{ .ptr = qtc.QGraphicsEffect_SuperSourcePixmap(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -617,15 +745,19 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsEffect.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsEffect.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -639,15 +771,19 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsEffect.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsEffect.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `sourceBoundingRect1` instead
+    ///
+    pub const SourceBoundingRect1 = sourceBoundingRect1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
     ///
@@ -657,9 +793,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` system: qnamespace_enums.CoordinateSystem `
     ///
-    pub fn SourceBoundingRect1(self: QGraphicsEffect, system: i32) QRectF {
+    pub fn sourceBoundingRect1(self: QGraphicsEffect, system: i32) QRectF {
         return .{ .ptr = qtc.QGraphicsEffect_SourceBoundingRect1(@ptrCast(self.ptr), @bitCast(system)) };
     }
+
+    /// ### DEPRECATED: Use `onSourceBoundingRect1` instead
+    ///
+    pub const OnSourceBoundingRect1 = onSourceBoundingRect1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
     ///
@@ -673,13 +813,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSourceBoundingRect1(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, i32) callconv(.c) QRectF) void {
+    pub fn onSourceBoundingRect1(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, i32) callconv(.c) QRectF) void {
         qtc.QGraphicsEffect_OnSourceBoundingRect1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSourceBoundingRect1` instead
+    /// ### DEPRECATED: Use `superSourceBoundingRect1` instead
     ///
-    pub const QBaseSourceBoundingRect1 = SuperSourceBoundingRect1;
+    pub const SuperSourceBoundingRect1 = superSourceBoundingRect1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
     ///
@@ -691,9 +831,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` system: qnamespace_enums.CoordinateSystem `
     ///
-    pub fn SuperSourceBoundingRect1(self: QGraphicsEffect, system: i32) QRectF {
+    pub fn superSourceBoundingRect1(self: QGraphicsEffect, system: i32) QRectF {
         return .{ .ptr = qtc.QGraphicsEffect_SuperSourceBoundingRect1(@ptrCast(self.ptr), @bitCast(system)) };
     }
+
+    /// ### DEPRECATED: Use `sourcePixmap1` instead
+    ///
+    pub const SourcePixmap1 = sourcePixmap1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
@@ -703,9 +847,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` system: qnamespace_enums.CoordinateSystem `
     ///
-    pub fn SourcePixmap1(self: QGraphicsEffect, system: i32) QPixmap {
+    pub fn sourcePixmap1(self: QGraphicsEffect, system: i32) QPixmap {
         return .{ .ptr = qtc.QGraphicsEffect_SourcePixmap1(@ptrCast(self.ptr), @bitCast(system)) };
     }
+
+    /// ### DEPRECATED: Use `onSourcePixmap1` instead
+    ///
+    pub const OnSourcePixmap1 = onSourcePixmap1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
@@ -719,13 +867,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSourcePixmap1(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, i32) callconv(.c) QPixmap) void {
+    pub fn onSourcePixmap1(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, i32) callconv(.c) QPixmap) void {
         qtc.QGraphicsEffect_OnSourcePixmap1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSourcePixmap1` instead
+    /// ### DEPRECATED: Use `superSourcePixmap1` instead
     ///
-    pub const QBaseSourcePixmap1 = SuperSourcePixmap1;
+    pub const SuperSourcePixmap1 = superSourcePixmap1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
@@ -737,9 +885,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` system: qnamespace_enums.CoordinateSystem `
     ///
-    pub fn SuperSourcePixmap1(self: QGraphicsEffect, system: i32) QPixmap {
+    pub fn superSourcePixmap1(self: QGraphicsEffect, system: i32) QPixmap {
         return .{ .ptr = qtc.QGraphicsEffect_SuperSourcePixmap1(@ptrCast(self.ptr), @bitCast(system)) };
     }
+
+    /// ### DEPRECATED: Use `sourcePixmap2` instead
+    ///
+    pub const SourcePixmap2 = sourcePixmap2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
@@ -751,10 +903,14 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SourcePixmap2(self: QGraphicsEffect, system: i32, offset: anytype) QPixmap {
+    pub fn sourcePixmap2(self: QGraphicsEffect, system: i32, offset: anytype) QPixmap {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QGraphicsEffect_SourcePixmap2(@ptrCast(self.ptr), @bitCast(system), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSourcePixmap2` instead
+    ///
+    pub const OnSourcePixmap2 = onSourcePixmap2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
@@ -768,13 +924,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSourcePixmap2(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, i32, QPoint) callconv(.c) QPixmap) void {
+    pub fn onSourcePixmap2(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, i32, QPoint) callconv(.c) QPixmap) void {
         qtc.QGraphicsEffect_OnSourcePixmap2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSourcePixmap2` instead
+    /// ### DEPRECATED: Use `superSourcePixmap2` instead
     ///
-    pub const QBaseSourcePixmap2 = SuperSourcePixmap2;
+    pub const SuperSourcePixmap2 = superSourcePixmap2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
@@ -788,10 +944,14 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperSourcePixmap2(self: QGraphicsEffect, system: i32, offset: anytype) QPixmap {
+    pub fn superSourcePixmap2(self: QGraphicsEffect, system: i32, offset: anytype) QPixmap {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QGraphicsEffect_SuperSourcePixmap2(@ptrCast(self.ptr), @bitCast(system), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `sourcePixmap3` instead
+    ///
+    pub const SourcePixmap3 = sourcePixmap3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
@@ -805,10 +965,14 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` mode: qgraphicseffect_enums.PixmapPadMode `
     ///
-    pub fn SourcePixmap3(self: QGraphicsEffect, system: i32, offset: anytype, mode: i32) QPixmap {
+    pub fn sourcePixmap3(self: QGraphicsEffect, system: i32, offset: anytype, mode: i32) QPixmap {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QGraphicsEffect_SourcePixmap3(@ptrCast(self.ptr), @bitCast(system), @ptrCast(offset.ptr), @bitCast(mode)) };
     }
+
+    /// ### DEPRECATED: Use `onSourcePixmap3` instead
+    ///
+    pub const OnSourcePixmap3 = onSourcePixmap3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
@@ -822,13 +986,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSourcePixmap3(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, i32, QPoint, i32) callconv(.c) QPixmap) void {
+    pub fn onSourcePixmap3(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, i32, QPoint, i32) callconv(.c) QPixmap) void {
         qtc.QGraphicsEffect_OnSourcePixmap3(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSourcePixmap3` instead
+    /// ### DEPRECATED: Use `superSourcePixmap3` instead
     ///
-    pub const QBaseSourcePixmap3 = SuperSourcePixmap3;
+    pub const SuperSourcePixmap3 = superSourcePixmap3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
@@ -844,10 +1008,14 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` mode: qgraphicseffect_enums.PixmapPadMode `
     ///
-    pub fn SuperSourcePixmap3(self: QGraphicsEffect, system: i32, offset: anytype, mode: i32) QPixmap {
+    pub fn superSourcePixmap3(self: QGraphicsEffect, system: i32, offset: anytype, mode: i32) QPixmap {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QGraphicsEffect_SuperSourcePixmap3(@ptrCast(self.ptr), @bitCast(system), @ptrCast(offset.ptr), @bitCast(mode)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -859,13 +1027,17 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QGraphicsEffect, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QGraphicsEffect, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsEffect.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsEffect.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -877,13 +1049,17 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QGraphicsEffect, name: []const u8) void {
+    pub fn setObjectName(self: QGraphicsEffect, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -893,9 +1069,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` self: QGraphicsEffect `
     ///
-    pub fn IsWidgetType(self: QGraphicsEffect) bool {
+    pub fn isWidgetType(self: QGraphicsEffect) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -905,9 +1085,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` self: QGraphicsEffect `
     ///
-    pub fn IsWindowType(self: QGraphicsEffect) bool {
+    pub fn isWindowType(self: QGraphicsEffect) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -917,9 +1101,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` self: QGraphicsEffect `
     ///
-    pub fn IsQuickItemType(self: QGraphicsEffect) bool {
+    pub fn isQuickItemType(self: QGraphicsEffect) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -929,9 +1117,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` self: QGraphicsEffect `
     ///
-    pub fn SignalsBlocked(self: QGraphicsEffect) bool {
+    pub fn signalsBlocked(self: QGraphicsEffect) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -943,9 +1135,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QGraphicsEffect, b: bool) bool {
+    pub fn blockSignals(self: QGraphicsEffect, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -955,9 +1151,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` self: QGraphicsEffect `
     ///
-    pub fn Thread(self: QGraphicsEffect) QThread {
+    pub fn thread(self: QGraphicsEffect) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -967,12 +1167,16 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` self: QGraphicsEffect `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QGraphicsEffect, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QGraphicsEffect, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -984,9 +1188,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QGraphicsEffect, interval: i32) i32 {
+    pub fn startTimer(self: QGraphicsEffect, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -998,9 +1206,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QGraphicsEffect, time: i64) i32 {
+    pub fn startTimer2(self: QGraphicsEffect, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -1012,9 +1224,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QGraphicsEffect, id: i32) void {
+    pub fn killTimer(self: QGraphicsEffect, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -1026,9 +1242,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QGraphicsEffect, id: i32) void {
+    pub fn killTimer2(self: QGraphicsEffect, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -1040,15 +1260,19 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QGraphicsEffect, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QGraphicsEffect, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QGraphicsEffect.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QGraphicsEffect.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -1058,12 +1282,16 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` self: QGraphicsEffect `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QGraphicsEffect, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QGraphicsEffect, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1075,10 +1303,14 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QGraphicsEffect, filterObj: anytype) void {
+    pub fn installEventFilter(self: QGraphicsEffect, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1090,10 +1322,14 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QGraphicsEffect, obj: anytype) void {
+    pub fn removeEventFilter(self: QGraphicsEffect, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -1101,7 +1337,7 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1109,13 +1345,17 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -1123,7 +1363,7 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1131,13 +1371,17 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1147,18 +1391,22 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` self: QGraphicsEffect `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QGraphicsEffect, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QGraphicsEffect, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1166,7 +1414,7 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1174,13 +1422,17 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1188,7 +1440,7 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1196,13 +1448,17 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1212,9 +1468,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` self: QGraphicsEffect `
     ///
-    pub fn Disconnect3(self: QGraphicsEffect) bool {
+    pub fn disconnect3(self: QGraphicsEffect) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1226,10 +1486,14 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QGraphicsEffect, receiver: anytype) bool {
+    pub fn disconnect4(self: QGraphicsEffect, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1239,10 +1503,14 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1252,9 +1520,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` self: QGraphicsEffect `
     ///
-    pub fn DumpObjectTree(self: QGraphicsEffect) void {
+    pub fn dumpObjectTree(self: QGraphicsEffect) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1264,9 +1536,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` self: QGraphicsEffect `
     ///
-    pub fn DumpObjectInfo(self: QGraphicsEffect) void {
+    pub fn dumpObjectInfo(self: QGraphicsEffect) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1280,11 +1556,15 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QGraphicsEffect, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QGraphicsEffect, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1296,10 +1576,14 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QGraphicsEffect, name: [:0]const u8) QVariant {
+    pub fn property(self: QGraphicsEffect, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1311,7 +1595,7 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QGraphicsEffect, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QGraphicsEffect, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1319,27 +1603,19 @@ pub const QGraphicsEffect = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QGraphicsEffect.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QGraphicsEffect.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QGraphicsEffect.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QGraphicsEffect.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsEffect `
-    ///
-    pub fn BindingStorage(self: QGraphicsEffect) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1349,9 +1625,29 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` self: QGraphicsEffect `
     ///
-    pub fn BindingStorage2(self: QGraphicsEffect) QBindingStorage {
+    pub fn bindingStorage(self: QGraphicsEffect) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGraphicsEffect `
+    ///
+    pub fn bindingStorage2(self: QGraphicsEffect) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1361,9 +1657,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` self: QGraphicsEffect `
     ///
-    pub fn Destroyed(self: QGraphicsEffect) void {
+    pub fn destroyed(self: QGraphicsEffect) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1375,9 +1675,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsEffect) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect) callconv(.c) void) void {
+    pub fn onDestroyed(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1387,9 +1691,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` self: QGraphicsEffect `
     ///
-    pub fn Parent(self: QGraphicsEffect) QObject {
+    pub fn parent(self: QGraphicsEffect) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1401,10 +1709,14 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QGraphicsEffect, classname: [:0]const u8) bool {
+    pub fn inherits(self: QGraphicsEffect, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1414,9 +1726,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` self: QGraphicsEffect `
     ///
-    pub fn DeleteLater(self: QGraphicsEffect) void {
+    pub fn deleteLater(self: QGraphicsEffect) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1430,9 +1746,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QGraphicsEffect, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QGraphicsEffect, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1446,9 +1766,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QGraphicsEffect, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QGraphicsEffect, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1456,7 +1780,7 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1466,13 +1790,17 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1480,7 +1808,7 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1490,13 +1818,17 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1506,7 +1838,7 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` self: QGraphicsEffect `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1514,12 +1846,16 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QGraphicsEffect, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QGraphicsEffect, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1531,10 +1867,14 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QGraphicsEffect, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QGraphicsEffect, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1548,11 +1888,15 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QGraphicsEffect, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QGraphicsEffect, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1568,13 +1912,17 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QGraphicsEffect, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QGraphicsEffect, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1587,11 +1935,15 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QGraphicsEffect, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QGraphicsEffect, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1603,10 +1955,14 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QGraphicsEffect, param1: anytype) void {
+    pub fn destroyed1(self: QGraphicsEffect, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1618,9 +1974,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsEffect, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1632,16 +1992,16 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` self: QGraphicsEffect `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QGraphicsEffect, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGraphicsEffect_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QGraphicsEffect, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGraphicsEffect_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1653,12 +2013,16 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` self: QGraphicsEffect `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QGraphicsEffect, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGraphicsEffect_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QGraphicsEffect, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGraphicsEffect_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -1672,9 +2036,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsEffect, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, QEvent) callconv(.c) bool) void {
         qtc.QGraphicsEffect_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1688,17 +2056,17 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QGraphicsEffect, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QGraphicsEffect, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGraphicsEffect_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGraphicsEffect_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1712,13 +2080,17 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QGraphicsEffect, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QGraphicsEffect, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGraphicsEffect_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGraphicsEffect_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1732,9 +2104,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsEffect, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, QObject, QEvent) callconv(.c) bool) void {
         qtc.QGraphicsEffect_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1746,16 +2122,16 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` self: QGraphicsEffect `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QGraphicsEffect, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QGraphicsEffect_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QGraphicsEffect, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QGraphicsEffect_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1767,12 +2143,16 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` self: QGraphicsEffect `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QGraphicsEffect, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QGraphicsEffect_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QGraphicsEffect, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QGraphicsEffect_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1786,9 +2166,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsEffect, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, QTimerEvent) callconv(.c) void) void {
         qtc.QGraphicsEffect_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -1800,16 +2184,16 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` self: QGraphicsEffect `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QGraphicsEffect, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QGraphicsEffect_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QGraphicsEffect, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QGraphicsEffect_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1821,12 +2205,16 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` self: QGraphicsEffect `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QGraphicsEffect, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QGraphicsEffect_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QGraphicsEffect, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QGraphicsEffect_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1840,9 +2228,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsEffect, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, QChildEvent) callconv(.c) void) void {
         qtc.QGraphicsEffect_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -1854,16 +2246,16 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` self: QGraphicsEffect `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QGraphicsEffect, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QGraphicsEffect_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QGraphicsEffect, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QGraphicsEffect_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1875,12 +2267,16 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` self: QGraphicsEffect `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QGraphicsEffect, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QGraphicsEffect_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QGraphicsEffect, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QGraphicsEffect_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1894,9 +2290,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsEffect, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, QEvent) callconv(.c) void) void {
         qtc.QGraphicsEffect_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -1910,14 +2310,14 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QGraphicsEffect, signal: anytype) void {
+    pub fn connectNotify(self: QGraphicsEffect, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QGraphicsEffect_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1931,11 +2331,15 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QGraphicsEffect, signal: anytype) void {
+    pub fn superConnectNotify(self: QGraphicsEffect, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QGraphicsEffect_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1948,9 +2352,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsEffect, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, QMetaMethod) callconv(.c) void) void {
         qtc.QGraphicsEffect_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1964,14 +2372,14 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QGraphicsEffect, signal: anytype) void {
+    pub fn disconnectNotify(self: QGraphicsEffect, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QGraphicsEffect_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1985,10 +2393,14 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QGraphicsEffect, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QGraphicsEffect, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QGraphicsEffect_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2002,9 +2414,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsEffect, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, QMetaMethod) callconv(.c) void) void {
         qtc.QGraphicsEffect_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -2016,13 +2432,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` self: QGraphicsEffect `
     ///
-    pub fn Sender(self: QGraphicsEffect) QObject {
+    pub fn sender(self: QGraphicsEffect) QObject {
         return .{ .ptr = qtc.QGraphicsEffect_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -2034,9 +2450,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` self: QGraphicsEffect `
     ///
-    pub fn SuperSender(self: QGraphicsEffect) QObject {
+    pub fn superSender(self: QGraphicsEffect) QObject {
         return .{ .ptr = qtc.QGraphicsEffect_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -2050,9 +2470,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QGraphicsEffect, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QGraphicsEffect, callback: *const fn () callconv(.c) QObject) void {
         qtc.QGraphicsEffect_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2064,13 +2488,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` self: QGraphicsEffect `
     ///
-    pub fn SenderSignalIndex(self: QGraphicsEffect) i32 {
+    pub fn senderSignalIndex(self: QGraphicsEffect) i32 {
         return qtc.QGraphicsEffect_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2082,9 +2506,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` self: QGraphicsEffect `
     ///
-    pub fn SuperSenderSignalIndex(self: QGraphicsEffect) i32 {
+    pub fn superSenderSignalIndex(self: QGraphicsEffect) i32 {
         return qtc.QGraphicsEffect_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2098,9 +2526,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QGraphicsEffect, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QGraphicsEffect, callback: *const fn () callconv(.c) i32) void {
         qtc.QGraphicsEffect_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -2114,14 +2546,14 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QGraphicsEffect, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QGraphicsEffect, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QGraphicsEffect_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -2135,10 +2567,14 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QGraphicsEffect, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QGraphicsEffect, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QGraphicsEffect_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -2152,9 +2588,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsEffect, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, [*:0]const u8) callconv(.c) i32) void {
         qtc.QGraphicsEffect_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2168,14 +2608,14 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QGraphicsEffect, signal: anytype) bool {
+    pub fn isSignalConnected(self: QGraphicsEffect, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QGraphicsEffect_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2189,10 +2629,14 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QGraphicsEffect, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QGraphicsEffect, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QGraphicsEffect_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2206,9 +2650,13 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsEffect, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, QMetaMethod) callconv(.c) bool) void {
         qtc.QGraphicsEffect_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -2222,23 +2670,23 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsEffect, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#dtor.QGraphicsEffect)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QGraphicsEffect `
     ///
-    pub fn Delete(self: QGraphicsEffect) void {
+    pub fn delete(self: QGraphicsEffect) void {
         qtc.QGraphicsEffect_Delete(@ptrCast(self.ptr));
     }
 };
@@ -2255,22 +2703,34 @@ pub const QGraphicsColorizeEffect = extern struct {
     pub const _is_QGraphicsEffect = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QGraphicsColorizeEffect object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QGraphicsColorizeEffect {
+    pub const New = new;
+
+    /// Allocate a new QGraphicsColorizeEffect object in C++ memory
+    ///
+    pub fn new() QGraphicsColorizeEffect {
         return .{ .ptr = qtc.QGraphicsColorizeEffect_new() };
     }
 
-    /// New2 constructs a new QGraphicsColorizeEffect object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QGraphicsColorizeEffect object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) QGraphicsColorizeEffect {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QGraphicsColorizeEffect_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) QGraphicsColorizeEffect {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QGraphicsColorizeEffect_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -2278,9 +2738,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    pub fn MetaObject(self: QGraphicsColorizeEffect) QMetaObject {
+    pub fn metaObject(self: QGraphicsColorizeEffect) QMetaObject {
         return .{ .ptr = qtc.QGraphicsColorizeEffect_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -2292,13 +2756,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QGraphicsColorizeEffect, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QGraphicsColorizeEffect, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QGraphicsColorizeEffect_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -2308,9 +2772,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    pub fn SuperMetaObject(self: QGraphicsColorizeEffect) QMetaObject {
+    pub fn superMetaObject(self: QGraphicsColorizeEffect) QMetaObject {
         return .{ .ptr = qtc.QGraphicsColorizeEffect_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -2318,10 +2786,14 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QGraphicsColorizeEffect, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QGraphicsColorizeEffect, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QGraphicsColorizeEffect_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -2331,13 +2803,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsColorizeEffect, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QGraphicsColorizeEffect, callback: *const fn (QGraphicsColorizeEffect, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QGraphicsColorizeEffect, callback: *const fn (QGraphicsColorizeEffect, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QGraphicsColorizeEffect_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -2347,10 +2819,14 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QGraphicsColorizeEffect, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QGraphicsColorizeEffect, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QGraphicsColorizeEffect_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -2362,9 +2838,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QGraphicsColorizeEffect, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QGraphicsColorizeEffect, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QGraphicsColorizeEffect_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -2374,13 +2854,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsColorizeEffect, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QGraphicsColorizeEffect, callback: *const fn (QGraphicsColorizeEffect, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QGraphicsColorizeEffect, callback: *const fn (QGraphicsColorizeEffect, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QGraphicsColorizeEffect_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -2394,9 +2874,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QGraphicsColorizeEffect, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QGraphicsColorizeEffect, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QGraphicsColorizeEffect_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -2406,14 +2890,18 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsColorizeEffect.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsColorizeEffect.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `color` instead
+    ///
+    pub const Color = color;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#color)
     ///
@@ -2421,9 +2909,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    pub fn Color(self: QGraphicsColorizeEffect) QColor {
+    pub fn color(self: QGraphicsColorizeEffect) QColor {
         return .{ .ptr = qtc.QGraphicsColorizeEffect_Color(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `strength` instead
+    ///
+    pub const Strength = strength;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#strength)
     ///
@@ -2431,9 +2923,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    pub fn Strength(self: QGraphicsColorizeEffect) f64 {
+    pub fn strength(self: QGraphicsColorizeEffect) f64 {
         return qtc.QGraphicsColorizeEffect_Strength(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setColor` instead
+    ///
+    pub const SetColor = setColor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#setColor)
     ///
@@ -2443,10 +2939,14 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` c: QColor `
     ///
-    pub fn SetColor(self: QGraphicsColorizeEffect, c: anytype) void {
+    pub fn setColor(self: QGraphicsColorizeEffect, c: anytype) void {
         comptime _ = @TypeOf(c)._is_QColor;
         qtc.QGraphicsColorizeEffect_SetColor(@ptrCast(self.ptr), @ptrCast(c.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStrength` instead
+    ///
+    pub const SetStrength = setStrength;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#setStrength)
     ///
@@ -2454,11 +2954,15 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    /// ` strength: f64 `
+    /// ` _strength: f64 `
     ///
-    pub fn SetStrength(self: QGraphicsColorizeEffect, strength: f64) void {
-        qtc.QGraphicsColorizeEffect_SetStrength(@ptrCast(self.ptr), @bitCast(strength));
+    pub fn setStrength(self: QGraphicsColorizeEffect, _strength: f64) void {
+        qtc.QGraphicsColorizeEffect_SetStrength(@ptrCast(self.ptr), @bitCast(_strength));
     }
+
+    /// ### DEPRECATED: Use `colorChanged` instead
+    ///
+    pub const ColorChanged = colorChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#colorChanged)
     ///
@@ -2466,12 +2970,16 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    /// ` color: QColor `
+    /// ` _color: QColor `
     ///
-    pub fn ColorChanged(self: QGraphicsColorizeEffect, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.QGraphicsColorizeEffect_ColorChanged(@ptrCast(self.ptr), @ptrCast(color.ptr));
+    pub fn colorChanged(self: QGraphicsColorizeEffect, _color: anytype) void {
+        comptime _ = @TypeOf(_color)._is_QColor;
+        qtc.QGraphicsColorizeEffect_ColorChanged(@ptrCast(self.ptr), @ptrCast(_color.ptr));
     }
+
+    /// ### DEPRECATED: Use `onColorChanged` instead
+    ///
+    pub const OnColorChanged = onColorChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#colorChanged)
     ///
@@ -2481,9 +2989,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsColorizeEffect, color: QColor) callconv(.c) void `
     ///
-    pub fn OnColorChanged(self: QGraphicsColorizeEffect, callback: *const fn (QGraphicsColorizeEffect, QColor) callconv(.c) void) void {
+    pub fn onColorChanged(self: QGraphicsColorizeEffect, callback: *const fn (QGraphicsColorizeEffect, QColor) callconv(.c) void) void {
         qtc.QGraphicsColorizeEffect_Connect_ColorChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `strengthChanged` instead
+    ///
+    pub const StrengthChanged = strengthChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#strengthChanged)
     ///
@@ -2491,11 +3003,15 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    /// ` strength: f64 `
+    /// ` _strength: f64 `
     ///
-    pub fn StrengthChanged(self: QGraphicsColorizeEffect, strength: f64) void {
-        qtc.QGraphicsColorizeEffect_StrengthChanged(@ptrCast(self.ptr), @bitCast(strength));
+    pub fn strengthChanged(self: QGraphicsColorizeEffect, _strength: f64) void {
+        qtc.QGraphicsColorizeEffect_StrengthChanged(@ptrCast(self.ptr), @bitCast(_strength));
     }
+
+    /// ### DEPRECATED: Use `onStrengthChanged` instead
+    ///
+    pub const OnStrengthChanged = onStrengthChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#strengthChanged)
     ///
@@ -2505,9 +3021,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsColorizeEffect, strength: f64) callconv(.c) void `
     ///
-    pub fn OnStrengthChanged(self: QGraphicsColorizeEffect, callback: *const fn (QGraphicsColorizeEffect, f64) callconv(.c) void) void {
+    pub fn onStrengthChanged(self: QGraphicsColorizeEffect, callback: *const fn (QGraphicsColorizeEffect, f64) callconv(.c) void) void {
         qtc.QGraphicsColorizeEffect_Connect_StrengthChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `draw` instead
+    ///
+    pub const Draw = draw;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#draw)
     ///
@@ -2517,10 +3037,14 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Draw(self: QGraphicsColorizeEffect, painter: anytype) void {
+    pub fn draw(self: QGraphicsColorizeEffect, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QGraphicsColorizeEffect_Draw(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDraw` instead
+    ///
+    pub const OnDraw = onDraw;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#draw)
     ///
@@ -2532,13 +3056,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsColorizeEffect, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnDraw(self: QGraphicsColorizeEffect, callback: *const fn (QGraphicsColorizeEffect, QPainter) callconv(.c) void) void {
+    pub fn onDraw(self: QGraphicsColorizeEffect, callback: *const fn (QGraphicsColorizeEffect, QPainter) callconv(.c) void) void {
         qtc.QGraphicsColorizeEffect_OnDraw(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDraw` instead
+    /// ### DEPRECATED: Use `superDraw` instead
     ///
-    pub const QBaseDraw = SuperDraw;
+    pub const SuperDraw = superDraw;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#draw)
     ///
@@ -2550,10 +3074,14 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperDraw(self: QGraphicsColorizeEffect, painter: anytype) void {
+    pub fn superDraw(self: QGraphicsColorizeEffect, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QGraphicsColorizeEffect_SuperDraw(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -2565,15 +3093,19 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsColorizeEffect.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsColorizeEffect.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -2587,15 +3119,19 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsColorizeEffect.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsColorizeEffect.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `boundingRect` instead
+    ///
+    pub const BoundingRect = boundingRect;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -2605,9 +3141,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    pub fn BoundingRect(self: QGraphicsColorizeEffect) QRectF {
+    pub fn boundingRect(self: QGraphicsColorizeEffect) QRectF {
         return .{ .ptr = qtc.QGraphicsEffect_BoundingRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -2617,9 +3157,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    pub fn IsEnabled(self: QGraphicsColorizeEffect) bool {
+    pub fn isEnabled(self: QGraphicsColorizeEffect) bool {
         return qtc.QGraphicsEffect_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -2631,9 +3175,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetEnabled(self: QGraphicsColorizeEffect, enable: bool) void {
+    pub fn setEnabled(self: QGraphicsColorizeEffect, enable: bool) void {
         qtc.QGraphicsEffect_SetEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -2643,9 +3191,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    pub fn Update(self: QGraphicsColorizeEffect) void {
+    pub fn update(self: QGraphicsColorizeEffect) void {
         qtc.QGraphicsEffect_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `enabledChanged` instead
+    ///
+    pub const EnabledChanged = enabledChanged;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -2657,9 +3209,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn EnabledChanged(self: QGraphicsColorizeEffect, enabled: bool) void {
+    pub fn enabledChanged(self: QGraphicsColorizeEffect, enabled: bool) void {
         qtc.QGraphicsEffect_EnabledChanged(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `onEnabledChanged` instead
+    ///
+    pub const OnEnabledChanged = onEnabledChanged;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -2671,9 +3227,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsColorizeEffect, enabled: bool) callconv(.c) void `
     ///
-    pub fn OnEnabledChanged(self: QGraphicsColorizeEffect, callback: *const fn (QGraphicsColorizeEffect, bool) callconv(.c) void) void {
+    pub fn onEnabledChanged(self: QGraphicsColorizeEffect, callback: *const fn (QGraphicsColorizeEffect, bool) callconv(.c) void) void {
         qtc.QGraphicsEffect_Connect_EnabledChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -2685,13 +3245,17 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QGraphicsColorizeEffect, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QGraphicsColorizeEffect, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsColorizeEffect.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsColorizeEffect.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -2703,13 +3267,17 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QGraphicsColorizeEffect, name: []const u8) void {
+    pub fn setObjectName(self: QGraphicsColorizeEffect, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -2719,9 +3287,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    pub fn IsWidgetType(self: QGraphicsColorizeEffect) bool {
+    pub fn isWidgetType(self: QGraphicsColorizeEffect) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -2731,9 +3303,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    pub fn IsWindowType(self: QGraphicsColorizeEffect) bool {
+    pub fn isWindowType(self: QGraphicsColorizeEffect) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -2743,9 +3319,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    pub fn IsQuickItemType(self: QGraphicsColorizeEffect) bool {
+    pub fn isQuickItemType(self: QGraphicsColorizeEffect) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -2755,9 +3335,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    pub fn SignalsBlocked(self: QGraphicsColorizeEffect) bool {
+    pub fn signalsBlocked(self: QGraphicsColorizeEffect) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -2769,9 +3353,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QGraphicsColorizeEffect, b: bool) bool {
+    pub fn blockSignals(self: QGraphicsColorizeEffect, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -2781,9 +3369,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    pub fn Thread(self: QGraphicsColorizeEffect) QThread {
+    pub fn thread(self: QGraphicsColorizeEffect) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -2793,12 +3385,16 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QGraphicsColorizeEffect, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QGraphicsColorizeEffect, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -2810,9 +3406,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QGraphicsColorizeEffect, interval: i32) i32 {
+    pub fn startTimer(self: QGraphicsColorizeEffect, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -2824,9 +3424,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QGraphicsColorizeEffect, time: i64) i32 {
+    pub fn startTimer2(self: QGraphicsColorizeEffect, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -2838,9 +3442,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QGraphicsColorizeEffect, id: i32) void {
+    pub fn killTimer(self: QGraphicsColorizeEffect, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -2852,9 +3460,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QGraphicsColorizeEffect, id: i32) void {
+    pub fn killTimer2(self: QGraphicsColorizeEffect, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -2866,15 +3478,19 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QGraphicsColorizeEffect, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QGraphicsColorizeEffect, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QGraphicsColorizeEffect.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QGraphicsColorizeEffect.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -2884,12 +3500,16 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QGraphicsColorizeEffect, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QGraphicsColorizeEffect, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2901,10 +3521,14 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QGraphicsColorizeEffect, filterObj: anytype) void {
+    pub fn installEventFilter(self: QGraphicsColorizeEffect, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2916,10 +3540,14 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QGraphicsColorizeEffect, obj: anytype) void {
+    pub fn removeEventFilter(self: QGraphicsColorizeEffect, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -2927,7 +3555,7 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2935,13 +3563,17 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -2949,7 +3581,7 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2957,13 +3589,17 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -2973,18 +3609,22 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QGraphicsColorizeEffect, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QGraphicsColorizeEffect, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -2992,7 +3632,7 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -3000,13 +3640,17 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -3014,7 +3658,7 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -3022,13 +3666,17 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -3038,9 +3686,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    pub fn Disconnect3(self: QGraphicsColorizeEffect) bool {
+    pub fn disconnect3(self: QGraphicsColorizeEffect) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -3052,10 +3704,14 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QGraphicsColorizeEffect, receiver: anytype) bool {
+    pub fn disconnect4(self: QGraphicsColorizeEffect, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -3065,10 +3721,14 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -3078,9 +3738,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    pub fn DumpObjectTree(self: QGraphicsColorizeEffect) void {
+    pub fn dumpObjectTree(self: QGraphicsColorizeEffect) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -3090,9 +3754,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    pub fn DumpObjectInfo(self: QGraphicsColorizeEffect) void {
+    pub fn dumpObjectInfo(self: QGraphicsColorizeEffect) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -3106,11 +3774,15 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QGraphicsColorizeEffect, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QGraphicsColorizeEffect, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -3122,10 +3794,14 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QGraphicsColorizeEffect, name: [:0]const u8) QVariant {
+    pub fn property(self: QGraphicsColorizeEffect, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -3137,7 +3813,7 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QGraphicsColorizeEffect, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QGraphicsColorizeEffect, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -3145,27 +3821,19 @@ pub const QGraphicsColorizeEffect = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QGraphicsColorizeEffect.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QGraphicsColorizeEffect.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QGraphicsColorizeEffect.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QGraphicsColorizeEffect.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsColorizeEffect `
-    ///
-    pub fn BindingStorage(self: QGraphicsColorizeEffect) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -3175,9 +3843,29 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    pub fn BindingStorage2(self: QGraphicsColorizeEffect) QBindingStorage {
+    pub fn bindingStorage(self: QGraphicsColorizeEffect) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGraphicsColorizeEffect `
+    ///
+    pub fn bindingStorage2(self: QGraphicsColorizeEffect) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -3187,9 +3875,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    pub fn Destroyed(self: QGraphicsColorizeEffect) void {
+    pub fn destroyed(self: QGraphicsColorizeEffect) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -3201,9 +3893,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsColorizeEffect) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QGraphicsColorizeEffect, callback: *const fn (QGraphicsColorizeEffect) callconv(.c) void) void {
+    pub fn onDestroyed(self: QGraphicsColorizeEffect, callback: *const fn (QGraphicsColorizeEffect) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -3213,9 +3909,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    pub fn Parent(self: QGraphicsColorizeEffect) QObject {
+    pub fn parent(self: QGraphicsColorizeEffect) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -3227,10 +3927,14 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QGraphicsColorizeEffect, classname: [:0]const u8) bool {
+    pub fn inherits(self: QGraphicsColorizeEffect, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -3240,9 +3944,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    pub fn DeleteLater(self: QGraphicsColorizeEffect) void {
+    pub fn deleteLater(self: QGraphicsColorizeEffect) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -3256,9 +3964,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QGraphicsColorizeEffect, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QGraphicsColorizeEffect, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -3272,9 +3984,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QGraphicsColorizeEffect, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QGraphicsColorizeEffect, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -3282,7 +3998,7 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -3292,13 +4008,17 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -3306,7 +4026,7 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -3316,13 +4036,17 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -3332,7 +4056,7 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -3340,12 +4064,16 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QGraphicsColorizeEffect, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QGraphicsColorizeEffect, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -3357,10 +4085,14 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QGraphicsColorizeEffect, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QGraphicsColorizeEffect, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -3374,11 +4106,15 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QGraphicsColorizeEffect, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QGraphicsColorizeEffect, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -3394,13 +4130,17 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QGraphicsColorizeEffect, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QGraphicsColorizeEffect, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -3413,11 +4153,15 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QGraphicsColorizeEffect, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QGraphicsColorizeEffect, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -3429,10 +4173,14 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QGraphicsColorizeEffect, param1: anytype) void {
+    pub fn destroyed1(self: QGraphicsColorizeEffect, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -3444,9 +4192,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsColorizeEffect, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QGraphicsColorizeEffect, callback: *const fn (QGraphicsColorizeEffect, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QGraphicsColorizeEffect, callback: *const fn (QGraphicsColorizeEffect, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `boundingRectFor` instead
+    ///
+    pub const BoundingRectFor = boundingRectFor;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -3460,14 +4212,14 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` sourceRect: QRectF `
     ///
-    pub fn BoundingRectFor(self: QGraphicsColorizeEffect, sourceRect: anytype) QRectF {
+    pub fn boundingRectFor(self: QGraphicsColorizeEffect, sourceRect: anytype) QRectF {
         comptime _ = @TypeOf(sourceRect)._is_QRectF;
         return .{ .ptr = qtc.QGraphicsColorizeEffect_BoundingRectFor(@ptrCast(self.ptr), @ptrCast(sourceRect.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperBoundingRectFor` instead
+    /// ### DEPRECATED: Use `superBoundingRectFor` instead
     ///
-    pub const QBaseBoundingRectFor = SuperBoundingRectFor;
+    pub const SuperBoundingRectFor = superBoundingRectFor;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -3481,10 +4233,14 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` sourceRect: QRectF `
     ///
-    pub fn SuperBoundingRectFor(self: QGraphicsColorizeEffect, sourceRect: anytype) QRectF {
+    pub fn superBoundingRectFor(self: QGraphicsColorizeEffect, sourceRect: anytype) QRectF {
         comptime _ = @TypeOf(sourceRect)._is_QRectF;
         return .{ .ptr = qtc.QGraphicsColorizeEffect_SuperBoundingRectFor(@ptrCast(self.ptr), @ptrCast(sourceRect.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onBoundingRectFor` instead
+    ///
+    pub const OnBoundingRectFor = onBoundingRectFor;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -3500,9 +4256,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnBoundingRectFor(self: QGraphicsColorizeEffect, callback: *const fn (QGraphicsColorizeEffect, QRectF) callconv(.c) QRectF) void {
+    pub fn onBoundingRectFor(self: QGraphicsColorizeEffect, callback: *const fn (QGraphicsColorizeEffect, QRectF) callconv(.c) QRectF) void {
         qtc.QGraphicsColorizeEffect_OnBoundingRectFor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sourceChanged` instead
+    ///
+    pub const SourceChanged = sourceChanged;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -3516,13 +4276,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` flags: flag of qgraphicseffect_enums.ChangeFlag `
     ///
-    pub fn SourceChanged(self: QGraphicsColorizeEffect, flags: i32) void {
+    pub fn sourceChanged(self: QGraphicsColorizeEffect, flags: i32) void {
         qtc.QGraphicsColorizeEffect_SourceChanged(@ptrCast(self.ptr), @bitCast(flags));
     }
 
-    /// ### DEPRECATED: Use `SuperSourceChanged` instead
+    /// ### DEPRECATED: Use `superSourceChanged` instead
     ///
-    pub const QBaseSourceChanged = SuperSourceChanged;
+    pub const SuperSourceChanged = superSourceChanged;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -3536,9 +4296,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` flags: flag of qgraphicseffect_enums.ChangeFlag `
     ///
-    pub fn SuperSourceChanged(self: QGraphicsColorizeEffect, flags: i32) void {
+    pub fn superSourceChanged(self: QGraphicsColorizeEffect, flags: i32) void {
         qtc.QGraphicsColorizeEffect_SuperSourceChanged(@ptrCast(self.ptr), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `onSourceChanged` instead
+    ///
+    pub const OnSourceChanged = onSourceChanged;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -3552,9 +4316,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsColorizeEffect, flags: flag of qgraphicseffect_enums.ChangeFlag) callconv(.c) void `
     ///
-    pub fn OnSourceChanged(self: QGraphicsColorizeEffect, callback: *const fn (QGraphicsColorizeEffect, i32) callconv(.c) void) void {
+    pub fn onSourceChanged(self: QGraphicsColorizeEffect, callback: *const fn (QGraphicsColorizeEffect, i32) callconv(.c) void) void {
         qtc.QGraphicsColorizeEffect_OnSourceChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -3566,16 +4334,16 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QGraphicsColorizeEffect, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGraphicsColorizeEffect_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QGraphicsColorizeEffect, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGraphicsColorizeEffect_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -3587,12 +4355,16 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QGraphicsColorizeEffect, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGraphicsColorizeEffect_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QGraphicsColorizeEffect, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGraphicsColorizeEffect_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -3606,9 +4378,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsColorizeEffect, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QGraphicsColorizeEffect, callback: *const fn (QGraphicsColorizeEffect, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QGraphicsColorizeEffect, callback: *const fn (QGraphicsColorizeEffect, QEvent) callconv(.c) bool) void {
         qtc.QGraphicsColorizeEffect_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -3622,17 +4398,17 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QGraphicsColorizeEffect, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QGraphicsColorizeEffect, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGraphicsColorizeEffect_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGraphicsColorizeEffect_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -3646,13 +4422,17 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QGraphicsColorizeEffect, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QGraphicsColorizeEffect, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGraphicsColorizeEffect_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGraphicsColorizeEffect_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -3666,9 +4446,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsColorizeEffect, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QGraphicsColorizeEffect, callback: *const fn (QGraphicsColorizeEffect, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QGraphicsColorizeEffect, callback: *const fn (QGraphicsColorizeEffect, QObject, QEvent) callconv(.c) bool) void {
         qtc.QGraphicsColorizeEffect_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -3680,16 +4464,16 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QGraphicsColorizeEffect, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QGraphicsColorizeEffect_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QGraphicsColorizeEffect, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QGraphicsColorizeEffect_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -3701,12 +4485,16 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QGraphicsColorizeEffect, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QGraphicsColorizeEffect_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QGraphicsColorizeEffect, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QGraphicsColorizeEffect_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -3720,9 +4508,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsColorizeEffect, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QGraphicsColorizeEffect, callback: *const fn (QGraphicsColorizeEffect, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QGraphicsColorizeEffect, callback: *const fn (QGraphicsColorizeEffect, QTimerEvent) callconv(.c) void) void {
         qtc.QGraphicsColorizeEffect_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -3734,16 +4526,16 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QGraphicsColorizeEffect, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QGraphicsColorizeEffect_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QGraphicsColorizeEffect, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QGraphicsColorizeEffect_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -3755,12 +4547,16 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QGraphicsColorizeEffect, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QGraphicsColorizeEffect_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QGraphicsColorizeEffect, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QGraphicsColorizeEffect_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -3774,9 +4570,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsColorizeEffect, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QGraphicsColorizeEffect, callback: *const fn (QGraphicsColorizeEffect, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QGraphicsColorizeEffect, callback: *const fn (QGraphicsColorizeEffect, QChildEvent) callconv(.c) void) void {
         qtc.QGraphicsColorizeEffect_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -3788,16 +4588,16 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QGraphicsColorizeEffect, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QGraphicsColorizeEffect_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QGraphicsColorizeEffect, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QGraphicsColorizeEffect_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -3809,12 +4609,16 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QGraphicsColorizeEffect, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QGraphicsColorizeEffect_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QGraphicsColorizeEffect, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QGraphicsColorizeEffect_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -3828,9 +4632,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsColorizeEffect, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QGraphicsColorizeEffect, callback: *const fn (QGraphicsColorizeEffect, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QGraphicsColorizeEffect, callback: *const fn (QGraphicsColorizeEffect, QEvent) callconv(.c) void) void {
         qtc.QGraphicsColorizeEffect_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -3844,14 +4652,14 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QGraphicsColorizeEffect, signal: anytype) void {
+    pub fn connectNotify(self: QGraphicsColorizeEffect, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QGraphicsColorizeEffect_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3865,11 +4673,15 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QGraphicsColorizeEffect, signal: anytype) void {
+    pub fn superConnectNotify(self: QGraphicsColorizeEffect, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QGraphicsColorizeEffect_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -3882,9 +4694,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsColorizeEffect, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QGraphicsColorizeEffect, callback: *const fn (QGraphicsColorizeEffect, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QGraphicsColorizeEffect, callback: *const fn (QGraphicsColorizeEffect, QMetaMethod) callconv(.c) void) void {
         qtc.QGraphicsColorizeEffect_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3898,14 +4714,14 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QGraphicsColorizeEffect, signal: anytype) void {
+    pub fn disconnectNotify(self: QGraphicsColorizeEffect, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QGraphicsColorizeEffect_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3919,10 +4735,14 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QGraphicsColorizeEffect, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QGraphicsColorizeEffect, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QGraphicsColorizeEffect_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3936,9 +4756,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsColorizeEffect, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QGraphicsColorizeEffect, callback: *const fn (QGraphicsColorizeEffect, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QGraphicsColorizeEffect, callback: *const fn (QGraphicsColorizeEffect, QMetaMethod) callconv(.c) void) void {
         qtc.QGraphicsColorizeEffect_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `updateBoundingRect` instead
+    ///
+    pub const UpdateBoundingRect = updateBoundingRect;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -3950,13 +4774,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    pub fn UpdateBoundingRect(self: QGraphicsColorizeEffect) void {
+    pub fn updateBoundingRect(self: QGraphicsColorizeEffect) void {
         qtc.QGraphicsColorizeEffect_UpdateBoundingRect(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateBoundingRect` instead
+    /// ### DEPRECATED: Use `superUpdateBoundingRect` instead
     ///
-    pub const QBaseUpdateBoundingRect = SuperUpdateBoundingRect;
+    pub const SuperUpdateBoundingRect = superUpdateBoundingRect;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -3968,9 +4792,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    pub fn SuperUpdateBoundingRect(self: QGraphicsColorizeEffect) void {
+    pub fn superUpdateBoundingRect(self: QGraphicsColorizeEffect) void {
         qtc.QGraphicsColorizeEffect_SuperUpdateBoundingRect(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onUpdateBoundingRect` instead
+    ///
+    pub const OnUpdateBoundingRect = onUpdateBoundingRect;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -3984,9 +4812,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateBoundingRect(self: QGraphicsColorizeEffect, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateBoundingRect(self: QGraphicsColorizeEffect, callback: *const fn () callconv(.c) void) void {
         qtc.QGraphicsColorizeEffect_OnUpdateBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sourceIsPixmap` instead
+    ///
+    pub const SourceIsPixmap = sourceIsPixmap;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -3998,13 +4830,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    pub fn SourceIsPixmap(self: QGraphicsColorizeEffect) bool {
+    pub fn sourceIsPixmap(self: QGraphicsColorizeEffect) bool {
         return qtc.QGraphicsColorizeEffect_SourceIsPixmap(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSourceIsPixmap` instead
+    /// ### DEPRECATED: Use `superSourceIsPixmap` instead
     ///
-    pub const QBaseSourceIsPixmap = SuperSourceIsPixmap;
+    pub const SuperSourceIsPixmap = superSourceIsPixmap;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -4016,9 +4848,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    pub fn SuperSourceIsPixmap(self: QGraphicsColorizeEffect) bool {
+    pub fn superSourceIsPixmap(self: QGraphicsColorizeEffect) bool {
         return qtc.QGraphicsColorizeEffect_SuperSourceIsPixmap(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSourceIsPixmap` instead
+    ///
+    pub const OnSourceIsPixmap = onSourceIsPixmap;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -4032,9 +4868,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnSourceIsPixmap(self: QGraphicsColorizeEffect, callback: *const fn () callconv(.c) bool) void {
+    pub fn onSourceIsPixmap(self: QGraphicsColorizeEffect, callback: *const fn () callconv(.c) bool) void {
         qtc.QGraphicsColorizeEffect_OnSourceIsPixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sourceBoundingRect` instead
+    ///
+    pub const SourceBoundingRect = sourceBoundingRect;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -4046,13 +4886,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    pub fn SourceBoundingRect(self: QGraphicsColorizeEffect) QRectF {
+    pub fn sourceBoundingRect(self: QGraphicsColorizeEffect) QRectF {
         return .{ .ptr = qtc.QGraphicsColorizeEffect_SourceBoundingRect(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSourceBoundingRect` instead
+    /// ### DEPRECATED: Use `superSourceBoundingRect` instead
     ///
-    pub const QBaseSourceBoundingRect = SuperSourceBoundingRect;
+    pub const SuperSourceBoundingRect = superSourceBoundingRect;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -4064,9 +4904,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    pub fn SuperSourceBoundingRect(self: QGraphicsColorizeEffect) QRectF {
+    pub fn superSourceBoundingRect(self: QGraphicsColorizeEffect) QRectF {
         return .{ .ptr = qtc.QGraphicsColorizeEffect_SuperSourceBoundingRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSourceBoundingRect` instead
+    ///
+    pub const OnSourceBoundingRect = onSourceBoundingRect;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -4082,9 +4926,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSourceBoundingRect(self: QGraphicsColorizeEffect, callback: *const fn () callconv(.c) QRectF) void {
+    pub fn onSourceBoundingRect(self: QGraphicsColorizeEffect, callback: *const fn () callconv(.c) QRectF) void {
         qtc.QGraphicsColorizeEffect_OnSourceBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `drawSource` instead
+    ///
+    pub const DrawSource = drawSource;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -4098,14 +4946,14 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn DrawSource(self: QGraphicsColorizeEffect, painter: anytype) void {
+    pub fn drawSource(self: QGraphicsColorizeEffect, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QGraphicsColorizeEffect_DrawSource(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawSource` instead
+    /// ### DEPRECATED: Use `superDrawSource` instead
     ///
-    pub const QBaseDrawSource = SuperDrawSource;
+    pub const SuperDrawSource = superDrawSource;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -4119,10 +4967,14 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperDrawSource(self: QGraphicsColorizeEffect, painter: anytype) void {
+    pub fn superDrawSource(self: QGraphicsColorizeEffect, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QGraphicsColorizeEffect_SuperDrawSource(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDrawSource` instead
+    ///
+    pub const OnDrawSource = onDrawSource;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -4136,9 +4988,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsColorizeEffect, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnDrawSource(self: QGraphicsColorizeEffect, callback: *const fn (QGraphicsColorizeEffect, QPainter) callconv(.c) void) void {
+    pub fn onDrawSource(self: QGraphicsColorizeEffect, callback: *const fn (QGraphicsColorizeEffect, QPainter) callconv(.c) void) void {
         qtc.QGraphicsColorizeEffect_OnDrawSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sourcePixmap` instead
+    ///
+    pub const SourcePixmap = sourcePixmap;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -4150,13 +5006,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    pub fn SourcePixmap(self: QGraphicsColorizeEffect) QPixmap {
+    pub fn sourcePixmap(self: QGraphicsColorizeEffect) QPixmap {
         return .{ .ptr = qtc.QGraphicsColorizeEffect_SourcePixmap(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSourcePixmap` instead
+    /// ### DEPRECATED: Use `superSourcePixmap` instead
     ///
-    pub const QBaseSourcePixmap = SuperSourcePixmap;
+    pub const SuperSourcePixmap = superSourcePixmap;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -4168,9 +5024,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    pub fn SuperSourcePixmap(self: QGraphicsColorizeEffect) QPixmap {
+    pub fn superSourcePixmap(self: QGraphicsColorizeEffect) QPixmap {
         return .{ .ptr = qtc.QGraphicsColorizeEffect_SuperSourcePixmap(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSourcePixmap` instead
+    ///
+    pub const OnSourcePixmap = onSourcePixmap;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -4186,9 +5046,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSourcePixmap(self: QGraphicsColorizeEffect, callback: *const fn () callconv(.c) QPixmap) void {
+    pub fn onSourcePixmap(self: QGraphicsColorizeEffect, callback: *const fn () callconv(.c) QPixmap) void {
         qtc.QGraphicsColorizeEffect_OnSourcePixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -4200,13 +5064,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    pub fn Sender(self: QGraphicsColorizeEffect) QObject {
+    pub fn sender(self: QGraphicsColorizeEffect) QObject {
         return .{ .ptr = qtc.QGraphicsColorizeEffect_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -4218,9 +5082,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    pub fn SuperSender(self: QGraphicsColorizeEffect) QObject {
+    pub fn superSender(self: QGraphicsColorizeEffect) QObject {
         return .{ .ptr = qtc.QGraphicsColorizeEffect_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -4234,9 +5102,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QGraphicsColorizeEffect, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QGraphicsColorizeEffect, callback: *const fn () callconv(.c) QObject) void {
         qtc.QGraphicsColorizeEffect_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -4248,13 +5120,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    pub fn SenderSignalIndex(self: QGraphicsColorizeEffect) i32 {
+    pub fn senderSignalIndex(self: QGraphicsColorizeEffect) i32 {
         return qtc.QGraphicsColorizeEffect_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -4266,9 +5138,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    pub fn SuperSenderSignalIndex(self: QGraphicsColorizeEffect) i32 {
+    pub fn superSenderSignalIndex(self: QGraphicsColorizeEffect) i32 {
         return qtc.QGraphicsColorizeEffect_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -4282,9 +5158,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QGraphicsColorizeEffect, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QGraphicsColorizeEffect, callback: *const fn () callconv(.c) i32) void {
         qtc.QGraphicsColorizeEffect_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -4298,14 +5178,14 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QGraphicsColorizeEffect, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QGraphicsColorizeEffect, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QGraphicsColorizeEffect_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -4319,10 +5199,14 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QGraphicsColorizeEffect, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QGraphicsColorizeEffect, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QGraphicsColorizeEffect_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -4336,9 +5220,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsColorizeEffect, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QGraphicsColorizeEffect, callback: *const fn (QGraphicsColorizeEffect, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QGraphicsColorizeEffect, callback: *const fn (QGraphicsColorizeEffect, [*:0]const u8) callconv(.c) i32) void {
         qtc.QGraphicsColorizeEffect_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -4352,14 +5240,14 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QGraphicsColorizeEffect, signal: anytype) bool {
+    pub fn isSignalConnected(self: QGraphicsColorizeEffect, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QGraphicsColorizeEffect_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -4373,10 +5261,14 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QGraphicsColorizeEffect, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QGraphicsColorizeEffect, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QGraphicsColorizeEffect_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -4390,9 +5282,13 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsColorizeEffect, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QGraphicsColorizeEffect, callback: *const fn (QGraphicsColorizeEffect, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QGraphicsColorizeEffect, callback: *const fn (QGraphicsColorizeEffect, QMetaMethod) callconv(.c) bool) void {
         qtc.QGraphicsColorizeEffect_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -4406,23 +5302,23 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsColorizeEffect, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QGraphicsColorizeEffect, callback: *const fn (QGraphicsColorizeEffect, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QGraphicsColorizeEffect, callback: *const fn (QGraphicsColorizeEffect, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#dtor.QGraphicsColorizeEffect)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    pub fn Delete(self: QGraphicsColorizeEffect) void {
+    pub fn delete(self: QGraphicsColorizeEffect) void {
         qtc.QGraphicsColorizeEffect_Delete(@ptrCast(self.ptr));
     }
 };
@@ -4439,22 +5335,34 @@ pub const QGraphicsBlurEffect = extern struct {
     pub const _is_QGraphicsEffect = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QGraphicsBlurEffect object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QGraphicsBlurEffect {
+    pub const New = new;
+
+    /// Allocate a new QGraphicsBlurEffect object in C++ memory
+    ///
+    pub fn new() QGraphicsBlurEffect {
         return .{ .ptr = qtc.QGraphicsBlurEffect_new() };
     }
 
-    /// New2 constructs a new QGraphicsBlurEffect object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QGraphicsBlurEffect object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) QGraphicsBlurEffect {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QGraphicsBlurEffect_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) QGraphicsBlurEffect {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QGraphicsBlurEffect_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -4462,9 +5370,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` self: QGraphicsBlurEffect `
     ///
-    pub fn MetaObject(self: QGraphicsBlurEffect) QMetaObject {
+    pub fn metaObject(self: QGraphicsBlurEffect) QMetaObject {
         return .{ .ptr = qtc.QGraphicsBlurEffect_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -4476,13 +5388,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QGraphicsBlurEffect, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QGraphicsBlurEffect, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QGraphicsBlurEffect_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -4492,9 +5404,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` self: QGraphicsBlurEffect `
     ///
-    pub fn SuperMetaObject(self: QGraphicsBlurEffect) QMetaObject {
+    pub fn superMetaObject(self: QGraphicsBlurEffect) QMetaObject {
         return .{ .ptr = qtc.QGraphicsBlurEffect_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -4502,10 +5418,14 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QGraphicsBlurEffect, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QGraphicsBlurEffect, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QGraphicsBlurEffect_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -4515,13 +5435,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsBlurEffect, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QGraphicsBlurEffect, callback: *const fn (QGraphicsBlurEffect, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QGraphicsBlurEffect, callback: *const fn (QGraphicsBlurEffect, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QGraphicsBlurEffect_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -4531,10 +5451,14 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QGraphicsBlurEffect, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QGraphicsBlurEffect, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QGraphicsBlurEffect_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -4546,9 +5470,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QGraphicsBlurEffect, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QGraphicsBlurEffect, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QGraphicsBlurEffect_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -4558,13 +5486,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsBlurEffect, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QGraphicsBlurEffect, callback: *const fn (QGraphicsBlurEffect, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QGraphicsBlurEffect, callback: *const fn (QGraphicsBlurEffect, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QGraphicsBlurEffect_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -4578,9 +5506,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QGraphicsBlurEffect, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QGraphicsBlurEffect, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QGraphicsBlurEffect_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -4590,14 +5522,18 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsBlurEffect.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsBlurEffect.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `boundingRectFor` instead
+    ///
+    pub const BoundingRectFor = boundingRectFor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#boundingRectFor)
     ///
@@ -4607,10 +5543,14 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` rect: QRectF `
     ///
-    pub fn BoundingRectFor(self: QGraphicsBlurEffect, rect: anytype) QRectF {
+    pub fn boundingRectFor(self: QGraphicsBlurEffect, rect: anytype) QRectF {
         comptime _ = @TypeOf(rect)._is_QRectF;
         return .{ .ptr = qtc.QGraphicsBlurEffect_BoundingRectFor(@ptrCast(self.ptr), @ptrCast(rect.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onBoundingRectFor` instead
+    ///
+    pub const OnBoundingRectFor = onBoundingRectFor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#boundingRectFor)
     ///
@@ -4624,13 +5564,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnBoundingRectFor(self: QGraphicsBlurEffect, callback: *const fn (QGraphicsBlurEffect, QRectF) callconv(.c) QRectF) void {
+    pub fn onBoundingRectFor(self: QGraphicsBlurEffect, callback: *const fn (QGraphicsBlurEffect, QRectF) callconv(.c) QRectF) void {
         qtc.QGraphicsBlurEffect_OnBoundingRectFor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperBoundingRectFor` instead
+    /// ### DEPRECATED: Use `superBoundingRectFor` instead
     ///
-    pub const QBaseBoundingRectFor = SuperBoundingRectFor;
+    pub const SuperBoundingRectFor = superBoundingRectFor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#boundingRectFor)
     ///
@@ -4642,10 +5582,14 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` rect: QRectF `
     ///
-    pub fn SuperBoundingRectFor(self: QGraphicsBlurEffect, rect: anytype) QRectF {
+    pub fn superBoundingRectFor(self: QGraphicsBlurEffect, rect: anytype) QRectF {
         comptime _ = @TypeOf(rect)._is_QRectF;
         return .{ .ptr = qtc.QGraphicsBlurEffect_SuperBoundingRectFor(@ptrCast(self.ptr), @ptrCast(rect.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `blurRadius` instead
+    ///
+    pub const BlurRadius = blurRadius;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#blurRadius)
     ///
@@ -4653,9 +5597,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` self: QGraphicsBlurEffect `
     ///
-    pub fn BlurRadius(self: QGraphicsBlurEffect) f64 {
+    pub fn blurRadius(self: QGraphicsBlurEffect) f64 {
         return qtc.QGraphicsBlurEffect_BlurRadius(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blurHints` instead
+    ///
+    pub const BlurHints = blurHints;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#blurHints)
     ///
@@ -4667,9 +5615,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` flag of qgraphicseffect_enums.BlurHint `
     ///
-    pub fn BlurHints(self: QGraphicsBlurEffect) i32 {
+    pub fn blurHints(self: QGraphicsBlurEffect) i32 {
         return qtc.QGraphicsBlurEffect_BlurHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBlurRadius` instead
+    ///
+    pub const SetBlurRadius = setBlurRadius;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#setBlurRadius)
     ///
@@ -4677,11 +5629,15 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` self: QGraphicsBlurEffect `
     ///
-    /// ` blurRadius: f64 `
+    /// ` _blurRadius: f64 `
     ///
-    pub fn SetBlurRadius(self: QGraphicsBlurEffect, blurRadius: f64) void {
-        qtc.QGraphicsBlurEffect_SetBlurRadius(@ptrCast(self.ptr), @bitCast(blurRadius));
+    pub fn setBlurRadius(self: QGraphicsBlurEffect, _blurRadius: f64) void {
+        qtc.QGraphicsBlurEffect_SetBlurRadius(@ptrCast(self.ptr), @bitCast(_blurRadius));
     }
+
+    /// ### DEPRECATED: Use `setBlurHints` instead
+    ///
+    pub const SetBlurHints = setBlurHints;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#setBlurHints)
     ///
@@ -4691,9 +5647,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` hints: flag of qgraphicseffect_enums.BlurHint `
     ///
-    pub fn SetBlurHints(self: QGraphicsBlurEffect, hints: i32) void {
+    pub fn setBlurHints(self: QGraphicsBlurEffect, hints: i32) void {
         qtc.QGraphicsBlurEffect_SetBlurHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `blurRadiusChanged` instead
+    ///
+    pub const BlurRadiusChanged = blurRadiusChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#blurRadiusChanged)
     ///
@@ -4701,11 +5661,15 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` self: QGraphicsBlurEffect `
     ///
-    /// ` blurRadius: f64 `
+    /// ` _blurRadius: f64 `
     ///
-    pub fn BlurRadiusChanged(self: QGraphicsBlurEffect, blurRadius: f64) void {
-        qtc.QGraphicsBlurEffect_BlurRadiusChanged(@ptrCast(self.ptr), @bitCast(blurRadius));
+    pub fn blurRadiusChanged(self: QGraphicsBlurEffect, _blurRadius: f64) void {
+        qtc.QGraphicsBlurEffect_BlurRadiusChanged(@ptrCast(self.ptr), @bitCast(_blurRadius));
     }
+
+    /// ### DEPRECATED: Use `onBlurRadiusChanged` instead
+    ///
+    pub const OnBlurRadiusChanged = onBlurRadiusChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#blurRadiusChanged)
     ///
@@ -4715,9 +5679,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsBlurEffect, blurRadius: f64) callconv(.c) void `
     ///
-    pub fn OnBlurRadiusChanged(self: QGraphicsBlurEffect, callback: *const fn (QGraphicsBlurEffect, f64) callconv(.c) void) void {
+    pub fn onBlurRadiusChanged(self: QGraphicsBlurEffect, callback: *const fn (QGraphicsBlurEffect, f64) callconv(.c) void) void {
         qtc.QGraphicsBlurEffect_Connect_BlurRadiusChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `blurHintsChanged` instead
+    ///
+    pub const BlurHintsChanged = blurHintsChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#blurHintsChanged)
     ///
@@ -4727,9 +5695,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` hints: flag of qgraphicseffect_enums.BlurHint `
     ///
-    pub fn BlurHintsChanged(self: QGraphicsBlurEffect, hints: i32) void {
+    pub fn blurHintsChanged(self: QGraphicsBlurEffect, hints: i32) void {
         qtc.QGraphicsBlurEffect_BlurHintsChanged(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `onBlurHintsChanged` instead
+    ///
+    pub const OnBlurHintsChanged = onBlurHintsChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#blurHintsChanged)
     ///
@@ -4739,9 +5711,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsBlurEffect, hints: flag of qgraphicseffect_enums.BlurHint) callconv(.c) void `
     ///
-    pub fn OnBlurHintsChanged(self: QGraphicsBlurEffect, callback: *const fn (QGraphicsBlurEffect, i32) callconv(.c) void) void {
+    pub fn onBlurHintsChanged(self: QGraphicsBlurEffect, callback: *const fn (QGraphicsBlurEffect, i32) callconv(.c) void) void {
         qtc.QGraphicsBlurEffect_Connect_BlurHintsChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `draw` instead
+    ///
+    pub const Draw = draw;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#draw)
     ///
@@ -4751,10 +5727,14 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Draw(self: QGraphicsBlurEffect, painter: anytype) void {
+    pub fn draw(self: QGraphicsBlurEffect, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QGraphicsBlurEffect_Draw(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDraw` instead
+    ///
+    pub const OnDraw = onDraw;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#draw)
     ///
@@ -4766,13 +5746,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsBlurEffect, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnDraw(self: QGraphicsBlurEffect, callback: *const fn (QGraphicsBlurEffect, QPainter) callconv(.c) void) void {
+    pub fn onDraw(self: QGraphicsBlurEffect, callback: *const fn (QGraphicsBlurEffect, QPainter) callconv(.c) void) void {
         qtc.QGraphicsBlurEffect_OnDraw(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDraw` instead
+    /// ### DEPRECATED: Use `superDraw` instead
     ///
-    pub const QBaseDraw = SuperDraw;
+    pub const SuperDraw = superDraw;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#draw)
     ///
@@ -4784,10 +5764,14 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperDraw(self: QGraphicsBlurEffect, painter: anytype) void {
+    pub fn superDraw(self: QGraphicsBlurEffect, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QGraphicsBlurEffect_SuperDraw(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -4799,15 +5783,19 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsBlurEffect.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsBlurEffect.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -4821,15 +5809,19 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsBlurEffect.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsBlurEffect.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `boundingRect` instead
+    ///
+    pub const BoundingRect = boundingRect;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -4839,9 +5831,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` self: QGraphicsBlurEffect `
     ///
-    pub fn BoundingRect(self: QGraphicsBlurEffect) QRectF {
+    pub fn boundingRect(self: QGraphicsBlurEffect) QRectF {
         return .{ .ptr = qtc.QGraphicsEffect_BoundingRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -4851,9 +5847,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` self: QGraphicsBlurEffect `
     ///
-    pub fn IsEnabled(self: QGraphicsBlurEffect) bool {
+    pub fn isEnabled(self: QGraphicsBlurEffect) bool {
         return qtc.QGraphicsEffect_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -4865,9 +5865,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetEnabled(self: QGraphicsBlurEffect, enable: bool) void {
+    pub fn setEnabled(self: QGraphicsBlurEffect, enable: bool) void {
         qtc.QGraphicsEffect_SetEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -4877,9 +5881,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` self: QGraphicsBlurEffect `
     ///
-    pub fn Update(self: QGraphicsBlurEffect) void {
+    pub fn update(self: QGraphicsBlurEffect) void {
         qtc.QGraphicsEffect_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `enabledChanged` instead
+    ///
+    pub const EnabledChanged = enabledChanged;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -4891,9 +5899,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn EnabledChanged(self: QGraphicsBlurEffect, enabled: bool) void {
+    pub fn enabledChanged(self: QGraphicsBlurEffect, enabled: bool) void {
         qtc.QGraphicsEffect_EnabledChanged(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `onEnabledChanged` instead
+    ///
+    pub const OnEnabledChanged = onEnabledChanged;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -4905,9 +5917,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsBlurEffect, enabled: bool) callconv(.c) void `
     ///
-    pub fn OnEnabledChanged(self: QGraphicsBlurEffect, callback: *const fn (QGraphicsBlurEffect, bool) callconv(.c) void) void {
+    pub fn onEnabledChanged(self: QGraphicsBlurEffect, callback: *const fn (QGraphicsBlurEffect, bool) callconv(.c) void) void {
         qtc.QGraphicsEffect_Connect_EnabledChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -4919,13 +5935,17 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QGraphicsBlurEffect, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QGraphicsBlurEffect, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsBlurEffect.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsBlurEffect.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -4937,13 +5957,17 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QGraphicsBlurEffect, name: []const u8) void {
+    pub fn setObjectName(self: QGraphicsBlurEffect, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -4953,9 +5977,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` self: QGraphicsBlurEffect `
     ///
-    pub fn IsWidgetType(self: QGraphicsBlurEffect) bool {
+    pub fn isWidgetType(self: QGraphicsBlurEffect) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -4965,9 +5993,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` self: QGraphicsBlurEffect `
     ///
-    pub fn IsWindowType(self: QGraphicsBlurEffect) bool {
+    pub fn isWindowType(self: QGraphicsBlurEffect) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -4977,9 +6009,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` self: QGraphicsBlurEffect `
     ///
-    pub fn IsQuickItemType(self: QGraphicsBlurEffect) bool {
+    pub fn isQuickItemType(self: QGraphicsBlurEffect) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -4989,9 +6025,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` self: QGraphicsBlurEffect `
     ///
-    pub fn SignalsBlocked(self: QGraphicsBlurEffect) bool {
+    pub fn signalsBlocked(self: QGraphicsBlurEffect) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -5003,9 +6043,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QGraphicsBlurEffect, b: bool) bool {
+    pub fn blockSignals(self: QGraphicsBlurEffect, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -5015,9 +6059,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` self: QGraphicsBlurEffect `
     ///
-    pub fn Thread(self: QGraphicsBlurEffect) QThread {
+    pub fn thread(self: QGraphicsBlurEffect) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -5027,12 +6075,16 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` self: QGraphicsBlurEffect `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QGraphicsBlurEffect, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QGraphicsBlurEffect, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -5044,9 +6096,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QGraphicsBlurEffect, interval: i32) i32 {
+    pub fn startTimer(self: QGraphicsBlurEffect, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -5058,9 +6114,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QGraphicsBlurEffect, time: i64) i32 {
+    pub fn startTimer2(self: QGraphicsBlurEffect, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -5072,9 +6132,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QGraphicsBlurEffect, id: i32) void {
+    pub fn killTimer(self: QGraphicsBlurEffect, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -5086,9 +6150,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QGraphicsBlurEffect, id: i32) void {
+    pub fn killTimer2(self: QGraphicsBlurEffect, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -5100,15 +6168,19 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QGraphicsBlurEffect, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QGraphicsBlurEffect, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QGraphicsBlurEffect.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QGraphicsBlurEffect.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -5118,12 +6190,16 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` self: QGraphicsBlurEffect `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QGraphicsBlurEffect, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QGraphicsBlurEffect, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5135,10 +6211,14 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QGraphicsBlurEffect, filterObj: anytype) void {
+    pub fn installEventFilter(self: QGraphicsBlurEffect, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5150,10 +6230,14 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QGraphicsBlurEffect, obj: anytype) void {
+    pub fn removeEventFilter(self: QGraphicsBlurEffect, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -5161,7 +6245,7 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5169,13 +6253,17 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -5183,7 +6271,7 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5191,13 +6279,17 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -5207,18 +6299,22 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` self: QGraphicsBlurEffect `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QGraphicsBlurEffect, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QGraphicsBlurEffect, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -5226,7 +6322,7 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5234,13 +6330,17 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -5248,7 +6348,7 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5256,13 +6356,17 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -5272,9 +6376,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` self: QGraphicsBlurEffect `
     ///
-    pub fn Disconnect3(self: QGraphicsBlurEffect) bool {
+    pub fn disconnect3(self: QGraphicsBlurEffect) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -5286,10 +6394,14 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QGraphicsBlurEffect, receiver: anytype) bool {
+    pub fn disconnect4(self: QGraphicsBlurEffect, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -5299,10 +6411,14 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -5312,9 +6428,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` self: QGraphicsBlurEffect `
     ///
-    pub fn DumpObjectTree(self: QGraphicsBlurEffect) void {
+    pub fn dumpObjectTree(self: QGraphicsBlurEffect) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -5324,9 +6444,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` self: QGraphicsBlurEffect `
     ///
-    pub fn DumpObjectInfo(self: QGraphicsBlurEffect) void {
+    pub fn dumpObjectInfo(self: QGraphicsBlurEffect) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -5340,11 +6464,15 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QGraphicsBlurEffect, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QGraphicsBlurEffect, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -5356,10 +6484,14 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QGraphicsBlurEffect, name: [:0]const u8) QVariant {
+    pub fn property(self: QGraphicsBlurEffect, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -5371,7 +6503,7 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QGraphicsBlurEffect, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QGraphicsBlurEffect, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -5379,27 +6511,19 @@ pub const QGraphicsBlurEffect = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QGraphicsBlurEffect.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QGraphicsBlurEffect.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QGraphicsBlurEffect.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QGraphicsBlurEffect.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsBlurEffect `
-    ///
-    pub fn BindingStorage(self: QGraphicsBlurEffect) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -5409,9 +6533,29 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` self: QGraphicsBlurEffect `
     ///
-    pub fn BindingStorage2(self: QGraphicsBlurEffect) QBindingStorage {
+    pub fn bindingStorage(self: QGraphicsBlurEffect) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGraphicsBlurEffect `
+    ///
+    pub fn bindingStorage2(self: QGraphicsBlurEffect) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -5421,9 +6565,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` self: QGraphicsBlurEffect `
     ///
-    pub fn Destroyed(self: QGraphicsBlurEffect) void {
+    pub fn destroyed(self: QGraphicsBlurEffect) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -5435,9 +6583,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsBlurEffect) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QGraphicsBlurEffect, callback: *const fn (QGraphicsBlurEffect) callconv(.c) void) void {
+    pub fn onDestroyed(self: QGraphicsBlurEffect, callback: *const fn (QGraphicsBlurEffect) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -5447,9 +6599,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` self: QGraphicsBlurEffect `
     ///
-    pub fn Parent(self: QGraphicsBlurEffect) QObject {
+    pub fn parent(self: QGraphicsBlurEffect) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -5461,10 +6617,14 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QGraphicsBlurEffect, classname: [:0]const u8) bool {
+    pub fn inherits(self: QGraphicsBlurEffect, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -5474,9 +6634,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` self: QGraphicsBlurEffect `
     ///
-    pub fn DeleteLater(self: QGraphicsBlurEffect) void {
+    pub fn deleteLater(self: QGraphicsBlurEffect) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -5490,9 +6654,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QGraphicsBlurEffect, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QGraphicsBlurEffect, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -5506,9 +6674,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QGraphicsBlurEffect, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QGraphicsBlurEffect, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -5516,7 +6688,7 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5526,13 +6698,17 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -5540,7 +6716,7 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5550,13 +6726,17 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -5566,7 +6746,7 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` self: QGraphicsBlurEffect `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5574,12 +6754,16 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QGraphicsBlurEffect, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QGraphicsBlurEffect, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -5591,10 +6775,14 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QGraphicsBlurEffect, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QGraphicsBlurEffect, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -5608,11 +6796,15 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QGraphicsBlurEffect, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QGraphicsBlurEffect, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -5628,13 +6820,17 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QGraphicsBlurEffect, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QGraphicsBlurEffect, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -5647,11 +6843,15 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QGraphicsBlurEffect, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QGraphicsBlurEffect, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -5663,10 +6863,14 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QGraphicsBlurEffect, param1: anytype) void {
+    pub fn destroyed1(self: QGraphicsBlurEffect, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -5678,9 +6882,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsBlurEffect, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QGraphicsBlurEffect, callback: *const fn (QGraphicsBlurEffect, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QGraphicsBlurEffect, callback: *const fn (QGraphicsBlurEffect, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sourceChanged` instead
+    ///
+    pub const SourceChanged = sourceChanged;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -5694,13 +6902,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` flags: flag of qgraphicseffect_enums.ChangeFlag `
     ///
-    pub fn SourceChanged(self: QGraphicsBlurEffect, flags: i32) void {
+    pub fn sourceChanged(self: QGraphicsBlurEffect, flags: i32) void {
         qtc.QGraphicsBlurEffect_SourceChanged(@ptrCast(self.ptr), @bitCast(flags));
     }
 
-    /// ### DEPRECATED: Use `SuperSourceChanged` instead
+    /// ### DEPRECATED: Use `superSourceChanged` instead
     ///
-    pub const QBaseSourceChanged = SuperSourceChanged;
+    pub const SuperSourceChanged = superSourceChanged;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -5714,9 +6922,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` flags: flag of qgraphicseffect_enums.ChangeFlag `
     ///
-    pub fn SuperSourceChanged(self: QGraphicsBlurEffect, flags: i32) void {
+    pub fn superSourceChanged(self: QGraphicsBlurEffect, flags: i32) void {
         qtc.QGraphicsBlurEffect_SuperSourceChanged(@ptrCast(self.ptr), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `onSourceChanged` instead
+    ///
+    pub const OnSourceChanged = onSourceChanged;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -5730,9 +6942,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsBlurEffect, flags: flag of qgraphicseffect_enums.ChangeFlag) callconv(.c) void `
     ///
-    pub fn OnSourceChanged(self: QGraphicsBlurEffect, callback: *const fn (QGraphicsBlurEffect, i32) callconv(.c) void) void {
+    pub fn onSourceChanged(self: QGraphicsBlurEffect, callback: *const fn (QGraphicsBlurEffect, i32) callconv(.c) void) void {
         qtc.QGraphicsBlurEffect_OnSourceChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -5744,16 +6960,16 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` self: QGraphicsBlurEffect `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QGraphicsBlurEffect, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGraphicsBlurEffect_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QGraphicsBlurEffect, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGraphicsBlurEffect_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -5765,12 +6981,16 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` self: QGraphicsBlurEffect `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QGraphicsBlurEffect, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGraphicsBlurEffect_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QGraphicsBlurEffect, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGraphicsBlurEffect_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -5784,9 +7004,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsBlurEffect, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QGraphicsBlurEffect, callback: *const fn (QGraphicsBlurEffect, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QGraphicsBlurEffect, callback: *const fn (QGraphicsBlurEffect, QEvent) callconv(.c) bool) void {
         qtc.QGraphicsBlurEffect_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -5800,17 +7024,17 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QGraphicsBlurEffect, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QGraphicsBlurEffect, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGraphicsBlurEffect_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGraphicsBlurEffect_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5824,13 +7048,17 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QGraphicsBlurEffect, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QGraphicsBlurEffect, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGraphicsBlurEffect_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGraphicsBlurEffect_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5844,9 +7072,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsBlurEffect, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QGraphicsBlurEffect, callback: *const fn (QGraphicsBlurEffect, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QGraphicsBlurEffect, callback: *const fn (QGraphicsBlurEffect, QObject, QEvent) callconv(.c) bool) void {
         qtc.QGraphicsBlurEffect_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -5858,16 +7090,16 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` self: QGraphicsBlurEffect `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QGraphicsBlurEffect, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QGraphicsBlurEffect_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QGraphicsBlurEffect, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QGraphicsBlurEffect_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -5879,12 +7111,16 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` self: QGraphicsBlurEffect `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QGraphicsBlurEffect, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QGraphicsBlurEffect_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QGraphicsBlurEffect, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QGraphicsBlurEffect_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -5898,9 +7134,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsBlurEffect, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QGraphicsBlurEffect, callback: *const fn (QGraphicsBlurEffect, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QGraphicsBlurEffect, callback: *const fn (QGraphicsBlurEffect, QTimerEvent) callconv(.c) void) void {
         qtc.QGraphicsBlurEffect_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -5912,16 +7152,16 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` self: QGraphicsBlurEffect `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QGraphicsBlurEffect, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QGraphicsBlurEffect_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QGraphicsBlurEffect, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QGraphicsBlurEffect_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -5933,12 +7173,16 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` self: QGraphicsBlurEffect `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QGraphicsBlurEffect, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QGraphicsBlurEffect_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QGraphicsBlurEffect, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QGraphicsBlurEffect_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -5952,9 +7196,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsBlurEffect, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QGraphicsBlurEffect, callback: *const fn (QGraphicsBlurEffect, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QGraphicsBlurEffect, callback: *const fn (QGraphicsBlurEffect, QChildEvent) callconv(.c) void) void {
         qtc.QGraphicsBlurEffect_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -5966,16 +7214,16 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` self: QGraphicsBlurEffect `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QGraphicsBlurEffect, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QGraphicsBlurEffect_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QGraphicsBlurEffect, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QGraphicsBlurEffect_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -5987,12 +7235,16 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` self: QGraphicsBlurEffect `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QGraphicsBlurEffect, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QGraphicsBlurEffect_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QGraphicsBlurEffect, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QGraphicsBlurEffect_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -6006,9 +7258,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsBlurEffect, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QGraphicsBlurEffect, callback: *const fn (QGraphicsBlurEffect, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QGraphicsBlurEffect, callback: *const fn (QGraphicsBlurEffect, QEvent) callconv(.c) void) void {
         qtc.QGraphicsBlurEffect_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -6022,14 +7278,14 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QGraphicsBlurEffect, signal: anytype) void {
+    pub fn connectNotify(self: QGraphicsBlurEffect, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QGraphicsBlurEffect_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -6043,11 +7299,15 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QGraphicsBlurEffect, signal: anytype) void {
+    pub fn superConnectNotify(self: QGraphicsBlurEffect, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QGraphicsBlurEffect_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -6060,9 +7320,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsBlurEffect, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QGraphicsBlurEffect, callback: *const fn (QGraphicsBlurEffect, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QGraphicsBlurEffect, callback: *const fn (QGraphicsBlurEffect, QMetaMethod) callconv(.c) void) void {
         qtc.QGraphicsBlurEffect_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -6076,14 +7340,14 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QGraphicsBlurEffect, signal: anytype) void {
+    pub fn disconnectNotify(self: QGraphicsBlurEffect, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QGraphicsBlurEffect_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -6097,10 +7361,14 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QGraphicsBlurEffect, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QGraphicsBlurEffect, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QGraphicsBlurEffect_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -6114,9 +7382,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsBlurEffect, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QGraphicsBlurEffect, callback: *const fn (QGraphicsBlurEffect, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QGraphicsBlurEffect, callback: *const fn (QGraphicsBlurEffect, QMetaMethod) callconv(.c) void) void {
         qtc.QGraphicsBlurEffect_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `updateBoundingRect` instead
+    ///
+    pub const UpdateBoundingRect = updateBoundingRect;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -6128,13 +7400,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` self: QGraphicsBlurEffect `
     ///
-    pub fn UpdateBoundingRect(self: QGraphicsBlurEffect) void {
+    pub fn updateBoundingRect(self: QGraphicsBlurEffect) void {
         qtc.QGraphicsBlurEffect_UpdateBoundingRect(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateBoundingRect` instead
+    /// ### DEPRECATED: Use `superUpdateBoundingRect` instead
     ///
-    pub const QBaseUpdateBoundingRect = SuperUpdateBoundingRect;
+    pub const SuperUpdateBoundingRect = superUpdateBoundingRect;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -6146,9 +7418,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` self: QGraphicsBlurEffect `
     ///
-    pub fn SuperUpdateBoundingRect(self: QGraphicsBlurEffect) void {
+    pub fn superUpdateBoundingRect(self: QGraphicsBlurEffect) void {
         qtc.QGraphicsBlurEffect_SuperUpdateBoundingRect(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onUpdateBoundingRect` instead
+    ///
+    pub const OnUpdateBoundingRect = onUpdateBoundingRect;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -6162,9 +7438,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateBoundingRect(self: QGraphicsBlurEffect, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateBoundingRect(self: QGraphicsBlurEffect, callback: *const fn () callconv(.c) void) void {
         qtc.QGraphicsBlurEffect_OnUpdateBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sourceIsPixmap` instead
+    ///
+    pub const SourceIsPixmap = sourceIsPixmap;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -6176,13 +7456,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` self: QGraphicsBlurEffect `
     ///
-    pub fn SourceIsPixmap(self: QGraphicsBlurEffect) bool {
+    pub fn sourceIsPixmap(self: QGraphicsBlurEffect) bool {
         return qtc.QGraphicsBlurEffect_SourceIsPixmap(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSourceIsPixmap` instead
+    /// ### DEPRECATED: Use `superSourceIsPixmap` instead
     ///
-    pub const QBaseSourceIsPixmap = SuperSourceIsPixmap;
+    pub const SuperSourceIsPixmap = superSourceIsPixmap;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -6194,9 +7474,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` self: QGraphicsBlurEffect `
     ///
-    pub fn SuperSourceIsPixmap(self: QGraphicsBlurEffect) bool {
+    pub fn superSourceIsPixmap(self: QGraphicsBlurEffect) bool {
         return qtc.QGraphicsBlurEffect_SuperSourceIsPixmap(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSourceIsPixmap` instead
+    ///
+    pub const OnSourceIsPixmap = onSourceIsPixmap;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -6210,9 +7494,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnSourceIsPixmap(self: QGraphicsBlurEffect, callback: *const fn () callconv(.c) bool) void {
+    pub fn onSourceIsPixmap(self: QGraphicsBlurEffect, callback: *const fn () callconv(.c) bool) void {
         qtc.QGraphicsBlurEffect_OnSourceIsPixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sourceBoundingRect` instead
+    ///
+    pub const SourceBoundingRect = sourceBoundingRect;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -6224,13 +7512,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` self: QGraphicsBlurEffect `
     ///
-    pub fn SourceBoundingRect(self: QGraphicsBlurEffect) QRectF {
+    pub fn sourceBoundingRect(self: QGraphicsBlurEffect) QRectF {
         return .{ .ptr = qtc.QGraphicsBlurEffect_SourceBoundingRect(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSourceBoundingRect` instead
+    /// ### DEPRECATED: Use `superSourceBoundingRect` instead
     ///
-    pub const QBaseSourceBoundingRect = SuperSourceBoundingRect;
+    pub const SuperSourceBoundingRect = superSourceBoundingRect;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -6242,9 +7530,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` self: QGraphicsBlurEffect `
     ///
-    pub fn SuperSourceBoundingRect(self: QGraphicsBlurEffect) QRectF {
+    pub fn superSourceBoundingRect(self: QGraphicsBlurEffect) QRectF {
         return .{ .ptr = qtc.QGraphicsBlurEffect_SuperSourceBoundingRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSourceBoundingRect` instead
+    ///
+    pub const OnSourceBoundingRect = onSourceBoundingRect;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -6260,9 +7552,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSourceBoundingRect(self: QGraphicsBlurEffect, callback: *const fn () callconv(.c) QRectF) void {
+    pub fn onSourceBoundingRect(self: QGraphicsBlurEffect, callback: *const fn () callconv(.c) QRectF) void {
         qtc.QGraphicsBlurEffect_OnSourceBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `drawSource` instead
+    ///
+    pub const DrawSource = drawSource;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -6276,14 +7572,14 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn DrawSource(self: QGraphicsBlurEffect, painter: anytype) void {
+    pub fn drawSource(self: QGraphicsBlurEffect, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QGraphicsBlurEffect_DrawSource(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawSource` instead
+    /// ### DEPRECATED: Use `superDrawSource` instead
     ///
-    pub const QBaseDrawSource = SuperDrawSource;
+    pub const SuperDrawSource = superDrawSource;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -6297,10 +7593,14 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperDrawSource(self: QGraphicsBlurEffect, painter: anytype) void {
+    pub fn superDrawSource(self: QGraphicsBlurEffect, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QGraphicsBlurEffect_SuperDrawSource(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDrawSource` instead
+    ///
+    pub const OnDrawSource = onDrawSource;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -6314,9 +7614,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsBlurEffect, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnDrawSource(self: QGraphicsBlurEffect, callback: *const fn (QGraphicsBlurEffect, QPainter) callconv(.c) void) void {
+    pub fn onDrawSource(self: QGraphicsBlurEffect, callback: *const fn (QGraphicsBlurEffect, QPainter) callconv(.c) void) void {
         qtc.QGraphicsBlurEffect_OnDrawSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sourcePixmap` instead
+    ///
+    pub const SourcePixmap = sourcePixmap;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -6328,13 +7632,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` self: QGraphicsBlurEffect `
     ///
-    pub fn SourcePixmap(self: QGraphicsBlurEffect) QPixmap {
+    pub fn sourcePixmap(self: QGraphicsBlurEffect) QPixmap {
         return .{ .ptr = qtc.QGraphicsBlurEffect_SourcePixmap(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSourcePixmap` instead
+    /// ### DEPRECATED: Use `superSourcePixmap` instead
     ///
-    pub const QBaseSourcePixmap = SuperSourcePixmap;
+    pub const SuperSourcePixmap = superSourcePixmap;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -6346,9 +7650,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` self: QGraphicsBlurEffect `
     ///
-    pub fn SuperSourcePixmap(self: QGraphicsBlurEffect) QPixmap {
+    pub fn superSourcePixmap(self: QGraphicsBlurEffect) QPixmap {
         return .{ .ptr = qtc.QGraphicsBlurEffect_SuperSourcePixmap(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSourcePixmap` instead
+    ///
+    pub const OnSourcePixmap = onSourcePixmap;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -6364,9 +7672,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSourcePixmap(self: QGraphicsBlurEffect, callback: *const fn () callconv(.c) QPixmap) void {
+    pub fn onSourcePixmap(self: QGraphicsBlurEffect, callback: *const fn () callconv(.c) QPixmap) void {
         qtc.QGraphicsBlurEffect_OnSourcePixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -6378,13 +7690,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` self: QGraphicsBlurEffect `
     ///
-    pub fn Sender(self: QGraphicsBlurEffect) QObject {
+    pub fn sender(self: QGraphicsBlurEffect) QObject {
         return .{ .ptr = qtc.QGraphicsBlurEffect_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -6396,9 +7708,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` self: QGraphicsBlurEffect `
     ///
-    pub fn SuperSender(self: QGraphicsBlurEffect) QObject {
+    pub fn superSender(self: QGraphicsBlurEffect) QObject {
         return .{ .ptr = qtc.QGraphicsBlurEffect_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -6412,9 +7728,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QGraphicsBlurEffect, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QGraphicsBlurEffect, callback: *const fn () callconv(.c) QObject) void {
         qtc.QGraphicsBlurEffect_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -6426,13 +7746,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` self: QGraphicsBlurEffect `
     ///
-    pub fn SenderSignalIndex(self: QGraphicsBlurEffect) i32 {
+    pub fn senderSignalIndex(self: QGraphicsBlurEffect) i32 {
         return qtc.QGraphicsBlurEffect_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -6444,9 +7764,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` self: QGraphicsBlurEffect `
     ///
-    pub fn SuperSenderSignalIndex(self: QGraphicsBlurEffect) i32 {
+    pub fn superSenderSignalIndex(self: QGraphicsBlurEffect) i32 {
         return qtc.QGraphicsBlurEffect_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -6460,9 +7784,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QGraphicsBlurEffect, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QGraphicsBlurEffect, callback: *const fn () callconv(.c) i32) void {
         qtc.QGraphicsBlurEffect_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -6476,14 +7804,14 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QGraphicsBlurEffect, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QGraphicsBlurEffect, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QGraphicsBlurEffect_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -6497,10 +7825,14 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QGraphicsBlurEffect, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QGraphicsBlurEffect, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QGraphicsBlurEffect_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -6514,9 +7846,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsBlurEffect, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QGraphicsBlurEffect, callback: *const fn (QGraphicsBlurEffect, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QGraphicsBlurEffect, callback: *const fn (QGraphicsBlurEffect, [*:0]const u8) callconv(.c) i32) void {
         qtc.QGraphicsBlurEffect_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -6530,14 +7866,14 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QGraphicsBlurEffect, signal: anytype) bool {
+    pub fn isSignalConnected(self: QGraphicsBlurEffect, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QGraphicsBlurEffect_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -6551,10 +7887,14 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QGraphicsBlurEffect, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QGraphicsBlurEffect, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QGraphicsBlurEffect_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -6568,9 +7908,13 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsBlurEffect, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QGraphicsBlurEffect, callback: *const fn (QGraphicsBlurEffect, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QGraphicsBlurEffect, callback: *const fn (QGraphicsBlurEffect, QMetaMethod) callconv(.c) bool) void {
         qtc.QGraphicsBlurEffect_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -6584,23 +7928,23 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsBlurEffect, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QGraphicsBlurEffect, callback: *const fn (QGraphicsBlurEffect, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QGraphicsBlurEffect, callback: *const fn (QGraphicsBlurEffect, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#dtor.QGraphicsBlurEffect)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QGraphicsBlurEffect `
     ///
-    pub fn Delete(self: QGraphicsBlurEffect) void {
+    pub fn delete(self: QGraphicsBlurEffect) void {
         qtc.QGraphicsBlurEffect_Delete(@ptrCast(self.ptr));
     }
 };
@@ -6617,22 +7961,34 @@ pub const QGraphicsDropShadowEffect = extern struct {
     pub const _is_QGraphicsEffect = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QGraphicsDropShadowEffect object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QGraphicsDropShadowEffect {
+    pub const New = new;
+
+    /// Allocate a new QGraphicsDropShadowEffect object in C++ memory
+    ///
+    pub fn new() QGraphicsDropShadowEffect {
         return .{ .ptr = qtc.QGraphicsDropShadowEffect_new() };
     }
 
-    /// New2 constructs a new QGraphicsDropShadowEffect object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QGraphicsDropShadowEffect object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) QGraphicsDropShadowEffect {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QGraphicsDropShadowEffect_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) QGraphicsDropShadowEffect {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QGraphicsDropShadowEffect_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -6640,9 +7996,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    pub fn MetaObject(self: QGraphicsDropShadowEffect) QMetaObject {
+    pub fn metaObject(self: QGraphicsDropShadowEffect) QMetaObject {
         return .{ .ptr = qtc.QGraphicsDropShadowEffect_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -6654,13 +8014,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QGraphicsDropShadowEffect, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QGraphicsDropShadowEffect, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QGraphicsDropShadowEffect_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -6670,9 +8030,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    pub fn SuperMetaObject(self: QGraphicsDropShadowEffect) QMetaObject {
+    pub fn superMetaObject(self: QGraphicsDropShadowEffect) QMetaObject {
         return .{ .ptr = qtc.QGraphicsDropShadowEffect_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -6680,10 +8044,14 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QGraphicsDropShadowEffect, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QGraphicsDropShadowEffect, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QGraphicsDropShadowEffect_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -6693,13 +8061,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsDropShadowEffect, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QGraphicsDropShadowEffect_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -6709,10 +8077,14 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QGraphicsDropShadowEffect, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QGraphicsDropShadowEffect, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QGraphicsDropShadowEffect_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -6724,9 +8096,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QGraphicsDropShadowEffect, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QGraphicsDropShadowEffect, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QGraphicsDropShadowEffect_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -6736,13 +8112,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsDropShadowEffect, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QGraphicsDropShadowEffect_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -6756,9 +8132,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QGraphicsDropShadowEffect, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QGraphicsDropShadowEffect, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QGraphicsDropShadowEffect_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -6768,14 +8148,18 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsDropShadowEffect.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsDropShadowEffect.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `boundingRectFor` instead
+    ///
+    pub const BoundingRectFor = boundingRectFor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#boundingRectFor)
     ///
@@ -6785,10 +8169,14 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` rect: QRectF `
     ///
-    pub fn BoundingRectFor(self: QGraphicsDropShadowEffect, rect: anytype) QRectF {
+    pub fn boundingRectFor(self: QGraphicsDropShadowEffect, rect: anytype) QRectF {
         comptime _ = @TypeOf(rect)._is_QRectF;
         return .{ .ptr = qtc.QGraphicsDropShadowEffect_BoundingRectFor(@ptrCast(self.ptr), @ptrCast(rect.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onBoundingRectFor` instead
+    ///
+    pub const OnBoundingRectFor = onBoundingRectFor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#boundingRectFor)
     ///
@@ -6802,13 +8190,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnBoundingRectFor(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect, QRectF) callconv(.c) QRectF) void {
+    pub fn onBoundingRectFor(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect, QRectF) callconv(.c) QRectF) void {
         qtc.QGraphicsDropShadowEffect_OnBoundingRectFor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperBoundingRectFor` instead
+    /// ### DEPRECATED: Use `superBoundingRectFor` instead
     ///
-    pub const QBaseBoundingRectFor = SuperBoundingRectFor;
+    pub const SuperBoundingRectFor = superBoundingRectFor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#boundingRectFor)
     ///
@@ -6820,10 +8208,14 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` rect: QRectF `
     ///
-    pub fn SuperBoundingRectFor(self: QGraphicsDropShadowEffect, rect: anytype) QRectF {
+    pub fn superBoundingRectFor(self: QGraphicsDropShadowEffect, rect: anytype) QRectF {
         comptime _ = @TypeOf(rect)._is_QRectF;
         return .{ .ptr = qtc.QGraphicsDropShadowEffect_SuperBoundingRectFor(@ptrCast(self.ptr), @ptrCast(rect.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `offset` instead
+    ///
+    pub const Offset = offset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#offset)
     ///
@@ -6831,9 +8223,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    pub fn Offset(self: QGraphicsDropShadowEffect) QPointF {
+    pub fn offset(self: QGraphicsDropShadowEffect) QPointF {
         return .{ .ptr = qtc.QGraphicsDropShadowEffect_Offset(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `xOffset` instead
+    ///
+    pub const XOffset = xOffset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#xOffset)
     ///
@@ -6841,9 +8237,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    pub fn XOffset(self: QGraphicsDropShadowEffect) f64 {
+    pub fn xOffset(self: QGraphicsDropShadowEffect) f64 {
         return qtc.QGraphicsDropShadowEffect_XOffset(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `yOffset` instead
+    ///
+    pub const YOffset = yOffset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#yOffset)
     ///
@@ -6851,9 +8251,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    pub fn YOffset(self: QGraphicsDropShadowEffect) f64 {
+    pub fn yOffset(self: QGraphicsDropShadowEffect) f64 {
         return qtc.QGraphicsDropShadowEffect_YOffset(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blurRadius` instead
+    ///
+    pub const BlurRadius = blurRadius;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#blurRadius)
     ///
@@ -6861,9 +8265,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    pub fn BlurRadius(self: QGraphicsDropShadowEffect) f64 {
+    pub fn blurRadius(self: QGraphicsDropShadowEffect) f64 {
         return qtc.QGraphicsDropShadowEffect_BlurRadius(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `color` instead
+    ///
+    pub const Color = color;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#color)
     ///
@@ -6871,9 +8279,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    pub fn Color(self: QGraphicsDropShadowEffect) QColor {
+    pub fn color(self: QGraphicsDropShadowEffect) QColor {
         return .{ .ptr = qtc.QGraphicsDropShadowEffect_Color(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setOffset` instead
+    ///
+    pub const SetOffset = setOffset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#setOffset)
     ///
@@ -6883,10 +8295,14 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` ofs: QPointF `
     ///
-    pub fn SetOffset(self: QGraphicsDropShadowEffect, ofs: anytype) void {
+    pub fn setOffset(self: QGraphicsDropShadowEffect, ofs: anytype) void {
         comptime _ = @TypeOf(ofs)._is_QPointF;
         qtc.QGraphicsDropShadowEffect_SetOffset(@ptrCast(self.ptr), @ptrCast(ofs.ptr));
     }
+
+    /// ### DEPRECATED: Use `setOffset2` instead
+    ///
+    pub const SetOffset2 = setOffset2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#setOffset)
     ///
@@ -6898,9 +8314,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` dy: f64 `
     ///
-    pub fn SetOffset2(self: QGraphicsDropShadowEffect, dx: f64, dy: f64) void {
+    pub fn setOffset2(self: QGraphicsDropShadowEffect, dx: f64, dy: f64) void {
         qtc.QGraphicsDropShadowEffect_SetOffset2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `setOffset3` instead
+    ///
+    pub const SetOffset3 = setOffset3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#setOffset)
     ///
@@ -6910,9 +8330,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` d: f64 `
     ///
-    pub fn SetOffset3(self: QGraphicsDropShadowEffect, d: f64) void {
+    pub fn setOffset3(self: QGraphicsDropShadowEffect, d: f64) void {
         qtc.QGraphicsDropShadowEffect_SetOffset3(@ptrCast(self.ptr), @bitCast(d));
     }
+
+    /// ### DEPRECATED: Use `setXOffset` instead
+    ///
+    pub const SetXOffset = setXOffset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#setXOffset)
     ///
@@ -6922,9 +8346,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` dx: f64 `
     ///
-    pub fn SetXOffset(self: QGraphicsDropShadowEffect, dx: f64) void {
+    pub fn setXOffset(self: QGraphicsDropShadowEffect, dx: f64) void {
         qtc.QGraphicsDropShadowEffect_SetXOffset(@ptrCast(self.ptr), @bitCast(dx));
     }
+
+    /// ### DEPRECATED: Use `setYOffset` instead
+    ///
+    pub const SetYOffset = setYOffset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#setYOffset)
     ///
@@ -6934,9 +8362,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` dy: f64 `
     ///
-    pub fn SetYOffset(self: QGraphicsDropShadowEffect, dy: f64) void {
+    pub fn setYOffset(self: QGraphicsDropShadowEffect, dy: f64) void {
         qtc.QGraphicsDropShadowEffect_SetYOffset(@ptrCast(self.ptr), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `setBlurRadius` instead
+    ///
+    pub const SetBlurRadius = setBlurRadius;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#setBlurRadius)
     ///
@@ -6944,11 +8376,15 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    /// ` blurRadius: f64 `
+    /// ` _blurRadius: f64 `
     ///
-    pub fn SetBlurRadius(self: QGraphicsDropShadowEffect, blurRadius: f64) void {
-        qtc.QGraphicsDropShadowEffect_SetBlurRadius(@ptrCast(self.ptr), @bitCast(blurRadius));
+    pub fn setBlurRadius(self: QGraphicsDropShadowEffect, _blurRadius: f64) void {
+        qtc.QGraphicsDropShadowEffect_SetBlurRadius(@ptrCast(self.ptr), @bitCast(_blurRadius));
     }
+
+    /// ### DEPRECATED: Use `setColor` instead
+    ///
+    pub const SetColor = setColor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#setColor)
     ///
@@ -6956,12 +8392,16 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    /// ` color: QColor `
+    /// ` _color: QColor `
     ///
-    pub fn SetColor(self: QGraphicsDropShadowEffect, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.QGraphicsDropShadowEffect_SetColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
+    pub fn setColor(self: QGraphicsDropShadowEffect, _color: anytype) void {
+        comptime _ = @TypeOf(_color)._is_QColor;
+        qtc.QGraphicsDropShadowEffect_SetColor(@ptrCast(self.ptr), @ptrCast(_color.ptr));
     }
+
+    /// ### DEPRECATED: Use `offsetChanged` instead
+    ///
+    pub const OffsetChanged = offsetChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#offsetChanged)
     ///
@@ -6969,12 +8409,16 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    /// ` offset: QPointF `
+    /// ` _offset: QPointF `
     ///
-    pub fn OffsetChanged(self: QGraphicsDropShadowEffect, offset: anytype) void {
-        comptime _ = @TypeOf(offset)._is_QPointF;
-        qtc.QGraphicsDropShadowEffect_OffsetChanged(@ptrCast(self.ptr), @ptrCast(offset.ptr));
+    pub fn offsetChanged(self: QGraphicsDropShadowEffect, _offset: anytype) void {
+        comptime _ = @TypeOf(_offset)._is_QPointF;
+        qtc.QGraphicsDropShadowEffect_OffsetChanged(@ptrCast(self.ptr), @ptrCast(_offset.ptr));
     }
+
+    /// ### DEPRECATED: Use `onOffsetChanged` instead
+    ///
+    pub const OnOffsetChanged = onOffsetChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#offsetChanged)
     ///
@@ -6984,9 +8428,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsDropShadowEffect, offset: QPointF) callconv(.c) void `
     ///
-    pub fn OnOffsetChanged(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect, QPointF) callconv(.c) void) void {
+    pub fn onOffsetChanged(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect, QPointF) callconv(.c) void) void {
         qtc.QGraphicsDropShadowEffect_Connect_OffsetChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `blurRadiusChanged` instead
+    ///
+    pub const BlurRadiusChanged = blurRadiusChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#blurRadiusChanged)
     ///
@@ -6994,11 +8442,15 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    /// ` blurRadius: f64 `
+    /// ` _blurRadius: f64 `
     ///
-    pub fn BlurRadiusChanged(self: QGraphicsDropShadowEffect, blurRadius: f64) void {
-        qtc.QGraphicsDropShadowEffect_BlurRadiusChanged(@ptrCast(self.ptr), @bitCast(blurRadius));
+    pub fn blurRadiusChanged(self: QGraphicsDropShadowEffect, _blurRadius: f64) void {
+        qtc.QGraphicsDropShadowEffect_BlurRadiusChanged(@ptrCast(self.ptr), @bitCast(_blurRadius));
     }
+
+    /// ### DEPRECATED: Use `onBlurRadiusChanged` instead
+    ///
+    pub const OnBlurRadiusChanged = onBlurRadiusChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#blurRadiusChanged)
     ///
@@ -7008,9 +8460,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsDropShadowEffect, blurRadius: f64) callconv(.c) void `
     ///
-    pub fn OnBlurRadiusChanged(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect, f64) callconv(.c) void) void {
+    pub fn onBlurRadiusChanged(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect, f64) callconv(.c) void) void {
         qtc.QGraphicsDropShadowEffect_Connect_BlurRadiusChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `colorChanged` instead
+    ///
+    pub const ColorChanged = colorChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#colorChanged)
     ///
@@ -7018,12 +8474,16 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    /// ` color: QColor `
+    /// ` _color: QColor `
     ///
-    pub fn ColorChanged(self: QGraphicsDropShadowEffect, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.QGraphicsDropShadowEffect_ColorChanged(@ptrCast(self.ptr), @ptrCast(color.ptr));
+    pub fn colorChanged(self: QGraphicsDropShadowEffect, _color: anytype) void {
+        comptime _ = @TypeOf(_color)._is_QColor;
+        qtc.QGraphicsDropShadowEffect_ColorChanged(@ptrCast(self.ptr), @ptrCast(_color.ptr));
     }
+
+    /// ### DEPRECATED: Use `onColorChanged` instead
+    ///
+    pub const OnColorChanged = onColorChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#colorChanged)
     ///
@@ -7033,9 +8493,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsDropShadowEffect, color: QColor) callconv(.c) void `
     ///
-    pub fn OnColorChanged(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect, QColor) callconv(.c) void) void {
+    pub fn onColorChanged(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect, QColor) callconv(.c) void) void {
         qtc.QGraphicsDropShadowEffect_Connect_ColorChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `draw` instead
+    ///
+    pub const Draw = draw;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#draw)
     ///
@@ -7045,10 +8509,14 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Draw(self: QGraphicsDropShadowEffect, painter: anytype) void {
+    pub fn draw(self: QGraphicsDropShadowEffect, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QGraphicsDropShadowEffect_Draw(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDraw` instead
+    ///
+    pub const OnDraw = onDraw;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#draw)
     ///
@@ -7060,13 +8528,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsDropShadowEffect, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnDraw(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect, QPainter) callconv(.c) void) void {
+    pub fn onDraw(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect, QPainter) callconv(.c) void) void {
         qtc.QGraphicsDropShadowEffect_OnDraw(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDraw` instead
+    /// ### DEPRECATED: Use `superDraw` instead
     ///
-    pub const QBaseDraw = SuperDraw;
+    pub const SuperDraw = superDraw;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#draw)
     ///
@@ -7078,10 +8546,14 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperDraw(self: QGraphicsDropShadowEffect, painter: anytype) void {
+    pub fn superDraw(self: QGraphicsDropShadowEffect, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QGraphicsDropShadowEffect_SuperDraw(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -7093,15 +8565,19 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsDropShadowEffect.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsDropShadowEffect.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -7115,15 +8591,19 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsDropShadowEffect.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsDropShadowEffect.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `boundingRect` instead
+    ///
+    pub const BoundingRect = boundingRect;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -7133,9 +8613,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    pub fn BoundingRect(self: QGraphicsDropShadowEffect) QRectF {
+    pub fn boundingRect(self: QGraphicsDropShadowEffect) QRectF {
         return .{ .ptr = qtc.QGraphicsEffect_BoundingRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -7145,9 +8629,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    pub fn IsEnabled(self: QGraphicsDropShadowEffect) bool {
+    pub fn isEnabled(self: QGraphicsDropShadowEffect) bool {
         return qtc.QGraphicsEffect_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -7159,9 +8647,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetEnabled(self: QGraphicsDropShadowEffect, enable: bool) void {
+    pub fn setEnabled(self: QGraphicsDropShadowEffect, enable: bool) void {
         qtc.QGraphicsEffect_SetEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -7171,9 +8663,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    pub fn Update(self: QGraphicsDropShadowEffect) void {
+    pub fn update(self: QGraphicsDropShadowEffect) void {
         qtc.QGraphicsEffect_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `enabledChanged` instead
+    ///
+    pub const EnabledChanged = enabledChanged;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -7185,9 +8681,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn EnabledChanged(self: QGraphicsDropShadowEffect, enabled: bool) void {
+    pub fn enabledChanged(self: QGraphicsDropShadowEffect, enabled: bool) void {
         qtc.QGraphicsEffect_EnabledChanged(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `onEnabledChanged` instead
+    ///
+    pub const OnEnabledChanged = onEnabledChanged;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -7199,9 +8699,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsDropShadowEffect, enabled: bool) callconv(.c) void `
     ///
-    pub fn OnEnabledChanged(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect, bool) callconv(.c) void) void {
+    pub fn onEnabledChanged(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect, bool) callconv(.c) void) void {
         qtc.QGraphicsEffect_Connect_EnabledChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -7213,13 +8717,17 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QGraphicsDropShadowEffect, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QGraphicsDropShadowEffect, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsDropShadowEffect.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsDropShadowEffect.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -7231,13 +8739,17 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QGraphicsDropShadowEffect, name: []const u8) void {
+    pub fn setObjectName(self: QGraphicsDropShadowEffect, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -7247,9 +8759,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    pub fn IsWidgetType(self: QGraphicsDropShadowEffect) bool {
+    pub fn isWidgetType(self: QGraphicsDropShadowEffect) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -7259,9 +8775,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    pub fn IsWindowType(self: QGraphicsDropShadowEffect) bool {
+    pub fn isWindowType(self: QGraphicsDropShadowEffect) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -7271,9 +8791,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    pub fn IsQuickItemType(self: QGraphicsDropShadowEffect) bool {
+    pub fn isQuickItemType(self: QGraphicsDropShadowEffect) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -7283,9 +8807,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    pub fn SignalsBlocked(self: QGraphicsDropShadowEffect) bool {
+    pub fn signalsBlocked(self: QGraphicsDropShadowEffect) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -7297,9 +8825,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QGraphicsDropShadowEffect, b: bool) bool {
+    pub fn blockSignals(self: QGraphicsDropShadowEffect, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -7309,9 +8841,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    pub fn Thread(self: QGraphicsDropShadowEffect) QThread {
+    pub fn thread(self: QGraphicsDropShadowEffect) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -7321,12 +8857,16 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QGraphicsDropShadowEffect, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QGraphicsDropShadowEffect, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -7338,9 +8878,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QGraphicsDropShadowEffect, interval: i32) i32 {
+    pub fn startTimer(self: QGraphicsDropShadowEffect, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -7352,9 +8896,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QGraphicsDropShadowEffect, time: i64) i32 {
+    pub fn startTimer2(self: QGraphicsDropShadowEffect, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -7366,9 +8914,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QGraphicsDropShadowEffect, id: i32) void {
+    pub fn killTimer(self: QGraphicsDropShadowEffect, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -7380,9 +8932,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QGraphicsDropShadowEffect, id: i32) void {
+    pub fn killTimer2(self: QGraphicsDropShadowEffect, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -7394,15 +8950,19 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QGraphicsDropShadowEffect, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QGraphicsDropShadowEffect, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QGraphicsDropShadowEffect.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QGraphicsDropShadowEffect.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -7412,12 +8972,16 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QGraphicsDropShadowEffect, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QGraphicsDropShadowEffect, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -7429,10 +8993,14 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QGraphicsDropShadowEffect, filterObj: anytype) void {
+    pub fn installEventFilter(self: QGraphicsDropShadowEffect, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -7444,10 +9012,14 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QGraphicsDropShadowEffect, obj: anytype) void {
+    pub fn removeEventFilter(self: QGraphicsDropShadowEffect, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -7455,7 +9027,7 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -7463,13 +9035,17 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -7477,7 +9053,7 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -7485,13 +9061,17 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -7501,18 +9081,22 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QGraphicsDropShadowEffect, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QGraphicsDropShadowEffect, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -7520,7 +9104,7 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -7528,13 +9112,17 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -7542,7 +9130,7 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -7550,13 +9138,17 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -7566,9 +9158,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    pub fn Disconnect3(self: QGraphicsDropShadowEffect) bool {
+    pub fn disconnect3(self: QGraphicsDropShadowEffect) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -7580,10 +9176,14 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QGraphicsDropShadowEffect, receiver: anytype) bool {
+    pub fn disconnect4(self: QGraphicsDropShadowEffect, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -7593,10 +9193,14 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -7606,9 +9210,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    pub fn DumpObjectTree(self: QGraphicsDropShadowEffect) void {
+    pub fn dumpObjectTree(self: QGraphicsDropShadowEffect) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -7618,9 +9226,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    pub fn DumpObjectInfo(self: QGraphicsDropShadowEffect) void {
+    pub fn dumpObjectInfo(self: QGraphicsDropShadowEffect) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -7634,11 +9246,15 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QGraphicsDropShadowEffect, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QGraphicsDropShadowEffect, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -7650,10 +9266,14 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QGraphicsDropShadowEffect, name: [:0]const u8) QVariant {
+    pub fn property(self: QGraphicsDropShadowEffect, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -7665,7 +9285,7 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QGraphicsDropShadowEffect, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QGraphicsDropShadowEffect, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -7673,27 +9293,19 @@ pub const QGraphicsDropShadowEffect = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QGraphicsDropShadowEffect.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QGraphicsDropShadowEffect.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QGraphicsDropShadowEffect.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QGraphicsDropShadowEffect.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsDropShadowEffect `
-    ///
-    pub fn BindingStorage(self: QGraphicsDropShadowEffect) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -7703,9 +9315,29 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    pub fn BindingStorage2(self: QGraphicsDropShadowEffect) QBindingStorage {
+    pub fn bindingStorage(self: QGraphicsDropShadowEffect) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGraphicsDropShadowEffect `
+    ///
+    pub fn bindingStorage2(self: QGraphicsDropShadowEffect) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -7715,9 +9347,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    pub fn Destroyed(self: QGraphicsDropShadowEffect) void {
+    pub fn destroyed(self: QGraphicsDropShadowEffect) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -7729,9 +9365,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsDropShadowEffect) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect) callconv(.c) void) void {
+    pub fn onDestroyed(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -7741,9 +9381,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    pub fn Parent(self: QGraphicsDropShadowEffect) QObject {
+    pub fn parent(self: QGraphicsDropShadowEffect) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -7755,10 +9399,14 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QGraphicsDropShadowEffect, classname: [:0]const u8) bool {
+    pub fn inherits(self: QGraphicsDropShadowEffect, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -7768,9 +9416,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    pub fn DeleteLater(self: QGraphicsDropShadowEffect) void {
+    pub fn deleteLater(self: QGraphicsDropShadowEffect) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -7784,9 +9436,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QGraphicsDropShadowEffect, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QGraphicsDropShadowEffect, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -7800,9 +9456,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QGraphicsDropShadowEffect, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QGraphicsDropShadowEffect, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -7810,7 +9470,7 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -7820,13 +9480,17 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -7834,7 +9498,7 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -7844,13 +9508,17 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -7860,7 +9528,7 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -7868,12 +9536,16 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QGraphicsDropShadowEffect, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QGraphicsDropShadowEffect, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -7885,10 +9557,14 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QGraphicsDropShadowEffect, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QGraphicsDropShadowEffect, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -7902,11 +9578,15 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QGraphicsDropShadowEffect, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QGraphicsDropShadowEffect, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -7922,13 +9602,17 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QGraphicsDropShadowEffect, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QGraphicsDropShadowEffect, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -7941,11 +9625,15 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QGraphicsDropShadowEffect, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QGraphicsDropShadowEffect, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -7957,10 +9645,14 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QGraphicsDropShadowEffect, param1: anytype) void {
+    pub fn destroyed1(self: QGraphicsDropShadowEffect, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -7972,9 +9664,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsDropShadowEffect, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sourceChanged` instead
+    ///
+    pub const SourceChanged = sourceChanged;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -7988,13 +9684,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` flags: flag of qgraphicseffect_enums.ChangeFlag `
     ///
-    pub fn SourceChanged(self: QGraphicsDropShadowEffect, flags: i32) void {
+    pub fn sourceChanged(self: QGraphicsDropShadowEffect, flags: i32) void {
         qtc.QGraphicsDropShadowEffect_SourceChanged(@ptrCast(self.ptr), @bitCast(flags));
     }
 
-    /// ### DEPRECATED: Use `SuperSourceChanged` instead
+    /// ### DEPRECATED: Use `superSourceChanged` instead
     ///
-    pub const QBaseSourceChanged = SuperSourceChanged;
+    pub const SuperSourceChanged = superSourceChanged;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -8008,9 +9704,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` flags: flag of qgraphicseffect_enums.ChangeFlag `
     ///
-    pub fn SuperSourceChanged(self: QGraphicsDropShadowEffect, flags: i32) void {
+    pub fn superSourceChanged(self: QGraphicsDropShadowEffect, flags: i32) void {
         qtc.QGraphicsDropShadowEffect_SuperSourceChanged(@ptrCast(self.ptr), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `onSourceChanged` instead
+    ///
+    pub const OnSourceChanged = onSourceChanged;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -8024,9 +9724,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsDropShadowEffect, flags: flag of qgraphicseffect_enums.ChangeFlag) callconv(.c) void `
     ///
-    pub fn OnSourceChanged(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect, i32) callconv(.c) void) void {
+    pub fn onSourceChanged(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect, i32) callconv(.c) void) void {
         qtc.QGraphicsDropShadowEffect_OnSourceChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -8038,16 +9742,16 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QGraphicsDropShadowEffect, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGraphicsDropShadowEffect_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QGraphicsDropShadowEffect, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGraphicsDropShadowEffect_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -8059,12 +9763,16 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QGraphicsDropShadowEffect, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGraphicsDropShadowEffect_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QGraphicsDropShadowEffect, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGraphicsDropShadowEffect_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -8078,9 +9786,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsDropShadowEffect, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect, QEvent) callconv(.c) bool) void {
         qtc.QGraphicsDropShadowEffect_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -8094,17 +9806,17 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QGraphicsDropShadowEffect, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QGraphicsDropShadowEffect, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGraphicsDropShadowEffect_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGraphicsDropShadowEffect_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -8118,13 +9830,17 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QGraphicsDropShadowEffect, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QGraphicsDropShadowEffect, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGraphicsDropShadowEffect_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGraphicsDropShadowEffect_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -8138,9 +9854,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsDropShadowEffect, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect, QObject, QEvent) callconv(.c) bool) void {
         qtc.QGraphicsDropShadowEffect_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -8152,16 +9872,16 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QGraphicsDropShadowEffect, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QGraphicsDropShadowEffect_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QGraphicsDropShadowEffect, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QGraphicsDropShadowEffect_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -8173,12 +9893,16 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QGraphicsDropShadowEffect, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QGraphicsDropShadowEffect_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QGraphicsDropShadowEffect, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QGraphicsDropShadowEffect_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -8192,9 +9916,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsDropShadowEffect, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect, QTimerEvent) callconv(.c) void) void {
         qtc.QGraphicsDropShadowEffect_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -8206,16 +9934,16 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QGraphicsDropShadowEffect, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QGraphicsDropShadowEffect_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QGraphicsDropShadowEffect, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QGraphicsDropShadowEffect_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8227,12 +9955,16 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QGraphicsDropShadowEffect, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QGraphicsDropShadowEffect_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QGraphicsDropShadowEffect, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QGraphicsDropShadowEffect_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8246,9 +9978,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsDropShadowEffect, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect, QChildEvent) callconv(.c) void) void {
         qtc.QGraphicsDropShadowEffect_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -8260,16 +9996,16 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QGraphicsDropShadowEffect, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QGraphicsDropShadowEffect_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QGraphicsDropShadowEffect, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QGraphicsDropShadowEffect_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8281,12 +10017,16 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QGraphicsDropShadowEffect, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QGraphicsDropShadowEffect_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QGraphicsDropShadowEffect, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QGraphicsDropShadowEffect_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8300,9 +10040,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsDropShadowEffect, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect, QEvent) callconv(.c) void) void {
         qtc.QGraphicsDropShadowEffect_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -8316,14 +10060,14 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QGraphicsDropShadowEffect, signal: anytype) void {
+    pub fn connectNotify(self: QGraphicsDropShadowEffect, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QGraphicsDropShadowEffect_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8337,11 +10081,15 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QGraphicsDropShadowEffect, signal: anytype) void {
+    pub fn superConnectNotify(self: QGraphicsDropShadowEffect, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QGraphicsDropShadowEffect_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -8354,9 +10102,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsDropShadowEffect, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect, QMetaMethod) callconv(.c) void) void {
         qtc.QGraphicsDropShadowEffect_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8370,14 +10122,14 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QGraphicsDropShadowEffect, signal: anytype) void {
+    pub fn disconnectNotify(self: QGraphicsDropShadowEffect, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QGraphicsDropShadowEffect_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8391,10 +10143,14 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QGraphicsDropShadowEffect, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QGraphicsDropShadowEffect, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QGraphicsDropShadowEffect_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8408,9 +10164,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsDropShadowEffect, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect, QMetaMethod) callconv(.c) void) void {
         qtc.QGraphicsDropShadowEffect_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `updateBoundingRect` instead
+    ///
+    pub const UpdateBoundingRect = updateBoundingRect;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -8422,13 +10182,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    pub fn UpdateBoundingRect(self: QGraphicsDropShadowEffect) void {
+    pub fn updateBoundingRect(self: QGraphicsDropShadowEffect) void {
         qtc.QGraphicsDropShadowEffect_UpdateBoundingRect(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateBoundingRect` instead
+    /// ### DEPRECATED: Use `superUpdateBoundingRect` instead
     ///
-    pub const QBaseUpdateBoundingRect = SuperUpdateBoundingRect;
+    pub const SuperUpdateBoundingRect = superUpdateBoundingRect;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -8440,9 +10200,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    pub fn SuperUpdateBoundingRect(self: QGraphicsDropShadowEffect) void {
+    pub fn superUpdateBoundingRect(self: QGraphicsDropShadowEffect) void {
         qtc.QGraphicsDropShadowEffect_SuperUpdateBoundingRect(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onUpdateBoundingRect` instead
+    ///
+    pub const OnUpdateBoundingRect = onUpdateBoundingRect;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -8456,9 +10220,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateBoundingRect(self: QGraphicsDropShadowEffect, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateBoundingRect(self: QGraphicsDropShadowEffect, callback: *const fn () callconv(.c) void) void {
         qtc.QGraphicsDropShadowEffect_OnUpdateBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sourceIsPixmap` instead
+    ///
+    pub const SourceIsPixmap = sourceIsPixmap;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -8470,13 +10238,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    pub fn SourceIsPixmap(self: QGraphicsDropShadowEffect) bool {
+    pub fn sourceIsPixmap(self: QGraphicsDropShadowEffect) bool {
         return qtc.QGraphicsDropShadowEffect_SourceIsPixmap(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSourceIsPixmap` instead
+    /// ### DEPRECATED: Use `superSourceIsPixmap` instead
     ///
-    pub const QBaseSourceIsPixmap = SuperSourceIsPixmap;
+    pub const SuperSourceIsPixmap = superSourceIsPixmap;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -8488,9 +10256,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    pub fn SuperSourceIsPixmap(self: QGraphicsDropShadowEffect) bool {
+    pub fn superSourceIsPixmap(self: QGraphicsDropShadowEffect) bool {
         return qtc.QGraphicsDropShadowEffect_SuperSourceIsPixmap(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSourceIsPixmap` instead
+    ///
+    pub const OnSourceIsPixmap = onSourceIsPixmap;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -8504,9 +10276,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnSourceIsPixmap(self: QGraphicsDropShadowEffect, callback: *const fn () callconv(.c) bool) void {
+    pub fn onSourceIsPixmap(self: QGraphicsDropShadowEffect, callback: *const fn () callconv(.c) bool) void {
         qtc.QGraphicsDropShadowEffect_OnSourceIsPixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sourceBoundingRect` instead
+    ///
+    pub const SourceBoundingRect = sourceBoundingRect;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -8518,13 +10294,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    pub fn SourceBoundingRect(self: QGraphicsDropShadowEffect) QRectF {
+    pub fn sourceBoundingRect(self: QGraphicsDropShadowEffect) QRectF {
         return .{ .ptr = qtc.QGraphicsDropShadowEffect_SourceBoundingRect(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSourceBoundingRect` instead
+    /// ### DEPRECATED: Use `superSourceBoundingRect` instead
     ///
-    pub const QBaseSourceBoundingRect = SuperSourceBoundingRect;
+    pub const SuperSourceBoundingRect = superSourceBoundingRect;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -8536,9 +10312,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    pub fn SuperSourceBoundingRect(self: QGraphicsDropShadowEffect) QRectF {
+    pub fn superSourceBoundingRect(self: QGraphicsDropShadowEffect) QRectF {
         return .{ .ptr = qtc.QGraphicsDropShadowEffect_SuperSourceBoundingRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSourceBoundingRect` instead
+    ///
+    pub const OnSourceBoundingRect = onSourceBoundingRect;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -8554,9 +10334,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSourceBoundingRect(self: QGraphicsDropShadowEffect, callback: *const fn () callconv(.c) QRectF) void {
+    pub fn onSourceBoundingRect(self: QGraphicsDropShadowEffect, callback: *const fn () callconv(.c) QRectF) void {
         qtc.QGraphicsDropShadowEffect_OnSourceBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `drawSource` instead
+    ///
+    pub const DrawSource = drawSource;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -8570,14 +10354,14 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn DrawSource(self: QGraphicsDropShadowEffect, painter: anytype) void {
+    pub fn drawSource(self: QGraphicsDropShadowEffect, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QGraphicsDropShadowEffect_DrawSource(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawSource` instead
+    /// ### DEPRECATED: Use `superDrawSource` instead
     ///
-    pub const QBaseDrawSource = SuperDrawSource;
+    pub const SuperDrawSource = superDrawSource;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -8591,10 +10375,14 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperDrawSource(self: QGraphicsDropShadowEffect, painter: anytype) void {
+    pub fn superDrawSource(self: QGraphicsDropShadowEffect, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QGraphicsDropShadowEffect_SuperDrawSource(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDrawSource` instead
+    ///
+    pub const OnDrawSource = onDrawSource;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -8608,9 +10396,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsDropShadowEffect, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnDrawSource(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect, QPainter) callconv(.c) void) void {
+    pub fn onDrawSource(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect, QPainter) callconv(.c) void) void {
         qtc.QGraphicsDropShadowEffect_OnDrawSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sourcePixmap` instead
+    ///
+    pub const SourcePixmap = sourcePixmap;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -8622,13 +10414,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    pub fn SourcePixmap(self: QGraphicsDropShadowEffect) QPixmap {
+    pub fn sourcePixmap(self: QGraphicsDropShadowEffect) QPixmap {
         return .{ .ptr = qtc.QGraphicsDropShadowEffect_SourcePixmap(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSourcePixmap` instead
+    /// ### DEPRECATED: Use `superSourcePixmap` instead
     ///
-    pub const QBaseSourcePixmap = SuperSourcePixmap;
+    pub const SuperSourcePixmap = superSourcePixmap;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -8640,9 +10432,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    pub fn SuperSourcePixmap(self: QGraphicsDropShadowEffect) QPixmap {
+    pub fn superSourcePixmap(self: QGraphicsDropShadowEffect) QPixmap {
         return .{ .ptr = qtc.QGraphicsDropShadowEffect_SuperSourcePixmap(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSourcePixmap` instead
+    ///
+    pub const OnSourcePixmap = onSourcePixmap;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -8658,9 +10454,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSourcePixmap(self: QGraphicsDropShadowEffect, callback: *const fn () callconv(.c) QPixmap) void {
+    pub fn onSourcePixmap(self: QGraphicsDropShadowEffect, callback: *const fn () callconv(.c) QPixmap) void {
         qtc.QGraphicsDropShadowEffect_OnSourcePixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -8672,13 +10472,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    pub fn Sender(self: QGraphicsDropShadowEffect) QObject {
+    pub fn sender(self: QGraphicsDropShadowEffect) QObject {
         return .{ .ptr = qtc.QGraphicsDropShadowEffect_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -8690,9 +10490,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    pub fn SuperSender(self: QGraphicsDropShadowEffect) QObject {
+    pub fn superSender(self: QGraphicsDropShadowEffect) QObject {
         return .{ .ptr = qtc.QGraphicsDropShadowEffect_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -8706,9 +10510,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QGraphicsDropShadowEffect, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QGraphicsDropShadowEffect, callback: *const fn () callconv(.c) QObject) void {
         qtc.QGraphicsDropShadowEffect_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8720,13 +10528,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    pub fn SenderSignalIndex(self: QGraphicsDropShadowEffect) i32 {
+    pub fn senderSignalIndex(self: QGraphicsDropShadowEffect) i32 {
         return qtc.QGraphicsDropShadowEffect_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8738,9 +10546,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    pub fn SuperSenderSignalIndex(self: QGraphicsDropShadowEffect) i32 {
+    pub fn superSenderSignalIndex(self: QGraphicsDropShadowEffect) i32 {
         return qtc.QGraphicsDropShadowEffect_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8754,9 +10566,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QGraphicsDropShadowEffect, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QGraphicsDropShadowEffect, callback: *const fn () callconv(.c) i32) void {
         qtc.QGraphicsDropShadowEffect_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -8770,14 +10586,14 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QGraphicsDropShadowEffect, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QGraphicsDropShadowEffect, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QGraphicsDropShadowEffect_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -8791,10 +10607,14 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QGraphicsDropShadowEffect, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QGraphicsDropShadowEffect, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QGraphicsDropShadowEffect_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -8808,9 +10628,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsDropShadowEffect, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect, [*:0]const u8) callconv(.c) i32) void {
         qtc.QGraphicsDropShadowEffect_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8824,14 +10648,14 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QGraphicsDropShadowEffect, signal: anytype) bool {
+    pub fn isSignalConnected(self: QGraphicsDropShadowEffect, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QGraphicsDropShadowEffect_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8845,10 +10669,14 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QGraphicsDropShadowEffect, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QGraphicsDropShadowEffect, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QGraphicsDropShadowEffect_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8862,9 +10690,13 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsDropShadowEffect, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect, QMetaMethod) callconv(.c) bool) void {
         qtc.QGraphicsDropShadowEffect_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -8878,23 +10710,23 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsDropShadowEffect, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#dtor.QGraphicsDropShadowEffect)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    pub fn Delete(self: QGraphicsDropShadowEffect) void {
+    pub fn delete(self: QGraphicsDropShadowEffect) void {
         qtc.QGraphicsDropShadowEffect_Delete(@ptrCast(self.ptr));
     }
 };
@@ -8911,22 +10743,34 @@ pub const QGraphicsOpacityEffect = extern struct {
     pub const _is_QGraphicsEffect = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QGraphicsOpacityEffect object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QGraphicsOpacityEffect {
+    pub const New = new;
+
+    /// Allocate a new QGraphicsOpacityEffect object in C++ memory
+    ///
+    pub fn new() QGraphicsOpacityEffect {
         return .{ .ptr = qtc.QGraphicsOpacityEffect_new() };
     }
 
-    /// New2 constructs a new QGraphicsOpacityEffect object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QGraphicsOpacityEffect object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) QGraphicsOpacityEffect {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QGraphicsOpacityEffect_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) QGraphicsOpacityEffect {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QGraphicsOpacityEffect_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -8934,9 +10778,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` self: QGraphicsOpacityEffect `
     ///
-    pub fn MetaObject(self: QGraphicsOpacityEffect) QMetaObject {
+    pub fn metaObject(self: QGraphicsOpacityEffect) QMetaObject {
         return .{ .ptr = qtc.QGraphicsOpacityEffect_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -8948,13 +10796,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QGraphicsOpacityEffect, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QGraphicsOpacityEffect, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QGraphicsOpacityEffect_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -8964,9 +10812,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` self: QGraphicsOpacityEffect `
     ///
-    pub fn SuperMetaObject(self: QGraphicsOpacityEffect) QMetaObject {
+    pub fn superMetaObject(self: QGraphicsOpacityEffect) QMetaObject {
         return .{ .ptr = qtc.QGraphicsOpacityEffect_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -8974,10 +10826,14 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QGraphicsOpacityEffect, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QGraphicsOpacityEffect, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QGraphicsOpacityEffect_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -8987,13 +10843,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsOpacityEffect, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QGraphicsOpacityEffect, callback: *const fn (QGraphicsOpacityEffect, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QGraphicsOpacityEffect, callback: *const fn (QGraphicsOpacityEffect, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QGraphicsOpacityEffect_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -9003,10 +10859,14 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QGraphicsOpacityEffect, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QGraphicsOpacityEffect, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QGraphicsOpacityEffect_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -9018,9 +10878,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QGraphicsOpacityEffect, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QGraphicsOpacityEffect, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QGraphicsOpacityEffect_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -9030,13 +10894,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsOpacityEffect, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QGraphicsOpacityEffect, callback: *const fn (QGraphicsOpacityEffect, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QGraphicsOpacityEffect, callback: *const fn (QGraphicsOpacityEffect, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QGraphicsOpacityEffect_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -9050,9 +10914,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QGraphicsOpacityEffect, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QGraphicsOpacityEffect, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QGraphicsOpacityEffect_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -9062,14 +10930,18 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsOpacityEffect.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsOpacityEffect.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `opacity` instead
+    ///
+    pub const Opacity = opacity;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#opacity)
     ///
@@ -9077,9 +10949,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` self: QGraphicsOpacityEffect `
     ///
-    pub fn Opacity(self: QGraphicsOpacityEffect) f64 {
+    pub fn opacity(self: QGraphicsOpacityEffect) f64 {
         return qtc.QGraphicsOpacityEffect_Opacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `opacityMask` instead
+    ///
+    pub const OpacityMask = opacityMask;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#opacityMask)
     ///
@@ -9087,9 +10963,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` self: QGraphicsOpacityEffect `
     ///
-    pub fn OpacityMask(self: QGraphicsOpacityEffect) QBrush {
+    pub fn opacityMask(self: QGraphicsOpacityEffect) QBrush {
         return .{ .ptr = qtc.QGraphicsOpacityEffect_OpacityMask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setOpacity` instead
+    ///
+    pub const SetOpacity = setOpacity;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#setOpacity)
     ///
@@ -9097,11 +10977,15 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` self: QGraphicsOpacityEffect `
     ///
-    /// ` opacity: f64 `
+    /// ` _opacity: f64 `
     ///
-    pub fn SetOpacity(self: QGraphicsOpacityEffect, opacity: f64) void {
-        qtc.QGraphicsOpacityEffect_SetOpacity(@ptrCast(self.ptr), @bitCast(opacity));
+    pub fn setOpacity(self: QGraphicsOpacityEffect, _opacity: f64) void {
+        qtc.QGraphicsOpacityEffect_SetOpacity(@ptrCast(self.ptr), @bitCast(_opacity));
     }
+
+    /// ### DEPRECATED: Use `setOpacityMask` instead
+    ///
+    pub const SetOpacityMask = setOpacityMask;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#setOpacityMask)
     ///
@@ -9111,10 +10995,14 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` mask: QBrush `
     ///
-    pub fn SetOpacityMask(self: QGraphicsOpacityEffect, mask: anytype) void {
+    pub fn setOpacityMask(self: QGraphicsOpacityEffect, mask: anytype) void {
         comptime _ = @TypeOf(mask)._is_QBrush;
         qtc.QGraphicsOpacityEffect_SetOpacityMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `opacityChanged` instead
+    ///
+    pub const OpacityChanged = opacityChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#opacityChanged)
     ///
@@ -9122,11 +11010,15 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` self: QGraphicsOpacityEffect `
     ///
-    /// ` opacity: f64 `
+    /// ` _opacity: f64 `
     ///
-    pub fn OpacityChanged(self: QGraphicsOpacityEffect, opacity: f64) void {
-        qtc.QGraphicsOpacityEffect_OpacityChanged(@ptrCast(self.ptr), @bitCast(opacity));
+    pub fn opacityChanged(self: QGraphicsOpacityEffect, _opacity: f64) void {
+        qtc.QGraphicsOpacityEffect_OpacityChanged(@ptrCast(self.ptr), @bitCast(_opacity));
     }
+
+    /// ### DEPRECATED: Use `onOpacityChanged` instead
+    ///
+    pub const OnOpacityChanged = onOpacityChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#opacityChanged)
     ///
@@ -9136,9 +11028,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsOpacityEffect, opacity: f64) callconv(.c) void `
     ///
-    pub fn OnOpacityChanged(self: QGraphicsOpacityEffect, callback: *const fn (QGraphicsOpacityEffect, f64) callconv(.c) void) void {
+    pub fn onOpacityChanged(self: QGraphicsOpacityEffect, callback: *const fn (QGraphicsOpacityEffect, f64) callconv(.c) void) void {
         qtc.QGraphicsOpacityEffect_Connect_OpacityChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `opacityMaskChanged` instead
+    ///
+    pub const OpacityMaskChanged = opacityMaskChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#opacityMaskChanged)
     ///
@@ -9148,10 +11044,14 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` mask: QBrush `
     ///
-    pub fn OpacityMaskChanged(self: QGraphicsOpacityEffect, mask: anytype) void {
+    pub fn opacityMaskChanged(self: QGraphicsOpacityEffect, mask: anytype) void {
         comptime _ = @TypeOf(mask)._is_QBrush;
         qtc.QGraphicsOpacityEffect_OpacityMaskChanged(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `onOpacityMaskChanged` instead
+    ///
+    pub const OnOpacityMaskChanged = onOpacityMaskChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#opacityMaskChanged)
     ///
@@ -9161,9 +11061,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsOpacityEffect, mask: QBrush) callconv(.c) void `
     ///
-    pub fn OnOpacityMaskChanged(self: QGraphicsOpacityEffect, callback: *const fn (QGraphicsOpacityEffect, QBrush) callconv(.c) void) void {
+    pub fn onOpacityMaskChanged(self: QGraphicsOpacityEffect, callback: *const fn (QGraphicsOpacityEffect, QBrush) callconv(.c) void) void {
         qtc.QGraphicsOpacityEffect_Connect_OpacityMaskChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `draw` instead
+    ///
+    pub const Draw = draw;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#draw)
     ///
@@ -9173,10 +11077,14 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Draw(self: QGraphicsOpacityEffect, painter: anytype) void {
+    pub fn draw(self: QGraphicsOpacityEffect, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QGraphicsOpacityEffect_Draw(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDraw` instead
+    ///
+    pub const OnDraw = onDraw;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#draw)
     ///
@@ -9188,13 +11096,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsOpacityEffect, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnDraw(self: QGraphicsOpacityEffect, callback: *const fn (QGraphicsOpacityEffect, QPainter) callconv(.c) void) void {
+    pub fn onDraw(self: QGraphicsOpacityEffect, callback: *const fn (QGraphicsOpacityEffect, QPainter) callconv(.c) void) void {
         qtc.QGraphicsOpacityEffect_OnDraw(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDraw` instead
+    /// ### DEPRECATED: Use `superDraw` instead
     ///
-    pub const QBaseDraw = SuperDraw;
+    pub const SuperDraw = superDraw;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#draw)
     ///
@@ -9206,10 +11114,14 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperDraw(self: QGraphicsOpacityEffect, painter: anytype) void {
+    pub fn superDraw(self: QGraphicsOpacityEffect, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QGraphicsOpacityEffect_SuperDraw(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -9221,15 +11133,19 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsOpacityEffect.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsOpacityEffect.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -9243,15 +11159,19 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsOpacityEffect.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsOpacityEffect.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `boundingRect` instead
+    ///
+    pub const BoundingRect = boundingRect;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -9261,9 +11181,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` self: QGraphicsOpacityEffect `
     ///
-    pub fn BoundingRect(self: QGraphicsOpacityEffect) QRectF {
+    pub fn boundingRect(self: QGraphicsOpacityEffect) QRectF {
         return .{ .ptr = qtc.QGraphicsEffect_BoundingRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -9273,9 +11197,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` self: QGraphicsOpacityEffect `
     ///
-    pub fn IsEnabled(self: QGraphicsOpacityEffect) bool {
+    pub fn isEnabled(self: QGraphicsOpacityEffect) bool {
         return qtc.QGraphicsEffect_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -9287,9 +11215,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetEnabled(self: QGraphicsOpacityEffect, enable: bool) void {
+    pub fn setEnabled(self: QGraphicsOpacityEffect, enable: bool) void {
         qtc.QGraphicsEffect_SetEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -9299,9 +11231,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` self: QGraphicsOpacityEffect `
     ///
-    pub fn Update(self: QGraphicsOpacityEffect) void {
+    pub fn update(self: QGraphicsOpacityEffect) void {
         qtc.QGraphicsEffect_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `enabledChanged` instead
+    ///
+    pub const EnabledChanged = enabledChanged;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -9313,9 +11249,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn EnabledChanged(self: QGraphicsOpacityEffect, enabled: bool) void {
+    pub fn enabledChanged(self: QGraphicsOpacityEffect, enabled: bool) void {
         qtc.QGraphicsEffect_EnabledChanged(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `onEnabledChanged` instead
+    ///
+    pub const OnEnabledChanged = onEnabledChanged;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -9327,9 +11267,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsOpacityEffect, enabled: bool) callconv(.c) void `
     ///
-    pub fn OnEnabledChanged(self: QGraphicsOpacityEffect, callback: *const fn (QGraphicsOpacityEffect, bool) callconv(.c) void) void {
+    pub fn onEnabledChanged(self: QGraphicsOpacityEffect, callback: *const fn (QGraphicsOpacityEffect, bool) callconv(.c) void) void {
         qtc.QGraphicsEffect_Connect_EnabledChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -9341,13 +11285,17 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QGraphicsOpacityEffect, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QGraphicsOpacityEffect, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsOpacityEffect.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsOpacityEffect.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -9359,13 +11307,17 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QGraphicsOpacityEffect, name: []const u8) void {
+    pub fn setObjectName(self: QGraphicsOpacityEffect, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -9375,9 +11327,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` self: QGraphicsOpacityEffect `
     ///
-    pub fn IsWidgetType(self: QGraphicsOpacityEffect) bool {
+    pub fn isWidgetType(self: QGraphicsOpacityEffect) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -9387,9 +11343,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` self: QGraphicsOpacityEffect `
     ///
-    pub fn IsWindowType(self: QGraphicsOpacityEffect) bool {
+    pub fn isWindowType(self: QGraphicsOpacityEffect) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -9399,9 +11359,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` self: QGraphicsOpacityEffect `
     ///
-    pub fn IsQuickItemType(self: QGraphicsOpacityEffect) bool {
+    pub fn isQuickItemType(self: QGraphicsOpacityEffect) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -9411,9 +11375,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` self: QGraphicsOpacityEffect `
     ///
-    pub fn SignalsBlocked(self: QGraphicsOpacityEffect) bool {
+    pub fn signalsBlocked(self: QGraphicsOpacityEffect) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -9425,9 +11393,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QGraphicsOpacityEffect, b: bool) bool {
+    pub fn blockSignals(self: QGraphicsOpacityEffect, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -9437,9 +11409,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` self: QGraphicsOpacityEffect `
     ///
-    pub fn Thread(self: QGraphicsOpacityEffect) QThread {
+    pub fn thread(self: QGraphicsOpacityEffect) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -9449,12 +11425,16 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` self: QGraphicsOpacityEffect `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QGraphicsOpacityEffect, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QGraphicsOpacityEffect, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -9466,9 +11446,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QGraphicsOpacityEffect, interval: i32) i32 {
+    pub fn startTimer(self: QGraphicsOpacityEffect, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -9480,9 +11464,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QGraphicsOpacityEffect, time: i64) i32 {
+    pub fn startTimer2(self: QGraphicsOpacityEffect, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -9494,9 +11482,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QGraphicsOpacityEffect, id: i32) void {
+    pub fn killTimer(self: QGraphicsOpacityEffect, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -9508,9 +11500,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QGraphicsOpacityEffect, id: i32) void {
+    pub fn killTimer2(self: QGraphicsOpacityEffect, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -9522,15 +11518,19 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QGraphicsOpacityEffect, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QGraphicsOpacityEffect, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QGraphicsOpacityEffect.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QGraphicsOpacityEffect.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -9540,12 +11540,16 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` self: QGraphicsOpacityEffect `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QGraphicsOpacityEffect, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QGraphicsOpacityEffect, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -9557,10 +11561,14 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QGraphicsOpacityEffect, filterObj: anytype) void {
+    pub fn installEventFilter(self: QGraphicsOpacityEffect, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -9572,10 +11580,14 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QGraphicsOpacityEffect, obj: anytype) void {
+    pub fn removeEventFilter(self: QGraphicsOpacityEffect, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -9583,7 +11595,7 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -9591,13 +11603,17 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -9605,7 +11621,7 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -9613,13 +11629,17 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -9629,18 +11649,22 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` self: QGraphicsOpacityEffect `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QGraphicsOpacityEffect, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QGraphicsOpacityEffect, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -9648,7 +11672,7 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -9656,13 +11680,17 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -9670,7 +11698,7 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -9678,13 +11706,17 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -9694,9 +11726,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` self: QGraphicsOpacityEffect `
     ///
-    pub fn Disconnect3(self: QGraphicsOpacityEffect) bool {
+    pub fn disconnect3(self: QGraphicsOpacityEffect) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -9708,10 +11744,14 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QGraphicsOpacityEffect, receiver: anytype) bool {
+    pub fn disconnect4(self: QGraphicsOpacityEffect, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -9721,10 +11761,14 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -9734,9 +11778,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` self: QGraphicsOpacityEffect `
     ///
-    pub fn DumpObjectTree(self: QGraphicsOpacityEffect) void {
+    pub fn dumpObjectTree(self: QGraphicsOpacityEffect) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -9746,9 +11794,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` self: QGraphicsOpacityEffect `
     ///
-    pub fn DumpObjectInfo(self: QGraphicsOpacityEffect) void {
+    pub fn dumpObjectInfo(self: QGraphicsOpacityEffect) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -9762,11 +11814,15 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QGraphicsOpacityEffect, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QGraphicsOpacityEffect, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -9778,10 +11834,14 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QGraphicsOpacityEffect, name: [:0]const u8) QVariant {
+    pub fn property(self: QGraphicsOpacityEffect, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -9793,7 +11853,7 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QGraphicsOpacityEffect, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QGraphicsOpacityEffect, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -9801,27 +11861,19 @@ pub const QGraphicsOpacityEffect = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QGraphicsOpacityEffect.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QGraphicsOpacityEffect.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QGraphicsOpacityEffect.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QGraphicsOpacityEffect.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsOpacityEffect `
-    ///
-    pub fn BindingStorage(self: QGraphicsOpacityEffect) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -9831,9 +11883,29 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` self: QGraphicsOpacityEffect `
     ///
-    pub fn BindingStorage2(self: QGraphicsOpacityEffect) QBindingStorage {
+    pub fn bindingStorage(self: QGraphicsOpacityEffect) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGraphicsOpacityEffect `
+    ///
+    pub fn bindingStorage2(self: QGraphicsOpacityEffect) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -9843,9 +11915,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` self: QGraphicsOpacityEffect `
     ///
-    pub fn Destroyed(self: QGraphicsOpacityEffect) void {
+    pub fn destroyed(self: QGraphicsOpacityEffect) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -9857,9 +11933,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsOpacityEffect) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QGraphicsOpacityEffect, callback: *const fn (QGraphicsOpacityEffect) callconv(.c) void) void {
+    pub fn onDestroyed(self: QGraphicsOpacityEffect, callback: *const fn (QGraphicsOpacityEffect) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -9869,9 +11949,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` self: QGraphicsOpacityEffect `
     ///
-    pub fn Parent(self: QGraphicsOpacityEffect) QObject {
+    pub fn parent(self: QGraphicsOpacityEffect) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -9883,10 +11967,14 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QGraphicsOpacityEffect, classname: [:0]const u8) bool {
+    pub fn inherits(self: QGraphicsOpacityEffect, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -9896,9 +11984,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` self: QGraphicsOpacityEffect `
     ///
-    pub fn DeleteLater(self: QGraphicsOpacityEffect) void {
+    pub fn deleteLater(self: QGraphicsOpacityEffect) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -9912,9 +12004,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QGraphicsOpacityEffect, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QGraphicsOpacityEffect, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -9928,9 +12024,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QGraphicsOpacityEffect, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QGraphicsOpacityEffect, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -9938,7 +12038,7 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -9948,13 +12048,17 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -9962,7 +12066,7 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -9972,13 +12076,17 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -9988,7 +12096,7 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` self: QGraphicsOpacityEffect `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -9996,12 +12104,16 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QGraphicsOpacityEffect, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QGraphicsOpacityEffect, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -10013,10 +12125,14 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QGraphicsOpacityEffect, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QGraphicsOpacityEffect, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -10030,11 +12146,15 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QGraphicsOpacityEffect, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QGraphicsOpacityEffect, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -10050,13 +12170,17 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QGraphicsOpacityEffect, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QGraphicsOpacityEffect, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -10069,11 +12193,15 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QGraphicsOpacityEffect, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QGraphicsOpacityEffect, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -10085,10 +12213,14 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QGraphicsOpacityEffect, param1: anytype) void {
+    pub fn destroyed1(self: QGraphicsOpacityEffect, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -10100,9 +12232,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsOpacityEffect, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QGraphicsOpacityEffect, callback: *const fn (QGraphicsOpacityEffect, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QGraphicsOpacityEffect, callback: *const fn (QGraphicsOpacityEffect, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `boundingRectFor` instead
+    ///
+    pub const BoundingRectFor = boundingRectFor;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -10116,14 +12252,14 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` sourceRect: QRectF `
     ///
-    pub fn BoundingRectFor(self: QGraphicsOpacityEffect, sourceRect: anytype) QRectF {
+    pub fn boundingRectFor(self: QGraphicsOpacityEffect, sourceRect: anytype) QRectF {
         comptime _ = @TypeOf(sourceRect)._is_QRectF;
         return .{ .ptr = qtc.QGraphicsOpacityEffect_BoundingRectFor(@ptrCast(self.ptr), @ptrCast(sourceRect.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperBoundingRectFor` instead
+    /// ### DEPRECATED: Use `superBoundingRectFor` instead
     ///
-    pub const QBaseBoundingRectFor = SuperBoundingRectFor;
+    pub const SuperBoundingRectFor = superBoundingRectFor;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -10137,10 +12273,14 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` sourceRect: QRectF `
     ///
-    pub fn SuperBoundingRectFor(self: QGraphicsOpacityEffect, sourceRect: anytype) QRectF {
+    pub fn superBoundingRectFor(self: QGraphicsOpacityEffect, sourceRect: anytype) QRectF {
         comptime _ = @TypeOf(sourceRect)._is_QRectF;
         return .{ .ptr = qtc.QGraphicsOpacityEffect_SuperBoundingRectFor(@ptrCast(self.ptr), @ptrCast(sourceRect.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onBoundingRectFor` instead
+    ///
+    pub const OnBoundingRectFor = onBoundingRectFor;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -10156,9 +12296,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnBoundingRectFor(self: QGraphicsOpacityEffect, callback: *const fn (QGraphicsOpacityEffect, QRectF) callconv(.c) QRectF) void {
+    pub fn onBoundingRectFor(self: QGraphicsOpacityEffect, callback: *const fn (QGraphicsOpacityEffect, QRectF) callconv(.c) QRectF) void {
         qtc.QGraphicsOpacityEffect_OnBoundingRectFor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sourceChanged` instead
+    ///
+    pub const SourceChanged = sourceChanged;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -10172,13 +12316,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` flags: flag of qgraphicseffect_enums.ChangeFlag `
     ///
-    pub fn SourceChanged(self: QGraphicsOpacityEffect, flags: i32) void {
+    pub fn sourceChanged(self: QGraphicsOpacityEffect, flags: i32) void {
         qtc.QGraphicsOpacityEffect_SourceChanged(@ptrCast(self.ptr), @bitCast(flags));
     }
 
-    /// ### DEPRECATED: Use `SuperSourceChanged` instead
+    /// ### DEPRECATED: Use `superSourceChanged` instead
     ///
-    pub const QBaseSourceChanged = SuperSourceChanged;
+    pub const SuperSourceChanged = superSourceChanged;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -10192,9 +12336,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` flags: flag of qgraphicseffect_enums.ChangeFlag `
     ///
-    pub fn SuperSourceChanged(self: QGraphicsOpacityEffect, flags: i32) void {
+    pub fn superSourceChanged(self: QGraphicsOpacityEffect, flags: i32) void {
         qtc.QGraphicsOpacityEffect_SuperSourceChanged(@ptrCast(self.ptr), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `onSourceChanged` instead
+    ///
+    pub const OnSourceChanged = onSourceChanged;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -10208,9 +12356,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsOpacityEffect, flags: flag of qgraphicseffect_enums.ChangeFlag) callconv(.c) void `
     ///
-    pub fn OnSourceChanged(self: QGraphicsOpacityEffect, callback: *const fn (QGraphicsOpacityEffect, i32) callconv(.c) void) void {
+    pub fn onSourceChanged(self: QGraphicsOpacityEffect, callback: *const fn (QGraphicsOpacityEffect, i32) callconv(.c) void) void {
         qtc.QGraphicsOpacityEffect_OnSourceChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -10222,16 +12374,16 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` self: QGraphicsOpacityEffect `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QGraphicsOpacityEffect, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGraphicsOpacityEffect_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QGraphicsOpacityEffect, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGraphicsOpacityEffect_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -10243,12 +12395,16 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` self: QGraphicsOpacityEffect `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QGraphicsOpacityEffect, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGraphicsOpacityEffect_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QGraphicsOpacityEffect, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGraphicsOpacityEffect_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -10262,9 +12418,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsOpacityEffect, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QGraphicsOpacityEffect, callback: *const fn (QGraphicsOpacityEffect, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QGraphicsOpacityEffect, callback: *const fn (QGraphicsOpacityEffect, QEvent) callconv(.c) bool) void {
         qtc.QGraphicsOpacityEffect_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -10278,17 +12438,17 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QGraphicsOpacityEffect, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QGraphicsOpacityEffect, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGraphicsOpacityEffect_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGraphicsOpacityEffect_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -10302,13 +12462,17 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QGraphicsOpacityEffect, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QGraphicsOpacityEffect, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGraphicsOpacityEffect_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGraphicsOpacityEffect_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -10322,9 +12486,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsOpacityEffect, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QGraphicsOpacityEffect, callback: *const fn (QGraphicsOpacityEffect, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QGraphicsOpacityEffect, callback: *const fn (QGraphicsOpacityEffect, QObject, QEvent) callconv(.c) bool) void {
         qtc.QGraphicsOpacityEffect_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -10336,16 +12504,16 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` self: QGraphicsOpacityEffect `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QGraphicsOpacityEffect, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QGraphicsOpacityEffect_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QGraphicsOpacityEffect, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QGraphicsOpacityEffect_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -10357,12 +12525,16 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` self: QGraphicsOpacityEffect `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QGraphicsOpacityEffect, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QGraphicsOpacityEffect_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QGraphicsOpacityEffect, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QGraphicsOpacityEffect_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -10376,9 +12548,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsOpacityEffect, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QGraphicsOpacityEffect, callback: *const fn (QGraphicsOpacityEffect, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QGraphicsOpacityEffect, callback: *const fn (QGraphicsOpacityEffect, QTimerEvent) callconv(.c) void) void {
         qtc.QGraphicsOpacityEffect_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -10390,16 +12566,16 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` self: QGraphicsOpacityEffect `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QGraphicsOpacityEffect, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QGraphicsOpacityEffect_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QGraphicsOpacityEffect, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QGraphicsOpacityEffect_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -10411,12 +12587,16 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` self: QGraphicsOpacityEffect `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QGraphicsOpacityEffect, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QGraphicsOpacityEffect_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QGraphicsOpacityEffect, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QGraphicsOpacityEffect_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -10430,9 +12610,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsOpacityEffect, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QGraphicsOpacityEffect, callback: *const fn (QGraphicsOpacityEffect, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QGraphicsOpacityEffect, callback: *const fn (QGraphicsOpacityEffect, QChildEvent) callconv(.c) void) void {
         qtc.QGraphicsOpacityEffect_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -10444,16 +12628,16 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` self: QGraphicsOpacityEffect `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QGraphicsOpacityEffect, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QGraphicsOpacityEffect_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QGraphicsOpacityEffect, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QGraphicsOpacityEffect_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -10465,12 +12649,16 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` self: QGraphicsOpacityEffect `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QGraphicsOpacityEffect, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QGraphicsOpacityEffect_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QGraphicsOpacityEffect, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QGraphicsOpacityEffect_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -10484,9 +12672,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsOpacityEffect, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QGraphicsOpacityEffect, callback: *const fn (QGraphicsOpacityEffect, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QGraphicsOpacityEffect, callback: *const fn (QGraphicsOpacityEffect, QEvent) callconv(.c) void) void {
         qtc.QGraphicsOpacityEffect_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -10500,14 +12692,14 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QGraphicsOpacityEffect, signal: anytype) void {
+    pub fn connectNotify(self: QGraphicsOpacityEffect, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QGraphicsOpacityEffect_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -10521,11 +12713,15 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QGraphicsOpacityEffect, signal: anytype) void {
+    pub fn superConnectNotify(self: QGraphicsOpacityEffect, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QGraphicsOpacityEffect_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -10538,9 +12734,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsOpacityEffect, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QGraphicsOpacityEffect, callback: *const fn (QGraphicsOpacityEffect, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QGraphicsOpacityEffect, callback: *const fn (QGraphicsOpacityEffect, QMetaMethod) callconv(.c) void) void {
         qtc.QGraphicsOpacityEffect_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -10554,14 +12754,14 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QGraphicsOpacityEffect, signal: anytype) void {
+    pub fn disconnectNotify(self: QGraphicsOpacityEffect, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QGraphicsOpacityEffect_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -10575,10 +12775,14 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QGraphicsOpacityEffect, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QGraphicsOpacityEffect, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QGraphicsOpacityEffect_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -10592,9 +12796,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsOpacityEffect, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QGraphicsOpacityEffect, callback: *const fn (QGraphicsOpacityEffect, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QGraphicsOpacityEffect, callback: *const fn (QGraphicsOpacityEffect, QMetaMethod) callconv(.c) void) void {
         qtc.QGraphicsOpacityEffect_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `updateBoundingRect` instead
+    ///
+    pub const UpdateBoundingRect = updateBoundingRect;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -10606,13 +12814,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` self: QGraphicsOpacityEffect `
     ///
-    pub fn UpdateBoundingRect(self: QGraphicsOpacityEffect) void {
+    pub fn updateBoundingRect(self: QGraphicsOpacityEffect) void {
         qtc.QGraphicsOpacityEffect_UpdateBoundingRect(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateBoundingRect` instead
+    /// ### DEPRECATED: Use `superUpdateBoundingRect` instead
     ///
-    pub const QBaseUpdateBoundingRect = SuperUpdateBoundingRect;
+    pub const SuperUpdateBoundingRect = superUpdateBoundingRect;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -10624,9 +12832,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` self: QGraphicsOpacityEffect `
     ///
-    pub fn SuperUpdateBoundingRect(self: QGraphicsOpacityEffect) void {
+    pub fn superUpdateBoundingRect(self: QGraphicsOpacityEffect) void {
         qtc.QGraphicsOpacityEffect_SuperUpdateBoundingRect(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onUpdateBoundingRect` instead
+    ///
+    pub const OnUpdateBoundingRect = onUpdateBoundingRect;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -10640,9 +12852,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateBoundingRect(self: QGraphicsOpacityEffect, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateBoundingRect(self: QGraphicsOpacityEffect, callback: *const fn () callconv(.c) void) void {
         qtc.QGraphicsOpacityEffect_OnUpdateBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sourceIsPixmap` instead
+    ///
+    pub const SourceIsPixmap = sourceIsPixmap;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -10654,13 +12870,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` self: QGraphicsOpacityEffect `
     ///
-    pub fn SourceIsPixmap(self: QGraphicsOpacityEffect) bool {
+    pub fn sourceIsPixmap(self: QGraphicsOpacityEffect) bool {
         return qtc.QGraphicsOpacityEffect_SourceIsPixmap(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSourceIsPixmap` instead
+    /// ### DEPRECATED: Use `superSourceIsPixmap` instead
     ///
-    pub const QBaseSourceIsPixmap = SuperSourceIsPixmap;
+    pub const SuperSourceIsPixmap = superSourceIsPixmap;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -10672,9 +12888,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` self: QGraphicsOpacityEffect `
     ///
-    pub fn SuperSourceIsPixmap(self: QGraphicsOpacityEffect) bool {
+    pub fn superSourceIsPixmap(self: QGraphicsOpacityEffect) bool {
         return qtc.QGraphicsOpacityEffect_SuperSourceIsPixmap(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSourceIsPixmap` instead
+    ///
+    pub const OnSourceIsPixmap = onSourceIsPixmap;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -10688,9 +12908,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnSourceIsPixmap(self: QGraphicsOpacityEffect, callback: *const fn () callconv(.c) bool) void {
+    pub fn onSourceIsPixmap(self: QGraphicsOpacityEffect, callback: *const fn () callconv(.c) bool) void {
         qtc.QGraphicsOpacityEffect_OnSourceIsPixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sourceBoundingRect` instead
+    ///
+    pub const SourceBoundingRect = sourceBoundingRect;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -10702,13 +12926,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` self: QGraphicsOpacityEffect `
     ///
-    pub fn SourceBoundingRect(self: QGraphicsOpacityEffect) QRectF {
+    pub fn sourceBoundingRect(self: QGraphicsOpacityEffect) QRectF {
         return .{ .ptr = qtc.QGraphicsOpacityEffect_SourceBoundingRect(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSourceBoundingRect` instead
+    /// ### DEPRECATED: Use `superSourceBoundingRect` instead
     ///
-    pub const QBaseSourceBoundingRect = SuperSourceBoundingRect;
+    pub const SuperSourceBoundingRect = superSourceBoundingRect;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -10720,9 +12944,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` self: QGraphicsOpacityEffect `
     ///
-    pub fn SuperSourceBoundingRect(self: QGraphicsOpacityEffect) QRectF {
+    pub fn superSourceBoundingRect(self: QGraphicsOpacityEffect) QRectF {
         return .{ .ptr = qtc.QGraphicsOpacityEffect_SuperSourceBoundingRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSourceBoundingRect` instead
+    ///
+    pub const OnSourceBoundingRect = onSourceBoundingRect;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -10738,9 +12966,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSourceBoundingRect(self: QGraphicsOpacityEffect, callback: *const fn () callconv(.c) QRectF) void {
+    pub fn onSourceBoundingRect(self: QGraphicsOpacityEffect, callback: *const fn () callconv(.c) QRectF) void {
         qtc.QGraphicsOpacityEffect_OnSourceBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `drawSource` instead
+    ///
+    pub const DrawSource = drawSource;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -10754,14 +12986,14 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn DrawSource(self: QGraphicsOpacityEffect, painter: anytype) void {
+    pub fn drawSource(self: QGraphicsOpacityEffect, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QGraphicsOpacityEffect_DrawSource(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawSource` instead
+    /// ### DEPRECATED: Use `superDrawSource` instead
     ///
-    pub const QBaseDrawSource = SuperDrawSource;
+    pub const SuperDrawSource = superDrawSource;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -10775,10 +13007,14 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperDrawSource(self: QGraphicsOpacityEffect, painter: anytype) void {
+    pub fn superDrawSource(self: QGraphicsOpacityEffect, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QGraphicsOpacityEffect_SuperDrawSource(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDrawSource` instead
+    ///
+    pub const OnDrawSource = onDrawSource;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -10792,9 +13028,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsOpacityEffect, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnDrawSource(self: QGraphicsOpacityEffect, callback: *const fn (QGraphicsOpacityEffect, QPainter) callconv(.c) void) void {
+    pub fn onDrawSource(self: QGraphicsOpacityEffect, callback: *const fn (QGraphicsOpacityEffect, QPainter) callconv(.c) void) void {
         qtc.QGraphicsOpacityEffect_OnDrawSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sourcePixmap` instead
+    ///
+    pub const SourcePixmap = sourcePixmap;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -10806,13 +13046,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` self: QGraphicsOpacityEffect `
     ///
-    pub fn SourcePixmap(self: QGraphicsOpacityEffect) QPixmap {
+    pub fn sourcePixmap(self: QGraphicsOpacityEffect) QPixmap {
         return .{ .ptr = qtc.QGraphicsOpacityEffect_SourcePixmap(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSourcePixmap` instead
+    /// ### DEPRECATED: Use `superSourcePixmap` instead
     ///
-    pub const QBaseSourcePixmap = SuperSourcePixmap;
+    pub const SuperSourcePixmap = superSourcePixmap;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -10824,9 +13064,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` self: QGraphicsOpacityEffect `
     ///
-    pub fn SuperSourcePixmap(self: QGraphicsOpacityEffect) QPixmap {
+    pub fn superSourcePixmap(self: QGraphicsOpacityEffect) QPixmap {
         return .{ .ptr = qtc.QGraphicsOpacityEffect_SuperSourcePixmap(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSourcePixmap` instead
+    ///
+    pub const OnSourcePixmap = onSourcePixmap;
 
     /// Inherited from QGraphicsEffect
     ///
@@ -10842,9 +13086,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSourcePixmap(self: QGraphicsOpacityEffect, callback: *const fn () callconv(.c) QPixmap) void {
+    pub fn onSourcePixmap(self: QGraphicsOpacityEffect, callback: *const fn () callconv(.c) QPixmap) void {
         qtc.QGraphicsOpacityEffect_OnSourcePixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -10856,13 +13104,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` self: QGraphicsOpacityEffect `
     ///
-    pub fn Sender(self: QGraphicsOpacityEffect) QObject {
+    pub fn sender(self: QGraphicsOpacityEffect) QObject {
         return .{ .ptr = qtc.QGraphicsOpacityEffect_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -10874,9 +13122,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` self: QGraphicsOpacityEffect `
     ///
-    pub fn SuperSender(self: QGraphicsOpacityEffect) QObject {
+    pub fn superSender(self: QGraphicsOpacityEffect) QObject {
         return .{ .ptr = qtc.QGraphicsOpacityEffect_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -10890,9 +13142,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QGraphicsOpacityEffect, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QGraphicsOpacityEffect, callback: *const fn () callconv(.c) QObject) void {
         qtc.QGraphicsOpacityEffect_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -10904,13 +13160,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` self: QGraphicsOpacityEffect `
     ///
-    pub fn SenderSignalIndex(self: QGraphicsOpacityEffect) i32 {
+    pub fn senderSignalIndex(self: QGraphicsOpacityEffect) i32 {
         return qtc.QGraphicsOpacityEffect_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -10922,9 +13178,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` self: QGraphicsOpacityEffect `
     ///
-    pub fn SuperSenderSignalIndex(self: QGraphicsOpacityEffect) i32 {
+    pub fn superSenderSignalIndex(self: QGraphicsOpacityEffect) i32 {
         return qtc.QGraphicsOpacityEffect_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -10938,9 +13198,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QGraphicsOpacityEffect, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QGraphicsOpacityEffect, callback: *const fn () callconv(.c) i32) void {
         qtc.QGraphicsOpacityEffect_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -10954,14 +13218,14 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QGraphicsOpacityEffect, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QGraphicsOpacityEffect, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QGraphicsOpacityEffect_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -10975,10 +13239,14 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QGraphicsOpacityEffect, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QGraphicsOpacityEffect, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QGraphicsOpacityEffect_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -10992,9 +13260,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsOpacityEffect, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QGraphicsOpacityEffect, callback: *const fn (QGraphicsOpacityEffect, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QGraphicsOpacityEffect, callback: *const fn (QGraphicsOpacityEffect, [*:0]const u8) callconv(.c) i32) void {
         qtc.QGraphicsOpacityEffect_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -11008,14 +13280,14 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QGraphicsOpacityEffect, signal: anytype) bool {
+    pub fn isSignalConnected(self: QGraphicsOpacityEffect, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QGraphicsOpacityEffect_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -11029,10 +13301,14 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QGraphicsOpacityEffect, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QGraphicsOpacityEffect, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QGraphicsOpacityEffect_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -11046,9 +13322,13 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsOpacityEffect, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QGraphicsOpacityEffect, callback: *const fn (QGraphicsOpacityEffect, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QGraphicsOpacityEffect, callback: *const fn (QGraphicsOpacityEffect, QMetaMethod) callconv(.c) bool) void {
         qtc.QGraphicsOpacityEffect_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -11062,23 +13342,23 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsOpacityEffect, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QGraphicsOpacityEffect, callback: *const fn (QGraphicsOpacityEffect, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QGraphicsOpacityEffect, callback: *const fn (QGraphicsOpacityEffect, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#dtor.QGraphicsOpacityEffect)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QGraphicsOpacityEffect `
     ///
-    pub fn Delete(self: QGraphicsOpacityEffect) void {
+    pub fn delete(self: QGraphicsOpacityEffect) void {
         qtc.QGraphicsOpacityEffect_Delete(@ptrCast(self.ptr));
     }
 };

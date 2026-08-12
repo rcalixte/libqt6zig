@@ -84,22 +84,34 @@ pub const QCalendarWidget = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new QCalendarWidget object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QCalendarWidget object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) QCalendarWidget {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QCalendarWidget_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) QCalendarWidget {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QCalendarWidget_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new QCalendarWidget object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() QCalendarWidget {
+    pub const New2 = new2;
+
+    /// Allocate a new QCalendarWidget object in C++ memory
+    ///
+    pub fn new2() QCalendarWidget {
         return .{ .ptr = qtc.QCalendarWidget_new2() };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -107,9 +119,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn MetaObject(self: QCalendarWidget) QMetaObject {
+    pub fn metaObject(self: QCalendarWidget) QMetaObject {
         return .{ .ptr = qtc.QCalendarWidget_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -121,13 +137,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QCalendarWidget, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QCalendarWidget, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QCalendarWidget_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -137,9 +153,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn SuperMetaObject(self: QCalendarWidget) QMetaObject {
+    pub fn superMetaObject(self: QCalendarWidget) QMetaObject {
         return .{ .ptr = qtc.QCalendarWidget_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -147,10 +167,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QCalendarWidget, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QCalendarWidget, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QCalendarWidget_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -160,13 +184,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QCalendarWidget, callback: *const fn (QCalendarWidget, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QCalendarWidget, callback: *const fn (QCalendarWidget, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QCalendarWidget_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -176,10 +200,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QCalendarWidget, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QCalendarWidget, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QCalendarWidget_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -191,9 +219,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QCalendarWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QCalendarWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QCalendarWidget_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -203,13 +235,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QCalendarWidget, callback: *const fn (QCalendarWidget, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QCalendarWidget, callback: *const fn (QCalendarWidget, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QCalendarWidget_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -223,9 +255,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QCalendarWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QCalendarWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QCalendarWidget_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -235,25 +271,33 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendarWidget.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendarWidget.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#sizeHint)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn SizeHint(self: QCalendarWidget) QSize {
+    pub fn sizeHint(self: QCalendarWidget) QSize {
         return .{ .ptr = qtc.QCalendarWidget_SizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#sizeHint)
     ///
     /// Allows for overriding the related default method
@@ -266,13 +310,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: QCalendarWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QCalendarWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.QCalendarWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#sizeHint)
     ///
@@ -282,9 +326,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn SuperSizeHint(self: QCalendarWidget) QSize {
+    pub fn superSizeHint(self: QCalendarWidget) QSize {
         return .{ .ptr = qtc.QCalendarWidget_SuperSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#minimumSizeHint)
     ///
@@ -292,9 +340,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn MinimumSizeHint(self: QCalendarWidget) QSize {
+    pub fn minimumSizeHint(self: QCalendarWidget) QSize {
         return .{ .ptr = qtc.QCalendarWidget_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#minimumSizeHint)
     ///
@@ -308,13 +360,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: QCalendarWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QCalendarWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.QCalendarWidget_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#minimumSizeHint)
     ///
@@ -324,9 +376,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn SuperMinimumSizeHint(self: QCalendarWidget) QSize {
+    pub fn superMinimumSizeHint(self: QCalendarWidget) QSize {
         return .{ .ptr = qtc.QCalendarWidget_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `selectedDate` instead
+    ///
+    pub const SelectedDate = selectedDate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#selectedDate)
     ///
@@ -334,9 +390,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn SelectedDate(self: QCalendarWidget) QDate {
+    pub fn selectedDate(self: QCalendarWidget) QDate {
         return .{ .ptr = qtc.QCalendarWidget_SelectedDate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `yearShown` instead
+    ///
+    pub const YearShown = yearShown;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#yearShown)
     ///
@@ -344,9 +404,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn YearShown(self: QCalendarWidget) i32 {
+    pub fn yearShown(self: QCalendarWidget) i32 {
         return qtc.QCalendarWidget_YearShown(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `monthShown` instead
+    ///
+    pub const MonthShown = monthShown;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#monthShown)
     ///
@@ -354,9 +418,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn MonthShown(self: QCalendarWidget) i32 {
+    pub fn monthShown(self: QCalendarWidget) i32 {
         return qtc.QCalendarWidget_MonthShown(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumDate` instead
+    ///
+    pub const MinimumDate = minimumDate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#minimumDate)
     ///
@@ -364,9 +432,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn MinimumDate(self: QCalendarWidget) QDate {
+    pub fn minimumDate(self: QCalendarWidget) QDate {
         return .{ .ptr = qtc.QCalendarWidget_MinimumDate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setMinimumDate` instead
+    ///
+    pub const SetMinimumDate = setMinimumDate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#setMinimumDate)
     ///
@@ -376,10 +448,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` date: QDate `
     ///
-    pub fn SetMinimumDate(self: QCalendarWidget, date: anytype) void {
+    pub fn setMinimumDate(self: QCalendarWidget, date: anytype) void {
         comptime _ = @TypeOf(date)._is_QDate;
         qtc.QCalendarWidget_SetMinimumDate(@ptrCast(self.ptr), @ptrCast(date.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearMinimumDate` instead
+    ///
+    pub const ClearMinimumDate = clearMinimumDate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#clearMinimumDate)
     ///
@@ -387,9 +463,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn ClearMinimumDate(self: QCalendarWidget) void {
+    pub fn clearMinimumDate(self: QCalendarWidget) void {
         qtc.QCalendarWidget_ClearMinimumDate(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumDate` instead
+    ///
+    pub const MaximumDate = maximumDate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#maximumDate)
     ///
@@ -397,9 +477,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn MaximumDate(self: QCalendarWidget) QDate {
+    pub fn maximumDate(self: QCalendarWidget) QDate {
         return .{ .ptr = qtc.QCalendarWidget_MaximumDate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setMaximumDate` instead
+    ///
+    pub const SetMaximumDate = setMaximumDate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#setMaximumDate)
     ///
@@ -409,10 +493,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` date: QDate `
     ///
-    pub fn SetMaximumDate(self: QCalendarWidget, date: anytype) void {
+    pub fn setMaximumDate(self: QCalendarWidget, date: anytype) void {
         comptime _ = @TypeOf(date)._is_QDate;
         qtc.QCalendarWidget_SetMaximumDate(@ptrCast(self.ptr), @ptrCast(date.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearMaximumDate` instead
+    ///
+    pub const ClearMaximumDate = clearMaximumDate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#clearMaximumDate)
     ///
@@ -420,9 +508,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn ClearMaximumDate(self: QCalendarWidget) void {
+    pub fn clearMaximumDate(self: QCalendarWidget) void {
         qtc.QCalendarWidget_ClearMaximumDate(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `firstDayOfWeek` instead
+    ///
+    pub const FirstDayOfWeek = firstDayOfWeek;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#firstDayOfWeek)
     ///
@@ -434,9 +526,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` qnamespace_enums.DayOfWeek `
     ///
-    pub fn FirstDayOfWeek(self: QCalendarWidget) i32 {
+    pub fn firstDayOfWeek(self: QCalendarWidget) i32 {
         return qtc.QCalendarWidget_FirstDayOfWeek(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFirstDayOfWeek` instead
+    ///
+    pub const SetFirstDayOfWeek = setFirstDayOfWeek;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#setFirstDayOfWeek)
     ///
@@ -446,9 +542,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` dayOfWeek: qnamespace_enums.DayOfWeek `
     ///
-    pub fn SetFirstDayOfWeek(self: QCalendarWidget, dayOfWeek: i32) void {
+    pub fn setFirstDayOfWeek(self: QCalendarWidget, dayOfWeek: i32) void {
         qtc.QCalendarWidget_SetFirstDayOfWeek(@ptrCast(self.ptr), @bitCast(dayOfWeek));
     }
+
+    /// ### DEPRECATED: Use `isNavigationBarVisible` instead
+    ///
+    pub const IsNavigationBarVisible = isNavigationBarVisible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#isNavigationBarVisible)
     ///
@@ -456,9 +556,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn IsNavigationBarVisible(self: QCalendarWidget) bool {
+    pub fn isNavigationBarVisible(self: QCalendarWidget) bool {
         return qtc.QCalendarWidget_IsNavigationBarVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isGridVisible` instead
+    ///
+    pub const IsGridVisible = isGridVisible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#isGridVisible)
     ///
@@ -466,9 +570,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn IsGridVisible(self: QCalendarWidget) bool {
+    pub fn isGridVisible(self: QCalendarWidget) bool {
         return qtc.QCalendarWidget_IsGridVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `calendar` instead
+    ///
+    pub const Calendar = calendar;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#calendar)
     ///
@@ -476,9 +584,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn Calendar(self: QCalendarWidget) QCalendar {
+    pub fn calendar(self: QCalendarWidget) QCalendar {
         return .{ .ptr = qtc.QCalendarWidget_Calendar(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCalendar` instead
+    ///
+    pub const SetCalendar = setCalendar;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#setCalendar)
     ///
@@ -486,12 +598,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` calendar: QCalendar `
+    /// ` _calendar: QCalendar `
     ///
-    pub fn SetCalendar(self: QCalendarWidget, calendar: anytype) void {
-        comptime _ = @TypeOf(calendar)._is_QCalendar;
-        qtc.QCalendarWidget_SetCalendar(@ptrCast(self.ptr), @ptrCast(calendar.ptr));
+    pub fn setCalendar(self: QCalendarWidget, _calendar: anytype) void {
+        comptime _ = @TypeOf(_calendar)._is_QCalendar;
+        qtc.QCalendarWidget_SetCalendar(@ptrCast(self.ptr), @ptrCast(_calendar.ptr));
     }
+
+    /// ### DEPRECATED: Use `selectionMode` instead
+    ///
+    pub const SelectionMode = selectionMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#selectionMode)
     ///
@@ -503,9 +619,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` qcalendarwidget_enums.SelectionMode `
     ///
-    pub fn SelectionMode(self: QCalendarWidget) i32 {
+    pub fn selectionMode(self: QCalendarWidget) i32 {
         return qtc.QCalendarWidget_SelectionMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSelectionMode` instead
+    ///
+    pub const SetSelectionMode = setSelectionMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#setSelectionMode)
     ///
@@ -515,9 +635,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` mode: qcalendarwidget_enums.SelectionMode `
     ///
-    pub fn SetSelectionMode(self: QCalendarWidget, mode: i32) void {
+    pub fn setSelectionMode(self: QCalendarWidget, mode: i32) void {
         qtc.QCalendarWidget_SetSelectionMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `horizontalHeaderFormat` instead
+    ///
+    pub const HorizontalHeaderFormat = horizontalHeaderFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#horizontalHeaderFormat)
     ///
@@ -529,9 +653,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` qcalendarwidget_enums.HorizontalHeaderFormat `
     ///
-    pub fn HorizontalHeaderFormat(self: QCalendarWidget) i32 {
+    pub fn horizontalHeaderFormat(self: QCalendarWidget) i32 {
         return qtc.QCalendarWidget_HorizontalHeaderFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHorizontalHeaderFormat` instead
+    ///
+    pub const SetHorizontalHeaderFormat = setHorizontalHeaderFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#setHorizontalHeaderFormat)
     ///
@@ -541,9 +669,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` format: qcalendarwidget_enums.HorizontalHeaderFormat `
     ///
-    pub fn SetHorizontalHeaderFormat(self: QCalendarWidget, format: i32) void {
+    pub fn setHorizontalHeaderFormat(self: QCalendarWidget, format: i32) void {
         qtc.QCalendarWidget_SetHorizontalHeaderFormat(@ptrCast(self.ptr), @bitCast(format));
     }
+
+    /// ### DEPRECATED: Use `verticalHeaderFormat` instead
+    ///
+    pub const VerticalHeaderFormat = verticalHeaderFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#verticalHeaderFormat)
     ///
@@ -555,9 +687,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` qcalendarwidget_enums.VerticalHeaderFormat `
     ///
-    pub fn VerticalHeaderFormat(self: QCalendarWidget) i32 {
+    pub fn verticalHeaderFormat(self: QCalendarWidget) i32 {
         return qtc.QCalendarWidget_VerticalHeaderFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setVerticalHeaderFormat` instead
+    ///
+    pub const SetVerticalHeaderFormat = setVerticalHeaderFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#setVerticalHeaderFormat)
     ///
@@ -567,9 +703,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` format: qcalendarwidget_enums.VerticalHeaderFormat `
     ///
-    pub fn SetVerticalHeaderFormat(self: QCalendarWidget, format: i32) void {
+    pub fn setVerticalHeaderFormat(self: QCalendarWidget, format: i32) void {
         qtc.QCalendarWidget_SetVerticalHeaderFormat(@ptrCast(self.ptr), @bitCast(format));
     }
+
+    /// ### DEPRECATED: Use `headerTextFormat` instead
+    ///
+    pub const HeaderTextFormat = headerTextFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#headerTextFormat)
     ///
@@ -577,9 +717,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn HeaderTextFormat(self: QCalendarWidget) QTextCharFormat {
+    pub fn headerTextFormat(self: QCalendarWidget) QTextCharFormat {
         return .{ .ptr = qtc.QCalendarWidget_HeaderTextFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setHeaderTextFormat` instead
+    ///
+    pub const SetHeaderTextFormat = setHeaderTextFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#setHeaderTextFormat)
     ///
@@ -589,10 +733,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` format: QTextCharFormat `
     ///
-    pub fn SetHeaderTextFormat(self: QCalendarWidget, format: anytype) void {
+    pub fn setHeaderTextFormat(self: QCalendarWidget, format: anytype) void {
         comptime _ = @TypeOf(format)._is_QTextCharFormat;
         qtc.QCalendarWidget_SetHeaderTextFormat(@ptrCast(self.ptr), @ptrCast(format.ptr));
     }
+
+    /// ### DEPRECATED: Use `weekdayTextFormat` instead
+    ///
+    pub const WeekdayTextFormat = weekdayTextFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#weekdayTextFormat)
     ///
@@ -602,9 +750,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` dayOfWeek: qnamespace_enums.DayOfWeek `
     ///
-    pub fn WeekdayTextFormat(self: QCalendarWidget, dayOfWeek: i32) QTextCharFormat {
+    pub fn weekdayTextFormat(self: QCalendarWidget, dayOfWeek: i32) QTextCharFormat {
         return .{ .ptr = qtc.QCalendarWidget_WeekdayTextFormat(@ptrCast(self.ptr), @bitCast(dayOfWeek)) };
     }
+
+    /// ### DEPRECATED: Use `setWeekdayTextFormat` instead
+    ///
+    pub const SetWeekdayTextFormat = setWeekdayTextFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#setWeekdayTextFormat)
     ///
@@ -616,10 +768,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` format: QTextCharFormat `
     ///
-    pub fn SetWeekdayTextFormat(self: QCalendarWidget, dayOfWeek: i32, format: anytype) void {
+    pub fn setWeekdayTextFormat(self: QCalendarWidget, dayOfWeek: i32, format: anytype) void {
         comptime _ = @TypeOf(format)._is_QTextCharFormat;
         qtc.QCalendarWidget_SetWeekdayTextFormat(@ptrCast(self.ptr), @bitCast(dayOfWeek), @ptrCast(format.ptr));
     }
+
+    /// ### DEPRECATED: Use `dateTextFormat` instead
+    ///
+    pub const DateTextFormat = dateTextFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#dateTextFormat)
     ///
@@ -629,10 +785,10 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DateTextFormat(self: QCalendarWidget, allocator: std.mem.Allocator) ArrayMap_QDate_QTextCharFormat {
+    pub fn dateTextFormat(self: QCalendarWidget, allocator: std.mem.Allocator) ArrayMap_QDate_QTextCharFormat {
         const _map: qtc.libqt_map = qtc.QCalendarWidget_DateTextFormat(@ptrCast(self.ptr));
         var _ret: ArrayMap_QDate_QTextCharFormat = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QCalendarWidget.DateTextFormat: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QCalendarWidget.dateTextFormat: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -648,6 +804,10 @@ pub const QCalendarWidget = extern struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `dateTextFormat2` instead
+    ///
+    pub const DateTextFormat2 = dateTextFormat2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#dateTextFormat)
     ///
     /// ## Parameter(s):
@@ -656,10 +816,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` date: QDate `
     ///
-    pub fn DateTextFormat2(self: QCalendarWidget, date: anytype) QTextCharFormat {
+    pub fn dateTextFormat2(self: QCalendarWidget, date: anytype) QTextCharFormat {
         comptime _ = @TypeOf(date)._is_QDate;
         return .{ .ptr = qtc.QCalendarWidget_DateTextFormat2(@ptrCast(self.ptr), @ptrCast(date.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setDateTextFormat` instead
+    ///
+    pub const SetDateTextFormat = setDateTextFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#setDateTextFormat)
     ///
@@ -671,11 +835,15 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` format: QTextCharFormat `
     ///
-    pub fn SetDateTextFormat(self: QCalendarWidget, date: anytype, format: anytype) void {
+    pub fn setDateTextFormat(self: QCalendarWidget, date: anytype, format: anytype) void {
         comptime _ = @TypeOf(date)._is_QDate;
         comptime _ = @TypeOf(format)._is_QTextCharFormat;
         qtc.QCalendarWidget_SetDateTextFormat(@ptrCast(self.ptr), @ptrCast(date.ptr), @ptrCast(format.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDateEditEnabled` instead
+    ///
+    pub const IsDateEditEnabled = isDateEditEnabled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#isDateEditEnabled)
     ///
@@ -683,9 +851,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn IsDateEditEnabled(self: QCalendarWidget) bool {
+    pub fn isDateEditEnabled(self: QCalendarWidget) bool {
         return qtc.QCalendarWidget_IsDateEditEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDateEditEnabled` instead
+    ///
+    pub const SetDateEditEnabled = setDateEditEnabled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#setDateEditEnabled)
     ///
@@ -695,9 +867,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetDateEditEnabled(self: QCalendarWidget, enable: bool) void {
+    pub fn setDateEditEnabled(self: QCalendarWidget, enable: bool) void {
         qtc.QCalendarWidget_SetDateEditEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `dateEditAcceptDelay` instead
+    ///
+    pub const DateEditAcceptDelay = dateEditAcceptDelay;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#dateEditAcceptDelay)
     ///
@@ -705,9 +881,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn DateEditAcceptDelay(self: QCalendarWidget) i32 {
+    pub fn dateEditAcceptDelay(self: QCalendarWidget) i32 {
         return qtc.QCalendarWidget_DateEditAcceptDelay(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDateEditAcceptDelay` instead
+    ///
+    pub const SetDateEditAcceptDelay = setDateEditAcceptDelay;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#setDateEditAcceptDelay)
     ///
@@ -717,9 +897,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` delay: i32 `
     ///
-    pub fn SetDateEditAcceptDelay(self: QCalendarWidget, delay: i32) void {
+    pub fn setDateEditAcceptDelay(self: QCalendarWidget, delay: i32) void {
         qtc.QCalendarWidget_SetDateEditAcceptDelay(@ptrCast(self.ptr), @bitCast(delay));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#event)
     ///
@@ -727,12 +911,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QCalendarWidget, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QCalendarWidget_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QCalendarWidget, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QCalendarWidget_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#event)
     ///
@@ -744,13 +932,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QEvent) callconv(.c) bool) void {
         qtc.QCalendarWidget_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#event)
     ///
@@ -760,12 +948,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QCalendarWidget, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QCalendarWidget_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QCalendarWidget, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QCalendarWidget_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#eventFilter)
     ///
@@ -775,13 +967,17 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QCalendarWidget, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QCalendarWidget, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QCalendarWidget_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QCalendarWidget_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#eventFilter)
     ///
@@ -793,13 +989,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QObject, QEvent) callconv(.c) bool) void {
         qtc.QCalendarWidget_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#eventFilter)
     ///
@@ -811,13 +1007,17 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QCalendarWidget, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QCalendarWidget, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QCalendarWidget_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QCalendarWidget_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#mousePressEvent)
     ///
@@ -825,12 +1025,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QCalendarWidget_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mousePressEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QCalendarWidget_MousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#mousePressEvent)
     ///
@@ -842,13 +1046,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QMouseEvent) callconv(.c) void) void {
         qtc.QCalendarWidget_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#mousePressEvent)
     ///
@@ -858,12 +1062,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QCalendarWidget_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMousePressEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QCalendarWidget_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#resizeEvent)
     ///
@@ -871,12 +1079,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.QCalendarWidget_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn resizeEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.QCalendarWidget_ResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#resizeEvent)
     ///
@@ -888,13 +1100,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QResizeEvent) callconv(.c) void) void {
         qtc.QCalendarWidget_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#resizeEvent)
     ///
@@ -904,12 +1116,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.QCalendarWidget_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superResizeEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.QCalendarWidget_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#keyPressEvent)
     ///
@@ -917,12 +1133,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QCalendarWidget_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyPressEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QCalendarWidget_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#keyPressEvent)
     ///
@@ -934,13 +1154,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QKeyEvent) callconv(.c) void) void {
         qtc.QCalendarWidget_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#keyPressEvent)
     ///
@@ -950,12 +1170,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QCalendarWidget_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyPressEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QCalendarWidget_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `paintCell` instead
+    ///
+    pub const PaintCell = paintCell;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#paintCell)
     ///
@@ -965,16 +1189,20 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
     /// ` date: QDate `
     ///
-    pub fn PaintCell(self: QCalendarWidget, painter: anytype, rect: anytype, date: anytype) void {
+    pub fn paintCell(self: QCalendarWidget, painter: anytype, _rect: anytype, date: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
-        comptime _ = @TypeOf(rect)._is_QRect;
+        comptime _ = @TypeOf(_rect)._is_QRect;
         comptime _ = @TypeOf(date)._is_QDate;
-        qtc.QCalendarWidget_PaintCell(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(rect.ptr), @ptrCast(date.ptr));
+        qtc.QCalendarWidget_PaintCell(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(_rect.ptr), @ptrCast(date.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintCell` instead
+    ///
+    pub const OnPaintCell = onPaintCell;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#paintCell)
     ///
@@ -986,13 +1214,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, painter: QPainter, rect: QRect, date: QDate) callconv(.c) void `
     ///
-    pub fn OnPaintCell(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QPainter, QRect, QDate) callconv(.c) void) void {
+    pub fn onPaintCell(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QPainter, QRect, QDate) callconv(.c) void) void {
         qtc.QCalendarWidget_OnPaintCell(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintCell` instead
+    /// ### DEPRECATED: Use `superPaintCell` instead
     ///
-    pub const QBasePaintCell = SuperPaintCell;
+    pub const SuperPaintCell = superPaintCell;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#paintCell)
     ///
@@ -1004,16 +1232,20 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
     /// ` date: QDate `
     ///
-    pub fn SuperPaintCell(self: QCalendarWidget, painter: anytype, rect: anytype, date: anytype) void {
+    pub fn superPaintCell(self: QCalendarWidget, painter: anytype, _rect: anytype, date: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
-        comptime _ = @TypeOf(rect)._is_QRect;
+        comptime _ = @TypeOf(_rect)._is_QRect;
         comptime _ = @TypeOf(date)._is_QDate;
-        qtc.QCalendarWidget_SuperPaintCell(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(rect.ptr), @ptrCast(date.ptr));
+        qtc.QCalendarWidget_SuperPaintCell(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(_rect.ptr), @ptrCast(date.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateCell` instead
+    ///
+    pub const UpdateCell = updateCell;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#updateCell)
     ///
@@ -1023,10 +1255,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` date: QDate `
     ///
-    pub fn UpdateCell(self: QCalendarWidget, date: anytype) void {
+    pub fn updateCell(self: QCalendarWidget, date: anytype) void {
         comptime _ = @TypeOf(date)._is_QDate;
         qtc.QCalendarWidget_UpdateCell(@ptrCast(self.ptr), @ptrCast(date.ptr));
     }
+
+    /// ### DEPRECATED: Use `onUpdateCell` instead
+    ///
+    pub const OnUpdateCell = onUpdateCell;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#updateCell)
     ///
@@ -1038,13 +1274,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, date: QDate) callconv(.c) void `
     ///
-    pub fn OnUpdateCell(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QDate) callconv(.c) void) void {
+    pub fn onUpdateCell(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QDate) callconv(.c) void) void {
         qtc.QCalendarWidget_OnUpdateCell(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateCell` instead
+    /// ### DEPRECATED: Use `superUpdateCell` instead
     ///
-    pub const QBaseUpdateCell = SuperUpdateCell;
+    pub const SuperUpdateCell = superUpdateCell;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#updateCell)
     ///
@@ -1056,10 +1292,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` date: QDate `
     ///
-    pub fn SuperUpdateCell(self: QCalendarWidget, date: anytype) void {
+    pub fn superUpdateCell(self: QCalendarWidget, date: anytype) void {
         comptime _ = @TypeOf(date)._is_QDate;
         qtc.QCalendarWidget_SuperUpdateCell(@ptrCast(self.ptr), @ptrCast(date.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateCells` instead
+    ///
+    pub const UpdateCells = updateCells;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#updateCells)
     ///
@@ -1067,9 +1307,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn UpdateCells(self: QCalendarWidget) void {
+    pub fn updateCells(self: QCalendarWidget) void {
         qtc.QCalendarWidget_UpdateCells(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onUpdateCells` instead
+    ///
+    pub const OnUpdateCells = onUpdateCells;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#updateCells)
     ///
@@ -1081,13 +1325,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateCells(self: QCalendarWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateCells(self: QCalendarWidget, callback: *const fn () callconv(.c) void) void {
         qtc.QCalendarWidget_OnUpdateCells(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateCells` instead
+    /// ### DEPRECATED: Use `superUpdateCells` instead
     ///
-    pub const QBaseUpdateCells = SuperUpdateCells;
+    pub const SuperUpdateCells = superUpdateCells;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#updateCells)
     ///
@@ -1097,9 +1341,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn SuperUpdateCells(self: QCalendarWidget) void {
+    pub fn superUpdateCells(self: QCalendarWidget) void {
         qtc.QCalendarWidget_SuperUpdateCells(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSelectedDate` instead
+    ///
+    pub const SetSelectedDate = setSelectedDate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#setSelectedDate)
     ///
@@ -1109,10 +1357,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` date: QDate `
     ///
-    pub fn SetSelectedDate(self: QCalendarWidget, date: anytype) void {
+    pub fn setSelectedDate(self: QCalendarWidget, date: anytype) void {
         comptime _ = @TypeOf(date)._is_QDate;
         qtc.QCalendarWidget_SetSelectedDate(@ptrCast(self.ptr), @ptrCast(date.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDateRange` instead
+    ///
+    pub const SetDateRange = setDateRange;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#setDateRange)
     ///
@@ -1124,11 +1376,15 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` max: QDate `
     ///
-    pub fn SetDateRange(self: QCalendarWidget, min: anytype, max: anytype) void {
+    pub fn setDateRange(self: QCalendarWidget, min: anytype, max: anytype) void {
         comptime _ = @TypeOf(min)._is_QDate;
         comptime _ = @TypeOf(max)._is_QDate;
         qtc.QCalendarWidget_SetDateRange(@ptrCast(self.ptr), @ptrCast(min.ptr), @ptrCast(max.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCurrentPage` instead
+    ///
+    pub const SetCurrentPage = setCurrentPage;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#setCurrentPage)
     ///
@@ -1140,9 +1396,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` month: i32 `
     ///
-    pub fn SetCurrentPage(self: QCalendarWidget, year: i32, month: i32) void {
+    pub fn setCurrentPage(self: QCalendarWidget, year: i32, month: i32) void {
         qtc.QCalendarWidget_SetCurrentPage(@ptrCast(self.ptr), @bitCast(year), @bitCast(month));
     }
+
+    /// ### DEPRECATED: Use `setGridVisible` instead
+    ///
+    pub const SetGridVisible = setGridVisible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#setGridVisible)
     ///
@@ -1150,11 +1410,15 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` show: bool `
+    /// ` _show: bool `
     ///
-    pub fn SetGridVisible(self: QCalendarWidget, show: bool) void {
-        qtc.QCalendarWidget_SetGridVisible(@ptrCast(self.ptr), show);
+    pub fn setGridVisible(self: QCalendarWidget, _show: bool) void {
+        qtc.QCalendarWidget_SetGridVisible(@ptrCast(self.ptr), _show);
     }
+
+    /// ### DEPRECATED: Use `setNavigationBarVisible` instead
+    ///
+    pub const SetNavigationBarVisible = setNavigationBarVisible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#setNavigationBarVisible)
     ///
@@ -1164,9 +1428,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetNavigationBarVisible(self: QCalendarWidget, visible: bool) void {
+    pub fn setNavigationBarVisible(self: QCalendarWidget, visible: bool) void {
         qtc.QCalendarWidget_SetNavigationBarVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `showNextMonth` instead
+    ///
+    pub const ShowNextMonth = showNextMonth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#showNextMonth)
     ///
@@ -1174,9 +1442,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn ShowNextMonth(self: QCalendarWidget) void {
+    pub fn showNextMonth(self: QCalendarWidget) void {
         qtc.QCalendarWidget_ShowNextMonth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showPreviousMonth` instead
+    ///
+    pub const ShowPreviousMonth = showPreviousMonth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#showPreviousMonth)
     ///
@@ -1184,9 +1456,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn ShowPreviousMonth(self: QCalendarWidget) void {
+    pub fn showPreviousMonth(self: QCalendarWidget) void {
         qtc.QCalendarWidget_ShowPreviousMonth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNextYear` instead
+    ///
+    pub const ShowNextYear = showNextYear;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#showNextYear)
     ///
@@ -1194,9 +1470,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn ShowNextYear(self: QCalendarWidget) void {
+    pub fn showNextYear(self: QCalendarWidget) void {
         qtc.QCalendarWidget_ShowNextYear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showPreviousYear` instead
+    ///
+    pub const ShowPreviousYear = showPreviousYear;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#showPreviousYear)
     ///
@@ -1204,9 +1484,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn ShowPreviousYear(self: QCalendarWidget) void {
+    pub fn showPreviousYear(self: QCalendarWidget) void {
         qtc.QCalendarWidget_ShowPreviousYear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showSelectedDate` instead
+    ///
+    pub const ShowSelectedDate = showSelectedDate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#showSelectedDate)
     ///
@@ -1214,9 +1498,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn ShowSelectedDate(self: QCalendarWidget) void {
+    pub fn showSelectedDate(self: QCalendarWidget) void {
         qtc.QCalendarWidget_ShowSelectedDate(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showToday` instead
+    ///
+    pub const ShowToday = showToday;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#showToday)
     ///
@@ -1224,9 +1512,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn ShowToday(self: QCalendarWidget) void {
+    pub fn showToday(self: QCalendarWidget) void {
         qtc.QCalendarWidget_ShowToday(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `selectionChanged` instead
+    ///
+    pub const SelectionChanged = selectionChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#selectionChanged)
     ///
@@ -1234,9 +1526,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn SelectionChanged(self: QCalendarWidget) void {
+    pub fn selectionChanged(self: QCalendarWidget) void {
         qtc.QCalendarWidget_SelectionChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSelectionChanged` instead
+    ///
+    pub const OnSelectionChanged = onSelectionChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#selectionChanged)
     ///
@@ -1246,9 +1542,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget) callconv(.c) void `
     ///
-    pub fn OnSelectionChanged(self: QCalendarWidget, callback: *const fn (QCalendarWidget) callconv(.c) void) void {
+    pub fn onSelectionChanged(self: QCalendarWidget, callback: *const fn (QCalendarWidget) callconv(.c) void) void {
         qtc.QCalendarWidget_Connect_SelectionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `clicked` instead
+    ///
+    pub const Clicked = clicked;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#clicked)
     ///
@@ -1258,11 +1558,15 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` date: QDate `
     ///
-    pub fn Clicked(self: QCalendarWidget, date: anytype) void {
+    pub fn clicked(self: QCalendarWidget, date: anytype) void {
         comptime _ = @TypeOf(date)._is_QDate;
         qtc.QCalendarWidget_Clicked(@ptrCast(self.ptr), @ptrCast(date.ptr));
     }
 
+    /// ### DEPRECATED: Use `onClicked` instead
+    ///
+    pub const OnClicked = onClicked;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#clicked)
     ///
     /// ## Parameters:
@@ -1271,9 +1575,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, date: QDate) callconv(.c) void `
     ///
-    pub fn OnClicked(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QDate) callconv(.c) void) void {
+    pub fn onClicked(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QDate) callconv(.c) void) void {
         qtc.QCalendarWidget_Connect_Clicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `activated` instead
+    ///
+    pub const Activated = activated;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#activated)
     ///
@@ -1283,10 +1591,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` date: QDate `
     ///
-    pub fn Activated(self: QCalendarWidget, date: anytype) void {
+    pub fn activated(self: QCalendarWidget, date: anytype) void {
         comptime _ = @TypeOf(date)._is_QDate;
         qtc.QCalendarWidget_Activated(@ptrCast(self.ptr), @ptrCast(date.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActivated` instead
+    ///
+    pub const OnActivated = onActivated;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#activated)
     ///
@@ -1296,9 +1608,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, date: QDate) callconv(.c) void `
     ///
-    pub fn OnActivated(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QDate) callconv(.c) void) void {
+    pub fn onActivated(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QDate) callconv(.c) void) void {
         qtc.QCalendarWidget_Connect_Activated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `currentPageChanged` instead
+    ///
+    pub const CurrentPageChanged = currentPageChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#currentPageChanged)
     ///
@@ -1310,9 +1626,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` month: i32 `
     ///
-    pub fn CurrentPageChanged(self: QCalendarWidget, year: i32, month: i32) void {
+    pub fn currentPageChanged(self: QCalendarWidget, year: i32, month: i32) void {
         qtc.QCalendarWidget_CurrentPageChanged(@ptrCast(self.ptr), @bitCast(year), @bitCast(month));
     }
+
+    /// ### DEPRECATED: Use `onCurrentPageChanged` instead
+    ///
+    pub const OnCurrentPageChanged = onCurrentPageChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#currentPageChanged)
     ///
@@ -1322,9 +1642,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, year: i32, month: i32) callconv(.c) void `
     ///
-    pub fn OnCurrentPageChanged(self: QCalendarWidget, callback: *const fn (QCalendarWidget, i32, i32) callconv(.c) void) void {
+    pub fn onCurrentPageChanged(self: QCalendarWidget, callback: *const fn (QCalendarWidget, i32, i32) callconv(.c) void) void {
         qtc.QCalendarWidget_Connect_CurrentPageChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1336,15 +1660,19 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendarWidget.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendarWidget.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1358,15 +1686,19 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendarWidget.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendarWidget.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -1376,9 +1708,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn WinId(self: QCalendarWidget) usize {
+    pub fn winId(self: QCalendarWidget) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -1388,9 +1724,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn CreateWinId(self: QCalendarWidget) void {
+    pub fn createWinId(self: QCalendarWidget) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -1400,9 +1740,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn InternalWinId(self: QCalendarWidget) usize {
+    pub fn internalWinId(self: QCalendarWidget) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -1412,9 +1756,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn EffectiveWinId(self: QCalendarWidget) usize {
+    pub fn effectiveWinId(self: QCalendarWidget) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -1424,9 +1772,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn Style(self: QCalendarWidget) QStyle {
+    pub fn style(self: QCalendarWidget) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -1436,12 +1788,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: QCalendarWidget, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: QCalendarWidget, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -1451,9 +1807,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn IsTopLevel(self: QCalendarWidget) bool {
+    pub fn isTopLevel(self: QCalendarWidget) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -1463,9 +1823,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn IsWindow(self: QCalendarWidget) bool {
+    pub fn isWindow(self: QCalendarWidget) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -1475,9 +1839,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn IsModal(self: QCalendarWidget) bool {
+    pub fn isModal(self: QCalendarWidget) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -1491,9 +1859,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: QCalendarWidget) i32 {
+    pub fn windowModality(self: QCalendarWidget) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -1503,11 +1875,15 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: QCalendarWidget, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: QCalendarWidget, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1517,9 +1893,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn IsEnabled(self: QCalendarWidget) bool {
+    pub fn isEnabled(self: QCalendarWidget) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -1531,10 +1911,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: QCalendarWidget, param1: anytype) bool {
+    pub fn isEnabledTo(self: QCalendarWidget, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1546,9 +1930,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: QCalendarWidget, enabled: bool) void {
+    pub fn setEnabled(self: QCalendarWidget, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -1560,9 +1948,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: QCalendarWidget, disabled: bool) void {
+    pub fn setDisabled(self: QCalendarWidget, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -1574,9 +1966,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: QCalendarWidget, windowModified: bool) void {
+    pub fn setWindowModified(self: QCalendarWidget, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1586,9 +1982,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn FrameGeometry(self: QCalendarWidget) QRect {
+    pub fn frameGeometry(self: QCalendarWidget) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -1598,9 +1998,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn Geometry(self: QCalendarWidget) QRect {
+    pub fn geometry(self: QCalendarWidget) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1610,9 +2014,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn NormalGeometry(self: QCalendarWidget) QRect {
+    pub fn normalGeometry(self: QCalendarWidget) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -1622,9 +2030,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn X(self: QCalendarWidget) i32 {
+    pub fn x(self: QCalendarWidget) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -1634,9 +2046,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn Y(self: QCalendarWidget) i32 {
+    pub fn y(self: QCalendarWidget) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -1646,9 +2062,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn Pos(self: QCalendarWidget) QPoint {
+    pub fn pos(self: QCalendarWidget) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -1658,9 +2078,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn FrameSize(self: QCalendarWidget) QSize {
+    pub fn frameSize(self: QCalendarWidget) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -1670,9 +2094,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn Size(self: QCalendarWidget) QSize {
+    pub fn size(self: QCalendarWidget) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -1682,9 +2110,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn Width(self: QCalendarWidget) i32 {
+    pub fn width(self: QCalendarWidget) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -1694,9 +2126,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn Height(self: QCalendarWidget) i32 {
+    pub fn height(self: QCalendarWidget) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -1706,9 +2142,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn Rect(self: QCalendarWidget) QRect {
+    pub fn rect(self: QCalendarWidget) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -1718,9 +2158,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn ChildrenRect(self: QCalendarWidget) QRect {
+    pub fn childrenRect(self: QCalendarWidget) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -1730,9 +2174,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn ChildrenRegion(self: QCalendarWidget) QRegion {
+    pub fn childrenRegion(self: QCalendarWidget) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1742,9 +2190,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn MinimumSize(self: QCalendarWidget) QSize {
+    pub fn minimumSize(self: QCalendarWidget) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1754,9 +2206,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn MaximumSize(self: QCalendarWidget) QSize {
+    pub fn maximumSize(self: QCalendarWidget) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1766,9 +2222,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn MinimumWidth(self: QCalendarWidget) i32 {
+    pub fn minimumWidth(self: QCalendarWidget) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1778,9 +2238,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn MinimumHeight(self: QCalendarWidget) i32 {
+    pub fn minimumHeight(self: QCalendarWidget) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1790,9 +2254,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn MaximumWidth(self: QCalendarWidget) i32 {
+    pub fn maximumWidth(self: QCalendarWidget) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1802,9 +2270,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn MaximumHeight(self: QCalendarWidget) i32 {
+    pub fn maximumHeight(self: QCalendarWidget) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1814,12 +2286,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: QCalendarWidget, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: QCalendarWidget, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1833,9 +2309,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: QCalendarWidget, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: QCalendarWidget, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1845,12 +2325,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: QCalendarWidget, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: QCalendarWidget, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1864,9 +2348,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: QCalendarWidget, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: QCalendarWidget, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1878,9 +2366,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: QCalendarWidget, minw: i32) void {
+    pub fn setMinimumWidth(self: QCalendarWidget, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1892,9 +2384,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: QCalendarWidget, minh: i32) void {
+    pub fn setMinimumHeight(self: QCalendarWidget, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1906,9 +2402,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: QCalendarWidget, maxw: i32) void {
+    pub fn setMaximumWidth(self: QCalendarWidget, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1920,9 +2420,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: QCalendarWidget, maxh: i32) void {
+    pub fn setMaximumHeight(self: QCalendarWidget, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1932,9 +2436,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn SizeIncrement(self: QCalendarWidget) QSize {
+    pub fn sizeIncrement(self: QCalendarWidget) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1944,12 +2452,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: QCalendarWidget, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: QCalendarWidget, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -1963,9 +2475,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: QCalendarWidget, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: QCalendarWidget, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -1975,9 +2491,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn BaseSize(self: QCalendarWidget) QSize {
+    pub fn baseSize(self: QCalendarWidget) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -1987,12 +2507,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: QCalendarWidget, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: QCalendarWidget, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -2006,9 +2530,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: QCalendarWidget, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: QCalendarWidget, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -2020,10 +2548,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: QCalendarWidget, fixedSize: anytype) void {
+    pub fn setFixedSize(self: QCalendarWidget, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -2037,9 +2569,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: QCalendarWidget, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: QCalendarWidget, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -2051,9 +2587,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: QCalendarWidget, w: i32) void {
+    pub fn setFixedWidth(self: QCalendarWidget, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -2065,9 +2605,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: QCalendarWidget, h: i32) void {
+    pub fn setFixedHeight(self: QCalendarWidget, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -2079,11 +2623,15 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: QCalendarWidget, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: QCalendarWidget, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -2094,11 +2642,15 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: QCalendarWidget, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: QCalendarWidget, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -2109,11 +2661,15 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: QCalendarWidget, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: QCalendarWidget, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -2124,11 +2680,15 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: QCalendarWidget, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: QCalendarWidget, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -2139,11 +2699,15 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: QCalendarWidget, param1: anytype) QPointF {
+    pub fn mapToParent(self: QCalendarWidget, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -2154,10 +2718,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: QCalendarWidget, param1: anytype) QPoint {
+    pub fn mapToParent2(self: QCalendarWidget, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -2169,10 +2737,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: QCalendarWidget, param1: anytype) QPointF {
+    pub fn mapFromParent(self: QCalendarWidget, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -2184,10 +2756,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: QCalendarWidget, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: QCalendarWidget, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -2201,12 +2777,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: QCalendarWidget, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: QCalendarWidget, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -2219,11 +2799,15 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: QCalendarWidget, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: QCalendarWidget, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -2237,11 +2821,15 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: QCalendarWidget, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: QCalendarWidget, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -2255,11 +2843,15 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: QCalendarWidget, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: QCalendarWidget, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -2269,9 +2861,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn Window(self: QCalendarWidget) QWidget {
+    pub fn window(self: QCalendarWidget) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -2281,9 +2877,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn NativeParentWidget(self: QCalendarWidget) QWidget {
+    pub fn nativeParentWidget(self: QCalendarWidget) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -2293,9 +2893,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn TopLevelWidget(self: QCalendarWidget) QWidget {
+    pub fn topLevelWidget(self: QCalendarWidget) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -2305,9 +2909,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn Palette(self: QCalendarWidget) QPalette {
+    pub fn palette(self: QCalendarWidget) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -2317,12 +2925,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: QCalendarWidget, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: QCalendarWidget, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2332,11 +2944,15 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: QCalendarWidget, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: QCalendarWidget, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2350,9 +2966,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: QCalendarWidget) i32 {
+    pub fn backgroundRole(self: QCalendarWidget) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2362,11 +2982,15 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: QCalendarWidget, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: QCalendarWidget, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2380,9 +3004,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: QCalendarWidget) i32 {
+    pub fn foregroundRole(self: QCalendarWidget) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -2392,9 +3020,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn Font(self: QCalendarWidget) QFont {
+    pub fn font(self: QCalendarWidget) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -2404,12 +3036,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: QCalendarWidget, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: QCalendarWidget, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -2419,9 +3055,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn FontMetrics(self: QCalendarWidget) QFontMetrics {
+    pub fn fontMetrics(self: QCalendarWidget) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -2431,9 +3071,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn FontInfo(self: QCalendarWidget) QFontInfo {
+    pub fn fontInfo(self: QCalendarWidget) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -2443,9 +3087,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn Cursor(self: QCalendarWidget) QCursor {
+    pub fn cursor(self: QCalendarWidget) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -2455,12 +3103,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: QCalendarWidget, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: QCalendarWidget, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -2470,9 +3122,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn UnsetCursor(self: QCalendarWidget) void {
+    pub fn unsetCursor(self: QCalendarWidget) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2484,9 +3140,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: QCalendarWidget, enable: bool) void {
+    pub fn setMouseTracking(self: QCalendarWidget, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2496,9 +3156,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn HasMouseTracking(self: QCalendarWidget) bool {
+    pub fn hasMouseTracking(self: QCalendarWidget) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -2508,9 +3172,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn UnderMouse(self: QCalendarWidget) bool {
+    pub fn underMouse(self: QCalendarWidget) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2522,9 +3190,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: QCalendarWidget, enable: bool) void {
+    pub fn setTabletTracking(self: QCalendarWidget, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2534,24 +3206,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn HasTabletTracking(self: QCalendarWidget) bool {
+    pub fn hasTabletTracking(self: QCalendarWidget) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCalendarWidget `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: QCalendarWidget, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -2561,12 +3222,35 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: QCalendarWidget, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: QCalendarWidget, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCalendarWidget `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: QCalendarWidget, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -2576,9 +3260,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn Mask(self: QCalendarWidget) QRegion {
+    pub fn mask(self: QCalendarWidget) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -2588,9 +3276,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn ClearMask(self: QCalendarWidget) void {
+    pub fn clearMask(self: QCalendarWidget) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -2602,10 +3294,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: QCalendarWidget, target: anytype) void {
+    pub fn render(self: QCalendarWidget, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -2617,10 +3313,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: QCalendarWidget, painter: anytype) void {
+    pub fn render2(self: QCalendarWidget, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -2630,9 +3330,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn Grab(self: QCalendarWidget) QPixmap {
+    pub fn grab(self: QCalendarWidget) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2642,9 +3346,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn GraphicsEffect(self: QCalendarWidget) QGraphicsEffect {
+    pub fn graphicsEffect(self: QCalendarWidget) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2656,10 +3364,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: QCalendarWidget, effect: anytype) void {
+    pub fn setGraphicsEffect(self: QCalendarWidget, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2671,9 +3383,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: QCalendarWidget, typeVal: i32) void {
+    pub fn grabGesture(self: QCalendarWidget, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2685,9 +3401,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: QCalendarWidget, typeVal: i32) void {
+    pub fn ungrabGesture(self: QCalendarWidget, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2697,15 +3417,19 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: QCalendarWidget, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: QCalendarWidget, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2715,15 +3439,19 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: QCalendarWidget, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: QCalendarWidget, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2735,13 +3463,17 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: QCalendarWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: QCalendarWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendarWidget.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendarWidget.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2753,13 +3485,17 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: QCalendarWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: QCalendarWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendarWidget.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendarWidget.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2771,10 +3507,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: QCalendarWidget, icon: anytype) void {
+    pub fn setWindowIcon(self: QCalendarWidget, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2784,9 +3524,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn WindowIcon(self: QCalendarWidget) QIcon {
+    pub fn windowIcon(self: QCalendarWidget) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2796,15 +3540,19 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: QCalendarWidget, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: QCalendarWidget, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2816,13 +3564,17 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: QCalendarWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: QCalendarWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendarWidget.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendarWidget.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -2832,15 +3584,19 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: QCalendarWidget, windowRole: []const u8) void {
+    pub fn setWindowRole(self: QCalendarWidget, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -2852,13 +3608,17 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: QCalendarWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: QCalendarWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendarWidget.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendarWidget.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2870,13 +3630,17 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: QCalendarWidget, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: QCalendarWidget, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2888,13 +3652,17 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: QCalendarWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: QCalendarWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendarWidget.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendarWidget.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2906,9 +3674,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: QCalendarWidget, level: f64) void {
+    pub fn setWindowOpacity(self: QCalendarWidget, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2918,9 +3690,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn WindowOpacity(self: QCalendarWidget) f64 {
+    pub fn windowOpacity(self: QCalendarWidget) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -2930,9 +3706,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn IsWindowModified(self: QCalendarWidget) bool {
+    pub fn isWindowModified(self: QCalendarWidget) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -2942,15 +3722,19 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: QCalendarWidget, toolTip: []const u8) void {
+    pub fn setToolTip(self: QCalendarWidget, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -2962,13 +3746,17 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: QCalendarWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: QCalendarWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendarWidget.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendarWidget.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2980,9 +3768,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: QCalendarWidget, msec: i32) void {
+    pub fn setToolTipDuration(self: QCalendarWidget, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2992,9 +3784,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn ToolTipDuration(self: QCalendarWidget) i32 {
+    pub fn toolTipDuration(self: QCalendarWidget) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -3004,15 +3800,19 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: QCalendarWidget, statusTip: []const u8) void {
+    pub fn setStatusTip(self: QCalendarWidget, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -3024,13 +3824,17 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: QCalendarWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: QCalendarWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendarWidget.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendarWidget.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -3040,15 +3844,19 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: QCalendarWidget, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: QCalendarWidget, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -3060,13 +3868,17 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: QCalendarWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: QCalendarWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendarWidget.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendarWidget.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -3078,13 +3890,17 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: QCalendarWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: QCalendarWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendarWidget.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendarWidget.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -3096,13 +3912,17 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: QCalendarWidget, name: []const u8) void {
+    pub fn setAccessibleName(self: QCalendarWidget, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -3114,13 +3934,17 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: QCalendarWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: QCalendarWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendarWidget.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendarWidget.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -3132,13 +3956,17 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: QCalendarWidget, description: []const u8) void {
+    pub fn setAccessibleDescription(self: QCalendarWidget, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3150,9 +3978,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: QCalendarWidget, direction: i32) void {
+    pub fn setLayoutDirection(self: QCalendarWidget, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3166,9 +3998,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: QCalendarWidget) i32 {
+    pub fn layoutDirection(self: QCalendarWidget) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3178,9 +4014,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn UnsetLayoutDirection(self: QCalendarWidget) void {
+    pub fn unsetLayoutDirection(self: QCalendarWidget) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -3190,12 +4030,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: QCalendarWidget, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: QCalendarWidget, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -3205,9 +4049,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn Locale(self: QCalendarWidget) QLocale {
+    pub fn locale(self: QCalendarWidget) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -3217,9 +4065,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn UnsetLocale(self: QCalendarWidget) void {
+    pub fn unsetLocale(self: QCalendarWidget) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -3229,9 +4081,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn IsRightToLeft(self: QCalendarWidget) bool {
+    pub fn isRightToLeft(self: QCalendarWidget) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -3241,9 +4097,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn IsLeftToRight(self: QCalendarWidget) bool {
+    pub fn isLeftToRight(self: QCalendarWidget) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -3253,9 +4113,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn SetFocus(self: QCalendarWidget) void {
+    pub fn setFocus(self: QCalendarWidget) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -3265,9 +4129,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn IsActiveWindow(self: QCalendarWidget) bool {
+    pub fn isActiveWindow(self: QCalendarWidget) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -3277,9 +4145,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn ActivateWindow(self: QCalendarWidget) void {
+    pub fn activateWindow(self: QCalendarWidget) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -3289,9 +4161,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn ClearFocus(self: QCalendarWidget) void {
+    pub fn clearFocus(self: QCalendarWidget) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -3303,9 +4179,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: QCalendarWidget, reason: i32) void {
+    pub fn setFocus2(self: QCalendarWidget, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3319,9 +4199,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: QCalendarWidget) i32 {
+    pub fn focusPolicy(self: QCalendarWidget) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3333,9 +4217,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: QCalendarWidget, policy: i32) void {
+    pub fn setFocusPolicy(self: QCalendarWidget, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -3345,9 +4233,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn HasFocus(self: QCalendarWidget) bool {
+    pub fn hasFocus(self: QCalendarWidget) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -3359,11 +4251,15 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3373,12 +4269,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: QCalendarWidget, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: QCalendarWidget, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3388,9 +4288,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn FocusProxy(self: QCalendarWidget) QWidget {
+    pub fn focusProxy(self: QCalendarWidget) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3404,9 +4308,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: QCalendarWidget) i32 {
+    pub fn contextMenuPolicy(self: QCalendarWidget) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3418,9 +4326,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: QCalendarWidget, policy: i32) void {
+    pub fn setContextMenuPolicy(self: QCalendarWidget, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -3430,9 +4342,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn GrabMouse(self: QCalendarWidget) void {
+    pub fn grabMouse(self: QCalendarWidget) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -3444,10 +4360,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: QCalendarWidget, param1: anytype) void {
+    pub fn grabMouse2(self: QCalendarWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -3457,9 +4377,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn ReleaseMouse(self: QCalendarWidget) void {
+    pub fn releaseMouse(self: QCalendarWidget) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3469,9 +4393,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn GrabKeyboard(self: QCalendarWidget) void {
+    pub fn grabKeyboard(self: QCalendarWidget) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3481,9 +4409,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn ReleaseKeyboard(self: QCalendarWidget) void {
+    pub fn releaseKeyboard(self: QCalendarWidget) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3495,10 +4427,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: QCalendarWidget, key: anytype) i32 {
+    pub fn grabShortcut(self: QCalendarWidget, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3510,9 +4446,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: QCalendarWidget, id: i32) void {
+    pub fn releaseShortcut(self: QCalendarWidget, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3524,9 +4464,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: QCalendarWidget, id: i32) void {
+    pub fn setShortcutEnabled(self: QCalendarWidget, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -3538,25 +4482,37 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: QCalendarWidget, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: QCalendarWidget, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3566,9 +4522,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn UpdatesEnabled(self: QCalendarWidget) bool {
+    pub fn updatesEnabled(self: QCalendarWidget) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3580,9 +4540,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: QCalendarWidget, enable: bool) void {
+    pub fn setUpdatesEnabled(self: QCalendarWidget, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -3592,9 +4556,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn GraphicsProxyWidget(self: QCalendarWidget) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: QCalendarWidget) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -3604,9 +4572,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn Update(self: QCalendarWidget) void {
+    pub fn update(self: QCalendarWidget) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -3616,9 +4588,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn Repaint(self: QCalendarWidget) void {
+    pub fn repaint(self: QCalendarWidget) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -3628,17 +4604,21 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: QCalendarWidget, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: QCalendarWidget, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -3650,11 +4630,15 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: QCalendarWidget, param1: anytype) void {
+    pub fn update3(self: QCalendarWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -3665,10 +4649,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: QCalendarWidget, param1: anytype) void {
+    pub fn update4(self: QCalendarWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -3678,17 +4666,21 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: QCalendarWidget, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: QCalendarWidget, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -3700,10 +4692,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: QCalendarWidget, param1: anytype) void {
+    pub fn repaint3(self: QCalendarWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -3715,10 +4711,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: QCalendarWidget, param1: anytype) void {
+    pub fn repaint4(self: QCalendarWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -3730,9 +4730,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: QCalendarWidget, hidden: bool) void {
+    pub fn setHidden(self: QCalendarWidget, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -3742,9 +4746,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn Show(self: QCalendarWidget) void {
+    pub fn show(self: QCalendarWidget) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -3754,9 +4762,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn Hide(self: QCalendarWidget) void {
+    pub fn hide(self: QCalendarWidget) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3766,9 +4778,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn ShowMinimized(self: QCalendarWidget) void {
+    pub fn showMinimized(self: QCalendarWidget) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3778,9 +4794,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn ShowMaximized(self: QCalendarWidget) void {
+    pub fn showMaximized(self: QCalendarWidget) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3790,9 +4810,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn ShowFullScreen(self: QCalendarWidget) void {
+    pub fn showFullScreen(self: QCalendarWidget) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -3802,9 +4826,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn ShowNormal(self: QCalendarWidget) void {
+    pub fn showNormal(self: QCalendarWidget) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -3814,9 +4842,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn Close(self: QCalendarWidget) bool {
+    pub fn close(self: QCalendarWidget) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -3826,9 +4858,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn Raise(self: QCalendarWidget) void {
+    pub fn raise(self: QCalendarWidget) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -3838,9 +4874,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn Lower(self: QCalendarWidget) void {
+    pub fn lower(self: QCalendarWidget) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -3852,10 +4892,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: QCalendarWidget, param1: anytype) void {
+    pub fn stackUnder(self: QCalendarWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -3865,13 +4909,17 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: QCalendarWidget, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: QCalendarWidget, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -3883,10 +4931,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: QCalendarWidget, param1: anytype) void {
+    pub fn move2(self: QCalendarWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -3900,9 +4952,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: QCalendarWidget, w: i32, h: i32) void {
+    pub fn resize(self: QCalendarWidget, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -3914,10 +4970,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: QCalendarWidget, param1: anytype) void {
+    pub fn resize2(self: QCalendarWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3927,17 +4987,21 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: QCalendarWidget, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: QCalendarWidget, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -3947,12 +5011,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: QCalendarWidget, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: QCalendarWidget, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3964,13 +5032,17 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: QCalendarWidget, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: QCalendarWidget, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QCalendarWidget.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QCalendarWidget.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3980,15 +5052,19 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: QCalendarWidget, geometry: []u8) bool {
+    pub fn restoreGeometry(self: QCalendarWidget, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -3998,9 +5074,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn AdjustSize(self: QCalendarWidget) void {
+    pub fn adjustSize(self: QCalendarWidget) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -4010,9 +5090,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn IsVisible(self: QCalendarWidget) bool {
+    pub fn isVisible(self: QCalendarWidget) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -4024,10 +5108,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: QCalendarWidget, param1: anytype) bool {
+    pub fn isVisibleTo(self: QCalendarWidget, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -4037,9 +5125,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn IsHidden(self: QCalendarWidget) bool {
+    pub fn isHidden(self: QCalendarWidget) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -4049,9 +5141,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn IsMinimized(self: QCalendarWidget) bool {
+    pub fn isMinimized(self: QCalendarWidget) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -4061,9 +5157,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn IsMaximized(self: QCalendarWidget) bool {
+    pub fn isMaximized(self: QCalendarWidget) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -4073,9 +5173,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn IsFullScreen(self: QCalendarWidget) bool {
+    pub fn isFullScreen(self: QCalendarWidget) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -4089,9 +5193,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: QCalendarWidget) i32 {
+    pub fn windowState(self: QCalendarWidget) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -4103,9 +5211,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: QCalendarWidget, state: i32) void {
+    pub fn setWindowState(self: QCalendarWidget, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -4117,9 +5229,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: QCalendarWidget, state: i32) void {
+    pub fn overrideWindowState(self: QCalendarWidget, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -4129,9 +5245,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn SizePolicy(self: QCalendarWidget) QSizePolicy {
+    pub fn sizePolicy(self: QCalendarWidget) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -4141,12 +5261,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: QCalendarWidget, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: QCalendarWidget, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -4160,9 +5284,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: QCalendarWidget, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: QCalendarWidget, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -4172,9 +5300,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn VisibleRegion(self: QCalendarWidget) QRegion {
+    pub fn visibleRegion(self: QCalendarWidget) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -4192,9 +5324,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: QCalendarWidget, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: QCalendarWidget, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -4206,10 +5342,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: QCalendarWidget, margins: anytype) void {
+    pub fn setContentsMargins2(self: QCalendarWidget, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -4219,9 +5359,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn ContentsMargins(self: QCalendarWidget) QMargins {
+    pub fn contentsMargins(self: QCalendarWidget) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -4231,9 +5375,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn ContentsRect(self: QCalendarWidget) QRect {
+    pub fn contentsRect(self: QCalendarWidget) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -4243,9 +5391,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn Layout(self: QCalendarWidget) QLayout {
+    pub fn layout(self: QCalendarWidget) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -4255,12 +5407,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: QCalendarWidget, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: QCalendarWidget, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4270,24 +5426,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn UpdateGeometry(self: QCalendarWidget) void {
+    pub fn updateGeometry(self: QCalendarWidget) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCalendarWidget `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: QCalendarWidget, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -4297,14 +5442,37 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: QCalendarWidget, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCalendarWidget `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: QCalendarWidget, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: QCalendarWidget, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -4318,9 +5486,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: QCalendarWidget, dx: i32, dy: i32) void {
+    pub fn scroll(self: QCalendarWidget, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -4336,10 +5508,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: QCalendarWidget, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: QCalendarWidget, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -4349,9 +5525,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn FocusWidget(self: QCalendarWidget) QWidget {
+    pub fn focusWidget(self: QCalendarWidget) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4361,9 +5541,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn NextInFocusChain(self: QCalendarWidget) QWidget {
+    pub fn nextInFocusChain(self: QCalendarWidget) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4373,9 +5557,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn PreviousInFocusChain(self: QCalendarWidget) QWidget {
+    pub fn previousInFocusChain(self: QCalendarWidget) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4385,9 +5573,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn AcceptDrops(self: QCalendarWidget) bool {
+    pub fn acceptDrops(self: QCalendarWidget) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4399,9 +5591,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: QCalendarWidget, on: bool) void {
+    pub fn setAcceptDrops(self: QCalendarWidget, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -4413,10 +5609,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: QCalendarWidget, action: anytype) void {
+    pub fn addAction(self: QCalendarWidget, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -4426,15 +5626,19 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: QCalendarWidget, actions: []QAction) void {
+    pub fn addActions(self: QCalendarWidget, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -4446,16 +5650,20 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: QCalendarWidget, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: QCalendarWidget, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -4469,11 +5677,15 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: QCalendarWidget, before: anytype, action: anytype) void {
+    pub fn insertAction(self: QCalendarWidget, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -4485,10 +5697,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: QCalendarWidget, action: anytype) void {
+    pub fn removeAction(self: QCalendarWidget, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -4500,15 +5716,19 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: QCalendarWidget, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: QCalendarWidget, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QCalendarWidget.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QCalendarWidget.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -4520,13 +5740,17 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: QCalendarWidget, text: []const u8) QAction {
+    pub fn addAction2(self: QCalendarWidget, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -4540,7 +5764,7 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: QCalendarWidget, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: QCalendarWidget, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -4549,6 +5773,10 @@ pub const QCalendarWidget = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -4561,7 +5789,7 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: QCalendarWidget, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: QCalendarWidget, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -4569,6 +5797,10 @@ pub const QCalendarWidget = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -4584,7 +5816,7 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: QCalendarWidget, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: QCalendarWidget, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -4594,6 +5826,10 @@ pub const QCalendarWidget = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -4602,9 +5838,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn ParentWidget(self: QCalendarWidget) QWidget {
+    pub fn parentWidget(self: QCalendarWidget) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4616,9 +5856,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: QCalendarWidget, typeVal: i32) void {
+    pub fn setWindowFlags(self: QCalendarWidget, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4632,9 +5876,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: QCalendarWidget) i32 {
+    pub fn windowFlags(self: QCalendarWidget) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -4646,9 +5894,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: QCalendarWidget, param1: i32) void {
+    pub fn setWindowFlag(self: QCalendarWidget, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4660,9 +5912,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: QCalendarWidget, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: QCalendarWidget, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -4676,9 +5932,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: QCalendarWidget) i32 {
+    pub fn windowType(self: QCalendarWidget) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -4688,9 +5948,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -4700,13 +5964,17 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: QCalendarWidget, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: QCalendarWidget, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -4718,10 +5986,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: QCalendarWidget, p: anytype) QWidget {
+    pub fn childAt2(self: QCalendarWidget, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -4733,10 +6005,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: QCalendarWidget, p: anytype) QWidget {
+    pub fn childAt3(self: QCalendarWidget, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4748,9 +6024,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: QCalendarWidget, param1: i32) void {
+    pub fn setAttribute(self: QCalendarWidget, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4762,9 +6042,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: QCalendarWidget, param1: i32) bool {
+    pub fn testAttribute(self: QCalendarWidget, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -4774,9 +6058,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn EnsurePolished(self: QCalendarWidget) void {
+    pub fn ensurePolished(self: QCalendarWidget) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -4788,10 +6076,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: QCalendarWidget, child: anytype) bool {
+    pub fn isAncestorOf(self: QCalendarWidget, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4801,9 +6093,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn AutoFillBackground(self: QCalendarWidget) bool {
+    pub fn autoFillBackground(self: QCalendarWidget) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4815,9 +6111,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: QCalendarWidget, enabled: bool) void {
+    pub fn setAutoFillBackground(self: QCalendarWidget, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -4827,9 +6127,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn BackingStore(self: QCalendarWidget) QBackingStore {
+    pub fn backingStore(self: QCalendarWidget) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -4839,9 +6143,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn WindowHandle(self: QCalendarWidget) QWindow {
+    pub fn windowHandle(self: QCalendarWidget) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -4851,9 +6159,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn Screen(self: QCalendarWidget) QScreen {
+    pub fn screen(self: QCalendarWidget) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -4863,12 +6175,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: QCalendarWidget, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: QCalendarWidget, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -4876,12 +6192,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4893,13 +6213,17 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: QCalendarWidget, title: []const u8) void {
+    pub fn windowTitleChanged(self: QCalendarWidget, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4911,9 +6235,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: QCalendarWidget, callback: *const fn (QCalendarWidget, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: QCalendarWidget, callback: *const fn (QCalendarWidget, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4925,10 +6253,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: QCalendarWidget, icon: anytype) void {
+    pub fn windowIconChanged(self: QCalendarWidget, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4940,9 +6272,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4954,13 +6290,17 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: QCalendarWidget, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: QCalendarWidget, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4972,9 +6312,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: QCalendarWidget, callback: *const fn (QCalendarWidget, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: QCalendarWidget, callback: *const fn (QCalendarWidget, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4984,12 +6328,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: QCalendarWidget, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: QCalendarWidget, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -5001,9 +6349,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -5017,9 +6369,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: QCalendarWidget) i32 {
+    pub fn inputMethodHints(self: QCalendarWidget) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -5031,9 +6387,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: QCalendarWidget, hints: i32) void {
+    pub fn setInputMethodHints(self: QCalendarWidget, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -5047,11 +6407,15 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: QCalendarWidget, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: QCalendarWidget, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -5067,13 +6431,17 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: QCalendarWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: QCalendarWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -5090,12 +6458,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: QCalendarWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: QCalendarWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -5109,11 +6481,15 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: QCalendarWidget, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: QCalendarWidget, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -5129,12 +6505,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: QCalendarWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: QCalendarWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -5152,12 +6532,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: QCalendarWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: QCalendarWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -5169,10 +6553,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: QCalendarWidget, rectangle: anytype) QPixmap {
+    pub fn grab1(self: QCalendarWidget, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -5186,9 +6574,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: QCalendarWidget, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: QCalendarWidget, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -5202,10 +6594,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: QCalendarWidget, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: QCalendarWidget, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -5219,9 +6615,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: QCalendarWidget, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: QCalendarWidget, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -5235,9 +6635,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: QCalendarWidget, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: QCalendarWidget, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -5251,9 +6655,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: QCalendarWidget, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: QCalendarWidget, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -5267,25 +6675,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: QCalendarWidget, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: QCalendarWidget, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -5293,17 +6689,41 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -5315,13 +6735,17 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QCalendarWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QCalendarWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendarWidget.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendarWidget.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -5333,13 +6757,17 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QCalendarWidget, name: []const u8) void {
+    pub fn setObjectName(self: QCalendarWidget, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -5349,9 +6777,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn IsWidgetType(self: QCalendarWidget) bool {
+    pub fn isWidgetType(self: QCalendarWidget) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -5361,9 +6793,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn IsWindowType(self: QCalendarWidget) bool {
+    pub fn isWindowType(self: QCalendarWidget) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -5373,9 +6809,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn IsQuickItemType(self: QCalendarWidget) bool {
+    pub fn isQuickItemType(self: QCalendarWidget) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -5385,9 +6825,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn SignalsBlocked(self: QCalendarWidget) bool {
+    pub fn signalsBlocked(self: QCalendarWidget) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -5399,9 +6843,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QCalendarWidget, b: bool) bool {
+    pub fn blockSignals(self: QCalendarWidget, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -5411,9 +6859,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn Thread(self: QCalendarWidget) QThread {
+    pub fn thread(self: QCalendarWidget) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -5423,12 +6875,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QCalendarWidget, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QCalendarWidget, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -5440,9 +6896,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QCalendarWidget, interval: i32) i32 {
+    pub fn startTimer(self: QCalendarWidget, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -5454,9 +6914,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QCalendarWidget, time: i64) i32 {
+    pub fn startTimer2(self: QCalendarWidget, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -5468,9 +6932,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QCalendarWidget, id: i32) void {
+    pub fn killTimer(self: QCalendarWidget, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -5482,9 +6950,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QCalendarWidget, id: i32) void {
+    pub fn killTimer2(self: QCalendarWidget, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -5496,15 +6968,19 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QCalendarWidget, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QCalendarWidget, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCalendarWidget.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCalendarWidget.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5516,10 +6992,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QCalendarWidget, filterObj: anytype) void {
+    pub fn installEventFilter(self: QCalendarWidget, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5531,10 +7011,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QCalendarWidget, obj: anytype) void {
+    pub fn removeEventFilter(self: QCalendarWidget, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -5542,7 +7026,7 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5550,13 +7034,17 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -5564,7 +7052,7 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5572,13 +7060,17 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -5588,18 +7080,22 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QCalendarWidget, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QCalendarWidget, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -5607,7 +7103,7 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5615,13 +7111,17 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -5629,7 +7129,7 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5637,13 +7137,17 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -5653,9 +7157,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn Disconnect3(self: QCalendarWidget) bool {
+    pub fn disconnect3(self: QCalendarWidget) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -5667,10 +7175,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QCalendarWidget, receiver: anytype) bool {
+    pub fn disconnect4(self: QCalendarWidget, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -5680,10 +7192,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -5693,9 +7209,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn DumpObjectTree(self: QCalendarWidget) void {
+    pub fn dumpObjectTree(self: QCalendarWidget) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -5705,9 +7225,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn DumpObjectInfo(self: QCalendarWidget) void {
+    pub fn dumpObjectInfo(self: QCalendarWidget) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -5721,11 +7245,15 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QCalendarWidget, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QCalendarWidget, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -5737,10 +7265,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QCalendarWidget, name: [:0]const u8) QVariant {
+    pub fn property(self: QCalendarWidget, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -5752,7 +7284,7 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QCalendarWidget, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QCalendarWidget, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -5760,27 +7292,19 @@ pub const QCalendarWidget = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCalendarWidget.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCalendarWidget.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCalendarWidget.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QCalendarWidget.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCalendarWidget `
-    ///
-    pub fn BindingStorage(self: QCalendarWidget) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -5790,9 +7314,29 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn BindingStorage2(self: QCalendarWidget) QBindingStorage {
+    pub fn bindingStorage(self: QCalendarWidget) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCalendarWidget `
+    ///
+    pub fn bindingStorage2(self: QCalendarWidget) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -5802,9 +7346,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn Destroyed(self: QCalendarWidget) void {
+    pub fn destroyed(self: QCalendarWidget) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -5816,9 +7364,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QCalendarWidget, callback: *const fn (QCalendarWidget) callconv(.c) void) void {
+    pub fn onDestroyed(self: QCalendarWidget, callback: *const fn (QCalendarWidget) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -5828,9 +7380,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn Parent(self: QCalendarWidget) QObject {
+    pub fn parent(self: QCalendarWidget) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -5842,10 +7398,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QCalendarWidget, classname: [:0]const u8) bool {
+    pub fn inherits(self: QCalendarWidget, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -5855,9 +7415,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn DeleteLater(self: QCalendarWidget) void {
+    pub fn deleteLater(self: QCalendarWidget) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -5871,9 +7435,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QCalendarWidget, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QCalendarWidget, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -5887,9 +7455,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QCalendarWidget, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QCalendarWidget, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -5897,7 +7469,7 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5907,13 +7479,17 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -5921,7 +7497,7 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5931,13 +7507,17 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -5947,7 +7527,7 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5955,12 +7535,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QCalendarWidget, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QCalendarWidget, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -5972,10 +7556,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QCalendarWidget, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QCalendarWidget, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -5989,11 +7577,15 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QCalendarWidget, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QCalendarWidget, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -6009,13 +7601,17 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QCalendarWidget, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QCalendarWidget, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -6028,11 +7624,15 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QCalendarWidget, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QCalendarWidget, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -6044,10 +7644,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QCalendarWidget, param1: anytype) void {
+    pub fn destroyed1(self: QCalendarWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -6059,9 +7663,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -6071,9 +7679,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn PaintingActive(self: QCalendarWidget) bool {
+    pub fn paintingActive(self: QCalendarWidget) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -6083,9 +7695,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn WidthMM(self: QCalendarWidget) i32 {
+    pub fn widthMM(self: QCalendarWidget) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -6095,9 +7711,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn HeightMM(self: QCalendarWidget) i32 {
+    pub fn heightMM(self: QCalendarWidget) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -6107,9 +7727,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn LogicalDpiX(self: QCalendarWidget) i32 {
+    pub fn logicalDpiX(self: QCalendarWidget) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -6119,9 +7743,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn LogicalDpiY(self: QCalendarWidget) i32 {
+    pub fn logicalDpiY(self: QCalendarWidget) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -6131,9 +7759,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn PhysicalDpiX(self: QCalendarWidget) i32 {
+    pub fn physicalDpiX(self: QCalendarWidget) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -6143,9 +7775,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn PhysicalDpiY(self: QCalendarWidget) i32 {
+    pub fn physicalDpiY(self: QCalendarWidget) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -6155,9 +7791,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn DevicePixelRatio(self: QCalendarWidget) f64 {
+    pub fn devicePixelRatio(self: QCalendarWidget) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -6167,9 +7807,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn DevicePixelRatioF(self: QCalendarWidget) f64 {
+    pub fn devicePixelRatioF(self: QCalendarWidget) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -6179,9 +7823,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn ColorCount(self: QCalendarWidget) i32 {
+    pub fn colorCount(self: QCalendarWidget) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -6191,17 +7839,25 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn Depth(self: QCalendarWidget) i32 {
+    pub fn depth(self: QCalendarWidget) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -6209,13 +7865,17 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -6227,13 +7887,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn DevType(self: QCalendarWidget) i32 {
+    pub fn devType(self: QCalendarWidget) i32 {
         return qtc.QCalendarWidget_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -6245,9 +7905,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn SuperDevType(self: QCalendarWidget) i32 {
+    pub fn superDevType(self: QCalendarWidget) i32 {
         return qtc.QCalendarWidget_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -6261,9 +7925,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: QCalendarWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QCalendarWidget, callback: *const fn () callconv(.c) i32) void {
         qtc.QCalendarWidget_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -6277,13 +7945,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: QCalendarWidget, visible: bool) void {
+    pub fn setVisible(self: QCalendarWidget, visible: bool) void {
         qtc.QCalendarWidget_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -6297,9 +7965,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: QCalendarWidget, visible: bool) void {
+    pub fn superSetVisible(self: QCalendarWidget, visible: bool) void {
         qtc.QCalendarWidget_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -6313,9 +7985,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: QCalendarWidget, callback: *const fn (QCalendarWidget, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: QCalendarWidget, callback: *const fn (QCalendarWidget, bool) callconv(.c) void) void {
         qtc.QCalendarWidget_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6329,13 +8005,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: QCalendarWidget, param1: i32) i32 {
+    pub fn heightForWidth(self: QCalendarWidget, param1: i32) i32 {
         return qtc.QCalendarWidget_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6349,9 +8025,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: QCalendarWidget, param1: i32) i32 {
+    pub fn superHeightForWidth(self: QCalendarWidget, param1: i32) i32 {
         return qtc.QCalendarWidget_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6365,9 +8045,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: QCalendarWidget, callback: *const fn (QCalendarWidget, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: QCalendarWidget, callback: *const fn (QCalendarWidget, i32) callconv(.c) i32) void {
         qtc.QCalendarWidget_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6379,13 +8063,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn HasHeightForWidth(self: QCalendarWidget) bool {
+    pub fn hasHeightForWidth(self: QCalendarWidget) bool {
         return qtc.QCalendarWidget_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6397,9 +8081,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn SuperHasHeightForWidth(self: QCalendarWidget) bool {
+    pub fn superHasHeightForWidth(self: QCalendarWidget) bool {
         return qtc.QCalendarWidget_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6413,9 +8101,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: QCalendarWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QCalendarWidget, callback: *const fn () callconv(.c) bool) void {
         qtc.QCalendarWidget_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6427,13 +8119,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn PaintEngine(self: QCalendarWidget) QPaintEngine {
+    pub fn paintEngine(self: QCalendarWidget) QPaintEngine {
         return .{ .ptr = qtc.QCalendarWidget_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6445,9 +8137,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn SuperPaintEngine(self: QCalendarWidget) QPaintEngine {
+    pub fn superPaintEngine(self: QCalendarWidget) QPaintEngine {
         return .{ .ptr = qtc.QCalendarWidget_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6461,10 +8157,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: QCalendarWidget, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QCalendarWidget, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.QCalendarWidget_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
@@ -6475,16 +8175,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QCalendarWidget_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseReleaseEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QCalendarWidget_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6496,12 +8196,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QCalendarWidget_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseReleaseEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QCalendarWidget_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6515,10 +8219,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QMouseEvent) callconv(.c) void) void {
         qtc.QCalendarWidget_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -6529,16 +8237,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QCalendarWidget_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QCalendarWidget_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -6550,12 +8258,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QCalendarWidget_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QCalendarWidget_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -6569,10 +8281,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QMouseEvent) callconv(.c) void) void {
         qtc.QCalendarWidget_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -6583,16 +8299,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QCalendarWidget_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QCalendarWidget_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6604,12 +8320,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QCalendarWidget_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QCalendarWidget_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6623,9 +8343,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QMouseEvent) callconv(.c) void) void {
         qtc.QCalendarWidget_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6637,16 +8361,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.QCalendarWidget_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.QCalendarWidget_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6658,12 +8382,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.QCalendarWidget_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.QCalendarWidget_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6677,9 +8405,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QWheelEvent) callconv(.c) void) void {
         qtc.QCalendarWidget_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6691,16 +8423,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QCalendarWidget_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QCalendarWidget_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6712,12 +8444,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QCalendarWidget_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QCalendarWidget_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6731,10 +8467,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QKeyEvent) callconv(.c) void) void {
         qtc.QCalendarWidget_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -6745,16 +8485,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QCalendarWidget_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QCalendarWidget_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6766,12 +8506,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QCalendarWidget_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QCalendarWidget_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6785,10 +8529,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QFocusEvent) callconv(.c) void) void {
         qtc.QCalendarWidget_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -6799,16 +8547,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QCalendarWidget_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QCalendarWidget_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6820,12 +8568,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QCalendarWidget_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QCalendarWidget_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6839,9 +8591,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QFocusEvent) callconv(.c) void) void {
         qtc.QCalendarWidget_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6853,16 +8609,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.QCalendarWidget_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.QCalendarWidget_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6874,12 +8630,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.QCalendarWidget_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.QCalendarWidget_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6893,9 +8653,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QEnterEvent) callconv(.c) void) void {
         qtc.QCalendarWidget_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6907,16 +8671,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QCalendarWidget_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QCalendarWidget_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6928,12 +8692,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QCalendarWidget_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QCalendarWidget_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6947,9 +8715,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QEvent) callconv(.c) void) void {
         qtc.QCalendarWidget_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6961,16 +8733,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn PaintEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.QCalendarWidget_PaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn paintEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.QCalendarWidget_PaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6982,12 +8754,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.QCalendarWidget_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superPaintEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.QCalendarWidget_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -7001,9 +8777,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, event: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QPaintEvent) callconv(.c) void) void {
         qtc.QCalendarWidget_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7015,16 +8795,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.QCalendarWidget_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.QCalendarWidget_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7036,12 +8816,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.QCalendarWidget_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.QCalendarWidget_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7055,9 +8839,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QMoveEvent) callconv(.c) void) void {
         qtc.QCalendarWidget_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7069,16 +8857,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.QCalendarWidget_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.QCalendarWidget_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7090,12 +8878,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.QCalendarWidget_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.QCalendarWidget_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7109,9 +8901,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QCloseEvent) callconv(.c) void) void {
         qtc.QCalendarWidget_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -7123,16 +8919,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.QCalendarWidget_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn contextMenuEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.QCalendarWidget_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -7144,12 +8940,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.QCalendarWidget_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superContextMenuEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.QCalendarWidget_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -7163,9 +8963,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, event: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QContextMenuEvent) callconv(.c) void) void {
         qtc.QCalendarWidget_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7177,16 +8981,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.QCalendarWidget_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.QCalendarWidget_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7198,12 +9002,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.QCalendarWidget_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.QCalendarWidget_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7217,9 +9025,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QTabletEvent) callconv(.c) void) void {
         qtc.QCalendarWidget_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7231,16 +9043,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.QCalendarWidget_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.QCalendarWidget_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7252,12 +9064,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.QCalendarWidget_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.QCalendarWidget_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7271,9 +9087,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QActionEvent) callconv(.c) void) void {
         qtc.QCalendarWidget_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7285,16 +9105,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.QCalendarWidget_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.QCalendarWidget_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7306,12 +9126,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.QCalendarWidget_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.QCalendarWidget_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7325,9 +9149,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QDragEnterEvent) callconv(.c) void) void {
         qtc.QCalendarWidget_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7339,16 +9167,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.QCalendarWidget_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.QCalendarWidget_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7360,12 +9188,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.QCalendarWidget_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.QCalendarWidget_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7379,9 +9211,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QDragMoveEvent) callconv(.c) void) void {
         qtc.QCalendarWidget_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7393,16 +9229,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.QCalendarWidget_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.QCalendarWidget_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7414,12 +9250,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.QCalendarWidget_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.QCalendarWidget_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7433,9 +9273,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QDragLeaveEvent) callconv(.c) void) void {
         qtc.QCalendarWidget_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7447,16 +9291,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.QCalendarWidget_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.QCalendarWidget_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7468,12 +9312,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.QCalendarWidget_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.QCalendarWidget_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7487,9 +9335,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QDropEvent) callconv(.c) void) void {
         qtc.QCalendarWidget_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QWidget
     ///
@@ -7501,16 +9353,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn ShowEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.QCalendarWidget_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn showEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.QCalendarWidget_ShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -7522,12 +9374,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.QCalendarWidget_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superShowEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.QCalendarWidget_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -7541,9 +9397,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QShowEvent) callconv(.c) void) void {
         qtc.QCalendarWidget_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7555,16 +9415,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.QCalendarWidget_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.QCalendarWidget_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7576,12 +9436,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.QCalendarWidget_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.QCalendarWidget_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7595,9 +9459,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QHideEvent) callconv(.c) void) void {
         qtc.QCalendarWidget_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7615,7 +9483,7 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: QCalendarWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: QCalendarWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -7623,9 +9491,9 @@ pub const QCalendarWidget = extern struct {
         return qtc.QCalendarWidget_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7643,13 +9511,17 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: QCalendarWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: QCalendarWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.QCalendarWidget_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7663,9 +9535,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QCalendarWidget_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7679,14 +9555,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: QCalendarWidget, param1: anytype) void {
+    pub fn changeEvent(self: QCalendarWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.QCalendarWidget_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7700,10 +9576,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: QCalendarWidget, param1: anytype) void {
+    pub fn superChangeEvent(self: QCalendarWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.QCalendarWidget_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7717,9 +9597,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QEvent) callconv(.c) void) void {
         qtc.QCalendarWidget_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -7733,13 +9617,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: QCalendarWidget, param1: i32) i32 {
+    pub fn metric(self: QCalendarWidget, param1: i32) i32 {
         return qtc.QCalendarWidget_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -7753,9 +9637,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: QCalendarWidget, param1: i32) i32 {
+    pub fn superMetric(self: QCalendarWidget, param1: i32) i32 {
         return qtc.QCalendarWidget_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -7769,9 +9657,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: QCalendarWidget, callback: *const fn (QCalendarWidget, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: QCalendarWidget, callback: *const fn (QCalendarWidget, i32) callconv(.c) i32) void {
         qtc.QCalendarWidget_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -7785,14 +9677,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: QCalendarWidget, painter: anytype) void {
+    pub fn initPainter(self: QCalendarWidget, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QCalendarWidget_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7806,10 +9698,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: QCalendarWidget, painter: anytype) void {
+    pub fn superInitPainter(self: QCalendarWidget, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QCalendarWidget_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7823,9 +9719,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QPainter) callconv(.c) void) void {
         qtc.QCalendarWidget_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -7839,14 +9739,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: QCalendarWidget, offset: anytype) QPaintDevice {
+    pub fn redirected(self: QCalendarWidget, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QCalendarWidget_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7860,10 +9760,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: QCalendarWidget, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: QCalendarWidget, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QCalendarWidget_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7877,9 +9781,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QPoint) callconv(.c) QPaintDevice) void {
         qtc.QCalendarWidget_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7891,13 +9799,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn SharedPainter(self: QCalendarWidget) QPainter {
+    pub fn sharedPainter(self: QCalendarWidget) QPainter {
         return .{ .ptr = qtc.QCalendarWidget_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7909,9 +9817,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn SuperSharedPainter(self: QCalendarWidget) QPainter {
+    pub fn superSharedPainter(self: QCalendarWidget) QPainter {
         return .{ .ptr = qtc.QCalendarWidget_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7925,9 +9837,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: QCalendarWidget, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QCalendarWidget, callback: *const fn () callconv(.c) QPainter) void {
         qtc.QCalendarWidget_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7941,14 +9857,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: QCalendarWidget, param1: anytype) void {
+    pub fn inputMethodEvent(self: QCalendarWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.QCalendarWidget_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7962,10 +9878,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: QCalendarWidget, param1: anytype) void {
+    pub fn superInputMethodEvent(self: QCalendarWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.QCalendarWidget_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7979,9 +9899,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QInputMethodEvent) callconv(.c) void) void {
         qtc.QCalendarWidget_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7995,13 +9919,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: QCalendarWidget, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: QCalendarWidget, param1: i32) QVariant {
         return .{ .ptr = qtc.QCalendarWidget_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -8015,9 +9939,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: QCalendarWidget, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: QCalendarWidget, param1: i32) QVariant {
         return .{ .ptr = qtc.QCalendarWidget_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -8033,9 +9961,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: QCalendarWidget, callback: *const fn (QCalendarWidget, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: QCalendarWidget, callback: *const fn (QCalendarWidget, i32) callconv(.c) QVariant) void {
         qtc.QCalendarWidget_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8049,13 +9981,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: QCalendarWidget, next: bool) bool {
+    pub fn focusNextPrevChild(self: QCalendarWidget, next: bool) bool {
         return qtc.QCalendarWidget_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8069,9 +10001,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: QCalendarWidget, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: QCalendarWidget, next: bool) bool {
         return qtc.QCalendarWidget_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8085,9 +10021,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: QCalendarWidget, callback: *const fn (QCalendarWidget, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: QCalendarWidget, callback: *const fn (QCalendarWidget, bool) callconv(.c) bool) void {
         qtc.QCalendarWidget_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -8099,16 +10039,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QCalendarWidget_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QCalendarWidget_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -8120,12 +10060,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QCalendarWidget_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QCalendarWidget_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -8139,9 +10083,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QTimerEvent) callconv(.c) void) void {
         qtc.QCalendarWidget_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -8153,16 +10101,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QCalendarWidget_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QCalendarWidget_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8174,12 +10122,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QCalendarWidget_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QCalendarWidget_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8193,9 +10145,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QChildEvent) callconv(.c) void) void {
         qtc.QCalendarWidget_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -8207,16 +10163,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QCalendarWidget_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QCalendarWidget_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8228,12 +10184,16 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QCalendarWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QCalendarWidget_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QCalendarWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QCalendarWidget_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8247,9 +10207,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QEvent) callconv(.c) void) void {
         qtc.QCalendarWidget_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -8263,14 +10227,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QCalendarWidget, signal: anytype) void {
+    pub fn connectNotify(self: QCalendarWidget, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QCalendarWidget_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8284,11 +10248,15 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QCalendarWidget, signal: anytype) void {
+    pub fn superConnectNotify(self: QCalendarWidget, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QCalendarWidget_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -8301,9 +10269,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QMetaMethod) callconv(.c) void) void {
         qtc.QCalendarWidget_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8317,14 +10289,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QCalendarWidget, signal: anytype) void {
+    pub fn disconnectNotify(self: QCalendarWidget, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QCalendarWidget_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8338,10 +10310,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QCalendarWidget, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QCalendarWidget, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QCalendarWidget_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8355,10 +10331,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QMetaMethod) callconv(.c) void) void {
         qtc.QCalendarWidget_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8369,13 +10349,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn UpdateMicroFocus(self: QCalendarWidget) void {
+    pub fn updateMicroFocus(self: QCalendarWidget) void {
         qtc.QCalendarWidget_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -8387,10 +10367,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn SuperUpdateMicroFocus(self: QCalendarWidget) void {
+    pub fn superUpdateMicroFocus(self: QCalendarWidget) void {
         qtc.QCalendarWidget_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8403,10 +10387,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: QCalendarWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: QCalendarWidget, callback: *const fn () callconv(.c) void) void {
         qtc.QCalendarWidget_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8417,13 +10405,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn Create(self: QCalendarWidget) void {
+    pub fn create(self: QCalendarWidget) void {
         qtc.QCalendarWidget_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -8435,10 +10423,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn SuperCreate(self: QCalendarWidget) void {
+    pub fn superCreate(self: QCalendarWidget) void {
         qtc.QCalendarWidget_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8451,9 +10443,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: QCalendarWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: QCalendarWidget, callback: *const fn () callconv(.c) void) void {
         qtc.QCalendarWidget_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -8465,13 +10461,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn Destroy(self: QCalendarWidget) void {
+    pub fn destroy(self: QCalendarWidget) void {
         qtc.QCalendarWidget_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8483,9 +10479,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn SuperDestroy(self: QCalendarWidget) void {
+    pub fn superDestroy(self: QCalendarWidget) void {
         qtc.QCalendarWidget_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8499,10 +10499,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: QCalendarWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: QCalendarWidget, callback: *const fn () callconv(.c) void) void {
         qtc.QCalendarWidget_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8513,13 +10517,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn FocusNextChild(self: QCalendarWidget) bool {
+    pub fn focusNextChild(self: QCalendarWidget) bool {
         return qtc.QCalendarWidget_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -8531,10 +10535,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn SuperFocusNextChild(self: QCalendarWidget) bool {
+    pub fn superFocusNextChild(self: QCalendarWidget) bool {
         return qtc.QCalendarWidget_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8547,9 +10555,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: QCalendarWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: QCalendarWidget, callback: *const fn () callconv(.c) bool) void {
         qtc.QCalendarWidget_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8561,13 +10573,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn FocusPreviousChild(self: QCalendarWidget) bool {
+    pub fn focusPreviousChild(self: QCalendarWidget) bool {
         return qtc.QCalendarWidget_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8579,9 +10591,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn SuperFocusPreviousChild(self: QCalendarWidget) bool {
+    pub fn superFocusPreviousChild(self: QCalendarWidget) bool {
         return qtc.QCalendarWidget_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8595,9 +10611,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: QCalendarWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: QCalendarWidget, callback: *const fn () callconv(.c) bool) void {
         qtc.QCalendarWidget_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -8609,13 +10629,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn Sender(self: QCalendarWidget) QObject {
+    pub fn sender(self: QCalendarWidget) QObject {
         return .{ .ptr = qtc.QCalendarWidget_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -8627,9 +10647,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn SuperSender(self: QCalendarWidget) QObject {
+    pub fn superSender(self: QCalendarWidget) QObject {
         return .{ .ptr = qtc.QCalendarWidget_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -8643,9 +10667,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QCalendarWidget, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QCalendarWidget, callback: *const fn () callconv(.c) QObject) void {
         qtc.QCalendarWidget_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8657,13 +10685,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn SenderSignalIndex(self: QCalendarWidget) i32 {
+    pub fn senderSignalIndex(self: QCalendarWidget) i32 {
         return qtc.QCalendarWidget_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8675,9 +10703,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn SuperSenderSignalIndex(self: QCalendarWidget) i32 {
+    pub fn superSenderSignalIndex(self: QCalendarWidget) i32 {
         return qtc.QCalendarWidget_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8691,9 +10723,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QCalendarWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QCalendarWidget, callback: *const fn () callconv(.c) i32) void {
         qtc.QCalendarWidget_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -8707,14 +10743,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QCalendarWidget, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QCalendarWidget, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QCalendarWidget_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -8728,10 +10764,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QCalendarWidget, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QCalendarWidget, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QCalendarWidget_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -8745,9 +10785,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QCalendarWidget, callback: *const fn (QCalendarWidget, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QCalendarWidget, callback: *const fn (QCalendarWidget, [*:0]const u8) callconv(.c) i32) void {
         qtc.QCalendarWidget_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8761,14 +10805,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QCalendarWidget, signal: anytype) bool {
+    pub fn isSignalConnected(self: QCalendarWidget, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QCalendarWidget_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8782,10 +10826,14 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QCalendarWidget, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QCalendarWidget, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QCalendarWidget_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8799,9 +10847,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QMetaMethod) callconv(.c) bool) void {
         qtc.QCalendarWidget_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8817,13 +10869,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: QCalendarWidget, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: QCalendarWidget, metricA: i32, metricB: i32) f64 {
         return qtc.QCalendarWidget_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8839,9 +10891,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: QCalendarWidget, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: QCalendarWidget, metricA: i32, metricB: i32) f64 {
         return qtc.QCalendarWidget_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8855,9 +10911,13 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: QCalendarWidget, callback: *const fn (QCalendarWidget, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: QCalendarWidget, callback: *const fn (QCalendarWidget, i32, i32) callconv(.c) f64) void {
         qtc.QCalendarWidget_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -8871,23 +10931,23 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QCalendarWidget, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QCalendarWidget, callback: *const fn (QCalendarWidget, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QCalendarWidget, callback: *const fn (QCalendarWidget, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#dtor.QCalendarWidget)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QCalendarWidget `
     ///
-    pub fn Delete(self: QCalendarWidget) void {
+    pub fn delete(self: QCalendarWidget) void {
         qtc.QCalendarWidget_Delete(@ptrCast(self.ptr));
     }
 };

@@ -119,36 +119,36 @@ pub fn main(init: std.process.Init) !void {
     defer qt6.deinit(init.gpa, argv);
     var argc: i32 = @intCast(argv.len);
     // The c_allocator is an option here too, but the debug allocator is not recommended for this instance
-    const qapp = QApplication.New(init.arena.allocator(), &argc, argv);
-    defer qapp.Delete();
+    const qapp: QApplication = .new(init.arena.allocator(), &argc, argv);
+    defer qapp.delete();
 
     // Create a new widget and defer cleanup
-    const widget = QWidget.New2();
-    defer widget.Delete();
+    const widget = QWidget.new2();
+    defer widget.delete();
 
     // We don't need to free/delete the button, it's a child of the widget
-    const button = QPushButton.New5("Hello world!", widget);
-    button.SetFixedWidth(320);
+    const button = QPushButton.new5("Hello world!", widget);
+    button.setFixedWidth(320);
     // Connect the button to the callback function
-    button.OnClicked(onClicked);
+    button.onClicked(onClicked);
 
     // Display the widget
-    widget.Show();
+    widget.show();
 
     // Start the event loop
-    _ = QApplication.Exec();
+    _ = QApplication.exec();
 
     try std.Io.File.stdout().writeStreamingAll(init.io, "OK!\n");
 }
 
 fn onClicked(self: QPushButton) callconv(.c) void {
-    counter += 1;
+    counter +%= 1;
     const formatted = std.fmt.bufPrint(
         &buffer,
         "You have clicked the button {d} time(s)",
         .{counter},
     ) catch @panic("Failed to bufPrint");
-    self.SetText(formatted);
+    self.setText(formatted);
 }
 ```
 
@@ -499,7 +499,7 @@ const qt6 = @import("libqt6zig");
 // C ABI helper library and Qt typedefs (if needed)
 const C = qt6.C;
 
-// Qt class imports for Zig
+// Qt class and enum imports for Zig
 const QApplication = qt6.QApplication;
 const QWidget = qt6.QWidget;
 const qnamespace_enums = qt6.qnamespace_enums;
@@ -523,12 +523,12 @@ Under normal conditions, the first compilation of the entire library should take
 
 ### Q3. How does the `libqt6zig` API differ from the official Qt C++ API?
 
-Supported Qt C++ class methods are implemented 1:1 as structs of functions where the function names in Zig correspond to the PascalCase equivalent of the Qt C++ method and the struct names are lowercase equivalents of the Qt C++ class name. [The official Qt documentation](https://doc.qt.io/qt-6/classes.html) should be used for reference and is included in the library wrapper source code (though not all links are guaranteed to work perfectly, nor is this functionality in scope for this project). Some of the main concepts are described below with a table of code equivalents following for reference.
+Supported Qt C++ class methods are implemented 1:1 as structs of functions where the function names in Zig correspond to the native equivalent of the Qt C++ method and the struct names are equivalents of the Qt C++ class name. Exceptions to this rule are for reserved word collisions occurring either in Zig or in the construction of this library, mostly visible in impacted function names, e.g. a C++ method named `error()` or `type()` becomes `error0()` and `type0()` respectively. For developer convenience, more idiomatic names are aliased as well, e.g. `@"error"()` and `@"type"()` based on the previous examples. [The official Qt documentation](https://doc.qt.io/qt-6/classes.html) or the third-party library links should be used for reference and is included in the library wrapper source code (though not all links are guaranteed to work perfectly, nor is this functionality in scope for this project). Some of the main concepts are described below with a table of code equivalents following for reference.
 
-- `QWidget::show()` is projected as `QWidget.Show(self: QWidget)`
-- `QPushButton::setText(QString)` is projected as `QPushButton.SetText(self: QPushButton, text: []const u8)`
+- `QWidget::show()` is projected as `QWidget.show(self: QWidget)`
+- `QPushButton::setText(QString)` is projected as `QPushButton.setText(self: QPushButton, text: []const u8)`
 
-As a mental model, developers consuming this library should keep in mind that there are essentially two different tracks of memory management required for clean operation: one for the C++ side and one for the Zig side. The Zig side is managed by the developer and the C++ side has variant ownership semantics. Ownership semantics are documented throughout the [C++ documentation](https://doc.qt.io/qt-6/topics-core.html).
+As a mental model, developers consuming this library should keep in mind that there are essentially two different tracks of memory management required for clean operation: one for the C++ side and one for the Zig side. The Zig side is managed by the developer and the C++ side has variant ownership semantics. Ownership semantics are documented throughout the [upstream documentation](https://doc.qt.io/qt-6/topics-core.html).
 
 The developer experience is largely idiomatic Zig but some of the code is not idiomatic for Zig due to the complexity of the Qt C++ API. Knowledge of the Qt C++ API is required to understand and make full use of the library. While not an exhaustive list, there are some key topics to understand:
 
@@ -544,23 +544,23 @@ The `QAnyStringView`, `QByteArray`, `QByteArrayView`, `QLatin1String`, `QLatin1S
 
 - `QMap` and `QMultiMap` are iterated by key order and are projected as `array_hash_map.Auto` and `array_hash_map.String` types. `QHash` and `QMultiHash` iterate in an undefined internal order and are projected as `AutoHashMapUnmanaged` and `StringHashMapUnmanaged` types. `QMultiHash` and `QMultiMap` `<K,V>` types are projected in the Zig API as hash map types of `<K,[]V>`.
 
-Where Qt returns a C++ object by value (e.g. `QSize`), the binding may have moved it to the heap, and in Zig, this may be represented as a pointer type. In such cases, the caller is the owner and must free the object (using either `Delete` methods for the type or deallocating or destroying via the allocators). This means code using `libqt6zig` can look similar to the Qt C++ equivalent code but with the addition of proper memory management to avoid memory leaks.
+Where Qt returns a C++ object by value (e.g. `QSize`), the binding may have moved it to the heap, and in Zig, this may be represented as a pointer type. In such cases, the caller is the owner and must free the object (using either `delete` methods for the type or deallocating or destroying via the allocators). This means code using `libqt6zig` can look similar to the Qt C++ equivalent code but with the addition of proper memory management to avoid memory leaks.
 
-The `connect(targetObject, SIGNAL(signal()), targetSlot, SLOT(slot()))` methods are projected as `targetObject.OnSignal(slot)`. While the parameters in the methods themselves are more convenient to use, the documentation comments in the Zig source code should be used for reference for the proper usage of the parameter types and Qt vtable references. The example code above includes a simple callback function that can be used as a reference.
+The `connect(targetObject, SIGNAL(signal()), targetSlot, SLOT(slot()))` methods are projected as `targetObject.onSignal(slot)`. While the parameters in the methods themselves are more convenient to use, the documentation comments in the Zig source code should be used for reference for the proper usage of the parameter types and Qt vtable references. The example code above includes a simple callback function that can be used as a reference.
 
-- You can also override virtual methods like `PaintEvent` in the same way. Where supported, there are additional `On` and `Super` variants:
-  - `OnPaintEvent`: Set an override callback function to be called when `PaintEvent` is invoked. For certain methods, even with the override set, the base class implementation can still be called by Qt internally and these calls can not be prevented.
-  - `SuperPaintEvent`: Invoke the base class implementation of `PaintEvent`. This is useful for when the custom implementation requires the base class implementation. (When there is no override set, the `Super` implementation is equivalent to `PaintEvent`.)
+- You can also override virtual methods like `paintEvent` in the same way. Where supported, there are additional `on` and `super` variants:
+  - `onPaintEvent`: Set an override callback function to be called when `paintEvent` is invoked. For certain methods, even with the override set, the base class implementation can still be called by Qt internally and these calls can not be prevented.
+  - `superPaintEvent`: Invoke the base class implementation of `paintEvent`. This is useful for when the custom implementation requires the base class implementation. (When there is no override set, the `super` implementation is equivalent to `paintEvent`.)
 
 Due to current limitations, QPainter does not reliably initialize within paint event callbacks, even when using manual `begin()` and `end()` calls. The result is warnings such as "A paint device can only be painted by one painter at a time" and "Painter not active." As a workaround, use QStylePainter instead for painting operations. QStylePainter inherits from QPainter, meaning that it provides access to the same drawing methods (`drawRect`, `drawLine`, `setBrush`, etc.), but it properly handles the painting context that fails to be managed with the standard QPainter. This is not Qt's official recommendation, but for practical purposes, when using this library, use QStylePainter as your standard painter class for paint event implementations.
 
-Qt class inherited types are projected via opaque pointers and `@ptrCast` in Zig. For example, to pass a `var myLabel: QLabel` to a function taking only the `QWidget` base class, it should be sufficient to pass `myLabel` and the library will automatically cast it to the correct type and Qt vtable reference.
+Qt class types are projected as parameters via `anytype` and `comptime` in Zig. For example, to pass a `const label: QLabel` to a function taking only the `QWidget` parameter type, it is sufficient to pass `label` and the library will automatically cast it to the correct type and Qt vtable reference.
 
-- When a Qt subclass adds a method overload (e.g. `QMenu::sizeHint(QMenu*)` vs `QWidget::sizeHint(QWidget*)`), the base class version is shadowed and can only be called via manual upcasting `QWidget{ .ptr = @ptrCast(menu.ptr) }.SizeHint()` while the subclass implementation can be called directly, e.g. `menu.SizeHint()`. Inherited methods are shadowed for convenience as well, e.g. `menu.Show()` invokes the equivalent of `QWidget::show()`. While the library aims to simplify usage, consideration should still be given to the Qt documentation for the proper usage of the parameter types and Qt vtable references.
+- When a Qt subclass adds a method overload (e.g. `QMenu::sizeHint(QMenu*)` vs `QWidget::sizeHint(QWidget*)`), the base class version is shadowed and can only be called via manual upcasting `QWidget{ .ptr = @ptrCast(menu.ptr) }.sizeHint()` while the subclass implementation can be called directly, e.g. `menu.sizeHint()`. Inherited methods are shadowed for convenience as well, e.g. `menu.show()` invokes the equivalent of `QWidget::show()`. While the library aims to simplify usage, consideration should still be given to the Qt documentation for the proper usage of the parameter types and Qt vtable references.
 
-Qt expects fixed OS threads to be used for each QObject. When you first call `QApplication.New` (or similar constructors that create a Qt application instance), that will be considered the [Qt main thread](https://doc.qt.io/qt-6.8/thread-basics.html#gui-thread-and-worker-thread).
+Qt expects fixed OS threads to be used for each QObject. When you first call `QApplication.new` (or similar constructors that create a Qt application instance), that will be considered the [Qt main thread](https://doc.qt.io/qt-6.8/thread-basics.html#gui-thread-and-worker-thread).
 
-- When accessing Qt objects from inside another thread, it's safest to use `Threading.Async()` (from this library) to access the Qt objects from Qt's main thread. The [Threading library](https://github.com/rcalixte/libqt6zig/tree/master/src/threading/libqt6zigthreading.zig) documents additional available strategies within the source code.
+- When accessing Qt objects from inside another thread, it's safest to use `Threading.async()` (from this library) to access the Qt objects from Qt's main thread. The [Threading library](https://github.com/rcalixte/libqt6zig/tree/master/src/threading/libqt6zigthreading.zig) documents additional available strategies within the source code.
 
 Qt C++ enums are projected as Zig enum structs of `i8`, `i32`, `u8`, `u16`, `u32`, or `u64` values with the same names. For example, `Qt::AlignmentFlag` is projected as `enums.AlignmentFlag` within the `libqnamespace` module and exported by default as `qnamespace_enums.AlignmentFlag` though, as previously shown, developers are free to use whatever naming convention they prefer for imports. The value `Qt::AlignmentFlag::AlignLeft` or the shorthand equivalent `Qt::AlignLeft` is projected by default as `qnamespace_enums.AlignmentFlag.AlignLeft` which is of the type `i32` and value `1`. Qt C++ [QFlags](https://doc.qt.io/qt-6/qflags.html) are projected as `i32`, `u8`, `u16`, or `u32` when expected as a parameter or returned as a type by the Zig API.
 
@@ -570,7 +570,7 @@ Qt C++ enums are projected as Zig enum structs of `i8`, `i32`, `u8`, `u16`, `u32
 
 ```cpp
 // Qt 6 C++ API
-QWidget* widget = new QWidget();
+QWidget* widget = new QWidget;
 widget->setWindowTitle("Hello world!");
 widget->show();
 
@@ -579,11 +579,11 @@ delete widget;
 
 ```zig
 // libqt6zig API
-const widget = QWidget.New2();
-defer widget.Delete();
+const widget: QWidget = .new2();
+defer widget.delete();
 
-widget.SetWindowTitle("Hello world!");
-widget.Show();
+widget.setWindowTitle("Hello world!");
+widget.show();
 ```
 
 ##### Signals/slots
@@ -595,7 +595,7 @@ connect(widget, &QWidget::customEvent, this, &MyClass::onCustomEvent);
 
 ```zig
 // libqt6zig API
-widget.OnCustomEvent(onCustomEvent);
+widget.onCustomEvent(onCustomEvent);
 ```
 
 ##### Enums

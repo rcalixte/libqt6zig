@@ -32,22 +32,34 @@ pub const QMediaRecorder = extern struct {
     pub const _is_QMediaRecorder = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QMediaRecorder object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QMediaRecorder {
+    pub const New = new;
+
+    /// Allocate a new QMediaRecorder object in C++ memory
+    ///
+    pub fn new() QMediaRecorder {
         return .{ .ptr = qtc.QMediaRecorder_new() };
     }
 
-    /// New2 constructs a new QMediaRecorder object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QMediaRecorder object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) QMediaRecorder {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QMediaRecorder_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) QMediaRecorder {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QMediaRecorder_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -55,9 +67,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn MetaObject(self: QMediaRecorder) QMetaObject {
+    pub fn metaObject(self: QMediaRecorder) QMetaObject {
         return .{ .ptr = qtc.QMediaRecorder_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -69,13 +85,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QMediaRecorder, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QMediaRecorder, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QMediaRecorder_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -85,9 +101,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn SuperMetaObject(self: QMediaRecorder) QMetaObject {
+    pub fn superMetaObject(self: QMediaRecorder) QMetaObject {
         return .{ .ptr = qtc.QMediaRecorder_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -95,10 +115,14 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QMediaRecorder, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QMediaRecorder, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QMediaRecorder_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -108,13 +132,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaRecorder, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QMediaRecorder, callback: *const fn (QMediaRecorder, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QMediaRecorder, callback: *const fn (QMediaRecorder, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QMediaRecorder_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -124,10 +148,14 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QMediaRecorder, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QMediaRecorder, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QMediaRecorder_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -139,9 +167,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QMediaRecorder, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QMediaRecorder, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QMediaRecorder_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -151,13 +183,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaRecorder, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QMediaRecorder, callback: *const fn (QMediaRecorder, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QMediaRecorder, callback: *const fn (QMediaRecorder, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QMediaRecorder_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -171,9 +203,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QMediaRecorder, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QMediaRecorder, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QMediaRecorder_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -183,14 +219,18 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMediaRecorder.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMediaRecorder.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isAvailable` instead
+    ///
+    pub const IsAvailable = isAvailable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#isAvailable)
     ///
@@ -198,9 +238,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn IsAvailable(self: QMediaRecorder) bool {
+    pub fn isAvailable(self: QMediaRecorder) bool {
         return qtc.QMediaRecorder_IsAvailable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `outputLocation` instead
+    ///
+    pub const OutputLocation = outputLocation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#outputLocation)
     ///
@@ -208,9 +252,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn OutputLocation(self: QMediaRecorder) QUrl {
+    pub fn outputLocation(self: QMediaRecorder) QUrl {
         return .{ .ptr = qtc.QMediaRecorder_OutputLocation(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setOutputLocation` instead
+    ///
+    pub const SetOutputLocation = setOutputLocation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#setOutputLocation)
     ///
@@ -220,10 +268,14 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` location: QUrl `
     ///
-    pub fn SetOutputLocation(self: QMediaRecorder, location: anytype) void {
+    pub fn setOutputLocation(self: QMediaRecorder, location: anytype) void {
         comptime _ = @TypeOf(location)._is_QUrl;
         qtc.QMediaRecorder_SetOutputLocation(@ptrCast(self.ptr), @ptrCast(location.ptr));
     }
+
+    /// ### DEPRECATED: Use `setOutputDevice` instead
+    ///
+    pub const SetOutputDevice = setOutputDevice;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#setOutputDevice)
     ///
@@ -233,10 +285,14 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` device: QIODevice `
     ///
-    pub fn SetOutputDevice(self: QMediaRecorder, device: anytype) void {
+    pub fn setOutputDevice(self: QMediaRecorder, device: anytype) void {
         comptime _ = @TypeOf(device)._is_QIODevice;
         qtc.QMediaRecorder_SetOutputDevice(@ptrCast(self.ptr), @ptrCast(device.ptr));
     }
+
+    /// ### DEPRECATED: Use `outputDevice` instead
+    ///
+    pub const OutputDevice = outputDevice;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#outputDevice)
     ///
@@ -244,9 +300,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn OutputDevice(self: QMediaRecorder) QIODevice {
+    pub fn outputDevice(self: QMediaRecorder) QIODevice {
         return .{ .ptr = qtc.QMediaRecorder_OutputDevice(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `actualLocation` instead
+    ///
+    pub const ActualLocation = actualLocation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#actualLocation)
     ///
@@ -254,9 +314,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn ActualLocation(self: QMediaRecorder) QUrl {
+    pub fn actualLocation(self: QMediaRecorder) QUrl {
         return .{ .ptr = qtc.QMediaRecorder_ActualLocation(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `recorderState` instead
+    ///
+    pub const RecorderState = recorderState;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#recorderState)
     ///
@@ -268,9 +332,15 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` qmediarecorder_enums.RecorderState `
     ///
-    pub fn RecorderState(self: QMediaRecorder) i32 {
+    pub fn recorderState(self: QMediaRecorder) i32 {
         return qtc.QMediaRecorder_RecorderState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `error0` instead
+    ///
+    pub const Error = error0;
+
+    pub const @"error" = error0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#error)
     ///
@@ -282,9 +352,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` qmediarecorder_enums.Error `
     ///
-    pub fn Error(self: QMediaRecorder) i32 {
+    pub fn error0(self: QMediaRecorder) i32 {
         return qtc.QMediaRecorder_Error(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `errorString` instead
+    ///
+    pub const ErrorString = errorString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#errorString)
     ///
@@ -294,13 +368,17 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorString(self: QMediaRecorder, allocator: std.mem.Allocator) []const u8 {
+    pub fn errorString(self: QMediaRecorder, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QMediaRecorder_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMediaRecorder.ErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMediaRecorder.errorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `duration` instead
+    ///
+    pub const Duration = duration;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#duration)
     ///
@@ -308,9 +386,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn Duration(self: QMediaRecorder) i64 {
+    pub fn duration(self: QMediaRecorder) i64 {
         return qtc.QMediaRecorder_Duration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `mediaFormat` instead
+    ///
+    pub const MediaFormat = mediaFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#mediaFormat)
     ///
@@ -318,9 +400,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn MediaFormat(self: QMediaRecorder) QMediaFormat {
+    pub fn mediaFormat(self: QMediaRecorder) QMediaFormat {
         return .{ .ptr = qtc.QMediaRecorder_MediaFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setMediaFormat` instead
+    ///
+    pub const SetMediaFormat = setMediaFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#setMediaFormat)
     ///
@@ -330,10 +416,14 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` format: QMediaFormat `
     ///
-    pub fn SetMediaFormat(self: QMediaRecorder, format: anytype) void {
+    pub fn setMediaFormat(self: QMediaRecorder, format: anytype) void {
         comptime _ = @TypeOf(format)._is_QMediaFormat;
         qtc.QMediaRecorder_SetMediaFormat(@ptrCast(self.ptr), @ptrCast(format.ptr));
     }
+
+    /// ### DEPRECATED: Use `encodingMode` instead
+    ///
+    pub const EncodingMode = encodingMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#encodingMode)
     ///
@@ -345,9 +435,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` qmediarecorder_enums.EncodingMode `
     ///
-    pub fn EncodingMode(self: QMediaRecorder) i32 {
+    pub fn encodingMode(self: QMediaRecorder) i32 {
         return qtc.QMediaRecorder_EncodingMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEncodingMode` instead
+    ///
+    pub const SetEncodingMode = setEncodingMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#setEncodingMode)
     ///
@@ -355,11 +449,15 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    /// ` encodingMode: qmediarecorder_enums.EncodingMode `
+    /// ` _encodingMode: qmediarecorder_enums.EncodingMode `
     ///
-    pub fn SetEncodingMode(self: QMediaRecorder, encodingMode: i32) void {
-        qtc.QMediaRecorder_SetEncodingMode(@ptrCast(self.ptr), @bitCast(encodingMode));
+    pub fn setEncodingMode(self: QMediaRecorder, _encodingMode: i32) void {
+        qtc.QMediaRecorder_SetEncodingMode(@ptrCast(self.ptr), @bitCast(_encodingMode));
     }
+
+    /// ### DEPRECATED: Use `quality` instead
+    ///
+    pub const Quality = quality;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#quality)
     ///
@@ -371,9 +469,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` qmediarecorder_enums.Quality `
     ///
-    pub fn Quality(self: QMediaRecorder) i32 {
+    pub fn quality(self: QMediaRecorder) i32 {
         return qtc.QMediaRecorder_Quality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setQuality` instead
+    ///
+    pub const SetQuality = setQuality;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#setQuality)
     ///
@@ -381,11 +483,15 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    /// ` quality: qmediarecorder_enums.Quality `
+    /// ` _quality: qmediarecorder_enums.Quality `
     ///
-    pub fn SetQuality(self: QMediaRecorder, quality: i32) void {
-        qtc.QMediaRecorder_SetQuality(@ptrCast(self.ptr), @bitCast(quality));
+    pub fn setQuality(self: QMediaRecorder, _quality: i32) void {
+        qtc.QMediaRecorder_SetQuality(@ptrCast(self.ptr), @bitCast(_quality));
     }
+
+    /// ### DEPRECATED: Use `videoResolution` instead
+    ///
+    pub const VideoResolution = videoResolution;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#videoResolution)
     ///
@@ -393,9 +499,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn VideoResolution(self: QMediaRecorder) QSize {
+    pub fn videoResolution(self: QMediaRecorder) QSize {
         return .{ .ptr = qtc.QMediaRecorder_VideoResolution(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setVideoResolution` instead
+    ///
+    pub const SetVideoResolution = setVideoResolution;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#setVideoResolution)
     ///
@@ -403,12 +513,16 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    /// ` videoResolution: QSize `
+    /// ` _videoResolution: QSize `
     ///
-    pub fn SetVideoResolution(self: QMediaRecorder, videoResolution: anytype) void {
-        comptime _ = @TypeOf(videoResolution)._is_QSize;
-        qtc.QMediaRecorder_SetVideoResolution(@ptrCast(self.ptr), @ptrCast(videoResolution.ptr));
+    pub fn setVideoResolution(self: QMediaRecorder, _videoResolution: anytype) void {
+        comptime _ = @TypeOf(_videoResolution)._is_QSize;
+        qtc.QMediaRecorder_SetVideoResolution(@ptrCast(self.ptr), @ptrCast(_videoResolution.ptr));
     }
+
+    /// ### DEPRECATED: Use `setVideoResolution2` instead
+    ///
+    pub const SetVideoResolution2 = setVideoResolution2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#setVideoResolution)
     ///
@@ -420,9 +534,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` height: i32 `
     ///
-    pub fn SetVideoResolution2(self: QMediaRecorder, width: i32, height: i32) void {
+    pub fn setVideoResolution2(self: QMediaRecorder, width: i32, height: i32) void {
         qtc.QMediaRecorder_SetVideoResolution2(@ptrCast(self.ptr), @bitCast(width), @bitCast(height));
     }
+
+    /// ### DEPRECATED: Use `videoFrameRate` instead
+    ///
+    pub const VideoFrameRate = videoFrameRate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#videoFrameRate)
     ///
@@ -430,9 +548,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn VideoFrameRate(self: QMediaRecorder) f64 {
+    pub fn videoFrameRate(self: QMediaRecorder) f64 {
         return qtc.QMediaRecorder_VideoFrameRate(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setVideoFrameRate` instead
+    ///
+    pub const SetVideoFrameRate = setVideoFrameRate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#setVideoFrameRate)
     ///
@@ -442,9 +564,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` frameRate: f64 `
     ///
-    pub fn SetVideoFrameRate(self: QMediaRecorder, frameRate: f64) void {
+    pub fn setVideoFrameRate(self: QMediaRecorder, frameRate: f64) void {
         qtc.QMediaRecorder_SetVideoFrameRate(@ptrCast(self.ptr), @bitCast(frameRate));
     }
+
+    /// ### DEPRECATED: Use `videoBitRate` instead
+    ///
+    pub const VideoBitRate = videoBitRate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#videoBitRate)
     ///
@@ -452,9 +578,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn VideoBitRate(self: QMediaRecorder) i32 {
+    pub fn videoBitRate(self: QMediaRecorder) i32 {
         return qtc.QMediaRecorder_VideoBitRate(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setVideoBitRate` instead
+    ///
+    pub const SetVideoBitRate = setVideoBitRate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#setVideoBitRate)
     ///
@@ -464,9 +594,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` bitRate: i32 `
     ///
-    pub fn SetVideoBitRate(self: QMediaRecorder, bitRate: i32) void {
+    pub fn setVideoBitRate(self: QMediaRecorder, bitRate: i32) void {
         qtc.QMediaRecorder_SetVideoBitRate(@ptrCast(self.ptr), @bitCast(bitRate));
     }
+
+    /// ### DEPRECATED: Use `audioBitRate` instead
+    ///
+    pub const AudioBitRate = audioBitRate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#audioBitRate)
     ///
@@ -474,9 +608,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn AudioBitRate(self: QMediaRecorder) i32 {
+    pub fn audioBitRate(self: QMediaRecorder) i32 {
         return qtc.QMediaRecorder_AudioBitRate(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAudioBitRate` instead
+    ///
+    pub const SetAudioBitRate = setAudioBitRate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#setAudioBitRate)
     ///
@@ -486,9 +624,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` bitRate: i32 `
     ///
-    pub fn SetAudioBitRate(self: QMediaRecorder, bitRate: i32) void {
+    pub fn setAudioBitRate(self: QMediaRecorder, bitRate: i32) void {
         qtc.QMediaRecorder_SetAudioBitRate(@ptrCast(self.ptr), @bitCast(bitRate));
     }
+
+    /// ### DEPRECATED: Use `audioChannelCount` instead
+    ///
+    pub const AudioChannelCount = audioChannelCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#audioChannelCount)
     ///
@@ -496,9 +638,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn AudioChannelCount(self: QMediaRecorder) i32 {
+    pub fn audioChannelCount(self: QMediaRecorder) i32 {
         return qtc.QMediaRecorder_AudioChannelCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAudioChannelCount` instead
+    ///
+    pub const SetAudioChannelCount = setAudioChannelCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#setAudioChannelCount)
     ///
@@ -508,9 +654,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` channels: i32 `
     ///
-    pub fn SetAudioChannelCount(self: QMediaRecorder, channels: i32) void {
+    pub fn setAudioChannelCount(self: QMediaRecorder, channels: i32) void {
         qtc.QMediaRecorder_SetAudioChannelCount(@ptrCast(self.ptr), @bitCast(channels));
     }
+
+    /// ### DEPRECATED: Use `audioSampleRate` instead
+    ///
+    pub const AudioSampleRate = audioSampleRate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#audioSampleRate)
     ///
@@ -518,9 +668,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn AudioSampleRate(self: QMediaRecorder) i32 {
+    pub fn audioSampleRate(self: QMediaRecorder) i32 {
         return qtc.QMediaRecorder_AudioSampleRate(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAudioSampleRate` instead
+    ///
+    pub const SetAudioSampleRate = setAudioSampleRate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#setAudioSampleRate)
     ///
@@ -530,9 +684,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` sampleRate: i32 `
     ///
-    pub fn SetAudioSampleRate(self: QMediaRecorder, sampleRate: i32) void {
+    pub fn setAudioSampleRate(self: QMediaRecorder, sampleRate: i32) void {
         qtc.QMediaRecorder_SetAudioSampleRate(@ptrCast(self.ptr), @bitCast(sampleRate));
     }
+
+    /// ### DEPRECATED: Use `metaData` instead
+    ///
+    pub const MetaData = metaData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#metaData)
     ///
@@ -540,9 +698,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn MetaData(self: QMediaRecorder) QMediaMetaData {
+    pub fn metaData(self: QMediaRecorder) QMediaMetaData {
         return .{ .ptr = qtc.QMediaRecorder_MetaData(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setMetaData` instead
+    ///
+    pub const SetMetaData = setMetaData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#setMetaData)
     ///
@@ -550,12 +712,16 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    /// ` metaData: QMediaMetaData `
+    /// ` _metaData: QMediaMetaData `
     ///
-    pub fn SetMetaData(self: QMediaRecorder, metaData: anytype) void {
-        comptime _ = @TypeOf(metaData)._is_QMediaMetaData;
-        qtc.QMediaRecorder_SetMetaData(@ptrCast(self.ptr), @ptrCast(metaData.ptr));
+    pub fn setMetaData(self: QMediaRecorder, _metaData: anytype) void {
+        comptime _ = @TypeOf(_metaData)._is_QMediaMetaData;
+        qtc.QMediaRecorder_SetMetaData(@ptrCast(self.ptr), @ptrCast(_metaData.ptr));
     }
+
+    /// ### DEPRECATED: Use `addMetaData` instead
+    ///
+    pub const AddMetaData = addMetaData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#addMetaData)
     ///
@@ -563,12 +729,16 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    /// ` metaData: QMediaMetaData `
+    /// ` _metaData: QMediaMetaData `
     ///
-    pub fn AddMetaData(self: QMediaRecorder, metaData: anytype) void {
-        comptime _ = @TypeOf(metaData)._is_QMediaMetaData;
-        qtc.QMediaRecorder_AddMetaData(@ptrCast(self.ptr), @ptrCast(metaData.ptr));
+    pub fn addMetaData(self: QMediaRecorder, _metaData: anytype) void {
+        comptime _ = @TypeOf(_metaData)._is_QMediaMetaData;
+        qtc.QMediaRecorder_AddMetaData(@ptrCast(self.ptr), @ptrCast(_metaData.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoStop` instead
+    ///
+    pub const AutoStop = autoStop;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#autoStop)
     ///
@@ -576,9 +746,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn AutoStop(self: QMediaRecorder) bool {
+    pub fn autoStop(self: QMediaRecorder) bool {
         return qtc.QMediaRecorder_AutoStop(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoStop` instead
+    ///
+    pub const SetAutoStop = setAutoStop;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#setAutoStop)
     ///
@@ -586,11 +760,15 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    /// ` autoStop: bool `
+    /// ` _autoStop: bool `
     ///
-    pub fn SetAutoStop(self: QMediaRecorder, autoStop: bool) void {
-        qtc.QMediaRecorder_SetAutoStop(@ptrCast(self.ptr), autoStop);
+    pub fn setAutoStop(self: QMediaRecorder, _autoStop: bool) void {
+        qtc.QMediaRecorder_SetAutoStop(@ptrCast(self.ptr), _autoStop);
     }
+
+    /// ### DEPRECATED: Use `captureSession` instead
+    ///
+    pub const CaptureSession = captureSession;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#captureSession)
     ///
@@ -598,9 +776,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn CaptureSession(self: QMediaRecorder) QMediaCaptureSession {
+    pub fn captureSession(self: QMediaRecorder) QMediaCaptureSession {
         return .{ .ptr = qtc.QMediaRecorder_CaptureSession(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `record` instead
+    ///
+    pub const Record = record;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#record)
     ///
@@ -608,9 +790,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn Record(self: QMediaRecorder) void {
+    pub fn record(self: QMediaRecorder) void {
         qtc.QMediaRecorder_Record(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pause` instead
+    ///
+    pub const Pause = pause;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#pause)
     ///
@@ -618,9 +804,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn Pause(self: QMediaRecorder) void {
+    pub fn pause(self: QMediaRecorder) void {
         qtc.QMediaRecorder_Pause(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stop` instead
+    ///
+    pub const Stop = stop;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#stop)
     ///
@@ -628,9 +818,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn Stop(self: QMediaRecorder) void {
+    pub fn stop(self: QMediaRecorder) void {
         qtc.QMediaRecorder_Stop(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `recorderStateChanged` instead
+    ///
+    pub const RecorderStateChanged = recorderStateChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#recorderStateChanged)
     ///
@@ -640,9 +834,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` state: qmediarecorder_enums.RecorderState `
     ///
-    pub fn RecorderStateChanged(self: QMediaRecorder, state: i32) void {
+    pub fn recorderStateChanged(self: QMediaRecorder, state: i32) void {
         qtc.QMediaRecorder_RecorderStateChanged(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `onRecorderStateChanged` instead
+    ///
+    pub const OnRecorderStateChanged = onRecorderStateChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#recorderStateChanged)
     ///
@@ -652,9 +850,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaRecorder, state: qmediarecorder_enums.RecorderState) callconv(.c) void `
     ///
-    pub fn OnRecorderStateChanged(self: QMediaRecorder, callback: *const fn (QMediaRecorder, i32) callconv(.c) void) void {
+    pub fn onRecorderStateChanged(self: QMediaRecorder, callback: *const fn (QMediaRecorder, i32) callconv(.c) void) void {
         qtc.QMediaRecorder_Connect_RecorderStateChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `durationChanged` instead
+    ///
+    pub const DurationChanged = durationChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#durationChanged)
     ///
@@ -662,11 +864,15 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    /// ` duration: i64 `
+    /// ` _duration: i64 `
     ///
-    pub fn DurationChanged(self: QMediaRecorder, duration: i64) void {
-        qtc.QMediaRecorder_DurationChanged(@ptrCast(self.ptr), @bitCast(duration));
+    pub fn durationChanged(self: QMediaRecorder, _duration: i64) void {
+        qtc.QMediaRecorder_DurationChanged(@ptrCast(self.ptr), @bitCast(_duration));
     }
+
+    /// ### DEPRECATED: Use `onDurationChanged` instead
+    ///
+    pub const OnDurationChanged = onDurationChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#durationChanged)
     ///
@@ -676,9 +882,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaRecorder, duration: i64) callconv(.c) void `
     ///
-    pub fn OnDurationChanged(self: QMediaRecorder, callback: *const fn (QMediaRecorder, i64) callconv(.c) void) void {
+    pub fn onDurationChanged(self: QMediaRecorder, callback: *const fn (QMediaRecorder, i64) callconv(.c) void) void {
         qtc.QMediaRecorder_Connect_DurationChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actualLocationChanged` instead
+    ///
+    pub const ActualLocationChanged = actualLocationChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#actualLocationChanged)
     ///
@@ -688,10 +898,14 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` location: QUrl `
     ///
-    pub fn ActualLocationChanged(self: QMediaRecorder, location: anytype) void {
+    pub fn actualLocationChanged(self: QMediaRecorder, location: anytype) void {
         comptime _ = @TypeOf(location)._is_QUrl;
         qtc.QMediaRecorder_ActualLocationChanged(@ptrCast(self.ptr), @ptrCast(location.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActualLocationChanged` instead
+    ///
+    pub const OnActualLocationChanged = onActualLocationChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#actualLocationChanged)
     ///
@@ -701,9 +915,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaRecorder, location: QUrl) callconv(.c) void `
     ///
-    pub fn OnActualLocationChanged(self: QMediaRecorder, callback: *const fn (QMediaRecorder, QUrl) callconv(.c) void) void {
+    pub fn onActualLocationChanged(self: QMediaRecorder, callback: *const fn (QMediaRecorder, QUrl) callconv(.c) void) void {
         qtc.QMediaRecorder_Connect_ActualLocationChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `encoderSettingsChanged` instead
+    ///
+    pub const EncoderSettingsChanged = encoderSettingsChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#encoderSettingsChanged)
     ///
@@ -711,9 +929,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn EncoderSettingsChanged(self: QMediaRecorder) void {
+    pub fn encoderSettingsChanged(self: QMediaRecorder) void {
         qtc.QMediaRecorder_EncoderSettingsChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEncoderSettingsChanged` instead
+    ///
+    pub const OnEncoderSettingsChanged = onEncoderSettingsChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#encoderSettingsChanged)
     ///
@@ -723,9 +945,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaRecorder) callconv(.c) void `
     ///
-    pub fn OnEncoderSettingsChanged(self: QMediaRecorder, callback: *const fn (QMediaRecorder) callconv(.c) void) void {
+    pub fn onEncoderSettingsChanged(self: QMediaRecorder, callback: *const fn (QMediaRecorder) callconv(.c) void) void {
         qtc.QMediaRecorder_Connect_EncoderSettingsChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `errorOccurred` instead
+    ///
+    pub const ErrorOccurred = errorOccurred;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#errorOccurred)
     ///
@@ -735,15 +961,19 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` errorVal: qmediarecorder_enums.Error `
     ///
-    /// ` errorString: []const u8 `
+    /// ` _errorString: []const u8 `
     ///
-    pub fn ErrorOccurred(self: QMediaRecorder, errorVal: i32, errorString: []const u8) void {
+    pub fn errorOccurred(self: QMediaRecorder, errorVal: i32, _errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
-            .len = errorString.len,
-            .data = errorString.ptr,
+            .len = _errorString.len,
+            .data = _errorString.ptr,
         };
         qtc.QMediaRecorder_ErrorOccurred(@ptrCast(self.ptr), @bitCast(errorVal), errorString_str);
     }
+
+    /// ### DEPRECATED: Use `onErrorOccurred` instead
+    ///
+    pub const OnErrorOccurred = onErrorOccurred;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#errorOccurred)
     ///
@@ -753,20 +983,28 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaRecorder, errorVal: qmediarecorder_enums.Error, errorString: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnErrorOccurred(self: QMediaRecorder, callback: *const fn (QMediaRecorder, i32, [*:0]const u8) callconv(.c) void) void {
+    pub fn onErrorOccurred(self: QMediaRecorder, callback: *const fn (QMediaRecorder, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.QMediaRecorder_Connect_ErrorOccurred(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `errorChanged` instead
+    ///
+    pub const ErrorChanged = errorChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#errorChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn ErrorChanged(self: QMediaRecorder) void {
+    pub fn errorChanged(self: QMediaRecorder) void {
         qtc.QMediaRecorder_ErrorChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onErrorChanged` instead
+    ///
+    pub const OnErrorChanged = onErrorChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#errorChanged)
     ///
     /// ## Parameters:
@@ -775,20 +1013,28 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaRecorder) callconv(.c) void `
     ///
-    pub fn OnErrorChanged(self: QMediaRecorder, callback: *const fn (QMediaRecorder) callconv(.c) void) void {
+    pub fn onErrorChanged(self: QMediaRecorder, callback: *const fn (QMediaRecorder) callconv(.c) void) void {
         qtc.QMediaRecorder_Connect_ErrorChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `metaDataChanged` instead
+    ///
+    pub const MetaDataChanged = metaDataChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#metaDataChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn MetaDataChanged(self: QMediaRecorder) void {
+    pub fn metaDataChanged(self: QMediaRecorder) void {
         qtc.QMediaRecorder_MetaDataChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMetaDataChanged` instead
+    ///
+    pub const OnMetaDataChanged = onMetaDataChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#metaDataChanged)
     ///
     /// ## Parameters:
@@ -797,20 +1043,28 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaRecorder) callconv(.c) void `
     ///
-    pub fn OnMetaDataChanged(self: QMediaRecorder, callback: *const fn (QMediaRecorder) callconv(.c) void) void {
+    pub fn onMetaDataChanged(self: QMediaRecorder, callback: *const fn (QMediaRecorder) callconv(.c) void) void {
         qtc.QMediaRecorder_Connect_MetaDataChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mediaFormatChanged` instead
+    ///
+    pub const MediaFormatChanged = mediaFormatChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#mediaFormatChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn MediaFormatChanged(self: QMediaRecorder) void {
+    pub fn mediaFormatChanged(self: QMediaRecorder) void {
         qtc.QMediaRecorder_MediaFormatChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMediaFormatChanged` instead
+    ///
+    pub const OnMediaFormatChanged = onMediaFormatChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#mediaFormatChanged)
     ///
     /// ## Parameters:
@@ -819,20 +1073,28 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaRecorder) callconv(.c) void `
     ///
-    pub fn OnMediaFormatChanged(self: QMediaRecorder, callback: *const fn (QMediaRecorder) callconv(.c) void) void {
+    pub fn onMediaFormatChanged(self: QMediaRecorder, callback: *const fn (QMediaRecorder) callconv(.c) void) void {
         qtc.QMediaRecorder_Connect_MediaFormatChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `encodingModeChanged` instead
+    ///
+    pub const EncodingModeChanged = encodingModeChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#encodingModeChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn EncodingModeChanged(self: QMediaRecorder) void {
+    pub fn encodingModeChanged(self: QMediaRecorder) void {
         qtc.QMediaRecorder_EncodingModeChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onEncodingModeChanged` instead
+    ///
+    pub const OnEncodingModeChanged = onEncodingModeChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#encodingModeChanged)
     ///
     /// ## Parameters:
@@ -841,20 +1103,28 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaRecorder) callconv(.c) void `
     ///
-    pub fn OnEncodingModeChanged(self: QMediaRecorder, callback: *const fn (QMediaRecorder) callconv(.c) void) void {
+    pub fn onEncodingModeChanged(self: QMediaRecorder, callback: *const fn (QMediaRecorder) callconv(.c) void) void {
         qtc.QMediaRecorder_Connect_EncodingModeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `qualityChanged` instead
+    ///
+    pub const QualityChanged = qualityChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#qualityChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn QualityChanged(self: QMediaRecorder) void {
+    pub fn qualityChanged(self: QMediaRecorder) void {
         qtc.QMediaRecorder_QualityChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onQualityChanged` instead
+    ///
+    pub const OnQualityChanged = onQualityChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#qualityChanged)
     ///
     /// ## Parameters:
@@ -863,20 +1133,28 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaRecorder) callconv(.c) void `
     ///
-    pub fn OnQualityChanged(self: QMediaRecorder, callback: *const fn (QMediaRecorder) callconv(.c) void) void {
+    pub fn onQualityChanged(self: QMediaRecorder, callback: *const fn (QMediaRecorder) callconv(.c) void) void {
         qtc.QMediaRecorder_Connect_QualityChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `videoResolutionChanged` instead
+    ///
+    pub const VideoResolutionChanged = videoResolutionChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#videoResolutionChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn VideoResolutionChanged(self: QMediaRecorder) void {
+    pub fn videoResolutionChanged(self: QMediaRecorder) void {
         qtc.QMediaRecorder_VideoResolutionChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onVideoResolutionChanged` instead
+    ///
+    pub const OnVideoResolutionChanged = onVideoResolutionChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#videoResolutionChanged)
     ///
     /// ## Parameters:
@@ -885,20 +1163,28 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaRecorder) callconv(.c) void `
     ///
-    pub fn OnVideoResolutionChanged(self: QMediaRecorder, callback: *const fn (QMediaRecorder) callconv(.c) void) void {
+    pub fn onVideoResolutionChanged(self: QMediaRecorder, callback: *const fn (QMediaRecorder) callconv(.c) void) void {
         qtc.QMediaRecorder_Connect_VideoResolutionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `videoFrameRateChanged` instead
+    ///
+    pub const VideoFrameRateChanged = videoFrameRateChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#videoFrameRateChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn VideoFrameRateChanged(self: QMediaRecorder) void {
+    pub fn videoFrameRateChanged(self: QMediaRecorder) void {
         qtc.QMediaRecorder_VideoFrameRateChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onVideoFrameRateChanged` instead
+    ///
+    pub const OnVideoFrameRateChanged = onVideoFrameRateChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#videoFrameRateChanged)
     ///
     /// ## Parameters:
@@ -907,20 +1193,28 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaRecorder) callconv(.c) void `
     ///
-    pub fn OnVideoFrameRateChanged(self: QMediaRecorder, callback: *const fn (QMediaRecorder) callconv(.c) void) void {
+    pub fn onVideoFrameRateChanged(self: QMediaRecorder, callback: *const fn (QMediaRecorder) callconv(.c) void) void {
         qtc.QMediaRecorder_Connect_VideoFrameRateChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `videoBitRateChanged` instead
+    ///
+    pub const VideoBitRateChanged = videoBitRateChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#videoBitRateChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn VideoBitRateChanged(self: QMediaRecorder) void {
+    pub fn videoBitRateChanged(self: QMediaRecorder) void {
         qtc.QMediaRecorder_VideoBitRateChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onVideoBitRateChanged` instead
+    ///
+    pub const OnVideoBitRateChanged = onVideoBitRateChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#videoBitRateChanged)
     ///
     /// ## Parameters:
@@ -929,20 +1223,28 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaRecorder) callconv(.c) void `
     ///
-    pub fn OnVideoBitRateChanged(self: QMediaRecorder, callback: *const fn (QMediaRecorder) callconv(.c) void) void {
+    pub fn onVideoBitRateChanged(self: QMediaRecorder, callback: *const fn (QMediaRecorder) callconv(.c) void) void {
         qtc.QMediaRecorder_Connect_VideoBitRateChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `audioBitRateChanged` instead
+    ///
+    pub const AudioBitRateChanged = audioBitRateChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#audioBitRateChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn AudioBitRateChanged(self: QMediaRecorder) void {
+    pub fn audioBitRateChanged(self: QMediaRecorder) void {
         qtc.QMediaRecorder_AudioBitRateChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onAudioBitRateChanged` instead
+    ///
+    pub const OnAudioBitRateChanged = onAudioBitRateChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#audioBitRateChanged)
     ///
     /// ## Parameters:
@@ -951,20 +1253,28 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaRecorder) callconv(.c) void `
     ///
-    pub fn OnAudioBitRateChanged(self: QMediaRecorder, callback: *const fn (QMediaRecorder) callconv(.c) void) void {
+    pub fn onAudioBitRateChanged(self: QMediaRecorder, callback: *const fn (QMediaRecorder) callconv(.c) void) void {
         qtc.QMediaRecorder_Connect_AudioBitRateChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `audioChannelCountChanged` instead
+    ///
+    pub const AudioChannelCountChanged = audioChannelCountChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#audioChannelCountChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn AudioChannelCountChanged(self: QMediaRecorder) void {
+    pub fn audioChannelCountChanged(self: QMediaRecorder) void {
         qtc.QMediaRecorder_AudioChannelCountChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onAudioChannelCountChanged` instead
+    ///
+    pub const OnAudioChannelCountChanged = onAudioChannelCountChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#audioChannelCountChanged)
     ///
     /// ## Parameters:
@@ -973,20 +1283,28 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaRecorder) callconv(.c) void `
     ///
-    pub fn OnAudioChannelCountChanged(self: QMediaRecorder, callback: *const fn (QMediaRecorder) callconv(.c) void) void {
+    pub fn onAudioChannelCountChanged(self: QMediaRecorder, callback: *const fn (QMediaRecorder) callconv(.c) void) void {
         qtc.QMediaRecorder_Connect_AudioChannelCountChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `audioSampleRateChanged` instead
+    ///
+    pub const AudioSampleRateChanged = audioSampleRateChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#audioSampleRateChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn AudioSampleRateChanged(self: QMediaRecorder) void {
+    pub fn audioSampleRateChanged(self: QMediaRecorder) void {
         qtc.QMediaRecorder_AudioSampleRateChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onAudioSampleRateChanged` instead
+    ///
+    pub const OnAudioSampleRateChanged = onAudioSampleRateChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#audioSampleRateChanged)
     ///
     /// ## Parameters:
@@ -995,9 +1313,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaRecorder) callconv(.c) void `
     ///
-    pub fn OnAudioSampleRateChanged(self: QMediaRecorder, callback: *const fn (QMediaRecorder) callconv(.c) void) void {
+    pub fn onAudioSampleRateChanged(self: QMediaRecorder, callback: *const fn (QMediaRecorder) callconv(.c) void) void {
         qtc.QMediaRecorder_Connect_AudioSampleRateChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `autoStopChanged` instead
+    ///
+    pub const AutoStopChanged = autoStopChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#autoStopChanged)
     ///
@@ -1005,9 +1327,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn AutoStopChanged(self: QMediaRecorder) void {
+    pub fn autoStopChanged(self: QMediaRecorder) void {
         qtc.QMediaRecorder_AutoStopChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onAutoStopChanged` instead
+    ///
+    pub const OnAutoStopChanged = onAutoStopChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#autoStopChanged)
     ///
@@ -1017,9 +1343,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaRecorder) callconv(.c) void `
     ///
-    pub fn OnAutoStopChanged(self: QMediaRecorder, callback: *const fn (QMediaRecorder) callconv(.c) void) void {
+    pub fn onAutoStopChanged(self: QMediaRecorder, callback: *const fn (QMediaRecorder) callconv(.c) void) void {
         qtc.QMediaRecorder_Connect_AutoStopChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1031,15 +1361,19 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMediaRecorder.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMediaRecorder.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1053,15 +1387,19 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMediaRecorder.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMediaRecorder.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -1073,13 +1411,17 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QMediaRecorder, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QMediaRecorder, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMediaRecorder.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMediaRecorder.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -1091,13 +1433,17 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QMediaRecorder, name: []const u8) void {
+    pub fn setObjectName(self: QMediaRecorder, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -1107,9 +1453,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn IsWidgetType(self: QMediaRecorder) bool {
+    pub fn isWidgetType(self: QMediaRecorder) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -1119,9 +1469,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn IsWindowType(self: QMediaRecorder) bool {
+    pub fn isWindowType(self: QMediaRecorder) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -1131,9 +1485,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn IsQuickItemType(self: QMediaRecorder) bool {
+    pub fn isQuickItemType(self: QMediaRecorder) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -1143,9 +1501,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn SignalsBlocked(self: QMediaRecorder) bool {
+    pub fn signalsBlocked(self: QMediaRecorder) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -1157,9 +1519,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QMediaRecorder, b: bool) bool {
+    pub fn blockSignals(self: QMediaRecorder, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -1169,9 +1535,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn Thread(self: QMediaRecorder) QThread {
+    pub fn thread(self: QMediaRecorder) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -1181,12 +1551,16 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QMediaRecorder, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QMediaRecorder, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -1198,9 +1572,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QMediaRecorder, interval: i32) i32 {
+    pub fn startTimer(self: QMediaRecorder, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -1212,9 +1590,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QMediaRecorder, time: i64) i32 {
+    pub fn startTimer2(self: QMediaRecorder, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -1226,9 +1608,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QMediaRecorder, id: i32) void {
+    pub fn killTimer(self: QMediaRecorder, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -1240,9 +1626,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QMediaRecorder, id: i32) void {
+    pub fn killTimer2(self: QMediaRecorder, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -1254,15 +1644,19 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QMediaRecorder, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QMediaRecorder, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QMediaRecorder.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QMediaRecorder.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -1272,12 +1666,16 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QMediaRecorder, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QMediaRecorder, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1289,10 +1687,14 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QMediaRecorder, filterObj: anytype) void {
+    pub fn installEventFilter(self: QMediaRecorder, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1304,10 +1706,14 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QMediaRecorder, obj: anytype) void {
+    pub fn removeEventFilter(self: QMediaRecorder, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -1315,7 +1721,7 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1323,13 +1729,17 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -1337,7 +1747,7 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1345,13 +1755,17 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1361,18 +1775,22 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QMediaRecorder, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QMediaRecorder, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1380,7 +1798,7 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1388,13 +1806,17 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1402,7 +1824,7 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1410,13 +1832,17 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1426,9 +1852,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn Disconnect3(self: QMediaRecorder) bool {
+    pub fn disconnect3(self: QMediaRecorder) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1440,10 +1870,14 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QMediaRecorder, receiver: anytype) bool {
+    pub fn disconnect4(self: QMediaRecorder, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1453,10 +1887,14 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1466,9 +1904,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn DumpObjectTree(self: QMediaRecorder) void {
+    pub fn dumpObjectTree(self: QMediaRecorder) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1478,9 +1920,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn DumpObjectInfo(self: QMediaRecorder) void {
+    pub fn dumpObjectInfo(self: QMediaRecorder) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1494,11 +1940,15 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QMediaRecorder, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QMediaRecorder, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1510,10 +1960,14 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QMediaRecorder, name: [:0]const u8) QVariant {
+    pub fn property(self: QMediaRecorder, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1525,7 +1979,7 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QMediaRecorder, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QMediaRecorder, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1533,27 +1987,19 @@ pub const QMediaRecorder = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QMediaRecorder.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QMediaRecorder.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QMediaRecorder.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QMediaRecorder.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QMediaRecorder `
-    ///
-    pub fn BindingStorage(self: QMediaRecorder) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1563,9 +2009,29 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn BindingStorage2(self: QMediaRecorder) QBindingStorage {
+    pub fn bindingStorage(self: QMediaRecorder) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QMediaRecorder `
+    ///
+    pub fn bindingStorage2(self: QMediaRecorder) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1575,9 +2041,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn Destroyed(self: QMediaRecorder) void {
+    pub fn destroyed(self: QMediaRecorder) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1589,9 +2059,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaRecorder) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QMediaRecorder, callback: *const fn (QMediaRecorder) callconv(.c) void) void {
+    pub fn onDestroyed(self: QMediaRecorder, callback: *const fn (QMediaRecorder) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1601,9 +2075,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn Parent(self: QMediaRecorder) QObject {
+    pub fn parent(self: QMediaRecorder) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1615,10 +2093,14 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QMediaRecorder, classname: [:0]const u8) bool {
+    pub fn inherits(self: QMediaRecorder, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1628,9 +2110,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn DeleteLater(self: QMediaRecorder) void {
+    pub fn deleteLater(self: QMediaRecorder) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1644,9 +2130,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QMediaRecorder, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QMediaRecorder, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1660,9 +2150,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QMediaRecorder, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QMediaRecorder, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1670,7 +2164,7 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1680,13 +2174,17 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1694,7 +2192,7 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1704,13 +2202,17 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1720,7 +2222,7 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1728,12 +2230,16 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QMediaRecorder, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QMediaRecorder, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1745,10 +2251,14 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QMediaRecorder, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QMediaRecorder, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1762,11 +2272,15 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QMediaRecorder, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QMediaRecorder, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1782,13 +2296,17 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QMediaRecorder, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QMediaRecorder, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1801,11 +2319,15 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QMediaRecorder, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QMediaRecorder, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1817,10 +2339,14 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QMediaRecorder, param1: anytype) void {
+    pub fn destroyed1(self: QMediaRecorder, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1832,9 +2358,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaRecorder, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QMediaRecorder, callback: *const fn (QMediaRecorder, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QMediaRecorder, callback: *const fn (QMediaRecorder, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1846,16 +2376,16 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QMediaRecorder, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QMediaRecorder_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QMediaRecorder, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QMediaRecorder_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1867,12 +2397,16 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QMediaRecorder, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QMediaRecorder_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QMediaRecorder, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QMediaRecorder_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -1886,9 +2420,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaRecorder, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QMediaRecorder, callback: *const fn (QMediaRecorder, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QMediaRecorder, callback: *const fn (QMediaRecorder, QEvent) callconv(.c) bool) void {
         qtc.QMediaRecorder_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1902,17 +2440,17 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QMediaRecorder, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QMediaRecorder, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QMediaRecorder_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QMediaRecorder_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1926,13 +2464,17 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QMediaRecorder, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QMediaRecorder, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QMediaRecorder_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QMediaRecorder_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1946,9 +2488,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaRecorder, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QMediaRecorder, callback: *const fn (QMediaRecorder, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QMediaRecorder, callback: *const fn (QMediaRecorder, QObject, QEvent) callconv(.c) bool) void {
         qtc.QMediaRecorder_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1960,16 +2506,16 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QMediaRecorder, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QMediaRecorder_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QMediaRecorder, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QMediaRecorder_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1981,12 +2527,16 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QMediaRecorder, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QMediaRecorder_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QMediaRecorder, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QMediaRecorder_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -2000,9 +2550,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaRecorder, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QMediaRecorder, callback: *const fn (QMediaRecorder, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QMediaRecorder, callback: *const fn (QMediaRecorder, QTimerEvent) callconv(.c) void) void {
         qtc.QMediaRecorder_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -2014,16 +2568,16 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QMediaRecorder, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QMediaRecorder_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QMediaRecorder, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QMediaRecorder_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2035,12 +2589,16 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QMediaRecorder, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QMediaRecorder_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QMediaRecorder, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QMediaRecorder_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2054,9 +2612,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaRecorder, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QMediaRecorder, callback: *const fn (QMediaRecorder, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QMediaRecorder, callback: *const fn (QMediaRecorder, QChildEvent) callconv(.c) void) void {
         qtc.QMediaRecorder_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -2068,16 +2630,16 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QMediaRecorder, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QMediaRecorder_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QMediaRecorder, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QMediaRecorder_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2089,12 +2651,16 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QMediaRecorder, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QMediaRecorder_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QMediaRecorder, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QMediaRecorder_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2108,9 +2674,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaRecorder, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QMediaRecorder, callback: *const fn (QMediaRecorder, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QMediaRecorder, callback: *const fn (QMediaRecorder, QEvent) callconv(.c) void) void {
         qtc.QMediaRecorder_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -2124,14 +2694,14 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QMediaRecorder, signal: anytype) void {
+    pub fn connectNotify(self: QMediaRecorder, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QMediaRecorder_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2145,11 +2715,15 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QMediaRecorder, signal: anytype) void {
+    pub fn superConnectNotify(self: QMediaRecorder, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QMediaRecorder_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -2162,9 +2736,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaRecorder, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QMediaRecorder, callback: *const fn (QMediaRecorder, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QMediaRecorder, callback: *const fn (QMediaRecorder, QMetaMethod) callconv(.c) void) void {
         qtc.QMediaRecorder_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2178,14 +2756,14 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QMediaRecorder, signal: anytype) void {
+    pub fn disconnectNotify(self: QMediaRecorder, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QMediaRecorder_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2199,10 +2777,14 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QMediaRecorder, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QMediaRecorder, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QMediaRecorder_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2216,9 +2798,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaRecorder, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QMediaRecorder, callback: *const fn (QMediaRecorder, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QMediaRecorder, callback: *const fn (QMediaRecorder, QMetaMethod) callconv(.c) void) void {
         qtc.QMediaRecorder_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -2230,13 +2816,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn Sender(self: QMediaRecorder) QObject {
+    pub fn sender(self: QMediaRecorder) QObject {
         return .{ .ptr = qtc.QMediaRecorder_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -2248,9 +2834,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn SuperSender(self: QMediaRecorder) QObject {
+    pub fn superSender(self: QMediaRecorder) QObject {
         return .{ .ptr = qtc.QMediaRecorder_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -2264,9 +2854,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QMediaRecorder, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QMediaRecorder, callback: *const fn () callconv(.c) QObject) void {
         qtc.QMediaRecorder_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2278,13 +2872,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn SenderSignalIndex(self: QMediaRecorder) i32 {
+    pub fn senderSignalIndex(self: QMediaRecorder) i32 {
         return qtc.QMediaRecorder_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2296,9 +2890,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn SuperSenderSignalIndex(self: QMediaRecorder) i32 {
+    pub fn superSenderSignalIndex(self: QMediaRecorder) i32 {
         return qtc.QMediaRecorder_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2312,9 +2910,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QMediaRecorder, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QMediaRecorder, callback: *const fn () callconv(.c) i32) void {
         qtc.QMediaRecorder_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -2328,14 +2930,14 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QMediaRecorder, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QMediaRecorder, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QMediaRecorder_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -2349,10 +2951,14 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QMediaRecorder, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QMediaRecorder, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QMediaRecorder_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -2366,9 +2972,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaRecorder, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QMediaRecorder, callback: *const fn (QMediaRecorder, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QMediaRecorder, callback: *const fn (QMediaRecorder, [*:0]const u8) callconv(.c) i32) void {
         qtc.QMediaRecorder_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2382,14 +2992,14 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QMediaRecorder, signal: anytype) bool {
+    pub fn isSignalConnected(self: QMediaRecorder, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QMediaRecorder_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2403,10 +3013,14 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QMediaRecorder, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QMediaRecorder, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QMediaRecorder_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2420,9 +3034,13 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaRecorder, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QMediaRecorder, callback: *const fn (QMediaRecorder, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QMediaRecorder, callback: *const fn (QMediaRecorder, QMetaMethod) callconv(.c) bool) void {
         qtc.QMediaRecorder_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -2436,23 +3054,23 @@ pub const QMediaRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaRecorder, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QMediaRecorder, callback: *const fn (QMediaRecorder, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QMediaRecorder, callback: *const fn (QMediaRecorder, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#dtor.QMediaRecorder)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QMediaRecorder `
     ///
-    pub fn Delete(self: QMediaRecorder) void {
+    pub fn delete(self: QMediaRecorder) void {
         qtc.QMediaRecorder_Delete(@ptrCast(self.ptr));
     }
 };

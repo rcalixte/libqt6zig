@@ -20,24 +20,36 @@ pub const KPlotObject = extern struct {
 
     pub const _is_KPlotObject = {};
 
-    /// New constructs a new KPlotObject object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KPlotObject {
+    pub const New = new;
+
+    /// Allocate a new KPlotObject object in C++ memory
+    ///
+    pub fn new() KPlotObject {
         return .{ .ptr = qtc.KPlotObject_new() };
     }
 
-    /// New2 constructs a new KPlotObject object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KPlotObject object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` color: QColor `
     ///
-    pub fn New2(color: anytype) KPlotObject {
+    pub fn new2(color: anytype) KPlotObject {
         comptime _ = @TypeOf(color)._is_QColor;
         return .{ .ptr = qtc.KPlotObject_new2(@ptrCast(color.ptr)) };
     }
 
-    /// New3 constructs a new KPlotObject object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new KPlotObject object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -45,12 +57,16 @@ pub const KPlotObject = extern struct {
     ///
     /// ` otype: kplotobject_enums.PlotType `
     ///
-    pub fn New3(color: anytype, otype: i32) KPlotObject {
+    pub fn new3(color: anytype, otype: i32) KPlotObject {
         comptime _ = @TypeOf(color)._is_QColor;
         return .{ .ptr = qtc.KPlotObject_new3(@ptrCast(color.ptr), @bitCast(otype)) };
     }
 
-    /// New4 constructs a new KPlotObject object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new KPlotObject object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -58,14 +74,18 @@ pub const KPlotObject = extern struct {
     ///
     /// ` otype: kplotobject_enums.PlotType `
     ///
-    /// ` size: f64 `
+    /// ` _size: f64 `
     ///
-    pub fn New4(color: anytype, otype: i32, size: f64) KPlotObject {
+    pub fn new4(color: anytype, otype: i32, _size: f64) KPlotObject {
         comptime _ = @TypeOf(color)._is_QColor;
-        return .{ .ptr = qtc.KPlotObject_new4(@ptrCast(color.ptr), @bitCast(otype), @bitCast(size)) };
+        return .{ .ptr = qtc.KPlotObject_new4(@ptrCast(color.ptr), @bitCast(otype), @bitCast(_size)) };
     }
 
-    /// New5 constructs a new KPlotObject object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new KPlotObject object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -73,14 +93,18 @@ pub const KPlotObject = extern struct {
     ///
     /// ` otype: kplotobject_enums.PlotType `
     ///
-    /// ` size: f64 `
+    /// ` _size: f64 `
     ///
     /// ` ps: kplotobject_enums.PointStyle `
     ///
-    pub fn New5(color: anytype, otype: i32, size: f64, ps: i32) KPlotObject {
+    pub fn new5(color: anytype, otype: i32, _size: f64, ps: i32) KPlotObject {
         comptime _ = @TypeOf(color)._is_QColor;
-        return .{ .ptr = qtc.KPlotObject_new5(@ptrCast(color.ptr), @bitCast(otype), @bitCast(size), @bitCast(ps)) };
+        return .{ .ptr = qtc.KPlotObject_new5(@ptrCast(color.ptr), @bitCast(otype), @bitCast(_size), @bitCast(ps)) };
     }
+
+    /// ### DEPRECATED: Use `plotTypes` instead
+    ///
+    pub const PlotTypes = plotTypes;
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#plotTypes)
     ///
@@ -92,9 +116,13 @@ pub const KPlotObject = extern struct {
     ///
     /// ` flag of kplotobject_enums.PlotType `
     ///
-    pub fn PlotTypes(self: KPlotObject) i32 {
+    pub fn plotTypes(self: KPlotObject) i32 {
         return qtc.KPlotObject_PlotTypes(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setShowPoints` instead
+    ///
+    pub const SetShowPoints = setShowPoints;
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#setShowPoints)
     ///
@@ -104,9 +132,13 @@ pub const KPlotObject = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetShowPoints(self: KPlotObject, b: bool) void {
+    pub fn setShowPoints(self: KPlotObject, b: bool) void {
         qtc.KPlotObject_SetShowPoints(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `setShowLines` instead
+    ///
+    pub const SetShowLines = setShowLines;
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#setShowLines)
     ///
@@ -116,9 +148,13 @@ pub const KPlotObject = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetShowLines(self: KPlotObject, b: bool) void {
+    pub fn setShowLines(self: KPlotObject, b: bool) void {
         qtc.KPlotObject_SetShowLines(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `setShowBars` instead
+    ///
+    pub const SetShowBars = setShowBars;
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#setShowBars)
     ///
@@ -128,9 +164,13 @@ pub const KPlotObject = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetShowBars(self: KPlotObject, b: bool) void {
+    pub fn setShowBars(self: KPlotObject, b: bool) void {
         qtc.KPlotObject_SetShowBars(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#size)
     ///
@@ -138,9 +178,13 @@ pub const KPlotObject = extern struct {
     ///
     /// ` self: KPlotObject `
     ///
-    pub fn Size(self: KPlotObject) f64 {
+    pub fn size(self: KPlotObject) f64 {
         return qtc.KPlotObject_Size(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSize` instead
+    ///
+    pub const SetSize = setSize;
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#setSize)
     ///
@@ -150,9 +194,13 @@ pub const KPlotObject = extern struct {
     ///
     /// ` s: f64 `
     ///
-    pub fn SetSize(self: KPlotObject, s: f64) void {
+    pub fn setSize(self: KPlotObject, s: f64) void {
         qtc.KPlotObject_SetSize(@ptrCast(self.ptr), @bitCast(s));
     }
+
+    /// ### DEPRECATED: Use `pointStyle` instead
+    ///
+    pub const PointStyle = pointStyle;
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#pointStyle)
     ///
@@ -164,9 +212,13 @@ pub const KPlotObject = extern struct {
     ///
     /// ` kplotobject_enums.PointStyle `
     ///
-    pub fn PointStyle(self: KPlotObject) i32 {
+    pub fn pointStyle(self: KPlotObject) i32 {
         return qtc.KPlotObject_PointStyle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPointStyle` instead
+    ///
+    pub const SetPointStyle = setPointStyle;
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#setPointStyle)
     ///
@@ -176,9 +228,13 @@ pub const KPlotObject = extern struct {
     ///
     /// ` p: kplotobject_enums.PointStyle `
     ///
-    pub fn SetPointStyle(self: KPlotObject, p: i32) void {
+    pub fn setPointStyle(self: KPlotObject, p: i32) void {
         qtc.KPlotObject_SetPointStyle(@ptrCast(self.ptr), @bitCast(p));
     }
+
+    /// ### DEPRECATED: Use `pen` instead
+    ///
+    pub const Pen = pen;
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#pen)
     ///
@@ -186,9 +242,13 @@ pub const KPlotObject = extern struct {
     ///
     /// ` self: KPlotObject `
     ///
-    pub fn Pen(self: KPlotObject) QPen {
+    pub fn pen(self: KPlotObject) QPen {
         return .{ .ptr = qtc.KPlotObject_Pen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPen` instead
+    ///
+    pub const SetPen = setPen;
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#setPen)
     ///
@@ -198,10 +258,14 @@ pub const KPlotObject = extern struct {
     ///
     /// ` p: QPen `
     ///
-    pub fn SetPen(self: KPlotObject, p: anytype) void {
+    pub fn setPen(self: KPlotObject, p: anytype) void {
         comptime _ = @TypeOf(p)._is_QPen;
         qtc.KPlotObject_SetPen(@ptrCast(self.ptr), @ptrCast(p.ptr));
     }
+
+    /// ### DEPRECATED: Use `linePen` instead
+    ///
+    pub const LinePen = linePen;
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#linePen)
     ///
@@ -209,9 +273,13 @@ pub const KPlotObject = extern struct {
     ///
     /// ` self: KPlotObject `
     ///
-    pub fn LinePen(self: KPlotObject) QPen {
+    pub fn linePen(self: KPlotObject) QPen {
         return .{ .ptr = qtc.KPlotObject_LinePen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLinePen` instead
+    ///
+    pub const SetLinePen = setLinePen;
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#setLinePen)
     ///
@@ -221,10 +289,14 @@ pub const KPlotObject = extern struct {
     ///
     /// ` p: QPen `
     ///
-    pub fn SetLinePen(self: KPlotObject, p: anytype) void {
+    pub fn setLinePen(self: KPlotObject, p: anytype) void {
         comptime _ = @TypeOf(p)._is_QPen;
         qtc.KPlotObject_SetLinePen(@ptrCast(self.ptr), @ptrCast(p.ptr));
     }
+
+    /// ### DEPRECATED: Use `barPen` instead
+    ///
+    pub const BarPen = barPen;
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#barPen)
     ///
@@ -232,9 +304,13 @@ pub const KPlotObject = extern struct {
     ///
     /// ` self: KPlotObject `
     ///
-    pub fn BarPen(self: KPlotObject) QPen {
+    pub fn barPen(self: KPlotObject) QPen {
         return .{ .ptr = qtc.KPlotObject_BarPen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBarPen` instead
+    ///
+    pub const SetBarPen = setBarPen;
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#setBarPen)
     ///
@@ -244,10 +320,14 @@ pub const KPlotObject = extern struct {
     ///
     /// ` p: QPen `
     ///
-    pub fn SetBarPen(self: KPlotObject, p: anytype) void {
+    pub fn setBarPen(self: KPlotObject, p: anytype) void {
         comptime _ = @TypeOf(p)._is_QPen;
         qtc.KPlotObject_SetBarPen(@ptrCast(self.ptr), @ptrCast(p.ptr));
     }
+
+    /// ### DEPRECATED: Use `labelPen` instead
+    ///
+    pub const LabelPen = labelPen;
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#labelPen)
     ///
@@ -255,9 +335,13 @@ pub const KPlotObject = extern struct {
     ///
     /// ` self: KPlotObject `
     ///
-    pub fn LabelPen(self: KPlotObject) QPen {
+    pub fn labelPen(self: KPlotObject) QPen {
         return .{ .ptr = qtc.KPlotObject_LabelPen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLabelPen` instead
+    ///
+    pub const SetLabelPen = setLabelPen;
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#setLabelPen)
     ///
@@ -267,10 +351,14 @@ pub const KPlotObject = extern struct {
     ///
     /// ` p: QPen `
     ///
-    pub fn SetLabelPen(self: KPlotObject, p: anytype) void {
+    pub fn setLabelPen(self: KPlotObject, p: anytype) void {
         comptime _ = @TypeOf(p)._is_QPen;
         qtc.KPlotObject_SetLabelPen(@ptrCast(self.ptr), @ptrCast(p.ptr));
     }
+
+    /// ### DEPRECATED: Use `brush` instead
+    ///
+    pub const Brush = brush;
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#brush)
     ///
@@ -278,9 +366,13 @@ pub const KPlotObject = extern struct {
     ///
     /// ` self: KPlotObject `
     ///
-    pub fn Brush(self: KPlotObject) QBrush {
+    pub fn brush(self: KPlotObject) QBrush {
         return .{ .ptr = qtc.KPlotObject_Brush(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBrush` instead
+    ///
+    pub const SetBrush = setBrush;
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#setBrush)
     ///
@@ -290,10 +382,14 @@ pub const KPlotObject = extern struct {
     ///
     /// ` b: QBrush `
     ///
-    pub fn SetBrush(self: KPlotObject, b: anytype) void {
+    pub fn setBrush(self: KPlotObject, b: anytype) void {
         comptime _ = @TypeOf(b)._is_QBrush;
         qtc.KPlotObject_SetBrush(@ptrCast(self.ptr), @ptrCast(b.ptr));
     }
+
+    /// ### DEPRECATED: Use `barBrush` instead
+    ///
+    pub const BarBrush = barBrush;
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#barBrush)
     ///
@@ -301,9 +397,13 @@ pub const KPlotObject = extern struct {
     ///
     /// ` self: KPlotObject `
     ///
-    pub fn BarBrush(self: KPlotObject) QBrush {
+    pub fn barBrush(self: KPlotObject) QBrush {
         return .{ .ptr = qtc.KPlotObject_BarBrush(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBarBrush` instead
+    ///
+    pub const SetBarBrush = setBarBrush;
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#setBarBrush)
     ///
@@ -313,10 +413,14 @@ pub const KPlotObject = extern struct {
     ///
     /// ` b: QBrush `
     ///
-    pub fn SetBarBrush(self: KPlotObject, b: anytype) void {
+    pub fn setBarBrush(self: KPlotObject, b: anytype) void {
         comptime _ = @TypeOf(b)._is_QBrush;
         qtc.KPlotObject_SetBarBrush(@ptrCast(self.ptr), @ptrCast(b.ptr));
     }
+
+    /// ### DEPRECATED: Use `points` instead
+    ///
+    pub const Points = points;
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#points)
     ///
@@ -326,15 +430,19 @@ pub const KPlotObject = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Points(self: KPlotObject, allocator: std.mem.Allocator) []KPlotPoint {
+    pub fn points(self: KPlotObject, allocator: std.mem.Allocator) []KPlotPoint {
         const _arr: qtc.libqt_list = qtc.KPlotObject_Points(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KPlotPoint, _arr.len) catch @panic("KPlotObject.Points: Memory allocation failed");
-        const _data: [*]QtC.KPlotPoint = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(KPlotPoint, _arr.len) catch @panic("KPlotObject.points: Memory allocation failed");
+        const _data_val: [*]QtC.KPlotPoint = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addPoint` instead
+    ///
+    pub const AddPoint = addPoint;
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#addPoint)
     ///
@@ -344,10 +452,14 @@ pub const KPlotObject = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn AddPoint(self: KPlotObject, p: anytype) void {
+    pub fn addPoint(self: KPlotObject, p: anytype) void {
         comptime _ = @TypeOf(p)._is_QPointF;
         qtc.KPlotObject_AddPoint(@ptrCast(self.ptr), @ptrCast(p.ptr));
     }
+
+    /// ### DEPRECATED: Use `addPoint2` instead
+    ///
+    pub const AddPoint2 = addPoint2;
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#addPoint)
     ///
@@ -357,10 +469,14 @@ pub const KPlotObject = extern struct {
     ///
     /// ` p: KPlotPoint `
     ///
-    pub fn AddPoint2(self: KPlotObject, p: anytype) void {
+    pub fn addPoint2(self: KPlotObject, p: anytype) void {
         comptime _ = @TypeOf(p)._is_KPlotPoint;
         qtc.KPlotObject_AddPoint2(@ptrCast(self.ptr), @ptrCast(p.ptr));
     }
+
+    /// ### DEPRECATED: Use `addPoint3` instead
+    ///
+    pub const AddPoint3 = addPoint3;
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#addPoint)
     ///
@@ -372,9 +488,13 @@ pub const KPlotObject = extern struct {
     ///
     /// ` y: f64 `
     ///
-    pub fn AddPoint3(self: KPlotObject, x: f64, y: f64) void {
+    pub fn addPoint3(self: KPlotObject, x: f64, y: f64) void {
         qtc.KPlotObject_AddPoint3(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
     }
+
+    /// ### DEPRECATED: Use `removePoint` instead
+    ///
+    pub const RemovePoint = removePoint;
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#removePoint)
     ///
@@ -384,9 +504,13 @@ pub const KPlotObject = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn RemovePoint(self: KPlotObject, index: i32) void {
+    pub fn removePoint(self: KPlotObject, index: i32) void {
         qtc.KPlotObject_RemovePoint(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `clearPoints` instead
+    ///
+    pub const ClearPoints = clearPoints;
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#clearPoints)
     ///
@@ -394,9 +518,13 @@ pub const KPlotObject = extern struct {
     ///
     /// ` self: KPlotObject `
     ///
-    pub fn ClearPoints(self: KPlotObject) void {
+    pub fn clearPoints(self: KPlotObject) void {
         qtc.KPlotObject_ClearPoints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `draw` instead
+    ///
+    pub const Draw = draw;
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#draw)
     ///
@@ -408,11 +536,15 @@ pub const KPlotObject = extern struct {
     ///
     /// ` pw: KPlotWidget `
     ///
-    pub fn Draw(self: KPlotObject, p: anytype, pw: anytype) void {
+    pub fn draw(self: KPlotObject, p: anytype, pw: anytype) void {
         comptime _ = @TypeOf(p)._is_QPainter;
         comptime _ = @TypeOf(pw)._is_KPlotWidget;
         qtc.KPlotObject_Draw(@ptrCast(self.ptr), @ptrCast(p.ptr), @ptrCast(pw.ptr));
     }
+
+    /// ### DEPRECATED: Use `addPoint22` instead
+    ///
+    pub const AddPoint22 = addPoint22;
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#addPoint)
     ///
@@ -424,7 +556,7 @@ pub const KPlotObject = extern struct {
     ///
     /// ` label: []const u8 `
     ///
-    pub fn AddPoint22(self: KPlotObject, p: anytype, label: []const u8) void {
+    pub fn addPoint22(self: KPlotObject, p: anytype, label: []const u8) void {
         comptime _ = @TypeOf(p)._is_QPointF;
         const label_str = qtc.libqt_string{
             .len = label.len,
@@ -433,6 +565,10 @@ pub const KPlotObject = extern struct {
         qtc.KPlotObject_AddPoint22(@ptrCast(self.ptr), @ptrCast(p.ptr), label_str);
     }
 
+    /// ### DEPRECATED: Use `addPoint32` instead
+    ///
+    pub const AddPoint32 = addPoint32;
+
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#addPoint)
     ///
     /// ## Parameter(s):
@@ -445,7 +581,7 @@ pub const KPlotObject = extern struct {
     ///
     /// ` barWidth: f64 `
     ///
-    pub fn AddPoint32(self: KPlotObject, p: anytype, label: []const u8, barWidth: f64) void {
+    pub fn addPoint32(self: KPlotObject, p: anytype, label: []const u8, barWidth: f64) void {
         comptime _ = @TypeOf(p)._is_QPointF;
         const label_str = qtc.libqt_string{
             .len = label.len,
@@ -453,6 +589,10 @@ pub const KPlotObject = extern struct {
         };
         qtc.KPlotObject_AddPoint32(@ptrCast(self.ptr), @ptrCast(p.ptr), label_str, @bitCast(barWidth));
     }
+
+    /// ### DEPRECATED: Use `addPoint33` instead
+    ///
+    pub const AddPoint33 = addPoint33;
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#addPoint)
     ///
@@ -466,13 +606,17 @@ pub const KPlotObject = extern struct {
     ///
     /// ` label: []const u8 `
     ///
-    pub fn AddPoint33(self: KPlotObject, x: f64, y: f64, label: []const u8) void {
+    pub fn addPoint33(self: KPlotObject, x: f64, y: f64, label: []const u8) void {
         const label_str = qtc.libqt_string{
             .len = label.len,
             .data = label.ptr,
         };
         qtc.KPlotObject_AddPoint33(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), label_str);
     }
+
+    /// ### DEPRECATED: Use `addPoint4` instead
+    ///
+    pub const AddPoint4 = addPoint4;
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#addPoint)
     ///
@@ -488,7 +632,7 @@ pub const KPlotObject = extern struct {
     ///
     /// ` barWidth: f64 `
     ///
-    pub fn AddPoint4(self: KPlotObject, x: f64, y: f64, label: []const u8, barWidth: f64) void {
+    pub fn addPoint4(self: KPlotObject, x: f64, y: f64, label: []const u8, barWidth: f64) void {
         const label_str = qtc.libqt_string{
             .len = label.len,
             .data = label.ptr,
@@ -496,19 +640,19 @@ pub const KPlotObject = extern struct {
         qtc.KPlotObject_AddPoint4(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), label_str, @bitCast(barWidth));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#dtor.KPlotObject)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KPlotObject `
     ///
-    pub fn Delete(self: KPlotObject) void {
+    pub fn delete(self: KPlotObject) void {
         qtc.KPlotObject_Delete(@ptrCast(self.ptr));
     }
 };

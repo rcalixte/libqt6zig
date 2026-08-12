@@ -16,13 +16,21 @@ pub const QCborStreamReader = extern struct {
 
     pub const _is_QCborStreamReader = {};
 
-    /// New constructs a new QCborStreamReader object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QCborStreamReader {
+    pub const New = new;
+
+    /// Allocate a new QCborStreamReader object in C++ memory
+    ///
+    pub fn new() QCborStreamReader {
         return .{ .ptr = qtc.QCborStreamReader_new() };
     }
 
-    /// New2 constructs a new QCborStreamReader object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QCborStreamReader object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -30,12 +38,16 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` len: isize `
     ///
-    pub fn New2(data: [:0]const u8, len: isize) QCborStreamReader {
+    pub fn new2(data: [:0]const u8, len: isize) QCborStreamReader {
         const data_Cstring = data.ptr;
         return .{ .ptr = qtc.QCborStreamReader_new2(data_Cstring, @bitCast(len)) };
     }
 
-    /// New3 constructs a new QCborStreamReader object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QCborStreamReader object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -43,17 +55,21 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` len: isize `
     ///
-    pub fn New3(data: *const u8, len: isize) QCborStreamReader {
+    pub fn new3(data: *const u8, len: isize) QCborStreamReader {
         return .{ .ptr = qtc.QCborStreamReader_new3(@ptrCast(data), @bitCast(len)) };
     }
 
-    /// New4 constructs a new QCborStreamReader object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QCborStreamReader object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` data: []u8 `
     ///
-    pub fn New4(data: []u8) QCborStreamReader {
+    pub fn new4(data: []u8) QCborStreamReader {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -61,16 +77,24 @@ pub const QCborStreamReader = extern struct {
         return .{ .ptr = qtc.QCborStreamReader_new4(data_str) };
     }
 
-    /// New5 constructs a new QCborStreamReader object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QCborStreamReader object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` device: QIODevice `
+    /// ` _device: QIODevice `
     ///
-    pub fn New5(device: anytype) QCborStreamReader {
-        comptime _ = @TypeOf(device)._is_QIODevice;
-        return .{ .ptr = qtc.QCborStreamReader_new5(@ptrCast(device.ptr)) };
+    pub fn new5(_device: anytype) QCborStreamReader {
+        comptime _ = @TypeOf(_device)._is_QIODevice;
+        return .{ .ptr = qtc.QCborStreamReader_new5(@ptrCast(_device.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setDevice` instead
+    ///
+    pub const SetDevice = setDevice;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#setDevice)
     ///
@@ -78,12 +102,16 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` self: QCborStreamReader `
     ///
-    /// ` device: QIODevice `
+    /// ` _device: QIODevice `
     ///
-    pub fn SetDevice(self: QCborStreamReader, device: anytype) void {
-        comptime _ = @TypeOf(device)._is_QIODevice;
-        qtc.QCborStreamReader_SetDevice(@ptrCast(self.ptr), @ptrCast(device.ptr));
+    pub fn setDevice(self: QCborStreamReader, _device: anytype) void {
+        comptime _ = @TypeOf(_device)._is_QIODevice;
+        qtc.QCborStreamReader_SetDevice(@ptrCast(self.ptr), @ptrCast(_device.ptr));
     }
+
+    /// ### DEPRECATED: Use `device` instead
+    ///
+    pub const Device = device;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#device)
     ///
@@ -91,9 +119,13 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` self: QCborStreamReader `
     ///
-    pub fn Device(self: QCborStreamReader) QIODevice {
+    pub fn device(self: QCborStreamReader) QIODevice {
         return .{ .ptr = qtc.QCborStreamReader_Device(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addData` instead
+    ///
+    pub const AddData = addData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#addData)
     ///
@@ -103,13 +135,17 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` data: []u8 `
     ///
-    pub fn AddData(self: QCborStreamReader, data: []u8) void {
+    pub fn addData(self: QCborStreamReader, data: []u8) void {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
         qtc.QCborStreamReader_AddData(@ptrCast(self.ptr), data_str);
     }
+
+    /// ### DEPRECATED: Use `addData2` instead
+    ///
+    pub const AddData2 = addData2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#addData)
     ///
@@ -121,10 +157,14 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` len: isize `
     ///
-    pub fn AddData2(self: QCborStreamReader, data: [:0]const u8, len: isize) void {
+    pub fn addData2(self: QCborStreamReader, data: [:0]const u8, len: isize) void {
         const data_Cstring = data.ptr;
         qtc.QCborStreamReader_AddData2(@ptrCast(self.ptr), data_Cstring, @bitCast(len));
     }
+
+    /// ### DEPRECATED: Use `addData3` instead
+    ///
+    pub const AddData3 = addData3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#addData)
     ///
@@ -136,9 +176,13 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` len: isize `
     ///
-    pub fn AddData3(self: QCborStreamReader, data: *const u8, len: isize) void {
+    pub fn addData3(self: QCborStreamReader, data: *const u8, len: isize) void {
         qtc.QCborStreamReader_AddData3(@ptrCast(self.ptr), @ptrCast(data), @bitCast(len));
     }
+
+    /// ### DEPRECATED: Use `reparse` instead
+    ///
+    pub const Reparse = reparse;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#reparse)
     ///
@@ -146,9 +190,13 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` self: QCborStreamReader `
     ///
-    pub fn Reparse(self: QCborStreamReader) void {
+    pub fn reparse(self: QCborStreamReader) void {
         qtc.QCborStreamReader_Reparse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#clear)
     ///
@@ -156,9 +204,13 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` self: QCborStreamReader `
     ///
-    pub fn Clear(self: QCborStreamReader) void {
+    pub fn clear(self: QCborStreamReader) void {
         qtc.QCborStreamReader_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `reset` instead
+    ///
+    pub const Reset = reset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#reset)
     ///
@@ -166,9 +218,13 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` self: QCborStreamReader `
     ///
-    pub fn Reset(self: QCborStreamReader) void {
+    pub fn reset(self: QCborStreamReader) void {
         qtc.QCborStreamReader_Reset(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lastError` instead
+    ///
+    pub const LastError = lastError;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#lastError)
     ///
@@ -176,9 +232,13 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` self: QCborStreamReader `
     ///
-    pub fn LastError(self: QCborStreamReader) QCborError {
+    pub fn lastError(self: QCborStreamReader) QCborError {
         return .{ .ptr = qtc.QCborStreamReader_LastError(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `currentOffset` instead
+    ///
+    pub const CurrentOffset = currentOffset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#currentOffset)
     ///
@@ -186,9 +246,13 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` self: QCborStreamReader `
     ///
-    pub fn CurrentOffset(self: QCborStreamReader) i64 {
+    pub fn currentOffset(self: QCborStreamReader) i64 {
         return qtc.QCborStreamReader_CurrentOffset(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#isValid)
     ///
@@ -196,9 +260,13 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` self: QCborStreamReader `
     ///
-    pub fn IsValid(self: QCborStreamReader) bool {
+    pub fn isValid(self: QCborStreamReader) bool {
         return qtc.QCborStreamReader_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `containerDepth` instead
+    ///
+    pub const ContainerDepth = containerDepth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#containerDepth)
     ///
@@ -206,9 +274,13 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` self: QCborStreamReader `
     ///
-    pub fn ContainerDepth(self: QCborStreamReader) i32 {
+    pub fn containerDepth(self: QCborStreamReader) i32 {
         return qtc.QCborStreamReader_ContainerDepth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `parentContainerType` instead
+    ///
+    pub const ParentContainerType = parentContainerType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#parentContainerType)
     ///
@@ -220,9 +292,13 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` qcborstreamreader_enums.Type `
     ///
-    pub fn ParentContainerType(self: QCborStreamReader) u8 {
+    pub fn parentContainerType(self: QCborStreamReader) u8 {
         return qtc.QCborStreamReader_ParentContainerType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasNext` instead
+    ///
+    pub const HasNext = hasNext;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#hasNext)
     ///
@@ -230,9 +306,13 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` self: QCborStreamReader `
     ///
-    pub fn HasNext(self: QCborStreamReader) bool {
+    pub fn hasNext(self: QCborStreamReader) bool {
         return qtc.QCborStreamReader_HasNext(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `next` instead
+    ///
+    pub const Next = next;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#next)
     ///
@@ -240,9 +320,15 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` self: QCborStreamReader `
     ///
-    pub fn Next(self: QCborStreamReader) bool {
+    pub fn next(self: QCborStreamReader) bool {
         return qtc.QCborStreamReader_Next(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#type)
     ///
@@ -254,9 +340,13 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` qcborstreamreader_enums.Type `
     ///
-    pub fn Type(self: QCborStreamReader) u8 {
+    pub fn type0(self: QCborStreamReader) u8 {
         return qtc.QCborStreamReader_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isUnsignedInteger` instead
+    ///
+    pub const IsUnsignedInteger = isUnsignedInteger;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#isUnsignedInteger)
     ///
@@ -264,9 +354,13 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` self: QCborStreamReader `
     ///
-    pub fn IsUnsignedInteger(self: QCborStreamReader) bool {
+    pub fn isUnsignedInteger(self: QCborStreamReader) bool {
         return qtc.QCborStreamReader_IsUnsignedInteger(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isNegativeInteger` instead
+    ///
+    pub const IsNegativeInteger = isNegativeInteger;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#isNegativeInteger)
     ///
@@ -274,9 +368,13 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` self: QCborStreamReader `
     ///
-    pub fn IsNegativeInteger(self: QCborStreamReader) bool {
+    pub fn isNegativeInteger(self: QCborStreamReader) bool {
         return qtc.QCborStreamReader_IsNegativeInteger(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isInteger` instead
+    ///
+    pub const IsInteger = isInteger;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#isInteger)
     ///
@@ -284,9 +382,13 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` self: QCborStreamReader `
     ///
-    pub fn IsInteger(self: QCborStreamReader) bool {
+    pub fn isInteger(self: QCborStreamReader) bool {
         return qtc.QCborStreamReader_IsInteger(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isByteArray` instead
+    ///
+    pub const IsByteArray = isByteArray;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#isByteArray)
     ///
@@ -294,9 +396,13 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` self: QCborStreamReader `
     ///
-    pub fn IsByteArray(self: QCborStreamReader) bool {
+    pub fn isByteArray(self: QCborStreamReader) bool {
         return qtc.QCborStreamReader_IsByteArray(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isString` instead
+    ///
+    pub const IsString = isString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#isString)
     ///
@@ -304,9 +410,13 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` self: QCborStreamReader `
     ///
-    pub fn IsString(self: QCborStreamReader) bool {
+    pub fn isString(self: QCborStreamReader) bool {
         return qtc.QCborStreamReader_IsString(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isArray` instead
+    ///
+    pub const IsArray = isArray;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#isArray)
     ///
@@ -314,9 +424,13 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` self: QCborStreamReader `
     ///
-    pub fn IsArray(self: QCborStreamReader) bool {
+    pub fn isArray(self: QCborStreamReader) bool {
         return qtc.QCborStreamReader_IsArray(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMap` instead
+    ///
+    pub const IsMap = isMap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#isMap)
     ///
@@ -324,9 +438,13 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` self: QCborStreamReader `
     ///
-    pub fn IsMap(self: QCborStreamReader) bool {
+    pub fn isMap(self: QCborStreamReader) bool {
         return qtc.QCborStreamReader_IsMap(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTag` instead
+    ///
+    pub const IsTag = isTag;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#isTag)
     ///
@@ -334,9 +452,13 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` self: QCborStreamReader `
     ///
-    pub fn IsTag(self: QCborStreamReader) bool {
+    pub fn isTag(self: QCborStreamReader) bool {
         return qtc.QCborStreamReader_IsTag(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSimpleType` instead
+    ///
+    pub const IsSimpleType = isSimpleType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#isSimpleType)
     ///
@@ -344,9 +466,13 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` self: QCborStreamReader `
     ///
-    pub fn IsSimpleType(self: QCborStreamReader) bool {
+    pub fn isSimpleType(self: QCborStreamReader) bool {
         return qtc.QCborStreamReader_IsSimpleType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFloat16` instead
+    ///
+    pub const IsFloat16 = isFloat16;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#isFloat16)
     ///
@@ -354,9 +480,13 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` self: QCborStreamReader `
     ///
-    pub fn IsFloat16(self: QCborStreamReader) bool {
+    pub fn isFloat16(self: QCborStreamReader) bool {
         return qtc.QCborStreamReader_IsFloat16(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFloat` instead
+    ///
+    pub const IsFloat = isFloat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#isFloat)
     ///
@@ -364,9 +494,13 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` self: QCborStreamReader `
     ///
-    pub fn IsFloat(self: QCborStreamReader) bool {
+    pub fn isFloat(self: QCborStreamReader) bool {
         return qtc.QCborStreamReader_IsFloat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDouble` instead
+    ///
+    pub const IsDouble = isDouble;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#isDouble)
     ///
@@ -374,9 +508,13 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` self: QCborStreamReader `
     ///
-    pub fn IsDouble(self: QCborStreamReader) bool {
+    pub fn isDouble(self: QCborStreamReader) bool {
         return qtc.QCborStreamReader_IsDouble(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isInvalid` instead
+    ///
+    pub const IsInvalid = isInvalid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#isInvalid)
     ///
@@ -384,9 +522,13 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` self: QCborStreamReader `
     ///
-    pub fn IsInvalid(self: QCborStreamReader) bool {
+    pub fn isInvalid(self: QCborStreamReader) bool {
         return qtc.QCborStreamReader_IsInvalid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSimpleType2` instead
+    ///
+    pub const IsSimpleType2 = isSimpleType2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#isSimpleType)
     ///
@@ -396,9 +538,13 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` st: qcborcommon_enums.QCborSimpleType `
     ///
-    pub fn IsSimpleType2(self: QCborStreamReader, st: u8) bool {
+    pub fn isSimpleType2(self: QCborStreamReader, st: u8) bool {
         return qtc.QCborStreamReader_IsSimpleType2(@ptrCast(self.ptr), @bitCast(st));
     }
+
+    /// ### DEPRECATED: Use `isFalse` instead
+    ///
+    pub const IsFalse = isFalse;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#isFalse)
     ///
@@ -406,9 +552,13 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` self: QCborStreamReader `
     ///
-    pub fn IsFalse(self: QCborStreamReader) bool {
+    pub fn isFalse(self: QCborStreamReader) bool {
         return qtc.QCborStreamReader_IsFalse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTrue` instead
+    ///
+    pub const IsTrue = isTrue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#isTrue)
     ///
@@ -416,9 +566,13 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` self: QCborStreamReader `
     ///
-    pub fn IsTrue(self: QCborStreamReader) bool {
+    pub fn isTrue(self: QCborStreamReader) bool {
         return qtc.QCborStreamReader_IsTrue(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isBool` instead
+    ///
+    pub const IsBool = isBool;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#isBool)
     ///
@@ -426,9 +580,13 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` self: QCborStreamReader `
     ///
-    pub fn IsBool(self: QCborStreamReader) bool {
+    pub fn isBool(self: QCborStreamReader) bool {
         return qtc.QCborStreamReader_IsBool(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isNull` instead
+    ///
+    pub const IsNull = isNull;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#isNull)
     ///
@@ -436,9 +594,13 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` self: QCborStreamReader `
     ///
-    pub fn IsNull(self: QCborStreamReader) bool {
+    pub fn isNull(self: QCborStreamReader) bool {
         return qtc.QCborStreamReader_IsNull(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isUndefined` instead
+    ///
+    pub const IsUndefined = isUndefined;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#isUndefined)
     ///
@@ -446,9 +608,13 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` self: QCborStreamReader `
     ///
-    pub fn IsUndefined(self: QCborStreamReader) bool {
+    pub fn isUndefined(self: QCborStreamReader) bool {
         return qtc.QCborStreamReader_IsUndefined(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLengthKnown` instead
+    ///
+    pub const IsLengthKnown = isLengthKnown;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#isLengthKnown)
     ///
@@ -456,9 +622,13 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` self: QCborStreamReader `
     ///
-    pub fn IsLengthKnown(self: QCborStreamReader) bool {
+    pub fn isLengthKnown(self: QCborStreamReader) bool {
         return qtc.QCborStreamReader_IsLengthKnown(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `length` instead
+    ///
+    pub const Length = length;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#length)
     ///
@@ -466,9 +636,13 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` self: QCborStreamReader `
     ///
-    pub fn Length(self: QCborStreamReader) u64 {
+    pub fn length(self: QCborStreamReader) u64 {
         return qtc.QCborStreamReader_Length(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isContainer` instead
+    ///
+    pub const IsContainer = isContainer;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#isContainer)
     ///
@@ -476,9 +650,13 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` self: QCborStreamReader `
     ///
-    pub fn IsContainer(self: QCborStreamReader) bool {
+    pub fn isContainer(self: QCborStreamReader) bool {
         return qtc.QCborStreamReader_IsContainer(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `enterContainer` instead
+    ///
+    pub const EnterContainer = enterContainer;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#enterContainer)
     ///
@@ -486,9 +664,13 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` self: QCborStreamReader `
     ///
-    pub fn EnterContainer(self: QCborStreamReader) bool {
+    pub fn enterContainer(self: QCborStreamReader) bool {
         return qtc.QCborStreamReader_EnterContainer(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `leaveContainer` instead
+    ///
+    pub const LeaveContainer = leaveContainer;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#leaveContainer)
     ///
@@ -496,9 +678,13 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` self: QCborStreamReader `
     ///
-    pub fn LeaveContainer(self: QCborStreamReader) bool {
+    pub fn leaveContainer(self: QCborStreamReader) bool {
         return qtc.QCborStreamReader_LeaveContainer(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `readAndAppendToString` instead
+    ///
+    pub const ReadAndAppendToString = readAndAppendToString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#readAndAppendToString)
     ///
@@ -508,13 +694,17 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` dst: []const u8 `
     ///
-    pub fn ReadAndAppendToString(self: QCborStreamReader, dst: []const u8) bool {
+    pub fn readAndAppendToString(self: QCborStreamReader, dst: []const u8) bool {
         const dst_str = qtc.libqt_string{
             .len = dst.len,
             .data = dst.ptr,
         };
         return qtc.QCborStreamReader_ReadAndAppendToString(@ptrCast(self.ptr), dst_str);
     }
+
+    /// ### DEPRECATED: Use `readAndAppendToUtf8String` instead
+    ///
+    pub const ReadAndAppendToUtf8String = readAndAppendToUtf8String;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#readAndAppendToUtf8String)
     ///
@@ -524,13 +714,17 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` dst: []u8 `
     ///
-    pub fn ReadAndAppendToUtf8String(self: QCborStreamReader, dst: []u8) bool {
+    pub fn readAndAppendToUtf8String(self: QCborStreamReader, dst: []u8) bool {
         const dst_str = qtc.libqt_string{
             .len = dst.len,
             .data = dst.ptr,
         };
         return qtc.QCborStreamReader_ReadAndAppendToUtf8String(@ptrCast(self.ptr), dst_str);
     }
+
+    /// ### DEPRECATED: Use `readAndAppendToByteArray` instead
+    ///
+    pub const ReadAndAppendToByteArray = readAndAppendToByteArray;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#readAndAppendToByteArray)
     ///
@@ -540,7 +734,7 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` dst: []u8 `
     ///
-    pub fn ReadAndAppendToByteArray(self: QCborStreamReader, dst: []u8) bool {
+    pub fn readAndAppendToByteArray(self: QCborStreamReader, dst: []u8) bool {
         const dst_str = qtc.libqt_string{
             .len = dst.len,
             .data = dst.ptr,
@@ -548,15 +742,23 @@ pub const QCborStreamReader = extern struct {
         return qtc.QCborStreamReader_ReadAndAppendToByteArray(@ptrCast(self.ptr), dst_str);
     }
 
+    /// ### DEPRECATED: Use `currentStringChunkSize` instead
+    ///
+    pub const CurrentStringChunkSize = currentStringChunkSize;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#currentStringChunkSize)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QCborStreamReader `
     ///
-    pub fn CurrentStringChunkSize(self: QCborStreamReader) isize {
+    pub fn currentStringChunkSize(self: QCborStreamReader) isize {
         return qtc.QCborStreamReader_CurrentStringChunkSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toBool` instead
+    ///
+    pub const ToBool = toBool;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#toBool)
     ///
@@ -564,9 +766,13 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` self: QCborStreamReader `
     ///
-    pub fn ToBool(self: QCborStreamReader) bool {
+    pub fn toBool(self: QCborStreamReader) bool {
         return qtc.QCborStreamReader_ToBool(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toTag` instead
+    ///
+    pub const ToTag = toTag;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#toTag)
     ///
@@ -578,9 +784,13 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` qcborcommon_enums.QCborTag `
     ///
-    pub fn ToTag(self: QCborStreamReader) u64 {
+    pub fn toTag(self: QCborStreamReader) u64 {
         return qtc.QCborStreamReader_ToTag(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toUnsignedInteger` instead
+    ///
+    pub const ToUnsignedInteger = toUnsignedInteger;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#toUnsignedInteger)
     ///
@@ -588,9 +798,13 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` self: QCborStreamReader `
     ///
-    pub fn ToUnsignedInteger(self: QCborStreamReader) u64 {
+    pub fn toUnsignedInteger(self: QCborStreamReader) u64 {
         return qtc.QCborStreamReader_ToUnsignedInteger(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toNegativeInteger` instead
+    ///
+    pub const ToNegativeInteger = toNegativeInteger;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#toNegativeInteger)
     ///
@@ -602,9 +816,13 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` qcborcommon_enums.QCborNegativeInteger `
     ///
-    pub fn ToNegativeInteger(self: QCborStreamReader) u64 {
+    pub fn toNegativeInteger(self: QCborStreamReader) u64 {
         return qtc.QCborStreamReader_ToNegativeInteger(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toSimpleType` instead
+    ///
+    pub const ToSimpleType = toSimpleType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#toSimpleType)
     ///
@@ -616,9 +834,13 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` qcborcommon_enums.QCborSimpleType `
     ///
-    pub fn ToSimpleType(self: QCborStreamReader) u8 {
+    pub fn toSimpleType(self: QCborStreamReader) u8 {
         return qtc.QCborStreamReader_ToSimpleType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toFloat` instead
+    ///
+    pub const ToFloat = toFloat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#toFloat)
     ///
@@ -626,9 +848,13 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` self: QCborStreamReader `
     ///
-    pub fn ToFloat(self: QCborStreamReader) f32 {
+    pub fn toFloat(self: QCborStreamReader) f32 {
         return qtc.QCborStreamReader_ToFloat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toDouble` instead
+    ///
+    pub const ToDouble = toDouble;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#toDouble)
     ///
@@ -636,9 +862,13 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` self: QCborStreamReader `
     ///
-    pub fn ToDouble(self: QCborStreamReader) f64 {
+    pub fn toDouble(self: QCborStreamReader) f64 {
         return qtc.QCborStreamReader_ToDouble(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toInteger` instead
+    ///
+    pub const ToInteger = toInteger;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#toInteger)
     ///
@@ -646,9 +876,13 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` self: QCborStreamReader `
     ///
-    pub fn ToInteger(self: QCborStreamReader) i64 {
+    pub fn toInteger(self: QCborStreamReader) i64 {
         return qtc.QCborStreamReader_ToInteger(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `readAllString` instead
+    ///
+    pub const ReadAllString = readAllString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#readAllString)
     ///
@@ -658,13 +892,17 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadAllString(self: QCborStreamReader, allocator: std.mem.Allocator) []const u8 {
+    pub fn readAllString(self: QCborStreamReader, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCborStreamReader_ReadAllString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCborStreamReader.ReadAllString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCborStreamReader.readAllString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `readAllUtf8String` instead
+    ///
+    pub const ReadAllUtf8String = readAllUtf8String;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#readAllUtf8String)
     ///
@@ -674,13 +912,17 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadAllUtf8String(self: QCborStreamReader, allocator: std.mem.Allocator) []u8 {
+    pub fn readAllUtf8String(self: QCborStreamReader, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QCborStreamReader_ReadAllUtf8String(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QCborStreamReader.ReadAllUtf8String: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QCborStreamReader.readAllUtf8String: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `readAllByteArray` instead
+    ///
+    pub const ReadAllByteArray = readAllByteArray;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#readAllByteArray)
     ///
@@ -690,13 +932,17 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadAllByteArray(self: QCborStreamReader, allocator: std.mem.Allocator) []u8 {
+    pub fn readAllByteArray(self: QCborStreamReader, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QCborStreamReader_ReadAllByteArray(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QCborStreamReader.ReadAllByteArray: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QCborStreamReader.readAllByteArray: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `next1` instead
+    ///
+    pub const Next1 = next1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#next)
     ///
@@ -706,23 +952,23 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` maxRecursion: i32 `
     ///
-    pub fn Next1(self: QCborStreamReader, maxRecursion: i32) bool {
+    pub fn next1(self: QCborStreamReader, maxRecursion: i32) bool {
         return qtc.QCborStreamReader_Next1(@ptrCast(self.ptr), @bitCast(maxRecursion));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#dtor.QCborStreamReader)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QCborStreamReader `
     ///
-    pub fn Delete(self: QCborStreamReader) void {
+    pub fn delete(self: QCborStreamReader) void {
         qtc.QCborStreamReader_Delete(@ptrCast(self.ptr));
     }
 };

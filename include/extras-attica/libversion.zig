@@ -12,27 +12,43 @@ pub const Attica = extern struct {
 
     pub const _is_Attica = {};
 
+    /// ### DEPRECATED: Use `versionMajor` instead
+    ///
+    pub const VersionMajor = versionMajor;
+
     /// ### [Upstream resources](https://api.kde.org/attica.html#versionMajor)
     ///
-    pub fn VersionMajor() u32 {
+    pub fn versionMajor() u32 {
         return qtc.Attica_VersionMajor();
     }
 
+    /// ### DEPRECATED: Use `versionMinor` instead
+    ///
+    pub const VersionMinor = versionMinor;
+
     /// ### [Upstream resources](https://api.kde.org/attica.html#versionMinor)
     ///
-    pub fn VersionMinor() u32 {
+    pub fn versionMinor() u32 {
         return qtc.Attica_VersionMinor();
     }
 
+    /// ### DEPRECATED: Use `versionRelease` instead
+    ///
+    pub const VersionRelease = versionRelease;
+
     /// ### [Upstream resources](https://api.kde.org/attica.html#versionRelease)
     ///
-    pub fn VersionRelease() u32 {
+    pub fn versionRelease() u32 {
         return qtc.Attica_VersionRelease();
     }
 
+    /// ### DEPRECATED: Use `versionString` instead
+    ///
+    pub const VersionString = versionString;
+
     /// ### [Upstream resources](https://api.kde.org/attica.html#versionString)
     ///
-    pub fn VersionString() [:0]const u8 {
+    pub fn versionString() [:0]const u8 {
         const _ret = qtc.Attica_VersionString();
         return std.mem.span(_ret);
     }

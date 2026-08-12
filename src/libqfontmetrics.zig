@@ -21,18 +21,26 @@ pub const QFontMetrics = extern struct {
 
     pub const _is_QFontMetrics = {};
 
-    /// New constructs a new QFontMetrics object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QFontMetrics object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QFont `
     ///
-    pub fn New(param1: anytype) QFontMetrics {
+    pub fn new(param1: anytype) QFontMetrics {
         comptime _ = @TypeOf(param1)._is_QFont;
         return .{ .ptr = qtc.QFontMetrics_new(@ptrCast(param1.ptr)) };
     }
 
-    /// New2 constructs a new QFontMetrics object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QFontMetrics object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -40,22 +48,30 @@ pub const QFontMetrics = extern struct {
     ///
     /// ` pd: QPaintDevice `
     ///
-    pub fn New2(font: anytype, pd: anytype) QFontMetrics {
+    pub fn new2(font: anytype, pd: anytype) QFontMetrics {
         comptime _ = @TypeOf(font)._is_QFont;
         comptime _ = @TypeOf(pd)._is_QPaintDevice;
         return .{ .ptr = qtc.QFontMetrics_new2(@ptrCast(font.ptr), @ptrCast(pd.ptr)) };
     }
 
-    /// New3 constructs a new QFontMetrics object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QFontMetrics object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QFontMetrics `
     ///
-    pub fn New3(param1: anytype) QFontMetrics {
+    pub fn new3(param1: anytype) QFontMetrics {
         comptime _ = @TypeOf(param1)._is_QFontMetrics;
         return .{ .ptr = qtc.QFontMetrics_new3(@ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#operator-eq)
     ///
@@ -65,10 +81,14 @@ pub const QFontMetrics = extern struct {
     ///
     /// ` param1: QFontMetrics `
     ///
-    pub fn OperatorAssign(self: QFontMetrics, param1: anytype) void {
+    pub fn operatorAssign(self: QFontMetrics, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QFontMetrics;
         qtc.QFontMetrics_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#swap)
     ///
@@ -78,10 +98,14 @@ pub const QFontMetrics = extern struct {
     ///
     /// ` other: QFontMetrics `
     ///
-    pub fn Swap(self: QFontMetrics, other: anytype) void {
+    pub fn swap(self: QFontMetrics, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QFontMetrics;
         qtc.QFontMetrics_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `ascent` instead
+    ///
+    pub const Ascent = ascent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#ascent)
     ///
@@ -89,9 +113,13 @@ pub const QFontMetrics = extern struct {
     ///
     /// ` self: QFontMetrics `
     ///
-    pub fn Ascent(self: QFontMetrics) i32 {
+    pub fn ascent(self: QFontMetrics) i32 {
         return qtc.QFontMetrics_Ascent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `capHeight` instead
+    ///
+    pub const CapHeight = capHeight;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#capHeight)
     ///
@@ -99,9 +127,13 @@ pub const QFontMetrics = extern struct {
     ///
     /// ` self: QFontMetrics `
     ///
-    pub fn CapHeight(self: QFontMetrics) i32 {
+    pub fn capHeight(self: QFontMetrics) i32 {
         return qtc.QFontMetrics_CapHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `descent` instead
+    ///
+    pub const Descent = descent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#descent)
     ///
@@ -109,9 +141,13 @@ pub const QFontMetrics = extern struct {
     ///
     /// ` self: QFontMetrics `
     ///
-    pub fn Descent(self: QFontMetrics) i32 {
+    pub fn descent(self: QFontMetrics) i32 {
         return qtc.QFontMetrics_Descent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#height)
     ///
@@ -119,9 +155,13 @@ pub const QFontMetrics = extern struct {
     ///
     /// ` self: QFontMetrics `
     ///
-    pub fn Height(self: QFontMetrics) i32 {
+    pub fn height(self: QFontMetrics) i32 {
         return qtc.QFontMetrics_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `leading` instead
+    ///
+    pub const Leading = leading;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#leading)
     ///
@@ -129,9 +169,13 @@ pub const QFontMetrics = extern struct {
     ///
     /// ` self: QFontMetrics `
     ///
-    pub fn Leading(self: QFontMetrics) i32 {
+    pub fn leading(self: QFontMetrics) i32 {
         return qtc.QFontMetrics_Leading(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lineSpacing` instead
+    ///
+    pub const LineSpacing = lineSpacing;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#lineSpacing)
     ///
@@ -139,9 +183,13 @@ pub const QFontMetrics = extern struct {
     ///
     /// ` self: QFontMetrics `
     ///
-    pub fn LineSpacing(self: QFontMetrics) i32 {
+    pub fn lineSpacing(self: QFontMetrics) i32 {
         return qtc.QFontMetrics_LineSpacing(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minLeftBearing` instead
+    ///
+    pub const MinLeftBearing = minLeftBearing;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#minLeftBearing)
     ///
@@ -149,9 +197,13 @@ pub const QFontMetrics = extern struct {
     ///
     /// ` self: QFontMetrics `
     ///
-    pub fn MinLeftBearing(self: QFontMetrics) i32 {
+    pub fn minLeftBearing(self: QFontMetrics) i32 {
         return qtc.QFontMetrics_MinLeftBearing(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minRightBearing` instead
+    ///
+    pub const MinRightBearing = minRightBearing;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#minRightBearing)
     ///
@@ -159,9 +211,13 @@ pub const QFontMetrics = extern struct {
     ///
     /// ` self: QFontMetrics `
     ///
-    pub fn MinRightBearing(self: QFontMetrics) i32 {
+    pub fn minRightBearing(self: QFontMetrics) i32 {
         return qtc.QFontMetrics_MinRightBearing(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maxWidth` instead
+    ///
+    pub const MaxWidth = maxWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#maxWidth)
     ///
@@ -169,9 +225,13 @@ pub const QFontMetrics = extern struct {
     ///
     /// ` self: QFontMetrics `
     ///
-    pub fn MaxWidth(self: QFontMetrics) i32 {
+    pub fn maxWidth(self: QFontMetrics) i32 {
         return qtc.QFontMetrics_MaxWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `xHeight` instead
+    ///
+    pub const XHeight = xHeight;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#xHeight)
     ///
@@ -179,9 +239,13 @@ pub const QFontMetrics = extern struct {
     ///
     /// ` self: QFontMetrics `
     ///
-    pub fn XHeight(self: QFontMetrics) i32 {
+    pub fn xHeight(self: QFontMetrics) i32 {
         return qtc.QFontMetrics_XHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `averageCharWidth` instead
+    ///
+    pub const AverageCharWidth = averageCharWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#averageCharWidth)
     ///
@@ -189,9 +253,13 @@ pub const QFontMetrics = extern struct {
     ///
     /// ` self: QFontMetrics `
     ///
-    pub fn AverageCharWidth(self: QFontMetrics) i32 {
+    pub fn averageCharWidth(self: QFontMetrics) i32 {
         return qtc.QFontMetrics_AverageCharWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `inFont` instead
+    ///
+    pub const InFont = inFont;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#inFont)
     ///
@@ -201,10 +269,14 @@ pub const QFontMetrics = extern struct {
     ///
     /// ` param1: QChar `
     ///
-    pub fn InFont(self: QFontMetrics, param1: anytype) bool {
+    pub fn inFont(self: QFontMetrics, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QChar;
         return qtc.QFontMetrics_InFont(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `inFontUcs4` instead
+    ///
+    pub const InFontUcs4 = inFontUcs4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#inFontUcs4)
     ///
@@ -214,9 +286,13 @@ pub const QFontMetrics = extern struct {
     ///
     /// ` ucs4: u32 `
     ///
-    pub fn InFontUcs4(self: QFontMetrics, ucs4: u32) bool {
+    pub fn inFontUcs4(self: QFontMetrics, ucs4: u32) bool {
         return qtc.QFontMetrics_InFontUcs4(@ptrCast(self.ptr), @bitCast(ucs4));
     }
+
+    /// ### DEPRECATED: Use `leftBearing` instead
+    ///
+    pub const LeftBearing = leftBearing;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#leftBearing)
     ///
@@ -226,10 +302,14 @@ pub const QFontMetrics = extern struct {
     ///
     /// ` param1: QChar `
     ///
-    pub fn LeftBearing(self: QFontMetrics, param1: anytype) i32 {
+    pub fn leftBearing(self: QFontMetrics, param1: anytype) i32 {
         comptime _ = @TypeOf(param1)._is_QChar;
         return qtc.QFontMetrics_LeftBearing(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `rightBearing` instead
+    ///
+    pub const RightBearing = rightBearing;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#rightBearing)
     ///
@@ -239,10 +319,14 @@ pub const QFontMetrics = extern struct {
     ///
     /// ` param1: QChar `
     ///
-    pub fn RightBearing(self: QFontMetrics, param1: anytype) i32 {
+    pub fn rightBearing(self: QFontMetrics, param1: anytype) i32 {
         comptime _ = @TypeOf(param1)._is_QChar;
         return qtc.QFontMetrics_RightBearing(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `horizontalAdvance` instead
+    ///
+    pub const HorizontalAdvance = horizontalAdvance;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#horizontalAdvance)
     ///
@@ -252,13 +336,17 @@ pub const QFontMetrics = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn HorizontalAdvance(self: QFontMetrics, param1: []const u8) i32 {
+    pub fn horizontalAdvance(self: QFontMetrics, param1: []const u8) i32 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
         return qtc.QFontMetrics_HorizontalAdvance(@ptrCast(self.ptr), param1_str);
     }
+
+    /// ### DEPRECATED: Use `horizontalAdvance2` instead
+    ///
+    pub const HorizontalAdvance2 = horizontalAdvance2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#horizontalAdvance)
     ///
@@ -270,7 +358,7 @@ pub const QFontMetrics = extern struct {
     ///
     /// ` textOption: QTextOption `
     ///
-    pub fn HorizontalAdvance2(self: QFontMetrics, param1: []const u8, textOption: anytype) i32 {
+    pub fn horizontalAdvance2(self: QFontMetrics, param1: []const u8, textOption: anytype) i32 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -279,6 +367,10 @@ pub const QFontMetrics = extern struct {
         return qtc.QFontMetrics_HorizontalAdvance2(@ptrCast(self.ptr), param1_str, @ptrCast(textOption.ptr));
     }
 
+    /// ### DEPRECATED: Use `horizontalAdvance3` instead
+    ///
+    pub const HorizontalAdvance3 = horizontalAdvance3;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#horizontalAdvance)
     ///
     /// ## Parameter(s):
@@ -287,10 +379,14 @@ pub const QFontMetrics = extern struct {
     ///
     /// ` param1: QChar `
     ///
-    pub fn HorizontalAdvance3(self: QFontMetrics, param1: anytype) i32 {
+    pub fn horizontalAdvance3(self: QFontMetrics, param1: anytype) i32 {
         comptime _ = @TypeOf(param1)._is_QChar;
         return qtc.QFontMetrics_HorizontalAdvance3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `boundingRect` instead
+    ///
+    pub const BoundingRect = boundingRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#boundingRect)
     ///
@@ -300,10 +396,14 @@ pub const QFontMetrics = extern struct {
     ///
     /// ` param1: QChar `
     ///
-    pub fn BoundingRect(self: QFontMetrics, param1: anytype) QRect {
+    pub fn boundingRect(self: QFontMetrics, param1: anytype) QRect {
         comptime _ = @TypeOf(param1)._is_QChar;
         return .{ .ptr = qtc.QFontMetrics_BoundingRect(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `boundingRect2` instead
+    ///
+    pub const BoundingRect2 = boundingRect2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#boundingRect)
     ///
@@ -313,13 +413,17 @@ pub const QFontMetrics = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn BoundingRect2(self: QFontMetrics, text: []const u8) QRect {
+    pub fn boundingRect2(self: QFontMetrics, text: []const u8) QRect {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QFontMetrics_BoundingRect2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `boundingRect3` instead
+    ///
+    pub const BoundingRect3 = boundingRect3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#boundingRect)
     ///
@@ -331,7 +435,7 @@ pub const QFontMetrics = extern struct {
     ///
     /// ` textOption: QTextOption `
     ///
-    pub fn BoundingRect3(self: QFontMetrics, text: []const u8, textOption: anytype) QRect {
+    pub fn boundingRect3(self: QFontMetrics, text: []const u8, textOption: anytype) QRect {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -339,6 +443,10 @@ pub const QFontMetrics = extern struct {
         comptime _ = @TypeOf(textOption)._is_QTextOption;
         return .{ .ptr = qtc.QFontMetrics_BoundingRect3(@ptrCast(self.ptr), text_str, @ptrCast(textOption.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `boundingRect4` instead
+    ///
+    pub const BoundingRect4 = boundingRect4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#boundingRect)
     ///
@@ -352,7 +460,7 @@ pub const QFontMetrics = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn BoundingRect4(self: QFontMetrics, r: anytype, flags: i32, text: []const u8) QRect {
+    pub fn boundingRect4(self: QFontMetrics, r: anytype, flags: i32, text: []const u8) QRect {
         comptime _ = @TypeOf(r)._is_QRect;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -360,6 +468,10 @@ pub const QFontMetrics = extern struct {
         };
         return .{ .ptr = qtc.QFontMetrics_BoundingRect4(@ptrCast(self.ptr), @ptrCast(r.ptr), @bitCast(flags), text_str) };
     }
+
+    /// ### DEPRECATED: Use `boundingRect5` instead
+    ///
+    pub const BoundingRect5 = boundingRect5;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#boundingRect)
     ///
@@ -379,13 +491,17 @@ pub const QFontMetrics = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn BoundingRect5(self: QFontMetrics, x: i32, y: i32, w: i32, h: i32, flags: i32, text: []const u8) QRect {
+    pub fn boundingRect5(self: QFontMetrics, x: i32, y: i32, w: i32, h: i32, flags: i32, text: []const u8) QRect {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QFontMetrics_BoundingRect5(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(flags), text_str) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#size)
     ///
@@ -397,13 +513,17 @@ pub const QFontMetrics = extern struct {
     ///
     /// ` str: []const u8 `
     ///
-    pub fn Size(self: QFontMetrics, flags: i32, str: []const u8) QSize {
+    pub fn size(self: QFontMetrics, flags: i32, str: []const u8) QSize {
         const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
         };
         return .{ .ptr = qtc.QFontMetrics_Size(@ptrCast(self.ptr), @bitCast(flags), str_str) };
     }
+
+    /// ### DEPRECATED: Use `tightBoundingRect` instead
+    ///
+    pub const TightBoundingRect = tightBoundingRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#tightBoundingRect)
     ///
@@ -413,13 +533,17 @@ pub const QFontMetrics = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn TightBoundingRect(self: QFontMetrics, text: []const u8) QRect {
+    pub fn tightBoundingRect(self: QFontMetrics, text: []const u8) QRect {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QFontMetrics_TightBoundingRect(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `tightBoundingRect2` instead
+    ///
+    pub const TightBoundingRect2 = tightBoundingRect2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#tightBoundingRect)
     ///
@@ -431,7 +555,7 @@ pub const QFontMetrics = extern struct {
     ///
     /// ` textOption: QTextOption `
     ///
-    pub fn TightBoundingRect2(self: QFontMetrics, text: []const u8, textOption: anytype) QRect {
+    pub fn tightBoundingRect2(self: QFontMetrics, text: []const u8, textOption: anytype) QRect {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -439,6 +563,10 @@ pub const QFontMetrics = extern struct {
         comptime _ = @TypeOf(textOption)._is_QTextOption;
         return .{ .ptr = qtc.QFontMetrics_TightBoundingRect2(@ptrCast(self.ptr), text_str, @ptrCast(textOption.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `elidedText` instead
+    ///
+    pub const ElidedText = elidedText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#elidedText)
     ///
@@ -454,17 +582,21 @@ pub const QFontMetrics = extern struct {
     ///
     /// ` width: i32 `
     ///
-    pub fn ElidedText(self: QFontMetrics, allocator: std.mem.Allocator, text: []const u8, mode: i32, width: i32) []const u8 {
+    pub fn elidedText(self: QFontMetrics, allocator: std.mem.Allocator, text: []const u8, mode: i32, width: i32) []const u8 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         var _str = qtc.QFontMetrics_ElidedText(@ptrCast(self.ptr), text_str, @bitCast(mode), @bitCast(width));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontMetrics.ElidedText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontMetrics.elidedText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `underlinePos` instead
+    ///
+    pub const UnderlinePos = underlinePos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#underlinePos)
     ///
@@ -472,9 +604,13 @@ pub const QFontMetrics = extern struct {
     ///
     /// ` self: QFontMetrics `
     ///
-    pub fn UnderlinePos(self: QFontMetrics) i32 {
+    pub fn underlinePos(self: QFontMetrics) i32 {
         return qtc.QFontMetrics_UnderlinePos(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `overlinePos` instead
+    ///
+    pub const OverlinePos = overlinePos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#overlinePos)
     ///
@@ -482,9 +618,13 @@ pub const QFontMetrics = extern struct {
     ///
     /// ` self: QFontMetrics `
     ///
-    pub fn OverlinePos(self: QFontMetrics) i32 {
+    pub fn overlinePos(self: QFontMetrics) i32 {
         return qtc.QFontMetrics_OverlinePos(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `strikeOutPos` instead
+    ///
+    pub const StrikeOutPos = strikeOutPos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#strikeOutPos)
     ///
@@ -492,9 +632,13 @@ pub const QFontMetrics = extern struct {
     ///
     /// ` self: QFontMetrics `
     ///
-    pub fn StrikeOutPos(self: QFontMetrics) i32 {
+    pub fn strikeOutPos(self: QFontMetrics) i32 {
         return qtc.QFontMetrics_StrikeOutPos(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lineWidth` instead
+    ///
+    pub const LineWidth = lineWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#lineWidth)
     ///
@@ -502,9 +646,13 @@ pub const QFontMetrics = extern struct {
     ///
     /// ` self: QFontMetrics `
     ///
-    pub fn LineWidth(self: QFontMetrics) i32 {
+    pub fn lineWidth(self: QFontMetrics) i32 {
         return qtc.QFontMetrics_LineWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontDpi` instead
+    ///
+    pub const FontDpi = fontDpi;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#fontDpi)
     ///
@@ -512,9 +660,13 @@ pub const QFontMetrics = extern struct {
     ///
     /// ` self: QFontMetrics `
     ///
-    pub fn FontDpi(self: QFontMetrics) f64 {
+    pub fn fontDpi(self: QFontMetrics) f64 {
         return qtc.QFontMetrics_FontDpi(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#operator-eq-eq)
     ///
@@ -524,10 +676,14 @@ pub const QFontMetrics = extern struct {
     ///
     /// ` other: QFontMetrics `
     ///
-    pub fn OperatorEqual(self: QFontMetrics, other: anytype) bool {
+    pub fn operatorEqual(self: QFontMetrics, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QFontMetrics;
         return qtc.QFontMetrics_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#operator-not-eq)
     ///
@@ -537,10 +693,14 @@ pub const QFontMetrics = extern struct {
     ///
     /// ` other: QFontMetrics `
     ///
-    pub fn OperatorNotEqual(self: QFontMetrics, other: anytype) bool {
+    pub fn operatorNotEqual(self: QFontMetrics, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QFontMetrics;
         return qtc.QFontMetrics_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `horizontalAdvance22` instead
+    ///
+    pub const HorizontalAdvance22 = horizontalAdvance22;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#horizontalAdvance)
     ///
@@ -552,13 +712,17 @@ pub const QFontMetrics = extern struct {
     ///
     /// ` len: i32 `
     ///
-    pub fn HorizontalAdvance22(self: QFontMetrics, param1: []const u8, len: i32) i32 {
+    pub fn horizontalAdvance22(self: QFontMetrics, param1: []const u8, len: i32) i32 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
         return qtc.QFontMetrics_HorizontalAdvance22(@ptrCast(self.ptr), param1_str, @bitCast(len));
     }
+
+    /// ### DEPRECATED: Use `boundingRect42` instead
+    ///
+    pub const BoundingRect42 = boundingRect42;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#boundingRect)
     ///
@@ -574,7 +738,7 @@ pub const QFontMetrics = extern struct {
     ///
     /// ` tabstops: i32 `
     ///
-    pub fn BoundingRect42(self: QFontMetrics, r: anytype, flags: i32, text: []const u8, tabstops: i32) QRect {
+    pub fn boundingRect42(self: QFontMetrics, r: anytype, flags: i32, text: []const u8, tabstops: i32) QRect {
         comptime _ = @TypeOf(r)._is_QRect;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -583,6 +747,10 @@ pub const QFontMetrics = extern struct {
         return .{ .ptr = qtc.QFontMetrics_BoundingRect42(@ptrCast(self.ptr), @ptrCast(r.ptr), @bitCast(flags), text_str, @bitCast(tabstops)) };
     }
 
+    /// ### DEPRECATED: Use `boundingRect52` instead
+    ///
+    pub const BoundingRect52 = boundingRect52;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#boundingRect)
     ///
     /// ## Parameter(s):
@@ -599,7 +767,7 @@ pub const QFontMetrics = extern struct {
     ///
     /// ` tabarray: *i32 `
     ///
-    pub fn BoundingRect52(self: QFontMetrics, r: anytype, flags: i32, text: []const u8, tabstops: i32, tabarray: *i32) QRect {
+    pub fn boundingRect52(self: QFontMetrics, r: anytype, flags: i32, text: []const u8, tabstops: i32, tabarray: *i32) QRect {
         comptime _ = @TypeOf(r)._is_QRect;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -608,6 +776,10 @@ pub const QFontMetrics = extern struct {
         return .{ .ptr = qtc.QFontMetrics_BoundingRect52(@ptrCast(self.ptr), @ptrCast(r.ptr), @bitCast(flags), text_str, @bitCast(tabstops), @ptrCast(tabarray)) };
     }
 
+    /// ### DEPRECATED: Use `boundingRect7` instead
+    ///
+    pub const BoundingRect7 = boundingRect7;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#boundingRect)
     ///
     /// ## Parameter(s):
@@ -628,7 +800,7 @@ pub const QFontMetrics = extern struct {
     ///
     /// ` tabstops: i32 `
     ///
-    pub fn BoundingRect7(self: QFontMetrics, x: i32, y: i32, w: i32, h: i32, flags: i32, text: []const u8, tabstops: i32) QRect {
+    pub fn boundingRect7(self: QFontMetrics, x: i32, y: i32, w: i32, h: i32, flags: i32, text: []const u8, tabstops: i32) QRect {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -636,6 +808,10 @@ pub const QFontMetrics = extern struct {
         return .{ .ptr = qtc.QFontMetrics_BoundingRect7(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(flags), text_str, @bitCast(tabstops)) };
     }
 
+    /// ### DEPRECATED: Use `boundingRect8` instead
+    ///
+    pub const BoundingRect8 = boundingRect8;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#boundingRect)
     ///
     /// ## Parameter(s):
@@ -658,13 +834,17 @@ pub const QFontMetrics = extern struct {
     ///
     /// ` tabarray: *i32 `
     ///
-    pub fn BoundingRect8(self: QFontMetrics, x: i32, y: i32, w: i32, h: i32, flags: i32, text: []const u8, tabstops: i32, tabarray: *i32) QRect {
+    pub fn boundingRect8(self: QFontMetrics, x: i32, y: i32, w: i32, h: i32, flags: i32, text: []const u8, tabstops: i32, tabarray: *i32) QRect {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QFontMetrics_BoundingRect8(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(flags), text_str, @bitCast(tabstops), @ptrCast(tabarray)) };
     }
+
+    /// ### DEPRECATED: Use `size3` instead
+    ///
+    pub const Size3 = size3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#size)
     ///
@@ -678,13 +858,17 @@ pub const QFontMetrics = extern struct {
     ///
     /// ` tabstops: i32 `
     ///
-    pub fn Size3(self: QFontMetrics, flags: i32, str: []const u8, tabstops: i32) QSize {
+    pub fn size3(self: QFontMetrics, flags: i32, str: []const u8, tabstops: i32) QSize {
         const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
         };
         return .{ .ptr = qtc.QFontMetrics_Size3(@ptrCast(self.ptr), @bitCast(flags), str_str, @bitCast(tabstops)) };
     }
+
+    /// ### DEPRECATED: Use `size4` instead
+    ///
+    pub const Size4 = size4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#size)
     ///
@@ -700,13 +884,17 @@ pub const QFontMetrics = extern struct {
     ///
     /// ` tabarray: *i32 `
     ///
-    pub fn Size4(self: QFontMetrics, flags: i32, str: []const u8, tabstops: i32, tabarray: *i32) QSize {
+    pub fn size4(self: QFontMetrics, flags: i32, str: []const u8, tabstops: i32, tabarray: *i32) QSize {
         const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
         };
         return .{ .ptr = qtc.QFontMetrics_Size4(@ptrCast(self.ptr), @bitCast(flags), str_str, @bitCast(tabstops), @ptrCast(tabarray)) };
     }
+
+    /// ### DEPRECATED: Use `elidedText4` instead
+    ///
+    pub const ElidedText4 = elidedText4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#elidedText)
     ///
@@ -724,31 +912,31 @@ pub const QFontMetrics = extern struct {
     ///
     /// ` flags: i32 `
     ///
-    pub fn ElidedText4(self: QFontMetrics, allocator: std.mem.Allocator, text: []const u8, mode: i32, width: i32, flags: i32) []const u8 {
+    pub fn elidedText4(self: QFontMetrics, allocator: std.mem.Allocator, text: []const u8, mode: i32, width: i32, flags: i32) []const u8 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         var _str = qtc.QFontMetrics_ElidedText4(@ptrCast(self.ptr), text_str, @bitCast(mode), @bitCast(width), @bitCast(flags));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontMetrics.ElidedText4: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontMetrics.elidedText4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#dtor.QFontMetrics)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QFontMetrics `
     ///
-    pub fn Delete(self: QFontMetrics) void {
+    pub fn delete(self: QFontMetrics) void {
         qtc.QFontMetrics_Delete(@ptrCast(self.ptr));
     }
 };
@@ -763,18 +951,26 @@ pub const QFontMetricsF = extern struct {
 
     pub const _is_QFontMetricsF = {};
 
-    /// New constructs a new QFontMetricsF object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QFontMetricsF object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` font: QFont `
     ///
-    pub fn New(font: anytype) QFontMetricsF {
+    pub fn new(font: anytype) QFontMetricsF {
         comptime _ = @TypeOf(font)._is_QFont;
         return .{ .ptr = qtc.QFontMetricsF_new(@ptrCast(font.ptr)) };
     }
 
-    /// New2 constructs a new QFontMetricsF object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QFontMetricsF object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -782,33 +978,45 @@ pub const QFontMetricsF = extern struct {
     ///
     /// ` pd: QPaintDevice `
     ///
-    pub fn New2(font: anytype, pd: anytype) QFontMetricsF {
+    pub fn new2(font: anytype, pd: anytype) QFontMetricsF {
         comptime _ = @TypeOf(font)._is_QFont;
         comptime _ = @TypeOf(pd)._is_QPaintDevice;
         return .{ .ptr = qtc.QFontMetricsF_new2(@ptrCast(font.ptr), @ptrCast(pd.ptr)) };
     }
 
-    /// New3 constructs a new QFontMetricsF object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QFontMetricsF object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QFontMetrics `
     ///
-    pub fn New3(param1: anytype) QFontMetricsF {
+    pub fn new3(param1: anytype) QFontMetricsF {
         comptime _ = @TypeOf(param1)._is_QFontMetrics;
         return .{ .ptr = qtc.QFontMetricsF_new3(@ptrCast(param1.ptr)) };
     }
 
-    /// New4 constructs a new QFontMetricsF object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QFontMetricsF object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QFontMetricsF `
     ///
-    pub fn New4(param1: anytype) QFontMetricsF {
+    pub fn new4(param1: anytype) QFontMetricsF {
         comptime _ = @TypeOf(param1)._is_QFontMetricsF;
         return .{ .ptr = qtc.QFontMetricsF_new4(@ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#operator-eq)
     ///
@@ -818,10 +1026,14 @@ pub const QFontMetricsF = extern struct {
     ///
     /// ` param1: QFontMetricsF `
     ///
-    pub fn OperatorAssign(self: QFontMetricsF, param1: anytype) void {
+    pub fn operatorAssign(self: QFontMetricsF, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QFontMetricsF;
         qtc.QFontMetricsF_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign2` instead
+    ///
+    pub const OperatorAssign2 = operatorAssign2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#operator-eq)
     ///
@@ -831,10 +1043,14 @@ pub const QFontMetricsF = extern struct {
     ///
     /// ` param1: QFontMetrics `
     ///
-    pub fn OperatorAssign2(self: QFontMetricsF, param1: anytype) void {
+    pub fn operatorAssign2(self: QFontMetricsF, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QFontMetrics;
         qtc.QFontMetricsF_OperatorAssign2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#swap)
     ///
@@ -844,10 +1060,14 @@ pub const QFontMetricsF = extern struct {
     ///
     /// ` other: QFontMetricsF `
     ///
-    pub fn Swap(self: QFontMetricsF, other: anytype) void {
+    pub fn swap(self: QFontMetricsF, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QFontMetricsF;
         qtc.QFontMetricsF_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `ascent` instead
+    ///
+    pub const Ascent = ascent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#ascent)
     ///
@@ -855,9 +1075,13 @@ pub const QFontMetricsF = extern struct {
     ///
     /// ` self: QFontMetricsF `
     ///
-    pub fn Ascent(self: QFontMetricsF) f64 {
+    pub fn ascent(self: QFontMetricsF) f64 {
         return qtc.QFontMetricsF_Ascent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `capHeight` instead
+    ///
+    pub const CapHeight = capHeight;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#capHeight)
     ///
@@ -865,9 +1089,13 @@ pub const QFontMetricsF = extern struct {
     ///
     /// ` self: QFontMetricsF `
     ///
-    pub fn CapHeight(self: QFontMetricsF) f64 {
+    pub fn capHeight(self: QFontMetricsF) f64 {
         return qtc.QFontMetricsF_CapHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `descent` instead
+    ///
+    pub const Descent = descent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#descent)
     ///
@@ -875,9 +1103,13 @@ pub const QFontMetricsF = extern struct {
     ///
     /// ` self: QFontMetricsF `
     ///
-    pub fn Descent(self: QFontMetricsF) f64 {
+    pub fn descent(self: QFontMetricsF) f64 {
         return qtc.QFontMetricsF_Descent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#height)
     ///
@@ -885,9 +1117,13 @@ pub const QFontMetricsF = extern struct {
     ///
     /// ` self: QFontMetricsF `
     ///
-    pub fn Height(self: QFontMetricsF) f64 {
+    pub fn height(self: QFontMetricsF) f64 {
         return qtc.QFontMetricsF_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `leading` instead
+    ///
+    pub const Leading = leading;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#leading)
     ///
@@ -895,9 +1131,13 @@ pub const QFontMetricsF = extern struct {
     ///
     /// ` self: QFontMetricsF `
     ///
-    pub fn Leading(self: QFontMetricsF) f64 {
+    pub fn leading(self: QFontMetricsF) f64 {
         return qtc.QFontMetricsF_Leading(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lineSpacing` instead
+    ///
+    pub const LineSpacing = lineSpacing;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#lineSpacing)
     ///
@@ -905,9 +1145,13 @@ pub const QFontMetricsF = extern struct {
     ///
     /// ` self: QFontMetricsF `
     ///
-    pub fn LineSpacing(self: QFontMetricsF) f64 {
+    pub fn lineSpacing(self: QFontMetricsF) f64 {
         return qtc.QFontMetricsF_LineSpacing(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minLeftBearing` instead
+    ///
+    pub const MinLeftBearing = minLeftBearing;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#minLeftBearing)
     ///
@@ -915,9 +1159,13 @@ pub const QFontMetricsF = extern struct {
     ///
     /// ` self: QFontMetricsF `
     ///
-    pub fn MinLeftBearing(self: QFontMetricsF) f64 {
+    pub fn minLeftBearing(self: QFontMetricsF) f64 {
         return qtc.QFontMetricsF_MinLeftBearing(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minRightBearing` instead
+    ///
+    pub const MinRightBearing = minRightBearing;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#minRightBearing)
     ///
@@ -925,9 +1173,13 @@ pub const QFontMetricsF = extern struct {
     ///
     /// ` self: QFontMetricsF `
     ///
-    pub fn MinRightBearing(self: QFontMetricsF) f64 {
+    pub fn minRightBearing(self: QFontMetricsF) f64 {
         return qtc.QFontMetricsF_MinRightBearing(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maxWidth` instead
+    ///
+    pub const MaxWidth = maxWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#maxWidth)
     ///
@@ -935,9 +1187,13 @@ pub const QFontMetricsF = extern struct {
     ///
     /// ` self: QFontMetricsF `
     ///
-    pub fn MaxWidth(self: QFontMetricsF) f64 {
+    pub fn maxWidth(self: QFontMetricsF) f64 {
         return qtc.QFontMetricsF_MaxWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `xHeight` instead
+    ///
+    pub const XHeight = xHeight;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#xHeight)
     ///
@@ -945,9 +1201,13 @@ pub const QFontMetricsF = extern struct {
     ///
     /// ` self: QFontMetricsF `
     ///
-    pub fn XHeight(self: QFontMetricsF) f64 {
+    pub fn xHeight(self: QFontMetricsF) f64 {
         return qtc.QFontMetricsF_XHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `averageCharWidth` instead
+    ///
+    pub const AverageCharWidth = averageCharWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#averageCharWidth)
     ///
@@ -955,9 +1215,13 @@ pub const QFontMetricsF = extern struct {
     ///
     /// ` self: QFontMetricsF `
     ///
-    pub fn AverageCharWidth(self: QFontMetricsF) f64 {
+    pub fn averageCharWidth(self: QFontMetricsF) f64 {
         return qtc.QFontMetricsF_AverageCharWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `inFont` instead
+    ///
+    pub const InFont = inFont;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#inFont)
     ///
@@ -967,10 +1231,14 @@ pub const QFontMetricsF = extern struct {
     ///
     /// ` param1: QChar `
     ///
-    pub fn InFont(self: QFontMetricsF, param1: anytype) bool {
+    pub fn inFont(self: QFontMetricsF, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QChar;
         return qtc.QFontMetricsF_InFont(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `inFontUcs4` instead
+    ///
+    pub const InFontUcs4 = inFontUcs4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#inFontUcs4)
     ///
@@ -980,9 +1248,13 @@ pub const QFontMetricsF = extern struct {
     ///
     /// ` ucs4: u32 `
     ///
-    pub fn InFontUcs4(self: QFontMetricsF, ucs4: u32) bool {
+    pub fn inFontUcs4(self: QFontMetricsF, ucs4: u32) bool {
         return qtc.QFontMetricsF_InFontUcs4(@ptrCast(self.ptr), @bitCast(ucs4));
     }
+
+    /// ### DEPRECATED: Use `leftBearing` instead
+    ///
+    pub const LeftBearing = leftBearing;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#leftBearing)
     ///
@@ -992,10 +1264,14 @@ pub const QFontMetricsF = extern struct {
     ///
     /// ` param1: QChar `
     ///
-    pub fn LeftBearing(self: QFontMetricsF, param1: anytype) f64 {
+    pub fn leftBearing(self: QFontMetricsF, param1: anytype) f64 {
         comptime _ = @TypeOf(param1)._is_QChar;
         return qtc.QFontMetricsF_LeftBearing(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `rightBearing` instead
+    ///
+    pub const RightBearing = rightBearing;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#rightBearing)
     ///
@@ -1005,10 +1281,14 @@ pub const QFontMetricsF = extern struct {
     ///
     /// ` param1: QChar `
     ///
-    pub fn RightBearing(self: QFontMetricsF, param1: anytype) f64 {
+    pub fn rightBearing(self: QFontMetricsF, param1: anytype) f64 {
         comptime _ = @TypeOf(param1)._is_QChar;
         return qtc.QFontMetricsF_RightBearing(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `horizontalAdvance` instead
+    ///
+    pub const HorizontalAdvance = horizontalAdvance;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#horizontalAdvance)
     ///
@@ -1018,13 +1298,17 @@ pub const QFontMetricsF = extern struct {
     ///
     /// ` string: []const u8 `
     ///
-    pub fn HorizontalAdvance(self: QFontMetricsF, string: []const u8) f64 {
+    pub fn horizontalAdvance(self: QFontMetricsF, string: []const u8) f64 {
         const string_str = qtc.libqt_string{
             .len = string.len,
             .data = string.ptr,
         };
         return qtc.QFontMetricsF_HorizontalAdvance(@ptrCast(self.ptr), string_str);
     }
+
+    /// ### DEPRECATED: Use `horizontalAdvance2` instead
+    ///
+    pub const HorizontalAdvance2 = horizontalAdvance2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#horizontalAdvance)
     ///
@@ -1034,10 +1318,14 @@ pub const QFontMetricsF = extern struct {
     ///
     /// ` param1: QChar `
     ///
-    pub fn HorizontalAdvance2(self: QFontMetricsF, param1: anytype) f64 {
+    pub fn horizontalAdvance2(self: QFontMetricsF, param1: anytype) f64 {
         comptime _ = @TypeOf(param1)._is_QChar;
         return qtc.QFontMetricsF_HorizontalAdvance2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `horizontalAdvance3` instead
+    ///
+    pub const HorizontalAdvance3 = horizontalAdvance3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#horizontalAdvance)
     ///
@@ -1049,7 +1337,7 @@ pub const QFontMetricsF = extern struct {
     ///
     /// ` textOption: QTextOption `
     ///
-    pub fn HorizontalAdvance3(self: QFontMetricsF, string: []const u8, textOption: anytype) f64 {
+    pub fn horizontalAdvance3(self: QFontMetricsF, string: []const u8, textOption: anytype) f64 {
         const string_str = qtc.libqt_string{
             .len = string.len,
             .data = string.ptr,
@@ -1057,6 +1345,10 @@ pub const QFontMetricsF = extern struct {
         comptime _ = @TypeOf(textOption)._is_QTextOption;
         return qtc.QFontMetricsF_HorizontalAdvance3(@ptrCast(self.ptr), string_str, @ptrCast(textOption.ptr));
     }
+
+    /// ### DEPRECATED: Use `boundingRect` instead
+    ///
+    pub const BoundingRect = boundingRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#boundingRect)
     ///
@@ -1066,13 +1358,17 @@ pub const QFontMetricsF = extern struct {
     ///
     /// ` string: []const u8 `
     ///
-    pub fn BoundingRect(self: QFontMetricsF, string: []const u8) QRectF {
+    pub fn boundingRect(self: QFontMetricsF, string: []const u8) QRectF {
         const string_str = qtc.libqt_string{
             .len = string.len,
             .data = string.ptr,
         };
         return .{ .ptr = qtc.QFontMetricsF_BoundingRect(@ptrCast(self.ptr), string_str) };
     }
+
+    /// ### DEPRECATED: Use `boundingRect2` instead
+    ///
+    pub const BoundingRect2 = boundingRect2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#boundingRect)
     ///
@@ -1084,7 +1380,7 @@ pub const QFontMetricsF = extern struct {
     ///
     /// ` textOption: QTextOption `
     ///
-    pub fn BoundingRect2(self: QFontMetricsF, text: []const u8, textOption: anytype) QRectF {
+    pub fn boundingRect2(self: QFontMetricsF, text: []const u8, textOption: anytype) QRectF {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -1092,6 +1388,10 @@ pub const QFontMetricsF = extern struct {
         comptime _ = @TypeOf(textOption)._is_QTextOption;
         return .{ .ptr = qtc.QFontMetricsF_BoundingRect2(@ptrCast(self.ptr), text_str, @ptrCast(textOption.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `boundingRect3` instead
+    ///
+    pub const BoundingRect3 = boundingRect3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#boundingRect)
     ///
@@ -1101,10 +1401,14 @@ pub const QFontMetricsF = extern struct {
     ///
     /// ` param1: QChar `
     ///
-    pub fn BoundingRect3(self: QFontMetricsF, param1: anytype) QRectF {
+    pub fn boundingRect3(self: QFontMetricsF, param1: anytype) QRectF {
         comptime _ = @TypeOf(param1)._is_QChar;
         return .{ .ptr = qtc.QFontMetricsF_BoundingRect3(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `boundingRect4` instead
+    ///
+    pub const BoundingRect4 = boundingRect4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#boundingRect)
     ///
@@ -1118,7 +1422,7 @@ pub const QFontMetricsF = extern struct {
     ///
     /// ` string: []const u8 `
     ///
-    pub fn BoundingRect4(self: QFontMetricsF, r: anytype, flags: i32, string: []const u8) QRectF {
+    pub fn boundingRect4(self: QFontMetricsF, r: anytype, flags: i32, string: []const u8) QRectF {
         comptime _ = @TypeOf(r)._is_QRectF;
         const string_str = qtc.libqt_string{
             .len = string.len,
@@ -1126,6 +1430,10 @@ pub const QFontMetricsF = extern struct {
         };
         return .{ .ptr = qtc.QFontMetricsF_BoundingRect4(@ptrCast(self.ptr), @ptrCast(r.ptr), @bitCast(flags), string_str) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#size)
     ///
@@ -1137,13 +1445,17 @@ pub const QFontMetricsF = extern struct {
     ///
     /// ` str: []const u8 `
     ///
-    pub fn Size(self: QFontMetricsF, flags: i32, str: []const u8) QSizeF {
+    pub fn size(self: QFontMetricsF, flags: i32, str: []const u8) QSizeF {
         const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
         };
         return .{ .ptr = qtc.QFontMetricsF_Size(@ptrCast(self.ptr), @bitCast(flags), str_str) };
     }
+
+    /// ### DEPRECATED: Use `tightBoundingRect` instead
+    ///
+    pub const TightBoundingRect = tightBoundingRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#tightBoundingRect)
     ///
@@ -1153,13 +1465,17 @@ pub const QFontMetricsF = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn TightBoundingRect(self: QFontMetricsF, text: []const u8) QRectF {
+    pub fn tightBoundingRect(self: QFontMetricsF, text: []const u8) QRectF {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QFontMetricsF_TightBoundingRect(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `tightBoundingRect2` instead
+    ///
+    pub const TightBoundingRect2 = tightBoundingRect2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#tightBoundingRect)
     ///
@@ -1171,7 +1487,7 @@ pub const QFontMetricsF = extern struct {
     ///
     /// ` textOption: QTextOption `
     ///
-    pub fn TightBoundingRect2(self: QFontMetricsF, text: []const u8, textOption: anytype) QRectF {
+    pub fn tightBoundingRect2(self: QFontMetricsF, text: []const u8, textOption: anytype) QRectF {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -1179,6 +1495,10 @@ pub const QFontMetricsF = extern struct {
         comptime _ = @TypeOf(textOption)._is_QTextOption;
         return .{ .ptr = qtc.QFontMetricsF_TightBoundingRect2(@ptrCast(self.ptr), text_str, @ptrCast(textOption.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `elidedText` instead
+    ///
+    pub const ElidedText = elidedText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#elidedText)
     ///
@@ -1194,17 +1514,21 @@ pub const QFontMetricsF = extern struct {
     ///
     /// ` width: f64 `
     ///
-    pub fn ElidedText(self: QFontMetricsF, allocator: std.mem.Allocator, text: []const u8, mode: i32, width: f64) []const u8 {
+    pub fn elidedText(self: QFontMetricsF, allocator: std.mem.Allocator, text: []const u8, mode: i32, width: f64) []const u8 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         var _str = qtc.QFontMetricsF_ElidedText(@ptrCast(self.ptr), text_str, @bitCast(mode), @bitCast(width));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontMetricsF.ElidedText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontMetricsF.elidedText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `underlinePos` instead
+    ///
+    pub const UnderlinePos = underlinePos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#underlinePos)
     ///
@@ -1212,9 +1536,13 @@ pub const QFontMetricsF = extern struct {
     ///
     /// ` self: QFontMetricsF `
     ///
-    pub fn UnderlinePos(self: QFontMetricsF) f64 {
+    pub fn underlinePos(self: QFontMetricsF) f64 {
         return qtc.QFontMetricsF_UnderlinePos(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `overlinePos` instead
+    ///
+    pub const OverlinePos = overlinePos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#overlinePos)
     ///
@@ -1222,9 +1550,13 @@ pub const QFontMetricsF = extern struct {
     ///
     /// ` self: QFontMetricsF `
     ///
-    pub fn OverlinePos(self: QFontMetricsF) f64 {
+    pub fn overlinePos(self: QFontMetricsF) f64 {
         return qtc.QFontMetricsF_OverlinePos(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `strikeOutPos` instead
+    ///
+    pub const StrikeOutPos = strikeOutPos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#strikeOutPos)
     ///
@@ -1232,9 +1564,13 @@ pub const QFontMetricsF = extern struct {
     ///
     /// ` self: QFontMetricsF `
     ///
-    pub fn StrikeOutPos(self: QFontMetricsF) f64 {
+    pub fn strikeOutPos(self: QFontMetricsF) f64 {
         return qtc.QFontMetricsF_StrikeOutPos(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lineWidth` instead
+    ///
+    pub const LineWidth = lineWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#lineWidth)
     ///
@@ -1242,9 +1578,13 @@ pub const QFontMetricsF = extern struct {
     ///
     /// ` self: QFontMetricsF `
     ///
-    pub fn LineWidth(self: QFontMetricsF) f64 {
+    pub fn lineWidth(self: QFontMetricsF) f64 {
         return qtc.QFontMetricsF_LineWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontDpi` instead
+    ///
+    pub const FontDpi = fontDpi;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#fontDpi)
     ///
@@ -1252,9 +1592,13 @@ pub const QFontMetricsF = extern struct {
     ///
     /// ` self: QFontMetricsF `
     ///
-    pub fn FontDpi(self: QFontMetricsF) f64 {
+    pub fn fontDpi(self: QFontMetricsF) f64 {
         return qtc.QFontMetricsF_FontDpi(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#operator-eq-eq)
     ///
@@ -1264,10 +1608,14 @@ pub const QFontMetricsF = extern struct {
     ///
     /// ` other: QFontMetricsF `
     ///
-    pub fn OperatorEqual(self: QFontMetricsF, other: anytype) bool {
+    pub fn operatorEqual(self: QFontMetricsF, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QFontMetricsF;
         return qtc.QFontMetricsF_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#operator-not-eq)
     ///
@@ -1277,10 +1625,14 @@ pub const QFontMetricsF = extern struct {
     ///
     /// ` other: QFontMetricsF `
     ///
-    pub fn OperatorNotEqual(self: QFontMetricsF, other: anytype) bool {
+    pub fn operatorNotEqual(self: QFontMetricsF, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QFontMetricsF;
         return qtc.QFontMetricsF_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `horizontalAdvance22` instead
+    ///
+    pub const HorizontalAdvance22 = horizontalAdvance22;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#horizontalAdvance)
     ///
@@ -1292,13 +1644,17 @@ pub const QFontMetricsF = extern struct {
     ///
     /// ` length: i32 `
     ///
-    pub fn HorizontalAdvance22(self: QFontMetricsF, string: []const u8, length: i32) f64 {
+    pub fn horizontalAdvance22(self: QFontMetricsF, string: []const u8, length: i32) f64 {
         const string_str = qtc.libqt_string{
             .len = string.len,
             .data = string.ptr,
         };
         return qtc.QFontMetricsF_HorizontalAdvance22(@ptrCast(self.ptr), string_str, @bitCast(length));
     }
+
+    /// ### DEPRECATED: Use `boundingRect42` instead
+    ///
+    pub const BoundingRect42 = boundingRect42;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#boundingRect)
     ///
@@ -1314,7 +1670,7 @@ pub const QFontMetricsF = extern struct {
     ///
     /// ` tabstops: i32 `
     ///
-    pub fn BoundingRect42(self: QFontMetricsF, r: anytype, flags: i32, string: []const u8, tabstops: i32) QRectF {
+    pub fn boundingRect42(self: QFontMetricsF, r: anytype, flags: i32, string: []const u8, tabstops: i32) QRectF {
         comptime _ = @TypeOf(r)._is_QRectF;
         const string_str = qtc.libqt_string{
             .len = string.len,
@@ -1323,6 +1679,10 @@ pub const QFontMetricsF = extern struct {
         return .{ .ptr = qtc.QFontMetricsF_BoundingRect42(@ptrCast(self.ptr), @ptrCast(r.ptr), @bitCast(flags), string_str, @bitCast(tabstops)) };
     }
 
+    /// ### DEPRECATED: Use `boundingRect5` instead
+    ///
+    pub const BoundingRect5 = boundingRect5;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#boundingRect)
     ///
     /// ## Parameter(s):
@@ -1339,7 +1699,7 @@ pub const QFontMetricsF = extern struct {
     ///
     /// ` tabarray: *i32 `
     ///
-    pub fn BoundingRect5(self: QFontMetricsF, r: anytype, flags: i32, string: []const u8, tabstops: i32, tabarray: *i32) QRectF {
+    pub fn boundingRect5(self: QFontMetricsF, r: anytype, flags: i32, string: []const u8, tabstops: i32, tabarray: *i32) QRectF {
         comptime _ = @TypeOf(r)._is_QRectF;
         const string_str = qtc.libqt_string{
             .len = string.len,
@@ -1347,6 +1707,10 @@ pub const QFontMetricsF = extern struct {
         };
         return .{ .ptr = qtc.QFontMetricsF_BoundingRect5(@ptrCast(self.ptr), @ptrCast(r.ptr), @bitCast(flags), string_str, @bitCast(tabstops), @ptrCast(tabarray)) };
     }
+
+    /// ### DEPRECATED: Use `size3` instead
+    ///
+    pub const Size3 = size3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#size)
     ///
@@ -1360,13 +1724,17 @@ pub const QFontMetricsF = extern struct {
     ///
     /// ` tabstops: i32 `
     ///
-    pub fn Size3(self: QFontMetricsF, flags: i32, str: []const u8, tabstops: i32) QSizeF {
+    pub fn size3(self: QFontMetricsF, flags: i32, str: []const u8, tabstops: i32) QSizeF {
         const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
         };
         return .{ .ptr = qtc.QFontMetricsF_Size3(@ptrCast(self.ptr), @bitCast(flags), str_str, @bitCast(tabstops)) };
     }
+
+    /// ### DEPRECATED: Use `size4` instead
+    ///
+    pub const Size4 = size4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#size)
     ///
@@ -1382,13 +1750,17 @@ pub const QFontMetricsF = extern struct {
     ///
     /// ` tabarray: *i32 `
     ///
-    pub fn Size4(self: QFontMetricsF, flags: i32, str: []const u8, tabstops: i32, tabarray: *i32) QSizeF {
+    pub fn size4(self: QFontMetricsF, flags: i32, str: []const u8, tabstops: i32, tabarray: *i32) QSizeF {
         const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
         };
         return .{ .ptr = qtc.QFontMetricsF_Size4(@ptrCast(self.ptr), @bitCast(flags), str_str, @bitCast(tabstops), @ptrCast(tabarray)) };
     }
+
+    /// ### DEPRECATED: Use `elidedText4` instead
+    ///
+    pub const ElidedText4 = elidedText4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#elidedText)
     ///
@@ -1406,31 +1778,31 @@ pub const QFontMetricsF = extern struct {
     ///
     /// ` flags: i32 `
     ///
-    pub fn ElidedText4(self: QFontMetricsF, allocator: std.mem.Allocator, text: []const u8, mode: i32, width: f64, flags: i32) []const u8 {
+    pub fn elidedText4(self: QFontMetricsF, allocator: std.mem.Allocator, text: []const u8, mode: i32, width: f64, flags: i32) []const u8 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         var _str = qtc.QFontMetricsF_ElidedText4(@ptrCast(self.ptr), text_str, @bitCast(mode), @bitCast(width), @bitCast(flags));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontMetricsF.ElidedText4: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontMetricsF.elidedText4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#dtor.QFontMetricsF)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QFontMetricsF `
     ///
-    pub fn Delete(self: QFontMetricsF) void {
+    pub fn delete(self: QFontMetricsF) void {
         qtc.QFontMetricsF_Delete(@ptrCast(self.ptr));
     }
 };

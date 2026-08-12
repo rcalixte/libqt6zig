@@ -96,28 +96,40 @@ pub const QHeaderView = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new QHeaderView object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QHeaderView object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` orientation: qnamespace_enums.Orientation `
+    /// ` _orientation: qnamespace_enums.Orientation `
     ///
-    pub fn New(orientation: i32) QHeaderView {
-        return .{ .ptr = qtc.QHeaderView_new(@bitCast(orientation)) };
+    pub fn new(_orientation: i32) QHeaderView {
+        return .{ .ptr = qtc.QHeaderView_new(@bitCast(_orientation)) };
     }
 
-    /// New2 constructs a new QHeaderView object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QHeaderView object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` orientation: qnamespace_enums.Orientation `
+    /// ` _orientation: qnamespace_enums.Orientation `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New2(orientation: i32, parent: anytype) QHeaderView {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QHeaderView_new2(@bitCast(orientation), @ptrCast(parent.ptr)) };
+    pub fn new2(_orientation: i32, _parent: anytype) QHeaderView {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QHeaderView_new2(@bitCast(_orientation), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -125,9 +137,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn MetaObject(self: QHeaderView) QMetaObject {
+    pub fn metaObject(self: QHeaderView) QMetaObject {
         return .{ .ptr = qtc.QHeaderView_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -139,13 +155,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QHeaderView, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QHeaderView, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QHeaderView_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -155,9 +171,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SuperMetaObject(self: QHeaderView) QMetaObject {
+    pub fn superMetaObject(self: QHeaderView) QMetaObject {
         return .{ .ptr = qtc.QHeaderView_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -165,10 +185,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QHeaderView, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QHeaderView, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QHeaderView_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -178,13 +202,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QHeaderView, callback: *const fn (QHeaderView, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QHeaderView, callback: *const fn (QHeaderView, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QHeaderView_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -194,10 +218,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QHeaderView, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QHeaderView, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QHeaderView_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -209,9 +237,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QHeaderView, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QHeaderView, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QHeaderView_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -221,13 +253,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QHeaderView, callback: *const fn (QHeaderView, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QHeaderView, callback: *const fn (QHeaderView, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QHeaderView_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -241,9 +273,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QHeaderView, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QHeaderView, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QHeaderView_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -253,14 +289,18 @@ pub const QHeaderView = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHeaderView.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHeaderView.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setModel` instead
+    ///
+    pub const SetModel = setModel;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setModel)
     ///
@@ -268,12 +308,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` model: QAbstractItemModel `
+    /// ` _model: QAbstractItemModel `
     ///
-    pub fn SetModel(self: QHeaderView, model: anytype) void {
-        comptime _ = @TypeOf(model)._is_QAbstractItemModel;
-        qtc.QHeaderView_SetModel(@ptrCast(self.ptr), @ptrCast(model.ptr));
+    pub fn setModel(self: QHeaderView, _model: anytype) void {
+        comptime _ = @TypeOf(_model)._is_QAbstractItemModel;
+        qtc.QHeaderView_SetModel(@ptrCast(self.ptr), @ptrCast(_model.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetModel` instead
+    ///
+    pub const OnSetModel = onSetModel;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setModel)
     ///
@@ -285,13 +329,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, model: QAbstractItemModel) callconv(.c) void `
     ///
-    pub fn OnSetModel(self: QHeaderView, callback: *const fn (QHeaderView, QAbstractItemModel) callconv(.c) void) void {
+    pub fn onSetModel(self: QHeaderView, callback: *const fn (QHeaderView, QAbstractItemModel) callconv(.c) void) void {
         qtc.QHeaderView_OnSetModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetModel` instead
+    /// ### DEPRECATED: Use `superSetModel` instead
     ///
-    pub const QBaseSetModel = SuperSetModel;
+    pub const SuperSetModel = superSetModel;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setModel)
     ///
@@ -301,12 +345,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` model: QAbstractItemModel `
+    /// ` _model: QAbstractItemModel `
     ///
-    pub fn SuperSetModel(self: QHeaderView, model: anytype) void {
-        comptime _ = @TypeOf(model)._is_QAbstractItemModel;
-        qtc.QHeaderView_SuperSetModel(@ptrCast(self.ptr), @ptrCast(model.ptr));
+    pub fn superSetModel(self: QHeaderView, _model: anytype) void {
+        comptime _ = @TypeOf(_model)._is_QAbstractItemModel;
+        qtc.QHeaderView_SuperSetModel(@ptrCast(self.ptr), @ptrCast(_model.ptr));
     }
+
+    /// ### DEPRECATED: Use `orientation` instead
+    ///
+    pub const Orientation = orientation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#orientation)
     ///
@@ -318,9 +366,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` qnamespace_enums.Orientation `
     ///
-    pub fn Orientation(self: QHeaderView) i32 {
+    pub fn orientation(self: QHeaderView) i32 {
         return qtc.QHeaderView_Orientation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `offset` instead
+    ///
+    pub const Offset = offset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#offset)
     ///
@@ -328,9 +380,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn Offset(self: QHeaderView) i32 {
+    pub fn offset(self: QHeaderView) i32 {
         return qtc.QHeaderView_Offset(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `length` instead
+    ///
+    pub const Length = length;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#length)
     ///
@@ -338,9 +394,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn Length(self: QHeaderView) i32 {
+    pub fn length(self: QHeaderView) i32 {
         return qtc.QHeaderView_Length(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sizeHint)
     ///
@@ -348,9 +408,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SizeHint(self: QHeaderView) QSize {
+    pub fn sizeHint(self: QHeaderView) QSize {
         return .{ .ptr = qtc.QHeaderView_SizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sizeHint)
     ///
@@ -364,13 +428,13 @@ pub const QHeaderView = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: QHeaderView, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QHeaderView, callback: *const fn () callconv(.c) QSize) void {
         qtc.QHeaderView_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sizeHint)
     ///
@@ -380,9 +444,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SuperSizeHint(self: QHeaderView) QSize {
+    pub fn superSizeHint(self: QHeaderView) QSize {
         return .{ .ptr = qtc.QHeaderView_SuperSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setVisible)
     ///
@@ -392,9 +460,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` v: bool `
     ///
-    pub fn SetVisible(self: QHeaderView, v: bool) void {
+    pub fn setVisible(self: QHeaderView, v: bool) void {
         qtc.QHeaderView_SetVisible(@ptrCast(self.ptr), v);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setVisible)
     ///
@@ -406,13 +478,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, v: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: QHeaderView, callback: *const fn (QHeaderView, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: QHeaderView, callback: *const fn (QHeaderView, bool) callconv(.c) void) void {
         qtc.QHeaderView_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setVisible)
     ///
@@ -424,9 +496,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` v: bool `
     ///
-    pub fn SuperSetVisible(self: QHeaderView, v: bool) void {
+    pub fn superSetVisible(self: QHeaderView, v: bool) void {
         qtc.QHeaderView_SuperSetVisible(@ptrCast(self.ptr), v);
     }
+
+    /// ### DEPRECATED: Use `sectionSizeHint` instead
+    ///
+    pub const SectionSizeHint = sectionSizeHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionSizeHint)
     ///
@@ -434,11 +510,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` logicalIndex: i32 `
+    /// ` _logicalIndex: i32 `
     ///
-    pub fn SectionSizeHint(self: QHeaderView, logicalIndex: i32) i32 {
-        return qtc.QHeaderView_SectionSizeHint(@ptrCast(self.ptr), @bitCast(logicalIndex));
+    pub fn sectionSizeHint(self: QHeaderView, _logicalIndex: i32) i32 {
+        return qtc.QHeaderView_SectionSizeHint(@ptrCast(self.ptr), @bitCast(_logicalIndex));
     }
+
+    /// ### DEPRECATED: Use `visualIndexAt` instead
+    ///
+    pub const VisualIndexAt = visualIndexAt;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#visualIndexAt)
     ///
@@ -448,9 +528,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` position: i32 `
     ///
-    pub fn VisualIndexAt(self: QHeaderView, position: i32) i32 {
+    pub fn visualIndexAt(self: QHeaderView, position: i32) i32 {
         return qtc.QHeaderView_VisualIndexAt(@ptrCast(self.ptr), @bitCast(position));
     }
+
+    /// ### DEPRECATED: Use `logicalIndexAt` instead
+    ///
+    pub const LogicalIndexAt = logicalIndexAt;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#logicalIndexAt)
     ///
@@ -460,23 +544,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` position: i32 `
     ///
-    pub fn LogicalIndexAt(self: QHeaderView, position: i32) i32 {
+    pub fn logicalIndexAt(self: QHeaderView, position: i32) i32 {
         return qtc.QHeaderView_LogicalIndexAt(@ptrCast(self.ptr), @bitCast(position));
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#logicalIndexAt)
+    /// ### DEPRECATED: Use `logicalIndexAt2` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHeaderView `
-    ///
-    /// ` x: i32 `
-    ///
-    /// ` y: i32 `
-    ///
-    pub fn LogicalIndexAt2(self: QHeaderView, x: i32, y: i32) i32 {
-        return qtc.QHeaderView_LogicalIndexAt2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
-    }
+    pub const LogicalIndexAt2 = logicalIndexAt2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#logicalIndexAt)
     ///
@@ -484,12 +558,34 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` pos: QPoint `
+    /// ` _x: i32 `
     ///
-    pub fn LogicalIndexAt3(self: QHeaderView, pos: anytype) i32 {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        return qtc.QHeaderView_LogicalIndexAt3(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    /// ` _y: i32 `
+    ///
+    pub fn logicalIndexAt2(self: QHeaderView, _x: i32, _y: i32) i32 {
+        return qtc.QHeaderView_LogicalIndexAt2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `logicalIndexAt3` instead
+    ///
+    pub const LogicalIndexAt3 = logicalIndexAt3;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#logicalIndexAt)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QHeaderView `
+    ///
+    /// ` _pos: QPoint `
+    ///
+    pub fn logicalIndexAt3(self: QHeaderView, _pos: anytype) i32 {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        return qtc.QHeaderView_LogicalIndexAt3(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
+    }
+
+    /// ### DEPRECATED: Use `sectionSize` instead
+    ///
+    pub const SectionSize = sectionSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionSize)
     ///
@@ -497,11 +593,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` logicalIndex: i32 `
+    /// ` _logicalIndex: i32 `
     ///
-    pub fn SectionSize(self: QHeaderView, logicalIndex: i32) i32 {
-        return qtc.QHeaderView_SectionSize(@ptrCast(self.ptr), @bitCast(logicalIndex));
+    pub fn sectionSize(self: QHeaderView, _logicalIndex: i32) i32 {
+        return qtc.QHeaderView_SectionSize(@ptrCast(self.ptr), @bitCast(_logicalIndex));
     }
+
+    /// ### DEPRECATED: Use `sectionPosition` instead
+    ///
+    pub const SectionPosition = sectionPosition;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionPosition)
     ///
@@ -509,11 +609,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` logicalIndex: i32 `
+    /// ` _logicalIndex: i32 `
     ///
-    pub fn SectionPosition(self: QHeaderView, logicalIndex: i32) i32 {
-        return qtc.QHeaderView_SectionPosition(@ptrCast(self.ptr), @bitCast(logicalIndex));
+    pub fn sectionPosition(self: QHeaderView, _logicalIndex: i32) i32 {
+        return qtc.QHeaderView_SectionPosition(@ptrCast(self.ptr), @bitCast(_logicalIndex));
     }
+
+    /// ### DEPRECATED: Use `sectionViewportPosition` instead
+    ///
+    pub const SectionViewportPosition = sectionViewportPosition;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionViewportPosition)
     ///
@@ -521,11 +625,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` logicalIndex: i32 `
+    /// ` _logicalIndex: i32 `
     ///
-    pub fn SectionViewportPosition(self: QHeaderView, logicalIndex: i32) i32 {
-        return qtc.QHeaderView_SectionViewportPosition(@ptrCast(self.ptr), @bitCast(logicalIndex));
+    pub fn sectionViewportPosition(self: QHeaderView, _logicalIndex: i32) i32 {
+        return qtc.QHeaderView_SectionViewportPosition(@ptrCast(self.ptr), @bitCast(_logicalIndex));
     }
+
+    /// ### DEPRECATED: Use `moveSection` instead
+    ///
+    pub const MoveSection = moveSection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#moveSection)
     ///
@@ -537,9 +645,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` to: i32 `
     ///
-    pub fn MoveSection(self: QHeaderView, from: i32, to: i32) void {
+    pub fn moveSection(self: QHeaderView, from: i32, to: i32) void {
         qtc.QHeaderView_MoveSection(@ptrCast(self.ptr), @bitCast(from), @bitCast(to));
     }
+
+    /// ### DEPRECATED: Use `swapSections` instead
+    ///
+    pub const SwapSections = swapSections;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#swapSections)
     ///
@@ -551,9 +663,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` second: i32 `
     ///
-    pub fn SwapSections(self: QHeaderView, first: i32, second: i32) void {
+    pub fn swapSections(self: QHeaderView, first: i32, second: i32) void {
         qtc.QHeaderView_SwapSections(@ptrCast(self.ptr), @bitCast(first), @bitCast(second));
     }
+
+    /// ### DEPRECATED: Use `resizeSection` instead
+    ///
+    pub const ResizeSection = resizeSection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#resizeSection)
     ///
@@ -561,13 +677,17 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` logicalIndex: i32 `
+    /// ` _logicalIndex: i32 `
     ///
-    /// ` size: i32 `
+    /// ` _size: i32 `
     ///
-    pub fn ResizeSection(self: QHeaderView, logicalIndex: i32, size: i32) void {
-        qtc.QHeaderView_ResizeSection(@ptrCast(self.ptr), @bitCast(logicalIndex), @bitCast(size));
+    pub fn resizeSection(self: QHeaderView, _logicalIndex: i32, _size: i32) void {
+        qtc.QHeaderView_ResizeSection(@ptrCast(self.ptr), @bitCast(_logicalIndex), @bitCast(_size));
     }
+
+    /// ### DEPRECATED: Use `resizeSections` instead
+    ///
+    pub const ResizeSections = resizeSections;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#resizeSections)
     ///
@@ -577,9 +697,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` mode: qheaderview_enums.ResizeMode `
     ///
-    pub fn ResizeSections(self: QHeaderView, mode: i32) void {
+    pub fn resizeSections(self: QHeaderView, mode: i32) void {
         qtc.QHeaderView_ResizeSections(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `isSectionHidden` instead
+    ///
+    pub const IsSectionHidden = isSectionHidden;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#isSectionHidden)
     ///
@@ -587,11 +711,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` logicalIndex: i32 `
+    /// ` _logicalIndex: i32 `
     ///
-    pub fn IsSectionHidden(self: QHeaderView, logicalIndex: i32) bool {
-        return qtc.QHeaderView_IsSectionHidden(@ptrCast(self.ptr), @bitCast(logicalIndex));
+    pub fn isSectionHidden(self: QHeaderView, _logicalIndex: i32) bool {
+        return qtc.QHeaderView_IsSectionHidden(@ptrCast(self.ptr), @bitCast(_logicalIndex));
     }
+
+    /// ### DEPRECATED: Use `setSectionHidden` instead
+    ///
+    pub const SetSectionHidden = setSectionHidden;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setSectionHidden)
     ///
@@ -599,13 +727,17 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` logicalIndex: i32 `
+    /// ` _logicalIndex: i32 `
     ///
-    /// ` hide: bool `
+    /// ` _hide: bool `
     ///
-    pub fn SetSectionHidden(self: QHeaderView, logicalIndex: i32, hide: bool) void {
-        qtc.QHeaderView_SetSectionHidden(@ptrCast(self.ptr), @bitCast(logicalIndex), hide);
+    pub fn setSectionHidden(self: QHeaderView, _logicalIndex: i32, _hide: bool) void {
+        qtc.QHeaderView_SetSectionHidden(@ptrCast(self.ptr), @bitCast(_logicalIndex), _hide);
     }
+
+    /// ### DEPRECATED: Use `hiddenSectionCount` instead
+    ///
+    pub const HiddenSectionCount = hiddenSectionCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#hiddenSectionCount)
     ///
@@ -613,9 +745,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn HiddenSectionCount(self: QHeaderView) i32 {
+    pub fn hiddenSectionCount(self: QHeaderView) i32 {
         return qtc.QHeaderView_HiddenSectionCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hideSection` instead
+    ///
+    pub const HideSection = hideSection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#hideSection)
     ///
@@ -623,11 +759,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` logicalIndex: i32 `
+    /// ` _logicalIndex: i32 `
     ///
-    pub fn HideSection(self: QHeaderView, logicalIndex: i32) void {
-        qtc.QHeaderView_HideSection(@ptrCast(self.ptr), @bitCast(logicalIndex));
+    pub fn hideSection(self: QHeaderView, _logicalIndex: i32) void {
+        qtc.QHeaderView_HideSection(@ptrCast(self.ptr), @bitCast(_logicalIndex));
     }
+
+    /// ### DEPRECATED: Use `showSection` instead
+    ///
+    pub const ShowSection = showSection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#showSection)
     ///
@@ -635,11 +775,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` logicalIndex: i32 `
+    /// ` _logicalIndex: i32 `
     ///
-    pub fn ShowSection(self: QHeaderView, logicalIndex: i32) void {
-        qtc.QHeaderView_ShowSection(@ptrCast(self.ptr), @bitCast(logicalIndex));
+    pub fn showSection(self: QHeaderView, _logicalIndex: i32) void {
+        qtc.QHeaderView_ShowSection(@ptrCast(self.ptr), @bitCast(_logicalIndex));
     }
+
+    /// ### DEPRECATED: Use `count` instead
+    ///
+    pub const Count = count;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#count)
     ///
@@ -647,9 +791,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn Count(self: QHeaderView) i32 {
+    pub fn count(self: QHeaderView) i32 {
         return qtc.QHeaderView_Count(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `visualIndex` instead
+    ///
+    pub const VisualIndex = visualIndex;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#visualIndex)
     ///
@@ -657,11 +805,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` logicalIndex: i32 `
+    /// ` _logicalIndex: i32 `
     ///
-    pub fn VisualIndex(self: QHeaderView, logicalIndex: i32) i32 {
-        return qtc.QHeaderView_VisualIndex(@ptrCast(self.ptr), @bitCast(logicalIndex));
+    pub fn visualIndex(self: QHeaderView, _logicalIndex: i32) i32 {
+        return qtc.QHeaderView_VisualIndex(@ptrCast(self.ptr), @bitCast(_logicalIndex));
     }
+
+    /// ### DEPRECATED: Use `logicalIndex` instead
+    ///
+    pub const LogicalIndex = logicalIndex;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#logicalIndex)
     ///
@@ -669,11 +821,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` visualIndex: i32 `
+    /// ` _visualIndex: i32 `
     ///
-    pub fn LogicalIndex(self: QHeaderView, visualIndex: i32) i32 {
-        return qtc.QHeaderView_LogicalIndex(@ptrCast(self.ptr), @bitCast(visualIndex));
+    pub fn logicalIndex(self: QHeaderView, _visualIndex: i32) i32 {
+        return qtc.QHeaderView_LogicalIndex(@ptrCast(self.ptr), @bitCast(_visualIndex));
     }
+
+    /// ### DEPRECATED: Use `setSectionsMovable` instead
+    ///
+    pub const SetSectionsMovable = setSectionsMovable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setSectionsMovable)
     ///
@@ -683,9 +839,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` movable: bool `
     ///
-    pub fn SetSectionsMovable(self: QHeaderView, movable: bool) void {
+    pub fn setSectionsMovable(self: QHeaderView, movable: bool) void {
         qtc.QHeaderView_SetSectionsMovable(@ptrCast(self.ptr), movable);
     }
+
+    /// ### DEPRECATED: Use `sectionsMovable` instead
+    ///
+    pub const SectionsMovable = sectionsMovable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionsMovable)
     ///
@@ -693,9 +853,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SectionsMovable(self: QHeaderView) bool {
+    pub fn sectionsMovable(self: QHeaderView) bool {
         return qtc.QHeaderView_SectionsMovable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFirstSectionMovable` instead
+    ///
+    pub const SetFirstSectionMovable = setFirstSectionMovable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setFirstSectionMovable)
     ///
@@ -705,9 +869,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` movable: bool `
     ///
-    pub fn SetFirstSectionMovable(self: QHeaderView, movable: bool) void {
+    pub fn setFirstSectionMovable(self: QHeaderView, movable: bool) void {
         qtc.QHeaderView_SetFirstSectionMovable(@ptrCast(self.ptr), movable);
     }
+
+    /// ### DEPRECATED: Use `isFirstSectionMovable` instead
+    ///
+    pub const IsFirstSectionMovable = isFirstSectionMovable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#isFirstSectionMovable)
     ///
@@ -715,9 +883,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn IsFirstSectionMovable(self: QHeaderView) bool {
+    pub fn isFirstSectionMovable(self: QHeaderView) bool {
         return qtc.QHeaderView_IsFirstSectionMovable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSectionsClickable` instead
+    ///
+    pub const SetSectionsClickable = setSectionsClickable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setSectionsClickable)
     ///
@@ -727,9 +899,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` clickable: bool `
     ///
-    pub fn SetSectionsClickable(self: QHeaderView, clickable: bool) void {
+    pub fn setSectionsClickable(self: QHeaderView, clickable: bool) void {
         qtc.QHeaderView_SetSectionsClickable(@ptrCast(self.ptr), clickable);
     }
+
+    /// ### DEPRECATED: Use `sectionsClickable` instead
+    ///
+    pub const SectionsClickable = sectionsClickable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionsClickable)
     ///
@@ -737,9 +913,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SectionsClickable(self: QHeaderView) bool {
+    pub fn sectionsClickable(self: QHeaderView) bool {
         return qtc.QHeaderView_SectionsClickable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHighlightSections` instead
+    ///
+    pub const SetHighlightSections = setHighlightSections;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setHighlightSections)
     ///
@@ -749,9 +929,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` highlight: bool `
     ///
-    pub fn SetHighlightSections(self: QHeaderView, highlight: bool) void {
+    pub fn setHighlightSections(self: QHeaderView, highlight: bool) void {
         qtc.QHeaderView_SetHighlightSections(@ptrCast(self.ptr), highlight);
     }
+
+    /// ### DEPRECATED: Use `highlightSections` instead
+    ///
+    pub const HighlightSections = highlightSections;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#highlightSections)
     ///
@@ -759,9 +943,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn HighlightSections(self: QHeaderView) bool {
+    pub fn highlightSections(self: QHeaderView) bool {
         return qtc.QHeaderView_HighlightSections(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `sectionResizeMode` instead
+    ///
+    pub const SectionResizeMode = sectionResizeMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionResizeMode)
     ///
@@ -769,15 +957,19 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` logicalIndex: i32 `
+    /// ` _logicalIndex: i32 `
     ///
     /// ## Returns:
     ///
     /// ` qheaderview_enums.ResizeMode `
     ///
-    pub fn SectionResizeMode(self: QHeaderView, logicalIndex: i32) i32 {
-        return qtc.QHeaderView_SectionResizeMode(@ptrCast(self.ptr), @bitCast(logicalIndex));
+    pub fn sectionResizeMode(self: QHeaderView, _logicalIndex: i32) i32 {
+        return qtc.QHeaderView_SectionResizeMode(@ptrCast(self.ptr), @bitCast(_logicalIndex));
     }
+
+    /// ### DEPRECATED: Use `setSectionResizeMode` instead
+    ///
+    pub const SetSectionResizeMode = setSectionResizeMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setSectionResizeMode)
     ///
@@ -787,23 +979,31 @@ pub const QHeaderView = extern struct {
     ///
     /// ` mode: qheaderview_enums.ResizeMode `
     ///
-    pub fn SetSectionResizeMode(self: QHeaderView, mode: i32) void {
+    pub fn setSectionResizeMode(self: QHeaderView, mode: i32) void {
         qtc.QHeaderView_SetSectionResizeMode(@ptrCast(self.ptr), @bitCast(mode));
     }
 
+    /// ### DEPRECATED: Use `setSectionResizeMode2` instead
+    ///
+    pub const SetSectionResizeMode2 = setSectionResizeMode2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setSectionResizeMode)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` logicalIndex: i32 `
+    /// ` _logicalIndex: i32 `
     ///
     /// ` mode: qheaderview_enums.ResizeMode `
     ///
-    pub fn SetSectionResizeMode2(self: QHeaderView, logicalIndex: i32, mode: i32) void {
-        qtc.QHeaderView_SetSectionResizeMode2(@ptrCast(self.ptr), @bitCast(logicalIndex), @bitCast(mode));
+    pub fn setSectionResizeMode2(self: QHeaderView, _logicalIndex: i32, mode: i32) void {
+        qtc.QHeaderView_SetSectionResizeMode2(@ptrCast(self.ptr), @bitCast(_logicalIndex), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `setResizeContentsPrecision` instead
+    ///
+    pub const SetResizeContentsPrecision = setResizeContentsPrecision;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setResizeContentsPrecision)
     ///
@@ -813,9 +1013,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` precision: i32 `
     ///
-    pub fn SetResizeContentsPrecision(self: QHeaderView, precision: i32) void {
+    pub fn setResizeContentsPrecision(self: QHeaderView, precision: i32) void {
         qtc.QHeaderView_SetResizeContentsPrecision(@ptrCast(self.ptr), @bitCast(precision));
     }
+
+    /// ### DEPRECATED: Use `resizeContentsPrecision` instead
+    ///
+    pub const ResizeContentsPrecision = resizeContentsPrecision;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#resizeContentsPrecision)
     ///
@@ -823,9 +1027,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn ResizeContentsPrecision(self: QHeaderView) i32 {
+    pub fn resizeContentsPrecision(self: QHeaderView) i32 {
         return qtc.QHeaderView_ResizeContentsPrecision(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stretchSectionCount` instead
+    ///
+    pub const StretchSectionCount = stretchSectionCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#stretchSectionCount)
     ///
@@ -833,9 +1041,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn StretchSectionCount(self: QHeaderView) i32 {
+    pub fn stretchSectionCount(self: QHeaderView) i32 {
         return qtc.QHeaderView_StretchSectionCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSortIndicatorShown` instead
+    ///
+    pub const SetSortIndicatorShown = setSortIndicatorShown;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setSortIndicatorShown)
     ///
@@ -843,11 +1055,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` show: bool `
+    /// ` _show: bool `
     ///
-    pub fn SetSortIndicatorShown(self: QHeaderView, show: bool) void {
-        qtc.QHeaderView_SetSortIndicatorShown(@ptrCast(self.ptr), show);
+    pub fn setSortIndicatorShown(self: QHeaderView, _show: bool) void {
+        qtc.QHeaderView_SetSortIndicatorShown(@ptrCast(self.ptr), _show);
     }
+
+    /// ### DEPRECATED: Use `isSortIndicatorShown` instead
+    ///
+    pub const IsSortIndicatorShown = isSortIndicatorShown;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#isSortIndicatorShown)
     ///
@@ -855,9 +1071,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn IsSortIndicatorShown(self: QHeaderView) bool {
+    pub fn isSortIndicatorShown(self: QHeaderView) bool {
         return qtc.QHeaderView_IsSortIndicatorShown(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSortIndicator` instead
+    ///
+    pub const SetSortIndicator = setSortIndicator;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setSortIndicator)
     ///
@@ -865,13 +1085,17 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` logicalIndex: i32 `
+    /// ` _logicalIndex: i32 `
     ///
     /// ` order: qnamespace_enums.SortOrder `
     ///
-    pub fn SetSortIndicator(self: QHeaderView, logicalIndex: i32, order: i32) void {
-        qtc.QHeaderView_SetSortIndicator(@ptrCast(self.ptr), @bitCast(logicalIndex), @bitCast(order));
+    pub fn setSortIndicator(self: QHeaderView, _logicalIndex: i32, order: i32) void {
+        qtc.QHeaderView_SetSortIndicator(@ptrCast(self.ptr), @bitCast(_logicalIndex), @bitCast(order));
     }
+
+    /// ### DEPRECATED: Use `sortIndicatorSection` instead
+    ///
+    pub const SortIndicatorSection = sortIndicatorSection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sortIndicatorSection)
     ///
@@ -879,9 +1103,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SortIndicatorSection(self: QHeaderView) i32 {
+    pub fn sortIndicatorSection(self: QHeaderView) i32 {
         return qtc.QHeaderView_SortIndicatorSection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `sortIndicatorOrder` instead
+    ///
+    pub const SortIndicatorOrder = sortIndicatorOrder;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sortIndicatorOrder)
     ///
@@ -893,9 +1121,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` qnamespace_enums.SortOrder `
     ///
-    pub fn SortIndicatorOrder(self: QHeaderView) i32 {
+    pub fn sortIndicatorOrder(self: QHeaderView) i32 {
         return qtc.QHeaderView_SortIndicatorOrder(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSortIndicatorClearable` instead
+    ///
+    pub const SetSortIndicatorClearable = setSortIndicatorClearable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setSortIndicatorClearable)
     ///
@@ -905,9 +1137,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` clearable: bool `
     ///
-    pub fn SetSortIndicatorClearable(self: QHeaderView, clearable: bool) void {
+    pub fn setSortIndicatorClearable(self: QHeaderView, clearable: bool) void {
         qtc.QHeaderView_SetSortIndicatorClearable(@ptrCast(self.ptr), clearable);
     }
+
+    /// ### DEPRECATED: Use `isSortIndicatorClearable` instead
+    ///
+    pub const IsSortIndicatorClearable = isSortIndicatorClearable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#isSortIndicatorClearable)
     ///
@@ -915,9 +1151,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn IsSortIndicatorClearable(self: QHeaderView) bool {
+    pub fn isSortIndicatorClearable(self: QHeaderView) bool {
         return qtc.QHeaderView_IsSortIndicatorClearable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stretchLastSection` instead
+    ///
+    pub const StretchLastSection = stretchLastSection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#stretchLastSection)
     ///
@@ -925,9 +1165,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn StretchLastSection(self: QHeaderView) bool {
+    pub fn stretchLastSection(self: QHeaderView) bool {
         return qtc.QHeaderView_StretchLastSection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStretchLastSection` instead
+    ///
+    pub const SetStretchLastSection = setStretchLastSection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setStretchLastSection)
     ///
@@ -937,9 +1181,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` stretch: bool `
     ///
-    pub fn SetStretchLastSection(self: QHeaderView, stretch: bool) void {
+    pub fn setStretchLastSection(self: QHeaderView, stretch: bool) void {
         qtc.QHeaderView_SetStretchLastSection(@ptrCast(self.ptr), stretch);
     }
+
+    /// ### DEPRECATED: Use `cascadingSectionResizes` instead
+    ///
+    pub const CascadingSectionResizes = cascadingSectionResizes;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#cascadingSectionResizes)
     ///
@@ -947,9 +1195,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn CascadingSectionResizes(self: QHeaderView) bool {
+    pub fn cascadingSectionResizes(self: QHeaderView) bool {
         return qtc.QHeaderView_CascadingSectionResizes(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCascadingSectionResizes` instead
+    ///
+    pub const SetCascadingSectionResizes = setCascadingSectionResizes;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setCascadingSectionResizes)
     ///
@@ -959,9 +1211,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetCascadingSectionResizes(self: QHeaderView, enable: bool) void {
+    pub fn setCascadingSectionResizes(self: QHeaderView, enable: bool) void {
         qtc.QHeaderView_SetCascadingSectionResizes(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `defaultSectionSize` instead
+    ///
+    pub const DefaultSectionSize = defaultSectionSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#defaultSectionSize)
     ///
@@ -969,9 +1225,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn DefaultSectionSize(self: QHeaderView) i32 {
+    pub fn defaultSectionSize(self: QHeaderView) i32 {
         return qtc.QHeaderView_DefaultSectionSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDefaultSectionSize` instead
+    ///
+    pub const SetDefaultSectionSize = setDefaultSectionSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setDefaultSectionSize)
     ///
@@ -979,11 +1239,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` size: i32 `
+    /// ` _size: i32 `
     ///
-    pub fn SetDefaultSectionSize(self: QHeaderView, size: i32) void {
-        qtc.QHeaderView_SetDefaultSectionSize(@ptrCast(self.ptr), @bitCast(size));
+    pub fn setDefaultSectionSize(self: QHeaderView, _size: i32) void {
+        qtc.QHeaderView_SetDefaultSectionSize(@ptrCast(self.ptr), @bitCast(_size));
     }
+
+    /// ### DEPRECATED: Use `resetDefaultSectionSize` instead
+    ///
+    pub const ResetDefaultSectionSize = resetDefaultSectionSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#resetDefaultSectionSize)
     ///
@@ -991,9 +1255,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn ResetDefaultSectionSize(self: QHeaderView) void {
+    pub fn resetDefaultSectionSize(self: QHeaderView) void {
         qtc.QHeaderView_ResetDefaultSectionSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumSectionSize` instead
+    ///
+    pub const MinimumSectionSize = minimumSectionSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#minimumSectionSize)
     ///
@@ -1001,9 +1269,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn MinimumSectionSize(self: QHeaderView) i32 {
+    pub fn minimumSectionSize(self: QHeaderView) i32 {
         return qtc.QHeaderView_MinimumSectionSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSectionSize` instead
+    ///
+    pub const SetMinimumSectionSize = setMinimumSectionSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setMinimumSectionSize)
     ///
@@ -1011,11 +1283,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` size: i32 `
+    /// ` _size: i32 `
     ///
-    pub fn SetMinimumSectionSize(self: QHeaderView, size: i32) void {
-        qtc.QHeaderView_SetMinimumSectionSize(@ptrCast(self.ptr), @bitCast(size));
+    pub fn setMinimumSectionSize(self: QHeaderView, _size: i32) void {
+        qtc.QHeaderView_SetMinimumSectionSize(@ptrCast(self.ptr), @bitCast(_size));
     }
+
+    /// ### DEPRECATED: Use `maximumSectionSize` instead
+    ///
+    pub const MaximumSectionSize = maximumSectionSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#maximumSectionSize)
     ///
@@ -1023,9 +1299,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn MaximumSectionSize(self: QHeaderView) i32 {
+    pub fn maximumSectionSize(self: QHeaderView) i32 {
         return qtc.QHeaderView_MaximumSectionSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSectionSize` instead
+    ///
+    pub const SetMaximumSectionSize = setMaximumSectionSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setMaximumSectionSize)
     ///
@@ -1033,11 +1313,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` size: i32 `
+    /// ` _size: i32 `
     ///
-    pub fn SetMaximumSectionSize(self: QHeaderView, size: i32) void {
-        qtc.QHeaderView_SetMaximumSectionSize(@ptrCast(self.ptr), @bitCast(size));
+    pub fn setMaximumSectionSize(self: QHeaderView, _size: i32) void {
+        qtc.QHeaderView_SetMaximumSectionSize(@ptrCast(self.ptr), @bitCast(_size));
     }
+
+    /// ### DEPRECATED: Use `defaultAlignment` instead
+    ///
+    pub const DefaultAlignment = defaultAlignment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#defaultAlignment)
     ///
@@ -1049,9 +1333,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn DefaultAlignment(self: QHeaderView) i32 {
+    pub fn defaultAlignment(self: QHeaderView) i32 {
         return qtc.QHeaderView_DefaultAlignment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDefaultAlignment` instead
+    ///
+    pub const SetDefaultAlignment = setDefaultAlignment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setDefaultAlignment)
     ///
@@ -1061,9 +1349,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn SetDefaultAlignment(self: QHeaderView, alignment: i32) void {
+    pub fn setDefaultAlignment(self: QHeaderView, alignment: i32) void {
         qtc.QHeaderView_SetDefaultAlignment(@ptrCast(self.ptr), @bitCast(alignment));
     }
+
+    /// ### DEPRECATED: Use `doItemsLayout` instead
+    ///
+    pub const DoItemsLayout = doItemsLayout;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#doItemsLayout)
     ///
@@ -1071,9 +1363,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn DoItemsLayout(self: QHeaderView) void {
+    pub fn doItemsLayout(self: QHeaderView) void {
         qtc.QHeaderView_DoItemsLayout(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDoItemsLayout` instead
+    ///
+    pub const OnDoItemsLayout = onDoItemsLayout;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#doItemsLayout)
     ///
@@ -1085,13 +1381,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDoItemsLayout(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
+    pub fn onDoItemsLayout(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
         qtc.QHeaderView_OnDoItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDoItemsLayout` instead
+    /// ### DEPRECATED: Use `superDoItemsLayout` instead
     ///
-    pub const QBaseDoItemsLayout = SuperDoItemsLayout;
+    pub const SuperDoItemsLayout = superDoItemsLayout;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#doItemsLayout)
     ///
@@ -1101,9 +1397,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SuperDoItemsLayout(self: QHeaderView) void {
+    pub fn superDoItemsLayout(self: QHeaderView) void {
         qtc.QHeaderView_SuperDoItemsLayout(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `sectionsMoved` instead
+    ///
+    pub const SectionsMoved = sectionsMoved;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionsMoved)
     ///
@@ -1111,9 +1411,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SectionsMoved(self: QHeaderView) bool {
+    pub fn sectionsMoved(self: QHeaderView) bool {
         return qtc.QHeaderView_SectionsMoved(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `sectionsHidden` instead
+    ///
+    pub const SectionsHidden = sectionsHidden;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionsHidden)
     ///
@@ -1121,9 +1425,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SectionsHidden(self: QHeaderView) bool {
+    pub fn sectionsHidden(self: QHeaderView) bool {
         return qtc.QHeaderView_SectionsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveState` instead
+    ///
+    pub const SaveState = saveState;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#saveState)
     ///
@@ -1133,13 +1441,17 @@ pub const QHeaderView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveState(self: QHeaderView, allocator: std.mem.Allocator) []u8 {
+    pub fn saveState(self: QHeaderView, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QHeaderView_SaveState(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QHeaderView.SaveState: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QHeaderView.saveState: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreState` instead
+    ///
+    pub const RestoreState = restoreState;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#restoreState)
     ///
@@ -1147,15 +1459,19 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` state: []u8 `
+    /// ` _state: []u8 `
     ///
-    pub fn RestoreState(self: QHeaderView, state: []u8) bool {
+    pub fn restoreState(self: QHeaderView, _state: []u8) bool {
         const state_str = qtc.libqt_string{
-            .len = state.len,
-            .data = state.ptr,
+            .len = _state.len,
+            .data = _state.ptr,
         };
         return qtc.QHeaderView_RestoreState(@ptrCast(self.ptr), state_str);
     }
+
+    /// ### DEPRECATED: Use `reset` instead
+    ///
+    pub const Reset = reset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#reset)
     ///
@@ -1163,9 +1479,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn Reset(self: QHeaderView) void {
+    pub fn reset(self: QHeaderView) void {
         qtc.QHeaderView_Reset(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onReset` instead
+    ///
+    pub const OnReset = onReset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#reset)
     ///
@@ -1177,13 +1497,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnReset(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
+    pub fn onReset(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
         qtc.QHeaderView_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperReset` instead
+    /// ### DEPRECATED: Use `superReset` instead
     ///
-    pub const QBaseReset = SuperReset;
+    pub const SuperReset = superReset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#reset)
     ///
@@ -1193,9 +1513,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SuperReset(self: QHeaderView) void {
+    pub fn superReset(self: QHeaderView) void {
         qtc.QHeaderView_SuperReset(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setOffset` instead
+    ///
+    pub const SetOffset = setOffset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setOffset)
     ///
@@ -1203,11 +1527,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` offset: i32 `
+    /// ` _offset: i32 `
     ///
-    pub fn SetOffset(self: QHeaderView, offset: i32) void {
-        qtc.QHeaderView_SetOffset(@ptrCast(self.ptr), @bitCast(offset));
+    pub fn setOffset(self: QHeaderView, _offset: i32) void {
+        qtc.QHeaderView_SetOffset(@ptrCast(self.ptr), @bitCast(_offset));
     }
+
+    /// ### DEPRECATED: Use `setOffsetToSectionPosition` instead
+    ///
+    pub const SetOffsetToSectionPosition = setOffsetToSectionPosition;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setOffsetToSectionPosition)
     ///
@@ -1215,11 +1543,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` visualIndex: i32 `
+    /// ` _visualIndex: i32 `
     ///
-    pub fn SetOffsetToSectionPosition(self: QHeaderView, visualIndex: i32) void {
-        qtc.QHeaderView_SetOffsetToSectionPosition(@ptrCast(self.ptr), @bitCast(visualIndex));
+    pub fn setOffsetToSectionPosition(self: QHeaderView, _visualIndex: i32) void {
+        qtc.QHeaderView_SetOffsetToSectionPosition(@ptrCast(self.ptr), @bitCast(_visualIndex));
     }
+
+    /// ### DEPRECATED: Use `setOffsetToLastSection` instead
+    ///
+    pub const SetOffsetToLastSection = setOffsetToLastSection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setOffsetToLastSection)
     ///
@@ -1227,9 +1559,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SetOffsetToLastSection(self: QHeaderView) void {
+    pub fn setOffsetToLastSection(self: QHeaderView) void {
         qtc.QHeaderView_SetOffsetToLastSection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `headerDataChanged` instead
+    ///
+    pub const HeaderDataChanged = headerDataChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#headerDataChanged)
     ///
@@ -1237,15 +1573,19 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` orientation: qnamespace_enums.Orientation `
+    /// ` _orientation: qnamespace_enums.Orientation `
     ///
     /// ` logicalFirst: i32 `
     ///
     /// ` logicalLast: i32 `
     ///
-    pub fn HeaderDataChanged(self: QHeaderView, orientation: i32, logicalFirst: i32, logicalLast: i32) void {
-        qtc.QHeaderView_HeaderDataChanged(@ptrCast(self.ptr), @bitCast(orientation), @bitCast(logicalFirst), @bitCast(logicalLast));
+    pub fn headerDataChanged(self: QHeaderView, _orientation: i32, logicalFirst: i32, logicalLast: i32) void {
+        qtc.QHeaderView_HeaderDataChanged(@ptrCast(self.ptr), @bitCast(_orientation), @bitCast(logicalFirst), @bitCast(logicalLast));
     }
+
+    /// ### DEPRECATED: Use `sectionMoved` instead
+    ///
+    pub const SectionMoved = sectionMoved;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionMoved)
     ///
@@ -1253,15 +1593,19 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` logicalIndex: i32 `
+    /// ` _logicalIndex: i32 `
     ///
     /// ` oldVisualIndex: i32 `
     ///
     /// ` newVisualIndex: i32 `
     ///
-    pub fn SectionMoved(self: QHeaderView, logicalIndex: i32, oldVisualIndex: i32, newVisualIndex: i32) void {
-        qtc.QHeaderView_SectionMoved(@ptrCast(self.ptr), @bitCast(logicalIndex), @bitCast(oldVisualIndex), @bitCast(newVisualIndex));
+    pub fn sectionMoved(self: QHeaderView, _logicalIndex: i32, oldVisualIndex: i32, newVisualIndex: i32) void {
+        qtc.QHeaderView_SectionMoved(@ptrCast(self.ptr), @bitCast(_logicalIndex), @bitCast(oldVisualIndex), @bitCast(newVisualIndex));
     }
+
+    /// ### DEPRECATED: Use `onSectionMoved` instead
+    ///
+    pub const OnSectionMoved = onSectionMoved;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionMoved)
     ///
@@ -1271,9 +1615,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, logicalIndex: i32, oldVisualIndex: i32, newVisualIndex: i32) callconv(.c) void `
     ///
-    pub fn OnSectionMoved(self: QHeaderView, callback: *const fn (QHeaderView, i32, i32, i32) callconv(.c) void) void {
+    pub fn onSectionMoved(self: QHeaderView, callback: *const fn (QHeaderView, i32, i32, i32) callconv(.c) void) void {
         qtc.QHeaderView_Connect_SectionMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sectionResized` instead
+    ///
+    pub const SectionResized = sectionResized;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionResized)
     ///
@@ -1281,15 +1629,19 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` logicalIndex: i32 `
+    /// ` _logicalIndex: i32 `
     ///
     /// ` oldSize: i32 `
     ///
     /// ` newSize: i32 `
     ///
-    pub fn SectionResized(self: QHeaderView, logicalIndex: i32, oldSize: i32, newSize: i32) void {
-        qtc.QHeaderView_SectionResized(@ptrCast(self.ptr), @bitCast(logicalIndex), @bitCast(oldSize), @bitCast(newSize));
+    pub fn sectionResized(self: QHeaderView, _logicalIndex: i32, oldSize: i32, newSize: i32) void {
+        qtc.QHeaderView_SectionResized(@ptrCast(self.ptr), @bitCast(_logicalIndex), @bitCast(oldSize), @bitCast(newSize));
     }
+
+    /// ### DEPRECATED: Use `onSectionResized` instead
+    ///
+    pub const OnSectionResized = onSectionResized;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionResized)
     ///
@@ -1299,21 +1651,29 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, logicalIndex: i32, oldSize: i32, newSize: i32) callconv(.c) void `
     ///
-    pub fn OnSectionResized(self: QHeaderView, callback: *const fn (QHeaderView, i32, i32, i32) callconv(.c) void) void {
+    pub fn onSectionResized(self: QHeaderView, callback: *const fn (QHeaderView, i32, i32, i32) callconv(.c) void) void {
         qtc.QHeaderView_Connect_SectionResized(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `sectionPressed` instead
+    ///
+    pub const SectionPressed = sectionPressed;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionPressed)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` logicalIndex: i32 `
+    /// ` _logicalIndex: i32 `
     ///
-    pub fn SectionPressed(self: QHeaderView, logicalIndex: i32) void {
-        qtc.QHeaderView_SectionPressed(@ptrCast(self.ptr), @bitCast(logicalIndex));
+    pub fn sectionPressed(self: QHeaderView, _logicalIndex: i32) void {
+        qtc.QHeaderView_SectionPressed(@ptrCast(self.ptr), @bitCast(_logicalIndex));
     }
+
+    /// ### DEPRECATED: Use `onSectionPressed` instead
+    ///
+    pub const OnSectionPressed = onSectionPressed;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionPressed)
     ///
@@ -1323,21 +1683,29 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, logicalIndex: i32) callconv(.c) void `
     ///
-    pub fn OnSectionPressed(self: QHeaderView, callback: *const fn (QHeaderView, i32) callconv(.c) void) void {
+    pub fn onSectionPressed(self: QHeaderView, callback: *const fn (QHeaderView, i32) callconv(.c) void) void {
         qtc.QHeaderView_Connect_SectionPressed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `sectionClicked` instead
+    ///
+    pub const SectionClicked = sectionClicked;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionClicked)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` logicalIndex: i32 `
+    /// ` _logicalIndex: i32 `
     ///
-    pub fn SectionClicked(self: QHeaderView, logicalIndex: i32) void {
-        qtc.QHeaderView_SectionClicked(@ptrCast(self.ptr), @bitCast(logicalIndex));
+    pub fn sectionClicked(self: QHeaderView, _logicalIndex: i32) void {
+        qtc.QHeaderView_SectionClicked(@ptrCast(self.ptr), @bitCast(_logicalIndex));
     }
+
+    /// ### DEPRECATED: Use `onSectionClicked` instead
+    ///
+    pub const OnSectionClicked = onSectionClicked;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionClicked)
     ///
@@ -1347,21 +1715,29 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, logicalIndex: i32) callconv(.c) void `
     ///
-    pub fn OnSectionClicked(self: QHeaderView, callback: *const fn (QHeaderView, i32) callconv(.c) void) void {
+    pub fn onSectionClicked(self: QHeaderView, callback: *const fn (QHeaderView, i32) callconv(.c) void) void {
         qtc.QHeaderView_Connect_SectionClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `sectionEntered` instead
+    ///
+    pub const SectionEntered = sectionEntered;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionEntered)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` logicalIndex: i32 `
+    /// ` _logicalIndex: i32 `
     ///
-    pub fn SectionEntered(self: QHeaderView, logicalIndex: i32) void {
-        qtc.QHeaderView_SectionEntered(@ptrCast(self.ptr), @bitCast(logicalIndex));
+    pub fn sectionEntered(self: QHeaderView, _logicalIndex: i32) void {
+        qtc.QHeaderView_SectionEntered(@ptrCast(self.ptr), @bitCast(_logicalIndex));
     }
+
+    /// ### DEPRECATED: Use `onSectionEntered` instead
+    ///
+    pub const OnSectionEntered = onSectionEntered;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionEntered)
     ///
@@ -1371,21 +1747,29 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, logicalIndex: i32) callconv(.c) void `
     ///
-    pub fn OnSectionEntered(self: QHeaderView, callback: *const fn (QHeaderView, i32) callconv(.c) void) void {
+    pub fn onSectionEntered(self: QHeaderView, callback: *const fn (QHeaderView, i32) callconv(.c) void) void {
         qtc.QHeaderView_Connect_SectionEntered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `sectionDoubleClicked` instead
+    ///
+    pub const SectionDoubleClicked = sectionDoubleClicked;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionDoubleClicked)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` logicalIndex: i32 `
+    /// ` _logicalIndex: i32 `
     ///
-    pub fn SectionDoubleClicked(self: QHeaderView, logicalIndex: i32) void {
-        qtc.QHeaderView_SectionDoubleClicked(@ptrCast(self.ptr), @bitCast(logicalIndex));
+    pub fn sectionDoubleClicked(self: QHeaderView, _logicalIndex: i32) void {
+        qtc.QHeaderView_SectionDoubleClicked(@ptrCast(self.ptr), @bitCast(_logicalIndex));
     }
+
+    /// ### DEPRECATED: Use `onSectionDoubleClicked` instead
+    ///
+    pub const OnSectionDoubleClicked = onSectionDoubleClicked;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionDoubleClicked)
     ///
@@ -1395,9 +1779,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, logicalIndex: i32) callconv(.c) void `
     ///
-    pub fn OnSectionDoubleClicked(self: QHeaderView, callback: *const fn (QHeaderView, i32) callconv(.c) void) void {
+    pub fn onSectionDoubleClicked(self: QHeaderView, callback: *const fn (QHeaderView, i32) callconv(.c) void) void {
         qtc.QHeaderView_Connect_SectionDoubleClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sectionCountChanged` instead
+    ///
+    pub const SectionCountChanged = sectionCountChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionCountChanged)
     ///
@@ -1409,9 +1797,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` newCount: i32 `
     ///
-    pub fn SectionCountChanged(self: QHeaderView, oldCount: i32, newCount: i32) void {
+    pub fn sectionCountChanged(self: QHeaderView, oldCount: i32, newCount: i32) void {
         qtc.QHeaderView_SectionCountChanged(@ptrCast(self.ptr), @bitCast(oldCount), @bitCast(newCount));
     }
+
+    /// ### DEPRECATED: Use `onSectionCountChanged` instead
+    ///
+    pub const OnSectionCountChanged = onSectionCountChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionCountChanged)
     ///
@@ -1421,9 +1813,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, oldCount: i32, newCount: i32) callconv(.c) void `
     ///
-    pub fn OnSectionCountChanged(self: QHeaderView, callback: *const fn (QHeaderView, i32, i32) callconv(.c) void) void {
+    pub fn onSectionCountChanged(self: QHeaderView, callback: *const fn (QHeaderView, i32, i32) callconv(.c) void) void {
         qtc.QHeaderView_Connect_SectionCountChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sectionHandleDoubleClicked` instead
+    ///
+    pub const SectionHandleDoubleClicked = sectionHandleDoubleClicked;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionHandleDoubleClicked)
     ///
@@ -1431,11 +1827,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` logicalIndex: i32 `
+    /// ` _logicalIndex: i32 `
     ///
-    pub fn SectionHandleDoubleClicked(self: QHeaderView, logicalIndex: i32) void {
-        qtc.QHeaderView_SectionHandleDoubleClicked(@ptrCast(self.ptr), @bitCast(logicalIndex));
+    pub fn sectionHandleDoubleClicked(self: QHeaderView, _logicalIndex: i32) void {
+        qtc.QHeaderView_SectionHandleDoubleClicked(@ptrCast(self.ptr), @bitCast(_logicalIndex));
     }
+
+    /// ### DEPRECATED: Use `onSectionHandleDoubleClicked` instead
+    ///
+    pub const OnSectionHandleDoubleClicked = onSectionHandleDoubleClicked;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionHandleDoubleClicked)
     ///
@@ -1445,9 +1845,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, logicalIndex: i32) callconv(.c) void `
     ///
-    pub fn OnSectionHandleDoubleClicked(self: QHeaderView, callback: *const fn (QHeaderView, i32) callconv(.c) void) void {
+    pub fn onSectionHandleDoubleClicked(self: QHeaderView, callback: *const fn (QHeaderView, i32) callconv(.c) void) void {
         qtc.QHeaderView_Connect_SectionHandleDoubleClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `geometriesChanged` instead
+    ///
+    pub const GeometriesChanged = geometriesChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#geometriesChanged)
     ///
@@ -1455,9 +1859,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn GeometriesChanged(self: QHeaderView) void {
+    pub fn geometriesChanged(self: QHeaderView) void {
         qtc.QHeaderView_GeometriesChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onGeometriesChanged` instead
+    ///
+    pub const OnGeometriesChanged = onGeometriesChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#geometriesChanged)
     ///
@@ -1467,9 +1875,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView) callconv(.c) void `
     ///
-    pub fn OnGeometriesChanged(self: QHeaderView, callback: *const fn (QHeaderView) callconv(.c) void) void {
+    pub fn onGeometriesChanged(self: QHeaderView, callback: *const fn (QHeaderView) callconv(.c) void) void {
         qtc.QHeaderView_Connect_GeometriesChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sortIndicatorChanged` instead
+    ///
+    pub const SortIndicatorChanged = sortIndicatorChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sortIndicatorChanged)
     ///
@@ -1477,13 +1889,17 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` logicalIndex: i32 `
+    /// ` _logicalIndex: i32 `
     ///
     /// ` order: qnamespace_enums.SortOrder `
     ///
-    pub fn SortIndicatorChanged(self: QHeaderView, logicalIndex: i32, order: i32) void {
-        qtc.QHeaderView_SortIndicatorChanged(@ptrCast(self.ptr), @bitCast(logicalIndex), @bitCast(order));
+    pub fn sortIndicatorChanged(self: QHeaderView, _logicalIndex: i32, order: i32) void {
+        qtc.QHeaderView_SortIndicatorChanged(@ptrCast(self.ptr), @bitCast(_logicalIndex), @bitCast(order));
     }
+
+    /// ### DEPRECATED: Use `onSortIndicatorChanged` instead
+    ///
+    pub const OnSortIndicatorChanged = onSortIndicatorChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sortIndicatorChanged)
     ///
@@ -1493,9 +1909,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, logicalIndex: i32, order: qnamespace_enums.SortOrder) callconv(.c) void `
     ///
-    pub fn OnSortIndicatorChanged(self: QHeaderView, callback: *const fn (QHeaderView, i32, i32) callconv(.c) void) void {
+    pub fn onSortIndicatorChanged(self: QHeaderView, callback: *const fn (QHeaderView, i32, i32) callconv(.c) void) void {
         qtc.QHeaderView_Connect_SortIndicatorChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sortIndicatorClearableChanged` instead
+    ///
+    pub const SortIndicatorClearableChanged = sortIndicatorClearableChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sortIndicatorClearableChanged)
     ///
@@ -1505,9 +1925,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` clearable: bool `
     ///
-    pub fn SortIndicatorClearableChanged(self: QHeaderView, clearable: bool) void {
+    pub fn sortIndicatorClearableChanged(self: QHeaderView, clearable: bool) void {
         qtc.QHeaderView_SortIndicatorClearableChanged(@ptrCast(self.ptr), clearable);
     }
+
+    /// ### DEPRECATED: Use `onSortIndicatorClearableChanged` instead
+    ///
+    pub const OnSortIndicatorClearableChanged = onSortIndicatorClearableChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sortIndicatorClearableChanged)
     ///
@@ -1517,9 +1941,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, clearable: bool) callconv(.c) void `
     ///
-    pub fn OnSortIndicatorClearableChanged(self: QHeaderView, callback: *const fn (QHeaderView, bool) callconv(.c) void) void {
+    pub fn onSortIndicatorClearableChanged(self: QHeaderView, callback: *const fn (QHeaderView, bool) callconv(.c) void) void {
         qtc.QHeaderView_Connect_SortIndicatorClearableChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `updateSection` instead
+    ///
+    pub const UpdateSection = updateSection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#updateSection)
     ///
@@ -1527,11 +1955,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` logicalIndex: i32 `
+    /// ` _logicalIndex: i32 `
     ///
-    pub fn UpdateSection(self: QHeaderView, logicalIndex: i32) void {
-        qtc.QHeaderView_UpdateSection(@ptrCast(self.ptr), @bitCast(logicalIndex));
+    pub fn updateSection(self: QHeaderView, _logicalIndex: i32) void {
+        qtc.QHeaderView_UpdateSection(@ptrCast(self.ptr), @bitCast(_logicalIndex));
     }
+
+    /// ### DEPRECATED: Use `onUpdateSection` instead
+    ///
+    pub const OnUpdateSection = onUpdateSection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#updateSection)
     ///
@@ -1543,13 +1975,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, logicalIndex: i32) callconv(.c) void `
     ///
-    pub fn OnUpdateSection(self: QHeaderView, callback: *const fn (QHeaderView, i32) callconv(.c) void) void {
+    pub fn onUpdateSection(self: QHeaderView, callback: *const fn (QHeaderView, i32) callconv(.c) void) void {
         qtc.QHeaderView_OnUpdateSection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateSection` instead
+    /// ### DEPRECATED: Use `superUpdateSection` instead
     ///
-    pub const QBaseUpdateSection = SuperUpdateSection;
+    pub const SuperUpdateSection = superUpdateSection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#updateSection)
     ///
@@ -1559,11 +1991,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` logicalIndex: i32 `
+    /// ` _logicalIndex: i32 `
     ///
-    pub fn SuperUpdateSection(self: QHeaderView, logicalIndex: i32) void {
-        qtc.QHeaderView_SuperUpdateSection(@ptrCast(self.ptr), @bitCast(logicalIndex));
+    pub fn superUpdateSection(self: QHeaderView, _logicalIndex: i32) void {
+        qtc.QHeaderView_SuperUpdateSection(@ptrCast(self.ptr), @bitCast(_logicalIndex));
     }
+
+    /// ### DEPRECATED: Use `resizeSections2` instead
+    ///
+    pub const ResizeSections2 = resizeSections2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#resizeSections)
     ///
@@ -1571,10 +2007,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn ResizeSections2(self: QHeaderView) void {
+    pub fn resizeSections2(self: QHeaderView) void {
         qtc.QHeaderView_ResizeSections2(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onResizeSections2` instead
+    ///
+    pub const OnResizeSections2 = onResizeSections2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#resizeSections)
     ///
     /// Allows for overriding the related default method
@@ -1585,13 +2025,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnResizeSections2(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
+    pub fn onResizeSections2(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
         qtc.QHeaderView_OnResizeSections2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeSections2` instead
+    /// ### DEPRECATED: Use `superResizeSections2` instead
     ///
-    pub const QBaseResizeSections2 = SuperResizeSections2;
+    pub const SuperResizeSections2 = superResizeSections2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#resizeSections)
     ///
@@ -1601,26 +2041,34 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SuperResizeSections2(self: QHeaderView) void {
+    pub fn superResizeSections2(self: QHeaderView) void {
         qtc.QHeaderView_SuperResizeSections2(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `sectionsInserted` instead
+    ///
+    pub const SectionsInserted = sectionsInserted;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionsInserted)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` logicalFirst: i32 `
     ///
     /// ` logicalLast: i32 `
     ///
-    pub fn SectionsInserted(self: QHeaderView, parent: anytype, logicalFirst: i32, logicalLast: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.QHeaderView_SectionsInserted(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(logicalFirst), @bitCast(logicalLast));
+    pub fn sectionsInserted(self: QHeaderView, _parent: anytype, logicalFirst: i32, logicalLast: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.QHeaderView_SectionsInserted(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(logicalFirst), @bitCast(logicalLast));
     }
+
+    /// ### DEPRECATED: Use `onSectionsInserted` instead
+    ///
+    pub const OnSectionsInserted = onSectionsInserted;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionsInserted)
     ///
@@ -1632,13 +2080,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, parent: QModelIndex, logicalFirst: i32, logicalLast: i32) callconv(.c) void `
     ///
-    pub fn OnSectionsInserted(self: QHeaderView, callback: *const fn (QHeaderView, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onSectionsInserted(self: QHeaderView, callback: *const fn (QHeaderView, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QHeaderView_OnSectionsInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSectionsInserted` instead
+    /// ### DEPRECATED: Use `superSectionsInserted` instead
     ///
-    pub const QBaseSectionsInserted = SuperSectionsInserted;
+    pub const SuperSectionsInserted = superSectionsInserted;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionsInserted)
     ///
@@ -1648,16 +2096,20 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` logicalFirst: i32 `
     ///
     /// ` logicalLast: i32 `
     ///
-    pub fn SuperSectionsInserted(self: QHeaderView, parent: anytype, logicalFirst: i32, logicalLast: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.QHeaderView_SuperSectionsInserted(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(logicalFirst), @bitCast(logicalLast));
+    pub fn superSectionsInserted(self: QHeaderView, _parent: anytype, logicalFirst: i32, logicalLast: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.QHeaderView_SuperSectionsInserted(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(logicalFirst), @bitCast(logicalLast));
     }
+
+    /// ### DEPRECATED: Use `sectionsAboutToBeRemoved` instead
+    ///
+    pub const SectionsAboutToBeRemoved = sectionsAboutToBeRemoved;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionsAboutToBeRemoved)
     ///
@@ -1665,16 +2117,20 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` logicalFirst: i32 `
     ///
     /// ` logicalLast: i32 `
     ///
-    pub fn SectionsAboutToBeRemoved(self: QHeaderView, parent: anytype, logicalFirst: i32, logicalLast: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.QHeaderView_SectionsAboutToBeRemoved(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(logicalFirst), @bitCast(logicalLast));
+    pub fn sectionsAboutToBeRemoved(self: QHeaderView, _parent: anytype, logicalFirst: i32, logicalLast: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.QHeaderView_SectionsAboutToBeRemoved(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(logicalFirst), @bitCast(logicalLast));
     }
+
+    /// ### DEPRECATED: Use `onSectionsAboutToBeRemoved` instead
+    ///
+    pub const OnSectionsAboutToBeRemoved = onSectionsAboutToBeRemoved;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionsAboutToBeRemoved)
     ///
@@ -1686,13 +2142,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, parent: QModelIndex, logicalFirst: i32, logicalLast: i32) callconv(.c) void `
     ///
-    pub fn OnSectionsAboutToBeRemoved(self: QHeaderView, callback: *const fn (QHeaderView, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onSectionsAboutToBeRemoved(self: QHeaderView, callback: *const fn (QHeaderView, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QHeaderView_OnSectionsAboutToBeRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSectionsAboutToBeRemoved` instead
+    /// ### DEPRECATED: Use `superSectionsAboutToBeRemoved` instead
     ///
-    pub const QBaseSectionsAboutToBeRemoved = SuperSectionsAboutToBeRemoved;
+    pub const SuperSectionsAboutToBeRemoved = superSectionsAboutToBeRemoved;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionsAboutToBeRemoved)
     ///
@@ -1702,16 +2158,20 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` logicalFirst: i32 `
     ///
     /// ` logicalLast: i32 `
     ///
-    pub fn SuperSectionsAboutToBeRemoved(self: QHeaderView, parent: anytype, logicalFirst: i32, logicalLast: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.QHeaderView_SuperSectionsAboutToBeRemoved(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(logicalFirst), @bitCast(logicalLast));
+    pub fn superSectionsAboutToBeRemoved(self: QHeaderView, _parent: anytype, logicalFirst: i32, logicalLast: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.QHeaderView_SuperSectionsAboutToBeRemoved(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(logicalFirst), @bitCast(logicalLast));
     }
+
+    /// ### DEPRECATED: Use `initialize` instead
+    ///
+    pub const Initialize = initialize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#initialize)
     ///
@@ -1719,10 +2179,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn Initialize(self: QHeaderView) void {
+    pub fn initialize(self: QHeaderView) void {
         qtc.QHeaderView_Initialize(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onInitialize` instead
+    ///
+    pub const OnInitialize = onInitialize;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#initialize)
     ///
     /// Allows for overriding the related default method
@@ -1733,13 +2197,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnInitialize(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
+    pub fn onInitialize(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
         qtc.QHeaderView_OnInitialize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperInitialize` instead
+    /// ### DEPRECATED: Use `superInitialize` instead
     ///
-    pub const QBaseInitialize = SuperInitialize;
+    pub const SuperInitialize = superInitialize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#initialize)
     ///
@@ -1749,9 +2213,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SuperInitialize(self: QHeaderView) void {
+    pub fn superInitialize(self: QHeaderView) void {
         qtc.QHeaderView_SuperInitialize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `initializeSections` instead
+    ///
+    pub const InitializeSections = initializeSections;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#initializeSections)
     ///
@@ -1759,9 +2227,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn InitializeSections(self: QHeaderView) void {
+    pub fn initializeSections(self: QHeaderView) void {
         qtc.QHeaderView_InitializeSections(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitializeSections` instead
+    ///
+    pub const OnInitializeSections = onInitializeSections;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#initializeSections)
     ///
@@ -1773,13 +2245,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnInitializeSections(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
+    pub fn onInitializeSections(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
         qtc.QHeaderView_OnInitializeSections(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperInitializeSections` instead
+    /// ### DEPRECATED: Use `superInitializeSections` instead
     ///
-    pub const QBaseInitializeSections = SuperInitializeSections;
+    pub const SuperInitializeSections = superInitializeSections;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#initializeSections)
     ///
@@ -1789,9 +2261,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SuperInitializeSections(self: QHeaderView) void {
+    pub fn superInitializeSections(self: QHeaderView) void {
         qtc.QHeaderView_SuperInitializeSections(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `initializeSections2` instead
+    ///
+    pub const InitializeSections2 = initializeSections2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#initializeSections)
     ///
@@ -1803,9 +2279,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` end: i32 `
     ///
-    pub fn InitializeSections2(self: QHeaderView, start: i32, end: i32) void {
+    pub fn initializeSections2(self: QHeaderView, start: i32, end: i32) void {
         qtc.QHeaderView_InitializeSections2(@ptrCast(self.ptr), @bitCast(start), @bitCast(end));
     }
+
+    /// ### DEPRECATED: Use `onInitializeSections2` instead
+    ///
+    pub const OnInitializeSections2 = onInitializeSections2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#initializeSections)
     ///
@@ -1817,13 +2297,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, start: i32, end: i32) callconv(.c) void `
     ///
-    pub fn OnInitializeSections2(self: QHeaderView, callback: *const fn (QHeaderView, i32, i32) callconv(.c) void) void {
+    pub fn onInitializeSections2(self: QHeaderView, callback: *const fn (QHeaderView, i32, i32) callconv(.c) void) void {
         qtc.QHeaderView_OnInitializeSections2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperInitializeSections2` instead
+    /// ### DEPRECATED: Use `superInitializeSections2` instead
     ///
-    pub const QBaseInitializeSections2 = SuperInitializeSections2;
+    pub const SuperInitializeSections2 = superInitializeSections2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#initializeSections)
     ///
@@ -1837,9 +2317,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` end: i32 `
     ///
-    pub fn SuperInitializeSections2(self: QHeaderView, start: i32, end: i32) void {
+    pub fn superInitializeSections2(self: QHeaderView, start: i32, end: i32) void {
         qtc.QHeaderView_SuperInitializeSections2(@ptrCast(self.ptr), @bitCast(start), @bitCast(end));
     }
+
+    /// ### DEPRECATED: Use `currentChanged` instead
+    ///
+    pub const CurrentChanged = currentChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#currentChanged)
     ///
@@ -1851,11 +2335,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` old: QModelIndex `
     ///
-    pub fn CurrentChanged(self: QHeaderView, current: anytype, old: anytype) void {
+    pub fn currentChanged(self: QHeaderView, current: anytype, old: anytype) void {
         comptime _ = @TypeOf(current)._is_QModelIndex;
         comptime _ = @TypeOf(old)._is_QModelIndex;
         qtc.QHeaderView_CurrentChanged(@ptrCast(self.ptr), @ptrCast(current.ptr), @ptrCast(old.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCurrentChanged` instead
+    ///
+    pub const OnCurrentChanged = onCurrentChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#currentChanged)
     ///
@@ -1867,13 +2355,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, current: QModelIndex, old: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnCurrentChanged(self: QHeaderView, callback: *const fn (QHeaderView, QModelIndex, QModelIndex) callconv(.c) void) void {
+    pub fn onCurrentChanged(self: QHeaderView, callback: *const fn (QHeaderView, QModelIndex, QModelIndex) callconv(.c) void) void {
         qtc.QHeaderView_OnCurrentChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCurrentChanged` instead
+    /// ### DEPRECATED: Use `superCurrentChanged` instead
     ///
-    pub const QBaseCurrentChanged = SuperCurrentChanged;
+    pub const SuperCurrentChanged = superCurrentChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#currentChanged)
     ///
@@ -1887,11 +2375,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` old: QModelIndex `
     ///
-    pub fn SuperCurrentChanged(self: QHeaderView, current: anytype, old: anytype) void {
+    pub fn superCurrentChanged(self: QHeaderView, current: anytype, old: anytype) void {
         comptime _ = @TypeOf(current)._is_QModelIndex;
         comptime _ = @TypeOf(old)._is_QModelIndex;
         qtc.QHeaderView_SuperCurrentChanged(@ptrCast(self.ptr), @ptrCast(current.ptr), @ptrCast(old.ptr));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#event)
     ///
@@ -1901,10 +2393,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn Event(self: QHeaderView, e: anytype) bool {
+    pub fn event(self: QHeaderView, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.QHeaderView_Event(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#event)
     ///
@@ -1916,13 +2412,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, e: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QHeaderView, callback: *const fn (QHeaderView, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QHeaderView, callback: *const fn (QHeaderView, QEvent) callconv(.c) bool) void {
         qtc.QHeaderView_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#event)
     ///
@@ -1934,10 +2430,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn SuperEvent(self: QHeaderView, e: anytype) bool {
+    pub fn superEvent(self: QHeaderView, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.QHeaderView_SuperEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#paintEvent)
     ///
@@ -1947,10 +2447,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` e: QPaintEvent `
     ///
-    pub fn PaintEvent(self: QHeaderView, e: anytype) void {
+    pub fn paintEvent(self: QHeaderView, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QPaintEvent;
         qtc.QHeaderView_PaintEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#paintEvent)
     ///
@@ -1962,13 +2466,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, e: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: QHeaderView, callback: *const fn (QHeaderView, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: QHeaderView, callback: *const fn (QHeaderView, QPaintEvent) callconv(.c) void) void {
         qtc.QHeaderView_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#paintEvent)
     ///
@@ -1980,11 +2484,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` e: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: QHeaderView, e: anytype) void {
+    pub fn superPaintEvent(self: QHeaderView, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QPaintEvent;
         qtc.QHeaderView_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#mousePressEvent)
     ///
     /// ## Parameter(s):
@@ -1993,11 +2501,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: QHeaderView, e: anytype) void {
+    pub fn mousePressEvent(self: QHeaderView, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.QHeaderView_MousePressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#mousePressEvent)
     ///
     /// Allows for overriding the related default method
@@ -2008,13 +2520,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: QHeaderView, callback: *const fn (QHeaderView, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: QHeaderView, callback: *const fn (QHeaderView, QMouseEvent) callconv(.c) void) void {
         qtc.QHeaderView_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#mousePressEvent)
     ///
@@ -2026,11 +2538,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: QHeaderView, e: anytype) void {
+    pub fn superMousePressEvent(self: QHeaderView, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.QHeaderView_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#mouseMoveEvent)
     ///
     /// ## Parameter(s):
@@ -2039,11 +2555,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: QHeaderView, e: anytype) void {
+    pub fn mouseMoveEvent(self: QHeaderView, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.QHeaderView_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#mouseMoveEvent)
     ///
     /// Allows for overriding the related default method
@@ -2054,13 +2574,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: QHeaderView, callback: *const fn (QHeaderView, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: QHeaderView, callback: *const fn (QHeaderView, QMouseEvent) callconv(.c) void) void {
         qtc.QHeaderView_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#mouseMoveEvent)
     ///
@@ -2072,11 +2592,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: QHeaderView, e: anytype) void {
+    pub fn superMouseMoveEvent(self: QHeaderView, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.QHeaderView_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#mouseReleaseEvent)
     ///
     /// ## Parameter(s):
@@ -2085,11 +2609,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: QHeaderView, e: anytype) void {
+    pub fn mouseReleaseEvent(self: QHeaderView, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.QHeaderView_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#mouseReleaseEvent)
     ///
     /// Allows for overriding the related default method
@@ -2100,13 +2628,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: QHeaderView, callback: *const fn (QHeaderView, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: QHeaderView, callback: *const fn (QHeaderView, QMouseEvent) callconv(.c) void) void {
         qtc.QHeaderView_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#mouseReleaseEvent)
     ///
@@ -2118,11 +2646,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: QHeaderView, e: anytype) void {
+    pub fn superMouseReleaseEvent(self: QHeaderView, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.QHeaderView_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#mouseDoubleClickEvent)
     ///
     /// ## Parameter(s):
@@ -2131,10 +2663,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: QHeaderView, e: anytype) void {
+    pub fn mouseDoubleClickEvent(self: QHeaderView, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.QHeaderView_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#mouseDoubleClickEvent)
     ///
@@ -2146,13 +2682,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: QHeaderView, callback: *const fn (QHeaderView, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: QHeaderView, callback: *const fn (QHeaderView, QMouseEvent) callconv(.c) void) void {
         qtc.QHeaderView_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#mouseDoubleClickEvent)
     ///
@@ -2164,10 +2700,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: QHeaderView, e: anytype) void {
+    pub fn superMouseDoubleClickEvent(self: QHeaderView, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.QHeaderView_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `viewportEvent` instead
+    ///
+    pub const ViewportEvent = viewportEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#viewportEvent)
     ///
@@ -2177,10 +2717,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn ViewportEvent(self: QHeaderView, e: anytype) bool {
+    pub fn viewportEvent(self: QHeaderView, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.QHeaderView_ViewportEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onViewportEvent` instead
+    ///
+    pub const OnViewportEvent = onViewportEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#viewportEvent)
     ///
@@ -2192,13 +2736,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, e: QEvent) callconv(.c) bool `
     ///
-    pub fn OnViewportEvent(self: QHeaderView, callback: *const fn (QHeaderView, QEvent) callconv(.c) bool) void {
+    pub fn onViewportEvent(self: QHeaderView, callback: *const fn (QHeaderView, QEvent) callconv(.c) bool) void {
         qtc.QHeaderView_OnViewportEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperViewportEvent` instead
+    /// ### DEPRECATED: Use `superViewportEvent` instead
     ///
-    pub const QBaseViewportEvent = SuperViewportEvent;
+    pub const SuperViewportEvent = superViewportEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#viewportEvent)
     ///
@@ -2210,10 +2754,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn SuperViewportEvent(self: QHeaderView, e: anytype) bool {
+    pub fn superViewportEvent(self: QHeaderView, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.QHeaderView_SuperViewportEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `paintSection` instead
+    ///
+    pub const PaintSection = paintSection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#paintSection)
     ///
@@ -2223,15 +2771,19 @@ pub const QHeaderView = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
-    /// ` logicalIndex: i32 `
+    /// ` _logicalIndex: i32 `
     ///
-    pub fn PaintSection(self: QHeaderView, painter: anytype, rect: anytype, logicalIndex: i32) void {
+    pub fn paintSection(self: QHeaderView, painter: anytype, _rect: anytype, _logicalIndex: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
-        comptime _ = @TypeOf(rect)._is_QRect;
-        qtc.QHeaderView_PaintSection(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(rect.ptr), @bitCast(logicalIndex));
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        qtc.QHeaderView_PaintSection(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(_rect.ptr), @bitCast(_logicalIndex));
     }
+
+    /// ### DEPRECATED: Use `onPaintSection` instead
+    ///
+    pub const OnPaintSection = onPaintSection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#paintSection)
     ///
@@ -2243,13 +2795,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, painter: QPainter, rect: QRect, logicalIndex: i32) callconv(.c) void `
     ///
-    pub fn OnPaintSection(self: QHeaderView, callback: *const fn (QHeaderView, QPainter, QRect, i32) callconv(.c) void) void {
+    pub fn onPaintSection(self: QHeaderView, callback: *const fn (QHeaderView, QPainter, QRect, i32) callconv(.c) void) void {
         qtc.QHeaderView_OnPaintSection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintSection` instead
+    /// ### DEPRECATED: Use `superPaintSection` instead
     ///
-    pub const QBasePaintSection = SuperPaintSection;
+    pub const SuperPaintSection = superPaintSection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#paintSection)
     ///
@@ -2261,15 +2813,19 @@ pub const QHeaderView = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
-    /// ` logicalIndex: i32 `
+    /// ` _logicalIndex: i32 `
     ///
-    pub fn SuperPaintSection(self: QHeaderView, painter: anytype, rect: anytype, logicalIndex: i32) void {
+    pub fn superPaintSection(self: QHeaderView, painter: anytype, _rect: anytype, _logicalIndex: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
-        comptime _ = @TypeOf(rect)._is_QRect;
-        qtc.QHeaderView_SuperPaintSection(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(rect.ptr), @bitCast(logicalIndex));
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        qtc.QHeaderView_SuperPaintSection(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(_rect.ptr), @bitCast(_logicalIndex));
     }
+
+    /// ### DEPRECATED: Use `sectionSizeFromContents` instead
+    ///
+    pub const SectionSizeFromContents = sectionSizeFromContents;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionSizeFromContents)
     ///
@@ -2277,11 +2833,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` logicalIndex: i32 `
+    /// ` _logicalIndex: i32 `
     ///
-    pub fn SectionSizeFromContents(self: QHeaderView, logicalIndex: i32) QSize {
-        return .{ .ptr = qtc.QHeaderView_SectionSizeFromContents(@ptrCast(self.ptr), @bitCast(logicalIndex)) };
+    pub fn sectionSizeFromContents(self: QHeaderView, _logicalIndex: i32) QSize {
+        return .{ .ptr = qtc.QHeaderView_SectionSizeFromContents(@ptrCast(self.ptr), @bitCast(_logicalIndex)) };
     }
+
+    /// ### DEPRECATED: Use `onSectionSizeFromContents` instead
+    ///
+    pub const OnSectionSizeFromContents = onSectionSizeFromContents;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionSizeFromContents)
     ///
@@ -2295,13 +2855,13 @@ pub const QHeaderView = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSectionSizeFromContents(self: QHeaderView, callback: *const fn (QHeaderView, i32) callconv(.c) QSize) void {
+    pub fn onSectionSizeFromContents(self: QHeaderView, callback: *const fn (QHeaderView, i32) callconv(.c) QSize) void {
         qtc.QHeaderView_OnSectionSizeFromContents(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSectionSizeFromContents` instead
+    /// ### DEPRECATED: Use `superSectionSizeFromContents` instead
     ///
-    pub const QBaseSectionSizeFromContents = SuperSectionSizeFromContents;
+    pub const SuperSectionSizeFromContents = superSectionSizeFromContents;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionSizeFromContents)
     ///
@@ -2311,11 +2871,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` logicalIndex: i32 `
+    /// ` _logicalIndex: i32 `
     ///
-    pub fn SuperSectionSizeFromContents(self: QHeaderView, logicalIndex: i32) QSize {
-        return .{ .ptr = qtc.QHeaderView_SuperSectionSizeFromContents(@ptrCast(self.ptr), @bitCast(logicalIndex)) };
+    pub fn superSectionSizeFromContents(self: QHeaderView, _logicalIndex: i32) QSize {
+        return .{ .ptr = qtc.QHeaderView_SuperSectionSizeFromContents(@ptrCast(self.ptr), @bitCast(_logicalIndex)) };
     }
+
+    /// ### DEPRECATED: Use `horizontalOffset` instead
+    ///
+    pub const HorizontalOffset = horizontalOffset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#horizontalOffset)
     ///
@@ -2323,10 +2887,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn HorizontalOffset(self: QHeaderView) i32 {
+    pub fn horizontalOffset(self: QHeaderView) i32 {
         return qtc.QHeaderView_HorizontalOffset(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onHorizontalOffset` instead
+    ///
+    pub const OnHorizontalOffset = onHorizontalOffset;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#horizontalOffset)
     ///
     /// Allows for overriding the related default method
@@ -2337,13 +2905,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnHorizontalOffset(self: QHeaderView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onHorizontalOffset(self: QHeaderView, callback: *const fn () callconv(.c) i32) void {
         qtc.QHeaderView_OnHorizontalOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperHorizontalOffset` instead
+    /// ### DEPRECATED: Use `superHorizontalOffset` instead
     ///
-    pub const QBaseHorizontalOffset = SuperHorizontalOffset;
+    pub const SuperHorizontalOffset = superHorizontalOffset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#horizontalOffset)
     ///
@@ -2353,9 +2921,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SuperHorizontalOffset(self: QHeaderView) i32 {
+    pub fn superHorizontalOffset(self: QHeaderView) i32 {
         return qtc.QHeaderView_SuperHorizontalOffset(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `verticalOffset` instead
+    ///
+    pub const VerticalOffset = verticalOffset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#verticalOffset)
     ///
@@ -2363,9 +2935,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn VerticalOffset(self: QHeaderView) i32 {
+    pub fn verticalOffset(self: QHeaderView) i32 {
         return qtc.QHeaderView_VerticalOffset(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onVerticalOffset` instead
+    ///
+    pub const OnVerticalOffset = onVerticalOffset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#verticalOffset)
     ///
@@ -2377,13 +2953,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnVerticalOffset(self: QHeaderView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onVerticalOffset(self: QHeaderView, callback: *const fn () callconv(.c) i32) void {
         qtc.QHeaderView_OnVerticalOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperVerticalOffset` instead
+    /// ### DEPRECATED: Use `superVerticalOffset` instead
     ///
-    pub const QBaseVerticalOffset = SuperVerticalOffset;
+    pub const SuperVerticalOffset = superVerticalOffset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#verticalOffset)
     ///
@@ -2393,9 +2969,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SuperVerticalOffset(self: QHeaderView) i32 {
+    pub fn superVerticalOffset(self: QHeaderView) i32 {
         return qtc.QHeaderView_SuperVerticalOffset(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometries` instead
+    ///
+    pub const UpdateGeometries = updateGeometries;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#updateGeometries)
     ///
@@ -2403,9 +2983,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn UpdateGeometries(self: QHeaderView) void {
+    pub fn updateGeometries(self: QHeaderView) void {
         qtc.QHeaderView_UpdateGeometries(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onUpdateGeometries` instead
+    ///
+    pub const OnUpdateGeometries = onUpdateGeometries;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#updateGeometries)
     ///
@@ -2417,13 +3001,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateGeometries(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateGeometries(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
         qtc.QHeaderView_OnUpdateGeometries(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateGeometries` instead
+    /// ### DEPRECATED: Use `superUpdateGeometries` instead
     ///
-    pub const QBaseUpdateGeometries = SuperUpdateGeometries;
+    pub const SuperUpdateGeometries = superUpdateGeometries;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#updateGeometries)
     ///
@@ -2433,9 +3017,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SuperUpdateGeometries(self: QHeaderView) void {
+    pub fn superUpdateGeometries(self: QHeaderView) void {
         qtc.QHeaderView_SuperUpdateGeometries(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `scrollContentsBy` instead
+    ///
+    pub const ScrollContentsBy = scrollContentsBy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#scrollContentsBy)
     ///
@@ -2447,9 +3035,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn ScrollContentsBy(self: QHeaderView, dx: i32, dy: i32) void {
+    pub fn scrollContentsBy(self: QHeaderView, dx: i32, dy: i32) void {
         qtc.QHeaderView_ScrollContentsBy(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `onScrollContentsBy` instead
+    ///
+    pub const OnScrollContentsBy = onScrollContentsBy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#scrollContentsBy)
     ///
@@ -2461,13 +3053,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, dx: i32, dy: i32) callconv(.c) void `
     ///
-    pub fn OnScrollContentsBy(self: QHeaderView, callback: *const fn (QHeaderView, i32, i32) callconv(.c) void) void {
+    pub fn onScrollContentsBy(self: QHeaderView, callback: *const fn (QHeaderView, i32, i32) callconv(.c) void) void {
         qtc.QHeaderView_OnScrollContentsBy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperScrollContentsBy` instead
+    /// ### DEPRECATED: Use `superScrollContentsBy` instead
     ///
-    pub const QBaseScrollContentsBy = SuperScrollContentsBy;
+    pub const SuperScrollContentsBy = superScrollContentsBy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#scrollContentsBy)
     ///
@@ -2481,9 +3073,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn SuperScrollContentsBy(self: QHeaderView, dx: i32, dy: i32) void {
+    pub fn superScrollContentsBy(self: QHeaderView, dx: i32, dy: i32) void {
         qtc.QHeaderView_SuperScrollContentsBy(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `dataChanged` instead
+    ///
+    pub const DataChanged = dataChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#dataChanged)
     ///
@@ -2497,7 +3093,7 @@ pub const QHeaderView = extern struct {
     ///
     /// ` roles: []i32 `
     ///
-    pub fn DataChanged(self: QHeaderView, topLeft: anytype, bottomRight: anytype, roles: []i32) void {
+    pub fn dataChanged(self: QHeaderView, topLeft: anytype, bottomRight: anytype, roles: []i32) void {
         comptime _ = @TypeOf(topLeft)._is_QModelIndex;
         comptime _ = @TypeOf(bottomRight)._is_QModelIndex;
         const roles_list = qtc.libqt_list{
@@ -2506,6 +3102,10 @@ pub const QHeaderView = extern struct {
         };
         qtc.QHeaderView_DataChanged(@ptrCast(self.ptr), @ptrCast(topLeft.ptr), @ptrCast(bottomRight.ptr), roles_list);
     }
+
+    /// ### DEPRECATED: Use `onDataChanged` instead
+    ///
+    pub const OnDataChanged = onDataChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#dataChanged)
     ///
@@ -2517,13 +3117,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, topLeft: QModelIndex, bottomRight: QModelIndex, roles: qtc.libqt_list ([]i32)) callconv(.c) void `
     ///
-    pub fn OnDataChanged(self: QHeaderView, callback: *const fn (QHeaderView, QModelIndex, QModelIndex, qtc.libqt_list) callconv(.c) void) void {
+    pub fn onDataChanged(self: QHeaderView, callback: *const fn (QHeaderView, QModelIndex, QModelIndex, qtc.libqt_list) callconv(.c) void) void {
         qtc.QHeaderView_OnDataChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDataChanged` instead
+    /// ### DEPRECATED: Use `superDataChanged` instead
     ///
-    pub const QBaseDataChanged = SuperDataChanged;
+    pub const SuperDataChanged = superDataChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#dataChanged)
     ///
@@ -2539,7 +3139,7 @@ pub const QHeaderView = extern struct {
     ///
     /// ` roles: []i32 `
     ///
-    pub fn SuperDataChanged(self: QHeaderView, topLeft: anytype, bottomRight: anytype, roles: []i32) void {
+    pub fn superDataChanged(self: QHeaderView, topLeft: anytype, bottomRight: anytype, roles: []i32) void {
         comptime _ = @TypeOf(topLeft)._is_QModelIndex;
         comptime _ = @TypeOf(bottomRight)._is_QModelIndex;
         const roles_list = qtc.libqt_list{
@@ -2549,22 +3149,30 @@ pub const QHeaderView = extern struct {
         qtc.QHeaderView_SuperDataChanged(@ptrCast(self.ptr), @ptrCast(topLeft.ptr), @ptrCast(bottomRight.ptr), roles_list);
     }
 
+    /// ### DEPRECATED: Use `rowsInserted` instead
+    ///
+    pub const RowsInserted = rowsInserted;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#rowsInserted)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` start: i32 `
     ///
     /// ` end: i32 `
     ///
-    pub fn RowsInserted(self: QHeaderView, parent: anytype, start: i32, end: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.QHeaderView_RowsInserted(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(start), @bitCast(end));
+    pub fn rowsInserted(self: QHeaderView, _parent: anytype, start: i32, end: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.QHeaderView_RowsInserted(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(start), @bitCast(end));
     }
+
+    /// ### DEPRECATED: Use `onRowsInserted` instead
+    ///
+    pub const OnRowsInserted = onRowsInserted;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#rowsInserted)
     ///
@@ -2576,13 +3184,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, parent: QModelIndex, start: i32, end: i32) callconv(.c) void `
     ///
-    pub fn OnRowsInserted(self: QHeaderView, callback: *const fn (QHeaderView, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onRowsInserted(self: QHeaderView, callback: *const fn (QHeaderView, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QHeaderView_OnRowsInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperRowsInserted` instead
+    /// ### DEPRECATED: Use `superRowsInserted` instead
     ///
-    pub const QBaseRowsInserted = SuperRowsInserted;
+    pub const SuperRowsInserted = superRowsInserted;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#rowsInserted)
     ///
@@ -2592,16 +3200,20 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` start: i32 `
     ///
     /// ` end: i32 `
     ///
-    pub fn SuperRowsInserted(self: QHeaderView, parent: anytype, start: i32, end: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.QHeaderView_SuperRowsInserted(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(start), @bitCast(end));
+    pub fn superRowsInserted(self: QHeaderView, _parent: anytype, start: i32, end: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.QHeaderView_SuperRowsInserted(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(start), @bitCast(end));
     }
+
+    /// ### DEPRECATED: Use `visualRect` instead
+    ///
+    pub const VisualRect = visualRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#visualRect)
     ///
@@ -2611,10 +3223,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn VisualRect(self: QHeaderView, index: anytype) QRect {
+    pub fn visualRect(self: QHeaderView, index: anytype) QRect {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.QHeaderView_VisualRect(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onVisualRect` instead
+    ///
+    pub const OnVisualRect = onVisualRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#visualRect)
     ///
@@ -2628,13 +3244,13 @@ pub const QHeaderView = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnVisualRect(self: QHeaderView, callback: *const fn (QHeaderView, QModelIndex) callconv(.c) QRect) void {
+    pub fn onVisualRect(self: QHeaderView, callback: *const fn (QHeaderView, QModelIndex) callconv(.c) QRect) void {
         qtc.QHeaderView_OnVisualRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperVisualRect` instead
+    /// ### DEPRECATED: Use `superVisualRect` instead
     ///
-    pub const QBaseVisualRect = SuperVisualRect;
+    pub const SuperVisualRect = superVisualRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#visualRect)
     ///
@@ -2646,10 +3262,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SuperVisualRect(self: QHeaderView, index: anytype) QRect {
+    pub fn superVisualRect(self: QHeaderView, index: anytype) QRect {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.QHeaderView_SuperVisualRect(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `scrollTo` instead
+    ///
+    pub const ScrollTo = scrollTo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#scrollTo)
     ///
@@ -2661,10 +3281,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` hint: qabstractitemview_enums.ScrollHint `
     ///
-    pub fn ScrollTo(self: QHeaderView, index: anytype, hint: i32) void {
+    pub fn scrollTo(self: QHeaderView, index: anytype, hint: i32) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QHeaderView_ScrollTo(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(hint));
     }
+
+    /// ### DEPRECATED: Use `onScrollTo` instead
+    ///
+    pub const OnScrollTo = onScrollTo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#scrollTo)
     ///
@@ -2676,13 +3300,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, index: QModelIndex, hint: qabstractitemview_enums.ScrollHint) callconv(.c) void `
     ///
-    pub fn OnScrollTo(self: QHeaderView, callback: *const fn (QHeaderView, QModelIndex, i32) callconv(.c) void) void {
+    pub fn onScrollTo(self: QHeaderView, callback: *const fn (QHeaderView, QModelIndex, i32) callconv(.c) void) void {
         qtc.QHeaderView_OnScrollTo(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperScrollTo` instead
+    /// ### DEPRECATED: Use `superScrollTo` instead
     ///
-    pub const QBaseScrollTo = SuperScrollTo;
+    pub const SuperScrollTo = superScrollTo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#scrollTo)
     ///
@@ -2696,10 +3320,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` hint: qabstractitemview_enums.ScrollHint `
     ///
-    pub fn SuperScrollTo(self: QHeaderView, index: anytype, hint: i32) void {
+    pub fn superScrollTo(self: QHeaderView, index: anytype, hint: i32) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QHeaderView_SuperScrollTo(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(hint));
     }
+
+    /// ### DEPRECATED: Use `indexAt` instead
+    ///
+    pub const IndexAt = indexAt;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#indexAt)
     ///
@@ -2709,10 +3337,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn IndexAt(self: QHeaderView, p: anytype) QModelIndex {
+    pub fn indexAt(self: QHeaderView, p: anytype) QModelIndex {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QHeaderView_IndexAt(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onIndexAt` instead
+    ///
+    pub const OnIndexAt = onIndexAt;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#indexAt)
     ///
@@ -2726,13 +3358,13 @@ pub const QHeaderView = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnIndexAt(self: QHeaderView, callback: *const fn (QHeaderView, QPoint) callconv(.c) QModelIndex) void {
+    pub fn onIndexAt(self: QHeaderView, callback: *const fn (QHeaderView, QPoint) callconv(.c) QModelIndex) void {
         qtc.QHeaderView_OnIndexAt(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperIndexAt` instead
+    /// ### DEPRECATED: Use `superIndexAt` instead
     ///
-    pub const QBaseIndexAt = SuperIndexAt;
+    pub const SuperIndexAt = superIndexAt;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#indexAt)
     ///
@@ -2744,10 +3376,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn SuperIndexAt(self: QHeaderView, p: anytype) QModelIndex {
+    pub fn superIndexAt(self: QHeaderView, p: anytype) QModelIndex {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QHeaderView_SuperIndexAt(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isIndexHidden` instead
+    ///
+    pub const IsIndexHidden = isIndexHidden;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#isIndexHidden)
     ///
@@ -2757,10 +3393,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn IsIndexHidden(self: QHeaderView, index: anytype) bool {
+    pub fn isIndexHidden(self: QHeaderView, index: anytype) bool {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return qtc.QHeaderView_IsIndexHidden(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsIndexHidden` instead
+    ///
+    pub const OnIsIndexHidden = onIsIndexHidden;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#isIndexHidden)
     ///
@@ -2772,13 +3412,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, index: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnIsIndexHidden(self: QHeaderView, callback: *const fn (QHeaderView, QModelIndex) callconv(.c) bool) void {
+    pub fn onIsIndexHidden(self: QHeaderView, callback: *const fn (QHeaderView, QModelIndex) callconv(.c) bool) void {
         qtc.QHeaderView_OnIsIndexHidden(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperIsIndexHidden` instead
+    /// ### DEPRECATED: Use `superIsIndexHidden` instead
     ///
-    pub const QBaseIsIndexHidden = SuperIsIndexHidden;
+    pub const SuperIsIndexHidden = superIsIndexHidden;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#isIndexHidden)
     ///
@@ -2790,10 +3430,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SuperIsIndexHidden(self: QHeaderView, index: anytype) bool {
+    pub fn superIsIndexHidden(self: QHeaderView, index: anytype) bool {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return qtc.QHeaderView_SuperIsIndexHidden(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `moveCursor` instead
+    ///
+    pub const MoveCursor = moveCursor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#moveCursor)
     ///
@@ -2805,9 +3449,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param2: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn MoveCursor(self: QHeaderView, param1: i32, param2: i32) QModelIndex {
+    pub fn moveCursor(self: QHeaderView, param1: i32, param2: i32) QModelIndex {
         return .{ .ptr = qtc.QHeaderView_MoveCursor(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2)) };
     }
+
+    /// ### DEPRECATED: Use `onMoveCursor` instead
+    ///
+    pub const OnMoveCursor = onMoveCursor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#moveCursor)
     ///
@@ -2821,13 +3469,13 @@ pub const QHeaderView = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMoveCursor(self: QHeaderView, callback: *const fn (QHeaderView, i32, i32) callconv(.c) QModelIndex) void {
+    pub fn onMoveCursor(self: QHeaderView, callback: *const fn (QHeaderView, i32, i32) callconv(.c) QModelIndex) void {
         qtc.QHeaderView_OnMoveCursor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveCursor` instead
+    /// ### DEPRECATED: Use `superMoveCursor` instead
     ///
-    pub const QBaseMoveCursor = SuperMoveCursor;
+    pub const SuperMoveCursor = superMoveCursor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#moveCursor)
     ///
@@ -2841,9 +3489,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param2: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn SuperMoveCursor(self: QHeaderView, param1: i32, param2: i32) QModelIndex {
+    pub fn superMoveCursor(self: QHeaderView, param1: i32, param2: i32) QModelIndex {
         return .{ .ptr = qtc.QHeaderView_SuperMoveCursor(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2)) };
     }
+
+    /// ### DEPRECATED: Use `setSelection` instead
+    ///
+    pub const SetSelection = setSelection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setSelection)
     ///
@@ -2851,14 +3503,18 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
     /// ` flags: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn SetSelection(self: QHeaderView, rect: anytype, flags: i32) void {
-        comptime _ = @TypeOf(rect)._is_QRect;
-        qtc.QHeaderView_SetSelection(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(flags));
+    pub fn setSelection(self: QHeaderView, _rect: anytype, flags: i32) void {
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        qtc.QHeaderView_SetSelection(@ptrCast(self.ptr), @ptrCast(_rect.ptr), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `onSetSelection` instead
+    ///
+    pub const OnSetSelection = onSetSelection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setSelection)
     ///
@@ -2870,13 +3526,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, rect: QRect, flags: flag of qitemselectionmodel_enums.SelectionFlag) callconv(.c) void `
     ///
-    pub fn OnSetSelection(self: QHeaderView, callback: *const fn (QHeaderView, QRect, i32) callconv(.c) void) void {
+    pub fn onSetSelection(self: QHeaderView, callback: *const fn (QHeaderView, QRect, i32) callconv(.c) void) void {
         qtc.QHeaderView_OnSetSelection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetSelection` instead
+    /// ### DEPRECATED: Use `superSetSelection` instead
     ///
-    pub const QBaseSetSelection = SuperSetSelection;
+    pub const SuperSetSelection = superSetSelection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#setSelection)
     ///
@@ -2886,14 +3542,18 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
     /// ` flags: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn SuperSetSelection(self: QHeaderView, rect: anytype, flags: i32) void {
-        comptime _ = @TypeOf(rect)._is_QRect;
-        qtc.QHeaderView_SuperSetSelection(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(flags));
+    pub fn superSetSelection(self: QHeaderView, _rect: anytype, flags: i32) void {
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        qtc.QHeaderView_SuperSetSelection(@ptrCast(self.ptr), @ptrCast(_rect.ptr), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `visualRegionForSelection` instead
+    ///
+    pub const VisualRegionForSelection = visualRegionForSelection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#visualRegionForSelection)
     ///
@@ -2903,10 +3563,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` selection: QItemSelection `
     ///
-    pub fn VisualRegionForSelection(self: QHeaderView, selection: anytype) QRegion {
+    pub fn visualRegionForSelection(self: QHeaderView, selection: anytype) QRegion {
         comptime _ = @TypeOf(selection)._is_QItemSelection;
         return .{ .ptr = qtc.QHeaderView_VisualRegionForSelection(@ptrCast(self.ptr), @ptrCast(selection.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onVisualRegionForSelection` instead
+    ///
+    pub const OnVisualRegionForSelection = onVisualRegionForSelection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#visualRegionForSelection)
     ///
@@ -2920,13 +3584,13 @@ pub const QHeaderView = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnVisualRegionForSelection(self: QHeaderView, callback: *const fn (QHeaderView, QItemSelection) callconv(.c) QRegion) void {
+    pub fn onVisualRegionForSelection(self: QHeaderView, callback: *const fn (QHeaderView, QItemSelection) callconv(.c) QRegion) void {
         qtc.QHeaderView_OnVisualRegionForSelection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperVisualRegionForSelection` instead
+    /// ### DEPRECATED: Use `superVisualRegionForSelection` instead
     ///
-    pub const QBaseVisualRegionForSelection = SuperVisualRegionForSelection;
+    pub const SuperVisualRegionForSelection = superVisualRegionForSelection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#visualRegionForSelection)
     ///
@@ -2938,10 +3602,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` selection: QItemSelection `
     ///
-    pub fn SuperVisualRegionForSelection(self: QHeaderView, selection: anytype) QRegion {
+    pub fn superVisualRegionForSelection(self: QHeaderView, selection: anytype) QRegion {
         comptime _ = @TypeOf(selection)._is_QItemSelection;
         return .{ .ptr = qtc.QHeaderView_SuperVisualRegionForSelection(@ptrCast(self.ptr), @ptrCast(selection.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `initStyleOptionForIndex` instead
+    ///
+    pub const InitStyleOptionForIndex = initStyleOptionForIndex;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#initStyleOptionForIndex)
     ///
@@ -2951,12 +3619,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` option: QStyleOptionHeader `
     ///
-    /// ` logicalIndex: i32 `
+    /// ` _logicalIndex: i32 `
     ///
-    pub fn InitStyleOptionForIndex(self: QHeaderView, option: anytype, logicalIndex: i32) void {
+    pub fn initStyleOptionForIndex(self: QHeaderView, option: anytype, _logicalIndex: i32) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionHeader;
-        qtc.QHeaderView_InitStyleOptionForIndex(@ptrCast(self.ptr), @ptrCast(option.ptr), @bitCast(logicalIndex));
+        qtc.QHeaderView_InitStyleOptionForIndex(@ptrCast(self.ptr), @ptrCast(option.ptr), @bitCast(_logicalIndex));
     }
+
+    /// ### DEPRECATED: Use `onInitStyleOptionForIndex` instead
+    ///
+    pub const OnInitStyleOptionForIndex = onInitStyleOptionForIndex;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#initStyleOptionForIndex)
     ///
@@ -2968,13 +3640,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, option: QStyleOptionHeader, logicalIndex: i32) callconv(.c) void `
     ///
-    pub fn OnInitStyleOptionForIndex(self: QHeaderView, callback: *const fn (QHeaderView, QStyleOptionHeader, i32) callconv(.c) void) void {
+    pub fn onInitStyleOptionForIndex(self: QHeaderView, callback: *const fn (QHeaderView, QStyleOptionHeader, i32) callconv(.c) void) void {
         qtc.QHeaderView_OnInitStyleOptionForIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperInitStyleOptionForIndex` instead
+    /// ### DEPRECATED: Use `superInitStyleOptionForIndex` instead
     ///
-    pub const QBaseInitStyleOptionForIndex = SuperInitStyleOptionForIndex;
+    pub const SuperInitStyleOptionForIndex = superInitStyleOptionForIndex;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#initStyleOptionForIndex)
     ///
@@ -2986,12 +3658,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` option: QStyleOptionHeader `
     ///
-    /// ` logicalIndex: i32 `
+    /// ` _logicalIndex: i32 `
     ///
-    pub fn SuperInitStyleOptionForIndex(self: QHeaderView, option: anytype, logicalIndex: i32) void {
+    pub fn superInitStyleOptionForIndex(self: QHeaderView, option: anytype, _logicalIndex: i32) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionHeader;
-        qtc.QHeaderView_SuperInitStyleOptionForIndex(@ptrCast(self.ptr), @ptrCast(option.ptr), @bitCast(logicalIndex));
+        qtc.QHeaderView_SuperInitStyleOptionForIndex(@ptrCast(self.ptr), @ptrCast(option.ptr), @bitCast(_logicalIndex));
     }
+
+    /// ### DEPRECATED: Use `initStyleOption` instead
+    ///
+    pub const InitStyleOption = initStyleOption;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#initStyleOption)
     ///
@@ -3001,10 +3677,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` option: QStyleOptionHeader `
     ///
-    pub fn InitStyleOption(self: QHeaderView, option: anytype) void {
+    pub fn initStyleOption(self: QHeaderView, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionHeader;
         qtc.QHeaderView_InitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitStyleOption` instead
+    ///
+    pub const OnInitStyleOption = onInitStyleOption;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#initStyleOption)
     ///
@@ -3016,13 +3696,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, option: QStyleOptionHeader) callconv(.c) void `
     ///
-    pub fn OnInitStyleOption(self: QHeaderView, callback: *const fn (QHeaderView, QStyleOptionHeader) callconv(.c) void) void {
+    pub fn onInitStyleOption(self: QHeaderView, callback: *const fn (QHeaderView, QStyleOptionHeader) callconv(.c) void) void {
         qtc.QHeaderView_OnInitStyleOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    /// ### DEPRECATED: Use `superInitStyleOption` instead
     ///
-    pub const QBaseInitStyleOption = SuperInitStyleOption;
+    pub const SuperInitStyleOption = superInitStyleOption;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#initStyleOption)
     ///
@@ -3034,10 +3714,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` option: QStyleOptionHeader `
     ///
-    pub fn SuperInitStyleOption(self: QHeaderView, option: anytype) void {
+    pub fn superInitStyleOption(self: QHeaderView, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionHeader;
         qtc.QHeaderView_SuperInitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -3049,15 +3733,19 @@ pub const QHeaderView = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHeaderView.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHeaderView.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -3071,15 +3759,19 @@ pub const QHeaderView = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHeaderView.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHeaderView.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `model` instead
+    ///
+    pub const Model = model;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3089,9 +3781,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn Model(self: QHeaderView) QAbstractItemModel {
+    pub fn model(self: QHeaderView) QAbstractItemModel {
         return .{ .ptr = qtc.QAbstractItemView_Model(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `selectionModel` instead
+    ///
+    pub const SelectionModel = selectionModel;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3101,9 +3797,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SelectionModel(self: QHeaderView) QItemSelectionModel {
+    pub fn selectionModel(self: QHeaderView) QItemSelectionModel {
         return .{ .ptr = qtc.QAbstractItemView_SelectionModel(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setItemDelegate` instead
+    ///
+    pub const SetItemDelegate = setItemDelegate;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3115,10 +3815,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` delegate: QAbstractItemDelegate `
     ///
-    pub fn SetItemDelegate(self: QHeaderView, delegate: anytype) void {
+    pub fn setItemDelegate(self: QHeaderView, delegate: anytype) void {
         comptime _ = @TypeOf(delegate)._is_QAbstractItemDelegate;
         qtc.QAbstractItemView_SetItemDelegate(@ptrCast(self.ptr), @ptrCast(delegate.ptr));
     }
+
+    /// ### DEPRECATED: Use `itemDelegate` instead
+    ///
+    pub const ItemDelegate = itemDelegate;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3128,9 +3832,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn ItemDelegate(self: QHeaderView) QAbstractItemDelegate {
+    pub fn itemDelegate(self: QHeaderView) QAbstractItemDelegate {
         return .{ .ptr = qtc.QAbstractItemView_ItemDelegate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSelectionMode` instead
+    ///
+    pub const SetSelectionMode = setSelectionMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3142,9 +3850,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` mode: qabstractitemview_enums.SelectionMode `
     ///
-    pub fn SetSelectionMode(self: QHeaderView, mode: i32) void {
+    pub fn setSelectionMode(self: QHeaderView, mode: i32) void {
         qtc.QAbstractItemView_SetSelectionMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `selectionMode` instead
+    ///
+    pub const SelectionMode = selectionMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3158,9 +3870,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` qabstractitemview_enums.SelectionMode `
     ///
-    pub fn SelectionMode(self: QHeaderView) i32 {
+    pub fn selectionMode(self: QHeaderView) i32 {
         return qtc.QAbstractItemView_SelectionMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSelectionBehavior` instead
+    ///
+    pub const SetSelectionBehavior = setSelectionBehavior;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3172,9 +3888,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` behavior: qabstractitemview_enums.SelectionBehavior `
     ///
-    pub fn SetSelectionBehavior(self: QHeaderView, behavior: i32) void {
+    pub fn setSelectionBehavior(self: QHeaderView, behavior: i32) void {
         qtc.QAbstractItemView_SetSelectionBehavior(@ptrCast(self.ptr), @bitCast(behavior));
     }
+
+    /// ### DEPRECATED: Use `selectionBehavior` instead
+    ///
+    pub const SelectionBehavior = selectionBehavior;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3188,9 +3908,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` qabstractitemview_enums.SelectionBehavior `
     ///
-    pub fn SelectionBehavior(self: QHeaderView) i32 {
+    pub fn selectionBehavior(self: QHeaderView) i32 {
         return qtc.QAbstractItemView_SelectionBehavior(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `currentIndex` instead
+    ///
+    pub const CurrentIndex = currentIndex;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3200,9 +3924,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn CurrentIndex(self: QHeaderView) QModelIndex {
+    pub fn currentIndex(self: QHeaderView) QModelIndex {
         return .{ .ptr = qtc.QAbstractItemView_CurrentIndex(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `rootIndex` instead
+    ///
+    pub const RootIndex = rootIndex;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3212,9 +3940,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn RootIndex(self: QHeaderView) QModelIndex {
+    pub fn rootIndex(self: QHeaderView) QModelIndex {
         return .{ .ptr = qtc.QAbstractItemView_RootIndex(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setEditTriggers` instead
+    ///
+    pub const SetEditTriggers = setEditTriggers;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3226,9 +3958,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` triggers: flag of qabstractitemview_enums.EditTrigger `
     ///
-    pub fn SetEditTriggers(self: QHeaderView, triggers: i32) void {
+    pub fn setEditTriggers(self: QHeaderView, triggers: i32) void {
         qtc.QAbstractItemView_SetEditTriggers(@ptrCast(self.ptr), @bitCast(triggers));
     }
+
+    /// ### DEPRECATED: Use `editTriggers` instead
+    ///
+    pub const EditTriggers = editTriggers;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3242,9 +3978,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` flag of qabstractitemview_enums.EditTrigger `
     ///
-    pub fn EditTriggers(self: QHeaderView) i32 {
+    pub fn editTriggers(self: QHeaderView) i32 {
         return qtc.QAbstractItemView_EditTriggers(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setVerticalScrollMode` instead
+    ///
+    pub const SetVerticalScrollMode = setVerticalScrollMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3256,9 +3996,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` mode: qabstractitemview_enums.ScrollMode `
     ///
-    pub fn SetVerticalScrollMode(self: QHeaderView, mode: i32) void {
+    pub fn setVerticalScrollMode(self: QHeaderView, mode: i32) void {
         qtc.QAbstractItemView_SetVerticalScrollMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `verticalScrollMode` instead
+    ///
+    pub const VerticalScrollMode = verticalScrollMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3272,9 +4016,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` qabstractitemview_enums.ScrollMode `
     ///
-    pub fn VerticalScrollMode(self: QHeaderView) i32 {
+    pub fn verticalScrollMode(self: QHeaderView) i32 {
         return qtc.QAbstractItemView_VerticalScrollMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `resetVerticalScrollMode` instead
+    ///
+    pub const ResetVerticalScrollMode = resetVerticalScrollMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3284,9 +4032,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn ResetVerticalScrollMode(self: QHeaderView) void {
+    pub fn resetVerticalScrollMode(self: QHeaderView) void {
         qtc.QAbstractItemView_ResetVerticalScrollMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHorizontalScrollMode` instead
+    ///
+    pub const SetHorizontalScrollMode = setHorizontalScrollMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3298,9 +4050,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` mode: qabstractitemview_enums.ScrollMode `
     ///
-    pub fn SetHorizontalScrollMode(self: QHeaderView, mode: i32) void {
+    pub fn setHorizontalScrollMode(self: QHeaderView, mode: i32) void {
         qtc.QAbstractItemView_SetHorizontalScrollMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `horizontalScrollMode` instead
+    ///
+    pub const HorizontalScrollMode = horizontalScrollMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3314,9 +4070,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` qabstractitemview_enums.ScrollMode `
     ///
-    pub fn HorizontalScrollMode(self: QHeaderView) i32 {
+    pub fn horizontalScrollMode(self: QHeaderView) i32 {
         return qtc.QAbstractItemView_HorizontalScrollMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `resetHorizontalScrollMode` instead
+    ///
+    pub const ResetHorizontalScrollMode = resetHorizontalScrollMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3326,9 +4086,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn ResetHorizontalScrollMode(self: QHeaderView) void {
+    pub fn resetHorizontalScrollMode(self: QHeaderView) void {
         qtc.QAbstractItemView_ResetHorizontalScrollMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoScroll` instead
+    ///
+    pub const SetAutoScroll = setAutoScroll;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3340,9 +4104,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetAutoScroll(self: QHeaderView, enable: bool) void {
+    pub fn setAutoScroll(self: QHeaderView, enable: bool) void {
         qtc.QAbstractItemView_SetAutoScroll(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasAutoScroll` instead
+    ///
+    pub const HasAutoScroll = hasAutoScroll;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3352,9 +4120,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn HasAutoScroll(self: QHeaderView) bool {
+    pub fn hasAutoScroll(self: QHeaderView) bool {
         return qtc.QAbstractItemView_HasAutoScroll(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoScrollMargin` instead
+    ///
+    pub const SetAutoScrollMargin = setAutoScrollMargin;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3366,9 +4138,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` margin: i32 `
     ///
-    pub fn SetAutoScrollMargin(self: QHeaderView, margin: i32) void {
+    pub fn setAutoScrollMargin(self: QHeaderView, margin: i32) void {
         qtc.QAbstractItemView_SetAutoScrollMargin(@ptrCast(self.ptr), @bitCast(margin));
     }
+
+    /// ### DEPRECATED: Use `autoScrollMargin` instead
+    ///
+    pub const AutoScrollMargin = autoScrollMargin;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3378,9 +4154,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn AutoScrollMargin(self: QHeaderView) i32 {
+    pub fn autoScrollMargin(self: QHeaderView) i32 {
         return qtc.QAbstractItemView_AutoScrollMargin(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabKeyNavigation` instead
+    ///
+    pub const SetTabKeyNavigation = setTabKeyNavigation;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3392,9 +4172,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabKeyNavigation(self: QHeaderView, enable: bool) void {
+    pub fn setTabKeyNavigation(self: QHeaderView, enable: bool) void {
         qtc.QAbstractItemView_SetTabKeyNavigation(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `tabKeyNavigation` instead
+    ///
+    pub const TabKeyNavigation = tabKeyNavigation;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3404,9 +4188,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn TabKeyNavigation(self: QHeaderView) bool {
+    pub fn tabKeyNavigation(self: QHeaderView) bool {
         return qtc.QAbstractItemView_TabKeyNavigation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDropIndicatorShown` instead
+    ///
+    pub const SetDropIndicatorShown = setDropIndicatorShown;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3418,9 +4206,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetDropIndicatorShown(self: QHeaderView, enable: bool) void {
+    pub fn setDropIndicatorShown(self: QHeaderView, enable: bool) void {
         qtc.QAbstractItemView_SetDropIndicatorShown(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `showDropIndicator` instead
+    ///
+    pub const ShowDropIndicator = showDropIndicator;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3430,9 +4222,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn ShowDropIndicator(self: QHeaderView) bool {
+    pub fn showDropIndicator(self: QHeaderView) bool {
         return qtc.QAbstractItemView_ShowDropIndicator(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDragEnabled` instead
+    ///
+    pub const SetDragEnabled = setDragEnabled;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3444,9 +4240,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetDragEnabled(self: QHeaderView, enable: bool) void {
+    pub fn setDragEnabled(self: QHeaderView, enable: bool) void {
         qtc.QAbstractItemView_SetDragEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `dragEnabled` instead
+    ///
+    pub const DragEnabled = dragEnabled;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3456,9 +4256,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn DragEnabled(self: QHeaderView) bool {
+    pub fn dragEnabled(self: QHeaderView) bool {
         return qtc.QAbstractItemView_DragEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDragDropOverwriteMode` instead
+    ///
+    pub const SetDragDropOverwriteMode = setDragDropOverwriteMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3470,9 +4274,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` overwrite: bool `
     ///
-    pub fn SetDragDropOverwriteMode(self: QHeaderView, overwrite: bool) void {
+    pub fn setDragDropOverwriteMode(self: QHeaderView, overwrite: bool) void {
         qtc.QAbstractItemView_SetDragDropOverwriteMode(@ptrCast(self.ptr), overwrite);
     }
+
+    /// ### DEPRECATED: Use `dragDropOverwriteMode` instead
+    ///
+    pub const DragDropOverwriteMode = dragDropOverwriteMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3482,9 +4290,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn DragDropOverwriteMode(self: QHeaderView) bool {
+    pub fn dragDropOverwriteMode(self: QHeaderView) bool {
         return qtc.QAbstractItemView_DragDropOverwriteMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDragDropMode` instead
+    ///
+    pub const SetDragDropMode = setDragDropMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3496,9 +4308,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` behavior: qabstractitemview_enums.DragDropMode `
     ///
-    pub fn SetDragDropMode(self: QHeaderView, behavior: i32) void {
+    pub fn setDragDropMode(self: QHeaderView, behavior: i32) void {
         qtc.QAbstractItemView_SetDragDropMode(@ptrCast(self.ptr), @bitCast(behavior));
     }
+
+    /// ### DEPRECATED: Use `dragDropMode` instead
+    ///
+    pub const DragDropMode = dragDropMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3512,9 +4328,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` qabstractitemview_enums.DragDropMode `
     ///
-    pub fn DragDropMode(self: QHeaderView) i32 {
+    pub fn dragDropMode(self: QHeaderView) i32 {
         return qtc.QAbstractItemView_DragDropMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDefaultDropAction` instead
+    ///
+    pub const SetDefaultDropAction = setDefaultDropAction;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3526,9 +4346,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` dropAction: qnamespace_enums.DropAction `
     ///
-    pub fn SetDefaultDropAction(self: QHeaderView, dropAction: i32) void {
+    pub fn setDefaultDropAction(self: QHeaderView, dropAction: i32) void {
         qtc.QAbstractItemView_SetDefaultDropAction(@ptrCast(self.ptr), @bitCast(dropAction));
     }
+
+    /// ### DEPRECATED: Use `defaultDropAction` instead
+    ///
+    pub const DefaultDropAction = defaultDropAction;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3542,9 +4366,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` qnamespace_enums.DropAction `
     ///
-    pub fn DefaultDropAction(self: QHeaderView) i32 {
+    pub fn defaultDropAction(self: QHeaderView) i32 {
         return qtc.QAbstractItemView_DefaultDropAction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAlternatingRowColors` instead
+    ///
+    pub const SetAlternatingRowColors = setAlternatingRowColors;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3556,9 +4384,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetAlternatingRowColors(self: QHeaderView, enable: bool) void {
+    pub fn setAlternatingRowColors(self: QHeaderView, enable: bool) void {
         qtc.QAbstractItemView_SetAlternatingRowColors(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `alternatingRowColors` instead
+    ///
+    pub const AlternatingRowColors = alternatingRowColors;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3568,9 +4400,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn AlternatingRowColors(self: QHeaderView) bool {
+    pub fn alternatingRowColors(self: QHeaderView) bool {
         return qtc.QAbstractItemView_AlternatingRowColors(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setIconSize` instead
+    ///
+    pub const SetIconSize = setIconSize;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3580,12 +4416,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` size: QSize `
+    /// ` _size: QSize `
     ///
-    pub fn SetIconSize(self: QHeaderView, size: anytype) void {
-        comptime _ = @TypeOf(size)._is_QSize;
-        qtc.QAbstractItemView_SetIconSize(@ptrCast(self.ptr), @ptrCast(size.ptr));
+    pub fn setIconSize(self: QHeaderView, _size: anytype) void {
+        comptime _ = @TypeOf(_size)._is_QSize;
+        qtc.QAbstractItemView_SetIconSize(@ptrCast(self.ptr), @ptrCast(_size.ptr));
     }
+
+    /// ### DEPRECATED: Use `iconSize` instead
+    ///
+    pub const IconSize = iconSize;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3595,9 +4435,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn IconSize(self: QHeaderView) QSize {
+    pub fn iconSize(self: QHeaderView) QSize {
         return .{ .ptr = qtc.QAbstractItemView_IconSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setTextElideMode` instead
+    ///
+    pub const SetTextElideMode = setTextElideMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3609,9 +4453,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` mode: qnamespace_enums.TextElideMode `
     ///
-    pub fn SetTextElideMode(self: QHeaderView, mode: i32) void {
+    pub fn setTextElideMode(self: QHeaderView, mode: i32) void {
         qtc.QAbstractItemView_SetTextElideMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `textElideMode` instead
+    ///
+    pub const TextElideMode = textElideMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3625,9 +4473,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` qnamespace_enums.TextElideMode `
     ///
-    pub fn TextElideMode(self: QHeaderView) i32 {
+    pub fn textElideMode(self: QHeaderView) i32 {
         return qtc.QAbstractItemView_TextElideMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `sizeHintForIndex` instead
+    ///
+    pub const SizeHintForIndex = sizeHintForIndex;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3639,10 +4491,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SizeHintForIndex(self: QHeaderView, index: anytype) QSize {
+    pub fn sizeHintForIndex(self: QHeaderView, index: anytype) QSize {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.QAbstractItemView_SizeHintForIndex(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `openPersistentEditor` instead
+    ///
+    pub const OpenPersistentEditor = openPersistentEditor;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3654,10 +4510,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn OpenPersistentEditor(self: QHeaderView, index: anytype) void {
+    pub fn openPersistentEditor(self: QHeaderView, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QAbstractItemView_OpenPersistentEditor(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `closePersistentEditor` instead
+    ///
+    pub const ClosePersistentEditor = closePersistentEditor;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3669,10 +4529,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn ClosePersistentEditor(self: QHeaderView, index: anytype) void {
+    pub fn closePersistentEditor(self: QHeaderView, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QAbstractItemView_ClosePersistentEditor(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `isPersistentEditorOpen` instead
+    ///
+    pub const IsPersistentEditorOpen = isPersistentEditorOpen;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3684,10 +4548,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn IsPersistentEditorOpen(self: QHeaderView, index: anytype) bool {
+    pub fn isPersistentEditorOpen(self: QHeaderView, index: anytype) bool {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return qtc.QAbstractItemView_IsPersistentEditorOpen(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `setIndexWidget` instead
+    ///
+    pub const SetIndexWidget = setIndexWidget;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3701,11 +4569,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn SetIndexWidget(self: QHeaderView, index: anytype, widget: anytype) void {
+    pub fn setIndexWidget(self: QHeaderView, index: anytype, widget: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QAbstractItemView_SetIndexWidget(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `indexWidget` instead
+    ///
+    pub const IndexWidget = indexWidget;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3717,10 +4589,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn IndexWidget(self: QHeaderView, index: anytype) QWidget {
+    pub fn indexWidget(self: QHeaderView, index: anytype) QWidget {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.QAbstractItemView_IndexWidget(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setItemDelegateForRow` instead
+    ///
+    pub const SetItemDelegateForRow = setItemDelegateForRow;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3734,10 +4610,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` delegate: QAbstractItemDelegate `
     ///
-    pub fn SetItemDelegateForRow(self: QHeaderView, row: i32, delegate: anytype) void {
+    pub fn setItemDelegateForRow(self: QHeaderView, row: i32, delegate: anytype) void {
         comptime _ = @TypeOf(delegate)._is_QAbstractItemDelegate;
         qtc.QAbstractItemView_SetItemDelegateForRow(@ptrCast(self.ptr), @bitCast(row), @ptrCast(delegate.ptr));
     }
+
+    /// ### DEPRECATED: Use `itemDelegateForRow` instead
+    ///
+    pub const ItemDelegateForRow = itemDelegateForRow;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3749,9 +4629,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` row: i32 `
     ///
-    pub fn ItemDelegateForRow(self: QHeaderView, row: i32) QAbstractItemDelegate {
+    pub fn itemDelegateForRow(self: QHeaderView, row: i32) QAbstractItemDelegate {
         return .{ .ptr = qtc.QAbstractItemView_ItemDelegateForRow(@ptrCast(self.ptr), @bitCast(row)) };
     }
+
+    /// ### DEPRECATED: Use `setItemDelegateForColumn` instead
+    ///
+    pub const SetItemDelegateForColumn = setItemDelegateForColumn;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3765,10 +4649,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` delegate: QAbstractItemDelegate `
     ///
-    pub fn SetItemDelegateForColumn(self: QHeaderView, column: i32, delegate: anytype) void {
+    pub fn setItemDelegateForColumn(self: QHeaderView, column: i32, delegate: anytype) void {
         comptime _ = @TypeOf(delegate)._is_QAbstractItemDelegate;
         qtc.QAbstractItemView_SetItemDelegateForColumn(@ptrCast(self.ptr), @bitCast(column), @ptrCast(delegate.ptr));
     }
+
+    /// ### DEPRECATED: Use `itemDelegateForColumn` instead
+    ///
+    pub const ItemDelegateForColumn = itemDelegateForColumn;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3780,9 +4668,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn ItemDelegateForColumn(self: QHeaderView, column: i32) QAbstractItemDelegate {
+    pub fn itemDelegateForColumn(self: QHeaderView, column: i32) QAbstractItemDelegate {
         return .{ .ptr = qtc.QAbstractItemView_ItemDelegateForColumn(@ptrCast(self.ptr), @bitCast(column)) };
     }
+
+    /// ### DEPRECATED: Use `itemDelegate2` instead
+    ///
+    pub const ItemDelegate2 = itemDelegate2;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3794,10 +4686,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn ItemDelegate2(self: QHeaderView, index: anytype) QAbstractItemDelegate {
+    pub fn itemDelegate2(self: QHeaderView, index: anytype) QAbstractItemDelegate {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.QAbstractItemView_ItemDelegate2(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `edit` instead
+    ///
+    pub const Edit = edit;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3809,10 +4705,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn Edit(self: QHeaderView, index: anytype) void {
+    pub fn edit(self: QHeaderView, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QAbstractItemView_Edit(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearSelection` instead
+    ///
+    pub const ClearSelection = clearSelection;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3822,9 +4722,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn ClearSelection(self: QHeaderView) void {
+    pub fn clearSelection(self: QHeaderView) void {
         qtc.QAbstractItemView_ClearSelection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCurrentIndex` instead
+    ///
+    pub const SetCurrentIndex = setCurrentIndex;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3836,10 +4740,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SetCurrentIndex(self: QHeaderView, index: anytype) void {
+    pub fn setCurrentIndex(self: QHeaderView, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QAbstractItemView_SetCurrentIndex(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `scrollToTop` instead
+    ///
+    pub const ScrollToTop = scrollToTop;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3849,9 +4757,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn ScrollToTop(self: QHeaderView) void {
+    pub fn scrollToTop(self: QHeaderView) void {
         qtc.QAbstractItemView_ScrollToTop(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `scrollToBottom` instead
+    ///
+    pub const ScrollToBottom = scrollToBottom;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3861,9 +4773,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn ScrollToBottom(self: QHeaderView) void {
+    pub fn scrollToBottom(self: QHeaderView) void {
         qtc.QAbstractItemView_ScrollToBottom(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3875,11 +4791,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn Update(self: QHeaderView, index: anytype) void {
+    pub fn update(self: QHeaderView, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QAbstractItemView_Update(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
+    /// ### DEPRECATED: Use `pressed` instead
+    ///
+    pub const Pressed = pressed;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#pressed)
@@ -3890,11 +4810,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn Pressed(self: QHeaderView, index: anytype) void {
+    pub fn pressed(self: QHeaderView, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QAbstractItemView_Pressed(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
+    /// ### DEPRECATED: Use `onPressed` instead
+    ///
+    pub const OnPressed = onPressed;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#pressed)
@@ -3905,9 +4829,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnPressed(self: QHeaderView, callback: *const fn (QHeaderView, QModelIndex) callconv(.c) void) void {
+    pub fn onPressed(self: QHeaderView, callback: *const fn (QHeaderView, QModelIndex) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Pressed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `clicked` instead
+    ///
+    pub const Clicked = clicked;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3919,11 +4847,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn Clicked(self: QHeaderView, index: anytype) void {
+    pub fn clicked(self: QHeaderView, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QAbstractItemView_Clicked(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
+    /// ### DEPRECATED: Use `onClicked` instead
+    ///
+    pub const OnClicked = onClicked;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#clicked)
@@ -3934,9 +4866,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnClicked(self: QHeaderView, callback: *const fn (QHeaderView, QModelIndex) callconv(.c) void) void {
+    pub fn onClicked(self: QHeaderView, callback: *const fn (QHeaderView, QModelIndex) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Clicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `doubleClicked` instead
+    ///
+    pub const DoubleClicked = doubleClicked;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3948,11 +4884,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn DoubleClicked(self: QHeaderView, index: anytype) void {
+    pub fn doubleClicked(self: QHeaderView, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QAbstractItemView_DoubleClicked(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
+    /// ### DEPRECATED: Use `onDoubleClicked` instead
+    ///
+    pub const OnDoubleClicked = onDoubleClicked;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doubleClicked)
@@ -3963,9 +4903,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnDoubleClicked(self: QHeaderView, callback: *const fn (QHeaderView, QModelIndex) callconv(.c) void) void {
+    pub fn onDoubleClicked(self: QHeaderView, callback: *const fn (QHeaderView, QModelIndex) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_DoubleClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `activated` instead
+    ///
+    pub const Activated = activated;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3977,11 +4921,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn Activated(self: QHeaderView, index: anytype) void {
+    pub fn activated(self: QHeaderView, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QAbstractItemView_Activated(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
+    /// ### DEPRECATED: Use `onActivated` instead
+    ///
+    pub const OnActivated = onActivated;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#activated)
@@ -3992,9 +4940,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnActivated(self: QHeaderView, callback: *const fn (QHeaderView, QModelIndex) callconv(.c) void) void {
+    pub fn onActivated(self: QHeaderView, callback: *const fn (QHeaderView, QModelIndex) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Activated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `entered` instead
+    ///
+    pub const Entered = entered;
 
     /// Inherited from QAbstractItemView
     ///
@@ -4006,10 +4958,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn Entered(self: QHeaderView, index: anytype) void {
+    pub fn entered(self: QHeaderView, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QAbstractItemView_Entered(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEntered` instead
+    ///
+    pub const OnEntered = onEntered;
 
     /// Inherited from QAbstractItemView
     ///
@@ -4021,9 +4977,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnEntered(self: QHeaderView, callback: *const fn (QHeaderView, QModelIndex) callconv(.c) void) void {
+    pub fn onEntered(self: QHeaderView, callback: *const fn (QHeaderView, QModelIndex) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Entered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `viewportEntered` instead
+    ///
+    pub const ViewportEntered = viewportEntered;
 
     /// Inherited from QAbstractItemView
     ///
@@ -4033,9 +4993,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn ViewportEntered(self: QHeaderView) void {
+    pub fn viewportEntered(self: QHeaderView) void {
         qtc.QAbstractItemView_ViewportEntered(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onViewportEntered` instead
+    ///
+    pub const OnViewportEntered = onViewportEntered;
 
     /// Inherited from QAbstractItemView
     ///
@@ -4047,9 +5011,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView) callconv(.c) void `
     ///
-    pub fn OnViewportEntered(self: QHeaderView, callback: *const fn (QHeaderView) callconv(.c) void) void {
+    pub fn onViewportEntered(self: QHeaderView, callback: *const fn (QHeaderView) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_ViewportEntered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `iconSizeChanged` instead
+    ///
+    pub const IconSizeChanged = iconSizeChanged;
 
     /// Inherited from QAbstractItemView
     ///
@@ -4059,12 +5027,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` size: QSize `
+    /// ` _size: QSize `
     ///
-    pub fn IconSizeChanged(self: QHeaderView, size: anytype) void {
-        comptime _ = @TypeOf(size)._is_QSize;
-        qtc.QAbstractItemView_IconSizeChanged(@ptrCast(self.ptr), @ptrCast(size.ptr));
+    pub fn iconSizeChanged(self: QHeaderView, _size: anytype) void {
+        comptime _ = @TypeOf(_size)._is_QSize;
+        qtc.QAbstractItemView_IconSizeChanged(@ptrCast(self.ptr), @ptrCast(_size.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIconSizeChanged` instead
+    ///
+    pub const OnIconSizeChanged = onIconSizeChanged;
 
     /// Inherited from QAbstractItemView
     ///
@@ -4076,9 +5048,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, size: QSize) callconv(.c) void `
     ///
-    pub fn OnIconSizeChanged(self: QHeaderView, callback: *const fn (QHeaderView, QSize) callconv(.c) void) void {
+    pub fn onIconSizeChanged(self: QHeaderView, callback: *const fn (QHeaderView, QSize) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_IconSizeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `verticalScrollBarPolicy` instead
+    ///
+    pub const VerticalScrollBarPolicy = verticalScrollBarPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -4092,9 +5068,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn VerticalScrollBarPolicy(self: QHeaderView) i32 {
+    pub fn verticalScrollBarPolicy(self: QHeaderView) i32 {
         return qtc.QAbstractScrollArea_VerticalScrollBarPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setVerticalScrollBarPolicy` instead
+    ///
+    pub const SetVerticalScrollBarPolicy = setVerticalScrollBarPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -4104,11 +5084,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` verticalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
+    /// ` _verticalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn SetVerticalScrollBarPolicy(self: QHeaderView, verticalScrollBarPolicy: i32) void {
-        qtc.QAbstractScrollArea_SetVerticalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(verticalScrollBarPolicy));
+    pub fn setVerticalScrollBarPolicy(self: QHeaderView, _verticalScrollBarPolicy: i32) void {
+        qtc.QAbstractScrollArea_SetVerticalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(_verticalScrollBarPolicy));
     }
+
+    /// ### DEPRECATED: Use `verticalScrollBar` instead
+    ///
+    pub const VerticalScrollBar = verticalScrollBar;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -4118,9 +5102,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn VerticalScrollBar(self: QHeaderView) QScrollBar {
+    pub fn verticalScrollBar(self: QHeaderView) QScrollBar {
         return .{ .ptr = qtc.QAbstractScrollArea_VerticalScrollBar(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setVerticalScrollBar` instead
+    ///
+    pub const SetVerticalScrollBar = setVerticalScrollBar;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -4132,10 +5120,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` scrollbar: QScrollBar `
     ///
-    pub fn SetVerticalScrollBar(self: QHeaderView, scrollbar: anytype) void {
+    pub fn setVerticalScrollBar(self: QHeaderView, scrollbar: anytype) void {
         comptime _ = @TypeOf(scrollbar)._is_QScrollBar;
         qtc.QAbstractScrollArea_SetVerticalScrollBar(@ptrCast(self.ptr), @ptrCast(scrollbar.ptr));
     }
+
+    /// ### DEPRECATED: Use `horizontalScrollBarPolicy` instead
+    ///
+    pub const HorizontalScrollBarPolicy = horizontalScrollBarPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -4149,9 +5141,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn HorizontalScrollBarPolicy(self: QHeaderView) i32 {
+    pub fn horizontalScrollBarPolicy(self: QHeaderView) i32 {
         return qtc.QAbstractScrollArea_HorizontalScrollBarPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHorizontalScrollBarPolicy` instead
+    ///
+    pub const SetHorizontalScrollBarPolicy = setHorizontalScrollBarPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -4161,11 +5157,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` horizontalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
+    /// ` _horizontalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn SetHorizontalScrollBarPolicy(self: QHeaderView, horizontalScrollBarPolicy: i32) void {
-        qtc.QAbstractScrollArea_SetHorizontalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(horizontalScrollBarPolicy));
+    pub fn setHorizontalScrollBarPolicy(self: QHeaderView, _horizontalScrollBarPolicy: i32) void {
+        qtc.QAbstractScrollArea_SetHorizontalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(_horizontalScrollBarPolicy));
     }
+
+    /// ### DEPRECATED: Use `horizontalScrollBar` instead
+    ///
+    pub const HorizontalScrollBar = horizontalScrollBar;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -4175,9 +5175,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn HorizontalScrollBar(self: QHeaderView) QScrollBar {
+    pub fn horizontalScrollBar(self: QHeaderView) QScrollBar {
         return .{ .ptr = qtc.QAbstractScrollArea_HorizontalScrollBar(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setHorizontalScrollBar` instead
+    ///
+    pub const SetHorizontalScrollBar = setHorizontalScrollBar;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -4189,10 +5193,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` scrollbar: QScrollBar `
     ///
-    pub fn SetHorizontalScrollBar(self: QHeaderView, scrollbar: anytype) void {
+    pub fn setHorizontalScrollBar(self: QHeaderView, scrollbar: anytype) void {
         comptime _ = @TypeOf(scrollbar)._is_QScrollBar;
         qtc.QAbstractScrollArea_SetHorizontalScrollBar(@ptrCast(self.ptr), @ptrCast(scrollbar.ptr));
     }
+
+    /// ### DEPRECATED: Use `cornerWidget` instead
+    ///
+    pub const CornerWidget = cornerWidget;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -4202,9 +5210,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn CornerWidget(self: QHeaderView) QWidget {
+    pub fn cornerWidget(self: QHeaderView) QWidget {
         return .{ .ptr = qtc.QAbstractScrollArea_CornerWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCornerWidget` instead
+    ///
+    pub const SetCornerWidget = setCornerWidget;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -4216,10 +5228,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn SetCornerWidget(self: QHeaderView, widget: anytype) void {
+    pub fn setCornerWidget(self: QHeaderView, widget: anytype) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QAbstractScrollArea_SetCornerWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `addScrollBarWidget` instead
+    ///
+    pub const AddScrollBarWidget = addScrollBarWidget;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -4233,10 +5249,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn AddScrollBarWidget(self: QHeaderView, widget: anytype, alignment: i32) void {
+    pub fn addScrollBarWidget(self: QHeaderView, widget: anytype, alignment: i32) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QAbstractScrollArea_AddScrollBarWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr), @bitCast(alignment));
     }
+
+    /// ### DEPRECATED: Use `scrollBarWidgets` instead
+    ///
+    pub const ScrollBarWidgets = scrollBarWidgets;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -4250,15 +5270,19 @@ pub const QHeaderView = extern struct {
     ///
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn ScrollBarWidgets(self: QHeaderView, allocator: std.mem.Allocator, alignment: i32) []QWidget {
+    pub fn scrollBarWidgets(self: QHeaderView, allocator: std.mem.Allocator, alignment: i32) []QWidget {
         const _arr: qtc.libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self.ptr), @bitCast(alignment));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("QHeaderView.ScrollBarWidgets: Memory allocation failed");
-        const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("QHeaderView.scrollBarWidgets: Memory allocation failed");
+        const _data_val: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `viewport` instead
+    ///
+    pub const Viewport = viewport;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -4268,9 +5292,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn Viewport(self: QHeaderView) QWidget {
+    pub fn viewport(self: QHeaderView) QWidget {
         return .{ .ptr = qtc.QAbstractScrollArea_Viewport(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setViewport` instead
+    ///
+    pub const SetViewport = setViewport;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -4282,10 +5310,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn SetViewport(self: QHeaderView, widget: anytype) void {
+    pub fn setViewport(self: QHeaderView, widget: anytype) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QAbstractScrollArea_SetViewport(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumViewportSize` instead
+    ///
+    pub const MaximumViewportSize = maximumViewportSize;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -4295,9 +5327,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn MaximumViewportSize(self: QHeaderView) QSize {
+    pub fn maximumViewportSize(self: QHeaderView) QSize {
         return .{ .ptr = qtc.QAbstractScrollArea_MaximumViewportSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `sizeAdjustPolicy` instead
+    ///
+    pub const SizeAdjustPolicy = sizeAdjustPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -4311,9 +5347,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` qabstractscrollarea_enums.SizeAdjustPolicy `
     ///
-    pub fn SizeAdjustPolicy(self: QHeaderView) i32 {
+    pub fn sizeAdjustPolicy(self: QHeaderView) i32 {
         return qtc.QAbstractScrollArea_SizeAdjustPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeAdjustPolicy` instead
+    ///
+    pub const SetSizeAdjustPolicy = setSizeAdjustPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -4325,9 +5365,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` policy: qabstractscrollarea_enums.SizeAdjustPolicy `
     ///
-    pub fn SetSizeAdjustPolicy(self: QHeaderView, policy: i32) void {
+    pub fn setSizeAdjustPolicy(self: QHeaderView, policy: i32) void {
         qtc.QAbstractScrollArea_SetSizeAdjustPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `frameStyle` instead
+    ///
+    pub const FrameStyle = frameStyle;
 
     /// Inherited from QFrame
     ///
@@ -4337,9 +5381,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn FrameStyle(self: QHeaderView) i32 {
+    pub fn frameStyle(self: QHeaderView) i32 {
         return qtc.QFrame_FrameStyle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameStyle` instead
+    ///
+    pub const SetFrameStyle = setFrameStyle;
 
     /// Inherited from QFrame
     ///
@@ -4349,11 +5397,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` frameStyle: i32 `
+    /// ` _frameStyle: i32 `
     ///
-    pub fn SetFrameStyle(self: QHeaderView, frameStyle: i32) void {
-        qtc.QFrame_SetFrameStyle(@ptrCast(self.ptr), @bitCast(frameStyle));
+    pub fn setFrameStyle(self: QHeaderView, _frameStyle: i32) void {
+        qtc.QFrame_SetFrameStyle(@ptrCast(self.ptr), @bitCast(_frameStyle));
     }
+
+    /// ### DEPRECATED: Use `frameWidth` instead
+    ///
+    pub const FrameWidth = frameWidth;
 
     /// Inherited from QFrame
     ///
@@ -4363,9 +5415,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn FrameWidth(self: QHeaderView) i32 {
+    pub fn frameWidth(self: QHeaderView) i32 {
         return qtc.QFrame_FrameWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `frameShape` instead
+    ///
+    pub const FrameShape = frameShape;
 
     /// Inherited from QFrame
     ///
@@ -4379,9 +5435,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` qframe_enums.Shape `
     ///
-    pub fn FrameShape(self: QHeaderView) i32 {
+    pub fn frameShape(self: QHeaderView) i32 {
         return qtc.QFrame_FrameShape(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameShape` instead
+    ///
+    pub const SetFrameShape = setFrameShape;
 
     /// Inherited from QFrame
     ///
@@ -4391,11 +5451,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` frameShape: qframe_enums.Shape `
+    /// ` _frameShape: qframe_enums.Shape `
     ///
-    pub fn SetFrameShape(self: QHeaderView, frameShape: i32) void {
-        qtc.QFrame_SetFrameShape(@ptrCast(self.ptr), @bitCast(frameShape));
+    pub fn setFrameShape(self: QHeaderView, _frameShape: i32) void {
+        qtc.QFrame_SetFrameShape(@ptrCast(self.ptr), @bitCast(_frameShape));
     }
+
+    /// ### DEPRECATED: Use `frameShadow` instead
+    ///
+    pub const FrameShadow = frameShadow;
 
     /// Inherited from QFrame
     ///
@@ -4409,9 +5473,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` qframe_enums.Shadow `
     ///
-    pub fn FrameShadow(self: QHeaderView) i32 {
+    pub fn frameShadow(self: QHeaderView) i32 {
         return qtc.QFrame_FrameShadow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameShadow` instead
+    ///
+    pub const SetFrameShadow = setFrameShadow;
 
     /// Inherited from QFrame
     ///
@@ -4421,11 +5489,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` frameShadow: qframe_enums.Shadow `
+    /// ` _frameShadow: qframe_enums.Shadow `
     ///
-    pub fn SetFrameShadow(self: QHeaderView, frameShadow: i32) void {
-        qtc.QFrame_SetFrameShadow(@ptrCast(self.ptr), @bitCast(frameShadow));
+    pub fn setFrameShadow(self: QHeaderView, _frameShadow: i32) void {
+        qtc.QFrame_SetFrameShadow(@ptrCast(self.ptr), @bitCast(_frameShadow));
     }
+
+    /// ### DEPRECATED: Use `lineWidth` instead
+    ///
+    pub const LineWidth = lineWidth;
 
     /// Inherited from QFrame
     ///
@@ -4435,9 +5507,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn LineWidth(self: QHeaderView) i32 {
+    pub fn lineWidth(self: QHeaderView) i32 {
         return qtc.QFrame_LineWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLineWidth` instead
+    ///
+    pub const SetLineWidth = setLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -4447,11 +5523,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` lineWidth: i32 `
+    /// ` _lineWidth: i32 `
     ///
-    pub fn SetLineWidth(self: QHeaderView, lineWidth: i32) void {
-        qtc.QFrame_SetLineWidth(@ptrCast(self.ptr), @bitCast(lineWidth));
+    pub fn setLineWidth(self: QHeaderView, _lineWidth: i32) void {
+        qtc.QFrame_SetLineWidth(@ptrCast(self.ptr), @bitCast(_lineWidth));
     }
+
+    /// ### DEPRECATED: Use `midLineWidth` instead
+    ///
+    pub const MidLineWidth = midLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -4461,9 +5541,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn MidLineWidth(self: QHeaderView) i32 {
+    pub fn midLineWidth(self: QHeaderView) i32 {
         return qtc.QFrame_MidLineWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMidLineWidth` instead
+    ///
+    pub const SetMidLineWidth = setMidLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -4473,11 +5557,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` midLineWidth: i32 `
+    /// ` _midLineWidth: i32 `
     ///
-    pub fn SetMidLineWidth(self: QHeaderView, midLineWidth: i32) void {
-        qtc.QFrame_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(midLineWidth));
+    pub fn setMidLineWidth(self: QHeaderView, _midLineWidth: i32) void {
+        qtc.QFrame_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(_midLineWidth));
     }
+
+    /// ### DEPRECATED: Use `frameRect` instead
+    ///
+    pub const FrameRect = frameRect;
 
     /// Inherited from QFrame
     ///
@@ -4487,9 +5575,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn FrameRect(self: QHeaderView) QRect {
+    pub fn frameRect(self: QHeaderView) QRect {
         return .{ .ptr = qtc.QFrame_FrameRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFrameRect` instead
+    ///
+    pub const SetFrameRect = setFrameRect;
 
     /// Inherited from QFrame
     ///
@@ -4499,12 +5591,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` frameRect: QRect `
+    /// ` _frameRect: QRect `
     ///
-    pub fn SetFrameRect(self: QHeaderView, frameRect: anytype) void {
-        comptime _ = @TypeOf(frameRect)._is_QRect;
-        qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(frameRect.ptr));
+    pub fn setFrameRect(self: QHeaderView, _frameRect: anytype) void {
+        comptime _ = @TypeOf(_frameRect)._is_QRect;
+        qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(_frameRect.ptr));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -4514,9 +5610,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn WinId(self: QHeaderView) usize {
+    pub fn winId(self: QHeaderView) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -4526,9 +5626,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn CreateWinId(self: QHeaderView) void {
+    pub fn createWinId(self: QHeaderView) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -4538,9 +5642,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn InternalWinId(self: QHeaderView) usize {
+    pub fn internalWinId(self: QHeaderView) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -4550,9 +5658,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn EffectiveWinId(self: QHeaderView) usize {
+    pub fn effectiveWinId(self: QHeaderView) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -4562,9 +5674,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn Style(self: QHeaderView) QStyle {
+    pub fn style(self: QHeaderView) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -4574,12 +5690,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: QHeaderView, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: QHeaderView, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -4589,9 +5709,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn IsTopLevel(self: QHeaderView) bool {
+    pub fn isTopLevel(self: QHeaderView) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -4601,9 +5725,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn IsWindow(self: QHeaderView) bool {
+    pub fn isWindow(self: QHeaderView) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -4613,9 +5741,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn IsModal(self: QHeaderView) bool {
+    pub fn isModal(self: QHeaderView) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -4629,9 +5761,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: QHeaderView) i32 {
+    pub fn windowModality(self: QHeaderView) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -4641,11 +5777,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: QHeaderView, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: QHeaderView, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -4655,9 +5795,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn IsEnabled(self: QHeaderView) bool {
+    pub fn isEnabled(self: QHeaderView) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -4669,10 +5813,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: QHeaderView, param1: anytype) bool {
+    pub fn isEnabledTo(self: QHeaderView, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -4684,9 +5832,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: QHeaderView, enabled: bool) void {
+    pub fn setEnabled(self: QHeaderView, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -4698,9 +5850,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: QHeaderView, disabled: bool) void {
+    pub fn setDisabled(self: QHeaderView, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -4712,9 +5868,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: QHeaderView, windowModified: bool) void {
+    pub fn setWindowModified(self: QHeaderView, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4724,9 +5884,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn FrameGeometry(self: QHeaderView) QRect {
+    pub fn frameGeometry(self: QHeaderView) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -4736,9 +5900,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn Geometry(self: QHeaderView) QRect {
+    pub fn geometry(self: QHeaderView) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4748,9 +5916,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn NormalGeometry(self: QHeaderView) QRect {
+    pub fn normalGeometry(self: QHeaderView) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -4760,9 +5932,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn X(self: QHeaderView) i32 {
+    pub fn x(self: QHeaderView) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -4772,9 +5948,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn Y(self: QHeaderView) i32 {
+    pub fn y(self: QHeaderView) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -4784,9 +5964,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn Pos(self: QHeaderView) QPoint {
+    pub fn pos(self: QHeaderView) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -4796,9 +5980,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn FrameSize(self: QHeaderView) QSize {
+    pub fn frameSize(self: QHeaderView) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -4808,9 +5996,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn Size(self: QHeaderView) QSize {
+    pub fn size(self: QHeaderView) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -4820,9 +6012,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn Width(self: QHeaderView) i32 {
+    pub fn width(self: QHeaderView) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -4832,9 +6028,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn Height(self: QHeaderView) i32 {
+    pub fn height(self: QHeaderView) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -4844,9 +6044,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn Rect(self: QHeaderView) QRect {
+    pub fn rect(self: QHeaderView) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -4856,9 +6060,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn ChildrenRect(self: QHeaderView) QRect {
+    pub fn childrenRect(self: QHeaderView) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -4868,9 +6076,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn ChildrenRegion(self: QHeaderView) QRegion {
+    pub fn childrenRegion(self: QHeaderView) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -4880,9 +6092,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn MinimumSize(self: QHeaderView) QSize {
+    pub fn minimumSize(self: QHeaderView) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -4892,9 +6108,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn MaximumSize(self: QHeaderView) QSize {
+    pub fn maximumSize(self: QHeaderView) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -4904,9 +6124,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn MinimumWidth(self: QHeaderView) i32 {
+    pub fn minimumWidth(self: QHeaderView) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -4916,9 +6140,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn MinimumHeight(self: QHeaderView) i32 {
+    pub fn minimumHeight(self: QHeaderView) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -4928,9 +6156,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn MaximumWidth(self: QHeaderView) i32 {
+    pub fn maximumWidth(self: QHeaderView) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -4940,9 +6172,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn MaximumHeight(self: QHeaderView) i32 {
+    pub fn maximumHeight(self: QHeaderView) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -4952,12 +6188,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: QHeaderView, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: QHeaderView, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -4971,9 +6211,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: QHeaderView, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: QHeaderView, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -4983,12 +6227,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: QHeaderView, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: QHeaderView, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -5002,9 +6250,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: QHeaderView, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: QHeaderView, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -5016,9 +6268,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: QHeaderView, minw: i32) void {
+    pub fn setMinimumWidth(self: QHeaderView, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -5030,9 +6286,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: QHeaderView, minh: i32) void {
+    pub fn setMinimumHeight(self: QHeaderView, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -5044,9 +6304,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: QHeaderView, maxw: i32) void {
+    pub fn setMaximumWidth(self: QHeaderView, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -5058,9 +6322,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: QHeaderView, maxh: i32) void {
+    pub fn setMaximumHeight(self: QHeaderView, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -5070,9 +6338,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SizeIncrement(self: QHeaderView) QSize {
+    pub fn sizeIncrement(self: QHeaderView) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -5082,12 +6354,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: QHeaderView, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: QHeaderView, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -5101,9 +6377,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: QHeaderView, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: QHeaderView, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -5113,9 +6393,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn BaseSize(self: QHeaderView) QSize {
+    pub fn baseSize(self: QHeaderView) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -5125,12 +6409,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: QHeaderView, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: QHeaderView, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -5144,9 +6432,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: QHeaderView, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: QHeaderView, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -5158,10 +6450,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: QHeaderView, fixedSize: anytype) void {
+    pub fn setFixedSize(self: QHeaderView, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -5175,9 +6471,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: QHeaderView, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: QHeaderView, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -5189,9 +6489,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: QHeaderView, w: i32) void {
+    pub fn setFixedWidth(self: QHeaderView, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -5203,9 +6507,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: QHeaderView, h: i32) void {
+    pub fn setFixedHeight(self: QHeaderView, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -5217,11 +6525,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: QHeaderView, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: QHeaderView, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -5232,11 +6544,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: QHeaderView, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: QHeaderView, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -5247,11 +6563,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: QHeaderView, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: QHeaderView, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -5262,11 +6582,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: QHeaderView, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: QHeaderView, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -5277,11 +6601,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: QHeaderView, param1: anytype) QPointF {
+    pub fn mapToParent(self: QHeaderView, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -5292,10 +6620,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: QHeaderView, param1: anytype) QPoint {
+    pub fn mapToParent2(self: QHeaderView, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -5307,10 +6639,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: QHeaderView, param1: anytype) QPointF {
+    pub fn mapFromParent(self: QHeaderView, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -5322,10 +6658,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: QHeaderView, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: QHeaderView, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -5339,12 +6679,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: QHeaderView, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: QHeaderView, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -5357,11 +6701,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: QHeaderView, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: QHeaderView, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -5375,11 +6723,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: QHeaderView, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: QHeaderView, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -5393,11 +6745,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: QHeaderView, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: QHeaderView, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -5407,9 +6763,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn Window(self: QHeaderView) QWidget {
+    pub fn window(self: QHeaderView) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -5419,9 +6779,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn NativeParentWidget(self: QHeaderView) QWidget {
+    pub fn nativeParentWidget(self: QHeaderView) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -5431,9 +6795,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn TopLevelWidget(self: QHeaderView) QWidget {
+    pub fn topLevelWidget(self: QHeaderView) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -5443,9 +6811,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn Palette(self: QHeaderView) QPalette {
+    pub fn palette(self: QHeaderView) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -5455,12 +6827,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: QHeaderView, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: QHeaderView, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -5470,11 +6846,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: QHeaderView, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: QHeaderView, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -5488,9 +6868,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: QHeaderView) i32 {
+    pub fn backgroundRole(self: QHeaderView) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -5500,11 +6884,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: QHeaderView, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: QHeaderView, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -5518,9 +6906,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: QHeaderView) i32 {
+    pub fn foregroundRole(self: QHeaderView) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -5530,9 +6922,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn Font(self: QHeaderView) QFont {
+    pub fn font(self: QHeaderView) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -5542,12 +6938,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: QHeaderView, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: QHeaderView, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -5557,9 +6957,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn FontMetrics(self: QHeaderView) QFontMetrics {
+    pub fn fontMetrics(self: QHeaderView) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -5569,9 +6973,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn FontInfo(self: QHeaderView) QFontInfo {
+    pub fn fontInfo(self: QHeaderView) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -5581,9 +6989,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn Cursor(self: QHeaderView) QCursor {
+    pub fn cursor(self: QHeaderView) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -5593,12 +7005,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: QHeaderView, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: QHeaderView, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -5608,9 +7024,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn UnsetCursor(self: QHeaderView) void {
+    pub fn unsetCursor(self: QHeaderView) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -5622,9 +7042,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: QHeaderView, enable: bool) void {
+    pub fn setMouseTracking(self: QHeaderView, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -5634,9 +7058,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn HasMouseTracking(self: QHeaderView) bool {
+    pub fn hasMouseTracking(self: QHeaderView) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -5646,9 +7074,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn UnderMouse(self: QHeaderView) bool {
+    pub fn underMouse(self: QHeaderView) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -5660,9 +7092,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: QHeaderView, enable: bool) void {
+    pub fn setTabletTracking(self: QHeaderView, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -5672,24 +7108,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn HasTabletTracking(self: QHeaderView) bool {
+    pub fn hasTabletTracking(self: QHeaderView) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHeaderView `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: QHeaderView, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -5699,12 +7124,35 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: QHeaderView, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: QHeaderView, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QHeaderView `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: QHeaderView, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -5714,9 +7162,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn Mask(self: QHeaderView) QRegion {
+    pub fn mask(self: QHeaderView) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -5726,9 +7178,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn ClearMask(self: QHeaderView) void {
+    pub fn clearMask(self: QHeaderView) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -5740,10 +7196,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: QHeaderView, target: anytype) void {
+    pub fn render(self: QHeaderView, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -5755,10 +7215,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: QHeaderView, painter: anytype) void {
+    pub fn render2(self: QHeaderView, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -5768,9 +7232,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn Grab(self: QHeaderView) QPixmap {
+    pub fn grab(self: QHeaderView) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -5780,9 +7248,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn GraphicsEffect(self: QHeaderView) QGraphicsEffect {
+    pub fn graphicsEffect(self: QHeaderView) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -5794,10 +7266,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: QHeaderView, effect: anytype) void {
+    pub fn setGraphicsEffect(self: QHeaderView, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -5809,9 +7285,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: QHeaderView, typeVal: i32) void {
+    pub fn grabGesture(self: QHeaderView, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -5823,9 +7303,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: QHeaderView, typeVal: i32) void {
+    pub fn ungrabGesture(self: QHeaderView, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -5835,15 +7319,19 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: QHeaderView, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: QHeaderView, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -5853,15 +7341,19 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: QHeaderView, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: QHeaderView, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -5873,13 +7365,17 @@ pub const QHeaderView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: QHeaderView, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: QHeaderView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHeaderView.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHeaderView.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -5891,13 +7387,17 @@ pub const QHeaderView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: QHeaderView, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: QHeaderView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHeaderView.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHeaderView.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -5909,10 +7409,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: QHeaderView, icon: anytype) void {
+    pub fn setWindowIcon(self: QHeaderView, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -5922,9 +7426,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn WindowIcon(self: QHeaderView) QIcon {
+    pub fn windowIcon(self: QHeaderView) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -5934,15 +7442,19 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: QHeaderView, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: QHeaderView, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -5954,13 +7466,17 @@ pub const QHeaderView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: QHeaderView, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: QHeaderView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHeaderView.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHeaderView.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -5970,15 +7486,19 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: QHeaderView, windowRole: []const u8) void {
+    pub fn setWindowRole(self: QHeaderView, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -5990,13 +7510,17 @@ pub const QHeaderView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: QHeaderView, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: QHeaderView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHeaderView.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHeaderView.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -6008,13 +7532,17 @@ pub const QHeaderView = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: QHeaderView, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: QHeaderView, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -6026,13 +7554,17 @@ pub const QHeaderView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: QHeaderView, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: QHeaderView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHeaderView.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHeaderView.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -6044,9 +7576,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: QHeaderView, level: f64) void {
+    pub fn setWindowOpacity(self: QHeaderView, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -6056,9 +7592,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn WindowOpacity(self: QHeaderView) f64 {
+    pub fn windowOpacity(self: QHeaderView) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -6068,9 +7608,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn IsWindowModified(self: QHeaderView) bool {
+    pub fn isWindowModified(self: QHeaderView) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -6080,15 +7624,19 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: QHeaderView, toolTip: []const u8) void {
+    pub fn setToolTip(self: QHeaderView, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -6100,13 +7648,17 @@ pub const QHeaderView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: QHeaderView, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: QHeaderView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHeaderView.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHeaderView.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -6118,9 +7670,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: QHeaderView, msec: i32) void {
+    pub fn setToolTipDuration(self: QHeaderView, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -6130,9 +7686,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn ToolTipDuration(self: QHeaderView) i32 {
+    pub fn toolTipDuration(self: QHeaderView) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -6142,15 +7702,19 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: QHeaderView, statusTip: []const u8) void {
+    pub fn setStatusTip(self: QHeaderView, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -6162,13 +7726,17 @@ pub const QHeaderView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: QHeaderView, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: QHeaderView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHeaderView.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHeaderView.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -6178,15 +7746,19 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: QHeaderView, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: QHeaderView, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -6198,13 +7770,17 @@ pub const QHeaderView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: QHeaderView, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: QHeaderView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHeaderView.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHeaderView.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -6216,13 +7792,17 @@ pub const QHeaderView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: QHeaderView, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: QHeaderView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHeaderView.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHeaderView.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -6234,13 +7814,17 @@ pub const QHeaderView = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: QHeaderView, name: []const u8) void {
+    pub fn setAccessibleName(self: QHeaderView, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -6252,13 +7836,17 @@ pub const QHeaderView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: QHeaderView, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: QHeaderView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHeaderView.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHeaderView.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -6270,13 +7858,17 @@ pub const QHeaderView = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: QHeaderView, description: []const u8) void {
+    pub fn setAccessibleDescription(self: QHeaderView, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -6288,9 +7880,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: QHeaderView, direction: i32) void {
+    pub fn setLayoutDirection(self: QHeaderView, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -6304,9 +7900,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: QHeaderView) i32 {
+    pub fn layoutDirection(self: QHeaderView) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -6316,9 +7916,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn UnsetLayoutDirection(self: QHeaderView) void {
+    pub fn unsetLayoutDirection(self: QHeaderView) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -6328,12 +7932,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: QHeaderView, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: QHeaderView, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -6343,9 +7951,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn Locale(self: QHeaderView) QLocale {
+    pub fn locale(self: QHeaderView) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -6355,9 +7967,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn UnsetLocale(self: QHeaderView) void {
+    pub fn unsetLocale(self: QHeaderView) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -6367,9 +7983,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn IsRightToLeft(self: QHeaderView) bool {
+    pub fn isRightToLeft(self: QHeaderView) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -6379,9 +7999,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn IsLeftToRight(self: QHeaderView) bool {
+    pub fn isLeftToRight(self: QHeaderView) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -6391,9 +8015,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SetFocus(self: QHeaderView) void {
+    pub fn setFocus(self: QHeaderView) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -6403,9 +8031,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn IsActiveWindow(self: QHeaderView) bool {
+    pub fn isActiveWindow(self: QHeaderView) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -6415,9 +8047,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn ActivateWindow(self: QHeaderView) void {
+    pub fn activateWindow(self: QHeaderView) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -6427,9 +8063,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn ClearFocus(self: QHeaderView) void {
+    pub fn clearFocus(self: QHeaderView) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -6441,9 +8081,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: QHeaderView, reason: i32) void {
+    pub fn setFocus2(self: QHeaderView, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -6457,9 +8101,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: QHeaderView) i32 {
+    pub fn focusPolicy(self: QHeaderView) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -6471,9 +8119,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: QHeaderView, policy: i32) void {
+    pub fn setFocusPolicy(self: QHeaderView, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -6483,9 +8135,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn HasFocus(self: QHeaderView) bool {
+    pub fn hasFocus(self: QHeaderView) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -6497,11 +8153,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -6511,12 +8171,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: QHeaderView, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: QHeaderView, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -6526,9 +8190,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn FocusProxy(self: QHeaderView) QWidget {
+    pub fn focusProxy(self: QHeaderView) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -6542,9 +8210,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: QHeaderView) i32 {
+    pub fn contextMenuPolicy(self: QHeaderView) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -6556,9 +8228,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: QHeaderView, policy: i32) void {
+    pub fn setContextMenuPolicy(self: QHeaderView, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -6568,9 +8244,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn GrabMouse(self: QHeaderView) void {
+    pub fn grabMouse(self: QHeaderView) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -6582,10 +8262,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: QHeaderView, param1: anytype) void {
+    pub fn grabMouse2(self: QHeaderView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -6595,9 +8279,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn ReleaseMouse(self: QHeaderView) void {
+    pub fn releaseMouse(self: QHeaderView) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -6607,9 +8295,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn GrabKeyboard(self: QHeaderView) void {
+    pub fn grabKeyboard(self: QHeaderView) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -6619,9 +8311,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn ReleaseKeyboard(self: QHeaderView) void {
+    pub fn releaseKeyboard(self: QHeaderView) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -6633,10 +8329,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: QHeaderView, key: anytype) i32 {
+    pub fn grabShortcut(self: QHeaderView, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -6648,9 +8348,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: QHeaderView, id: i32) void {
+    pub fn releaseShortcut(self: QHeaderView, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -6662,9 +8366,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: QHeaderView, id: i32) void {
+    pub fn setShortcutEnabled(self: QHeaderView, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -6676,25 +8384,37 @@ pub const QHeaderView = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: QHeaderView, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: QHeaderView, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -6704,9 +8424,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn UpdatesEnabled(self: QHeaderView) bool {
+    pub fn updatesEnabled(self: QHeaderView) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -6718,9 +8442,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: QHeaderView, enable: bool) void {
+    pub fn setUpdatesEnabled(self: QHeaderView, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -6730,9 +8458,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn GraphicsProxyWidget(self: QHeaderView) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: QHeaderView) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -6742,9 +8474,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn Repaint(self: QHeaderView) void {
+    pub fn repaint(self: QHeaderView) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -6754,17 +8490,21 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: QHeaderView, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: QHeaderView, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -6776,11 +8516,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: QHeaderView, param1: anytype) void {
+    pub fn update3(self: QHeaderView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -6791,10 +8535,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: QHeaderView, param1: anytype) void {
+    pub fn update4(self: QHeaderView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -6804,17 +8552,21 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: QHeaderView, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: QHeaderView, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -6826,10 +8578,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: QHeaderView, param1: anytype) void {
+    pub fn repaint3(self: QHeaderView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -6841,10 +8597,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: QHeaderView, param1: anytype) void {
+    pub fn repaint4(self: QHeaderView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -6856,9 +8616,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: QHeaderView, hidden: bool) void {
+    pub fn setHidden(self: QHeaderView, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -6868,9 +8632,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn Show(self: QHeaderView) void {
+    pub fn show(self: QHeaderView) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -6880,9 +8648,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn Hide(self: QHeaderView) void {
+    pub fn hide(self: QHeaderView) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -6892,9 +8664,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn ShowMinimized(self: QHeaderView) void {
+    pub fn showMinimized(self: QHeaderView) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -6904,9 +8680,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn ShowMaximized(self: QHeaderView) void {
+    pub fn showMaximized(self: QHeaderView) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -6916,9 +8696,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn ShowFullScreen(self: QHeaderView) void {
+    pub fn showFullScreen(self: QHeaderView) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -6928,9 +8712,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn ShowNormal(self: QHeaderView) void {
+    pub fn showNormal(self: QHeaderView) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -6940,9 +8728,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn Close(self: QHeaderView) bool {
+    pub fn close(self: QHeaderView) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -6952,9 +8744,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn Raise(self: QHeaderView) void {
+    pub fn raise(self: QHeaderView) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -6964,9 +8760,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn Lower(self: QHeaderView) void {
+    pub fn lower(self: QHeaderView) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -6978,10 +8778,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: QHeaderView, param1: anytype) void {
+    pub fn stackUnder(self: QHeaderView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -6991,13 +8795,17 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: QHeaderView, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: QHeaderView, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -7009,10 +8817,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: QHeaderView, param1: anytype) void {
+    pub fn move2(self: QHeaderView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -7026,9 +8838,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: QHeaderView, w: i32, h: i32) void {
+    pub fn resize(self: QHeaderView, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -7040,10 +8856,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: QHeaderView, param1: anytype) void {
+    pub fn resize2(self: QHeaderView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -7053,17 +8873,21 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: QHeaderView, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: QHeaderView, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -7073,12 +8897,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: QHeaderView, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: QHeaderView, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -7090,13 +8918,17 @@ pub const QHeaderView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: QHeaderView, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: QHeaderView, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QHeaderView.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QHeaderView.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -7106,15 +8938,19 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: QHeaderView, geometry: []u8) bool {
+    pub fn restoreGeometry(self: QHeaderView, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -7124,9 +8960,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn AdjustSize(self: QHeaderView) void {
+    pub fn adjustSize(self: QHeaderView) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -7136,9 +8976,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn IsVisible(self: QHeaderView) bool {
+    pub fn isVisible(self: QHeaderView) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -7150,10 +8994,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: QHeaderView, param1: anytype) bool {
+    pub fn isVisibleTo(self: QHeaderView, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -7163,9 +9011,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn IsHidden(self: QHeaderView) bool {
+    pub fn isHidden(self: QHeaderView) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -7175,9 +9027,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn IsMinimized(self: QHeaderView) bool {
+    pub fn isMinimized(self: QHeaderView) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -7187,9 +9043,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn IsMaximized(self: QHeaderView) bool {
+    pub fn isMaximized(self: QHeaderView) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -7199,9 +9059,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn IsFullScreen(self: QHeaderView) bool {
+    pub fn isFullScreen(self: QHeaderView) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -7215,9 +9079,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: QHeaderView) i32 {
+    pub fn windowState(self: QHeaderView) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -7227,11 +9095,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` state: flag of qnamespace_enums.WindowState `
+    /// ` _state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: QHeaderView, state: i32) void {
-        qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn setWindowState(self: QHeaderView, _state: i32) void {
+        qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(_state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -7241,11 +9113,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` state: flag of qnamespace_enums.WindowState `
+    /// ` _state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: QHeaderView, state: i32) void {
-        qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn overrideWindowState(self: QHeaderView, _state: i32) void {
+        qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(_state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -7255,9 +9131,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SizePolicy(self: QHeaderView) QSizePolicy {
+    pub fn sizePolicy(self: QHeaderView) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -7267,12 +9147,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: QHeaderView, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: QHeaderView, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -7286,9 +9170,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: QHeaderView, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: QHeaderView, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -7298,9 +9186,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn VisibleRegion(self: QHeaderView) QRegion {
+    pub fn visibleRegion(self: QHeaderView) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -7318,9 +9210,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: QHeaderView, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: QHeaderView, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -7332,10 +9228,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: QHeaderView, margins: anytype) void {
+    pub fn setContentsMargins2(self: QHeaderView, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -7345,9 +9245,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn ContentsMargins(self: QHeaderView) QMargins {
+    pub fn contentsMargins(self: QHeaderView) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -7357,9 +9261,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn ContentsRect(self: QHeaderView) QRect {
+    pub fn contentsRect(self: QHeaderView) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -7369,9 +9277,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn Layout(self: QHeaderView) QLayout {
+    pub fn layout(self: QHeaderView) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -7381,12 +9293,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: QHeaderView, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: QHeaderView, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -7396,24 +9312,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn UpdateGeometry(self: QHeaderView) void {
+    pub fn updateGeometry(self: QHeaderView) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHeaderView `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: QHeaderView, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -7423,14 +9328,37 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: QHeaderView, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QHeaderView `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: QHeaderView, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: QHeaderView, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -7444,9 +9372,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: QHeaderView, dx: i32, dy: i32) void {
+    pub fn scroll(self: QHeaderView, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -7462,10 +9394,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: QHeaderView, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: QHeaderView, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -7475,9 +9411,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn FocusWidget(self: QHeaderView) QWidget {
+    pub fn focusWidget(self: QHeaderView) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -7487,9 +9427,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn NextInFocusChain(self: QHeaderView) QWidget {
+    pub fn nextInFocusChain(self: QHeaderView) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -7499,9 +9443,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn PreviousInFocusChain(self: QHeaderView) QWidget {
+    pub fn previousInFocusChain(self: QHeaderView) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -7511,9 +9459,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn AcceptDrops(self: QHeaderView) bool {
+    pub fn acceptDrops(self: QHeaderView) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -7525,9 +9477,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: QHeaderView, on: bool) void {
+    pub fn setAcceptDrops(self: QHeaderView, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -7539,10 +9495,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: QHeaderView, action: anytype) void {
+    pub fn addAction(self: QHeaderView, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -7552,15 +9512,19 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: QHeaderView, actions: []QAction) void {
+    pub fn addActions(self: QHeaderView, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -7572,16 +9536,20 @@ pub const QHeaderView = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: QHeaderView, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: QHeaderView, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -7595,11 +9563,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: QHeaderView, before: anytype, action: anytype) void {
+    pub fn insertAction(self: QHeaderView, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -7611,10 +9583,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: QHeaderView, action: anytype) void {
+    pub fn removeAction(self: QHeaderView, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -7626,15 +9602,19 @@ pub const QHeaderView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: QHeaderView, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: QHeaderView, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QHeaderView.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QHeaderView.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -7646,13 +9626,17 @@ pub const QHeaderView = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: QHeaderView, text: []const u8) QAction {
+    pub fn addAction2(self: QHeaderView, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -7666,7 +9650,7 @@ pub const QHeaderView = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: QHeaderView, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: QHeaderView, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -7675,6 +9659,10 @@ pub const QHeaderView = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -7687,7 +9675,7 @@ pub const QHeaderView = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: QHeaderView, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: QHeaderView, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -7695,6 +9683,10 @@ pub const QHeaderView = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -7710,7 +9702,7 @@ pub const QHeaderView = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: QHeaderView, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: QHeaderView, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -7720,6 +9712,10 @@ pub const QHeaderView = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -7728,9 +9724,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn ParentWidget(self: QHeaderView) QWidget {
+    pub fn parentWidget(self: QHeaderView) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -7742,9 +9742,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: QHeaderView, typeVal: i32) void {
+    pub fn setWindowFlags(self: QHeaderView, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -7758,9 +9762,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: QHeaderView) i32 {
+    pub fn windowFlags(self: QHeaderView) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -7772,9 +9780,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: QHeaderView, param1: i32) void {
+    pub fn setWindowFlag(self: QHeaderView, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -7786,9 +9798,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: QHeaderView, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: QHeaderView, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -7802,9 +9818,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: QHeaderView) i32 {
+    pub fn windowType(self: QHeaderView) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -7814,9 +9834,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -7826,13 +9850,17 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: QHeaderView, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: QHeaderView, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -7844,10 +9872,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: QHeaderView, p: anytype) QWidget {
+    pub fn childAt2(self: QHeaderView, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -7859,10 +9891,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: QHeaderView, p: anytype) QWidget {
+    pub fn childAt3(self: QHeaderView, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -7874,9 +9910,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: QHeaderView, param1: i32) void {
+    pub fn setAttribute(self: QHeaderView, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -7888,9 +9928,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: QHeaderView, param1: i32) bool {
+    pub fn testAttribute(self: QHeaderView, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -7900,9 +9944,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn EnsurePolished(self: QHeaderView) void {
+    pub fn ensurePolished(self: QHeaderView) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -7914,10 +9962,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: QHeaderView, child: anytype) bool {
+    pub fn isAncestorOf(self: QHeaderView, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -7927,9 +9979,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn AutoFillBackground(self: QHeaderView) bool {
+    pub fn autoFillBackground(self: QHeaderView) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -7941,9 +9997,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: QHeaderView, enabled: bool) void {
+    pub fn setAutoFillBackground(self: QHeaderView, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -7953,9 +10013,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn BackingStore(self: QHeaderView) QBackingStore {
+    pub fn backingStore(self: QHeaderView) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -7965,9 +10029,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn WindowHandle(self: QHeaderView) QWindow {
+    pub fn windowHandle(self: QHeaderView) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -7977,9 +10045,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn Screen(self: QHeaderView) QScreen {
+    pub fn screen(self: QHeaderView) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -7989,12 +10061,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: QHeaderView, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: QHeaderView, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -8002,12 +10078,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -8019,13 +10099,17 @@ pub const QHeaderView = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: QHeaderView, title: []const u8) void {
+    pub fn windowTitleChanged(self: QHeaderView, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -8037,9 +10121,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: QHeaderView, callback: *const fn (QHeaderView, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: QHeaderView, callback: *const fn (QHeaderView, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -8051,10 +10139,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: QHeaderView, icon: anytype) void {
+    pub fn windowIconChanged(self: QHeaderView, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -8066,9 +10158,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: QHeaderView, callback: *const fn (QHeaderView, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: QHeaderView, callback: *const fn (QHeaderView, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -8080,13 +10176,17 @@ pub const QHeaderView = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: QHeaderView, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: QHeaderView, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -8098,9 +10198,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: QHeaderView, callback: *const fn (QHeaderView, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: QHeaderView, callback: *const fn (QHeaderView, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -8110,12 +10214,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: QHeaderView, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: QHeaderView, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -8127,9 +10235,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: QHeaderView, callback: *const fn (QHeaderView, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: QHeaderView, callback: *const fn (QHeaderView, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -8143,9 +10255,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: QHeaderView) i32 {
+    pub fn inputMethodHints(self: QHeaderView) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -8157,9 +10273,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: QHeaderView, hints: i32) void {
+    pub fn setInputMethodHints(self: QHeaderView, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -8173,11 +10293,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: QHeaderView, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: QHeaderView, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -8193,13 +10317,17 @@ pub const QHeaderView = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: QHeaderView, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: QHeaderView, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -8216,12 +10344,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: QHeaderView, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: QHeaderView, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -8235,11 +10367,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: QHeaderView, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: QHeaderView, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -8255,12 +10391,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: QHeaderView, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: QHeaderView, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -8278,12 +10418,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: QHeaderView, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: QHeaderView, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -8295,10 +10439,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: QHeaderView, rectangle: anytype) QPixmap {
+    pub fn grab1(self: QHeaderView, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -8312,9 +10460,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: QHeaderView, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: QHeaderView, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -8328,10 +10480,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: QHeaderView, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: QHeaderView, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -8345,9 +10501,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: QHeaderView, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: QHeaderView, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -8361,9 +10521,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: QHeaderView, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: QHeaderView, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -8377,9 +10541,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: QHeaderView, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: QHeaderView, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -8393,25 +10561,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: QHeaderView, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: QHeaderView, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -8419,17 +10575,41 @@ pub const QHeaderView = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -8441,13 +10621,17 @@ pub const QHeaderView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QHeaderView, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QHeaderView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHeaderView.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHeaderView.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -8459,13 +10643,17 @@ pub const QHeaderView = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QHeaderView, name: []const u8) void {
+    pub fn setObjectName(self: QHeaderView, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -8475,9 +10663,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn IsWidgetType(self: QHeaderView) bool {
+    pub fn isWidgetType(self: QHeaderView) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -8487,9 +10679,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn IsWindowType(self: QHeaderView) bool {
+    pub fn isWindowType(self: QHeaderView) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -8499,9 +10695,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn IsQuickItemType(self: QHeaderView) bool {
+    pub fn isQuickItemType(self: QHeaderView) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -8511,9 +10711,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SignalsBlocked(self: QHeaderView) bool {
+    pub fn signalsBlocked(self: QHeaderView) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -8525,9 +10729,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QHeaderView, b: bool) bool {
+    pub fn blockSignals(self: QHeaderView, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -8537,9 +10745,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn Thread(self: QHeaderView) QThread {
+    pub fn thread(self: QHeaderView) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -8549,12 +10761,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QHeaderView, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QHeaderView, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -8566,9 +10782,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QHeaderView, interval: i32) i32 {
+    pub fn startTimer(self: QHeaderView, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -8580,9 +10800,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QHeaderView, time: i64) i32 {
+    pub fn startTimer2(self: QHeaderView, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -8594,9 +10818,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QHeaderView, id: i32) void {
+    pub fn killTimer(self: QHeaderView, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -8608,9 +10836,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QHeaderView, id: i32) void {
+    pub fn killTimer2(self: QHeaderView, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -8622,15 +10854,19 @@ pub const QHeaderView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QHeaderView, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QHeaderView, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QHeaderView.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QHeaderView.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -8642,10 +10878,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QHeaderView, filterObj: anytype) void {
+    pub fn installEventFilter(self: QHeaderView, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -8657,10 +10897,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QHeaderView, obj: anytype) void {
+    pub fn removeEventFilter(self: QHeaderView, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -8668,7 +10912,7 @@ pub const QHeaderView = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -8676,13 +10920,17 @@ pub const QHeaderView = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -8690,7 +10938,7 @@ pub const QHeaderView = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -8698,13 +10946,17 @@ pub const QHeaderView = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -8714,18 +10966,22 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QHeaderView, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QHeaderView, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -8733,7 +10989,7 @@ pub const QHeaderView = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -8741,13 +10997,17 @@ pub const QHeaderView = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -8755,7 +11015,7 @@ pub const QHeaderView = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -8763,13 +11023,17 @@ pub const QHeaderView = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -8779,9 +11043,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn Disconnect3(self: QHeaderView) bool {
+    pub fn disconnect3(self: QHeaderView) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -8793,10 +11061,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QHeaderView, receiver: anytype) bool {
+    pub fn disconnect4(self: QHeaderView, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -8806,10 +11078,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -8819,9 +11095,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn DumpObjectTree(self: QHeaderView) void {
+    pub fn dumpObjectTree(self: QHeaderView) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -8831,9 +11111,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn DumpObjectInfo(self: QHeaderView) void {
+    pub fn dumpObjectInfo(self: QHeaderView) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -8847,11 +11131,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QHeaderView, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QHeaderView, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -8863,10 +11151,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QHeaderView, name: [:0]const u8) QVariant {
+    pub fn property(self: QHeaderView, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -8878,7 +11170,7 @@ pub const QHeaderView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QHeaderView, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QHeaderView, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -8886,27 +11178,19 @@ pub const QHeaderView = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QHeaderView.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QHeaderView.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QHeaderView.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QHeaderView.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHeaderView `
-    ///
-    pub fn BindingStorage(self: QHeaderView) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -8916,9 +11200,29 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn BindingStorage2(self: QHeaderView) QBindingStorage {
+    pub fn bindingStorage(self: QHeaderView) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QHeaderView `
+    ///
+    pub fn bindingStorage2(self: QHeaderView) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -8928,9 +11232,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn Destroyed(self: QHeaderView) void {
+    pub fn destroyed(self: QHeaderView) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -8942,9 +11250,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QHeaderView, callback: *const fn (QHeaderView) callconv(.c) void) void {
+    pub fn onDestroyed(self: QHeaderView, callback: *const fn (QHeaderView) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -8954,9 +11266,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn Parent(self: QHeaderView) QObject {
+    pub fn parent(self: QHeaderView) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -8968,10 +11284,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QHeaderView, classname: [:0]const u8) bool {
+    pub fn inherits(self: QHeaderView, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -8981,9 +11301,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn DeleteLater(self: QHeaderView) void {
+    pub fn deleteLater(self: QHeaderView) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -8997,9 +11321,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QHeaderView, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QHeaderView, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -9013,9 +11341,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QHeaderView, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QHeaderView, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -9023,7 +11355,7 @@ pub const QHeaderView = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -9033,13 +11365,17 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -9047,7 +11383,7 @@ pub const QHeaderView = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -9057,13 +11393,17 @@ pub const QHeaderView = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -9073,7 +11413,7 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -9081,12 +11421,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QHeaderView, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QHeaderView, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -9098,10 +11442,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QHeaderView, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QHeaderView, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -9115,11 +11463,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QHeaderView, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QHeaderView, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -9135,13 +11487,17 @@ pub const QHeaderView = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QHeaderView, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QHeaderView, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -9154,11 +11510,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QHeaderView, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QHeaderView, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -9170,10 +11530,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QHeaderView, param1: anytype) void {
+    pub fn destroyed1(self: QHeaderView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -9185,9 +11549,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QHeaderView, callback: *const fn (QHeaderView, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QHeaderView, callback: *const fn (QHeaderView, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -9197,9 +11565,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn PaintingActive(self: QHeaderView) bool {
+    pub fn paintingActive(self: QHeaderView) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -9209,9 +11581,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn WidthMM(self: QHeaderView) i32 {
+    pub fn widthMM(self: QHeaderView) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -9221,9 +11597,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn HeightMM(self: QHeaderView) i32 {
+    pub fn heightMM(self: QHeaderView) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -9233,9 +11613,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn LogicalDpiX(self: QHeaderView) i32 {
+    pub fn logicalDpiX(self: QHeaderView) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -9245,9 +11629,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn LogicalDpiY(self: QHeaderView) i32 {
+    pub fn logicalDpiY(self: QHeaderView) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -9257,9 +11645,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn PhysicalDpiX(self: QHeaderView) i32 {
+    pub fn physicalDpiX(self: QHeaderView) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -9269,9 +11661,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn PhysicalDpiY(self: QHeaderView) i32 {
+    pub fn physicalDpiY(self: QHeaderView) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -9281,9 +11677,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn DevicePixelRatio(self: QHeaderView) f64 {
+    pub fn devicePixelRatio(self: QHeaderView) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9293,9 +11693,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn DevicePixelRatioF(self: QHeaderView) f64 {
+    pub fn devicePixelRatioF(self: QHeaderView) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -9305,9 +11709,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn ColorCount(self: QHeaderView) i32 {
+    pub fn colorCount(self: QHeaderView) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -9317,17 +11725,25 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn Depth(self: QHeaderView) i32 {
+    pub fn depth(self: QHeaderView) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9335,13 +11751,17 @@ pub const QHeaderView = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `setSelectionModel` instead
+    ///
+    pub const SetSelectionModel = setSelectionModel;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9353,16 +11773,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` selectionModel: QItemSelectionModel `
+    /// ` _selectionModel: QItemSelectionModel `
     ///
-    pub fn SetSelectionModel(self: QHeaderView, selectionModel: anytype) void {
-        comptime _ = @TypeOf(selectionModel)._is_QItemSelectionModel;
-        qtc.QHeaderView_SetSelectionModel(@ptrCast(self.ptr), @ptrCast(selectionModel.ptr));
+    pub fn setSelectionModel(self: QHeaderView, _selectionModel: anytype) void {
+        comptime _ = @TypeOf(_selectionModel)._is_QItemSelectionModel;
+        qtc.QHeaderView_SetSelectionModel(@ptrCast(self.ptr), @ptrCast(_selectionModel.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetSelectionModel` instead
+    /// ### DEPRECATED: Use `superSetSelectionModel` instead
     ///
-    pub const QBaseSetSelectionModel = SuperSetSelectionModel;
+    pub const SuperSetSelectionModel = superSetSelectionModel;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9374,12 +11794,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` selectionModel: QItemSelectionModel `
+    /// ` _selectionModel: QItemSelectionModel `
     ///
-    pub fn SuperSetSelectionModel(self: QHeaderView, selectionModel: anytype) void {
-        comptime _ = @TypeOf(selectionModel)._is_QItemSelectionModel;
-        qtc.QHeaderView_SuperSetSelectionModel(@ptrCast(self.ptr), @ptrCast(selectionModel.ptr));
+    pub fn superSetSelectionModel(self: QHeaderView, _selectionModel: anytype) void {
+        comptime _ = @TypeOf(_selectionModel)._is_QItemSelectionModel;
+        qtc.QHeaderView_SuperSetSelectionModel(@ptrCast(self.ptr), @ptrCast(_selectionModel.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetSelectionModel` instead
+    ///
+    pub const OnSetSelectionModel = onSetSelectionModel;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9393,9 +11817,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, selectionModel: QItemSelectionModel) callconv(.c) void `
     ///
-    pub fn OnSetSelectionModel(self: QHeaderView, callback: *const fn (QHeaderView, QItemSelectionModel) callconv(.c) void) void {
+    pub fn onSetSelectionModel(self: QHeaderView, callback: *const fn (QHeaderView, QItemSelectionModel) callconv(.c) void) void {
         qtc.QHeaderView_OnSetSelectionModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyboardSearch` instead
+    ///
+    pub const KeyboardSearch = keyboardSearch;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9409,7 +11837,7 @@ pub const QHeaderView = extern struct {
     ///
     /// ` search: []const u8 `
     ///
-    pub fn KeyboardSearch(self: QHeaderView, search: []const u8) void {
+    pub fn keyboardSearch(self: QHeaderView, search: []const u8) void {
         const search_str = qtc.libqt_string{
             .len = search.len,
             .data = search.ptr,
@@ -9417,9 +11845,9 @@ pub const QHeaderView = extern struct {
         qtc.QHeaderView_KeyboardSearch(@ptrCast(self.ptr), search_str);
     }
 
-    /// ### DEPRECATED: Use `SuperKeyboardSearch` instead
+    /// ### DEPRECATED: Use `superKeyboardSearch` instead
     ///
-    pub const QBaseKeyboardSearch = SuperKeyboardSearch;
+    pub const SuperKeyboardSearch = superKeyboardSearch;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9433,13 +11861,17 @@ pub const QHeaderView = extern struct {
     ///
     /// ` search: []const u8 `
     ///
-    pub fn SuperKeyboardSearch(self: QHeaderView, search: []const u8) void {
+    pub fn superKeyboardSearch(self: QHeaderView, search: []const u8) void {
         const search_str = qtc.libqt_string{
             .len = search.len,
             .data = search.ptr,
         };
         qtc.QHeaderView_SuperKeyboardSearch(@ptrCast(self.ptr), search_str);
     }
+
+    /// ### DEPRECATED: Use `onKeyboardSearch` instead
+    ///
+    pub const OnKeyboardSearch = onKeyboardSearch;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9453,9 +11885,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, search: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnKeyboardSearch(self: QHeaderView, callback: *const fn (QHeaderView, [*:0]const u8) callconv(.c) void) void {
+    pub fn onKeyboardSearch(self: QHeaderView, callback: *const fn (QHeaderView, [*:0]const u8) callconv(.c) void) void {
         qtc.QHeaderView_OnKeyboardSearch(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sizeHintForRow` instead
+    ///
+    pub const SizeHintForRow = sizeHintForRow;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9469,13 +11905,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` row: i32 `
     ///
-    pub fn SizeHintForRow(self: QHeaderView, row: i32) i32 {
+    pub fn sizeHintForRow(self: QHeaderView, row: i32) i32 {
         return qtc.QHeaderView_SizeHintForRow(@ptrCast(self.ptr), @bitCast(row));
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHintForRow` instead
+    /// ### DEPRECATED: Use `superSizeHintForRow` instead
     ///
-    pub const QBaseSizeHintForRow = SuperSizeHintForRow;
+    pub const SuperSizeHintForRow = superSizeHintForRow;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9489,9 +11925,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` row: i32 `
     ///
-    pub fn SuperSizeHintForRow(self: QHeaderView, row: i32) i32 {
+    pub fn superSizeHintForRow(self: QHeaderView, row: i32) i32 {
         return qtc.QHeaderView_SuperSizeHintForRow(@ptrCast(self.ptr), @bitCast(row));
     }
+
+    /// ### DEPRECATED: Use `onSizeHintForRow` instead
+    ///
+    pub const OnSizeHintForRow = onSizeHintForRow;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9505,9 +11945,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, row: i32) callconv(.c) i32 `
     ///
-    pub fn OnSizeHintForRow(self: QHeaderView, callback: *const fn (QHeaderView, i32) callconv(.c) i32) void {
+    pub fn onSizeHintForRow(self: QHeaderView, callback: *const fn (QHeaderView, i32) callconv(.c) i32) void {
         qtc.QHeaderView_OnSizeHintForRow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sizeHintForColumn` instead
+    ///
+    pub const SizeHintForColumn = sizeHintForColumn;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9521,13 +11965,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn SizeHintForColumn(self: QHeaderView, column: i32) i32 {
+    pub fn sizeHintForColumn(self: QHeaderView, column: i32) i32 {
         return qtc.QHeaderView_SizeHintForColumn(@ptrCast(self.ptr), @bitCast(column));
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHintForColumn` instead
+    /// ### DEPRECATED: Use `superSizeHintForColumn` instead
     ///
-    pub const QBaseSizeHintForColumn = SuperSizeHintForColumn;
+    pub const SuperSizeHintForColumn = superSizeHintForColumn;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9541,9 +11985,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn SuperSizeHintForColumn(self: QHeaderView, column: i32) i32 {
+    pub fn superSizeHintForColumn(self: QHeaderView, column: i32) i32 {
         return qtc.QHeaderView_SuperSizeHintForColumn(@ptrCast(self.ptr), @bitCast(column));
     }
+
+    /// ### DEPRECATED: Use `onSizeHintForColumn` instead
+    ///
+    pub const OnSizeHintForColumn = onSizeHintForColumn;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9557,9 +12005,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, column: i32) callconv(.c) i32 `
     ///
-    pub fn OnSizeHintForColumn(self: QHeaderView, callback: *const fn (QHeaderView, i32) callconv(.c) i32) void {
+    pub fn onSizeHintForColumn(self: QHeaderView, callback: *const fn (QHeaderView, i32) callconv(.c) i32) void {
         qtc.QHeaderView_OnSizeHintForColumn(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `itemDelegateForIndex` instead
+    ///
+    pub const ItemDelegateForIndex = itemDelegateForIndex;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9573,14 +12025,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn ItemDelegateForIndex(self: QHeaderView, index: anytype) QAbstractItemDelegate {
+    pub fn itemDelegateForIndex(self: QHeaderView, index: anytype) QAbstractItemDelegate {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.QHeaderView_ItemDelegateForIndex(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperItemDelegateForIndex` instead
+    /// ### DEPRECATED: Use `superItemDelegateForIndex` instead
     ///
-    pub const QBaseItemDelegateForIndex = SuperItemDelegateForIndex;
+    pub const SuperItemDelegateForIndex = superItemDelegateForIndex;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9594,10 +12046,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SuperItemDelegateForIndex(self: QHeaderView, index: anytype) QAbstractItemDelegate {
+    pub fn superItemDelegateForIndex(self: QHeaderView, index: anytype) QAbstractItemDelegate {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.QHeaderView_SuperItemDelegateForIndex(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onItemDelegateForIndex` instead
+    ///
+    pub const OnItemDelegateForIndex = onItemDelegateForIndex;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9611,9 +12067,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, index: QModelIndex) callconv(.c) QAbstractItemDelegate `
     ///
-    pub fn OnItemDelegateForIndex(self: QHeaderView, callback: *const fn (QHeaderView, QModelIndex) callconv(.c) QAbstractItemDelegate) void {
+    pub fn onItemDelegateForIndex(self: QHeaderView, callback: *const fn (QHeaderView, QModelIndex) callconv(.c) QAbstractItemDelegate) void {
         qtc.QHeaderView_OnItemDelegateForIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9627,13 +12087,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: QHeaderView, query: i32) QVariant {
+    pub fn inputMethodQuery(self: QHeaderView, query: i32) QVariant {
         return .{ .ptr = qtc.QHeaderView_InputMethodQuery(@ptrCast(self.ptr), @bitCast(query)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9647,9 +12107,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: QHeaderView, query: i32) QVariant {
+    pub fn superInputMethodQuery(self: QHeaderView, query: i32) QVariant {
         return .{ .ptr = qtc.QHeaderView_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(query)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9665,9 +12129,13 @@ pub const QHeaderView = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: QHeaderView, callback: *const fn (QHeaderView, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: QHeaderView, callback: *const fn (QHeaderView, i32) callconv(.c) QVariant) void {
         qtc.QHeaderView_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setRootIndex` instead
+    ///
+    pub const SetRootIndex = setRootIndex;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9681,14 +12149,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SetRootIndex(self: QHeaderView, index: anytype) void {
+    pub fn setRootIndex(self: QHeaderView, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QHeaderView_SetRootIndex(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetRootIndex` instead
+    /// ### DEPRECATED: Use `superSetRootIndex` instead
     ///
-    pub const QBaseSetRootIndex = SuperSetRootIndex;
+    pub const SuperSetRootIndex = superSetRootIndex;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9702,10 +12170,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SuperSetRootIndex(self: QHeaderView, index: anytype) void {
+    pub fn superSetRootIndex(self: QHeaderView, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QHeaderView_SuperSetRootIndex(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetRootIndex` instead
+    ///
+    pub const OnSetRootIndex = onSetRootIndex;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9719,9 +12191,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnSetRootIndex(self: QHeaderView, callback: *const fn (QHeaderView, QModelIndex) callconv(.c) void) void {
+    pub fn onSetRootIndex(self: QHeaderView, callback: *const fn (QHeaderView, QModelIndex) callconv(.c) void) void {
         qtc.QHeaderView_OnSetRootIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `selectAll` instead
+    ///
+    pub const SelectAll = selectAll;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9733,13 +12209,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SelectAll(self: QHeaderView) void {
+    pub fn selectAll(self: QHeaderView) void {
         qtc.QHeaderView_SelectAll(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSelectAll` instead
+    /// ### DEPRECATED: Use `superSelectAll` instead
     ///
-    pub const QBaseSelectAll = SuperSelectAll;
+    pub const SuperSelectAll = superSelectAll;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9751,9 +12227,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SuperSelectAll(self: QHeaderView) void {
+    pub fn superSelectAll(self: QHeaderView) void {
         qtc.QHeaderView_SuperSelectAll(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSelectAll` instead
+    ///
+    pub const OnSelectAll = onSelectAll;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9767,9 +12247,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnSelectAll(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
+    pub fn onSelectAll(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
         qtc.QHeaderView_OnSelectAll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `rowsAboutToBeRemoved` instead
+    ///
+    pub const RowsAboutToBeRemoved = rowsAboutToBeRemoved;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9781,20 +12265,20 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` start: i32 `
     ///
     /// ` end: i32 `
     ///
-    pub fn RowsAboutToBeRemoved(self: QHeaderView, parent: anytype, start: i32, end: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.QHeaderView_RowsAboutToBeRemoved(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(start), @bitCast(end));
+    pub fn rowsAboutToBeRemoved(self: QHeaderView, _parent: anytype, start: i32, end: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.QHeaderView_RowsAboutToBeRemoved(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(start), @bitCast(end));
     }
 
-    /// ### DEPRECATED: Use `SuperRowsAboutToBeRemoved` instead
+    /// ### DEPRECATED: Use `superRowsAboutToBeRemoved` instead
     ///
-    pub const QBaseRowsAboutToBeRemoved = SuperRowsAboutToBeRemoved;
+    pub const SuperRowsAboutToBeRemoved = superRowsAboutToBeRemoved;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9806,16 +12290,20 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` start: i32 `
     ///
     /// ` end: i32 `
     ///
-    pub fn SuperRowsAboutToBeRemoved(self: QHeaderView, parent: anytype, start: i32, end: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.QHeaderView_SuperRowsAboutToBeRemoved(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(start), @bitCast(end));
+    pub fn superRowsAboutToBeRemoved(self: QHeaderView, _parent: anytype, start: i32, end: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.QHeaderView_SuperRowsAboutToBeRemoved(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(start), @bitCast(end));
     }
+
+    /// ### DEPRECATED: Use `onRowsAboutToBeRemoved` instead
+    ///
+    pub const OnRowsAboutToBeRemoved = onRowsAboutToBeRemoved;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9829,9 +12317,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, parent: QModelIndex, start: i32, end: i32) callconv(.c) void `
     ///
-    pub fn OnRowsAboutToBeRemoved(self: QHeaderView, callback: *const fn (QHeaderView, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onRowsAboutToBeRemoved(self: QHeaderView, callback: *const fn (QHeaderView, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QHeaderView_OnRowsAboutToBeRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `selectionChanged` instead
+    ///
+    pub const SelectionChanged = selectionChanged;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9847,15 +12339,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` deselected: QItemSelection `
     ///
-    pub fn SelectionChanged(self: QHeaderView, selected: anytype, deselected: anytype) void {
+    pub fn selectionChanged(self: QHeaderView, selected: anytype, deselected: anytype) void {
         comptime _ = @TypeOf(selected)._is_QItemSelection;
         comptime _ = @TypeOf(deselected)._is_QItemSelection;
         qtc.QHeaderView_SelectionChanged(@ptrCast(self.ptr), @ptrCast(selected.ptr), @ptrCast(deselected.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSelectionChanged` instead
+    /// ### DEPRECATED: Use `superSelectionChanged` instead
     ///
-    pub const QBaseSelectionChanged = SuperSelectionChanged;
+    pub const SuperSelectionChanged = superSelectionChanged;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9871,11 +12363,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` deselected: QItemSelection `
     ///
-    pub fn SuperSelectionChanged(self: QHeaderView, selected: anytype, deselected: anytype) void {
+    pub fn superSelectionChanged(self: QHeaderView, selected: anytype, deselected: anytype) void {
         comptime _ = @TypeOf(selected)._is_QItemSelection;
         comptime _ = @TypeOf(deselected)._is_QItemSelection;
         qtc.QHeaderView_SuperSelectionChanged(@ptrCast(self.ptr), @ptrCast(selected.ptr), @ptrCast(deselected.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSelectionChanged` instead
+    ///
+    pub const OnSelectionChanged = onSelectionChanged;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9889,10 +12385,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, selected: QItemSelection, deselected: QItemSelection) callconv(.c) void `
     ///
-    pub fn OnSelectionChanged(self: QHeaderView, callback: *const fn (QHeaderView, QItemSelection, QItemSelection) callconv(.c) void) void {
+    pub fn onSelectionChanged(self: QHeaderView, callback: *const fn (QHeaderView, QItemSelection, QItemSelection) callconv(.c) void) void {
         qtc.QHeaderView_OnSelectionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateEditorData` instead
+    ///
+    pub const UpdateEditorData = updateEditorData;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
@@ -9903,13 +12403,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn UpdateEditorData(self: QHeaderView) void {
+    pub fn updateEditorData(self: QHeaderView) void {
         qtc.QHeaderView_UpdateEditorData(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateEditorData` instead
+    /// ### DEPRECATED: Use `superUpdateEditorData` instead
     ///
-    pub const QBaseUpdateEditorData = SuperUpdateEditorData;
+    pub const SuperUpdateEditorData = superUpdateEditorData;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9921,10 +12421,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SuperUpdateEditorData(self: QHeaderView) void {
+    pub fn superUpdateEditorData(self: QHeaderView) void {
         qtc.QHeaderView_SuperUpdateEditorData(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateEditorData` instead
+    ///
+    pub const OnUpdateEditorData = onUpdateEditorData;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
@@ -9937,9 +12441,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateEditorData(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateEditorData(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
         qtc.QHeaderView_OnUpdateEditorData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `updateEditorGeometries` instead
+    ///
+    pub const UpdateEditorGeometries = updateEditorGeometries;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9951,13 +12459,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn UpdateEditorGeometries(self: QHeaderView) void {
+    pub fn updateEditorGeometries(self: QHeaderView) void {
         qtc.QHeaderView_UpdateEditorGeometries(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateEditorGeometries` instead
+    /// ### DEPRECATED: Use `superUpdateEditorGeometries` instead
     ///
-    pub const QBaseUpdateEditorGeometries = SuperUpdateEditorGeometries;
+    pub const SuperUpdateEditorGeometries = superUpdateEditorGeometries;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9969,9 +12477,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SuperUpdateEditorGeometries(self: QHeaderView) void {
+    pub fn superUpdateEditorGeometries(self: QHeaderView) void {
         qtc.QHeaderView_SuperUpdateEditorGeometries(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onUpdateEditorGeometries` instead
+    ///
+    pub const OnUpdateEditorGeometries = onUpdateEditorGeometries;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9985,10 +12497,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateEditorGeometries(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateEditorGeometries(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
         qtc.QHeaderView_OnUpdateEditorGeometries(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `verticalScrollbarAction` instead
+    ///
+    pub const VerticalScrollbarAction = verticalScrollbarAction;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarAction)
@@ -10001,13 +12517,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` action: i32 `
     ///
-    pub fn VerticalScrollbarAction(self: QHeaderView, action: i32) void {
+    pub fn verticalScrollbarAction(self: QHeaderView, action: i32) void {
         qtc.QHeaderView_VerticalScrollbarAction(@ptrCast(self.ptr), @bitCast(action));
     }
 
-    /// ### DEPRECATED: Use `SuperVerticalScrollbarAction` instead
+    /// ### DEPRECATED: Use `superVerticalScrollbarAction` instead
     ///
-    pub const QBaseVerticalScrollbarAction = SuperVerticalScrollbarAction;
+    pub const SuperVerticalScrollbarAction = superVerticalScrollbarAction;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10021,10 +12537,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` action: i32 `
     ///
-    pub fn SuperVerticalScrollbarAction(self: QHeaderView, action: i32) void {
+    pub fn superVerticalScrollbarAction(self: QHeaderView, action: i32) void {
         qtc.QHeaderView_SuperVerticalScrollbarAction(@ptrCast(self.ptr), @bitCast(action));
     }
 
+    /// ### DEPRECATED: Use `onVerticalScrollbarAction` instead
+    ///
+    pub const OnVerticalScrollbarAction = onVerticalScrollbarAction;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarAction)
@@ -10037,9 +12557,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, action: i32) callconv(.c) void `
     ///
-    pub fn OnVerticalScrollbarAction(self: QHeaderView, callback: *const fn (QHeaderView, i32) callconv(.c) void) void {
+    pub fn onVerticalScrollbarAction(self: QHeaderView, callback: *const fn (QHeaderView, i32) callconv(.c) void) void {
         qtc.QHeaderView_OnVerticalScrollbarAction(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `horizontalScrollbarAction` instead
+    ///
+    pub const HorizontalScrollbarAction = horizontalScrollbarAction;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10053,13 +12577,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` action: i32 `
     ///
-    pub fn HorizontalScrollbarAction(self: QHeaderView, action: i32) void {
+    pub fn horizontalScrollbarAction(self: QHeaderView, action: i32) void {
         qtc.QHeaderView_HorizontalScrollbarAction(@ptrCast(self.ptr), @bitCast(action));
     }
 
-    /// ### DEPRECATED: Use `SuperHorizontalScrollbarAction` instead
+    /// ### DEPRECATED: Use `superHorizontalScrollbarAction` instead
     ///
-    pub const QBaseHorizontalScrollbarAction = SuperHorizontalScrollbarAction;
+    pub const SuperHorizontalScrollbarAction = superHorizontalScrollbarAction;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10073,9 +12597,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` action: i32 `
     ///
-    pub fn SuperHorizontalScrollbarAction(self: QHeaderView, action: i32) void {
+    pub fn superHorizontalScrollbarAction(self: QHeaderView, action: i32) void {
         qtc.QHeaderView_SuperHorizontalScrollbarAction(@ptrCast(self.ptr), @bitCast(action));
     }
+
+    /// ### DEPRECATED: Use `onHorizontalScrollbarAction` instead
+    ///
+    pub const OnHorizontalScrollbarAction = onHorizontalScrollbarAction;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10089,10 +12617,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, action: i32) callconv(.c) void `
     ///
-    pub fn OnHorizontalScrollbarAction(self: QHeaderView, callback: *const fn (QHeaderView, i32) callconv(.c) void) void {
+    pub fn onHorizontalScrollbarAction(self: QHeaderView, callback: *const fn (QHeaderView, i32) callconv(.c) void) void {
         qtc.QHeaderView_OnHorizontalScrollbarAction(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `verticalScrollbarValueChanged` instead
+    ///
+    pub const VerticalScrollbarValueChanged = verticalScrollbarValueChanged;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarValueChanged)
@@ -10105,13 +12637,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` value: i32 `
     ///
-    pub fn VerticalScrollbarValueChanged(self: QHeaderView, value: i32) void {
+    pub fn verticalScrollbarValueChanged(self: QHeaderView, value: i32) void {
         qtc.QHeaderView_VerticalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(value));
     }
 
-    /// ### DEPRECATED: Use `SuperVerticalScrollbarValueChanged` instead
+    /// ### DEPRECATED: Use `superVerticalScrollbarValueChanged` instead
     ///
-    pub const QBaseVerticalScrollbarValueChanged = SuperVerticalScrollbarValueChanged;
+    pub const SuperVerticalScrollbarValueChanged = superVerticalScrollbarValueChanged;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10125,9 +12657,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` value: i32 `
     ///
-    pub fn SuperVerticalScrollbarValueChanged(self: QHeaderView, value: i32) void {
+    pub fn superVerticalScrollbarValueChanged(self: QHeaderView, value: i32) void {
         qtc.QHeaderView_SuperVerticalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `onVerticalScrollbarValueChanged` instead
+    ///
+    pub const OnVerticalScrollbarValueChanged = onVerticalScrollbarValueChanged;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10141,9 +12677,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, value: i32) callconv(.c) void `
     ///
-    pub fn OnVerticalScrollbarValueChanged(self: QHeaderView, callback: *const fn (QHeaderView, i32) callconv(.c) void) void {
+    pub fn onVerticalScrollbarValueChanged(self: QHeaderView, callback: *const fn (QHeaderView, i32) callconv(.c) void) void {
         qtc.QHeaderView_OnVerticalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `horizontalScrollbarValueChanged` instead
+    ///
+    pub const HorizontalScrollbarValueChanged = horizontalScrollbarValueChanged;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10157,13 +12697,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` value: i32 `
     ///
-    pub fn HorizontalScrollbarValueChanged(self: QHeaderView, value: i32) void {
+    pub fn horizontalScrollbarValueChanged(self: QHeaderView, value: i32) void {
         qtc.QHeaderView_HorizontalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(value));
     }
 
-    /// ### DEPRECATED: Use `SuperHorizontalScrollbarValueChanged` instead
+    /// ### DEPRECATED: Use `superHorizontalScrollbarValueChanged` instead
     ///
-    pub const QBaseHorizontalScrollbarValueChanged = SuperHorizontalScrollbarValueChanged;
+    pub const SuperHorizontalScrollbarValueChanged = superHorizontalScrollbarValueChanged;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10177,9 +12717,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` value: i32 `
     ///
-    pub fn SuperHorizontalScrollbarValueChanged(self: QHeaderView, value: i32) void {
+    pub fn superHorizontalScrollbarValueChanged(self: QHeaderView, value: i32) void {
         qtc.QHeaderView_SuperHorizontalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `onHorizontalScrollbarValueChanged` instead
+    ///
+    pub const OnHorizontalScrollbarValueChanged = onHorizontalScrollbarValueChanged;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10193,9 +12737,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, value: i32) callconv(.c) void `
     ///
-    pub fn OnHorizontalScrollbarValueChanged(self: QHeaderView, callback: *const fn (QHeaderView, i32) callconv(.c) void) void {
+    pub fn onHorizontalScrollbarValueChanged(self: QHeaderView, callback: *const fn (QHeaderView, i32) callconv(.c) void) void {
         qtc.QHeaderView_OnHorizontalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEditor` instead
+    ///
+    pub const CloseEditor = closeEditor;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10211,14 +12759,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` hint: qabstractitemdelegate_enums.EndEditHint `
     ///
-    pub fn CloseEditor(self: QHeaderView, editor: anytype, hint: i32) void {
+    pub fn closeEditor(self: QHeaderView, editor: anytype, hint: i32) void {
         comptime _ = @TypeOf(editor)._is_QWidget;
         qtc.QHeaderView_CloseEditor(@ptrCast(self.ptr), @ptrCast(editor.ptr), @bitCast(hint));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEditor` instead
+    /// ### DEPRECATED: Use `superCloseEditor` instead
     ///
-    pub const QBaseCloseEditor = SuperCloseEditor;
+    pub const SuperCloseEditor = superCloseEditor;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10234,10 +12782,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` hint: qabstractitemdelegate_enums.EndEditHint `
     ///
-    pub fn SuperCloseEditor(self: QHeaderView, editor: anytype, hint: i32) void {
+    pub fn superCloseEditor(self: QHeaderView, editor: anytype, hint: i32) void {
         comptime _ = @TypeOf(editor)._is_QWidget;
         qtc.QHeaderView_SuperCloseEditor(@ptrCast(self.ptr), @ptrCast(editor.ptr), @bitCast(hint));
     }
+
+    /// ### DEPRECATED: Use `onCloseEditor` instead
+    ///
+    pub const OnCloseEditor = onCloseEditor;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10251,9 +12803,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, editor: QWidget, hint: qabstractitemdelegate_enums.EndEditHint) callconv(.c) void `
     ///
-    pub fn OnCloseEditor(self: QHeaderView, callback: *const fn (QHeaderView, QWidget, i32) callconv(.c) void) void {
+    pub fn onCloseEditor(self: QHeaderView, callback: *const fn (QHeaderView, QWidget, i32) callconv(.c) void) void {
         qtc.QHeaderView_OnCloseEditor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `commitData` instead
+    ///
+    pub const CommitData = commitData;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10267,14 +12823,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` editor: QWidget `
     ///
-    pub fn CommitData(self: QHeaderView, editor: anytype) void {
+    pub fn commitData(self: QHeaderView, editor: anytype) void {
         comptime _ = @TypeOf(editor)._is_QWidget;
         qtc.QHeaderView_CommitData(@ptrCast(self.ptr), @ptrCast(editor.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCommitData` instead
+    /// ### DEPRECATED: Use `superCommitData` instead
     ///
-    pub const QBaseCommitData = SuperCommitData;
+    pub const SuperCommitData = superCommitData;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10288,10 +12844,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` editor: QWidget `
     ///
-    pub fn SuperCommitData(self: QHeaderView, editor: anytype) void {
+    pub fn superCommitData(self: QHeaderView, editor: anytype) void {
         comptime _ = @TypeOf(editor)._is_QWidget;
         qtc.QHeaderView_SuperCommitData(@ptrCast(self.ptr), @ptrCast(editor.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCommitData` instead
+    ///
+    pub const OnCommitData = onCommitData;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10305,9 +12865,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, editor: QWidget) callconv(.c) void `
     ///
-    pub fn OnCommitData(self: QHeaderView, callback: *const fn (QHeaderView, QWidget) callconv(.c) void) void {
+    pub fn onCommitData(self: QHeaderView, callback: *const fn (QHeaderView, QWidget) callconv(.c) void) void {
         qtc.QHeaderView_OnCommitData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `editorDestroyed` instead
+    ///
+    pub const EditorDestroyed = editorDestroyed;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10321,14 +12885,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` editor: QObject `
     ///
-    pub fn EditorDestroyed(self: QHeaderView, editor: anytype) void {
+    pub fn editorDestroyed(self: QHeaderView, editor: anytype) void {
         comptime _ = @TypeOf(editor)._is_QObject;
         qtc.QHeaderView_EditorDestroyed(@ptrCast(self.ptr), @ptrCast(editor.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEditorDestroyed` instead
+    /// ### DEPRECATED: Use `superEditorDestroyed` instead
     ///
-    pub const QBaseEditorDestroyed = SuperEditorDestroyed;
+    pub const SuperEditorDestroyed = superEditorDestroyed;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10342,10 +12906,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` editor: QObject `
     ///
-    pub fn SuperEditorDestroyed(self: QHeaderView, editor: anytype) void {
+    pub fn superEditorDestroyed(self: QHeaderView, editor: anytype) void {
         comptime _ = @TypeOf(editor)._is_QObject;
         qtc.QHeaderView_SuperEditorDestroyed(@ptrCast(self.ptr), @ptrCast(editor.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEditorDestroyed` instead
+    ///
+    pub const OnEditorDestroyed = onEditorDestroyed;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10359,9 +12927,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, editor: QObject) callconv(.c) void `
     ///
-    pub fn OnEditorDestroyed(self: QHeaderView, callback: *const fn (QHeaderView, QObject) callconv(.c) void) void {
+    pub fn onEditorDestroyed(self: QHeaderView, callback: *const fn (QHeaderView, QObject) callconv(.c) void) void {
         qtc.QHeaderView_OnEditorDestroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `selectedIndexes` instead
+    ///
+    pub const SelectedIndexes = selectedIndexes;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10375,19 +12947,19 @@ pub const QHeaderView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SelectedIndexes(self: QHeaderView, allocator: std.mem.Allocator) []QModelIndex {
+    pub fn selectedIndexes(self: QHeaderView, allocator: std.mem.Allocator) []QModelIndex {
         const _arr: qtc.libqt_list = qtc.QHeaderView_SelectedIndexes(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("QHeaderView.SelectedIndexes: Memory allocation failed");
-        const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("QHeaderView.selectedIndexes: Memory allocation failed");
+        const _data_val: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `SuperSelectedIndexes` instead
+    /// ### DEPRECATED: Use `superSelectedIndexes` instead
     ///
-    pub const QBaseSelectedIndexes = SuperSelectedIndexes;
+    pub const SuperSelectedIndexes = superSelectedIndexes;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10401,15 +12973,19 @@ pub const QHeaderView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperSelectedIndexes(self: QHeaderView, allocator: std.mem.Allocator) []QModelIndex {
+    pub fn superSelectedIndexes(self: QHeaderView, allocator: std.mem.Allocator) []QModelIndex {
         const _arr: qtc.libqt_list = qtc.QHeaderView_SuperSelectedIndexes(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("QHeaderView.SelectedIndexes: Memory allocation failed");
-        const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("QHeaderView.selectedIndexes: Memory allocation failed");
+        const _data_val: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onSelectedIndexes` instead
+    ///
+    pub const OnSelectedIndexes = onSelectedIndexes;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10429,9 +13005,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` C ABI representation of []QModelIndex `
     ///
-    pub fn OnSelectedIndexes(self: QHeaderView, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+    pub fn onSelectedIndexes(self: QHeaderView, callback: *const fn () callconv(.c) qtc.libqt_list) void {
         qtc.QHeaderView_OnSelectedIndexes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `edit2` instead
+    ///
+    pub const Edit2 = edit2;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10447,17 +13027,17 @@ pub const QHeaderView = extern struct {
     ///
     /// ` trigger: qabstractitemview_enums.EditTrigger `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Edit2(self: QHeaderView, index: anytype, trigger: i32, event: anytype) bool {
+    pub fn edit2(self: QHeaderView, index: anytype, trigger: i32, _event: anytype) bool {
         comptime _ = @TypeOf(index)._is_QModelIndex;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QHeaderView_Edit2(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(trigger), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QHeaderView_Edit2(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(trigger), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEdit2` instead
+    /// ### DEPRECATED: Use `superEdit2` instead
     ///
-    pub const QBaseEdit2 = SuperEdit2;
+    pub const SuperEdit2 = superEdit2;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10473,13 +13053,17 @@ pub const QHeaderView = extern struct {
     ///
     /// ` trigger: qabstractitemview_enums.EditTrigger `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEdit2(self: QHeaderView, index: anytype, trigger: i32, event: anytype) bool {
+    pub fn superEdit2(self: QHeaderView, index: anytype, trigger: i32, _event: anytype) bool {
         comptime _ = @TypeOf(index)._is_QModelIndex;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QHeaderView_SuperEdit2(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(trigger), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QHeaderView_SuperEdit2(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(trigger), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEdit2` instead
+    ///
+    pub const OnEdit2 = onEdit2;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10493,9 +13077,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, index: QModelIndex, trigger: qabstractitemview_enums.EditTrigger, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEdit2(self: QHeaderView, callback: *const fn (QHeaderView, QModelIndex, i32, QEvent) callconv(.c) bool) void {
+    pub fn onEdit2(self: QHeaderView, callback: *const fn (QHeaderView, QModelIndex, i32, QEvent) callconv(.c) bool) void {
         qtc.QHeaderView_OnEdit2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `selectionCommand` instead
+    ///
+    pub const SelectionCommand = selectionCommand;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10509,21 +13097,21 @@ pub const QHeaderView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
     /// ## Returns:
     ///
     /// ` flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn SelectionCommand(self: QHeaderView, index: anytype, event: anytype) i32 {
+    pub fn selectionCommand(self: QHeaderView, index: anytype, _event: anytype) i32 {
         comptime _ = @TypeOf(index)._is_QModelIndex;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QHeaderView_SelectionCommand(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QHeaderView_SelectionCommand(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSelectionCommand` instead
+    /// ### DEPRECATED: Use `superSelectionCommand` instead
     ///
-    pub const QBaseSelectionCommand = SuperSelectionCommand;
+    pub const SuperSelectionCommand = superSelectionCommand;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10537,17 +13125,21 @@ pub const QHeaderView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
     /// ## Returns:
     ///
     /// ` flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn SuperSelectionCommand(self: QHeaderView, index: anytype, event: anytype) i32 {
+    pub fn superSelectionCommand(self: QHeaderView, index: anytype, _event: anytype) i32 {
         comptime _ = @TypeOf(index)._is_QModelIndex;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QHeaderView_SuperSelectionCommand(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QHeaderView_SuperSelectionCommand(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSelectionCommand` instead
+    ///
+    pub const OnSelectionCommand = onSelectionCommand;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10561,9 +13153,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, index: QModelIndex, event: QEvent) callconv(.c) i32 `
     ///
-    pub fn OnSelectionCommand(self: QHeaderView, callback: *const fn (QHeaderView, QModelIndex, QEvent) callconv(.c) i32) void {
+    pub fn onSelectionCommand(self: QHeaderView, callback: *const fn (QHeaderView, QModelIndex, QEvent) callconv(.c) i32) void {
         qtc.QHeaderView_OnSelectionCommand(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `startDrag` instead
+    ///
+    pub const StartDrag = startDrag;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10577,13 +13173,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` supportedActions: flag of qnamespace_enums.DropAction `
     ///
-    pub fn StartDrag(self: QHeaderView, supportedActions: i32) void {
+    pub fn startDrag(self: QHeaderView, supportedActions: i32) void {
         qtc.QHeaderView_StartDrag(@ptrCast(self.ptr), @bitCast(supportedActions));
     }
 
-    /// ### DEPRECATED: Use `SuperStartDrag` instead
+    /// ### DEPRECATED: Use `superStartDrag` instead
     ///
-    pub const QBaseStartDrag = SuperStartDrag;
+    pub const SuperStartDrag = superStartDrag;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10597,9 +13193,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` supportedActions: flag of qnamespace_enums.DropAction `
     ///
-    pub fn SuperStartDrag(self: QHeaderView, supportedActions: i32) void {
+    pub fn superStartDrag(self: QHeaderView, supportedActions: i32) void {
         qtc.QHeaderView_SuperStartDrag(@ptrCast(self.ptr), @bitCast(supportedActions));
     }
+
+    /// ### DEPRECATED: Use `onStartDrag` instead
+    ///
+    pub const OnStartDrag = onStartDrag;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10613,9 +13213,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, supportedActions: flag of qnamespace_enums.DropAction) callconv(.c) void `
     ///
-    pub fn OnStartDrag(self: QHeaderView, callback: *const fn (QHeaderView, i32) callconv(.c) void) void {
+    pub fn onStartDrag(self: QHeaderView, callback: *const fn (QHeaderView, i32) callconv(.c) void) void {
         qtc.QHeaderView_OnStartDrag(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initViewItemOption` instead
+    ///
+    pub const InitViewItemOption = initViewItemOption;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10629,14 +13233,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` option: QStyleOptionViewItem `
     ///
-    pub fn InitViewItemOption(self: QHeaderView, option: anytype) void {
+    pub fn initViewItemOption(self: QHeaderView, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         qtc.QHeaderView_InitViewItemOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitViewItemOption` instead
+    /// ### DEPRECATED: Use `superInitViewItemOption` instead
     ///
-    pub const QBaseInitViewItemOption = SuperInitViewItemOption;
+    pub const SuperInitViewItemOption = superInitViewItemOption;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10650,10 +13254,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` option: QStyleOptionViewItem `
     ///
-    pub fn SuperInitViewItemOption(self: QHeaderView, option: anytype) void {
+    pub fn superInitViewItemOption(self: QHeaderView, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         qtc.QHeaderView_SuperInitViewItemOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitViewItemOption` instead
+    ///
+    pub const OnInitViewItemOption = onInitViewItemOption;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10667,9 +13275,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, option: QStyleOptionViewItem) callconv(.c) void `
     ///
-    pub fn OnInitViewItemOption(self: QHeaderView, callback: *const fn (QHeaderView, QStyleOptionViewItem) callconv(.c) void) void {
+    pub fn onInitViewItemOption(self: QHeaderView, callback: *const fn (QHeaderView, QStyleOptionViewItem) callconv(.c) void) void {
         qtc.QHeaderView_OnInitViewItemOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10683,13 +13295,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: QHeaderView, next: bool) bool {
+    pub fn focusNextPrevChild(self: QHeaderView, next: bool) bool {
         return qtc.QHeaderView_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10703,9 +13315,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: QHeaderView, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: QHeaderView, next: bool) bool {
         return qtc.QHeaderView_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10719,9 +13335,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: QHeaderView, callback: *const fn (QHeaderView, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: QHeaderView, callback: *const fn (QHeaderView, bool) callconv(.c) bool) void {
         qtc.QHeaderView_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10733,16 +13353,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: QHeaderView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.QHeaderView_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: QHeaderView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.QHeaderView_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10754,12 +13374,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: QHeaderView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.QHeaderView_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: QHeaderView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.QHeaderView_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10773,9 +13397,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: QHeaderView, callback: *const fn (QHeaderView, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: QHeaderView, callback: *const fn (QHeaderView, QDragEnterEvent) callconv(.c) void) void {
         qtc.QHeaderView_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10787,16 +13415,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: QHeaderView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.QHeaderView_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: QHeaderView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.QHeaderView_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10808,12 +13436,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: QHeaderView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.QHeaderView_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: QHeaderView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.QHeaderView_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10827,9 +13459,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: QHeaderView, callback: *const fn (QHeaderView, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: QHeaderView, callback: *const fn (QHeaderView, QDragMoveEvent) callconv(.c) void) void {
         qtc.QHeaderView_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10841,16 +13477,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: QHeaderView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.QHeaderView_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: QHeaderView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.QHeaderView_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10862,12 +13498,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: QHeaderView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.QHeaderView_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: QHeaderView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.QHeaderView_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10881,9 +13521,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: QHeaderView, callback: *const fn (QHeaderView, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: QHeaderView, callback: *const fn (QHeaderView, QDragLeaveEvent) callconv(.c) void) void {
         qtc.QHeaderView_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10895,16 +13539,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: QHeaderView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.QHeaderView_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: QHeaderView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.QHeaderView_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10916,12 +13560,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: QHeaderView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.QHeaderView_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: QHeaderView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.QHeaderView_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10935,10 +13583,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: QHeaderView, callback: *const fn (QHeaderView, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: QHeaderView, callback: *const fn (QHeaderView, QDropEvent) callconv(.c) void) void {
         qtc.QHeaderView_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusInEvent)
@@ -10949,16 +13601,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: QHeaderView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QHeaderView_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: QHeaderView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QHeaderView_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10970,12 +13622,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: QHeaderView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QHeaderView_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: QHeaderView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QHeaderView_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10989,10 +13645,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: QHeaderView, callback: *const fn (QHeaderView, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: QHeaderView, callback: *const fn (QHeaderView, QFocusEvent) callconv(.c) void) void {
         qtc.QHeaderView_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusOutEvent)
@@ -11003,16 +13663,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: QHeaderView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QHeaderView_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: QHeaderView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QHeaderView_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11024,12 +13684,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: QHeaderView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QHeaderView_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: QHeaderView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QHeaderView_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11043,9 +13707,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: QHeaderView, callback: *const fn (QHeaderView, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: QHeaderView, callback: *const fn (QHeaderView, QFocusEvent) callconv(.c) void) void {
         qtc.QHeaderView_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11057,16 +13725,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: QHeaderView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QHeaderView_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyPressEvent(self: QHeaderView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QHeaderView_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11078,12 +13746,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: QHeaderView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QHeaderView_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyPressEvent(self: QHeaderView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QHeaderView_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11097,9 +13769,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: QHeaderView, callback: *const fn (QHeaderView, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: QHeaderView, callback: *const fn (QHeaderView, QKeyEvent) callconv(.c) void) void {
         qtc.QHeaderView_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11111,16 +13787,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: QHeaderView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.QHeaderView_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn resizeEvent(self: QHeaderView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.QHeaderView_ResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11132,12 +13808,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: QHeaderView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.QHeaderView_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superResizeEvent(self: QHeaderView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.QHeaderView_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11151,9 +13831,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: QHeaderView, callback: *const fn (QHeaderView, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: QHeaderView, callback: *const fn (QHeaderView, QResizeEvent) callconv(.c) void) void {
         qtc.QHeaderView_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11165,16 +13849,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QHeaderView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QHeaderView_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QHeaderView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QHeaderView_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11186,12 +13870,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QHeaderView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QHeaderView_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QHeaderView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QHeaderView_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11205,9 +13893,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QHeaderView, callback: *const fn (QHeaderView, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QHeaderView, callback: *const fn (QHeaderView, QTimerEvent) callconv(.c) void) void {
         qtc.QHeaderView_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11219,16 +13911,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` event: QInputMethodEvent `
+    /// ` _event: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: QHeaderView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QInputMethodEvent;
-        qtc.QHeaderView_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn inputMethodEvent(self: QHeaderView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QInputMethodEvent;
+        qtc.QHeaderView_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11240,12 +13932,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` event: QInputMethodEvent `
+    /// ` _event: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: QHeaderView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QInputMethodEvent;
-        qtc.QHeaderView_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superInputMethodEvent(self: QHeaderView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QInputMethodEvent;
+        qtc.QHeaderView_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11259,9 +13955,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, event: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: QHeaderView, callback: *const fn (QHeaderView, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: QHeaderView, callback: *const fn (QHeaderView, QInputMethodEvent) callconv(.c) void) void {
         qtc.QHeaderView_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11275,17 +13975,17 @@ pub const QHeaderView = extern struct {
     ///
     /// ` object: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QHeaderView, object: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QHeaderView, object: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(object)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QHeaderView_EventFilter(@ptrCast(self.ptr), @ptrCast(object.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QHeaderView_EventFilter(@ptrCast(self.ptr), @ptrCast(object.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11299,13 +13999,17 @@ pub const QHeaderView = extern struct {
     ///
     /// ` object: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QHeaderView, object: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QHeaderView, object: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(object)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QHeaderView_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(object.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QHeaderView_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(object.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11319,10 +14023,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, object: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QHeaderView, callback: *const fn (QHeaderView, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QHeaderView, callback: *const fn (QHeaderView, QObject, QEvent) callconv(.c) bool) void {
         qtc.QHeaderView_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `viewportSizeHint` instead
+    ///
+    pub const ViewportSizeHint = viewportSizeHint;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#viewportSizeHint)
@@ -11333,13 +14041,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn ViewportSizeHint(self: QHeaderView) QSize {
+    pub fn viewportSizeHint(self: QHeaderView) QSize {
         return .{ .ptr = qtc.QHeaderView_ViewportSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperViewportSizeHint` instead
+    /// ### DEPRECATED: Use `superViewportSizeHint` instead
     ///
-    pub const QBaseViewportSizeHint = SuperViewportSizeHint;
+    pub const SuperViewportSizeHint = superViewportSizeHint;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11351,10 +14059,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SuperViewportSizeHint(self: QHeaderView) QSize {
+    pub fn superViewportSizeHint(self: QHeaderView) QSize {
         return .{ .ptr = qtc.QHeaderView_SuperViewportSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onViewportSizeHint` instead
+    ///
+    pub const OnViewportSizeHint = onViewportSizeHint;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#viewportSizeHint)
@@ -11369,9 +14081,13 @@ pub const QHeaderView = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnViewportSizeHint(self: QHeaderView, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onViewportSizeHint(self: QHeaderView, callback: *const fn () callconv(.c) QSize) void {
         qtc.QHeaderView_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -11383,13 +14099,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn MinimumSizeHint(self: QHeaderView) QSize {
+    pub fn minimumSizeHint(self: QHeaderView) QSize {
         return .{ .ptr = qtc.QHeaderView_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -11401,9 +14117,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SuperMinimumSizeHint(self: QHeaderView) QSize {
+    pub fn superMinimumSizeHint(self: QHeaderView) QSize {
         return .{ .ptr = qtc.QHeaderView_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -11419,9 +14139,13 @@ pub const QHeaderView = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: QHeaderView, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QHeaderView, callback: *const fn () callconv(.c) QSize) void {
         qtc.QHeaderView_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setupViewport` instead
+    ///
+    pub const SetupViewport = setupViewport;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -11433,16 +14157,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` viewport: QWidget `
+    /// ` _viewport: QWidget `
     ///
-    pub fn SetupViewport(self: QHeaderView, viewport: anytype) void {
-        comptime _ = @TypeOf(viewport)._is_QWidget;
-        qtc.QHeaderView_SetupViewport(@ptrCast(self.ptr), @ptrCast(viewport.ptr));
+    pub fn setupViewport(self: QHeaderView, _viewport: anytype) void {
+        comptime _ = @TypeOf(_viewport)._is_QWidget;
+        qtc.QHeaderView_SetupViewport(@ptrCast(self.ptr), @ptrCast(_viewport.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetupViewport` instead
+    /// ### DEPRECATED: Use `superSetupViewport` instead
     ///
-    pub const QBaseSetupViewport = SuperSetupViewport;
+    pub const SuperSetupViewport = superSetupViewport;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -11454,12 +14178,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` viewport: QWidget `
+    /// ` _viewport: QWidget `
     ///
-    pub fn SuperSetupViewport(self: QHeaderView, viewport: anytype) void {
-        comptime _ = @TypeOf(viewport)._is_QWidget;
-        qtc.QHeaderView_SuperSetupViewport(@ptrCast(self.ptr), @ptrCast(viewport.ptr));
+    pub fn superSetupViewport(self: QHeaderView, _viewport: anytype) void {
+        comptime _ = @TypeOf(_viewport)._is_QWidget;
+        qtc.QHeaderView_SuperSetupViewport(@ptrCast(self.ptr), @ptrCast(_viewport.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetupViewport` instead
+    ///
+    pub const OnSetupViewport = onSetupViewport;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -11473,9 +14201,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, viewport: QWidget) callconv(.c) void `
     ///
-    pub fn OnSetupViewport(self: QHeaderView, callback: *const fn (QHeaderView, QWidget) callconv(.c) void) void {
+    pub fn onSetupViewport(self: QHeaderView, callback: *const fn (QHeaderView, QWidget) callconv(.c) void) void {
         qtc.QHeaderView_OnSetupViewport(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -11489,14 +14221,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param1: QWheelEvent `
     ///
-    pub fn WheelEvent(self: QHeaderView, param1: anytype) void {
+    pub fn wheelEvent(self: QHeaderView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWheelEvent;
         qtc.QHeaderView_WheelEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -11510,10 +14242,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param1: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: QHeaderView, param1: anytype) void {
+    pub fn superWheelEvent(self: QHeaderView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWheelEvent;
         qtc.QHeaderView_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -11527,9 +14263,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, param1: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: QHeaderView, callback: *const fn (QHeaderView, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: QHeaderView, callback: *const fn (QHeaderView, QWheelEvent) callconv(.c) void) void {
         qtc.QHeaderView_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -11543,14 +14283,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param1: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: QHeaderView, param1: anytype) void {
+    pub fn contextMenuEvent(self: QHeaderView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
         qtc.QHeaderView_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -11564,10 +14304,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param1: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: QHeaderView, param1: anytype) void {
+    pub fn superContextMenuEvent(self: QHeaderView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
         qtc.QHeaderView_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -11581,9 +14325,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, param1: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: QHeaderView, callback: *const fn (QHeaderView, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: QHeaderView, callback: *const fn (QHeaderView, QContextMenuEvent) callconv(.c) void) void {
         qtc.QHeaderView_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QFrame
     ///
@@ -11597,14 +14345,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: QHeaderView, param1: anytype) void {
+    pub fn changeEvent(self: QHeaderView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.QHeaderView_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QFrame
     ///
@@ -11618,10 +14366,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: QHeaderView, param1: anytype) void {
+    pub fn superChangeEvent(self: QHeaderView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.QHeaderView_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QFrame
     ///
@@ -11635,9 +14387,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: QHeaderView, callback: *const fn (QHeaderView, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: QHeaderView, callback: *const fn (QHeaderView, QEvent) callconv(.c) void) void {
         qtc.QHeaderView_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -11649,13 +14405,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn DevType(self: QHeaderView) i32 {
+    pub fn devType(self: QHeaderView) i32 {
         return qtc.QHeaderView_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -11667,9 +14423,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SuperDevType(self: QHeaderView) i32 {
+    pub fn superDevType(self: QHeaderView) i32 {
         return qtc.QHeaderView_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -11683,9 +14443,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: QHeaderView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QHeaderView, callback: *const fn () callconv(.c) i32) void {
         qtc.QHeaderView_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -11699,13 +14463,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: QHeaderView, param1: i32) i32 {
+    pub fn heightForWidth(self: QHeaderView, param1: i32) i32 {
         return qtc.QHeaderView_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -11719,9 +14483,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: QHeaderView, param1: i32) i32 {
+    pub fn superHeightForWidth(self: QHeaderView, param1: i32) i32 {
         return qtc.QHeaderView_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -11735,9 +14503,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: QHeaderView, callback: *const fn (QHeaderView, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: QHeaderView, callback: *const fn (QHeaderView, i32) callconv(.c) i32) void {
         qtc.QHeaderView_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -11749,13 +14521,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn HasHeightForWidth(self: QHeaderView) bool {
+    pub fn hasHeightForWidth(self: QHeaderView) bool {
         return qtc.QHeaderView_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -11767,9 +14539,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SuperHasHeightForWidth(self: QHeaderView) bool {
+    pub fn superHasHeightForWidth(self: QHeaderView) bool {
         return qtc.QHeaderView_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -11783,9 +14559,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: QHeaderView, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QHeaderView, callback: *const fn () callconv(.c) bool) void {
         qtc.QHeaderView_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -11797,13 +14577,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn PaintEngine(self: QHeaderView) QPaintEngine {
+    pub fn paintEngine(self: QHeaderView) QPaintEngine {
         return .{ .ptr = qtc.QHeaderView_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -11815,9 +14595,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SuperPaintEngine(self: QHeaderView) QPaintEngine {
+    pub fn superPaintEngine(self: QHeaderView) QPaintEngine {
         return .{ .ptr = qtc.QHeaderView_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -11831,9 +14615,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: QHeaderView, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QHeaderView, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.QHeaderView_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -11845,16 +14633,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: QHeaderView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QHeaderView_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: QHeaderView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QHeaderView_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -11866,12 +14654,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: QHeaderView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QHeaderView_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: QHeaderView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QHeaderView_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -11885,9 +14677,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: QHeaderView, callback: *const fn (QHeaderView, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: QHeaderView, callback: *const fn (QHeaderView, QKeyEvent) callconv(.c) void) void {
         qtc.QHeaderView_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -11899,16 +14695,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: QHeaderView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.QHeaderView_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: QHeaderView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.QHeaderView_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -11920,12 +14716,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: QHeaderView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.QHeaderView_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: QHeaderView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.QHeaderView_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -11939,9 +14739,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: QHeaderView, callback: *const fn (QHeaderView, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: QHeaderView, callback: *const fn (QHeaderView, QEnterEvent) callconv(.c) void) void {
         qtc.QHeaderView_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -11953,16 +14757,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: QHeaderView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QHeaderView_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: QHeaderView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QHeaderView_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -11974,12 +14778,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: QHeaderView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QHeaderView_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: QHeaderView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QHeaderView_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -11993,9 +14801,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: QHeaderView, callback: *const fn (QHeaderView, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: QHeaderView, callback: *const fn (QHeaderView, QEvent) callconv(.c) void) void {
         qtc.QHeaderView_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -12007,16 +14819,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: QHeaderView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.QHeaderView_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: QHeaderView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.QHeaderView_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -12028,12 +14840,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: QHeaderView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.QHeaderView_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: QHeaderView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.QHeaderView_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -12047,9 +14863,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: QHeaderView, callback: *const fn (QHeaderView, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: QHeaderView, callback: *const fn (QHeaderView, QMoveEvent) callconv(.c) void) void {
         qtc.QHeaderView_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -12061,16 +14881,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: QHeaderView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.QHeaderView_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: QHeaderView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.QHeaderView_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -12082,12 +14902,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: QHeaderView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.QHeaderView_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: QHeaderView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.QHeaderView_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -12101,9 +14925,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: QHeaderView, callback: *const fn (QHeaderView, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: QHeaderView, callback: *const fn (QHeaderView, QCloseEvent) callconv(.c) void) void {
         qtc.QHeaderView_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -12115,16 +14943,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: QHeaderView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.QHeaderView_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: QHeaderView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.QHeaderView_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -12136,12 +14964,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: QHeaderView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.QHeaderView_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: QHeaderView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.QHeaderView_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -12155,9 +14987,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: QHeaderView, callback: *const fn (QHeaderView, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: QHeaderView, callback: *const fn (QHeaderView, QTabletEvent) callconv(.c) void) void {
         qtc.QHeaderView_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -12169,16 +15005,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: QHeaderView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.QHeaderView_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: QHeaderView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.QHeaderView_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -12190,12 +15026,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: QHeaderView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.QHeaderView_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: QHeaderView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.QHeaderView_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -12209,9 +15049,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: QHeaderView, callback: *const fn (QHeaderView, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: QHeaderView, callback: *const fn (QHeaderView, QActionEvent) callconv(.c) void) void {
         qtc.QHeaderView_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QWidget
     ///
@@ -12223,16 +15067,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn ShowEvent(self: QHeaderView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.QHeaderView_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn showEvent(self: QHeaderView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.QHeaderView_ShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -12244,12 +15088,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: QHeaderView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.QHeaderView_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superShowEvent(self: QHeaderView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.QHeaderView_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -12263,9 +15111,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: QHeaderView, callback: *const fn (QHeaderView, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: QHeaderView, callback: *const fn (QHeaderView, QShowEvent) callconv(.c) void) void {
         qtc.QHeaderView_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -12277,16 +15129,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: QHeaderView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.QHeaderView_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: QHeaderView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.QHeaderView_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -12298,12 +15150,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: QHeaderView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.QHeaderView_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: QHeaderView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.QHeaderView_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -12317,9 +15173,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: QHeaderView, callback: *const fn (QHeaderView, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: QHeaderView, callback: *const fn (QHeaderView, QHideEvent) callconv(.c) void) void {
         qtc.QHeaderView_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -12337,7 +15197,7 @@ pub const QHeaderView = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: QHeaderView, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: QHeaderView, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -12345,9 +15205,9 @@ pub const QHeaderView = extern struct {
         return qtc.QHeaderView_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -12365,13 +15225,17 @@ pub const QHeaderView = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: QHeaderView, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: QHeaderView, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.QHeaderView_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -12385,9 +15249,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: QHeaderView, callback: *const fn (QHeaderView, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: QHeaderView, callback: *const fn (QHeaderView, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QHeaderView_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -12401,13 +15269,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: QHeaderView, param1: i32) i32 {
+    pub fn metric(self: QHeaderView, param1: i32) i32 {
         return qtc.QHeaderView_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -12421,9 +15289,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: QHeaderView, param1: i32) i32 {
+    pub fn superMetric(self: QHeaderView, param1: i32) i32 {
         return qtc.QHeaderView_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -12437,9 +15309,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: QHeaderView, callback: *const fn (QHeaderView, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: QHeaderView, callback: *const fn (QHeaderView, i32) callconv(.c) i32) void {
         qtc.QHeaderView_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -12453,14 +15329,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: QHeaderView, painter: anytype) void {
+    pub fn initPainter(self: QHeaderView, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QHeaderView_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -12474,10 +15350,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: QHeaderView, painter: anytype) void {
+    pub fn superInitPainter(self: QHeaderView, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QHeaderView_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -12491,9 +15371,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: QHeaderView, callback: *const fn (QHeaderView, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: QHeaderView, callback: *const fn (QHeaderView, QPainter) callconv(.c) void) void {
         qtc.QHeaderView_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -12505,16 +15389,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` offset: QPoint `
+    /// ` _offset: QPoint `
     ///
-    pub fn Redirected(self: QHeaderView, offset: anytype) QPaintDevice {
-        comptime _ = @TypeOf(offset)._is_QPoint;
-        return .{ .ptr = qtc.QHeaderView_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
+    pub fn redirected(self: QHeaderView, _offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(_offset)._is_QPoint;
+        return .{ .ptr = qtc.QHeaderView_Redirected(@ptrCast(self.ptr), @ptrCast(_offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -12526,12 +15410,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` offset: QPoint `
+    /// ` _offset: QPoint `
     ///
-    pub fn SuperRedirected(self: QHeaderView, offset: anytype) QPaintDevice {
-        comptime _ = @TypeOf(offset)._is_QPoint;
-        return .{ .ptr = qtc.QHeaderView_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
+    pub fn superRedirected(self: QHeaderView, _offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(_offset)._is_QPoint;
+        return .{ .ptr = qtc.QHeaderView_SuperRedirected(@ptrCast(self.ptr), @ptrCast(_offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -12545,9 +15433,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: QHeaderView, callback: *const fn (QHeaderView, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: QHeaderView, callback: *const fn (QHeaderView, QPoint) callconv(.c) QPaintDevice) void {
         qtc.QHeaderView_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -12559,13 +15451,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SharedPainter(self: QHeaderView) QPainter {
+    pub fn sharedPainter(self: QHeaderView) QPainter {
         return .{ .ptr = qtc.QHeaderView_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -12577,9 +15469,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SuperSharedPainter(self: QHeaderView) QPainter {
+    pub fn superSharedPainter(self: QHeaderView) QPainter {
         return .{ .ptr = qtc.QHeaderView_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -12593,9 +15489,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: QHeaderView, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QHeaderView, callback: *const fn () callconv(.c) QPainter) void {
         qtc.QHeaderView_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -12607,16 +15507,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QHeaderView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QHeaderView_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QHeaderView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QHeaderView_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -12628,12 +15528,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QHeaderView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QHeaderView_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QHeaderView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QHeaderView_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -12647,9 +15551,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QHeaderView, callback: *const fn (QHeaderView, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QHeaderView, callback: *const fn (QHeaderView, QChildEvent) callconv(.c) void) void {
         qtc.QHeaderView_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -12661,16 +15569,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QHeaderView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QHeaderView_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QHeaderView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QHeaderView_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -12682,12 +15590,16 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QHeaderView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QHeaderView_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QHeaderView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QHeaderView_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -12701,9 +15613,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QHeaderView, callback: *const fn (QHeaderView, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QHeaderView, callback: *const fn (QHeaderView, QEvent) callconv(.c) void) void {
         qtc.QHeaderView_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -12717,14 +15633,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QHeaderView, signal: anytype) void {
+    pub fn connectNotify(self: QHeaderView, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QHeaderView_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -12738,11 +15654,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QHeaderView, signal: anytype) void {
+    pub fn superConnectNotify(self: QHeaderView, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QHeaderView_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -12755,9 +15675,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QHeaderView, callback: *const fn (QHeaderView, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QHeaderView, callback: *const fn (QHeaderView, QMetaMethod) callconv(.c) void) void {
         qtc.QHeaderView_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -12771,14 +15695,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QHeaderView, signal: anytype) void {
+    pub fn disconnectNotify(self: QHeaderView, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QHeaderView_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -12792,10 +15716,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QHeaderView, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QHeaderView, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QHeaderView_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -12809,9 +15737,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QHeaderView, callback: *const fn (QHeaderView, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QHeaderView, callback: *const fn (QHeaderView, QMetaMethod) callconv(.c) void) void {
         qtc.QHeaderView_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `state` instead
+    ///
+    pub const State = state;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12827,13 +15759,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` qabstractitemview_enums.State `
     ///
-    pub fn State(self: QHeaderView) i32 {
+    pub fn state(self: QHeaderView) i32 {
         return qtc.QHeaderView_State(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperState` instead
+    /// ### DEPRECATED: Use `superState` instead
     ///
-    pub const QBaseState = SuperState;
+    pub const SuperState = superState;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12849,9 +15781,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` qabstractitemview_enums.State `
     ///
-    pub fn SuperState(self: QHeaderView) i32 {
+    pub fn superState(self: QHeaderView) i32 {
         return qtc.QHeaderView_SuperState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onState` instead
+    ///
+    pub const OnState = onState;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12865,9 +15801,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnState(self: QHeaderView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onState(self: QHeaderView, callback: *const fn () callconv(.c) i32) void {
         qtc.QHeaderView_OnState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setState` instead
+    ///
+    pub const SetState = setState;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12879,15 +15819,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` state: qabstractitemview_enums.State `
+    /// ` _state: qabstractitemview_enums.State `
     ///
-    pub fn SetState(self: QHeaderView, state: i32) void {
-        qtc.QHeaderView_SetState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn setState(self: QHeaderView, _state: i32) void {
+        qtc.QHeaderView_SetState(@ptrCast(self.ptr), @bitCast(_state));
     }
 
-    /// ### DEPRECATED: Use `SuperSetState` instead
+    /// ### DEPRECATED: Use `superSetState` instead
     ///
-    pub const QBaseSetState = SuperSetState;
+    pub const SuperSetState = superSetState;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12899,11 +15839,15 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` state: qabstractitemview_enums.State `
+    /// ` _state: qabstractitemview_enums.State `
     ///
-    pub fn SuperSetState(self: QHeaderView, state: i32) void {
-        qtc.QHeaderView_SuperSetState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn superSetState(self: QHeaderView, _state: i32) void {
+        qtc.QHeaderView_SuperSetState(@ptrCast(self.ptr), @bitCast(_state));
     }
+
+    /// ### DEPRECATED: Use `onSetState` instead
+    ///
+    pub const OnSetState = onSetState;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12917,10 +15861,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, state: qabstractitemview_enums.State) callconv(.c) void `
     ///
-    pub fn OnSetState(self: QHeaderView, callback: *const fn (QHeaderView, i32) callconv(.c) void) void {
+    pub fn onSetState(self: QHeaderView, callback: *const fn (QHeaderView, i32) callconv(.c) void) void {
         qtc.QHeaderView_OnSetState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `scheduleDelayedItemsLayout` instead
+    ///
+    pub const ScheduleDelayedItemsLayout = scheduleDelayedItemsLayout;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
@@ -12931,13 +15879,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn ScheduleDelayedItemsLayout(self: QHeaderView) void {
+    pub fn scheduleDelayedItemsLayout(self: QHeaderView) void {
         qtc.QHeaderView_ScheduleDelayedItemsLayout(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperScheduleDelayedItemsLayout` instead
+    /// ### DEPRECATED: Use `superScheduleDelayedItemsLayout` instead
     ///
-    pub const QBaseScheduleDelayedItemsLayout = SuperScheduleDelayedItemsLayout;
+    pub const SuperScheduleDelayedItemsLayout = superScheduleDelayedItemsLayout;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12949,9 +15897,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SuperScheduleDelayedItemsLayout(self: QHeaderView) void {
+    pub fn superScheduleDelayedItemsLayout(self: QHeaderView) void {
         qtc.QHeaderView_SuperScheduleDelayedItemsLayout(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onScheduleDelayedItemsLayout` instead
+    ///
+    pub const OnScheduleDelayedItemsLayout = onScheduleDelayedItemsLayout;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12965,9 +15917,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnScheduleDelayedItemsLayout(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
+    pub fn onScheduleDelayedItemsLayout(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
         qtc.QHeaderView_OnScheduleDelayedItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `executeDelayedItemsLayout` instead
+    ///
+    pub const ExecuteDelayedItemsLayout = executeDelayedItemsLayout;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12979,13 +15935,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn ExecuteDelayedItemsLayout(self: QHeaderView) void {
+    pub fn executeDelayedItemsLayout(self: QHeaderView) void {
         qtc.QHeaderView_ExecuteDelayedItemsLayout(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperExecuteDelayedItemsLayout` instead
+    /// ### DEPRECATED: Use `superExecuteDelayedItemsLayout` instead
     ///
-    pub const QBaseExecuteDelayedItemsLayout = SuperExecuteDelayedItemsLayout;
+    pub const SuperExecuteDelayedItemsLayout = superExecuteDelayedItemsLayout;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12997,9 +15953,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SuperExecuteDelayedItemsLayout(self: QHeaderView) void {
+    pub fn superExecuteDelayedItemsLayout(self: QHeaderView) void {
         qtc.QHeaderView_SuperExecuteDelayedItemsLayout(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onExecuteDelayedItemsLayout` instead
+    ///
+    pub const OnExecuteDelayedItemsLayout = onExecuteDelayedItemsLayout;
 
     /// Inherited from QAbstractItemView
     ///
@@ -13013,9 +15973,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnExecuteDelayedItemsLayout(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
+    pub fn onExecuteDelayedItemsLayout(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
         qtc.QHeaderView_OnExecuteDelayedItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setDirtyRegion` instead
+    ///
+    pub const SetDirtyRegion = setDirtyRegion;
 
     /// Inherited from QAbstractItemView
     ///
@@ -13029,14 +15993,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` region: QRegion `
     ///
-    pub fn SetDirtyRegion(self: QHeaderView, region: anytype) void {
+    pub fn setDirtyRegion(self: QHeaderView, region: anytype) void {
         comptime _ = @TypeOf(region)._is_QRegion;
         qtc.QHeaderView_SetDirtyRegion(@ptrCast(self.ptr), @ptrCast(region.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetDirtyRegion` instead
+    /// ### DEPRECATED: Use `superSetDirtyRegion` instead
     ///
-    pub const QBaseSetDirtyRegion = SuperSetDirtyRegion;
+    pub const SuperSetDirtyRegion = superSetDirtyRegion;
 
     /// Inherited from QAbstractItemView
     ///
@@ -13050,10 +16014,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` region: QRegion `
     ///
-    pub fn SuperSetDirtyRegion(self: QHeaderView, region: anytype) void {
+    pub fn superSetDirtyRegion(self: QHeaderView, region: anytype) void {
         comptime _ = @TypeOf(region)._is_QRegion;
         qtc.QHeaderView_SuperSetDirtyRegion(@ptrCast(self.ptr), @ptrCast(region.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetDirtyRegion` instead
+    ///
+    pub const OnSetDirtyRegion = onSetDirtyRegion;
 
     /// Inherited from QAbstractItemView
     ///
@@ -13067,9 +16035,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, region: QRegion) callconv(.c) void `
     ///
-    pub fn OnSetDirtyRegion(self: QHeaderView, callback: *const fn (QHeaderView, QRegion) callconv(.c) void) void {
+    pub fn onSetDirtyRegion(self: QHeaderView, callback: *const fn (QHeaderView, QRegion) callconv(.c) void) void {
         qtc.QHeaderView_OnSetDirtyRegion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `scrollDirtyRegion` instead
+    ///
+    pub const ScrollDirtyRegion = scrollDirtyRegion;
 
     /// Inherited from QAbstractItemView
     ///
@@ -13085,13 +16057,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn ScrollDirtyRegion(self: QHeaderView, dx: i32, dy: i32) void {
+    pub fn scrollDirtyRegion(self: QHeaderView, dx: i32, dy: i32) void {
         qtc.QHeaderView_ScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
-    /// ### DEPRECATED: Use `SuperScrollDirtyRegion` instead
+    /// ### DEPRECATED: Use `superScrollDirtyRegion` instead
     ///
-    pub const QBaseScrollDirtyRegion = SuperScrollDirtyRegion;
+    pub const SuperScrollDirtyRegion = superScrollDirtyRegion;
 
     /// Inherited from QAbstractItemView
     ///
@@ -13107,9 +16079,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn SuperScrollDirtyRegion(self: QHeaderView, dx: i32, dy: i32) void {
+    pub fn superScrollDirtyRegion(self: QHeaderView, dx: i32, dy: i32) void {
         qtc.QHeaderView_SuperScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `onScrollDirtyRegion` instead
+    ///
+    pub const OnScrollDirtyRegion = onScrollDirtyRegion;
 
     /// Inherited from QAbstractItemView
     ///
@@ -13123,9 +16099,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, dx: i32, dy: i32) callconv(.c) void `
     ///
-    pub fn OnScrollDirtyRegion(self: QHeaderView, callback: *const fn (QHeaderView, i32, i32) callconv(.c) void) void {
+    pub fn onScrollDirtyRegion(self: QHeaderView, callback: *const fn (QHeaderView, i32, i32) callconv(.c) void) void {
         qtc.QHeaderView_OnScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dirtyRegionOffset` instead
+    ///
+    pub const DirtyRegionOffset = dirtyRegionOffset;
 
     /// Inherited from QAbstractItemView
     ///
@@ -13137,13 +16117,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn DirtyRegionOffset(self: QHeaderView) QPoint {
+    pub fn dirtyRegionOffset(self: QHeaderView) QPoint {
         return .{ .ptr = qtc.QHeaderView_DirtyRegionOffset(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperDirtyRegionOffset` instead
+    /// ### DEPRECATED: Use `superDirtyRegionOffset` instead
     ///
-    pub const QBaseDirtyRegionOffset = SuperDirtyRegionOffset;
+    pub const SuperDirtyRegionOffset = superDirtyRegionOffset;
 
     /// Inherited from QAbstractItemView
     ///
@@ -13155,9 +16135,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SuperDirtyRegionOffset(self: QHeaderView) QPoint {
+    pub fn superDirtyRegionOffset(self: QHeaderView) QPoint {
         return .{ .ptr = qtc.QHeaderView_SuperDirtyRegionOffset(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onDirtyRegionOffset` instead
+    ///
+    pub const OnDirtyRegionOffset = onDirtyRegionOffset;
 
     /// Inherited from QAbstractItemView
     ///
@@ -13173,10 +16157,14 @@ pub const QHeaderView = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnDirtyRegionOffset(self: QHeaderView, callback: *const fn () callconv(.c) QPoint) void {
+    pub fn onDirtyRegionOffset(self: QHeaderView, callback: *const fn () callconv(.c) QPoint) void {
         qtc.QHeaderView_OnDirtyRegionOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `startAutoScroll` instead
+    ///
+    pub const StartAutoScroll = startAutoScroll;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
@@ -13187,13 +16175,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn StartAutoScroll(self: QHeaderView) void {
+    pub fn startAutoScroll(self: QHeaderView) void {
         qtc.QHeaderView_StartAutoScroll(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperStartAutoScroll` instead
+    /// ### DEPRECATED: Use `superStartAutoScroll` instead
     ///
-    pub const QBaseStartAutoScroll = SuperStartAutoScroll;
+    pub const SuperStartAutoScroll = superStartAutoScroll;
 
     /// Inherited from QAbstractItemView
     ///
@@ -13205,10 +16193,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SuperStartAutoScroll(self: QHeaderView) void {
+    pub fn superStartAutoScroll(self: QHeaderView) void {
         qtc.QHeaderView_SuperStartAutoScroll(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onStartAutoScroll` instead
+    ///
+    pub const OnStartAutoScroll = onStartAutoScroll;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
@@ -13221,10 +16213,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnStartAutoScroll(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
+    pub fn onStartAutoScroll(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
         qtc.QHeaderView_OnStartAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `stopAutoScroll` instead
+    ///
+    pub const StopAutoScroll = stopAutoScroll;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
@@ -13235,13 +16231,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn StopAutoScroll(self: QHeaderView) void {
+    pub fn stopAutoScroll(self: QHeaderView) void {
         qtc.QHeaderView_StopAutoScroll(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperStopAutoScroll` instead
+    /// ### DEPRECATED: Use `superStopAutoScroll` instead
     ///
-    pub const QBaseStopAutoScroll = SuperStopAutoScroll;
+    pub const SuperStopAutoScroll = superStopAutoScroll;
 
     /// Inherited from QAbstractItemView
     ///
@@ -13253,10 +16249,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SuperStopAutoScroll(self: QHeaderView) void {
+    pub fn superStopAutoScroll(self: QHeaderView) void {
         qtc.QHeaderView_SuperStopAutoScroll(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onStopAutoScroll` instead
+    ///
+    pub const OnStopAutoScroll = onStopAutoScroll;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
@@ -13269,9 +16269,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnStopAutoScroll(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
+    pub fn onStopAutoScroll(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
         qtc.QHeaderView_OnStopAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `doAutoScroll` instead
+    ///
+    pub const DoAutoScroll = doAutoScroll;
 
     /// Inherited from QAbstractItemView
     ///
@@ -13283,13 +16287,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn DoAutoScroll(self: QHeaderView) void {
+    pub fn doAutoScroll(self: QHeaderView) void {
         qtc.QHeaderView_DoAutoScroll(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDoAutoScroll` instead
+    /// ### DEPRECATED: Use `superDoAutoScroll` instead
     ///
-    pub const QBaseDoAutoScroll = SuperDoAutoScroll;
+    pub const SuperDoAutoScroll = superDoAutoScroll;
 
     /// Inherited from QAbstractItemView
     ///
@@ -13301,9 +16305,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SuperDoAutoScroll(self: QHeaderView) void {
+    pub fn superDoAutoScroll(self: QHeaderView) void {
         qtc.QHeaderView_SuperDoAutoScroll(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDoAutoScroll` instead
+    ///
+    pub const OnDoAutoScroll = onDoAutoScroll;
 
     /// Inherited from QAbstractItemView
     ///
@@ -13317,9 +16325,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDoAutoScroll(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
+    pub fn onDoAutoScroll(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
         qtc.QHeaderView_OnDoAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropIndicatorPosition` instead
+    ///
+    pub const DropIndicatorPosition = dropIndicatorPosition;
 
     /// Inherited from QAbstractItemView
     ///
@@ -13335,13 +16347,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` qabstractitemview_enums.DropIndicatorPosition `
     ///
-    pub fn DropIndicatorPosition(self: QHeaderView) i32 {
+    pub fn dropIndicatorPosition(self: QHeaderView) i32 {
         return qtc.QHeaderView_DropIndicatorPosition(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropIndicatorPosition` instead
+    /// ### DEPRECATED: Use `superDropIndicatorPosition` instead
     ///
-    pub const QBaseDropIndicatorPosition = SuperDropIndicatorPosition;
+    pub const SuperDropIndicatorPosition = superDropIndicatorPosition;
 
     /// Inherited from QAbstractItemView
     ///
@@ -13357,9 +16369,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` qabstractitemview_enums.DropIndicatorPosition `
     ///
-    pub fn SuperDropIndicatorPosition(self: QHeaderView) i32 {
+    pub fn superDropIndicatorPosition(self: QHeaderView) i32 {
         return qtc.QHeaderView_SuperDropIndicatorPosition(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropIndicatorPosition` instead
+    ///
+    pub const OnDropIndicatorPosition = onDropIndicatorPosition;
 
     /// Inherited from QAbstractItemView
     ///
@@ -13373,9 +16389,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDropIndicatorPosition(self: QHeaderView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDropIndicatorPosition(self: QHeaderView, callback: *const fn () callconv(.c) i32) void {
         qtc.QHeaderView_OnDropIndicatorPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setViewportMargins` instead
+    ///
+    pub const SetViewportMargins = setViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -13395,13 +16415,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetViewportMargins(self: QHeaderView, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setViewportMargins(self: QHeaderView, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QHeaderView_SetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
-    /// ### DEPRECATED: Use `SuperSetViewportMargins` instead
+    /// ### DEPRECATED: Use `superSetViewportMargins` instead
     ///
-    pub const QBaseSetViewportMargins = SuperSetViewportMargins;
+    pub const SuperSetViewportMargins = superSetViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -13421,9 +16441,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SuperSetViewportMargins(self: QHeaderView, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn superSetViewportMargins(self: QHeaderView, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QHeaderView_SuperSetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `onSetViewportMargins` instead
+    ///
+    pub const OnSetViewportMargins = onSetViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -13437,9 +16461,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void `
     ///
-    pub fn OnSetViewportMargins(self: QHeaderView, callback: *const fn (QHeaderView, i32, i32, i32, i32) callconv(.c) void) void {
+    pub fn onSetViewportMargins(self: QHeaderView, callback: *const fn (QHeaderView, i32, i32, i32, i32) callconv(.c) void) void {
         qtc.QHeaderView_OnSetViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `viewportMargins` instead
+    ///
+    pub const ViewportMargins = viewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -13451,13 +16479,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn ViewportMargins(self: QHeaderView) QMargins {
+    pub fn viewportMargins(self: QHeaderView) QMargins {
         return .{ .ptr = qtc.QHeaderView_ViewportMargins(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperViewportMargins` instead
+    /// ### DEPRECATED: Use `superViewportMargins` instead
     ///
-    pub const QBaseViewportMargins = SuperViewportMargins;
+    pub const SuperViewportMargins = superViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -13469,9 +16497,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SuperViewportMargins(self: QHeaderView) QMargins {
+    pub fn superViewportMargins(self: QHeaderView) QMargins {
         return .{ .ptr = qtc.QHeaderView_SuperViewportMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onViewportMargins` instead
+    ///
+    pub const OnViewportMargins = onViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -13487,9 +16519,13 @@ pub const QHeaderView = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnViewportMargins(self: QHeaderView, callback: *const fn () callconv(.c) QMargins) void {
+    pub fn onViewportMargins(self: QHeaderView, callback: *const fn () callconv(.c) QMargins) void {
         qtc.QHeaderView_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `drawFrame` instead
+    ///
+    pub const DrawFrame = drawFrame;
 
     /// Inherited from QFrame
     ///
@@ -13503,14 +16539,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param1: QPainter `
     ///
-    pub fn DrawFrame(self: QHeaderView, param1: anytype) void {
+    pub fn drawFrame(self: QHeaderView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPainter;
         qtc.QHeaderView_DrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawFrame` instead
+    /// ### DEPRECATED: Use `superDrawFrame` instead
     ///
-    pub const QBaseDrawFrame = SuperDrawFrame;
+    pub const SuperDrawFrame = superDrawFrame;
 
     /// Inherited from QFrame
     ///
@@ -13524,10 +16560,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` param1: QPainter `
     ///
-    pub fn SuperDrawFrame(self: QHeaderView, param1: anytype) void {
+    pub fn superDrawFrame(self: QHeaderView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPainter;
         qtc.QHeaderView_SuperDrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDrawFrame` instead
+    ///
+    pub const OnDrawFrame = onDrawFrame;
 
     /// Inherited from QFrame
     ///
@@ -13541,10 +16581,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, param1: QPainter) callconv(.c) void `
     ///
-    pub fn OnDrawFrame(self: QHeaderView, callback: *const fn (QHeaderView, QPainter) callconv(.c) void) void {
+    pub fn onDrawFrame(self: QHeaderView, callback: *const fn (QHeaderView, QPainter) callconv(.c) void) void {
         qtc.QHeaderView_OnDrawFrame(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -13555,13 +16599,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn UpdateMicroFocus(self: QHeaderView) void {
+    pub fn updateMicroFocus(self: QHeaderView) void {
         qtc.QHeaderView_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -13573,10 +16617,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SuperUpdateMicroFocus(self: QHeaderView) void {
+    pub fn superUpdateMicroFocus(self: QHeaderView) void {
         qtc.QHeaderView_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -13589,10 +16637,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
         qtc.QHeaderView_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -13603,13 +16655,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn Create(self: QHeaderView) void {
+    pub fn create(self: QHeaderView) void {
         qtc.QHeaderView_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -13621,10 +16673,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SuperCreate(self: QHeaderView) void {
+    pub fn superCreate(self: QHeaderView) void {
         qtc.QHeaderView_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -13637,9 +16693,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
         qtc.QHeaderView_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -13651,13 +16711,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn Destroy(self: QHeaderView) void {
+    pub fn destroy(self: QHeaderView) void {
         qtc.QHeaderView_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -13669,9 +16729,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SuperDestroy(self: QHeaderView) void {
+    pub fn superDestroy(self: QHeaderView) void {
         qtc.QHeaderView_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -13685,10 +16749,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
         qtc.QHeaderView_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -13699,13 +16767,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn FocusNextChild(self: QHeaderView) bool {
+    pub fn focusNextChild(self: QHeaderView) bool {
         return qtc.QHeaderView_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -13717,10 +16785,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SuperFocusNextChild(self: QHeaderView) bool {
+    pub fn superFocusNextChild(self: QHeaderView) bool {
         return qtc.QHeaderView_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -13733,9 +16805,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: QHeaderView, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: QHeaderView, callback: *const fn () callconv(.c) bool) void {
         qtc.QHeaderView_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -13747,13 +16823,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn FocusPreviousChild(self: QHeaderView) bool {
+    pub fn focusPreviousChild(self: QHeaderView) bool {
         return qtc.QHeaderView_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -13765,9 +16841,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SuperFocusPreviousChild(self: QHeaderView) bool {
+    pub fn superFocusPreviousChild(self: QHeaderView) bool {
         return qtc.QHeaderView_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -13781,9 +16861,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: QHeaderView, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: QHeaderView, callback: *const fn () callconv(.c) bool) void {
         qtc.QHeaderView_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -13795,13 +16879,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn Sender(self: QHeaderView) QObject {
+    pub fn sender(self: QHeaderView) QObject {
         return .{ .ptr = qtc.QHeaderView_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -13813,9 +16897,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SuperSender(self: QHeaderView) QObject {
+    pub fn superSender(self: QHeaderView) QObject {
         return .{ .ptr = qtc.QHeaderView_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -13829,9 +16917,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QHeaderView, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QHeaderView, callback: *const fn () callconv(.c) QObject) void {
         qtc.QHeaderView_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -13843,13 +16935,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SenderSignalIndex(self: QHeaderView) i32 {
+    pub fn senderSignalIndex(self: QHeaderView) i32 {
         return qtc.QHeaderView_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -13861,9 +16953,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn SuperSenderSignalIndex(self: QHeaderView) i32 {
+    pub fn superSenderSignalIndex(self: QHeaderView) i32 {
         return qtc.QHeaderView_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -13877,9 +16973,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QHeaderView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QHeaderView, callback: *const fn () callconv(.c) i32) void {
         qtc.QHeaderView_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -13893,14 +16993,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QHeaderView, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QHeaderView, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QHeaderView_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -13914,10 +17014,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QHeaderView, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QHeaderView, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QHeaderView_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -13931,9 +17035,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QHeaderView, callback: *const fn (QHeaderView, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QHeaderView, callback: *const fn (QHeaderView, [*:0]const u8) callconv(.c) i32) void {
         qtc.QHeaderView_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -13947,14 +17055,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QHeaderView, signal: anytype) bool {
+    pub fn isSignalConnected(self: QHeaderView, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QHeaderView_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -13968,10 +17076,14 @@ pub const QHeaderView = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QHeaderView, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QHeaderView, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QHeaderView_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -13985,9 +17097,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QHeaderView, callback: *const fn (QHeaderView, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QHeaderView, callback: *const fn (QHeaderView, QMetaMethod) callconv(.c) bool) void {
         qtc.QHeaderView_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -14003,13 +17119,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: QHeaderView, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: QHeaderView, metricA: i32, metricB: i32) f64 {
         return qtc.QHeaderView_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -14025,9 +17141,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: QHeaderView, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: QHeaderView, metricA: i32, metricB: i32) f64 {
         return qtc.QHeaderView_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -14041,9 +17161,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: QHeaderView, callback: *const fn (QHeaderView, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: QHeaderView, callback: *const fn (QHeaderView, i32, i32) callconv(.c) f64) void {
         qtc.QHeaderView_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -14057,23 +17181,23 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QHeaderView, callback: *const fn (QHeaderView, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QHeaderView, callback: *const fn (QHeaderView, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#dtor.QHeaderView)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QHeaderView `
     ///
-    pub fn Delete(self: QHeaderView) void {
+    pub fn delete(self: QHeaderView) void {
         qtc.QHeaderView_Delete(@ptrCast(self.ptr));
     }
 };

@@ -14,22 +14,34 @@ pub const QWebEngineScript = extern struct {
 
     pub const _is_QWebEngineScript = {};
 
-    /// New constructs a new QWebEngineScript object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QWebEngineScript {
+    pub const New = new;
+
+    /// Allocate a new QWebEngineScript object in C++ memory
+    ///
+    pub fn new() QWebEngineScript {
         return .{ .ptr = qtc.QWebEngineScript_new() };
     }
 
-    /// New2 constructs a new QWebEngineScript object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QWebEngineScript object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QWebEngineScript `
     ///
-    pub fn New2(other: anytype) QWebEngineScript {
+    pub fn new2(other: anytype) QWebEngineScript {
         comptime _ = @TypeOf(other)._is_QWebEngineScript;
         return .{ .ptr = qtc.QWebEngineScript_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginescript.html#operator-eq)
     ///
@@ -39,10 +51,14 @@ pub const QWebEngineScript = extern struct {
     ///
     /// ` other: QWebEngineScript `
     ///
-    pub fn OperatorAssign(self: QWebEngineScript, other: anytype) void {
+    pub fn operatorAssign(self: QWebEngineScript, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QWebEngineScript;
         qtc.QWebEngineScript_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginescript.html#name)
     ///
@@ -52,13 +68,17 @@ pub const QWebEngineScript = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: QWebEngineScript, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: QWebEngineScript, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWebEngineScript_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineScript.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineScript.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setName` instead
+    ///
+    pub const SetName = setName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginescript.html#setName)
     ///
@@ -66,15 +86,19 @@ pub const QWebEngineScript = extern struct {
     ///
     /// ` self: QWebEngineScript `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn SetName(self: QWebEngineScript, name: []const u8) void {
+    pub fn setName(self: QWebEngineScript, _name: []const u8) void {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         qtc.QWebEngineScript_SetName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `sourceUrl` instead
+    ///
+    pub const SourceUrl = sourceUrl;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginescript.html#sourceUrl)
     ///
@@ -82,9 +106,13 @@ pub const QWebEngineScript = extern struct {
     ///
     /// ` self: QWebEngineScript `
     ///
-    pub fn SourceUrl(self: QWebEngineScript) QUrl {
+    pub fn sourceUrl(self: QWebEngineScript) QUrl {
         return .{ .ptr = qtc.QWebEngineScript_SourceUrl(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSourceUrl` instead
+    ///
+    pub const SetSourceUrl = setSourceUrl;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginescript.html#setSourceUrl)
     ///
@@ -94,10 +122,14 @@ pub const QWebEngineScript = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn SetSourceUrl(self: QWebEngineScript, url: anytype) void {
+    pub fn setSourceUrl(self: QWebEngineScript, url: anytype) void {
         comptime _ = @TypeOf(url)._is_QUrl;
         qtc.QWebEngineScript_SetSourceUrl(@ptrCast(self.ptr), @ptrCast(url.ptr));
     }
+
+    /// ### DEPRECATED: Use `sourceCode` instead
+    ///
+    pub const SourceCode = sourceCode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginescript.html#sourceCode)
     ///
@@ -107,13 +139,17 @@ pub const QWebEngineScript = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SourceCode(self: QWebEngineScript, allocator: std.mem.Allocator) []const u8 {
+    pub fn sourceCode(self: QWebEngineScript, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWebEngineScript_SourceCode(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineScript.SourceCode: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineScript.sourceCode: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setSourceCode` instead
+    ///
+    pub const SetSourceCode = setSourceCode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginescript.html#setSourceCode)
     ///
@@ -121,15 +157,19 @@ pub const QWebEngineScript = extern struct {
     ///
     /// ` self: QWebEngineScript `
     ///
-    /// ` sourceCode: []const u8 `
+    /// ` _sourceCode: []const u8 `
     ///
-    pub fn SetSourceCode(self: QWebEngineScript, sourceCode: []const u8) void {
+    pub fn setSourceCode(self: QWebEngineScript, _sourceCode: []const u8) void {
         const sourceCode_str = qtc.libqt_string{
-            .len = sourceCode.len,
-            .data = sourceCode.ptr,
+            .len = _sourceCode.len,
+            .data = _sourceCode.ptr,
         };
         qtc.QWebEngineScript_SetSourceCode(@ptrCast(self.ptr), sourceCode_str);
     }
+
+    /// ### DEPRECATED: Use `injectionPoint` instead
+    ///
+    pub const InjectionPoint = injectionPoint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginescript.html#injectionPoint)
     ///
@@ -141,9 +181,13 @@ pub const QWebEngineScript = extern struct {
     ///
     /// ` qwebenginescript_enums.InjectionPoint `
     ///
-    pub fn InjectionPoint(self: QWebEngineScript) i32 {
+    pub fn injectionPoint(self: QWebEngineScript) i32 {
         return qtc.QWebEngineScript_InjectionPoint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInjectionPoint` instead
+    ///
+    pub const SetInjectionPoint = setInjectionPoint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginescript.html#setInjectionPoint)
     ///
@@ -151,11 +195,15 @@ pub const QWebEngineScript = extern struct {
     ///
     /// ` self: QWebEngineScript `
     ///
-    /// ` injectionPoint: qwebenginescript_enums.InjectionPoint `
+    /// ` _injectionPoint: qwebenginescript_enums.InjectionPoint `
     ///
-    pub fn SetInjectionPoint(self: QWebEngineScript, injectionPoint: i32) void {
-        qtc.QWebEngineScript_SetInjectionPoint(@ptrCast(self.ptr), @bitCast(injectionPoint));
+    pub fn setInjectionPoint(self: QWebEngineScript, _injectionPoint: i32) void {
+        qtc.QWebEngineScript_SetInjectionPoint(@ptrCast(self.ptr), @bitCast(_injectionPoint));
     }
+
+    /// ### DEPRECATED: Use `worldId` instead
+    ///
+    pub const WorldId = worldId;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginescript.html#worldId)
     ///
@@ -163,9 +211,13 @@ pub const QWebEngineScript = extern struct {
     ///
     /// ` self: QWebEngineScript `
     ///
-    pub fn WorldId(self: QWebEngineScript) u32 {
+    pub fn worldId(self: QWebEngineScript) u32 {
         return qtc.QWebEngineScript_WorldId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWorldId` instead
+    ///
+    pub const SetWorldId = setWorldId;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginescript.html#setWorldId)
     ///
@@ -173,11 +225,15 @@ pub const QWebEngineScript = extern struct {
     ///
     /// ` self: QWebEngineScript `
     ///
-    /// ` worldId: u32 `
+    /// ` _worldId: u32 `
     ///
-    pub fn SetWorldId(self: QWebEngineScript, worldId: u32) void {
-        qtc.QWebEngineScript_SetWorldId(@ptrCast(self.ptr), @bitCast(worldId));
+    pub fn setWorldId(self: QWebEngineScript, _worldId: u32) void {
+        qtc.QWebEngineScript_SetWorldId(@ptrCast(self.ptr), @bitCast(_worldId));
     }
+
+    /// ### DEPRECATED: Use `runsOnSubFrames` instead
+    ///
+    pub const RunsOnSubFrames = runsOnSubFrames;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginescript.html#runsOnSubFrames)
     ///
@@ -185,9 +241,13 @@ pub const QWebEngineScript = extern struct {
     ///
     /// ` self: QWebEngineScript `
     ///
-    pub fn RunsOnSubFrames(self: QWebEngineScript) bool {
+    pub fn runsOnSubFrames(self: QWebEngineScript) bool {
         return qtc.QWebEngineScript_RunsOnSubFrames(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setRunsOnSubFrames` instead
+    ///
+    pub const SetRunsOnSubFrames = setRunsOnSubFrames;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginescript.html#setRunsOnSubFrames)
     ///
@@ -197,9 +257,13 @@ pub const QWebEngineScript = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetRunsOnSubFrames(self: QWebEngineScript, on: bool) void {
+    pub fn setRunsOnSubFrames(self: QWebEngineScript, on: bool) void {
         qtc.QWebEngineScript_SetRunsOnSubFrames(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginescript.html#operator-eq-eq)
     ///
@@ -209,10 +273,14 @@ pub const QWebEngineScript = extern struct {
     ///
     /// ` other: QWebEngineScript `
     ///
-    pub fn OperatorEqual(self: QWebEngineScript, other: anytype) bool {
+    pub fn operatorEqual(self: QWebEngineScript, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QWebEngineScript;
         return qtc.QWebEngineScript_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginescript.html#operator-not-eq)
     ///
@@ -222,10 +290,14 @@ pub const QWebEngineScript = extern struct {
     ///
     /// ` other: QWebEngineScript `
     ///
-    pub fn OperatorNotEqual(self: QWebEngineScript, other: anytype) bool {
+    pub fn operatorNotEqual(self: QWebEngineScript, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QWebEngineScript;
         return qtc.QWebEngineScript_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginescript.html#swap)
     ///
@@ -235,24 +307,24 @@ pub const QWebEngineScript = extern struct {
     ///
     /// ` other: QWebEngineScript `
     ///
-    pub fn Swap(self: QWebEngineScript, other: anytype) void {
+    pub fn swap(self: QWebEngineScript, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QWebEngineScript;
         qtc.QWebEngineScript_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginescript.html#dtor.QWebEngineScript)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QWebEngineScript `
     ///
-    pub fn Delete(self: QWebEngineScript) void {
+    pub fn delete(self: QWebEngineScript) void {
         qtc.QWebEngineScript_Delete(@ptrCast(self.ptr));
     }
 };

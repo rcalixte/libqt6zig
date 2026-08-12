@@ -88,61 +88,85 @@ pub const KUrlRequester = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new KUrlRequester object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KUrlRequester object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) KUrlRequester {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KUrlRequester_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) KUrlRequester {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KUrlRequester_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new KUrlRequester object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() KUrlRequester {
+    pub const New2 = new2;
+
+    /// Allocate a new KUrlRequester object in C++ memory
+    ///
+    pub fn new2() KUrlRequester {
         return .{ .ptr = qtc.KUrlRequester_new2() };
     }
 
-    /// New3 constructs a new KUrlRequester object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new KUrlRequester object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` url: QUrl `
+    /// ` _url: QUrl `
     ///
-    pub fn New3(url: anytype) KUrlRequester {
-        comptime _ = @TypeOf(url)._is_QUrl;
-        return .{ .ptr = qtc.KUrlRequester_new3(@ptrCast(url.ptr)) };
+    pub fn new3(_url: anytype) KUrlRequester {
+        comptime _ = @TypeOf(_url)._is_QUrl;
+        return .{ .ptr = qtc.KUrlRequester_new3(@ptrCast(_url.ptr)) };
     }
 
-    /// New4 constructs a new KUrlRequester object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new KUrlRequester object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` editWidget: QWidget `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New4(editWidget: anytype, parent: anytype) KUrlRequester {
+    pub fn new4(editWidget: anytype, _parent: anytype) KUrlRequester {
         comptime _ = @TypeOf(editWidget)._is_QWidget;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KUrlRequester_new4(@ptrCast(editWidget.ptr), @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KUrlRequester_new4(@ptrCast(editWidget.ptr), @ptrCast(_parent.ptr)) };
     }
 
-    /// New5 constructs a new KUrlRequester object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new KUrlRequester object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` url: QUrl `
+    /// ` _url: QUrl `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New5(url: anytype, parent: anytype) KUrlRequester {
-        comptime _ = @TypeOf(url)._is_QUrl;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KUrlRequester_new5(@ptrCast(url.ptr), @ptrCast(parent.ptr)) };
+    pub fn new5(_url: anytype, _parent: anytype) KUrlRequester {
+        comptime _ = @TypeOf(_url)._is_QUrl;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KUrlRequester_new5(@ptrCast(_url.ptr), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -150,9 +174,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn MetaObject(self: KUrlRequester) QMetaObject {
+    pub fn metaObject(self: KUrlRequester) QMetaObject {
         return .{ .ptr = qtc.KUrlRequester_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -164,13 +192,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KUrlRequester, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KUrlRequester, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KUrlRequester_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -180,9 +208,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn SuperMetaObject(self: KUrlRequester) QMetaObject {
+    pub fn superMetaObject(self: KUrlRequester) QMetaObject {
         return .{ .ptr = qtc.KUrlRequester_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -190,10 +222,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KUrlRequester, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KUrlRequester, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KUrlRequester_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -203,13 +239,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KUrlRequester, callback: *const fn (KUrlRequester, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KUrlRequester, callback: *const fn (KUrlRequester, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KUrlRequester_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -219,10 +255,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KUrlRequester, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KUrlRequester, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KUrlRequester_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -234,9 +274,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KUrlRequester, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KUrlRequester, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KUrlRequester_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -246,13 +290,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KUrlRequester, callback: *const fn (KUrlRequester, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KUrlRequester, callback: *const fn (KUrlRequester, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KUrlRequester_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -266,9 +310,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KUrlRequester, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KUrlRequester, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KUrlRequester_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -278,14 +326,18 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `url` instead
+    ///
+    pub const Url = url;
 
     /// ### [Upstream resources](https://api.kde.org/kurlrequester.html#url)
     ///
@@ -293,9 +345,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn Url(self: KUrlRequester) QUrl {
+    pub fn url(self: KUrlRequester) QUrl {
         return .{ .ptr = qtc.KUrlRequester_Url(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `startDir` instead
+    ///
+    pub const StartDir = startDir;
 
     /// ### [Upstream resources](https://api.kde.org/kurlrequester.html#startDir)
     ///
@@ -303,9 +359,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn StartDir(self: KUrlRequester) QUrl {
+    pub fn startDir(self: KUrlRequester) QUrl {
         return .{ .ptr = qtc.KUrlRequester_StartDir(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `text` instead
+    ///
+    pub const Text = text;
 
     /// ### [Upstream resources](https://api.kde.org/kurlrequester.html#text)
     ///
@@ -315,13 +375,17 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: KUrlRequester, allocator: std.mem.Allocator) []const u8 {
+    pub fn text(self: KUrlRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KUrlRequester_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setMode` instead
+    ///
+    pub const SetMode = setMode;
 
     /// ### [Upstream resources](https://api.kde.org/kurlrequester.html#setMode)
     ///
@@ -329,11 +393,15 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` mode: flag of kfile_enums.Mode `
+    /// ` _mode: flag of kfile_enums.Mode `
     ///
-    pub fn SetMode(self: KUrlRequester, mode: i32) void {
-        qtc.KUrlRequester_SetMode(@ptrCast(self.ptr), @bitCast(mode));
+    pub fn setMode(self: KUrlRequester, _mode: i32) void {
+        qtc.KUrlRequester_SetMode(@ptrCast(self.ptr), @bitCast(_mode));
     }
+
+    /// ### DEPRECATED: Use `mode` instead
+    ///
+    pub const Mode = mode;
 
     /// ### [Upstream resources](https://api.kde.org/kurlrequester.html#mode)
     ///
@@ -345,9 +413,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` flag of kfile_enums.Mode `
     ///
-    pub fn Mode(self: KUrlRequester) i32 {
+    pub fn mode(self: KUrlRequester) i32 {
         return qtc.KUrlRequester_Mode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptMode` instead
+    ///
+    pub const SetAcceptMode = setAcceptMode;
 
     /// ### [Upstream resources](https://api.kde.org/kurlrequester.html#setAcceptMode)
     ///
@@ -357,9 +429,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` m: qfiledialog_enums.AcceptMode `
     ///
-    pub fn SetAcceptMode(self: KUrlRequester, m: i32) void {
+    pub fn setAcceptMode(self: KUrlRequester, m: i32) void {
         qtc.KUrlRequester_SetAcceptMode(@ptrCast(self.ptr), @bitCast(m));
     }
+
+    /// ### DEPRECATED: Use `acceptMode` instead
+    ///
+    pub const AcceptMode = acceptMode;
 
     /// ### [Upstream resources](https://api.kde.org/kurlrequester.html#acceptMode)
     ///
@@ -371,9 +447,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` qfiledialog_enums.AcceptMode `
     ///
-    pub fn AcceptMode(self: KUrlRequester) i32 {
+    pub fn acceptMode(self: KUrlRequester) i32 {
         return qtc.KUrlRequester_AcceptMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setNameFilters` instead
+    ///
+    pub const SetNameFilters = setNameFilters;
 
     /// ### [Upstream resources](https://api.kde.org/kurlrequester.html#setNameFilters)
     ///
@@ -385,13 +465,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` filters: []const []const u8 `
     ///
-    pub fn SetNameFilters(self: KUrlRequester, allocator: std.mem.Allocator, filters: []const []const u8) void {
-        const filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("KUrlRequester.SetNameFilters: Memory allocation failed");
+    pub fn setNameFilters(self: KUrlRequester, allocator: std.mem.Allocator, filters: []const []const u8) void {
+        const filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("KUrlRequester.setNameFilters: Memory allocation failed");
         defer allocator.free(filters_arr);
-        for (filters, 0..filters.len) |item, i|
+        for (filters, 0..filters.len) |str_item, i|
             filters_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const filters_list = qtc.libqt_list{
             .len = filters.len,
@@ -399,6 +479,10 @@ pub const KUrlRequester = extern struct {
         };
         qtc.KUrlRequester_SetNameFilters(@ptrCast(self.ptr), filters_list);
     }
+
+    /// ### DEPRECATED: Use `setNameFilter` instead
+    ///
+    pub const SetNameFilter = setNameFilter;
 
     /// ### [Upstream resources](https://api.kde.org/kurlrequester.html#setNameFilter)
     ///
@@ -408,13 +492,17 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` filter: []const u8 `
     ///
-    pub fn SetNameFilter(self: KUrlRequester, filter: []const u8) void {
+    pub fn setNameFilter(self: KUrlRequester, filter: []const u8) void {
         const filter_str = qtc.libqt_string{
             .len = filter.len,
             .data = filter.ptr,
         };
         qtc.KUrlRequester_SetNameFilter(@ptrCast(self.ptr), filter_str);
     }
+
+    /// ### DEPRECATED: Use `nameFilters` instead
+    ///
+    pub const NameFilters = nameFilters;
 
     /// ### [Upstream resources](https://api.kde.org/kurlrequester.html#nameFilters)
     ///
@@ -424,7 +512,7 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NameFilters(self: KUrlRequester, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn nameFilters(self: KUrlRequester, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KUrlRequester_NameFilters(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -432,15 +520,19 @@ pub const KUrlRequester = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUrlRequester.NameFilters: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUrlRequester.nameFilters: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUrlRequester.NameFilters: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KUrlRequester.nameFilters: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setMimeTypeFilters` instead
+    ///
+    pub const SetMimeTypeFilters = setMimeTypeFilters;
 
     /// ### [Upstream resources](https://api.kde.org/kurlrequester.html#setMimeTypeFilters)
     ///
@@ -452,13 +544,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` mimeTypes: []const []const u8 `
     ///
-    pub fn SetMimeTypeFilters(self: KUrlRequester, allocator: std.mem.Allocator, mimeTypes: []const []const u8) void {
-        const mimeTypes_arr = allocator.alloc(qtc.libqt_string, mimeTypes.len) catch @panic("KUrlRequester.SetMimeTypeFilters: Memory allocation failed");
+    pub fn setMimeTypeFilters(self: KUrlRequester, allocator: std.mem.Allocator, mimeTypes: []const []const u8) void {
+        const mimeTypes_arr = allocator.alloc(qtc.libqt_string, mimeTypes.len) catch @panic("KUrlRequester.setMimeTypeFilters: Memory allocation failed");
         defer allocator.free(mimeTypes_arr);
-        for (mimeTypes, 0..mimeTypes.len) |item, i|
+        for (mimeTypes, 0..mimeTypes.len) |str_item, i|
             mimeTypes_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const mimeTypes_list = qtc.libqt_list{
             .len = mimeTypes.len,
@@ -466,6 +558,10 @@ pub const KUrlRequester = extern struct {
         };
         qtc.KUrlRequester_SetMimeTypeFilters(@ptrCast(self.ptr), mimeTypes_list);
     }
+
+    /// ### DEPRECATED: Use `mimeTypeFilters` instead
+    ///
+    pub const MimeTypeFilters = mimeTypeFilters;
 
     /// ### [Upstream resources](https://api.kde.org/kurlrequester.html#mimeTypeFilters)
     ///
@@ -475,7 +571,7 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimeTypeFilters(self: KUrlRequester, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn mimeTypeFilters(self: KUrlRequester, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KUrlRequester_MimeTypeFilters(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -483,15 +579,19 @@ pub const KUrlRequester = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUrlRequester.MimeTypeFilters: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUrlRequester.mimeTypeFilters: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUrlRequester.MimeTypeFilters: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KUrlRequester.mimeTypeFilters: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `fileDialog` instead
+    ///
+    pub const FileDialog = fileDialog;
 
     /// ### [Upstream resources](https://api.kde.org/kurlrequester.html#fileDialog)
     ///
@@ -499,9 +599,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn FileDialog(self: KUrlRequester) QFileDialog {
+    pub fn fileDialog(self: KUrlRequester) QFileDialog {
         return .{ .ptr = qtc.KUrlRequester_FileDialog(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onFileDialog` instead
+    ///
+    pub const OnFileDialog = onFileDialog;
 
     /// ### [Upstream resources](https://api.kde.org/kurlrequester.html#fileDialog)
     ///
@@ -513,13 +617,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QFileDialog `
     ///
-    pub fn OnFileDialog(self: KUrlRequester, callback: *const fn () callconv(.c) QFileDialog) void {
+    pub fn onFileDialog(self: KUrlRequester, callback: *const fn () callconv(.c) QFileDialog) void {
         qtc.KUrlRequester_OnFileDialog(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperFileDialog` instead
+    /// ### DEPRECATED: Use `superFileDialog` instead
     ///
-    pub const QBaseFileDialog = SuperFileDialog;
+    pub const SuperFileDialog = superFileDialog;
 
     /// ### [Upstream resources](https://api.kde.org/kurlrequester.html#fileDialog)
     ///
@@ -529,9 +633,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn SuperFileDialog(self: KUrlRequester) QFileDialog {
+    pub fn superFileDialog(self: KUrlRequester) QFileDialog {
         return .{ .ptr = qtc.KUrlRequester_SuperFileDialog(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lineEdit` instead
+    ///
+    pub const LineEdit = lineEdit;
 
     /// ### [Upstream resources](https://api.kde.org/kurlrequester.html#lineEdit)
     ///
@@ -539,9 +647,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn LineEdit(self: KUrlRequester) KLineEdit {
+    pub fn lineEdit(self: KUrlRequester) KLineEdit {
         return .{ .ptr = qtc.KUrlRequester_LineEdit(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `comboBox` instead
+    ///
+    pub const ComboBox = comboBox;
 
     /// ### [Upstream resources](https://api.kde.org/kurlrequester.html#comboBox)
     ///
@@ -549,9 +661,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn ComboBox(self: KUrlRequester) KComboBox {
+    pub fn comboBox(self: KUrlRequester) KComboBox {
         return .{ .ptr = qtc.KUrlRequester_ComboBox(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `button` instead
+    ///
+    pub const Button = button;
 
     /// ### [Upstream resources](https://api.kde.org/kurlrequester.html#button)
     ///
@@ -559,9 +675,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn Button(self: KUrlRequester) QPushButton {
+    pub fn button(self: KUrlRequester) QPushButton {
         return .{ .ptr = qtc.KUrlRequester_Button(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `completionObject` instead
+    ///
+    pub const CompletionObject = completionObject;
 
     /// ### [Upstream resources](https://api.kde.org/kurlrequester.html#completionObject)
     ///
@@ -569,9 +689,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn CompletionObject(self: KUrlRequester) KUrlCompletion {
+    pub fn completionObject(self: KUrlRequester) KUrlCompletion {
         return .{ .ptr = qtc.KUrlRequester_CompletionObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `customEditor` instead
+    ///
+    pub const CustomEditor = customEditor;
 
     /// ### [Upstream resources](https://api.kde.org/kurlrequester.html#customEditor)
     ///
@@ -579,9 +703,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn CustomEditor(self: KUrlRequester) KEditListWidget__CustomEditor {
+    pub fn customEditor(self: KUrlRequester) KEditListWidget__CustomEditor {
         return .{ .ptr = qtc.KUrlRequester_CustomEditor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `placeholderText` instead
+    ///
+    pub const PlaceholderText = placeholderText;
 
     /// ### [Upstream resources](https://api.kde.org/kurlrequester.html#placeholderText)
     ///
@@ -591,13 +719,17 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PlaceholderText(self: KUrlRequester, allocator: std.mem.Allocator) []const u8 {
+    pub fn placeholderText(self: KUrlRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KUrlRequester_PlaceholderText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.PlaceholderText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.placeholderText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setPlaceholderText` instead
+    ///
+    pub const SetPlaceholderText = setPlaceholderText;
 
     /// ### [Upstream resources](https://api.kde.org/kurlrequester.html#setPlaceholderText)
     ///
@@ -607,13 +739,17 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` msg: []const u8 `
     ///
-    pub fn SetPlaceholderText(self: KUrlRequester, msg: []const u8) void {
+    pub fn setPlaceholderText(self: KUrlRequester, msg: []const u8) void {
         const msg_str = qtc.libqt_string{
             .len = msg.len,
             .data = msg.ptr,
         };
         qtc.KUrlRequester_SetPlaceholderText(@ptrCast(self.ptr), msg_str);
     }
+
+    /// ### DEPRECATED: Use `fileDialogModality` instead
+    ///
+    pub const FileDialogModality = fileDialogModality;
 
     /// ### [Upstream resources](https://api.kde.org/kurlrequester.html#fileDialogModality)
     ///
@@ -625,9 +761,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn FileDialogModality(self: KUrlRequester) i32 {
+    pub fn fileDialogModality(self: KUrlRequester) i32 {
         return qtc.KUrlRequester_FileDialogModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFileDialogModality` instead
+    ///
+    pub const SetFileDialogModality = setFileDialogModality;
 
     /// ### [Upstream resources](https://api.kde.org/kurlrequester.html#setFileDialogModality)
     ///
@@ -637,9 +777,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` modality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetFileDialogModality(self: KUrlRequester, modality: i32) void {
+    pub fn setFileDialogModality(self: KUrlRequester, modality: i32) void {
         qtc.KUrlRequester_SetFileDialogModality(@ptrCast(self.ptr), @bitCast(modality));
     }
+
+    /// ### DEPRECATED: Use `setUrl` instead
+    ///
+    pub const SetUrl = setUrl;
 
     /// ### [Upstream resources](https://api.kde.org/kurlrequester.html#setUrl)
     ///
@@ -647,12 +791,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` url: QUrl `
+    /// ` _url: QUrl `
     ///
-    pub fn SetUrl(self: KUrlRequester, url: anytype) void {
-        comptime _ = @TypeOf(url)._is_QUrl;
-        qtc.KUrlRequester_SetUrl(@ptrCast(self.ptr), @ptrCast(url.ptr));
+    pub fn setUrl(self: KUrlRequester, _url: anytype) void {
+        comptime _ = @TypeOf(_url)._is_QUrl;
+        qtc.KUrlRequester_SetUrl(@ptrCast(self.ptr), @ptrCast(_url.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStartDir` instead
+    ///
+    pub const SetStartDir = setStartDir;
 
     /// ### [Upstream resources](https://api.kde.org/kurlrequester.html#setStartDir)
     ///
@@ -660,12 +808,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` startDir: QUrl `
+    /// ` _startDir: QUrl `
     ///
-    pub fn SetStartDir(self: KUrlRequester, startDir: anytype) void {
-        comptime _ = @TypeOf(startDir)._is_QUrl;
-        qtc.KUrlRequester_SetStartDir(@ptrCast(self.ptr), @ptrCast(startDir.ptr));
+    pub fn setStartDir(self: KUrlRequester, _startDir: anytype) void {
+        comptime _ = @TypeOf(_startDir)._is_QUrl;
+        qtc.KUrlRequester_SetStartDir(@ptrCast(self.ptr), @ptrCast(_startDir.ptr));
     }
+
+    /// ### DEPRECATED: Use `setText` instead
+    ///
+    pub const SetText = setText;
 
     /// ### [Upstream resources](https://api.kde.org/kurlrequester.html#setText)
     ///
@@ -673,15 +825,19 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn SetText(self: KUrlRequester, text: []const u8) void {
+    pub fn setText(self: KUrlRequester, _text: []const u8) void {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.KUrlRequester_SetText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// ### [Upstream resources](https://api.kde.org/kurlrequester.html#clear)
     ///
@@ -689,9 +845,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn Clear(self: KUrlRequester) void {
+    pub fn clear(self: KUrlRequester) void {
         qtc.KUrlRequester_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `textChanged` instead
+    ///
+    pub const TextChanged = textChanged;
 
     /// ### [Upstream resources](https://api.kde.org/kurlrequester.html#textChanged)
     ///
@@ -701,7 +861,7 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn TextChanged(self: KUrlRequester, param1: []const u8) void {
+    pub fn textChanged(self: KUrlRequester, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -709,6 +869,10 @@ pub const KUrlRequester = extern struct {
         qtc.KUrlRequester_TextChanged(@ptrCast(self.ptr), param1_str);
     }
 
+    /// ### DEPRECATED: Use `onTextChanged` instead
+    ///
+    pub const OnTextChanged = onTextChanged;
+
     /// ### [Upstream resources](https://api.kde.org/kurlrequester.html#textChanged)
     ///
     /// ## Parameters:
@@ -717,9 +881,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnTextChanged(self: KUrlRequester, callback: *const fn (KUrlRequester, [*:0]const u8) callconv(.c) void) void {
+    pub fn onTextChanged(self: KUrlRequester, callback: *const fn (KUrlRequester, [*:0]const u8) callconv(.c) void) void {
         qtc.KUrlRequester_Connect_TextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `textEdited` instead
+    ///
+    pub const TextEdited = textEdited;
 
     /// ### [Upstream resources](https://api.kde.org/kurlrequester.html#textEdited)
     ///
@@ -729,13 +897,17 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn TextEdited(self: KUrlRequester, param1: []const u8) void {
+    pub fn textEdited(self: KUrlRequester, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
         qtc.KUrlRequester_TextEdited(@ptrCast(self.ptr), param1_str);
     }
+
+    /// ### DEPRECATED: Use `onTextEdited` instead
+    ///
+    pub const OnTextEdited = onTextEdited;
 
     /// ### [Upstream resources](https://api.kde.org/kurlrequester.html#textEdited)
     ///
@@ -745,9 +917,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnTextEdited(self: KUrlRequester, callback: *const fn (KUrlRequester, [*:0]const u8) callconv(.c) void) void {
+    pub fn onTextEdited(self: KUrlRequester, callback: *const fn (KUrlRequester, [*:0]const u8) callconv(.c) void) void {
         qtc.KUrlRequester_Connect_TextEdited(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `returnPressed` instead
+    ///
+    pub const ReturnPressed = returnPressed;
 
     /// ### [Upstream resources](https://api.kde.org/kurlrequester.html#returnPressed)
     ///
@@ -755,15 +931,19 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn ReturnPressed(self: KUrlRequester, text: []const u8) void {
+    pub fn returnPressed(self: KUrlRequester, _text: []const u8) void {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.KUrlRequester_ReturnPressed(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `onReturnPressed` instead
+    ///
+    pub const OnReturnPressed = onReturnPressed;
 
     /// ### [Upstream resources](https://api.kde.org/kurlrequester.html#returnPressed)
     ///
@@ -773,9 +953,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, text: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnReturnPressed(self: KUrlRequester, callback: *const fn (KUrlRequester, [*:0]const u8) callconv(.c) void) void {
+    pub fn onReturnPressed(self: KUrlRequester, callback: *const fn (KUrlRequester, [*:0]const u8) callconv(.c) void) void {
         qtc.KUrlRequester_Connect_ReturnPressed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `openFileDialog` instead
+    ///
+    pub const OpenFileDialog = openFileDialog;
 
     /// ### [Upstream resources](https://api.kde.org/kurlrequester.html#openFileDialog)
     ///
@@ -785,10 +969,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` param1: KUrlRequester `
     ///
-    pub fn OpenFileDialog(self: KUrlRequester, param1: anytype) void {
+    pub fn openFileDialog(self: KUrlRequester, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_KUrlRequester;
         qtc.KUrlRequester_OpenFileDialog(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onOpenFileDialog` instead
+    ///
+    pub const OnOpenFileDialog = onOpenFileDialog;
 
     /// ### [Upstream resources](https://api.kde.org/kurlrequester.html#openFileDialog)
     ///
@@ -798,9 +986,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, param1: KUrlRequester) callconv(.c) void `
     ///
-    pub fn OnOpenFileDialog(self: KUrlRequester, callback: *const fn (KUrlRequester, KUrlRequester) callconv(.c) void) void {
+    pub fn onOpenFileDialog(self: KUrlRequester, callback: *const fn (KUrlRequester, KUrlRequester) callconv(.c) void) void {
         qtc.KUrlRequester_Connect_OpenFileDialog(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `urlSelected` instead
+    ///
+    pub const UrlSelected = urlSelected;
 
     /// ### [Upstream resources](https://api.kde.org/kurlrequester.html#urlSelected)
     ///
@@ -810,10 +1002,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` param1: QUrl `
     ///
-    pub fn UrlSelected(self: KUrlRequester, param1: anytype) void {
+    pub fn urlSelected(self: KUrlRequester, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QUrl;
         qtc.KUrlRequester_UrlSelected(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onUrlSelected` instead
+    ///
+    pub const OnUrlSelected = onUrlSelected;
 
     /// ### [Upstream resources](https://api.kde.org/kurlrequester.html#urlSelected)
     ///
@@ -823,9 +1019,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, param1: QUrl) callconv(.c) void `
     ///
-    pub fn OnUrlSelected(self: KUrlRequester, callback: *const fn (KUrlRequester, QUrl) callconv(.c) void) void {
+    pub fn onUrlSelected(self: KUrlRequester, callback: *const fn (KUrlRequester, QUrl) callconv(.c) void) void {
         qtc.KUrlRequester_Connect_UrlSelected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kurlrequester.html#changeEvent)
     ///
@@ -835,10 +1035,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn ChangeEvent(self: KUrlRequester, e: anytype) void {
+    pub fn changeEvent(self: KUrlRequester, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QEvent;
         qtc.KUrlRequester_ChangeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kurlrequester.html#changeEvent)
     ///
@@ -850,13 +1054,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, e: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QEvent) callconv(.c) void) void {
         qtc.KUrlRequester_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kurlrequester.html#changeEvent)
     ///
@@ -868,10 +1072,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn SuperChangeEvent(self: KUrlRequester, e: anytype) void {
+    pub fn superChangeEvent(self: KUrlRequester, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QEvent;
         qtc.KUrlRequester_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// ### [Upstream resources](https://api.kde.org/kurlrequester.html#eventFilter)
     ///
@@ -883,11 +1091,15 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` ev: QEvent `
     ///
-    pub fn EventFilter(self: KUrlRequester, obj: anytype, ev: anytype) bool {
+    pub fn eventFilter(self: KUrlRequester, obj: anytype, ev: anytype) bool {
         comptime _ = @TypeOf(obj)._is_QObject;
         comptime _ = @TypeOf(ev)._is_QEvent;
         return qtc.KUrlRequester_EventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr), @ptrCast(ev.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// ### [Upstream resources](https://api.kde.org/kurlrequester.html#eventFilter)
     ///
@@ -899,13 +1111,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, obj: QObject, ev: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KUrlRequester, callback: *const fn (KUrlRequester, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KUrlRequester, callback: *const fn (KUrlRequester, QObject, QEvent) callconv(.c) bool) void {
         qtc.KUrlRequester_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// ### [Upstream resources](https://api.kde.org/kurlrequester.html#eventFilter)
     ///
@@ -919,11 +1131,15 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` ev: QEvent `
     ///
-    pub fn SuperEventFilter(self: KUrlRequester, obj: anytype, ev: anytype) bool {
+    pub fn superEventFilter(self: KUrlRequester, obj: anytype, ev: anytype) bool {
         comptime _ = @TypeOf(obj)._is_QObject;
         comptime _ = @TypeOf(ev)._is_QEvent;
         return qtc.KUrlRequester_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr), @ptrCast(ev.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -935,15 +1151,19 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -957,15 +1177,19 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -975,9 +1199,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn WinId(self: KUrlRequester) usize {
+    pub fn winId(self: KUrlRequester) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -987,9 +1215,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn CreateWinId(self: KUrlRequester) void {
+    pub fn createWinId(self: KUrlRequester) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -999,9 +1231,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn InternalWinId(self: KUrlRequester) usize {
+    pub fn internalWinId(self: KUrlRequester) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -1011,9 +1247,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn EffectiveWinId(self: KUrlRequester) usize {
+    pub fn effectiveWinId(self: KUrlRequester) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -1023,9 +1263,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn Style(self: KUrlRequester) QStyle {
+    pub fn style(self: KUrlRequester) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -1035,12 +1279,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: KUrlRequester, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: KUrlRequester, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -1050,9 +1298,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn IsTopLevel(self: KUrlRequester) bool {
+    pub fn isTopLevel(self: KUrlRequester) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -1062,9 +1314,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn IsWindow(self: KUrlRequester) bool {
+    pub fn isWindow(self: KUrlRequester) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -1074,9 +1330,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn IsModal(self: KUrlRequester) bool {
+    pub fn isModal(self: KUrlRequester) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -1090,9 +1350,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: KUrlRequester) i32 {
+    pub fn windowModality(self: KUrlRequester) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -1102,11 +1366,15 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: KUrlRequester, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: KUrlRequester, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1116,9 +1384,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn IsEnabled(self: KUrlRequester) bool {
+    pub fn isEnabled(self: KUrlRequester) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -1130,10 +1402,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: KUrlRequester, param1: anytype) bool {
+    pub fn isEnabledTo(self: KUrlRequester, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1145,9 +1421,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: KUrlRequester, enabled: bool) void {
+    pub fn setEnabled(self: KUrlRequester, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -1159,9 +1439,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: KUrlRequester, disabled: bool) void {
+    pub fn setDisabled(self: KUrlRequester, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -1173,9 +1457,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: KUrlRequester, windowModified: bool) void {
+    pub fn setWindowModified(self: KUrlRequester, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1185,9 +1473,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn FrameGeometry(self: KUrlRequester) QRect {
+    pub fn frameGeometry(self: KUrlRequester) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -1197,9 +1489,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn Geometry(self: KUrlRequester) QRect {
+    pub fn geometry(self: KUrlRequester) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1209,9 +1505,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn NormalGeometry(self: KUrlRequester) QRect {
+    pub fn normalGeometry(self: KUrlRequester) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -1221,9 +1521,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn X(self: KUrlRequester) i32 {
+    pub fn x(self: KUrlRequester) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -1233,9 +1537,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn Y(self: KUrlRequester) i32 {
+    pub fn y(self: KUrlRequester) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -1245,9 +1553,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn Pos(self: KUrlRequester) QPoint {
+    pub fn pos(self: KUrlRequester) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -1257,9 +1569,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn FrameSize(self: KUrlRequester) QSize {
+    pub fn frameSize(self: KUrlRequester) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -1269,9 +1585,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn Size(self: KUrlRequester) QSize {
+    pub fn size(self: KUrlRequester) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -1281,9 +1601,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn Width(self: KUrlRequester) i32 {
+    pub fn width(self: KUrlRequester) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -1293,9 +1617,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn Height(self: KUrlRequester) i32 {
+    pub fn height(self: KUrlRequester) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -1305,9 +1633,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn Rect(self: KUrlRequester) QRect {
+    pub fn rect(self: KUrlRequester) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -1317,9 +1649,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn ChildrenRect(self: KUrlRequester) QRect {
+    pub fn childrenRect(self: KUrlRequester) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -1329,9 +1665,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn ChildrenRegion(self: KUrlRequester) QRegion {
+    pub fn childrenRegion(self: KUrlRequester) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1341,9 +1681,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn MinimumSize(self: KUrlRequester) QSize {
+    pub fn minimumSize(self: KUrlRequester) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1353,9 +1697,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn MaximumSize(self: KUrlRequester) QSize {
+    pub fn maximumSize(self: KUrlRequester) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1365,9 +1713,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn MinimumWidth(self: KUrlRequester) i32 {
+    pub fn minimumWidth(self: KUrlRequester) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1377,9 +1729,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn MinimumHeight(self: KUrlRequester) i32 {
+    pub fn minimumHeight(self: KUrlRequester) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1389,9 +1745,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn MaximumWidth(self: KUrlRequester) i32 {
+    pub fn maximumWidth(self: KUrlRequester) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1401,9 +1761,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn MaximumHeight(self: KUrlRequester) i32 {
+    pub fn maximumHeight(self: KUrlRequester) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1413,12 +1777,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: KUrlRequester, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: KUrlRequester, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1432,9 +1800,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: KUrlRequester, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: KUrlRequester, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1444,12 +1816,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: KUrlRequester, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: KUrlRequester, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1463,9 +1839,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: KUrlRequester, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: KUrlRequester, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1477,9 +1857,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: KUrlRequester, minw: i32) void {
+    pub fn setMinimumWidth(self: KUrlRequester, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1491,9 +1875,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: KUrlRequester, minh: i32) void {
+    pub fn setMinimumHeight(self: KUrlRequester, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1505,9 +1893,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: KUrlRequester, maxw: i32) void {
+    pub fn setMaximumWidth(self: KUrlRequester, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1519,9 +1911,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: KUrlRequester, maxh: i32) void {
+    pub fn setMaximumHeight(self: KUrlRequester, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1531,9 +1927,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn SizeIncrement(self: KUrlRequester) QSize {
+    pub fn sizeIncrement(self: KUrlRequester) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1543,12 +1943,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: KUrlRequester, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: KUrlRequester, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -1562,9 +1966,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: KUrlRequester, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: KUrlRequester, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -1574,9 +1982,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn BaseSize(self: KUrlRequester) QSize {
+    pub fn baseSize(self: KUrlRequester) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -1586,12 +1998,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: KUrlRequester, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: KUrlRequester, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -1605,9 +2021,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: KUrlRequester, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: KUrlRequester, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -1619,10 +2039,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: KUrlRequester, fixedSize: anytype) void {
+    pub fn setFixedSize(self: KUrlRequester, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -1636,9 +2060,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: KUrlRequester, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: KUrlRequester, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -1650,9 +2078,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: KUrlRequester, w: i32) void {
+    pub fn setFixedWidth(self: KUrlRequester, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -1664,9 +2096,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: KUrlRequester, h: i32) void {
+    pub fn setFixedHeight(self: KUrlRequester, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -1678,11 +2114,15 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: KUrlRequester, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: KUrlRequester, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -1693,11 +2133,15 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: KUrlRequester, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: KUrlRequester, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1708,11 +2152,15 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: KUrlRequester, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: KUrlRequester, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1723,11 +2171,15 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: KUrlRequester, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: KUrlRequester, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1738,11 +2190,15 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: KUrlRequester, param1: anytype) QPointF {
+    pub fn mapToParent(self: KUrlRequester, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1753,10 +2209,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: KUrlRequester, param1: anytype) QPoint {
+    pub fn mapToParent2(self: KUrlRequester, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -1768,10 +2228,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: KUrlRequester, param1: anytype) QPointF {
+    pub fn mapFromParent(self: KUrlRequester, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -1783,10 +2247,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: KUrlRequester, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: KUrlRequester, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -1800,12 +2268,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: KUrlRequester, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: KUrlRequester, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -1818,11 +2290,15 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: KUrlRequester, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: KUrlRequester, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -1836,11 +2312,15 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: KUrlRequester, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: KUrlRequester, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -1854,11 +2334,15 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: KUrlRequester, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: KUrlRequester, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -1868,9 +2352,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn Window(self: KUrlRequester) QWidget {
+    pub fn window(self: KUrlRequester) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -1880,9 +2368,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn NativeParentWidget(self: KUrlRequester) QWidget {
+    pub fn nativeParentWidget(self: KUrlRequester) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -1892,9 +2384,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn TopLevelWidget(self: KUrlRequester) QWidget {
+    pub fn topLevelWidget(self: KUrlRequester) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -1904,9 +2400,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn Palette(self: KUrlRequester) QPalette {
+    pub fn palette(self: KUrlRequester) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -1916,12 +2416,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: KUrlRequester, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: KUrlRequester, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1931,11 +2435,15 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: KUrlRequester, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: KUrlRequester, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1949,9 +2457,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: KUrlRequester) i32 {
+    pub fn backgroundRole(self: KUrlRequester) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1961,11 +2473,15 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: KUrlRequester, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: KUrlRequester, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1979,9 +2495,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: KUrlRequester) i32 {
+    pub fn foregroundRole(self: KUrlRequester) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -1991,9 +2511,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn Font(self: KUrlRequester) QFont {
+    pub fn font(self: KUrlRequester) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -2003,12 +2527,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: KUrlRequester, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: KUrlRequester, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -2018,9 +2546,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn FontMetrics(self: KUrlRequester) QFontMetrics {
+    pub fn fontMetrics(self: KUrlRequester) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -2030,9 +2562,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn FontInfo(self: KUrlRequester) QFontInfo {
+    pub fn fontInfo(self: KUrlRequester) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -2042,9 +2578,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn Cursor(self: KUrlRequester) QCursor {
+    pub fn cursor(self: KUrlRequester) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -2054,12 +2594,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: KUrlRequester, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: KUrlRequester, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -2069,9 +2613,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn UnsetCursor(self: KUrlRequester) void {
+    pub fn unsetCursor(self: KUrlRequester) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2083,9 +2631,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: KUrlRequester, enable: bool) void {
+    pub fn setMouseTracking(self: KUrlRequester, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2095,9 +2647,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn HasMouseTracking(self: KUrlRequester) bool {
+    pub fn hasMouseTracking(self: KUrlRequester) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -2107,9 +2663,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn UnderMouse(self: KUrlRequester) bool {
+    pub fn underMouse(self: KUrlRequester) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2121,9 +2681,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: KUrlRequester, enable: bool) void {
+    pub fn setTabletTracking(self: KUrlRequester, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2133,24 +2697,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn HasTabletTracking(self: KUrlRequester) bool {
+    pub fn hasTabletTracking(self: KUrlRequester) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlRequester `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: KUrlRequester, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -2160,12 +2713,35 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: KUrlRequester, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: KUrlRequester, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KUrlRequester `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: KUrlRequester, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -2175,9 +2751,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn Mask(self: KUrlRequester) QRegion {
+    pub fn mask(self: KUrlRequester) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -2187,9 +2767,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn ClearMask(self: KUrlRequester) void {
+    pub fn clearMask(self: KUrlRequester) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -2201,10 +2785,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: KUrlRequester, target: anytype) void {
+    pub fn render(self: KUrlRequester, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -2216,10 +2804,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: KUrlRequester, painter: anytype) void {
+    pub fn render2(self: KUrlRequester, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -2229,9 +2821,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn Grab(self: KUrlRequester) QPixmap {
+    pub fn grab(self: KUrlRequester) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2241,9 +2837,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn GraphicsEffect(self: KUrlRequester) QGraphicsEffect {
+    pub fn graphicsEffect(self: KUrlRequester) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2255,10 +2855,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: KUrlRequester, effect: anytype) void {
+    pub fn setGraphicsEffect(self: KUrlRequester, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2270,9 +2874,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: KUrlRequester, typeVal: i32) void {
+    pub fn grabGesture(self: KUrlRequester, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2284,9 +2892,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: KUrlRequester, typeVal: i32) void {
+    pub fn ungrabGesture(self: KUrlRequester, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2296,15 +2908,19 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: KUrlRequester, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: KUrlRequester, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2314,15 +2930,19 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: KUrlRequester, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: KUrlRequester, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2334,13 +2954,17 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: KUrlRequester, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: KUrlRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2352,13 +2976,17 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: KUrlRequester, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: KUrlRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2370,10 +2998,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: KUrlRequester, icon: anytype) void {
+    pub fn setWindowIcon(self: KUrlRequester, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2383,9 +3015,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn WindowIcon(self: KUrlRequester) QIcon {
+    pub fn windowIcon(self: KUrlRequester) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2395,15 +3031,19 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: KUrlRequester, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: KUrlRequester, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2415,13 +3055,17 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: KUrlRequester, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: KUrlRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -2431,15 +3075,19 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: KUrlRequester, windowRole: []const u8) void {
+    pub fn setWindowRole(self: KUrlRequester, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -2451,13 +3099,17 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: KUrlRequester, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: KUrlRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2469,13 +3121,17 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: KUrlRequester, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: KUrlRequester, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2487,13 +3143,17 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: KUrlRequester, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: KUrlRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2505,9 +3165,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: KUrlRequester, level: f64) void {
+    pub fn setWindowOpacity(self: KUrlRequester, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2517,9 +3181,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn WindowOpacity(self: KUrlRequester) f64 {
+    pub fn windowOpacity(self: KUrlRequester) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -2529,9 +3197,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn IsWindowModified(self: KUrlRequester) bool {
+    pub fn isWindowModified(self: KUrlRequester) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -2541,15 +3213,19 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: KUrlRequester, toolTip: []const u8) void {
+    pub fn setToolTip(self: KUrlRequester, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -2561,13 +3237,17 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: KUrlRequester, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: KUrlRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2579,9 +3259,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: KUrlRequester, msec: i32) void {
+    pub fn setToolTipDuration(self: KUrlRequester, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2591,9 +3275,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn ToolTipDuration(self: KUrlRequester) i32 {
+    pub fn toolTipDuration(self: KUrlRequester) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -2603,15 +3291,19 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: KUrlRequester, statusTip: []const u8) void {
+    pub fn setStatusTip(self: KUrlRequester, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -2623,13 +3315,17 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: KUrlRequester, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: KUrlRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2639,15 +3335,19 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: KUrlRequester, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: KUrlRequester, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2659,13 +3359,17 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: KUrlRequester, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: KUrlRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2677,13 +3381,17 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: KUrlRequester, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: KUrlRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2695,13 +3403,17 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: KUrlRequester, name: []const u8) void {
+    pub fn setAccessibleName(self: KUrlRequester, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2713,13 +3425,17 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: KUrlRequester, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: KUrlRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2731,13 +3447,17 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: KUrlRequester, description: []const u8) void {
+    pub fn setAccessibleDescription(self: KUrlRequester, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2749,9 +3469,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: KUrlRequester, direction: i32) void {
+    pub fn setLayoutDirection(self: KUrlRequester, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2765,9 +3489,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: KUrlRequester) i32 {
+    pub fn layoutDirection(self: KUrlRequester) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2777,9 +3505,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn UnsetLayoutDirection(self: KUrlRequester) void {
+    pub fn unsetLayoutDirection(self: KUrlRequester) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -2789,12 +3521,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: KUrlRequester, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: KUrlRequester, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -2804,9 +3540,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn Locale(self: KUrlRequester) QLocale {
+    pub fn locale(self: KUrlRequester) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -2816,9 +3556,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn UnsetLocale(self: KUrlRequester) void {
+    pub fn unsetLocale(self: KUrlRequester) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -2828,9 +3572,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn IsRightToLeft(self: KUrlRequester) bool {
+    pub fn isRightToLeft(self: KUrlRequester) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -2840,9 +3588,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn IsLeftToRight(self: KUrlRequester) bool {
+    pub fn isLeftToRight(self: KUrlRequester) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -2852,9 +3604,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn SetFocus(self: KUrlRequester) void {
+    pub fn setFocus(self: KUrlRequester) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -2864,9 +3620,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn IsActiveWindow(self: KUrlRequester) bool {
+    pub fn isActiveWindow(self: KUrlRequester) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -2876,9 +3636,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn ActivateWindow(self: KUrlRequester) void {
+    pub fn activateWindow(self: KUrlRequester) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -2888,9 +3652,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn ClearFocus(self: KUrlRequester) void {
+    pub fn clearFocus(self: KUrlRequester) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -2902,9 +3670,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: KUrlRequester, reason: i32) void {
+    pub fn setFocus2(self: KUrlRequester, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2918,9 +3690,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: KUrlRequester) i32 {
+    pub fn focusPolicy(self: KUrlRequester) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2932,9 +3708,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: KUrlRequester, policy: i32) void {
+    pub fn setFocusPolicy(self: KUrlRequester, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -2944,9 +3724,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn HasFocus(self: KUrlRequester) bool {
+    pub fn hasFocus(self: KUrlRequester) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -2958,11 +3742,15 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2972,12 +3760,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: KUrlRequester, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: KUrlRequester, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2987,9 +3779,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn FocusProxy(self: KUrlRequester) QWidget {
+    pub fn focusProxy(self: KUrlRequester) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3003,9 +3799,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: KUrlRequester) i32 {
+    pub fn contextMenuPolicy(self: KUrlRequester) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3017,9 +3817,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: KUrlRequester, policy: i32) void {
+    pub fn setContextMenuPolicy(self: KUrlRequester, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -3029,9 +3833,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn GrabMouse(self: KUrlRequester) void {
+    pub fn grabMouse(self: KUrlRequester) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -3043,10 +3851,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: KUrlRequester, param1: anytype) void {
+    pub fn grabMouse2(self: KUrlRequester, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -3056,9 +3868,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn ReleaseMouse(self: KUrlRequester) void {
+    pub fn releaseMouse(self: KUrlRequester) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3068,9 +3884,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn GrabKeyboard(self: KUrlRequester) void {
+    pub fn grabKeyboard(self: KUrlRequester) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3080,9 +3900,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn ReleaseKeyboard(self: KUrlRequester) void {
+    pub fn releaseKeyboard(self: KUrlRequester) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3094,10 +3918,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: KUrlRequester, key: anytype) i32 {
+    pub fn grabShortcut(self: KUrlRequester, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3109,9 +3937,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: KUrlRequester, id: i32) void {
+    pub fn releaseShortcut(self: KUrlRequester, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3123,9 +3955,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: KUrlRequester, id: i32) void {
+    pub fn setShortcutEnabled(self: KUrlRequester, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -3137,25 +3973,37 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: KUrlRequester, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: KUrlRequester, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3165,9 +4013,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn UpdatesEnabled(self: KUrlRequester) bool {
+    pub fn updatesEnabled(self: KUrlRequester) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3179,9 +4031,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: KUrlRequester, enable: bool) void {
+    pub fn setUpdatesEnabled(self: KUrlRequester, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -3191,9 +4047,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn GraphicsProxyWidget(self: KUrlRequester) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: KUrlRequester) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -3203,9 +4063,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn Update(self: KUrlRequester) void {
+    pub fn update(self: KUrlRequester) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -3215,9 +4079,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn Repaint(self: KUrlRequester) void {
+    pub fn repaint(self: KUrlRequester) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -3227,17 +4095,21 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: KUrlRequester, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: KUrlRequester, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -3249,11 +4121,15 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: KUrlRequester, param1: anytype) void {
+    pub fn update3(self: KUrlRequester, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -3264,10 +4140,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: KUrlRequester, param1: anytype) void {
+    pub fn update4(self: KUrlRequester, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -3277,17 +4157,21 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: KUrlRequester, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: KUrlRequester, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -3299,10 +4183,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: KUrlRequester, param1: anytype) void {
+    pub fn repaint3(self: KUrlRequester, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -3314,10 +4202,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: KUrlRequester, param1: anytype) void {
+    pub fn repaint4(self: KUrlRequester, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -3329,9 +4221,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: KUrlRequester, hidden: bool) void {
+    pub fn setHidden(self: KUrlRequester, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -3341,9 +4237,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn Show(self: KUrlRequester) void {
+    pub fn show(self: KUrlRequester) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -3353,9 +4253,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn Hide(self: KUrlRequester) void {
+    pub fn hide(self: KUrlRequester) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3365,9 +4269,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn ShowMinimized(self: KUrlRequester) void {
+    pub fn showMinimized(self: KUrlRequester) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3377,9 +4285,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn ShowMaximized(self: KUrlRequester) void {
+    pub fn showMaximized(self: KUrlRequester) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3389,9 +4301,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn ShowFullScreen(self: KUrlRequester) void {
+    pub fn showFullScreen(self: KUrlRequester) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -3401,9 +4317,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn ShowNormal(self: KUrlRequester) void {
+    pub fn showNormal(self: KUrlRequester) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -3413,9 +4333,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn Close(self: KUrlRequester) bool {
+    pub fn close(self: KUrlRequester) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -3425,9 +4349,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn Raise(self: KUrlRequester) void {
+    pub fn raise(self: KUrlRequester) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -3437,9 +4365,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn Lower(self: KUrlRequester) void {
+    pub fn lower(self: KUrlRequester) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -3451,10 +4383,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: KUrlRequester, param1: anytype) void {
+    pub fn stackUnder(self: KUrlRequester, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -3464,13 +4400,17 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: KUrlRequester, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: KUrlRequester, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -3482,10 +4422,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: KUrlRequester, param1: anytype) void {
+    pub fn move2(self: KUrlRequester, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -3499,9 +4443,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: KUrlRequester, w: i32, h: i32) void {
+    pub fn resize(self: KUrlRequester, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -3513,10 +4461,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: KUrlRequester, param1: anytype) void {
+    pub fn resize2(self: KUrlRequester, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3526,17 +4478,21 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: KUrlRequester, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: KUrlRequester, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -3546,12 +4502,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: KUrlRequester, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: KUrlRequester, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3563,13 +4523,17 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: KUrlRequester, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: KUrlRequester, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KUrlRequester.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KUrlRequester.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3579,15 +4543,19 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: KUrlRequester, geometry: []u8) bool {
+    pub fn restoreGeometry(self: KUrlRequester, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -3597,9 +4565,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn AdjustSize(self: KUrlRequester) void {
+    pub fn adjustSize(self: KUrlRequester) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -3609,9 +4581,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn IsVisible(self: KUrlRequester) bool {
+    pub fn isVisible(self: KUrlRequester) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -3623,10 +4599,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: KUrlRequester, param1: anytype) bool {
+    pub fn isVisibleTo(self: KUrlRequester, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -3636,9 +4616,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn IsHidden(self: KUrlRequester) bool {
+    pub fn isHidden(self: KUrlRequester) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3648,9 +4632,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn IsMinimized(self: KUrlRequester) bool {
+    pub fn isMinimized(self: KUrlRequester) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3660,9 +4648,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn IsMaximized(self: KUrlRequester) bool {
+    pub fn isMaximized(self: KUrlRequester) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3672,9 +4664,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn IsFullScreen(self: KUrlRequester) bool {
+    pub fn isFullScreen(self: KUrlRequester) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -3688,9 +4684,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: KUrlRequester) i32 {
+    pub fn windowState(self: KUrlRequester) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3702,9 +4702,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: KUrlRequester, state: i32) void {
+    pub fn setWindowState(self: KUrlRequester, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3716,9 +4720,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: KUrlRequester, state: i32) void {
+    pub fn overrideWindowState(self: KUrlRequester, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3728,9 +4736,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn SizePolicy(self: KUrlRequester) QSizePolicy {
+    pub fn sizePolicy(self: KUrlRequester) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3740,12 +4752,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: KUrlRequester, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: KUrlRequester, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -3759,9 +4775,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: KUrlRequester, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: KUrlRequester, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -3771,9 +4791,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn VisibleRegion(self: KUrlRequester) QRegion {
+    pub fn visibleRegion(self: KUrlRequester) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3791,9 +4815,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: KUrlRequester, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: KUrlRequester, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -3805,10 +4833,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: KUrlRequester, margins: anytype) void {
+    pub fn setContentsMargins2(self: KUrlRequester, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3818,9 +4850,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn ContentsMargins(self: KUrlRequester) QMargins {
+    pub fn contentsMargins(self: KUrlRequester) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -3830,9 +4866,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn ContentsRect(self: KUrlRequester) QRect {
+    pub fn contentsRect(self: KUrlRequester) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -3842,9 +4882,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn Layout(self: KUrlRequester) QLayout {
+    pub fn layout(self: KUrlRequester) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -3854,12 +4898,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: KUrlRequester, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: KUrlRequester, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3869,24 +4917,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn UpdateGeometry(self: KUrlRequester) void {
+    pub fn updateGeometry(self: KUrlRequester) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlRequester `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: KUrlRequester, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -3896,14 +4933,37 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: KUrlRequester, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KUrlRequester `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: KUrlRequester, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: KUrlRequester, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -3917,9 +4977,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: KUrlRequester, dx: i32, dy: i32) void {
+    pub fn scroll(self: KUrlRequester, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -3935,10 +4999,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: KUrlRequester, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: KUrlRequester, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -3948,9 +5016,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn FocusWidget(self: KUrlRequester) QWidget {
+    pub fn focusWidget(self: KUrlRequester) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3960,9 +5032,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn NextInFocusChain(self: KUrlRequester) QWidget {
+    pub fn nextInFocusChain(self: KUrlRequester) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3972,9 +5048,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn PreviousInFocusChain(self: KUrlRequester) QWidget {
+    pub fn previousInFocusChain(self: KUrlRequester) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3984,9 +5064,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn AcceptDrops(self: KUrlRequester) bool {
+    pub fn acceptDrops(self: KUrlRequester) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3998,9 +5082,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: KUrlRequester, on: bool) void {
+    pub fn setAcceptDrops(self: KUrlRequester, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -4012,10 +5100,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: KUrlRequester, action: anytype) void {
+    pub fn addAction(self: KUrlRequester, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -4025,15 +5117,19 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: KUrlRequester, actions: []QAction) void {
+    pub fn addActions(self: KUrlRequester, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -4045,16 +5141,20 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: KUrlRequester, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: KUrlRequester, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -4068,11 +5168,15 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: KUrlRequester, before: anytype, action: anytype) void {
+    pub fn insertAction(self: KUrlRequester, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -4084,10 +5188,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: KUrlRequester, action: anytype) void {
+    pub fn removeAction(self: KUrlRequester, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -4099,15 +5207,19 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: KUrlRequester, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: KUrlRequester, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KUrlRequester.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KUrlRequester.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -4117,15 +5229,19 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn AddAction2(self: KUrlRequester, text: []const u8) QAction {
+    pub fn addAction2(self: KUrlRequester, _text: []const u8) QAction {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -4137,16 +5253,20 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn AddAction3(self: KUrlRequester, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: KUrlRequester, icon: anytype, _text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
 
     /// Inherited from QWidget
     ///
@@ -4156,19 +5276,23 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: KUrlRequester, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: KUrlRequester, _text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -4179,19 +5303,23 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: KUrlRequester, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: KUrlRequester, icon: anytype, _text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
 
     /// Inherited from QWidget
     ///
@@ -4201,9 +5329,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn ParentWidget(self: KUrlRequester) QWidget {
+    pub fn parentWidget(self: KUrlRequester) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4215,9 +5347,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: KUrlRequester, typeVal: i32) void {
+    pub fn setWindowFlags(self: KUrlRequester, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4231,9 +5367,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: KUrlRequester) i32 {
+    pub fn windowFlags(self: KUrlRequester) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -4245,9 +5385,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: KUrlRequester, param1: i32) void {
+    pub fn setWindowFlag(self: KUrlRequester, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4259,9 +5403,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: KUrlRequester, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: KUrlRequester, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -4275,9 +5423,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: KUrlRequester) i32 {
+    pub fn windowType(self: KUrlRequester) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -4287,9 +5439,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -4299,13 +5455,17 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: KUrlRequester, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: KUrlRequester, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -4317,10 +5477,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: KUrlRequester, p: anytype) QWidget {
+    pub fn childAt2(self: KUrlRequester, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -4332,10 +5496,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: KUrlRequester, p: anytype) QWidget {
+    pub fn childAt3(self: KUrlRequester, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4347,9 +5515,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: KUrlRequester, param1: i32) void {
+    pub fn setAttribute(self: KUrlRequester, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4361,9 +5533,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: KUrlRequester, param1: i32) bool {
+    pub fn testAttribute(self: KUrlRequester, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -4373,9 +5549,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn EnsurePolished(self: KUrlRequester) void {
+    pub fn ensurePolished(self: KUrlRequester) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -4387,10 +5567,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: KUrlRequester, child: anytype) bool {
+    pub fn isAncestorOf(self: KUrlRequester, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4400,9 +5584,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn AutoFillBackground(self: KUrlRequester) bool {
+    pub fn autoFillBackground(self: KUrlRequester) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4414,9 +5602,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: KUrlRequester, enabled: bool) void {
+    pub fn setAutoFillBackground(self: KUrlRequester, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -4426,9 +5618,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn BackingStore(self: KUrlRequester) QBackingStore {
+    pub fn backingStore(self: KUrlRequester) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -4438,9 +5634,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn WindowHandle(self: KUrlRequester) QWindow {
+    pub fn windowHandle(self: KUrlRequester) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -4450,9 +5650,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn Screen(self: KUrlRequester) QScreen {
+    pub fn screen(self: KUrlRequester) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -4462,12 +5666,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: KUrlRequester, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: KUrlRequester, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -4475,12 +5683,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4492,13 +5704,17 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: KUrlRequester, title: []const u8) void {
+    pub fn windowTitleChanged(self: KUrlRequester, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4510,9 +5726,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: KUrlRequester, callback: *const fn (KUrlRequester, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: KUrlRequester, callback: *const fn (KUrlRequester, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4524,10 +5744,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: KUrlRequester, icon: anytype) void {
+    pub fn windowIconChanged(self: KUrlRequester, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4539,9 +5763,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: KUrlRequester, callback: *const fn (KUrlRequester, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: KUrlRequester, callback: *const fn (KUrlRequester, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4553,13 +5781,17 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: KUrlRequester, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: KUrlRequester, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4571,9 +5803,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: KUrlRequester, callback: *const fn (KUrlRequester, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: KUrlRequester, callback: *const fn (KUrlRequester, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4583,12 +5819,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: KUrlRequester, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: KUrlRequester, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4600,9 +5840,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: KUrlRequester, callback: *const fn (KUrlRequester, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: KUrlRequester, callback: *const fn (KUrlRequester, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4616,9 +5860,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: KUrlRequester) i32 {
+    pub fn inputMethodHints(self: KUrlRequester) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4630,9 +5878,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: KUrlRequester, hints: i32) void {
+    pub fn setInputMethodHints(self: KUrlRequester, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -4646,11 +5898,15 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: KUrlRequester, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: KUrlRequester, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -4666,13 +5922,17 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: KUrlRequester, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: KUrlRequester, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -4689,12 +5949,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: KUrlRequester, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: KUrlRequester, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -4708,11 +5972,15 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: KUrlRequester, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: KUrlRequester, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -4728,12 +5996,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: KUrlRequester, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: KUrlRequester, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -4751,12 +6023,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: KUrlRequester, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: KUrlRequester, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -4768,10 +6044,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: KUrlRequester, rectangle: anytype) QPixmap {
+    pub fn grab1(self: KUrlRequester, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -4785,9 +6065,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: KUrlRequester, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: KUrlRequester, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -4801,10 +6085,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: KUrlRequester, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: KUrlRequester, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -4818,9 +6106,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: KUrlRequester, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: KUrlRequester, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -4834,9 +6126,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: KUrlRequester, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: KUrlRequester, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -4850,9 +6146,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: KUrlRequester, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: KUrlRequester, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -4866,25 +6166,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: KUrlRequester, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: KUrlRequester, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -4892,17 +6180,41 @@ pub const KUrlRequester = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -4914,13 +6226,17 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KUrlRequester, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KUrlRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -4932,13 +6248,17 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KUrlRequester, name: []const u8) void {
+    pub fn setObjectName(self: KUrlRequester, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -4948,9 +6268,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn IsWidgetType(self: KUrlRequester) bool {
+    pub fn isWidgetType(self: KUrlRequester) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -4960,9 +6284,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn IsWindowType(self: KUrlRequester) bool {
+    pub fn isWindowType(self: KUrlRequester) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -4972,9 +6300,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn IsQuickItemType(self: KUrlRequester) bool {
+    pub fn isQuickItemType(self: KUrlRequester) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -4984,9 +6316,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn SignalsBlocked(self: KUrlRequester) bool {
+    pub fn signalsBlocked(self: KUrlRequester) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -4998,9 +6334,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KUrlRequester, b: bool) bool {
+    pub fn blockSignals(self: KUrlRequester, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -5010,9 +6350,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn Thread(self: KUrlRequester) QThread {
+    pub fn thread(self: KUrlRequester) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -5022,12 +6366,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KUrlRequester, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KUrlRequester, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -5039,9 +6387,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KUrlRequester, interval: i32) i32 {
+    pub fn startTimer(self: KUrlRequester, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -5053,9 +6405,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KUrlRequester, time: i64) i32 {
+    pub fn startTimer2(self: KUrlRequester, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -5067,9 +6423,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KUrlRequester, id: i32) void {
+    pub fn killTimer(self: KUrlRequester, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -5081,9 +6441,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KUrlRequester, id: i32) void {
+    pub fn killTimer2(self: KUrlRequester, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -5095,15 +6459,19 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KUrlRequester, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KUrlRequester, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KUrlRequester.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KUrlRequester.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5115,10 +6483,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KUrlRequester, filterObj: anytype) void {
+    pub fn installEventFilter(self: KUrlRequester, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5130,10 +6502,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KUrlRequester, obj: anytype) void {
+    pub fn removeEventFilter(self: KUrlRequester, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -5141,7 +6517,7 @@ pub const KUrlRequester = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5149,13 +6525,17 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -5163,7 +6543,7 @@ pub const KUrlRequester = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5171,13 +6551,17 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -5187,18 +6571,22 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KUrlRequester, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KUrlRequester, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -5206,7 +6594,7 @@ pub const KUrlRequester = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5214,13 +6602,17 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -5228,7 +6620,7 @@ pub const KUrlRequester = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5236,13 +6628,17 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -5252,9 +6648,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn Disconnect3(self: KUrlRequester) bool {
+    pub fn disconnect3(self: KUrlRequester) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -5266,10 +6666,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KUrlRequester, receiver: anytype) bool {
+    pub fn disconnect4(self: KUrlRequester, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -5279,10 +6683,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -5292,9 +6700,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn DumpObjectTree(self: KUrlRequester) void {
+    pub fn dumpObjectTree(self: KUrlRequester) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -5304,9 +6716,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn DumpObjectInfo(self: KUrlRequester) void {
+    pub fn dumpObjectInfo(self: KUrlRequester) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -5320,11 +6736,15 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KUrlRequester, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KUrlRequester, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -5336,10 +6756,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KUrlRequester, name: [:0]const u8) QVariant {
+    pub fn property(self: KUrlRequester, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -5351,7 +6775,7 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KUrlRequester, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KUrlRequester, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -5359,27 +6783,19 @@ pub const KUrlRequester = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KUrlRequester.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KUrlRequester.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUrlRequester.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KUrlRequester.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlRequester `
-    ///
-    pub fn BindingStorage(self: KUrlRequester) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -5389,9 +6805,29 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn BindingStorage2(self: KUrlRequester) QBindingStorage {
+    pub fn bindingStorage(self: KUrlRequester) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KUrlRequester `
+    ///
+    pub fn bindingStorage2(self: KUrlRequester) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -5401,9 +6837,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn Destroyed(self: KUrlRequester) void {
+    pub fn destroyed(self: KUrlRequester) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -5415,9 +6855,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KUrlRequester, callback: *const fn (KUrlRequester) callconv(.c) void) void {
+    pub fn onDestroyed(self: KUrlRequester, callback: *const fn (KUrlRequester) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -5427,9 +6871,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn Parent(self: KUrlRequester) QObject {
+    pub fn parent(self: KUrlRequester) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -5441,10 +6889,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KUrlRequester, classname: [:0]const u8) bool {
+    pub fn inherits(self: KUrlRequester, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -5454,9 +6906,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn DeleteLater(self: KUrlRequester) void {
+    pub fn deleteLater(self: KUrlRequester) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -5470,9 +6926,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KUrlRequester, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KUrlRequester, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -5486,9 +6946,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KUrlRequester, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KUrlRequester, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -5496,7 +6960,7 @@ pub const KUrlRequester = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5506,13 +6970,17 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -5520,7 +6988,7 @@ pub const KUrlRequester = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5530,13 +6998,17 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -5546,7 +7018,7 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5554,12 +7026,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KUrlRequester, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KUrlRequester, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -5571,10 +7047,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KUrlRequester, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KUrlRequester, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -5588,11 +7068,15 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KUrlRequester, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KUrlRequester, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -5608,13 +7092,17 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KUrlRequester, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KUrlRequester, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -5627,11 +7115,15 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KUrlRequester, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KUrlRequester, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -5643,10 +7135,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KUrlRequester, param1: anytype) void {
+    pub fn destroyed1(self: KUrlRequester, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -5658,9 +7154,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KUrlRequester, callback: *const fn (KUrlRequester, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KUrlRequester, callback: *const fn (KUrlRequester, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -5670,9 +7170,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn PaintingActive(self: KUrlRequester) bool {
+    pub fn paintingActive(self: KUrlRequester) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5682,9 +7186,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn WidthMM(self: KUrlRequester) i32 {
+    pub fn widthMM(self: KUrlRequester) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5694,9 +7202,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn HeightMM(self: KUrlRequester) i32 {
+    pub fn heightMM(self: KUrlRequester) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5706,9 +7218,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn LogicalDpiX(self: KUrlRequester) i32 {
+    pub fn logicalDpiX(self: KUrlRequester) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5718,9 +7234,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn LogicalDpiY(self: KUrlRequester) i32 {
+    pub fn logicalDpiY(self: KUrlRequester) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5730,9 +7250,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn PhysicalDpiX(self: KUrlRequester) i32 {
+    pub fn physicalDpiX(self: KUrlRequester) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5742,9 +7266,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn PhysicalDpiY(self: KUrlRequester) i32 {
+    pub fn physicalDpiY(self: KUrlRequester) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -5754,9 +7282,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn DevicePixelRatio(self: KUrlRequester) f64 {
+    pub fn devicePixelRatio(self: KUrlRequester) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5766,9 +7298,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn DevicePixelRatioF(self: KUrlRequester) f64 {
+    pub fn devicePixelRatioF(self: KUrlRequester) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -5778,9 +7314,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn ColorCount(self: KUrlRequester) i32 {
+    pub fn colorCount(self: KUrlRequester) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -5790,17 +7330,25 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn Depth(self: KUrlRequester) i32 {
+    pub fn depth(self: KUrlRequester) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5808,13 +7356,17 @@ pub const KUrlRequester = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -5826,13 +7378,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn DevType(self: KUrlRequester) i32 {
+    pub fn devType(self: KUrlRequester) i32 {
         return qtc.KUrlRequester_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -5844,9 +7396,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn SuperDevType(self: KUrlRequester) i32 {
+    pub fn superDevType(self: KUrlRequester) i32 {
         return qtc.KUrlRequester_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -5860,9 +7416,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: KUrlRequester, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KUrlRequester, callback: *const fn () callconv(.c) i32) void {
         qtc.KUrlRequester_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -5876,13 +7436,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: KUrlRequester, visible: bool) void {
+    pub fn setVisible(self: KUrlRequester, visible: bool) void {
         qtc.KUrlRequester_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -5896,9 +7456,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: KUrlRequester, visible: bool) void {
+    pub fn superSetVisible(self: KUrlRequester, visible: bool) void {
         qtc.KUrlRequester_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -5912,10 +7476,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: KUrlRequester, callback: *const fn (KUrlRequester, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: KUrlRequester, callback: *const fn (KUrlRequester, bool) callconv(.c) void) void {
         qtc.KUrlRequester_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
@@ -5926,13 +7494,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn SizeHint(self: KUrlRequester) QSize {
+    pub fn sizeHint(self: KUrlRequester) QSize {
         return .{ .ptr = qtc.KUrlRequester_SizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5944,10 +7512,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn SuperSizeHint(self: KUrlRequester) QSize {
+    pub fn superSizeHint(self: KUrlRequester) QSize {
         return .{ .ptr = qtc.KUrlRequester_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
@@ -5962,9 +7534,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: KUrlRequester, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KUrlRequester, callback: *const fn () callconv(.c) QSize) void {
         qtc.KUrlRequester_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5976,13 +7552,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn MinimumSizeHint(self: KUrlRequester) QSize {
+    pub fn minimumSizeHint(self: KUrlRequester) QSize {
         return .{ .ptr = qtc.KUrlRequester_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5994,9 +7570,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn SuperMinimumSizeHint(self: KUrlRequester) QSize {
+    pub fn superMinimumSizeHint(self: KUrlRequester) QSize {
         return .{ .ptr = qtc.KUrlRequester_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -6012,9 +7592,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: KUrlRequester, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KUrlRequester, callback: *const fn () callconv(.c) QSize) void {
         qtc.KUrlRequester_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6028,13 +7612,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: KUrlRequester, param1: i32) i32 {
+    pub fn heightForWidth(self: KUrlRequester, param1: i32) i32 {
         return qtc.KUrlRequester_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6048,9 +7632,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: KUrlRequester, param1: i32) i32 {
+    pub fn superHeightForWidth(self: KUrlRequester, param1: i32) i32 {
         return qtc.KUrlRequester_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6064,9 +7652,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: KUrlRequester, callback: *const fn (KUrlRequester, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: KUrlRequester, callback: *const fn (KUrlRequester, i32) callconv(.c) i32) void {
         qtc.KUrlRequester_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6078,13 +7670,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn HasHeightForWidth(self: KUrlRequester) bool {
+    pub fn hasHeightForWidth(self: KUrlRequester) bool {
         return qtc.KUrlRequester_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6096,9 +7688,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn SuperHasHeightForWidth(self: KUrlRequester) bool {
+    pub fn superHasHeightForWidth(self: KUrlRequester) bool {
         return qtc.KUrlRequester_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6112,9 +7708,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: KUrlRequester, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KUrlRequester, callback: *const fn () callconv(.c) bool) void {
         qtc.KUrlRequester_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6126,13 +7726,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn PaintEngine(self: KUrlRequester) QPaintEngine {
+    pub fn paintEngine(self: KUrlRequester) QPaintEngine {
         return .{ .ptr = qtc.KUrlRequester_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6144,9 +7744,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn SuperPaintEngine(self: KUrlRequester) QPaintEngine {
+    pub fn superPaintEngine(self: KUrlRequester) QPaintEngine {
         return .{ .ptr = qtc.KUrlRequester_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6160,9 +7764,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: KUrlRequester, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KUrlRequester, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.KUrlRequester_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QWidget
     ///
@@ -6174,16 +7782,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: KUrlRequester, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KUrlRequester_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: KUrlRequester, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KUrlRequester_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QWidget
     ///
@@ -6195,12 +7803,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: KUrlRequester, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KUrlRequester_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: KUrlRequester, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KUrlRequester_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QWidget
     ///
@@ -6214,10 +7826,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QEvent) callconv(.c) bool) void {
         qtc.KUrlRequester_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
@@ -6228,16 +7844,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KUrlRequester_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mousePressEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KUrlRequester_MousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6249,12 +7865,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KUrlRequester_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMousePressEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KUrlRequester_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6268,10 +7888,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QMouseEvent) callconv(.c) void) void {
         qtc.KUrlRequester_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
@@ -6282,16 +7906,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KUrlRequester_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseReleaseEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KUrlRequester_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6303,12 +7927,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KUrlRequester_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseReleaseEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KUrlRequester_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6322,10 +7950,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QMouseEvent) callconv(.c) void) void {
         qtc.KUrlRequester_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -6336,16 +7968,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KUrlRequester_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KUrlRequester_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -6357,12 +7989,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KUrlRequester_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KUrlRequester_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -6376,10 +8012,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QMouseEvent) callconv(.c) void) void {
         qtc.KUrlRequester_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -6390,16 +8030,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KUrlRequester_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KUrlRequester_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6411,12 +8051,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KUrlRequester_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KUrlRequester_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6430,9 +8074,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QMouseEvent) callconv(.c) void) void {
         qtc.KUrlRequester_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6444,16 +8092,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KUrlRequester_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KUrlRequester_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6465,12 +8113,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KUrlRequester_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KUrlRequester_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6484,10 +8136,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QWheelEvent) callconv(.c) void) void {
         qtc.KUrlRequester_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyPressEvent)
@@ -6498,16 +8154,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KUrlRequester_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyPressEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KUrlRequester_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6519,12 +8175,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KUrlRequester_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyPressEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KUrlRequester_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6538,10 +8198,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QKeyEvent) callconv(.c) void) void {
         qtc.KUrlRequester_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
@@ -6552,16 +8216,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KUrlRequester_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KUrlRequester_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6573,12 +8237,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KUrlRequester_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KUrlRequester_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6592,10 +8260,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QKeyEvent) callconv(.c) void) void {
         qtc.KUrlRequester_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -6606,16 +8278,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KUrlRequester_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KUrlRequester_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6627,12 +8299,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KUrlRequester_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KUrlRequester_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6646,10 +8322,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QFocusEvent) callconv(.c) void) void {
         qtc.KUrlRequester_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -6660,16 +8340,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KUrlRequester_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KUrlRequester_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6681,12 +8361,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KUrlRequester_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KUrlRequester_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6700,9 +8384,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QFocusEvent) callconv(.c) void) void {
         qtc.KUrlRequester_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6714,16 +8402,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KUrlRequester_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KUrlRequester_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6735,12 +8423,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KUrlRequester_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KUrlRequester_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6754,9 +8446,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QEnterEvent) callconv(.c) void) void {
         qtc.KUrlRequester_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6768,16 +8464,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KUrlRequester_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KUrlRequester_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6789,12 +8485,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KUrlRequester_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KUrlRequester_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6808,9 +8508,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QEvent) callconv(.c) void) void {
         qtc.KUrlRequester_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6822,16 +8526,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn PaintEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.KUrlRequester_PaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn paintEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.KUrlRequester_PaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6843,12 +8547,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.KUrlRequester_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superPaintEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.KUrlRequester_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6862,9 +8570,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, event: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QPaintEvent) callconv(.c) void) void {
         qtc.KUrlRequester_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6876,16 +8588,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KUrlRequester_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KUrlRequester_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6897,12 +8609,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KUrlRequester_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KUrlRequester_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6916,9 +8632,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QMoveEvent) callconv(.c) void) void {
         qtc.KUrlRequester_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6930,16 +8650,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.KUrlRequester_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn resizeEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.KUrlRequester_ResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6951,12 +8671,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.KUrlRequester_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superResizeEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.KUrlRequester_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6970,9 +8694,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QResizeEvent) callconv(.c) void) void {
         qtc.KUrlRequester_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6984,16 +8712,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KUrlRequester_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KUrlRequester_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7005,12 +8733,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KUrlRequester_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KUrlRequester_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7024,9 +8756,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QCloseEvent) callconv(.c) void) void {
         qtc.KUrlRequester_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -7038,16 +8774,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.KUrlRequester_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn contextMenuEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.KUrlRequester_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -7059,12 +8795,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.KUrlRequester_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superContextMenuEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.KUrlRequester_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -7078,9 +8818,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, event: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QContextMenuEvent) callconv(.c) void) void {
         qtc.KUrlRequester_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7092,16 +8836,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KUrlRequester_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KUrlRequester_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7113,12 +8857,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KUrlRequester_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KUrlRequester_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7132,9 +8880,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QTabletEvent) callconv(.c) void) void {
         qtc.KUrlRequester_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7146,16 +8898,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KUrlRequester_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KUrlRequester_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7167,12 +8919,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KUrlRequester_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KUrlRequester_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7186,9 +8942,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QActionEvent) callconv(.c) void) void {
         qtc.KUrlRequester_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7200,16 +8960,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KUrlRequester_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KUrlRequester_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7221,12 +8981,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KUrlRequester_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KUrlRequester_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7240,9 +9004,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QDragEnterEvent) callconv(.c) void) void {
         qtc.KUrlRequester_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7254,16 +9022,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KUrlRequester_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KUrlRequester_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7275,12 +9043,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KUrlRequester_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KUrlRequester_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7294,9 +9066,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QDragMoveEvent) callconv(.c) void) void {
         qtc.KUrlRequester_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7308,16 +9084,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KUrlRequester_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KUrlRequester_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7329,12 +9105,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KUrlRequester_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KUrlRequester_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7348,9 +9128,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QDragLeaveEvent) callconv(.c) void) void {
         qtc.KUrlRequester_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7362,16 +9146,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KUrlRequester_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KUrlRequester_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7383,12 +9167,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KUrlRequester_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KUrlRequester_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7402,9 +9190,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QDropEvent) callconv(.c) void) void {
         qtc.KUrlRequester_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QWidget
     ///
@@ -7416,16 +9208,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn ShowEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KUrlRequester_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn showEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KUrlRequester_ShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -7437,12 +9229,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KUrlRequester_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superShowEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KUrlRequester_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -7456,9 +9252,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QShowEvent) callconv(.c) void) void {
         qtc.KUrlRequester_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7470,16 +9270,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KUrlRequester_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KUrlRequester_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7491,12 +9291,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KUrlRequester_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KUrlRequester_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7510,9 +9314,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QHideEvent) callconv(.c) void) void {
         qtc.KUrlRequester_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7530,7 +9338,7 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: KUrlRequester, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: KUrlRequester, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -7538,9 +9346,9 @@ pub const KUrlRequester = extern struct {
         return qtc.KUrlRequester_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7558,13 +9366,17 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: KUrlRequester, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: KUrlRequester, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.KUrlRequester_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7578,9 +9390,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KUrlRequester_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -7594,13 +9410,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: KUrlRequester, param1: i32) i32 {
+    pub fn metric(self: KUrlRequester, param1: i32) i32 {
         return qtc.KUrlRequester_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -7614,9 +9430,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: KUrlRequester, param1: i32) i32 {
+    pub fn superMetric(self: KUrlRequester, param1: i32) i32 {
         return qtc.KUrlRequester_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -7630,9 +9450,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: KUrlRequester, callback: *const fn (KUrlRequester, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: KUrlRequester, callback: *const fn (KUrlRequester, i32) callconv(.c) i32) void {
         qtc.KUrlRequester_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -7646,14 +9470,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: KUrlRequester, painter: anytype) void {
+    pub fn initPainter(self: KUrlRequester, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KUrlRequester_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7667,10 +9491,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: KUrlRequester, painter: anytype) void {
+    pub fn superInitPainter(self: KUrlRequester, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KUrlRequester_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7684,9 +9512,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: KUrlRequester, callback: *const fn (KUrlRequester, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: KUrlRequester, callback: *const fn (KUrlRequester, QPainter) callconv(.c) void) void {
         qtc.KUrlRequester_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -7700,14 +9532,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: KUrlRequester, offset: anytype) QPaintDevice {
+    pub fn redirected(self: KUrlRequester, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KUrlRequester_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7721,10 +9553,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: KUrlRequester, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: KUrlRequester, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KUrlRequester_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7738,9 +9574,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: KUrlRequester, callback: *const fn (KUrlRequester, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: KUrlRequester, callback: *const fn (KUrlRequester, QPoint) callconv(.c) QPaintDevice) void {
         qtc.KUrlRequester_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7752,13 +9592,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn SharedPainter(self: KUrlRequester) QPainter {
+    pub fn sharedPainter(self: KUrlRequester) QPainter {
         return .{ .ptr = qtc.KUrlRequester_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7770,9 +9610,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn SuperSharedPainter(self: KUrlRequester) QPainter {
+    pub fn superSharedPainter(self: KUrlRequester) QPainter {
         return .{ .ptr = qtc.KUrlRequester_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7786,9 +9630,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: KUrlRequester, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KUrlRequester, callback: *const fn () callconv(.c) QPainter) void {
         qtc.KUrlRequester_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7802,14 +9650,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: KUrlRequester, param1: anytype) void {
+    pub fn inputMethodEvent(self: KUrlRequester, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KUrlRequester_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7823,10 +9671,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: KUrlRequester, param1: anytype) void {
+    pub fn superInputMethodEvent(self: KUrlRequester, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KUrlRequester_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7840,9 +9692,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QInputMethodEvent) callconv(.c) void) void {
         qtc.KUrlRequester_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7856,13 +9712,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: KUrlRequester, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: KUrlRequester, param1: i32) QVariant {
         return .{ .ptr = qtc.KUrlRequester_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7876,9 +9732,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: KUrlRequester, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: KUrlRequester, param1: i32) QVariant {
         return .{ .ptr = qtc.KUrlRequester_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7894,9 +9754,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: KUrlRequester, callback: *const fn (KUrlRequester, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: KUrlRequester, callback: *const fn (KUrlRequester, i32) callconv(.c) QVariant) void {
         qtc.KUrlRequester_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7910,13 +9774,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: KUrlRequester, next: bool) bool {
+    pub fn focusNextPrevChild(self: KUrlRequester, next: bool) bool {
         return qtc.KUrlRequester_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7930,9 +9794,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: KUrlRequester, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: KUrlRequester, next: bool) bool {
         return qtc.KUrlRequester_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7946,9 +9814,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: KUrlRequester, callback: *const fn (KUrlRequester, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: KUrlRequester, callback: *const fn (KUrlRequester, bool) callconv(.c) bool) void {
         qtc.KUrlRequester_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -7960,16 +9832,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KUrlRequester_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KUrlRequester_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -7981,12 +9853,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KUrlRequester_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KUrlRequester_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -8000,9 +9876,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QTimerEvent) callconv(.c) void) void {
         qtc.KUrlRequester_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -8014,16 +9894,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KUrlRequester_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KUrlRequester_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8035,12 +9915,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KUrlRequester_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KUrlRequester_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8054,9 +9938,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QChildEvent) callconv(.c) void) void {
         qtc.KUrlRequester_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -8068,16 +9956,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KUrlRequester_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KUrlRequester_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8089,12 +9977,16 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KUrlRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KUrlRequester_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KUrlRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KUrlRequester_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8108,9 +10000,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, QEvent) callconv(.c) void) void {
         qtc.KUrlRequester_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -8124,14 +10020,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KUrlRequester, signal: anytype) void {
+    pub fn connectNotify(self: KUrlRequester, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KUrlRequester_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8145,11 +10041,15 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KUrlRequester, signal: anytype) void {
+    pub fn superConnectNotify(self: KUrlRequester, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KUrlRequester_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -8162,9 +10062,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KUrlRequester, callback: *const fn (KUrlRequester, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KUrlRequester, callback: *const fn (KUrlRequester, QMetaMethod) callconv(.c) void) void {
         qtc.KUrlRequester_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8178,14 +10082,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KUrlRequester, signal: anytype) void {
+    pub fn disconnectNotify(self: KUrlRequester, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KUrlRequester_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8199,10 +10103,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KUrlRequester, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KUrlRequester, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KUrlRequester_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8216,10 +10124,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KUrlRequester, callback: *const fn (KUrlRequester, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KUrlRequester, callback: *const fn (KUrlRequester, QMetaMethod) callconv(.c) void) void {
         qtc.KUrlRequester_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8230,13 +10142,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn UpdateMicroFocus(self: KUrlRequester) void {
+    pub fn updateMicroFocus(self: KUrlRequester) void {
         qtc.KUrlRequester_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -8248,10 +10160,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn SuperUpdateMicroFocus(self: KUrlRequester) void {
+    pub fn superUpdateMicroFocus(self: KUrlRequester) void {
         qtc.KUrlRequester_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8264,10 +10180,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: KUrlRequester, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: KUrlRequester, callback: *const fn () callconv(.c) void) void {
         qtc.KUrlRequester_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8278,13 +10198,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn Create(self: KUrlRequester) void {
+    pub fn create(self: KUrlRequester) void {
         qtc.KUrlRequester_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -8296,10 +10216,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn SuperCreate(self: KUrlRequester) void {
+    pub fn superCreate(self: KUrlRequester) void {
         qtc.KUrlRequester_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8312,9 +10236,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: KUrlRequester, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: KUrlRequester, callback: *const fn () callconv(.c) void) void {
         qtc.KUrlRequester_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -8326,13 +10254,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn Destroy(self: KUrlRequester) void {
+    pub fn destroy(self: KUrlRequester) void {
         qtc.KUrlRequester_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8344,9 +10272,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn SuperDestroy(self: KUrlRequester) void {
+    pub fn superDestroy(self: KUrlRequester) void {
         qtc.KUrlRequester_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8360,10 +10292,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: KUrlRequester, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: KUrlRequester, callback: *const fn () callconv(.c) void) void {
         qtc.KUrlRequester_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8374,13 +10310,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn FocusNextChild(self: KUrlRequester) bool {
+    pub fn focusNextChild(self: KUrlRequester) bool {
         return qtc.KUrlRequester_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -8392,10 +10328,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn SuperFocusNextChild(self: KUrlRequester) bool {
+    pub fn superFocusNextChild(self: KUrlRequester) bool {
         return qtc.KUrlRequester_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8408,9 +10348,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: KUrlRequester, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: KUrlRequester, callback: *const fn () callconv(.c) bool) void {
         qtc.KUrlRequester_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8422,13 +10366,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn FocusPreviousChild(self: KUrlRequester) bool {
+    pub fn focusPreviousChild(self: KUrlRequester) bool {
         return qtc.KUrlRequester_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8440,9 +10384,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn SuperFocusPreviousChild(self: KUrlRequester) bool {
+    pub fn superFocusPreviousChild(self: KUrlRequester) bool {
         return qtc.KUrlRequester_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8456,9 +10404,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: KUrlRequester, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: KUrlRequester, callback: *const fn () callconv(.c) bool) void {
         qtc.KUrlRequester_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -8470,13 +10422,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn Sender(self: KUrlRequester) QObject {
+    pub fn sender(self: KUrlRequester) QObject {
         return .{ .ptr = qtc.KUrlRequester_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -8488,9 +10440,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn SuperSender(self: KUrlRequester) QObject {
+    pub fn superSender(self: KUrlRequester) QObject {
         return .{ .ptr = qtc.KUrlRequester_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -8504,9 +10460,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KUrlRequester, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KUrlRequester, callback: *const fn () callconv(.c) QObject) void {
         qtc.KUrlRequester_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8518,13 +10478,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn SenderSignalIndex(self: KUrlRequester) i32 {
+    pub fn senderSignalIndex(self: KUrlRequester) i32 {
         return qtc.KUrlRequester_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8536,9 +10496,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn SuperSenderSignalIndex(self: KUrlRequester) i32 {
+    pub fn superSenderSignalIndex(self: KUrlRequester) i32 {
         return qtc.KUrlRequester_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8552,9 +10516,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KUrlRequester, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KUrlRequester, callback: *const fn () callconv(.c) i32) void {
         qtc.KUrlRequester_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -8568,14 +10536,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KUrlRequester, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KUrlRequester, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KUrlRequester_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -8589,10 +10557,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KUrlRequester, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KUrlRequester, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KUrlRequester_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -8606,9 +10578,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KUrlRequester, callback: *const fn (KUrlRequester, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KUrlRequester, callback: *const fn (KUrlRequester, [*:0]const u8) callconv(.c) i32) void {
         qtc.KUrlRequester_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8622,14 +10598,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KUrlRequester, signal: anytype) bool {
+    pub fn isSignalConnected(self: KUrlRequester, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KUrlRequester_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8643,10 +10619,14 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KUrlRequester, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KUrlRequester, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KUrlRequester_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8660,9 +10640,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KUrlRequester, callback: *const fn (KUrlRequester, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KUrlRequester, callback: *const fn (KUrlRequester, QMetaMethod) callconv(.c) bool) void {
         qtc.KUrlRequester_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8678,13 +10662,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: KUrlRequester, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: KUrlRequester, metricA: i32, metricB: i32) f64 {
         return qtc.KUrlRequester_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8700,9 +10684,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: KUrlRequester, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: KUrlRequester, metricA: i32, metricB: i32) f64 {
         return qtc.KUrlRequester_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8716,9 +10704,13 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: KUrlRequester, callback: *const fn (KUrlRequester, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: KUrlRequester, callback: *const fn (KUrlRequester, i32, i32) callconv(.c) f64) void {
         qtc.KUrlRequester_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -8732,23 +10724,23 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlRequester, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KUrlRequester, callback: *const fn (KUrlRequester, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KUrlRequester, callback: *const fn (KUrlRequester, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kurlrequester.html#dtor.KUrlRequester)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KUrlRequester `
     ///
-    pub fn Delete(self: KUrlRequester) void {
+    pub fn delete(self: KUrlRequester) void {
         qtc.KUrlRequester_Delete(@ptrCast(self.ptr));
     }
 };
@@ -8767,22 +10759,34 @@ pub const KUrlComboRequester = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new KUrlComboRequester object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KUrlComboRequester object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) KUrlComboRequester {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KUrlComboRequester_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) KUrlComboRequester {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KUrlComboRequester_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new KUrlComboRequester object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() KUrlComboRequester {
+    pub const New2 = new2;
+
+    /// Allocate a new KUrlComboRequester object in C++ memory
+    ///
+    pub fn new2() KUrlComboRequester {
         return .{ .ptr = qtc.KUrlComboRequester_new2() };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -8790,9 +10794,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn MetaObject(self: KUrlComboRequester) QMetaObject {
+    pub fn metaObject(self: KUrlComboRequester) QMetaObject {
         return .{ .ptr = qtc.KUrlComboRequester_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -8804,13 +10812,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KUrlComboRequester, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KUrlComboRequester, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KUrlComboRequester_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -8820,9 +10828,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn SuperMetaObject(self: KUrlComboRequester) QMetaObject {
+    pub fn superMetaObject(self: KUrlComboRequester) QMetaObject {
         return .{ .ptr = qtc.KUrlComboRequester_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -8830,10 +10842,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KUrlComboRequester, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KUrlComboRequester, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KUrlComboRequester_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -8843,13 +10859,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KUrlComboRequester_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -8859,10 +10875,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KUrlComboRequester, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KUrlComboRequester, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KUrlComboRequester_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -8874,9 +10894,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KUrlComboRequester, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KUrlComboRequester, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KUrlComboRequester_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -8886,13 +10910,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KUrlComboRequester_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -8906,9 +10930,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KUrlComboRequester, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KUrlComboRequester, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KUrlComboRequester_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -8918,14 +10946,18 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -8937,15 +10969,19 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -8959,15 +10995,19 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `url` instead
+    ///
+    pub const Url = url;
 
     /// Inherited from KUrlRequester
     ///
@@ -8977,9 +11017,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn Url(self: KUrlComboRequester) QUrl {
+    pub fn url(self: KUrlComboRequester) QUrl {
         return .{ .ptr = qtc.KUrlRequester_Url(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `startDir` instead
+    ///
+    pub const StartDir = startDir;
 
     /// Inherited from KUrlRequester
     ///
@@ -8989,9 +11033,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn StartDir(self: KUrlComboRequester) QUrl {
+    pub fn startDir(self: KUrlComboRequester) QUrl {
         return .{ .ptr = qtc.KUrlRequester_StartDir(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `text` instead
+    ///
+    pub const Text = text;
 
     /// Inherited from KUrlRequester
     ///
@@ -9003,13 +11051,17 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: KUrlComboRequester, allocator: std.mem.Allocator) []const u8 {
+    pub fn text(self: KUrlComboRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KUrlRequester_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setMode` instead
+    ///
+    pub const SetMode = setMode;
 
     /// Inherited from KUrlRequester
     ///
@@ -9019,11 +11071,15 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` mode: flag of kfile_enums.Mode `
+    /// ` _mode: flag of kfile_enums.Mode `
     ///
-    pub fn SetMode(self: KUrlComboRequester, mode: i32) void {
-        qtc.KUrlRequester_SetMode(@ptrCast(self.ptr), @bitCast(mode));
+    pub fn setMode(self: KUrlComboRequester, _mode: i32) void {
+        qtc.KUrlRequester_SetMode(@ptrCast(self.ptr), @bitCast(_mode));
     }
+
+    /// ### DEPRECATED: Use `mode` instead
+    ///
+    pub const Mode = mode;
 
     /// Inherited from KUrlRequester
     ///
@@ -9037,9 +11093,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` flag of kfile_enums.Mode `
     ///
-    pub fn Mode(self: KUrlComboRequester) i32 {
+    pub fn mode(self: KUrlComboRequester) i32 {
         return qtc.KUrlRequester_Mode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptMode` instead
+    ///
+    pub const SetAcceptMode = setAcceptMode;
 
     /// Inherited from KUrlRequester
     ///
@@ -9051,9 +11111,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` m: qfiledialog_enums.AcceptMode `
     ///
-    pub fn SetAcceptMode(self: KUrlComboRequester, m: i32) void {
+    pub fn setAcceptMode(self: KUrlComboRequester, m: i32) void {
         qtc.KUrlRequester_SetAcceptMode(@ptrCast(self.ptr), @bitCast(m));
     }
+
+    /// ### DEPRECATED: Use `acceptMode` instead
+    ///
+    pub const AcceptMode = acceptMode;
 
     /// Inherited from KUrlRequester
     ///
@@ -9067,9 +11131,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` qfiledialog_enums.AcceptMode `
     ///
-    pub fn AcceptMode(self: KUrlComboRequester) i32 {
+    pub fn acceptMode(self: KUrlComboRequester) i32 {
         return qtc.KUrlRequester_AcceptMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setNameFilters` instead
+    ///
+    pub const SetNameFilters = setNameFilters;
 
     /// Inherited from KUrlRequester
     ///
@@ -9083,13 +11151,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` filters: []const []const u8 `
     ///
-    pub fn SetNameFilters(self: KUrlComboRequester, allocator: std.mem.Allocator, filters: []const []const u8) void {
-        const filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("KUrlComboRequester.SetNameFilters: Memory allocation failed");
+    pub fn setNameFilters(self: KUrlComboRequester, allocator: std.mem.Allocator, filters: []const []const u8) void {
+        const filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("KUrlComboRequester.setNameFilters: Memory allocation failed");
         defer allocator.free(filters_arr);
-        for (filters, 0..filters.len) |item, i|
+        for (filters, 0..filters.len) |str_item, i|
             filters_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const filters_list = qtc.libqt_list{
             .len = filters.len,
@@ -9097,6 +11165,10 @@ pub const KUrlComboRequester = extern struct {
         };
         qtc.KUrlRequester_SetNameFilters(@ptrCast(self.ptr), filters_list);
     }
+
+    /// ### DEPRECATED: Use `setNameFilter` instead
+    ///
+    pub const SetNameFilter = setNameFilter;
 
     /// Inherited from KUrlRequester
     ///
@@ -9108,13 +11180,17 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` filter: []const u8 `
     ///
-    pub fn SetNameFilter(self: KUrlComboRequester, filter: []const u8) void {
+    pub fn setNameFilter(self: KUrlComboRequester, filter: []const u8) void {
         const filter_str = qtc.libqt_string{
             .len = filter.len,
             .data = filter.ptr,
         };
         qtc.KUrlRequester_SetNameFilter(@ptrCast(self.ptr), filter_str);
     }
+
+    /// ### DEPRECATED: Use `nameFilters` instead
+    ///
+    pub const NameFilters = nameFilters;
 
     /// Inherited from KUrlRequester
     ///
@@ -9126,7 +11202,7 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NameFilters(self: KUrlComboRequester, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn nameFilters(self: KUrlComboRequester, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KUrlRequester_NameFilters(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -9134,15 +11210,19 @@ pub const KUrlComboRequester = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUrlComboRequester.NameFilters: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUrlComboRequester.nameFilters: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUrlComboRequester.NameFilters: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KUrlComboRequester.nameFilters: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setMimeTypeFilters` instead
+    ///
+    pub const SetMimeTypeFilters = setMimeTypeFilters;
 
     /// Inherited from KUrlRequester
     ///
@@ -9156,13 +11236,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` mimeTypes: []const []const u8 `
     ///
-    pub fn SetMimeTypeFilters(self: KUrlComboRequester, allocator: std.mem.Allocator, mimeTypes: []const []const u8) void {
-        const mimeTypes_arr = allocator.alloc(qtc.libqt_string, mimeTypes.len) catch @panic("KUrlComboRequester.SetMimeTypeFilters: Memory allocation failed");
+    pub fn setMimeTypeFilters(self: KUrlComboRequester, allocator: std.mem.Allocator, mimeTypes: []const []const u8) void {
+        const mimeTypes_arr = allocator.alloc(qtc.libqt_string, mimeTypes.len) catch @panic("KUrlComboRequester.setMimeTypeFilters: Memory allocation failed");
         defer allocator.free(mimeTypes_arr);
-        for (mimeTypes, 0..mimeTypes.len) |item, i|
+        for (mimeTypes, 0..mimeTypes.len) |str_item, i|
             mimeTypes_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const mimeTypes_list = qtc.libqt_list{
             .len = mimeTypes.len,
@@ -9170,6 +11250,10 @@ pub const KUrlComboRequester = extern struct {
         };
         qtc.KUrlRequester_SetMimeTypeFilters(@ptrCast(self.ptr), mimeTypes_list);
     }
+
+    /// ### DEPRECATED: Use `mimeTypeFilters` instead
+    ///
+    pub const MimeTypeFilters = mimeTypeFilters;
 
     /// Inherited from KUrlRequester
     ///
@@ -9181,7 +11265,7 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimeTypeFilters(self: KUrlComboRequester, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn mimeTypeFilters(self: KUrlComboRequester, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KUrlRequester_MimeTypeFilters(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -9189,15 +11273,19 @@ pub const KUrlComboRequester = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUrlComboRequester.MimeTypeFilters: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUrlComboRequester.mimeTypeFilters: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUrlComboRequester.MimeTypeFilters: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KUrlComboRequester.mimeTypeFilters: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `lineEdit` instead
+    ///
+    pub const LineEdit = lineEdit;
 
     /// Inherited from KUrlRequester
     ///
@@ -9207,9 +11295,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn LineEdit(self: KUrlComboRequester) KLineEdit {
+    pub fn lineEdit(self: KUrlComboRequester) KLineEdit {
         return .{ .ptr = qtc.KUrlRequester_LineEdit(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `comboBox` instead
+    ///
+    pub const ComboBox = comboBox;
 
     /// Inherited from KUrlRequester
     ///
@@ -9219,9 +11311,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn ComboBox(self: KUrlComboRequester) KComboBox {
+    pub fn comboBox(self: KUrlComboRequester) KComboBox {
         return .{ .ptr = qtc.KUrlRequester_ComboBox(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `button` instead
+    ///
+    pub const Button = button;
 
     /// Inherited from KUrlRequester
     ///
@@ -9231,9 +11327,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn Button(self: KUrlComboRequester) QPushButton {
+    pub fn button(self: KUrlComboRequester) QPushButton {
         return .{ .ptr = qtc.KUrlRequester_Button(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `completionObject` instead
+    ///
+    pub const CompletionObject = completionObject;
 
     /// Inherited from KUrlRequester
     ///
@@ -9243,9 +11343,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn CompletionObject(self: KUrlComboRequester) KUrlCompletion {
+    pub fn completionObject(self: KUrlComboRequester) KUrlCompletion {
         return .{ .ptr = qtc.KUrlRequester_CompletionObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `customEditor` instead
+    ///
+    pub const CustomEditor = customEditor;
 
     /// Inherited from KUrlRequester
     ///
@@ -9255,9 +11359,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn CustomEditor(self: KUrlComboRequester) KEditListWidget__CustomEditor {
+    pub fn customEditor(self: KUrlComboRequester) KEditListWidget__CustomEditor {
         return .{ .ptr = qtc.KUrlRequester_CustomEditor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `placeholderText` instead
+    ///
+    pub const PlaceholderText = placeholderText;
 
     /// Inherited from KUrlRequester
     ///
@@ -9269,13 +11377,17 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PlaceholderText(self: KUrlComboRequester, allocator: std.mem.Allocator) []const u8 {
+    pub fn placeholderText(self: KUrlComboRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KUrlRequester_PlaceholderText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.PlaceholderText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.placeholderText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setPlaceholderText` instead
+    ///
+    pub const SetPlaceholderText = setPlaceholderText;
 
     /// Inherited from KUrlRequester
     ///
@@ -9287,13 +11399,17 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` msg: []const u8 `
     ///
-    pub fn SetPlaceholderText(self: KUrlComboRequester, msg: []const u8) void {
+    pub fn setPlaceholderText(self: KUrlComboRequester, msg: []const u8) void {
         const msg_str = qtc.libqt_string{
             .len = msg.len,
             .data = msg.ptr,
         };
         qtc.KUrlRequester_SetPlaceholderText(@ptrCast(self.ptr), msg_str);
     }
+
+    /// ### DEPRECATED: Use `fileDialogModality` instead
+    ///
+    pub const FileDialogModality = fileDialogModality;
 
     /// Inherited from KUrlRequester
     ///
@@ -9307,9 +11423,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn FileDialogModality(self: KUrlComboRequester) i32 {
+    pub fn fileDialogModality(self: KUrlComboRequester) i32 {
         return qtc.KUrlRequester_FileDialogModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFileDialogModality` instead
+    ///
+    pub const SetFileDialogModality = setFileDialogModality;
 
     /// Inherited from KUrlRequester
     ///
@@ -9321,9 +11441,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` modality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetFileDialogModality(self: KUrlComboRequester, modality: i32) void {
+    pub fn setFileDialogModality(self: KUrlComboRequester, modality: i32) void {
         qtc.KUrlRequester_SetFileDialogModality(@ptrCast(self.ptr), @bitCast(modality));
     }
+
+    /// ### DEPRECATED: Use `setUrl` instead
+    ///
+    pub const SetUrl = setUrl;
 
     /// Inherited from KUrlRequester
     ///
@@ -9333,12 +11457,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` url: QUrl `
+    /// ` _url: QUrl `
     ///
-    pub fn SetUrl(self: KUrlComboRequester, url: anytype) void {
-        comptime _ = @TypeOf(url)._is_QUrl;
-        qtc.KUrlRequester_SetUrl(@ptrCast(self.ptr), @ptrCast(url.ptr));
+    pub fn setUrl(self: KUrlComboRequester, _url: anytype) void {
+        comptime _ = @TypeOf(_url)._is_QUrl;
+        qtc.KUrlRequester_SetUrl(@ptrCast(self.ptr), @ptrCast(_url.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStartDir` instead
+    ///
+    pub const SetStartDir = setStartDir;
 
     /// Inherited from KUrlRequester
     ///
@@ -9348,12 +11476,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` startDir: QUrl `
+    /// ` _startDir: QUrl `
     ///
-    pub fn SetStartDir(self: KUrlComboRequester, startDir: anytype) void {
-        comptime _ = @TypeOf(startDir)._is_QUrl;
-        qtc.KUrlRequester_SetStartDir(@ptrCast(self.ptr), @ptrCast(startDir.ptr));
+    pub fn setStartDir(self: KUrlComboRequester, _startDir: anytype) void {
+        comptime _ = @TypeOf(_startDir)._is_QUrl;
+        qtc.KUrlRequester_SetStartDir(@ptrCast(self.ptr), @ptrCast(_startDir.ptr));
     }
+
+    /// ### DEPRECATED: Use `setText` instead
+    ///
+    pub const SetText = setText;
 
     /// Inherited from KUrlRequester
     ///
@@ -9363,15 +11495,19 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn SetText(self: KUrlComboRequester, text: []const u8) void {
+    pub fn setText(self: KUrlComboRequester, _text: []const u8) void {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.KUrlRequester_SetText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// Inherited from KUrlRequester
     ///
@@ -9381,9 +11517,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn Clear(self: KUrlComboRequester) void {
+    pub fn clear(self: KUrlComboRequester) void {
         qtc.KUrlRequester_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `textChanged` instead
+    ///
+    pub const TextChanged = textChanged;
 
     /// Inherited from KUrlRequester
     ///
@@ -9395,7 +11535,7 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn TextChanged(self: KUrlComboRequester, param1: []const u8) void {
+    pub fn textChanged(self: KUrlComboRequester, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -9403,6 +11543,10 @@ pub const KUrlComboRequester = extern struct {
         qtc.KUrlRequester_TextChanged(@ptrCast(self.ptr), param1_str);
     }
 
+    /// ### DEPRECATED: Use `onTextChanged` instead
+    ///
+    pub const OnTextChanged = onTextChanged;
+
     /// Inherited from KUrlRequester
     ///
     /// ### [Upstream resources](https://api.kde.org/kurlrequester.html#textChanged)
@@ -9413,9 +11557,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnTextChanged(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, [*:0]const u8) callconv(.c) void) void {
+    pub fn onTextChanged(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, [*:0]const u8) callconv(.c) void) void {
         qtc.KUrlRequester_Connect_TextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `textEdited` instead
+    ///
+    pub const TextEdited = textEdited;
 
     /// Inherited from KUrlRequester
     ///
@@ -9427,13 +11575,17 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn TextEdited(self: KUrlComboRequester, param1: []const u8) void {
+    pub fn textEdited(self: KUrlComboRequester, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
         qtc.KUrlRequester_TextEdited(@ptrCast(self.ptr), param1_str);
     }
+
+    /// ### DEPRECATED: Use `onTextEdited` instead
+    ///
+    pub const OnTextEdited = onTextEdited;
 
     /// Inherited from KUrlRequester
     ///
@@ -9445,9 +11597,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnTextEdited(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, [*:0]const u8) callconv(.c) void) void {
+    pub fn onTextEdited(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, [*:0]const u8) callconv(.c) void) void {
         qtc.KUrlRequester_Connect_TextEdited(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `returnPressed` instead
+    ///
+    pub const ReturnPressed = returnPressed;
 
     /// Inherited from KUrlRequester
     ///
@@ -9457,15 +11613,19 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn ReturnPressed(self: KUrlComboRequester, text: []const u8) void {
+    pub fn returnPressed(self: KUrlComboRequester, _text: []const u8) void {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.KUrlRequester_ReturnPressed(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `onReturnPressed` instead
+    ///
+    pub const OnReturnPressed = onReturnPressed;
 
     /// Inherited from KUrlRequester
     ///
@@ -9477,9 +11637,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, text: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnReturnPressed(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, [*:0]const u8) callconv(.c) void) void {
+    pub fn onReturnPressed(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, [*:0]const u8) callconv(.c) void) void {
         qtc.KUrlRequester_Connect_ReturnPressed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `openFileDialog` instead
+    ///
+    pub const OpenFileDialog = openFileDialog;
 
     /// Inherited from KUrlRequester
     ///
@@ -9491,10 +11655,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` param1: KUrlRequester `
     ///
-    pub fn OpenFileDialog(self: KUrlComboRequester, param1: anytype) void {
+    pub fn openFileDialog(self: KUrlComboRequester, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_KUrlRequester;
         qtc.KUrlRequester_OpenFileDialog(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onOpenFileDialog` instead
+    ///
+    pub const OnOpenFileDialog = onOpenFileDialog;
 
     /// Inherited from KUrlRequester
     ///
@@ -9506,9 +11674,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, param1: KUrlRequester) callconv(.c) void `
     ///
-    pub fn OnOpenFileDialog(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, KUrlRequester) callconv(.c) void) void {
+    pub fn onOpenFileDialog(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, KUrlRequester) callconv(.c) void) void {
         qtc.KUrlRequester_Connect_OpenFileDialog(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `urlSelected` instead
+    ///
+    pub const UrlSelected = urlSelected;
 
     /// Inherited from KUrlRequester
     ///
@@ -9520,10 +11692,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` param1: QUrl `
     ///
-    pub fn UrlSelected(self: KUrlComboRequester, param1: anytype) void {
+    pub fn urlSelected(self: KUrlComboRequester, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QUrl;
         qtc.KUrlRequester_UrlSelected(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onUrlSelected` instead
+    ///
+    pub const OnUrlSelected = onUrlSelected;
 
     /// Inherited from KUrlRequester
     ///
@@ -9535,9 +11711,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, param1: QUrl) callconv(.c) void `
     ///
-    pub fn OnUrlSelected(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QUrl) callconv(.c) void) void {
+    pub fn onUrlSelected(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QUrl) callconv(.c) void) void {
         qtc.KUrlRequester_Connect_UrlSelected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -9547,9 +11727,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn WinId(self: KUrlComboRequester) usize {
+    pub fn winId(self: KUrlComboRequester) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -9559,9 +11743,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn CreateWinId(self: KUrlComboRequester) void {
+    pub fn createWinId(self: KUrlComboRequester) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -9571,9 +11759,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn InternalWinId(self: KUrlComboRequester) usize {
+    pub fn internalWinId(self: KUrlComboRequester) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -9583,9 +11775,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn EffectiveWinId(self: KUrlComboRequester) usize {
+    pub fn effectiveWinId(self: KUrlComboRequester) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -9595,9 +11791,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn Style(self: KUrlComboRequester) QStyle {
+    pub fn style(self: KUrlComboRequester) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -9607,12 +11807,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: KUrlComboRequester, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: KUrlComboRequester, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -9622,9 +11826,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn IsTopLevel(self: KUrlComboRequester) bool {
+    pub fn isTopLevel(self: KUrlComboRequester) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -9634,9 +11842,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn IsWindow(self: KUrlComboRequester) bool {
+    pub fn isWindow(self: KUrlComboRequester) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -9646,9 +11858,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn IsModal(self: KUrlComboRequester) bool {
+    pub fn isModal(self: KUrlComboRequester) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -9662,9 +11878,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: KUrlComboRequester) i32 {
+    pub fn windowModality(self: KUrlComboRequester) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -9674,11 +11894,15 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: KUrlComboRequester, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: KUrlComboRequester, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -9688,9 +11912,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn IsEnabled(self: KUrlComboRequester) bool {
+    pub fn isEnabled(self: KUrlComboRequester) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -9702,10 +11930,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: KUrlComboRequester, param1: anytype) bool {
+    pub fn isEnabledTo(self: KUrlComboRequester, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -9717,9 +11949,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: KUrlComboRequester, enabled: bool) void {
+    pub fn setEnabled(self: KUrlComboRequester, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -9731,9 +11967,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: KUrlComboRequester, disabled: bool) void {
+    pub fn setDisabled(self: KUrlComboRequester, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -9745,9 +11985,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: KUrlComboRequester, windowModified: bool) void {
+    pub fn setWindowModified(self: KUrlComboRequester, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -9757,9 +12001,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn FrameGeometry(self: KUrlComboRequester) QRect {
+    pub fn frameGeometry(self: KUrlComboRequester) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -9769,9 +12017,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn Geometry(self: KUrlComboRequester) QRect {
+    pub fn geometry(self: KUrlComboRequester) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -9781,9 +12033,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn NormalGeometry(self: KUrlComboRequester) QRect {
+    pub fn normalGeometry(self: KUrlComboRequester) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -9793,9 +12049,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn X(self: KUrlComboRequester) i32 {
+    pub fn x(self: KUrlComboRequester) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -9805,9 +12065,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn Y(self: KUrlComboRequester) i32 {
+    pub fn y(self: KUrlComboRequester) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -9817,9 +12081,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn Pos(self: KUrlComboRequester) QPoint {
+    pub fn pos(self: KUrlComboRequester) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -9829,9 +12097,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn FrameSize(self: KUrlComboRequester) QSize {
+    pub fn frameSize(self: KUrlComboRequester) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -9841,9 +12113,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn Size(self: KUrlComboRequester) QSize {
+    pub fn size(self: KUrlComboRequester) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -9853,9 +12129,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn Width(self: KUrlComboRequester) i32 {
+    pub fn width(self: KUrlComboRequester) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -9865,9 +12145,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn Height(self: KUrlComboRequester) i32 {
+    pub fn height(self: KUrlComboRequester) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -9877,9 +12161,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn Rect(self: KUrlComboRequester) QRect {
+    pub fn rect(self: KUrlComboRequester) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -9889,9 +12177,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn ChildrenRect(self: KUrlComboRequester) QRect {
+    pub fn childrenRect(self: KUrlComboRequester) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -9901,9 +12193,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn ChildrenRegion(self: KUrlComboRequester) QRegion {
+    pub fn childrenRegion(self: KUrlComboRequester) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -9913,9 +12209,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn MinimumSize(self: KUrlComboRequester) QSize {
+    pub fn minimumSize(self: KUrlComboRequester) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -9925,9 +12225,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn MaximumSize(self: KUrlComboRequester) QSize {
+    pub fn maximumSize(self: KUrlComboRequester) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -9937,9 +12241,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn MinimumWidth(self: KUrlComboRequester) i32 {
+    pub fn minimumWidth(self: KUrlComboRequester) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -9949,9 +12257,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn MinimumHeight(self: KUrlComboRequester) i32 {
+    pub fn minimumHeight(self: KUrlComboRequester) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -9961,9 +12273,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn MaximumWidth(self: KUrlComboRequester) i32 {
+    pub fn maximumWidth(self: KUrlComboRequester) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -9973,9 +12289,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn MaximumHeight(self: KUrlComboRequester) i32 {
+    pub fn maximumHeight(self: KUrlComboRequester) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -9985,12 +12305,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: KUrlComboRequester, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: KUrlComboRequester, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -10004,9 +12328,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: KUrlComboRequester, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: KUrlComboRequester, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -10016,12 +12344,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: KUrlComboRequester, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: KUrlComboRequester, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -10035,9 +12367,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: KUrlComboRequester, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: KUrlComboRequester, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -10049,9 +12385,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: KUrlComboRequester, minw: i32) void {
+    pub fn setMinimumWidth(self: KUrlComboRequester, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -10063,9 +12403,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: KUrlComboRequester, minh: i32) void {
+    pub fn setMinimumHeight(self: KUrlComboRequester, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -10077,9 +12421,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: KUrlComboRequester, maxw: i32) void {
+    pub fn setMaximumWidth(self: KUrlComboRequester, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -10091,9 +12439,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: KUrlComboRequester, maxh: i32) void {
+    pub fn setMaximumHeight(self: KUrlComboRequester, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -10103,9 +12455,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn SizeIncrement(self: KUrlComboRequester) QSize {
+    pub fn sizeIncrement(self: KUrlComboRequester) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -10115,12 +12471,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: KUrlComboRequester, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: KUrlComboRequester, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -10134,9 +12494,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: KUrlComboRequester, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: KUrlComboRequester, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -10146,9 +12510,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn BaseSize(self: KUrlComboRequester) QSize {
+    pub fn baseSize(self: KUrlComboRequester) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -10158,12 +12526,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: KUrlComboRequester, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: KUrlComboRequester, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -10177,9 +12549,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: KUrlComboRequester, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: KUrlComboRequester, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -10191,10 +12567,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: KUrlComboRequester, fixedSize: anytype) void {
+    pub fn setFixedSize(self: KUrlComboRequester, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -10208,9 +12588,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: KUrlComboRequester, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: KUrlComboRequester, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -10222,9 +12606,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: KUrlComboRequester, w: i32) void {
+    pub fn setFixedWidth(self: KUrlComboRequester, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -10236,9 +12624,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: KUrlComboRequester, h: i32) void {
+    pub fn setFixedHeight(self: KUrlComboRequester, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -10250,11 +12642,15 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: KUrlComboRequester, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: KUrlComboRequester, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -10265,11 +12661,15 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: KUrlComboRequester, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: KUrlComboRequester, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -10280,11 +12680,15 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: KUrlComboRequester, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: KUrlComboRequester, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -10295,11 +12699,15 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: KUrlComboRequester, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: KUrlComboRequester, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -10310,11 +12718,15 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: KUrlComboRequester, param1: anytype) QPointF {
+    pub fn mapToParent(self: KUrlComboRequester, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -10325,10 +12737,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: KUrlComboRequester, param1: anytype) QPoint {
+    pub fn mapToParent2(self: KUrlComboRequester, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -10340,10 +12756,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: KUrlComboRequester, param1: anytype) QPointF {
+    pub fn mapFromParent(self: KUrlComboRequester, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -10355,10 +12775,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: KUrlComboRequester, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: KUrlComboRequester, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -10372,12 +12796,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: KUrlComboRequester, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: KUrlComboRequester, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -10390,11 +12818,15 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: KUrlComboRequester, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: KUrlComboRequester, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -10408,11 +12840,15 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: KUrlComboRequester, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: KUrlComboRequester, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -10426,11 +12862,15 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: KUrlComboRequester, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: KUrlComboRequester, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -10440,9 +12880,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn Window(self: KUrlComboRequester) QWidget {
+    pub fn window(self: KUrlComboRequester) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -10452,9 +12896,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn NativeParentWidget(self: KUrlComboRequester) QWidget {
+    pub fn nativeParentWidget(self: KUrlComboRequester) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -10464,9 +12912,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn TopLevelWidget(self: KUrlComboRequester) QWidget {
+    pub fn topLevelWidget(self: KUrlComboRequester) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -10476,9 +12928,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn Palette(self: KUrlComboRequester) QPalette {
+    pub fn palette(self: KUrlComboRequester) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -10488,12 +12944,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: KUrlComboRequester, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: KUrlComboRequester, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -10503,11 +12963,15 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: KUrlComboRequester, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: KUrlComboRequester, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -10521,9 +12985,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: KUrlComboRequester) i32 {
+    pub fn backgroundRole(self: KUrlComboRequester) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -10533,11 +13001,15 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: KUrlComboRequester, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: KUrlComboRequester, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -10551,9 +13023,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: KUrlComboRequester) i32 {
+    pub fn foregroundRole(self: KUrlComboRequester) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -10563,9 +13039,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn Font(self: KUrlComboRequester) QFont {
+    pub fn font(self: KUrlComboRequester) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -10575,12 +13055,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: KUrlComboRequester, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: KUrlComboRequester, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -10590,9 +13074,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn FontMetrics(self: KUrlComboRequester) QFontMetrics {
+    pub fn fontMetrics(self: KUrlComboRequester) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -10602,9 +13090,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn FontInfo(self: KUrlComboRequester) QFontInfo {
+    pub fn fontInfo(self: KUrlComboRequester) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -10614,9 +13106,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn Cursor(self: KUrlComboRequester) QCursor {
+    pub fn cursor(self: KUrlComboRequester) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -10626,12 +13122,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: KUrlComboRequester, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: KUrlComboRequester, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -10641,9 +13141,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn UnsetCursor(self: KUrlComboRequester) void {
+    pub fn unsetCursor(self: KUrlComboRequester) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -10655,9 +13159,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: KUrlComboRequester, enable: bool) void {
+    pub fn setMouseTracking(self: KUrlComboRequester, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -10667,9 +13175,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn HasMouseTracking(self: KUrlComboRequester) bool {
+    pub fn hasMouseTracking(self: KUrlComboRequester) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -10679,9 +13191,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn UnderMouse(self: KUrlComboRequester) bool {
+    pub fn underMouse(self: KUrlComboRequester) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -10693,9 +13209,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: KUrlComboRequester, enable: bool) void {
+    pub fn setTabletTracking(self: KUrlComboRequester, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -10705,24 +13225,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn HasTabletTracking(self: KUrlComboRequester) bool {
+    pub fn hasTabletTracking(self: KUrlComboRequester) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlComboRequester `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: KUrlComboRequester, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -10732,12 +13241,35 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: KUrlComboRequester, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: KUrlComboRequester, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KUrlComboRequester `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: KUrlComboRequester, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -10747,9 +13279,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn Mask(self: KUrlComboRequester) QRegion {
+    pub fn mask(self: KUrlComboRequester) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -10759,9 +13295,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn ClearMask(self: KUrlComboRequester) void {
+    pub fn clearMask(self: KUrlComboRequester) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -10773,10 +13313,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: KUrlComboRequester, target: anytype) void {
+    pub fn render(self: KUrlComboRequester, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -10788,10 +13332,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: KUrlComboRequester, painter: anytype) void {
+    pub fn render2(self: KUrlComboRequester, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -10801,9 +13349,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn Grab(self: KUrlComboRequester) QPixmap {
+    pub fn grab(self: KUrlComboRequester) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -10813,9 +13365,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn GraphicsEffect(self: KUrlComboRequester) QGraphicsEffect {
+    pub fn graphicsEffect(self: KUrlComboRequester) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -10827,10 +13383,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: KUrlComboRequester, effect: anytype) void {
+    pub fn setGraphicsEffect(self: KUrlComboRequester, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -10842,9 +13402,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: KUrlComboRequester, typeVal: i32) void {
+    pub fn grabGesture(self: KUrlComboRequester, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -10856,9 +13420,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: KUrlComboRequester, typeVal: i32) void {
+    pub fn ungrabGesture(self: KUrlComboRequester, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -10868,15 +13436,19 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: KUrlComboRequester, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: KUrlComboRequester, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -10886,15 +13458,19 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: KUrlComboRequester, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: KUrlComboRequester, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -10906,13 +13482,17 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: KUrlComboRequester, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: KUrlComboRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -10924,13 +13504,17 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: KUrlComboRequester, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: KUrlComboRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -10942,10 +13526,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: KUrlComboRequester, icon: anytype) void {
+    pub fn setWindowIcon(self: KUrlComboRequester, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -10955,9 +13543,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn WindowIcon(self: KUrlComboRequester) QIcon {
+    pub fn windowIcon(self: KUrlComboRequester) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -10967,15 +13559,19 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: KUrlComboRequester, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: KUrlComboRequester, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -10987,13 +13583,17 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: KUrlComboRequester, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: KUrlComboRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -11003,15 +13603,19 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: KUrlComboRequester, windowRole: []const u8) void {
+    pub fn setWindowRole(self: KUrlComboRequester, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -11023,13 +13627,17 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: KUrlComboRequester, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: KUrlComboRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -11041,13 +13649,17 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: KUrlComboRequester, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: KUrlComboRequester, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -11059,13 +13671,17 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: KUrlComboRequester, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: KUrlComboRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -11077,9 +13693,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: KUrlComboRequester, level: f64) void {
+    pub fn setWindowOpacity(self: KUrlComboRequester, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -11089,9 +13709,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn WindowOpacity(self: KUrlComboRequester) f64 {
+    pub fn windowOpacity(self: KUrlComboRequester) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -11101,9 +13725,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn IsWindowModified(self: KUrlComboRequester) bool {
+    pub fn isWindowModified(self: KUrlComboRequester) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -11113,15 +13741,19 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: KUrlComboRequester, toolTip: []const u8) void {
+    pub fn setToolTip(self: KUrlComboRequester, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -11133,13 +13765,17 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: KUrlComboRequester, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: KUrlComboRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -11151,9 +13787,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: KUrlComboRequester, msec: i32) void {
+    pub fn setToolTipDuration(self: KUrlComboRequester, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -11163,9 +13803,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn ToolTipDuration(self: KUrlComboRequester) i32 {
+    pub fn toolTipDuration(self: KUrlComboRequester) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -11175,15 +13819,19 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: KUrlComboRequester, statusTip: []const u8) void {
+    pub fn setStatusTip(self: KUrlComboRequester, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -11195,13 +13843,17 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: KUrlComboRequester, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: KUrlComboRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -11211,15 +13863,19 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: KUrlComboRequester, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: KUrlComboRequester, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -11231,13 +13887,17 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: KUrlComboRequester, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: KUrlComboRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -11249,13 +13909,17 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: KUrlComboRequester, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: KUrlComboRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -11267,13 +13931,17 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: KUrlComboRequester, name: []const u8) void {
+    pub fn setAccessibleName(self: KUrlComboRequester, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -11285,13 +13953,17 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: KUrlComboRequester, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: KUrlComboRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -11303,13 +13975,17 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: KUrlComboRequester, description: []const u8) void {
+    pub fn setAccessibleDescription(self: KUrlComboRequester, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -11321,9 +13997,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: KUrlComboRequester, direction: i32) void {
+    pub fn setLayoutDirection(self: KUrlComboRequester, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -11337,9 +14017,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: KUrlComboRequester) i32 {
+    pub fn layoutDirection(self: KUrlComboRequester) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -11349,9 +14033,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn UnsetLayoutDirection(self: KUrlComboRequester) void {
+    pub fn unsetLayoutDirection(self: KUrlComboRequester) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -11361,12 +14049,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: KUrlComboRequester, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: KUrlComboRequester, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -11376,9 +14068,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn Locale(self: KUrlComboRequester) QLocale {
+    pub fn locale(self: KUrlComboRequester) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -11388,9 +14084,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn UnsetLocale(self: KUrlComboRequester) void {
+    pub fn unsetLocale(self: KUrlComboRequester) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -11400,9 +14100,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn IsRightToLeft(self: KUrlComboRequester) bool {
+    pub fn isRightToLeft(self: KUrlComboRequester) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -11412,9 +14116,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn IsLeftToRight(self: KUrlComboRequester) bool {
+    pub fn isLeftToRight(self: KUrlComboRequester) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -11424,9 +14132,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn SetFocus(self: KUrlComboRequester) void {
+    pub fn setFocus(self: KUrlComboRequester) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -11436,9 +14148,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn IsActiveWindow(self: KUrlComboRequester) bool {
+    pub fn isActiveWindow(self: KUrlComboRequester) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -11448,9 +14164,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn ActivateWindow(self: KUrlComboRequester) void {
+    pub fn activateWindow(self: KUrlComboRequester) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -11460,9 +14180,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn ClearFocus(self: KUrlComboRequester) void {
+    pub fn clearFocus(self: KUrlComboRequester) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -11474,9 +14198,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: KUrlComboRequester, reason: i32) void {
+    pub fn setFocus2(self: KUrlComboRequester, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -11490,9 +14218,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: KUrlComboRequester) i32 {
+    pub fn focusPolicy(self: KUrlComboRequester) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -11504,9 +14236,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: KUrlComboRequester, policy: i32) void {
+    pub fn setFocusPolicy(self: KUrlComboRequester, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -11516,9 +14252,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn HasFocus(self: KUrlComboRequester) bool {
+    pub fn hasFocus(self: KUrlComboRequester) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -11530,11 +14270,15 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -11544,12 +14288,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: KUrlComboRequester, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: KUrlComboRequester, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -11559,9 +14307,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn FocusProxy(self: KUrlComboRequester) QWidget {
+    pub fn focusProxy(self: KUrlComboRequester) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -11575,9 +14327,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: KUrlComboRequester) i32 {
+    pub fn contextMenuPolicy(self: KUrlComboRequester) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -11589,9 +14345,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: KUrlComboRequester, policy: i32) void {
+    pub fn setContextMenuPolicy(self: KUrlComboRequester, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -11601,9 +14361,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn GrabMouse(self: KUrlComboRequester) void {
+    pub fn grabMouse(self: KUrlComboRequester) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -11615,10 +14379,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: KUrlComboRequester, param1: anytype) void {
+    pub fn grabMouse2(self: KUrlComboRequester, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -11628,9 +14396,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn ReleaseMouse(self: KUrlComboRequester) void {
+    pub fn releaseMouse(self: KUrlComboRequester) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -11640,9 +14412,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn GrabKeyboard(self: KUrlComboRequester) void {
+    pub fn grabKeyboard(self: KUrlComboRequester) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -11652,9 +14428,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn ReleaseKeyboard(self: KUrlComboRequester) void {
+    pub fn releaseKeyboard(self: KUrlComboRequester) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -11666,10 +14446,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: KUrlComboRequester, key: anytype) i32 {
+    pub fn grabShortcut(self: KUrlComboRequester, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -11681,9 +14465,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: KUrlComboRequester, id: i32) void {
+    pub fn releaseShortcut(self: KUrlComboRequester, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -11695,9 +14483,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: KUrlComboRequester, id: i32) void {
+    pub fn setShortcutEnabled(self: KUrlComboRequester, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -11709,25 +14501,37 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: KUrlComboRequester, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: KUrlComboRequester, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -11737,9 +14541,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn UpdatesEnabled(self: KUrlComboRequester) bool {
+    pub fn updatesEnabled(self: KUrlComboRequester) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -11751,9 +14559,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: KUrlComboRequester, enable: bool) void {
+    pub fn setUpdatesEnabled(self: KUrlComboRequester, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -11763,9 +14575,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn GraphicsProxyWidget(self: KUrlComboRequester) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: KUrlComboRequester) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -11775,9 +14591,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn Update(self: KUrlComboRequester) void {
+    pub fn update(self: KUrlComboRequester) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -11787,9 +14607,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn Repaint(self: KUrlComboRequester) void {
+    pub fn repaint(self: KUrlComboRequester) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -11799,17 +14623,21 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: KUrlComboRequester, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: KUrlComboRequester, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -11821,11 +14649,15 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: KUrlComboRequester, param1: anytype) void {
+    pub fn update3(self: KUrlComboRequester, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -11836,10 +14668,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: KUrlComboRequester, param1: anytype) void {
+    pub fn update4(self: KUrlComboRequester, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -11849,17 +14685,21 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: KUrlComboRequester, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: KUrlComboRequester, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -11871,10 +14711,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: KUrlComboRequester, param1: anytype) void {
+    pub fn repaint3(self: KUrlComboRequester, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -11886,10 +14730,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: KUrlComboRequester, param1: anytype) void {
+    pub fn repaint4(self: KUrlComboRequester, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -11901,9 +14749,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: KUrlComboRequester, hidden: bool) void {
+    pub fn setHidden(self: KUrlComboRequester, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -11913,9 +14765,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn Show(self: KUrlComboRequester) void {
+    pub fn show(self: KUrlComboRequester) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -11925,9 +14781,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn Hide(self: KUrlComboRequester) void {
+    pub fn hide(self: KUrlComboRequester) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -11937,9 +14797,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn ShowMinimized(self: KUrlComboRequester) void {
+    pub fn showMinimized(self: KUrlComboRequester) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -11949,9 +14813,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn ShowMaximized(self: KUrlComboRequester) void {
+    pub fn showMaximized(self: KUrlComboRequester) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -11961,9 +14829,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn ShowFullScreen(self: KUrlComboRequester) void {
+    pub fn showFullScreen(self: KUrlComboRequester) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -11973,9 +14845,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn ShowNormal(self: KUrlComboRequester) void {
+    pub fn showNormal(self: KUrlComboRequester) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -11985,9 +14861,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn Close(self: KUrlComboRequester) bool {
+    pub fn close(self: KUrlComboRequester) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -11997,9 +14877,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn Raise(self: KUrlComboRequester) void {
+    pub fn raise(self: KUrlComboRequester) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -12009,9 +14893,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn Lower(self: KUrlComboRequester) void {
+    pub fn lower(self: KUrlComboRequester) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -12023,10 +14911,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: KUrlComboRequester, param1: anytype) void {
+    pub fn stackUnder(self: KUrlComboRequester, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -12036,13 +14928,17 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: KUrlComboRequester, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: KUrlComboRequester, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -12054,10 +14950,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: KUrlComboRequester, param1: anytype) void {
+    pub fn move2(self: KUrlComboRequester, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -12071,9 +14971,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: KUrlComboRequester, w: i32, h: i32) void {
+    pub fn resize(self: KUrlComboRequester, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -12085,10 +14989,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: KUrlComboRequester, param1: anytype) void {
+    pub fn resize2(self: KUrlComboRequester, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -12098,17 +15006,21 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: KUrlComboRequester, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: KUrlComboRequester, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -12118,12 +15030,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: KUrlComboRequester, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: KUrlComboRequester, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -12135,13 +15051,17 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: KUrlComboRequester, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: KUrlComboRequester, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KUrlComboRequester.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KUrlComboRequester.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -12151,15 +15071,19 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: KUrlComboRequester, geometry: []u8) bool {
+    pub fn restoreGeometry(self: KUrlComboRequester, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -12169,9 +15093,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn AdjustSize(self: KUrlComboRequester) void {
+    pub fn adjustSize(self: KUrlComboRequester) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -12181,9 +15109,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn IsVisible(self: KUrlComboRequester) bool {
+    pub fn isVisible(self: KUrlComboRequester) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -12195,10 +15127,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: KUrlComboRequester, param1: anytype) bool {
+    pub fn isVisibleTo(self: KUrlComboRequester, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -12208,9 +15144,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn IsHidden(self: KUrlComboRequester) bool {
+    pub fn isHidden(self: KUrlComboRequester) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -12220,9 +15160,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn IsMinimized(self: KUrlComboRequester) bool {
+    pub fn isMinimized(self: KUrlComboRequester) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -12232,9 +15176,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn IsMaximized(self: KUrlComboRequester) bool {
+    pub fn isMaximized(self: KUrlComboRequester) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -12244,9 +15192,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn IsFullScreen(self: KUrlComboRequester) bool {
+    pub fn isFullScreen(self: KUrlComboRequester) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -12260,9 +15212,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: KUrlComboRequester) i32 {
+    pub fn windowState(self: KUrlComboRequester) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -12274,9 +15230,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: KUrlComboRequester, state: i32) void {
+    pub fn setWindowState(self: KUrlComboRequester, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -12288,9 +15248,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: KUrlComboRequester, state: i32) void {
+    pub fn overrideWindowState(self: KUrlComboRequester, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -12300,9 +15264,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn SizePolicy(self: KUrlComboRequester) QSizePolicy {
+    pub fn sizePolicy(self: KUrlComboRequester) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -12312,12 +15280,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: KUrlComboRequester, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: KUrlComboRequester, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -12331,9 +15303,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: KUrlComboRequester, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: KUrlComboRequester, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -12343,9 +15319,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn VisibleRegion(self: KUrlComboRequester) QRegion {
+    pub fn visibleRegion(self: KUrlComboRequester) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -12363,9 +15343,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: KUrlComboRequester, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: KUrlComboRequester, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -12377,10 +15361,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: KUrlComboRequester, margins: anytype) void {
+    pub fn setContentsMargins2(self: KUrlComboRequester, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -12390,9 +15378,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn ContentsMargins(self: KUrlComboRequester) QMargins {
+    pub fn contentsMargins(self: KUrlComboRequester) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -12402,9 +15394,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn ContentsRect(self: KUrlComboRequester) QRect {
+    pub fn contentsRect(self: KUrlComboRequester) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -12414,9 +15410,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn Layout(self: KUrlComboRequester) QLayout {
+    pub fn layout(self: KUrlComboRequester) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -12426,12 +15426,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: KUrlComboRequester, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: KUrlComboRequester, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -12441,24 +15445,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn UpdateGeometry(self: KUrlComboRequester) void {
+    pub fn updateGeometry(self: KUrlComboRequester) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlComboRequester `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: KUrlComboRequester, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -12468,14 +15461,37 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: KUrlComboRequester, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KUrlComboRequester `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: KUrlComboRequester, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: KUrlComboRequester, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -12489,9 +15505,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: KUrlComboRequester, dx: i32, dy: i32) void {
+    pub fn scroll(self: KUrlComboRequester, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -12507,10 +15527,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: KUrlComboRequester, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: KUrlComboRequester, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -12520,9 +15544,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn FocusWidget(self: KUrlComboRequester) QWidget {
+    pub fn focusWidget(self: KUrlComboRequester) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -12532,9 +15560,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn NextInFocusChain(self: KUrlComboRequester) QWidget {
+    pub fn nextInFocusChain(self: KUrlComboRequester) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -12544,9 +15576,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn PreviousInFocusChain(self: KUrlComboRequester) QWidget {
+    pub fn previousInFocusChain(self: KUrlComboRequester) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -12556,9 +15592,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn AcceptDrops(self: KUrlComboRequester) bool {
+    pub fn acceptDrops(self: KUrlComboRequester) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -12570,9 +15610,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: KUrlComboRequester, on: bool) void {
+    pub fn setAcceptDrops(self: KUrlComboRequester, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -12584,10 +15628,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: KUrlComboRequester, action: anytype) void {
+    pub fn addAction(self: KUrlComboRequester, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -12597,15 +15645,19 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: KUrlComboRequester, actions: []QAction) void {
+    pub fn addActions(self: KUrlComboRequester, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -12617,16 +15669,20 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: KUrlComboRequester, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: KUrlComboRequester, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -12640,11 +15696,15 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: KUrlComboRequester, before: anytype, action: anytype) void {
+    pub fn insertAction(self: KUrlComboRequester, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -12656,10 +15716,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: KUrlComboRequester, action: anytype) void {
+    pub fn removeAction(self: KUrlComboRequester, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -12671,15 +15735,19 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: KUrlComboRequester, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: KUrlComboRequester, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KUrlComboRequester.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KUrlComboRequester.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -12689,15 +15757,19 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn AddAction2(self: KUrlComboRequester, text: []const u8) QAction {
+    pub fn addAction2(self: KUrlComboRequester, _text: []const u8) QAction {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -12709,16 +15781,20 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn AddAction3(self: KUrlComboRequester, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: KUrlComboRequester, icon: anytype, _text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
 
     /// Inherited from QWidget
     ///
@@ -12728,19 +15804,23 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: KUrlComboRequester, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: KUrlComboRequester, _text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -12751,19 +15831,23 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: KUrlComboRequester, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: KUrlComboRequester, icon: anytype, _text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
 
     /// Inherited from QWidget
     ///
@@ -12773,9 +15857,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn ParentWidget(self: KUrlComboRequester) QWidget {
+    pub fn parentWidget(self: KUrlComboRequester) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -12787,9 +15875,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: KUrlComboRequester, typeVal: i32) void {
+    pub fn setWindowFlags(self: KUrlComboRequester, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -12803,9 +15895,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: KUrlComboRequester) i32 {
+    pub fn windowFlags(self: KUrlComboRequester) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -12817,9 +15913,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: KUrlComboRequester, param1: i32) void {
+    pub fn setWindowFlag(self: KUrlComboRequester, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -12831,9 +15931,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: KUrlComboRequester, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: KUrlComboRequester, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -12847,9 +15951,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: KUrlComboRequester) i32 {
+    pub fn windowType(self: KUrlComboRequester) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -12859,9 +15967,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -12871,13 +15983,17 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: KUrlComboRequester, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: KUrlComboRequester, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -12889,10 +16005,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: KUrlComboRequester, p: anytype) QWidget {
+    pub fn childAt2(self: KUrlComboRequester, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -12904,10 +16024,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: KUrlComboRequester, p: anytype) QWidget {
+    pub fn childAt3(self: KUrlComboRequester, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -12919,9 +16043,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: KUrlComboRequester, param1: i32) void {
+    pub fn setAttribute(self: KUrlComboRequester, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -12933,9 +16061,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: KUrlComboRequester, param1: i32) bool {
+    pub fn testAttribute(self: KUrlComboRequester, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -12945,9 +16077,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn EnsurePolished(self: KUrlComboRequester) void {
+    pub fn ensurePolished(self: KUrlComboRequester) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -12959,10 +16095,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: KUrlComboRequester, child: anytype) bool {
+    pub fn isAncestorOf(self: KUrlComboRequester, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -12972,9 +16112,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn AutoFillBackground(self: KUrlComboRequester) bool {
+    pub fn autoFillBackground(self: KUrlComboRequester) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -12986,9 +16130,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: KUrlComboRequester, enabled: bool) void {
+    pub fn setAutoFillBackground(self: KUrlComboRequester, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -12998,9 +16146,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn BackingStore(self: KUrlComboRequester) QBackingStore {
+    pub fn backingStore(self: KUrlComboRequester) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -13010,9 +16162,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn WindowHandle(self: KUrlComboRequester) QWindow {
+    pub fn windowHandle(self: KUrlComboRequester) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -13022,9 +16178,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn Screen(self: KUrlComboRequester) QScreen {
+    pub fn screen(self: KUrlComboRequester) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -13034,12 +16194,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: KUrlComboRequester, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: KUrlComboRequester, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -13047,12 +16211,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -13064,13 +16232,17 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: KUrlComboRequester, title: []const u8) void {
+    pub fn windowTitleChanged(self: KUrlComboRequester, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -13082,9 +16254,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -13096,10 +16272,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: KUrlComboRequester, icon: anytype) void {
+    pub fn windowIconChanged(self: KUrlComboRequester, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -13111,9 +16291,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -13125,13 +16309,17 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: KUrlComboRequester, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: KUrlComboRequester, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -13143,9 +16331,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -13155,12 +16347,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: KUrlComboRequester, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: KUrlComboRequester, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -13172,9 +16368,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -13188,9 +16388,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: KUrlComboRequester) i32 {
+    pub fn inputMethodHints(self: KUrlComboRequester) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -13202,9 +16406,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: KUrlComboRequester, hints: i32) void {
+    pub fn setInputMethodHints(self: KUrlComboRequester, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -13218,11 +16426,15 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: KUrlComboRequester, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: KUrlComboRequester, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -13238,13 +16450,17 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: KUrlComboRequester, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: KUrlComboRequester, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -13261,12 +16477,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: KUrlComboRequester, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: KUrlComboRequester, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -13280,11 +16500,15 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: KUrlComboRequester, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: KUrlComboRequester, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -13300,12 +16524,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: KUrlComboRequester, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: KUrlComboRequester, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -13323,12 +16551,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: KUrlComboRequester, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: KUrlComboRequester, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -13340,10 +16572,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: KUrlComboRequester, rectangle: anytype) QPixmap {
+    pub fn grab1(self: KUrlComboRequester, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -13357,9 +16593,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: KUrlComboRequester, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: KUrlComboRequester, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -13373,10 +16613,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: KUrlComboRequester, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: KUrlComboRequester, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -13390,9 +16634,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: KUrlComboRequester, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: KUrlComboRequester, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -13406,9 +16654,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: KUrlComboRequester, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: KUrlComboRequester, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -13422,9 +16674,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: KUrlComboRequester, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: KUrlComboRequester, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -13438,25 +16694,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: KUrlComboRequester, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: KUrlComboRequester, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -13464,17 +16708,41 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -13486,13 +16754,17 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KUrlComboRequester, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KUrlComboRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -13504,13 +16776,17 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KUrlComboRequester, name: []const u8) void {
+    pub fn setObjectName(self: KUrlComboRequester, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -13520,9 +16796,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn IsWidgetType(self: KUrlComboRequester) bool {
+    pub fn isWidgetType(self: KUrlComboRequester) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -13532,9 +16812,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn IsWindowType(self: KUrlComboRequester) bool {
+    pub fn isWindowType(self: KUrlComboRequester) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -13544,9 +16828,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn IsQuickItemType(self: KUrlComboRequester) bool {
+    pub fn isQuickItemType(self: KUrlComboRequester) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -13556,9 +16844,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn SignalsBlocked(self: KUrlComboRequester) bool {
+    pub fn signalsBlocked(self: KUrlComboRequester) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -13570,9 +16862,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KUrlComboRequester, b: bool) bool {
+    pub fn blockSignals(self: KUrlComboRequester, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -13582,9 +16878,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn Thread(self: KUrlComboRequester) QThread {
+    pub fn thread(self: KUrlComboRequester) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -13594,12 +16894,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KUrlComboRequester, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KUrlComboRequester, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -13611,9 +16915,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KUrlComboRequester, interval: i32) i32 {
+    pub fn startTimer(self: KUrlComboRequester, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -13625,9 +16933,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KUrlComboRequester, time: i64) i32 {
+    pub fn startTimer2(self: KUrlComboRequester, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -13639,9 +16951,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KUrlComboRequester, id: i32) void {
+    pub fn killTimer(self: KUrlComboRequester, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -13653,9 +16969,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KUrlComboRequester, id: i32) void {
+    pub fn killTimer2(self: KUrlComboRequester, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -13667,15 +16987,19 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KUrlComboRequester, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KUrlComboRequester, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KUrlComboRequester.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KUrlComboRequester.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -13687,10 +17011,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KUrlComboRequester, filterObj: anytype) void {
+    pub fn installEventFilter(self: KUrlComboRequester, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -13702,10 +17030,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KUrlComboRequester, obj: anytype) void {
+    pub fn removeEventFilter(self: KUrlComboRequester, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -13713,7 +17045,7 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -13721,13 +17053,17 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -13735,7 +17071,7 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -13743,13 +17079,17 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -13759,18 +17099,22 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KUrlComboRequester, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KUrlComboRequester, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -13778,7 +17122,7 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -13786,13 +17130,17 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -13800,7 +17148,7 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -13808,13 +17156,17 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -13824,9 +17176,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn Disconnect3(self: KUrlComboRequester) bool {
+    pub fn disconnect3(self: KUrlComboRequester) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -13838,10 +17194,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KUrlComboRequester, receiver: anytype) bool {
+    pub fn disconnect4(self: KUrlComboRequester, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -13851,10 +17211,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -13864,9 +17228,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn DumpObjectTree(self: KUrlComboRequester) void {
+    pub fn dumpObjectTree(self: KUrlComboRequester) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -13876,9 +17244,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn DumpObjectInfo(self: KUrlComboRequester) void {
+    pub fn dumpObjectInfo(self: KUrlComboRequester) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -13892,11 +17264,15 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KUrlComboRequester, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KUrlComboRequester, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -13908,10 +17284,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KUrlComboRequester, name: [:0]const u8) QVariant {
+    pub fn property(self: KUrlComboRequester, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -13923,7 +17303,7 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KUrlComboRequester, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KUrlComboRequester, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -13931,27 +17311,19 @@ pub const KUrlComboRequester = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KUrlComboRequester.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KUrlComboRequester.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUrlComboRequester.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KUrlComboRequester.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlComboRequester `
-    ///
-    pub fn BindingStorage(self: KUrlComboRequester) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -13961,9 +17333,29 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn BindingStorage2(self: KUrlComboRequester) QBindingStorage {
+    pub fn bindingStorage(self: KUrlComboRequester) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KUrlComboRequester `
+    ///
+    pub fn bindingStorage2(self: KUrlComboRequester) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -13973,9 +17365,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn Destroyed(self: KUrlComboRequester) void {
+    pub fn destroyed(self: KUrlComboRequester) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -13987,9 +17383,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester) callconv(.c) void) void {
+    pub fn onDestroyed(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -13999,9 +17399,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn Parent(self: KUrlComboRequester) QObject {
+    pub fn parent(self: KUrlComboRequester) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -14013,10 +17417,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KUrlComboRequester, classname: [:0]const u8) bool {
+    pub fn inherits(self: KUrlComboRequester, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -14026,9 +17434,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn DeleteLater(self: KUrlComboRequester) void {
+    pub fn deleteLater(self: KUrlComboRequester) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -14042,9 +17454,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KUrlComboRequester, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KUrlComboRequester, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -14058,9 +17474,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KUrlComboRequester, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KUrlComboRequester, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -14068,7 +17488,7 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -14078,13 +17498,17 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -14092,7 +17516,7 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -14102,13 +17526,17 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -14118,7 +17546,7 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -14126,12 +17554,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KUrlComboRequester, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KUrlComboRequester, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -14143,10 +17575,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KUrlComboRequester, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KUrlComboRequester, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -14160,11 +17596,15 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KUrlComboRequester, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KUrlComboRequester, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -14180,13 +17620,17 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KUrlComboRequester, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KUrlComboRequester, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -14199,11 +17643,15 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KUrlComboRequester, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KUrlComboRequester, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -14215,10 +17663,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KUrlComboRequester, param1: anytype) void {
+    pub fn destroyed1(self: KUrlComboRequester, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -14230,9 +17682,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -14242,9 +17698,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn PaintingActive(self: KUrlComboRequester) bool {
+    pub fn paintingActive(self: KUrlComboRequester) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -14254,9 +17714,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn WidthMM(self: KUrlComboRequester) i32 {
+    pub fn widthMM(self: KUrlComboRequester) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -14266,9 +17730,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn HeightMM(self: KUrlComboRequester) i32 {
+    pub fn heightMM(self: KUrlComboRequester) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -14278,9 +17746,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn LogicalDpiX(self: KUrlComboRequester) i32 {
+    pub fn logicalDpiX(self: KUrlComboRequester) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -14290,9 +17762,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn LogicalDpiY(self: KUrlComboRequester) i32 {
+    pub fn logicalDpiY(self: KUrlComboRequester) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -14302,9 +17778,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn PhysicalDpiX(self: KUrlComboRequester) i32 {
+    pub fn physicalDpiX(self: KUrlComboRequester) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -14314,9 +17794,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn PhysicalDpiY(self: KUrlComboRequester) i32 {
+    pub fn physicalDpiY(self: KUrlComboRequester) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -14326,9 +17810,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn DevicePixelRatio(self: KUrlComboRequester) f64 {
+    pub fn devicePixelRatio(self: KUrlComboRequester) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -14338,9 +17826,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn DevicePixelRatioF(self: KUrlComboRequester) f64 {
+    pub fn devicePixelRatioF(self: KUrlComboRequester) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -14350,9 +17842,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn ColorCount(self: KUrlComboRequester) i32 {
+    pub fn colorCount(self: KUrlComboRequester) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -14362,17 +17858,25 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn Depth(self: KUrlComboRequester) i32 {
+    pub fn depth(self: KUrlComboRequester) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -14380,13 +17884,17 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `fileDialog` instead
+    ///
+    pub const FileDialog = fileDialog;
 
     /// Inherited from KUrlRequester
     ///
@@ -14398,13 +17906,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn FileDialog(self: KUrlComboRequester) QFileDialog {
+    pub fn fileDialog(self: KUrlComboRequester) QFileDialog {
         return .{ .ptr = qtc.KUrlComboRequester_FileDialog(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperFileDialog` instead
+    /// ### DEPRECATED: Use `superFileDialog` instead
     ///
-    pub const QBaseFileDialog = SuperFileDialog;
+    pub const SuperFileDialog = superFileDialog;
 
     /// Inherited from KUrlRequester
     ///
@@ -14416,9 +17924,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn SuperFileDialog(self: KUrlComboRequester) QFileDialog {
+    pub fn superFileDialog(self: KUrlComboRequester) QFileDialog {
         return .{ .ptr = qtc.KUrlComboRequester_SuperFileDialog(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onFileDialog` instead
+    ///
+    pub const OnFileDialog = onFileDialog;
 
     /// Inherited from KUrlRequester
     ///
@@ -14432,9 +17944,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QFileDialog `
     ///
-    pub fn OnFileDialog(self: KUrlComboRequester, callback: *const fn () callconv(.c) QFileDialog) void {
+    pub fn onFileDialog(self: KUrlComboRequester, callback: *const fn () callconv(.c) QFileDialog) void {
         qtc.KUrlComboRequester_OnFileDialog(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from KUrlRequester
     ///
@@ -14448,14 +17964,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn ChangeEvent(self: KUrlComboRequester, e: anytype) void {
+    pub fn changeEvent(self: KUrlComboRequester, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QEvent;
         qtc.KUrlComboRequester_ChangeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from KUrlRequester
     ///
@@ -14469,10 +17985,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn SuperChangeEvent(self: KUrlComboRequester, e: anytype) void {
+    pub fn superChangeEvent(self: KUrlComboRequester, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QEvent;
         qtc.KUrlComboRequester_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from KUrlRequester
     ///
@@ -14486,9 +18006,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, e: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QEvent) callconv(.c) void) void {
         qtc.KUrlComboRequester_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from KUrlRequester
     ///
@@ -14504,15 +18028,15 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` ev: QEvent `
     ///
-    pub fn EventFilter(self: KUrlComboRequester, obj: anytype, ev: anytype) bool {
+    pub fn eventFilter(self: KUrlComboRequester, obj: anytype, ev: anytype) bool {
         comptime _ = @TypeOf(obj)._is_QObject;
         comptime _ = @TypeOf(ev)._is_QEvent;
         return qtc.KUrlComboRequester_EventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr), @ptrCast(ev.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from KUrlRequester
     ///
@@ -14528,11 +18052,15 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` ev: QEvent `
     ///
-    pub fn SuperEventFilter(self: KUrlComboRequester, obj: anytype, ev: anytype) bool {
+    pub fn superEventFilter(self: KUrlComboRequester, obj: anytype, ev: anytype) bool {
         comptime _ = @TypeOf(obj)._is_QObject;
         comptime _ = @TypeOf(ev)._is_QEvent;
         return qtc.KUrlComboRequester_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr), @ptrCast(ev.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from KUrlRequester
     ///
@@ -14546,9 +18074,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, obj: QObject, ev: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QObject, QEvent) callconv(.c) bool) void {
         qtc.KUrlComboRequester_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -14560,13 +18092,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn DevType(self: KUrlComboRequester) i32 {
+    pub fn devType(self: KUrlComboRequester) i32 {
         return qtc.KUrlComboRequester_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -14578,9 +18110,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn SuperDevType(self: KUrlComboRequester) i32 {
+    pub fn superDevType(self: KUrlComboRequester) i32 {
         return qtc.KUrlComboRequester_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -14594,9 +18130,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: KUrlComboRequester, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KUrlComboRequester, callback: *const fn () callconv(.c) i32) void {
         qtc.KUrlComboRequester_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -14610,13 +18150,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: KUrlComboRequester, visible: bool) void {
+    pub fn setVisible(self: KUrlComboRequester, visible: bool) void {
         qtc.KUrlComboRequester_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -14630,9 +18170,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: KUrlComboRequester, visible: bool) void {
+    pub fn superSetVisible(self: KUrlComboRequester, visible: bool) void {
         qtc.KUrlComboRequester_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -14646,10 +18190,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, bool) callconv(.c) void) void {
         qtc.KUrlComboRequester_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
@@ -14660,13 +18208,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn SizeHint(self: KUrlComboRequester) QSize {
+    pub fn sizeHint(self: KUrlComboRequester) QSize {
         return .{ .ptr = qtc.KUrlComboRequester_SizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -14678,10 +18226,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn SuperSizeHint(self: KUrlComboRequester) QSize {
+    pub fn superSizeHint(self: KUrlComboRequester) QSize {
         return .{ .ptr = qtc.KUrlComboRequester_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
@@ -14696,9 +18248,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: KUrlComboRequester, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KUrlComboRequester, callback: *const fn () callconv(.c) QSize) void {
         qtc.KUrlComboRequester_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -14710,13 +18266,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn MinimumSizeHint(self: KUrlComboRequester) QSize {
+    pub fn minimumSizeHint(self: KUrlComboRequester) QSize {
         return .{ .ptr = qtc.KUrlComboRequester_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -14728,9 +18284,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn SuperMinimumSizeHint(self: KUrlComboRequester) QSize {
+    pub fn superMinimumSizeHint(self: KUrlComboRequester) QSize {
         return .{ .ptr = qtc.KUrlComboRequester_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -14746,9 +18306,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: KUrlComboRequester, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KUrlComboRequester, callback: *const fn () callconv(.c) QSize) void {
         qtc.KUrlComboRequester_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -14762,13 +18326,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: KUrlComboRequester, param1: i32) i32 {
+    pub fn heightForWidth(self: KUrlComboRequester, param1: i32) i32 {
         return qtc.KUrlComboRequester_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -14782,9 +18346,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: KUrlComboRequester, param1: i32) i32 {
+    pub fn superHeightForWidth(self: KUrlComboRequester, param1: i32) i32 {
         return qtc.KUrlComboRequester_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -14798,9 +18366,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, i32) callconv(.c) i32) void {
         qtc.KUrlComboRequester_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -14812,13 +18384,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn HasHeightForWidth(self: KUrlComboRequester) bool {
+    pub fn hasHeightForWidth(self: KUrlComboRequester) bool {
         return qtc.KUrlComboRequester_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -14830,9 +18402,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn SuperHasHeightForWidth(self: KUrlComboRequester) bool {
+    pub fn superHasHeightForWidth(self: KUrlComboRequester) bool {
         return qtc.KUrlComboRequester_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -14846,9 +18422,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: KUrlComboRequester, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KUrlComboRequester, callback: *const fn () callconv(.c) bool) void {
         qtc.KUrlComboRequester_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -14860,13 +18440,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn PaintEngine(self: KUrlComboRequester) QPaintEngine {
+    pub fn paintEngine(self: KUrlComboRequester) QPaintEngine {
         return .{ .ptr = qtc.KUrlComboRequester_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -14878,9 +18458,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn SuperPaintEngine(self: KUrlComboRequester) QPaintEngine {
+    pub fn superPaintEngine(self: KUrlComboRequester) QPaintEngine {
         return .{ .ptr = qtc.KUrlComboRequester_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -14894,9 +18478,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: KUrlComboRequester, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KUrlComboRequester, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.KUrlComboRequester_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QWidget
     ///
@@ -14908,16 +18496,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: KUrlComboRequester, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KUrlComboRequester_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: KUrlComboRequester, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KUrlComboRequester_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QWidget
     ///
@@ -14929,12 +18517,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: KUrlComboRequester, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KUrlComboRequester_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: KUrlComboRequester, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KUrlComboRequester_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QWidget
     ///
@@ -14948,10 +18540,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QEvent) callconv(.c) bool) void {
         qtc.KUrlComboRequester_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
@@ -14962,16 +18558,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KUrlComboRequester_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mousePressEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KUrlComboRequester_MousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -14983,12 +18579,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KUrlComboRequester_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMousePressEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KUrlComboRequester_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -15002,10 +18602,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QMouseEvent) callconv(.c) void) void {
         qtc.KUrlComboRequester_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
@@ -15016,16 +18620,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KUrlComboRequester_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseReleaseEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KUrlComboRequester_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -15037,12 +18641,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KUrlComboRequester_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseReleaseEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KUrlComboRequester_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -15056,10 +18664,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QMouseEvent) callconv(.c) void) void {
         qtc.KUrlComboRequester_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -15070,16 +18682,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KUrlComboRequester_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KUrlComboRequester_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -15091,12 +18703,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KUrlComboRequester_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KUrlComboRequester_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -15110,10 +18726,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QMouseEvent) callconv(.c) void) void {
         qtc.KUrlComboRequester_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -15124,16 +18744,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KUrlComboRequester_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KUrlComboRequester_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -15145,12 +18765,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KUrlComboRequester_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KUrlComboRequester_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -15164,9 +18788,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QMouseEvent) callconv(.c) void) void {
         qtc.KUrlComboRequester_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -15178,16 +18806,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KUrlComboRequester_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KUrlComboRequester_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -15199,12 +18827,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KUrlComboRequester_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KUrlComboRequester_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -15218,10 +18850,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QWheelEvent) callconv(.c) void) void {
         qtc.KUrlComboRequester_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyPressEvent)
@@ -15232,16 +18868,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KUrlComboRequester_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyPressEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KUrlComboRequester_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -15253,12 +18889,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KUrlComboRequester_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyPressEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KUrlComboRequester_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -15272,10 +18912,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QKeyEvent) callconv(.c) void) void {
         qtc.KUrlComboRequester_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
@@ -15286,16 +18930,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KUrlComboRequester_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KUrlComboRequester_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -15307,12 +18951,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KUrlComboRequester_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KUrlComboRequester_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -15326,10 +18974,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QKeyEvent) callconv(.c) void) void {
         qtc.KUrlComboRequester_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -15340,16 +18992,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KUrlComboRequester_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KUrlComboRequester_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -15361,12 +19013,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KUrlComboRequester_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KUrlComboRequester_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -15380,10 +19036,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QFocusEvent) callconv(.c) void) void {
         qtc.KUrlComboRequester_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -15394,16 +19054,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KUrlComboRequester_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KUrlComboRequester_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -15415,12 +19075,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KUrlComboRequester_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KUrlComboRequester_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -15434,9 +19098,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QFocusEvent) callconv(.c) void) void {
         qtc.KUrlComboRequester_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -15448,16 +19116,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KUrlComboRequester_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KUrlComboRequester_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -15469,12 +19137,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KUrlComboRequester_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KUrlComboRequester_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -15488,9 +19160,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QEnterEvent) callconv(.c) void) void {
         qtc.KUrlComboRequester_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -15502,16 +19178,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KUrlComboRequester_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KUrlComboRequester_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -15523,12 +19199,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KUrlComboRequester_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KUrlComboRequester_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -15542,9 +19222,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QEvent) callconv(.c) void) void {
         qtc.KUrlComboRequester_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QWidget
     ///
@@ -15556,16 +19240,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn PaintEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.KUrlComboRequester_PaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn paintEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.KUrlComboRequester_PaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -15577,12 +19261,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.KUrlComboRequester_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superPaintEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.KUrlComboRequester_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -15596,9 +19284,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, event: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QPaintEvent) callconv(.c) void) void {
         qtc.KUrlComboRequester_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -15610,16 +19302,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KUrlComboRequester_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KUrlComboRequester_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -15631,12 +19323,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KUrlComboRequester_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KUrlComboRequester_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -15650,9 +19346,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QMoveEvent) callconv(.c) void) void {
         qtc.KUrlComboRequester_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -15664,16 +19364,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.KUrlComboRequester_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn resizeEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.KUrlComboRequester_ResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -15685,12 +19385,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.KUrlComboRequester_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superResizeEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.KUrlComboRequester_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -15704,9 +19408,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QResizeEvent) callconv(.c) void) void {
         qtc.KUrlComboRequester_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -15718,16 +19426,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KUrlComboRequester_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KUrlComboRequester_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -15739,12 +19447,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KUrlComboRequester_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KUrlComboRequester_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -15758,9 +19470,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QCloseEvent) callconv(.c) void) void {
         qtc.KUrlComboRequester_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -15772,16 +19488,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.KUrlComboRequester_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn contextMenuEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.KUrlComboRequester_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -15793,12 +19509,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.KUrlComboRequester_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superContextMenuEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.KUrlComboRequester_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -15812,9 +19532,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, event: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QContextMenuEvent) callconv(.c) void) void {
         qtc.KUrlComboRequester_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -15826,16 +19550,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KUrlComboRequester_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KUrlComboRequester_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -15847,12 +19571,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KUrlComboRequester_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KUrlComboRequester_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -15866,9 +19594,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QTabletEvent) callconv(.c) void) void {
         qtc.KUrlComboRequester_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -15880,16 +19612,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KUrlComboRequester_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KUrlComboRequester_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -15901,12 +19633,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KUrlComboRequester_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KUrlComboRequester_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -15920,9 +19656,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QActionEvent) callconv(.c) void) void {
         qtc.KUrlComboRequester_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -15934,16 +19674,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KUrlComboRequester_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KUrlComboRequester_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -15955,12 +19695,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KUrlComboRequester_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KUrlComboRequester_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -15974,9 +19718,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QDragEnterEvent) callconv(.c) void) void {
         qtc.KUrlComboRequester_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -15988,16 +19736,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KUrlComboRequester_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KUrlComboRequester_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -16009,12 +19757,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KUrlComboRequester_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KUrlComboRequester_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -16028,9 +19780,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QDragMoveEvent) callconv(.c) void) void {
         qtc.KUrlComboRequester_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -16042,16 +19798,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KUrlComboRequester_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KUrlComboRequester_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -16063,12 +19819,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KUrlComboRequester_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KUrlComboRequester_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -16082,9 +19842,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QDragLeaveEvent) callconv(.c) void) void {
         qtc.KUrlComboRequester_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -16096,16 +19860,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KUrlComboRequester_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KUrlComboRequester_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -16117,12 +19881,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KUrlComboRequester_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KUrlComboRequester_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -16136,9 +19904,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QDropEvent) callconv(.c) void) void {
         qtc.KUrlComboRequester_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QWidget
     ///
@@ -16150,16 +19922,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn ShowEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KUrlComboRequester_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn showEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KUrlComboRequester_ShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -16171,12 +19943,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KUrlComboRequester_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superShowEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KUrlComboRequester_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -16190,9 +19966,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QShowEvent) callconv(.c) void) void {
         qtc.KUrlComboRequester_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -16204,16 +19984,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KUrlComboRequester_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KUrlComboRequester_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -16225,12 +20005,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KUrlComboRequester_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KUrlComboRequester_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -16244,9 +20028,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QHideEvent) callconv(.c) void) void {
         qtc.KUrlComboRequester_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -16264,7 +20052,7 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: KUrlComboRequester, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: KUrlComboRequester, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -16272,9 +20060,9 @@ pub const KUrlComboRequester = extern struct {
         return qtc.KUrlComboRequester_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -16292,13 +20080,17 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: KUrlComboRequester, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: KUrlComboRequester, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.KUrlComboRequester_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -16312,9 +20104,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KUrlComboRequester_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -16328,13 +20124,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: KUrlComboRequester, param1: i32) i32 {
+    pub fn metric(self: KUrlComboRequester, param1: i32) i32 {
         return qtc.KUrlComboRequester_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -16348,9 +20144,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: KUrlComboRequester, param1: i32) i32 {
+    pub fn superMetric(self: KUrlComboRequester, param1: i32) i32 {
         return qtc.KUrlComboRequester_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -16364,9 +20164,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, i32) callconv(.c) i32) void {
         qtc.KUrlComboRequester_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -16380,14 +20184,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: KUrlComboRequester, painter: anytype) void {
+    pub fn initPainter(self: KUrlComboRequester, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KUrlComboRequester_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -16401,10 +20205,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: KUrlComboRequester, painter: anytype) void {
+    pub fn superInitPainter(self: KUrlComboRequester, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KUrlComboRequester_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -16418,9 +20226,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QPainter) callconv(.c) void) void {
         qtc.KUrlComboRequester_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -16434,14 +20246,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: KUrlComboRequester, offset: anytype) QPaintDevice {
+    pub fn redirected(self: KUrlComboRequester, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KUrlComboRequester_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -16455,10 +20267,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: KUrlComboRequester, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: KUrlComboRequester, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KUrlComboRequester_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -16472,9 +20288,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QPoint) callconv(.c) QPaintDevice) void {
         qtc.KUrlComboRequester_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -16486,13 +20306,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn SharedPainter(self: KUrlComboRequester) QPainter {
+    pub fn sharedPainter(self: KUrlComboRequester) QPainter {
         return .{ .ptr = qtc.KUrlComboRequester_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -16504,9 +20324,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn SuperSharedPainter(self: KUrlComboRequester) QPainter {
+    pub fn superSharedPainter(self: KUrlComboRequester) QPainter {
         return .{ .ptr = qtc.KUrlComboRequester_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -16520,9 +20344,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: KUrlComboRequester, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KUrlComboRequester, callback: *const fn () callconv(.c) QPainter) void {
         qtc.KUrlComboRequester_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -16536,14 +20364,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: KUrlComboRequester, param1: anytype) void {
+    pub fn inputMethodEvent(self: KUrlComboRequester, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KUrlComboRequester_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -16557,10 +20385,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: KUrlComboRequester, param1: anytype) void {
+    pub fn superInputMethodEvent(self: KUrlComboRequester, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KUrlComboRequester_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -16574,9 +20406,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QInputMethodEvent) callconv(.c) void) void {
         qtc.KUrlComboRequester_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -16590,13 +20426,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: KUrlComboRequester, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: KUrlComboRequester, param1: i32) QVariant {
         return .{ .ptr = qtc.KUrlComboRequester_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -16610,9 +20446,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: KUrlComboRequester, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: KUrlComboRequester, param1: i32) QVariant {
         return .{ .ptr = qtc.KUrlComboRequester_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -16628,9 +20468,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, i32) callconv(.c) QVariant) void {
         qtc.KUrlComboRequester_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -16644,13 +20488,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: KUrlComboRequester, next: bool) bool {
+    pub fn focusNextPrevChild(self: KUrlComboRequester, next: bool) bool {
         return qtc.KUrlComboRequester_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -16664,9 +20508,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: KUrlComboRequester, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: KUrlComboRequester, next: bool) bool {
         return qtc.KUrlComboRequester_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -16680,9 +20528,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, bool) callconv(.c) bool) void {
         qtc.KUrlComboRequester_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -16694,16 +20546,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KUrlComboRequester_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KUrlComboRequester_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -16715,12 +20567,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KUrlComboRequester_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KUrlComboRequester_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -16734,9 +20590,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QTimerEvent) callconv(.c) void) void {
         qtc.KUrlComboRequester_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -16748,16 +20608,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KUrlComboRequester_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KUrlComboRequester_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -16769,12 +20629,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KUrlComboRequester_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KUrlComboRequester_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -16788,9 +20652,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QChildEvent) callconv(.c) void) void {
         qtc.KUrlComboRequester_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -16802,16 +20670,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KUrlComboRequester_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KUrlComboRequester_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -16823,12 +20691,16 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KUrlComboRequester, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KUrlComboRequester_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KUrlComboRequester, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KUrlComboRequester_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -16842,9 +20714,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QEvent) callconv(.c) void) void {
         qtc.KUrlComboRequester_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -16858,14 +20734,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KUrlComboRequester, signal: anytype) void {
+    pub fn connectNotify(self: KUrlComboRequester, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KUrlComboRequester_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -16879,11 +20755,15 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KUrlComboRequester, signal: anytype) void {
+    pub fn superConnectNotify(self: KUrlComboRequester, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KUrlComboRequester_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -16896,9 +20776,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QMetaMethod) callconv(.c) void) void {
         qtc.KUrlComboRequester_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -16912,14 +20796,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KUrlComboRequester, signal: anytype) void {
+    pub fn disconnectNotify(self: KUrlComboRequester, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KUrlComboRequester_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -16933,10 +20817,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KUrlComboRequester, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KUrlComboRequester, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KUrlComboRequester_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -16950,10 +20838,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QMetaMethod) callconv(.c) void) void {
         qtc.KUrlComboRequester_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -16964,13 +20856,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn UpdateMicroFocus(self: KUrlComboRequester) void {
+    pub fn updateMicroFocus(self: KUrlComboRequester) void {
         qtc.KUrlComboRequester_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -16982,10 +20874,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn SuperUpdateMicroFocus(self: KUrlComboRequester) void {
+    pub fn superUpdateMicroFocus(self: KUrlComboRequester) void {
         qtc.KUrlComboRequester_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -16998,10 +20894,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: KUrlComboRequester, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: KUrlComboRequester, callback: *const fn () callconv(.c) void) void {
         qtc.KUrlComboRequester_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -17012,13 +20912,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn Create(self: KUrlComboRequester) void {
+    pub fn create(self: KUrlComboRequester) void {
         qtc.KUrlComboRequester_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -17030,10 +20930,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn SuperCreate(self: KUrlComboRequester) void {
+    pub fn superCreate(self: KUrlComboRequester) void {
         qtc.KUrlComboRequester_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -17046,9 +20950,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: KUrlComboRequester, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: KUrlComboRequester, callback: *const fn () callconv(.c) void) void {
         qtc.KUrlComboRequester_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -17060,13 +20968,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn Destroy(self: KUrlComboRequester) void {
+    pub fn destroy(self: KUrlComboRequester) void {
         qtc.KUrlComboRequester_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -17078,9 +20986,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn SuperDestroy(self: KUrlComboRequester) void {
+    pub fn superDestroy(self: KUrlComboRequester) void {
         qtc.KUrlComboRequester_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -17094,10 +21006,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: KUrlComboRequester, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: KUrlComboRequester, callback: *const fn () callconv(.c) void) void {
         qtc.KUrlComboRequester_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -17108,13 +21024,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn FocusNextChild(self: KUrlComboRequester) bool {
+    pub fn focusNextChild(self: KUrlComboRequester) bool {
         return qtc.KUrlComboRequester_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -17126,10 +21042,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn SuperFocusNextChild(self: KUrlComboRequester) bool {
+    pub fn superFocusNextChild(self: KUrlComboRequester) bool {
         return qtc.KUrlComboRequester_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -17142,9 +21062,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: KUrlComboRequester, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: KUrlComboRequester, callback: *const fn () callconv(.c) bool) void {
         qtc.KUrlComboRequester_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -17156,13 +21080,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn FocusPreviousChild(self: KUrlComboRequester) bool {
+    pub fn focusPreviousChild(self: KUrlComboRequester) bool {
         return qtc.KUrlComboRequester_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -17174,9 +21098,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn SuperFocusPreviousChild(self: KUrlComboRequester) bool {
+    pub fn superFocusPreviousChild(self: KUrlComboRequester) bool {
         return qtc.KUrlComboRequester_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -17190,9 +21118,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: KUrlComboRequester, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: KUrlComboRequester, callback: *const fn () callconv(.c) bool) void {
         qtc.KUrlComboRequester_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -17204,13 +21136,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn Sender(self: KUrlComboRequester) QObject {
+    pub fn sender(self: KUrlComboRequester) QObject {
         return .{ .ptr = qtc.KUrlComboRequester_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -17222,9 +21154,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn SuperSender(self: KUrlComboRequester) QObject {
+    pub fn superSender(self: KUrlComboRequester) QObject {
         return .{ .ptr = qtc.KUrlComboRequester_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -17238,9 +21174,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KUrlComboRequester, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KUrlComboRequester, callback: *const fn () callconv(.c) QObject) void {
         qtc.KUrlComboRequester_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -17252,13 +21192,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn SenderSignalIndex(self: KUrlComboRequester) i32 {
+    pub fn senderSignalIndex(self: KUrlComboRequester) i32 {
         return qtc.KUrlComboRequester_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -17270,9 +21210,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn SuperSenderSignalIndex(self: KUrlComboRequester) i32 {
+    pub fn superSenderSignalIndex(self: KUrlComboRequester) i32 {
         return qtc.KUrlComboRequester_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -17286,9 +21230,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KUrlComboRequester, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KUrlComboRequester, callback: *const fn () callconv(.c) i32) void {
         qtc.KUrlComboRequester_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -17302,14 +21250,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KUrlComboRequester, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KUrlComboRequester, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KUrlComboRequester_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -17323,10 +21271,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KUrlComboRequester, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KUrlComboRequester, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KUrlComboRequester_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -17340,9 +21292,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, [*:0]const u8) callconv(.c) i32) void {
         qtc.KUrlComboRequester_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -17356,14 +21312,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KUrlComboRequester, signal: anytype) bool {
+    pub fn isSignalConnected(self: KUrlComboRequester, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KUrlComboRequester_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -17377,10 +21333,14 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KUrlComboRequester, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KUrlComboRequester, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KUrlComboRequester_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -17394,9 +21354,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, QMetaMethod) callconv(.c) bool) void {
         qtc.KUrlComboRequester_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -17412,13 +21376,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: KUrlComboRequester, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: KUrlComboRequester, metricA: i32, metricB: i32) f64 {
         return qtc.KUrlComboRequester_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -17434,9 +21398,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: KUrlComboRequester, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: KUrlComboRequester, metricA: i32, metricB: i32) f64 {
         return qtc.KUrlComboRequester_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -17450,9 +21418,13 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, i32, i32) callconv(.c) f64) void {
         qtc.KUrlComboRequester_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -17466,23 +21438,23 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kurlcomborequester.html#dtor.KUrlComboRequester)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KUrlComboRequester `
     ///
-    pub fn Delete(self: KUrlComboRequester) void {
+    pub fn delete(self: KUrlComboRequester) void {
         qtc.KUrlComboRequester_Delete(@ptrCast(self.ptr));
     }
 };

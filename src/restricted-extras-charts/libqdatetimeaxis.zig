@@ -32,22 +32,34 @@ pub const QDateTimeAxis = extern struct {
     pub const _is_QAbstractAxis = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QDateTimeAxis object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QDateTimeAxis {
+    pub const New = new;
+
+    /// Allocate a new QDateTimeAxis object in C++ memory
+    ///
+    pub fn new() QDateTimeAxis {
         return .{ .ptr = qtc.QDateTimeAxis_new() };
     }
 
-    /// New2 constructs a new QDateTimeAxis object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QDateTimeAxis object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) QDateTimeAxis {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QDateTimeAxis_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) QDateTimeAxis {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QDateTimeAxis_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -55,9 +67,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn MetaObject(self: QDateTimeAxis) QMetaObject {
+    pub fn metaObject(self: QDateTimeAxis) QMetaObject {
         return .{ .ptr = qtc.QDateTimeAxis_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -69,13 +85,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QDateTimeAxis, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QDateTimeAxis, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QDateTimeAxis_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -85,9 +101,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn SuperMetaObject(self: QDateTimeAxis) QMetaObject {
+    pub fn superMetaObject(self: QDateTimeAxis) QMetaObject {
         return .{ .ptr = qtc.QDateTimeAxis_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -95,10 +115,14 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QDateTimeAxis, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QDateTimeAxis, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QDateTimeAxis_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -108,13 +132,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QDateTimeAxis, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QDateTimeAxis_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -124,10 +148,14 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QDateTimeAxis, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QDateTimeAxis, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QDateTimeAxis_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -139,9 +167,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QDateTimeAxis, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QDateTimeAxis, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QDateTimeAxis_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -151,13 +183,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QDateTimeAxis, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QDateTimeAxis_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -171,9 +203,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QDateTimeAxis, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QDateTimeAxis, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QDateTimeAxis_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -183,14 +219,20 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDateTimeAxis.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDateTimeAxis.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#type)
     ///
@@ -202,9 +244,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` qabstractaxis_enums.AxisType `
     ///
-    pub fn Type(self: QDateTimeAxis) i32 {
+    pub fn type0(self: QDateTimeAxis) i32 {
         return qtc.QDateTimeAxis_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onType` instead
+    ///
+    pub const OnType = onType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#type)
     ///
@@ -216,13 +262,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnType(self: QDateTimeAxis, callback: *const fn () callconv(.c) i32) void {
+    pub fn onType(self: QDateTimeAxis, callback: *const fn () callconv(.c) i32) void {
         qtc.QDateTimeAxis_OnType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperType` instead
+    /// ### DEPRECATED: Use `superType` instead
     ///
-    pub const QBaseType = SuperType;
+    pub const SuperType = superType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#type)
     ///
@@ -236,9 +282,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` qabstractaxis_enums.AxisType `
     ///
-    pub fn SuperType(self: QDateTimeAxis) i32 {
+    pub fn superType(self: QDateTimeAxis) i32 {
         return qtc.QDateTimeAxis_SuperType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMin` instead
+    ///
+    pub const SetMin = setMin;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#setMin)
     ///
@@ -246,12 +296,16 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    /// ` min: QDateTime `
+    /// ` _min: QDateTime `
     ///
-    pub fn SetMin(self: QDateTimeAxis, min: anytype) void {
-        comptime _ = @TypeOf(min)._is_QDateTime;
-        qtc.QDateTimeAxis_SetMin(@ptrCast(self.ptr), @ptrCast(min.ptr));
+    pub fn setMin(self: QDateTimeAxis, _min: anytype) void {
+        comptime _ = @TypeOf(_min)._is_QDateTime;
+        qtc.QDateTimeAxis_SetMin(@ptrCast(self.ptr), @ptrCast(_min.ptr));
     }
+
+    /// ### DEPRECATED: Use `min` instead
+    ///
+    pub const Min = min;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#min)
     ///
@@ -259,9 +313,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn Min(self: QDateTimeAxis) QDateTime {
+    pub fn min(self: QDateTimeAxis) QDateTime {
         return .{ .ptr = qtc.QDateTimeAxis_Min(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setMax` instead
+    ///
+    pub const SetMax = setMax;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#setMax)
     ///
@@ -269,12 +327,16 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    /// ` max: QDateTime `
+    /// ` _max: QDateTime `
     ///
-    pub fn SetMax(self: QDateTimeAxis, max: anytype) void {
-        comptime _ = @TypeOf(max)._is_QDateTime;
-        qtc.QDateTimeAxis_SetMax(@ptrCast(self.ptr), @ptrCast(max.ptr));
+    pub fn setMax(self: QDateTimeAxis, _max: anytype) void {
+        comptime _ = @TypeOf(_max)._is_QDateTime;
+        qtc.QDateTimeAxis_SetMax(@ptrCast(self.ptr), @ptrCast(_max.ptr));
     }
+
+    /// ### DEPRECATED: Use `max` instead
+    ///
+    pub const Max = max;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#max)
     ///
@@ -282,9 +344,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn Max(self: QDateTimeAxis) QDateTime {
+    pub fn max(self: QDateTimeAxis) QDateTime {
         return .{ .ptr = qtc.QDateTimeAxis_Max(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setRange` instead
+    ///
+    pub const SetRange = setRange;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#setRange)
     ///
@@ -292,15 +358,19 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    /// ` min: QDateTime `
+    /// ` _min: QDateTime `
     ///
-    /// ` max: QDateTime `
+    /// ` _max: QDateTime `
     ///
-    pub fn SetRange(self: QDateTimeAxis, min: anytype, max: anytype) void {
-        comptime _ = @TypeOf(min)._is_QDateTime;
-        comptime _ = @TypeOf(max)._is_QDateTime;
-        qtc.QDateTimeAxis_SetRange(@ptrCast(self.ptr), @ptrCast(min.ptr), @ptrCast(max.ptr));
+    pub fn setRange(self: QDateTimeAxis, _min: anytype, _max: anytype) void {
+        comptime _ = @TypeOf(_min)._is_QDateTime;
+        comptime _ = @TypeOf(_max)._is_QDateTime;
+        qtc.QDateTimeAxis_SetRange(@ptrCast(self.ptr), @ptrCast(_min.ptr), @ptrCast(_max.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFormat` instead
+    ///
+    pub const SetFormat = setFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#setFormat)
     ///
@@ -308,15 +378,19 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    /// ` format: []const u8 `
+    /// ` _format: []const u8 `
     ///
-    pub fn SetFormat(self: QDateTimeAxis, format: []const u8) void {
+    pub fn setFormat(self: QDateTimeAxis, _format: []const u8) void {
         const format_str = qtc.libqt_string{
-            .len = format.len,
-            .data = format.ptr,
+            .len = _format.len,
+            .data = _format.ptr,
         };
         qtc.QDateTimeAxis_SetFormat(@ptrCast(self.ptr), format_str);
     }
+
+    /// ### DEPRECATED: Use `format` instead
+    ///
+    pub const Format = format;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#format)
     ///
@@ -326,13 +400,17 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Format(self: QDateTimeAxis, allocator: std.mem.Allocator) []const u8 {
+    pub fn format(self: QDateTimeAxis, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDateTimeAxis_Format(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDateTimeAxis.Format: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDateTimeAxis.format: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setTickCount` instead
+    ///
+    pub const SetTickCount = setTickCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#setTickCount)
     ///
@@ -342,9 +420,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` count: i32 `
     ///
-    pub fn SetTickCount(self: QDateTimeAxis, count: i32) void {
+    pub fn setTickCount(self: QDateTimeAxis, count: i32) void {
         qtc.QDateTimeAxis_SetTickCount(@ptrCast(self.ptr), @bitCast(count));
     }
+
+    /// ### DEPRECATED: Use `tickCount` instead
+    ///
+    pub const TickCount = tickCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#tickCount)
     ///
@@ -352,9 +434,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn TickCount(self: QDateTimeAxis) i32 {
+    pub fn tickCount(self: QDateTimeAxis) i32 {
         return qtc.QDateTimeAxis_TickCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minChanged` instead
+    ///
+    pub const MinChanged = minChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#minChanged)
     ///
@@ -362,12 +448,16 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    /// ` min: QDateTime `
+    /// ` _min: QDateTime `
     ///
-    pub fn MinChanged(self: QDateTimeAxis, min: anytype) void {
-        comptime _ = @TypeOf(min)._is_QDateTime;
-        qtc.QDateTimeAxis_MinChanged(@ptrCast(self.ptr), @ptrCast(min.ptr));
+    pub fn minChanged(self: QDateTimeAxis, _min: anytype) void {
+        comptime _ = @TypeOf(_min)._is_QDateTime;
+        qtc.QDateTimeAxis_MinChanged(@ptrCast(self.ptr), @ptrCast(_min.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMinChanged` instead
+    ///
+    pub const OnMinChanged = onMinChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#minChanged)
     ///
@@ -377,9 +467,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QDateTimeAxis, min: QDateTime) callconv(.c) void `
     ///
-    pub fn OnMinChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QDateTime) callconv(.c) void) void {
+    pub fn onMinChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QDateTime) callconv(.c) void) void {
         qtc.QDateTimeAxis_Connect_MinChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `maxChanged` instead
+    ///
+    pub const MaxChanged = maxChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#maxChanged)
     ///
@@ -387,12 +481,16 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    /// ` max: QDateTime `
+    /// ` _max: QDateTime `
     ///
-    pub fn MaxChanged(self: QDateTimeAxis, max: anytype) void {
-        comptime _ = @TypeOf(max)._is_QDateTime;
-        qtc.QDateTimeAxis_MaxChanged(@ptrCast(self.ptr), @ptrCast(max.ptr));
+    pub fn maxChanged(self: QDateTimeAxis, _max: anytype) void {
+        comptime _ = @TypeOf(_max)._is_QDateTime;
+        qtc.QDateTimeAxis_MaxChanged(@ptrCast(self.ptr), @ptrCast(_max.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMaxChanged` instead
+    ///
+    pub const OnMaxChanged = onMaxChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#maxChanged)
     ///
@@ -402,9 +500,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QDateTimeAxis, max: QDateTime) callconv(.c) void `
     ///
-    pub fn OnMaxChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QDateTime) callconv(.c) void) void {
+    pub fn onMaxChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QDateTime) callconv(.c) void) void {
         qtc.QDateTimeAxis_Connect_MaxChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `rangeChanged` instead
+    ///
+    pub const RangeChanged = rangeChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#rangeChanged)
     ///
@@ -412,15 +514,19 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    /// ` min: QDateTime `
+    /// ` _min: QDateTime `
     ///
-    /// ` max: QDateTime `
+    /// ` _max: QDateTime `
     ///
-    pub fn RangeChanged(self: QDateTimeAxis, min: anytype, max: anytype) void {
-        comptime _ = @TypeOf(min)._is_QDateTime;
-        comptime _ = @TypeOf(max)._is_QDateTime;
-        qtc.QDateTimeAxis_RangeChanged(@ptrCast(self.ptr), @ptrCast(min.ptr), @ptrCast(max.ptr));
+    pub fn rangeChanged(self: QDateTimeAxis, _min: anytype, _max: anytype) void {
+        comptime _ = @TypeOf(_min)._is_QDateTime;
+        comptime _ = @TypeOf(_max)._is_QDateTime;
+        qtc.QDateTimeAxis_RangeChanged(@ptrCast(self.ptr), @ptrCast(_min.ptr), @ptrCast(_max.ptr));
     }
+
+    /// ### DEPRECATED: Use `onRangeChanged` instead
+    ///
+    pub const OnRangeChanged = onRangeChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#rangeChanged)
     ///
@@ -430,9 +536,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QDateTimeAxis, min: QDateTime, max: QDateTime) callconv(.c) void `
     ///
-    pub fn OnRangeChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QDateTime, QDateTime) callconv(.c) void) void {
+    pub fn onRangeChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QDateTime, QDateTime) callconv(.c) void) void {
         qtc.QDateTimeAxis_Connect_RangeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `formatChanged` instead
+    ///
+    pub const FormatChanged = formatChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#formatChanged)
     ///
@@ -440,15 +550,19 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    /// ` format: []const u8 `
+    /// ` _format: []const u8 `
     ///
-    pub fn FormatChanged(self: QDateTimeAxis, format: []const u8) void {
+    pub fn formatChanged(self: QDateTimeAxis, _format: []const u8) void {
         const format_str = qtc.libqt_string{
-            .len = format.len,
-            .data = format.ptr,
+            .len = _format.len,
+            .data = _format.ptr,
         };
         qtc.QDateTimeAxis_FormatChanged(@ptrCast(self.ptr), format_str);
     }
+
+    /// ### DEPRECATED: Use `onFormatChanged` instead
+    ///
+    pub const OnFormatChanged = onFormatChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#formatChanged)
     ///
@@ -458,9 +572,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QDateTimeAxis, format: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnFormatChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, [*:0]const u8) callconv(.c) void) void {
+    pub fn onFormatChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, [*:0]const u8) callconv(.c) void) void {
         qtc.QDateTimeAxis_Connect_FormatChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tickCountChanged` instead
+    ///
+    pub const TickCountChanged = tickCountChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#tickCountChanged)
     ///
@@ -470,9 +588,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` tick: i32 `
     ///
-    pub fn TickCountChanged(self: QDateTimeAxis, tick: i32) void {
+    pub fn tickCountChanged(self: QDateTimeAxis, tick: i32) void {
         qtc.QDateTimeAxis_TickCountChanged(@ptrCast(self.ptr), @bitCast(tick));
     }
+
+    /// ### DEPRECATED: Use `onTickCountChanged` instead
+    ///
+    pub const OnTickCountChanged = onTickCountChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#tickCountChanged)
     ///
@@ -482,9 +604,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QDateTimeAxis, tick: i32) callconv(.c) void `
     ///
-    pub fn OnTickCountChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, i32) callconv(.c) void) void {
+    pub fn onTickCountChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, i32) callconv(.c) void) void {
         qtc.QDateTimeAxis_Connect_TickCountChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -496,15 +622,19 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDateTimeAxis.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDateTimeAxis.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -518,15 +648,19 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDateTimeAxis.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDateTimeAxis.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QAbstractAxis
     ///
@@ -536,9 +670,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn IsVisible(self: QDateTimeAxis) bool {
+    pub fn isVisible(self: QDateTimeAxis) bool {
         return qtc.QAbstractAxis_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QAbstractAxis
     ///
@@ -548,9 +686,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn SetVisible(self: QDateTimeAxis) void {
+    pub fn setVisible(self: QDateTimeAxis) void {
         qtc.QAbstractAxis_SetVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QAbstractAxis
     ///
@@ -560,9 +702,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn Show(self: QDateTimeAxis) void {
+    pub fn show(self: QDateTimeAxis) void {
         qtc.QAbstractAxis_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QAbstractAxis
     ///
@@ -572,9 +718,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn Hide(self: QDateTimeAxis) void {
+    pub fn hide(self: QDateTimeAxis) void {
         qtc.QAbstractAxis_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLineVisible` instead
+    ///
+    pub const IsLineVisible = isLineVisible;
 
     /// Inherited from QAbstractAxis
     ///
@@ -584,9 +734,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn IsLineVisible(self: QDateTimeAxis) bool {
+    pub fn isLineVisible(self: QDateTimeAxis) bool {
         return qtc.QAbstractAxis_IsLineVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLineVisible` instead
+    ///
+    pub const SetLineVisible = setLineVisible;
 
     /// Inherited from QAbstractAxis
     ///
@@ -596,9 +750,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn SetLineVisible(self: QDateTimeAxis) void {
+    pub fn setLineVisible(self: QDateTimeAxis) void {
         qtc.QAbstractAxis_SetLineVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLinePen` instead
+    ///
+    pub const SetLinePen = setLinePen;
 
     /// Inherited from QAbstractAxis
     ///
@@ -610,10 +768,14 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` pen: QPen `
     ///
-    pub fn SetLinePen(self: QDateTimeAxis, pen: anytype) void {
+    pub fn setLinePen(self: QDateTimeAxis, pen: anytype) void {
         comptime _ = @TypeOf(pen)._is_QPen;
         qtc.QAbstractAxis_SetLinePen(@ptrCast(self.ptr), @ptrCast(pen.ptr));
     }
+
+    /// ### DEPRECATED: Use `linePen` instead
+    ///
+    pub const LinePen = linePen;
 
     /// Inherited from QAbstractAxis
     ///
@@ -623,9 +785,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn LinePen(self: QDateTimeAxis) QPen {
+    pub fn linePen(self: QDateTimeAxis) QPen {
         return .{ .ptr = qtc.QAbstractAxis_LinePen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLinePenColor` instead
+    ///
+    pub const SetLinePenColor = setLinePenColor;
 
     /// Inherited from QAbstractAxis
     ///
@@ -637,10 +803,14 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn SetLinePenColor(self: QDateTimeAxis, color: anytype) void {
+    pub fn setLinePenColor(self: QDateTimeAxis, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.QAbstractAxis_SetLinePenColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
+
+    /// ### DEPRECATED: Use `linePenColor` instead
+    ///
+    pub const LinePenColor = linePenColor;
 
     /// Inherited from QAbstractAxis
     ///
@@ -650,9 +820,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn LinePenColor(self: QDateTimeAxis) QColor {
+    pub fn linePenColor(self: QDateTimeAxis) QColor {
         return .{ .ptr = qtc.QAbstractAxis_LinePenColor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isGridLineVisible` instead
+    ///
+    pub const IsGridLineVisible = isGridLineVisible;
 
     /// Inherited from QAbstractAxis
     ///
@@ -662,9 +836,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn IsGridLineVisible(self: QDateTimeAxis) bool {
+    pub fn isGridLineVisible(self: QDateTimeAxis) bool {
         return qtc.QAbstractAxis_IsGridLineVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGridLineVisible` instead
+    ///
+    pub const SetGridLineVisible = setGridLineVisible;
 
     /// Inherited from QAbstractAxis
     ///
@@ -674,9 +852,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn SetGridLineVisible(self: QDateTimeAxis) void {
+    pub fn setGridLineVisible(self: QDateTimeAxis) void {
         qtc.QAbstractAxis_SetGridLineVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGridLinePen` instead
+    ///
+    pub const SetGridLinePen = setGridLinePen;
 
     /// Inherited from QAbstractAxis
     ///
@@ -688,10 +870,14 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` pen: QPen `
     ///
-    pub fn SetGridLinePen(self: QDateTimeAxis, pen: anytype) void {
+    pub fn setGridLinePen(self: QDateTimeAxis, pen: anytype) void {
         comptime _ = @TypeOf(pen)._is_QPen;
         qtc.QAbstractAxis_SetGridLinePen(@ptrCast(self.ptr), @ptrCast(pen.ptr));
     }
+
+    /// ### DEPRECATED: Use `gridLinePen` instead
+    ///
+    pub const GridLinePen = gridLinePen;
 
     /// Inherited from QAbstractAxis
     ///
@@ -701,9 +887,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn GridLinePen(self: QDateTimeAxis) QPen {
+    pub fn gridLinePen(self: QDateTimeAxis) QPen {
         return .{ .ptr = qtc.QAbstractAxis_GridLinePen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isMinorGridLineVisible` instead
+    ///
+    pub const IsMinorGridLineVisible = isMinorGridLineVisible;
 
     /// Inherited from QAbstractAxis
     ///
@@ -713,9 +903,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn IsMinorGridLineVisible(self: QDateTimeAxis) bool {
+    pub fn isMinorGridLineVisible(self: QDateTimeAxis) bool {
         return qtc.QAbstractAxis_IsMinorGridLineVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinorGridLineVisible` instead
+    ///
+    pub const SetMinorGridLineVisible = setMinorGridLineVisible;
 
     /// Inherited from QAbstractAxis
     ///
@@ -725,9 +919,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn SetMinorGridLineVisible(self: QDateTimeAxis) void {
+    pub fn setMinorGridLineVisible(self: QDateTimeAxis) void {
         qtc.QAbstractAxis_SetMinorGridLineVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinorGridLinePen` instead
+    ///
+    pub const SetMinorGridLinePen = setMinorGridLinePen;
 
     /// Inherited from QAbstractAxis
     ///
@@ -739,10 +937,14 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` pen: QPen `
     ///
-    pub fn SetMinorGridLinePen(self: QDateTimeAxis, pen: anytype) void {
+    pub fn setMinorGridLinePen(self: QDateTimeAxis, pen: anytype) void {
         comptime _ = @TypeOf(pen)._is_QPen;
         qtc.QAbstractAxis_SetMinorGridLinePen(@ptrCast(self.ptr), @ptrCast(pen.ptr));
     }
+
+    /// ### DEPRECATED: Use `minorGridLinePen` instead
+    ///
+    pub const MinorGridLinePen = minorGridLinePen;
 
     /// Inherited from QAbstractAxis
     ///
@@ -752,9 +954,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn MinorGridLinePen(self: QDateTimeAxis) QPen {
+    pub fn minorGridLinePen(self: QDateTimeAxis) QPen {
         return .{ .ptr = qtc.QAbstractAxis_MinorGridLinePen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGridLineColor` instead
+    ///
+    pub const SetGridLineColor = setGridLineColor;
 
     /// Inherited from QAbstractAxis
     ///
@@ -766,10 +972,14 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn SetGridLineColor(self: QDateTimeAxis, color: anytype) void {
+    pub fn setGridLineColor(self: QDateTimeAxis, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.QAbstractAxis_SetGridLineColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
+
+    /// ### DEPRECATED: Use `gridLineColor` instead
+    ///
+    pub const GridLineColor = gridLineColor;
 
     /// Inherited from QAbstractAxis
     ///
@@ -779,9 +989,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn GridLineColor(self: QDateTimeAxis) QColor {
+    pub fn gridLineColor(self: QDateTimeAxis) QColor {
         return .{ .ptr = qtc.QAbstractAxis_GridLineColor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setMinorGridLineColor` instead
+    ///
+    pub const SetMinorGridLineColor = setMinorGridLineColor;
 
     /// Inherited from QAbstractAxis
     ///
@@ -793,10 +1007,14 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn SetMinorGridLineColor(self: QDateTimeAxis, color: anytype) void {
+    pub fn setMinorGridLineColor(self: QDateTimeAxis, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.QAbstractAxis_SetMinorGridLineColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
+
+    /// ### DEPRECATED: Use `minorGridLineColor` instead
+    ///
+    pub const MinorGridLineColor = minorGridLineColor;
 
     /// Inherited from QAbstractAxis
     ///
@@ -806,9 +1024,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn MinorGridLineColor(self: QDateTimeAxis) QColor {
+    pub fn minorGridLineColor(self: QDateTimeAxis) QColor {
         return .{ .ptr = qtc.QAbstractAxis_MinorGridLineColor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `labelsVisible` instead
+    ///
+    pub const LabelsVisible = labelsVisible;
 
     /// Inherited from QAbstractAxis
     ///
@@ -818,9 +1040,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn LabelsVisible(self: QDateTimeAxis) bool {
+    pub fn labelsVisible(self: QDateTimeAxis) bool {
         return qtc.QAbstractAxis_LabelsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLabelsVisible` instead
+    ///
+    pub const SetLabelsVisible = setLabelsVisible;
 
     /// Inherited from QAbstractAxis
     ///
@@ -830,9 +1056,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn SetLabelsVisible(self: QDateTimeAxis) void {
+    pub fn setLabelsVisible(self: QDateTimeAxis) void {
         qtc.QAbstractAxis_SetLabelsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLabelsBrush` instead
+    ///
+    pub const SetLabelsBrush = setLabelsBrush;
 
     /// Inherited from QAbstractAxis
     ///
@@ -844,10 +1074,14 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` brush: QBrush `
     ///
-    pub fn SetLabelsBrush(self: QDateTimeAxis, brush: anytype) void {
+    pub fn setLabelsBrush(self: QDateTimeAxis, brush: anytype) void {
         comptime _ = @TypeOf(brush)._is_QBrush;
         qtc.QAbstractAxis_SetLabelsBrush(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `labelsBrush` instead
+    ///
+    pub const LabelsBrush = labelsBrush;
 
     /// Inherited from QAbstractAxis
     ///
@@ -857,9 +1091,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn LabelsBrush(self: QDateTimeAxis) QBrush {
+    pub fn labelsBrush(self: QDateTimeAxis) QBrush {
         return .{ .ptr = qtc.QAbstractAxis_LabelsBrush(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLabelsFont` instead
+    ///
+    pub const SetLabelsFont = setLabelsFont;
 
     /// Inherited from QAbstractAxis
     ///
@@ -871,10 +1109,14 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` font: QFont `
     ///
-    pub fn SetLabelsFont(self: QDateTimeAxis, font: anytype) void {
+    pub fn setLabelsFont(self: QDateTimeAxis, font: anytype) void {
         comptime _ = @TypeOf(font)._is_QFont;
         qtc.QAbstractAxis_SetLabelsFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
     }
+
+    /// ### DEPRECATED: Use `labelsFont` instead
+    ///
+    pub const LabelsFont = labelsFont;
 
     /// Inherited from QAbstractAxis
     ///
@@ -884,9 +1126,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn LabelsFont(self: QDateTimeAxis) QFont {
+    pub fn labelsFont(self: QDateTimeAxis) QFont {
         return .{ .ptr = qtc.QAbstractAxis_LabelsFont(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLabelsAngle` instead
+    ///
+    pub const SetLabelsAngle = setLabelsAngle;
 
     /// Inherited from QAbstractAxis
     ///
@@ -898,9 +1144,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` angle: i32 `
     ///
-    pub fn SetLabelsAngle(self: QDateTimeAxis, angle: i32) void {
+    pub fn setLabelsAngle(self: QDateTimeAxis, angle: i32) void {
         qtc.QAbstractAxis_SetLabelsAngle(@ptrCast(self.ptr), @bitCast(angle));
     }
+
+    /// ### DEPRECATED: Use `labelsAngle` instead
+    ///
+    pub const LabelsAngle = labelsAngle;
 
     /// Inherited from QAbstractAxis
     ///
@@ -910,9 +1160,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn LabelsAngle(self: QDateTimeAxis) i32 {
+    pub fn labelsAngle(self: QDateTimeAxis) i32 {
         return qtc.QAbstractAxis_LabelsAngle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLabelsColor` instead
+    ///
+    pub const SetLabelsColor = setLabelsColor;
 
     /// Inherited from QAbstractAxis
     ///
@@ -924,10 +1178,14 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn SetLabelsColor(self: QDateTimeAxis, color: anytype) void {
+    pub fn setLabelsColor(self: QDateTimeAxis, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.QAbstractAxis_SetLabelsColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
+
+    /// ### DEPRECATED: Use `labelsColor` instead
+    ///
+    pub const LabelsColor = labelsColor;
 
     /// Inherited from QAbstractAxis
     ///
@@ -937,9 +1195,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn LabelsColor(self: QDateTimeAxis) QColor {
+    pub fn labelsColor(self: QDateTimeAxis) QColor {
         return .{ .ptr = qtc.QAbstractAxis_LabelsColor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isTitleVisible` instead
+    ///
+    pub const IsTitleVisible = isTitleVisible;
 
     /// Inherited from QAbstractAxis
     ///
@@ -949,9 +1211,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn IsTitleVisible(self: QDateTimeAxis) bool {
+    pub fn isTitleVisible(self: QDateTimeAxis) bool {
         return qtc.QAbstractAxis_IsTitleVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTitleVisible` instead
+    ///
+    pub const SetTitleVisible = setTitleVisible;
 
     /// Inherited from QAbstractAxis
     ///
@@ -961,9 +1227,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn SetTitleVisible(self: QDateTimeAxis) void {
+    pub fn setTitleVisible(self: QDateTimeAxis) void {
         qtc.QAbstractAxis_SetTitleVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTitleBrush` instead
+    ///
+    pub const SetTitleBrush = setTitleBrush;
 
     /// Inherited from QAbstractAxis
     ///
@@ -975,10 +1245,14 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` brush: QBrush `
     ///
-    pub fn SetTitleBrush(self: QDateTimeAxis, brush: anytype) void {
+    pub fn setTitleBrush(self: QDateTimeAxis, brush: anytype) void {
         comptime _ = @TypeOf(brush)._is_QBrush;
         qtc.QAbstractAxis_SetTitleBrush(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `titleBrush` instead
+    ///
+    pub const TitleBrush = titleBrush;
 
     /// Inherited from QAbstractAxis
     ///
@@ -988,9 +1262,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn TitleBrush(self: QDateTimeAxis) QBrush {
+    pub fn titleBrush(self: QDateTimeAxis) QBrush {
         return .{ .ptr = qtc.QAbstractAxis_TitleBrush(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setTitleFont` instead
+    ///
+    pub const SetTitleFont = setTitleFont;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1002,10 +1280,14 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` font: QFont `
     ///
-    pub fn SetTitleFont(self: QDateTimeAxis, font: anytype) void {
+    pub fn setTitleFont(self: QDateTimeAxis, font: anytype) void {
         comptime _ = @TypeOf(font)._is_QFont;
         qtc.QAbstractAxis_SetTitleFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
     }
+
+    /// ### DEPRECATED: Use `titleFont` instead
+    ///
+    pub const TitleFont = titleFont;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1015,9 +1297,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn TitleFont(self: QDateTimeAxis) QFont {
+    pub fn titleFont(self: QDateTimeAxis) QFont {
         return .{ .ptr = qtc.QAbstractAxis_TitleFont(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setTitleText` instead
+    ///
+    pub const SetTitleText = setTitleText;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1029,13 +1315,17 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn SetTitleText(self: QDateTimeAxis, title: []const u8) void {
+    pub fn setTitleText(self: QDateTimeAxis, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QAbstractAxis_SetTitleText(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `titleText` instead
+    ///
+    pub const TitleText = titleText;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1047,13 +1337,17 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TitleText(self: QDateTimeAxis, allocator: std.mem.Allocator) []const u8 {
+    pub fn titleText(self: QDateTimeAxis, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAbstractAxis_TitleText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDateTimeAxis.TitleText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDateTimeAxis.titleText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `shadesVisible` instead
+    ///
+    pub const ShadesVisible = shadesVisible;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1063,9 +1357,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn ShadesVisible(self: QDateTimeAxis) bool {
+    pub fn shadesVisible(self: QDateTimeAxis) bool {
         return qtc.QAbstractAxis_ShadesVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setShadesVisible` instead
+    ///
+    pub const SetShadesVisible = setShadesVisible;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1075,9 +1373,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn SetShadesVisible(self: QDateTimeAxis) void {
+    pub fn setShadesVisible(self: QDateTimeAxis) void {
         qtc.QAbstractAxis_SetShadesVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setShadesPen` instead
+    ///
+    pub const SetShadesPen = setShadesPen;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1089,10 +1391,14 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` pen: QPen `
     ///
-    pub fn SetShadesPen(self: QDateTimeAxis, pen: anytype) void {
+    pub fn setShadesPen(self: QDateTimeAxis, pen: anytype) void {
         comptime _ = @TypeOf(pen)._is_QPen;
         qtc.QAbstractAxis_SetShadesPen(@ptrCast(self.ptr), @ptrCast(pen.ptr));
     }
+
+    /// ### DEPRECATED: Use `shadesPen` instead
+    ///
+    pub const ShadesPen = shadesPen;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1102,9 +1408,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn ShadesPen(self: QDateTimeAxis) QPen {
+    pub fn shadesPen(self: QDateTimeAxis) QPen {
         return .{ .ptr = qtc.QAbstractAxis_ShadesPen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setShadesBrush` instead
+    ///
+    pub const SetShadesBrush = setShadesBrush;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1116,10 +1426,14 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` brush: QBrush `
     ///
-    pub fn SetShadesBrush(self: QDateTimeAxis, brush: anytype) void {
+    pub fn setShadesBrush(self: QDateTimeAxis, brush: anytype) void {
         comptime _ = @TypeOf(brush)._is_QBrush;
         qtc.QAbstractAxis_SetShadesBrush(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `shadesBrush` instead
+    ///
+    pub const ShadesBrush = shadesBrush;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1129,9 +1443,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn ShadesBrush(self: QDateTimeAxis) QBrush {
+    pub fn shadesBrush(self: QDateTimeAxis) QBrush {
         return .{ .ptr = qtc.QAbstractAxis_ShadesBrush(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setShadesColor` instead
+    ///
+    pub const SetShadesColor = setShadesColor;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1143,10 +1461,14 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn SetShadesColor(self: QDateTimeAxis, color: anytype) void {
+    pub fn setShadesColor(self: QDateTimeAxis, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.QAbstractAxis_SetShadesColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
+
+    /// ### DEPRECATED: Use `shadesColor` instead
+    ///
+    pub const ShadesColor = shadesColor;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1156,9 +1478,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn ShadesColor(self: QDateTimeAxis) QColor {
+    pub fn shadesColor(self: QDateTimeAxis) QColor {
         return .{ .ptr = qtc.QAbstractAxis_ShadesColor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setShadesBorderColor` instead
+    ///
+    pub const SetShadesBorderColor = setShadesBorderColor;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1170,10 +1496,14 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn SetShadesBorderColor(self: QDateTimeAxis, color: anytype) void {
+    pub fn setShadesBorderColor(self: QDateTimeAxis, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.QAbstractAxis_SetShadesBorderColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
+
+    /// ### DEPRECATED: Use `shadesBorderColor` instead
+    ///
+    pub const ShadesBorderColor = shadesBorderColor;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1183,9 +1513,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn ShadesBorderColor(self: QDateTimeAxis) QColor {
+    pub fn shadesBorderColor(self: QDateTimeAxis) QColor {
         return .{ .ptr = qtc.QAbstractAxis_ShadesBorderColor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `orientation` instead
+    ///
+    pub const Orientation = orientation;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1199,9 +1533,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` qnamespace_enums.Orientation `
     ///
-    pub fn Orientation(self: QDateTimeAxis) i32 {
+    pub fn orientation(self: QDateTimeAxis) i32 {
         return qtc.QAbstractAxis_Orientation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `alignment` instead
+    ///
+    pub const Alignment = alignment;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1215,9 +1553,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn Alignment(self: QDateTimeAxis) i32 {
+    pub fn alignment(self: QDateTimeAxis) i32 {
         return qtc.QAbstractAxis_Alignment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setReverse` instead
+    ///
+    pub const SetReverse = setReverse;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1227,9 +1569,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn SetReverse(self: QDateTimeAxis) void {
+    pub fn setReverse(self: QDateTimeAxis) void {
         qtc.QAbstractAxis_SetReverse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isReverse` instead
+    ///
+    pub const IsReverse = isReverse;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1239,9 +1585,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn IsReverse(self: QDateTimeAxis) bool {
+    pub fn isReverse(self: QDateTimeAxis) bool {
         return qtc.QAbstractAxis_IsReverse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLabelsEditable` instead
+    ///
+    pub const SetLabelsEditable = setLabelsEditable;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1251,9 +1601,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn SetLabelsEditable(self: QDateTimeAxis) void {
+    pub fn setLabelsEditable(self: QDateTimeAxis) void {
         qtc.QAbstractAxis_SetLabelsEditable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `labelsEditable` instead
+    ///
+    pub const LabelsEditable = labelsEditable;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1263,9 +1617,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn LabelsEditable(self: QDateTimeAxis) bool {
+    pub fn labelsEditable(self: QDateTimeAxis) bool {
         return qtc.QAbstractAxis_LabelsEditable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `labelsTruncated` instead
+    ///
+    pub const LabelsTruncated = labelsTruncated;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1275,9 +1633,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn LabelsTruncated(self: QDateTimeAxis) bool {
+    pub fn labelsTruncated(self: QDateTimeAxis) bool {
         return qtc.QAbstractAxis_LabelsTruncated(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTruncateLabels` instead
+    ///
+    pub const SetTruncateLabels = setTruncateLabels;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1287,9 +1649,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn SetTruncateLabels(self: QDateTimeAxis) void {
+    pub fn setTruncateLabels(self: QDateTimeAxis) void {
         qtc.QAbstractAxis_SetTruncateLabels(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `truncateLabels` instead
+    ///
+    pub const TruncateLabels = truncateLabels;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1299,9 +1665,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn TruncateLabels(self: QDateTimeAxis) bool {
+    pub fn truncateLabels(self: QDateTimeAxis) bool {
         return qtc.QAbstractAxis_TruncateLabels(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `visibleChanged` instead
+    ///
+    pub const VisibleChanged = visibleChanged;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1313,9 +1683,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn VisibleChanged(self: QDateTimeAxis, visible: bool) void {
+    pub fn visibleChanged(self: QDateTimeAxis, visible: bool) void {
         qtc.QAbstractAxis_VisibleChanged(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onVisibleChanged` instead
+    ///
+    pub const OnVisibleChanged = onVisibleChanged;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1327,9 +1701,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QDateTimeAxis, visible: bool) callconv(.c) void `
     ///
-    pub fn OnVisibleChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, bool) callconv(.c) void) void {
+    pub fn onVisibleChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, bool) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_VisibleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `linePenChanged` instead
+    ///
+    pub const LinePenChanged = linePenChanged;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1341,10 +1719,14 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` pen: QPen `
     ///
-    pub fn LinePenChanged(self: QDateTimeAxis, pen: anytype) void {
+    pub fn linePenChanged(self: QDateTimeAxis, pen: anytype) void {
         comptime _ = @TypeOf(pen)._is_QPen;
         qtc.QAbstractAxis_LinePenChanged(@ptrCast(self.ptr), @ptrCast(pen.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLinePenChanged` instead
+    ///
+    pub const OnLinePenChanged = onLinePenChanged;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1356,10 +1738,14 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QDateTimeAxis, pen: QPen) callconv(.c) void `
     ///
-    pub fn OnLinePenChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QPen) callconv(.c) void) void {
+    pub fn onLinePenChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QPen) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_LinePenChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `lineVisibleChanged` instead
+    ///
+    pub const LineVisibleChanged = lineVisibleChanged;
+
     /// Inherited from QAbstractAxis
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#lineVisibleChanged)
@@ -1370,10 +1756,14 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn LineVisibleChanged(self: QDateTimeAxis, visible: bool) void {
+    pub fn lineVisibleChanged(self: QDateTimeAxis, visible: bool) void {
         qtc.QAbstractAxis_LineVisibleChanged(@ptrCast(self.ptr), visible);
     }
 
+    /// ### DEPRECATED: Use `onLineVisibleChanged` instead
+    ///
+    pub const OnLineVisibleChanged = onLineVisibleChanged;
+
     /// Inherited from QAbstractAxis
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#lineVisibleChanged)
@@ -1384,9 +1774,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QDateTimeAxis, visible: bool) callconv(.c) void `
     ///
-    pub fn OnLineVisibleChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, bool) callconv(.c) void) void {
+    pub fn onLineVisibleChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, bool) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_LineVisibleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `labelsVisibleChanged` instead
+    ///
+    pub const LabelsVisibleChanged = labelsVisibleChanged;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1398,9 +1792,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn LabelsVisibleChanged(self: QDateTimeAxis, visible: bool) void {
+    pub fn labelsVisibleChanged(self: QDateTimeAxis, visible: bool) void {
         qtc.QAbstractAxis_LabelsVisibleChanged(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onLabelsVisibleChanged` instead
+    ///
+    pub const OnLabelsVisibleChanged = onLabelsVisibleChanged;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1412,9 +1810,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QDateTimeAxis, visible: bool) callconv(.c) void `
     ///
-    pub fn OnLabelsVisibleChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, bool) callconv(.c) void) void {
+    pub fn onLabelsVisibleChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, bool) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_LabelsVisibleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `labelsBrushChanged` instead
+    ///
+    pub const LabelsBrushChanged = labelsBrushChanged;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1426,10 +1828,14 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` brush: QBrush `
     ///
-    pub fn LabelsBrushChanged(self: QDateTimeAxis, brush: anytype) void {
+    pub fn labelsBrushChanged(self: QDateTimeAxis, brush: anytype) void {
         comptime _ = @TypeOf(brush)._is_QBrush;
         qtc.QAbstractAxis_LabelsBrushChanged(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLabelsBrushChanged` instead
+    ///
+    pub const OnLabelsBrushChanged = onLabelsBrushChanged;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1441,9 +1847,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QDateTimeAxis, brush: QBrush) callconv(.c) void `
     ///
-    pub fn OnLabelsBrushChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QBrush) callconv(.c) void) void {
+    pub fn onLabelsBrushChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QBrush) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_LabelsBrushChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `labelsFontChanged` instead
+    ///
+    pub const LabelsFontChanged = labelsFontChanged;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1455,10 +1865,14 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` pen: QFont `
     ///
-    pub fn LabelsFontChanged(self: QDateTimeAxis, pen: anytype) void {
+    pub fn labelsFontChanged(self: QDateTimeAxis, pen: anytype) void {
         comptime _ = @TypeOf(pen)._is_QFont;
         qtc.QAbstractAxis_LabelsFontChanged(@ptrCast(self.ptr), @ptrCast(pen.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLabelsFontChanged` instead
+    ///
+    pub const OnLabelsFontChanged = onLabelsFontChanged;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1470,9 +1884,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QDateTimeAxis, pen: QFont) callconv(.c) void `
     ///
-    pub fn OnLabelsFontChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QFont) callconv(.c) void) void {
+    pub fn onLabelsFontChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QFont) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_LabelsFontChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `labelsAngleChanged` instead
+    ///
+    pub const LabelsAngleChanged = labelsAngleChanged;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1484,9 +1902,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` angle: i32 `
     ///
-    pub fn LabelsAngleChanged(self: QDateTimeAxis, angle: i32) void {
+    pub fn labelsAngleChanged(self: QDateTimeAxis, angle: i32) void {
         qtc.QAbstractAxis_LabelsAngleChanged(@ptrCast(self.ptr), @bitCast(angle));
     }
+
+    /// ### DEPRECATED: Use `onLabelsAngleChanged` instead
+    ///
+    pub const OnLabelsAngleChanged = onLabelsAngleChanged;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1498,9 +1920,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QDateTimeAxis, angle: i32) callconv(.c) void `
     ///
-    pub fn OnLabelsAngleChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, i32) callconv(.c) void) void {
+    pub fn onLabelsAngleChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, i32) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_LabelsAngleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `gridLinePenChanged` instead
+    ///
+    pub const GridLinePenChanged = gridLinePenChanged;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1512,11 +1938,15 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` pen: QPen `
     ///
-    pub fn GridLinePenChanged(self: QDateTimeAxis, pen: anytype) void {
+    pub fn gridLinePenChanged(self: QDateTimeAxis, pen: anytype) void {
         comptime _ = @TypeOf(pen)._is_QPen;
         qtc.QAbstractAxis_GridLinePenChanged(@ptrCast(self.ptr), @ptrCast(pen.ptr));
     }
 
+    /// ### DEPRECATED: Use `onGridLinePenChanged` instead
+    ///
+    pub const OnGridLinePenChanged = onGridLinePenChanged;
+
     /// Inherited from QAbstractAxis
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#gridLinePenChanged)
@@ -1527,10 +1957,14 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QDateTimeAxis, pen: QPen) callconv(.c) void `
     ///
-    pub fn OnGridLinePenChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QPen) callconv(.c) void) void {
+    pub fn onGridLinePenChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QPen) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_GridLinePenChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `gridVisibleChanged` instead
+    ///
+    pub const GridVisibleChanged = gridVisibleChanged;
+
     /// Inherited from QAbstractAxis
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#gridVisibleChanged)
@@ -1541,10 +1975,14 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn GridVisibleChanged(self: QDateTimeAxis, visible: bool) void {
+    pub fn gridVisibleChanged(self: QDateTimeAxis, visible: bool) void {
         qtc.QAbstractAxis_GridVisibleChanged(@ptrCast(self.ptr), visible);
     }
 
+    /// ### DEPRECATED: Use `onGridVisibleChanged` instead
+    ///
+    pub const OnGridVisibleChanged = onGridVisibleChanged;
+
     /// Inherited from QAbstractAxis
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#gridVisibleChanged)
@@ -1555,9 +1993,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QDateTimeAxis, visible: bool) callconv(.c) void `
     ///
-    pub fn OnGridVisibleChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, bool) callconv(.c) void) void {
+    pub fn onGridVisibleChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, bool) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_GridVisibleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minorGridVisibleChanged` instead
+    ///
+    pub const MinorGridVisibleChanged = minorGridVisibleChanged;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1569,9 +2011,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn MinorGridVisibleChanged(self: QDateTimeAxis, visible: bool) void {
+    pub fn minorGridVisibleChanged(self: QDateTimeAxis, visible: bool) void {
         qtc.QAbstractAxis_MinorGridVisibleChanged(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onMinorGridVisibleChanged` instead
+    ///
+    pub const OnMinorGridVisibleChanged = onMinorGridVisibleChanged;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1583,9 +2029,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QDateTimeAxis, visible: bool) callconv(.c) void `
     ///
-    pub fn OnMinorGridVisibleChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, bool) callconv(.c) void) void {
+    pub fn onMinorGridVisibleChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, bool) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_MinorGridVisibleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minorGridLinePenChanged` instead
+    ///
+    pub const MinorGridLinePenChanged = minorGridLinePenChanged;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1597,10 +2047,14 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` pen: QPen `
     ///
-    pub fn MinorGridLinePenChanged(self: QDateTimeAxis, pen: anytype) void {
+    pub fn minorGridLinePenChanged(self: QDateTimeAxis, pen: anytype) void {
         comptime _ = @TypeOf(pen)._is_QPen;
         qtc.QAbstractAxis_MinorGridLinePenChanged(@ptrCast(self.ptr), @ptrCast(pen.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMinorGridLinePenChanged` instead
+    ///
+    pub const OnMinorGridLinePenChanged = onMinorGridLinePenChanged;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1612,9 +2066,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QDateTimeAxis, pen: QPen) callconv(.c) void `
     ///
-    pub fn OnMinorGridLinePenChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QPen) callconv(.c) void) void {
+    pub fn onMinorGridLinePenChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QPen) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_MinorGridLinePenChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `gridLineColorChanged` instead
+    ///
+    pub const GridLineColorChanged = gridLineColorChanged;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1626,11 +2084,15 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn GridLineColorChanged(self: QDateTimeAxis, color: anytype) void {
+    pub fn gridLineColorChanged(self: QDateTimeAxis, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.QAbstractAxis_GridLineColorChanged(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
+    /// ### DEPRECATED: Use `onGridLineColorChanged` instead
+    ///
+    pub const OnGridLineColorChanged = onGridLineColorChanged;
+
     /// Inherited from QAbstractAxis
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#gridLineColorChanged)
@@ -1641,9 +2103,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QDateTimeAxis, color: QColor) callconv(.c) void `
     ///
-    pub fn OnGridLineColorChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QColor) callconv(.c) void) void {
+    pub fn onGridLineColorChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QColor) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_GridLineColorChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minorGridLineColorChanged` instead
+    ///
+    pub const MinorGridLineColorChanged = minorGridLineColorChanged;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1655,11 +2121,15 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn MinorGridLineColorChanged(self: QDateTimeAxis, color: anytype) void {
+    pub fn minorGridLineColorChanged(self: QDateTimeAxis, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.QAbstractAxis_MinorGridLineColorChanged(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMinorGridLineColorChanged` instead
+    ///
+    pub const OnMinorGridLineColorChanged = onMinorGridLineColorChanged;
+
     /// Inherited from QAbstractAxis
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#minorGridLineColorChanged)
@@ -1670,9 +2140,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QDateTimeAxis, color: QColor) callconv(.c) void `
     ///
-    pub fn OnMinorGridLineColorChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QColor) callconv(.c) void) void {
+    pub fn onMinorGridLineColorChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QColor) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_MinorGridLineColorChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `colorChanged` instead
+    ///
+    pub const ColorChanged = colorChanged;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1684,11 +2158,15 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn ColorChanged(self: QDateTimeAxis, color: anytype) void {
+    pub fn colorChanged(self: QDateTimeAxis, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.QAbstractAxis_ColorChanged(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
+    /// ### DEPRECATED: Use `onColorChanged` instead
+    ///
+    pub const OnColorChanged = onColorChanged;
+
     /// Inherited from QAbstractAxis
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#colorChanged)
@@ -1699,9 +2177,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QDateTimeAxis, color: QColor) callconv(.c) void `
     ///
-    pub fn OnColorChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QColor) callconv(.c) void) void {
+    pub fn onColorChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QColor) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_ColorChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `labelsColorChanged` instead
+    ///
+    pub const LabelsColorChanged = labelsColorChanged;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1713,10 +2195,14 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn LabelsColorChanged(self: QDateTimeAxis, color: anytype) void {
+    pub fn labelsColorChanged(self: QDateTimeAxis, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.QAbstractAxis_LabelsColorChanged(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLabelsColorChanged` instead
+    ///
+    pub const OnLabelsColorChanged = onLabelsColorChanged;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1728,9 +2214,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QDateTimeAxis, color: QColor) callconv(.c) void `
     ///
-    pub fn OnLabelsColorChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QColor) callconv(.c) void) void {
+    pub fn onLabelsColorChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QColor) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_LabelsColorChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `titleTextChanged` instead
+    ///
+    pub const TitleTextChanged = titleTextChanged;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1742,13 +2232,17 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn TitleTextChanged(self: QDateTimeAxis, title: []const u8) void {
+    pub fn titleTextChanged(self: QDateTimeAxis, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QAbstractAxis_TitleTextChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onTitleTextChanged` instead
+    ///
+    pub const OnTitleTextChanged = onTitleTextChanged;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1760,9 +2254,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QDateTimeAxis, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnTitleTextChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, [*:0]const u8) callconv(.c) void) void {
+    pub fn onTitleTextChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, [*:0]const u8) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_TitleTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `titleBrushChanged` instead
+    ///
+    pub const TitleBrushChanged = titleBrushChanged;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1774,10 +2272,14 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` brush: QBrush `
     ///
-    pub fn TitleBrushChanged(self: QDateTimeAxis, brush: anytype) void {
+    pub fn titleBrushChanged(self: QDateTimeAxis, brush: anytype) void {
         comptime _ = @TypeOf(brush)._is_QBrush;
         qtc.QAbstractAxis_TitleBrushChanged(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTitleBrushChanged` instead
+    ///
+    pub const OnTitleBrushChanged = onTitleBrushChanged;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1789,9 +2291,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QDateTimeAxis, brush: QBrush) callconv(.c) void `
     ///
-    pub fn OnTitleBrushChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QBrush) callconv(.c) void) void {
+    pub fn onTitleBrushChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QBrush) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_TitleBrushChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `titleVisibleChanged` instead
+    ///
+    pub const TitleVisibleChanged = titleVisibleChanged;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1803,9 +2309,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn TitleVisibleChanged(self: QDateTimeAxis, visible: bool) void {
+    pub fn titleVisibleChanged(self: QDateTimeAxis, visible: bool) void {
         qtc.QAbstractAxis_TitleVisibleChanged(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onTitleVisibleChanged` instead
+    ///
+    pub const OnTitleVisibleChanged = onTitleVisibleChanged;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1817,9 +2327,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QDateTimeAxis, visible: bool) callconv(.c) void `
     ///
-    pub fn OnTitleVisibleChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, bool) callconv(.c) void) void {
+    pub fn onTitleVisibleChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, bool) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_TitleVisibleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `titleFontChanged` instead
+    ///
+    pub const TitleFontChanged = titleFontChanged;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1831,10 +2345,14 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` font: QFont `
     ///
-    pub fn TitleFontChanged(self: QDateTimeAxis, font: anytype) void {
+    pub fn titleFontChanged(self: QDateTimeAxis, font: anytype) void {
         comptime _ = @TypeOf(font)._is_QFont;
         qtc.QAbstractAxis_TitleFontChanged(@ptrCast(self.ptr), @ptrCast(font.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTitleFontChanged` instead
+    ///
+    pub const OnTitleFontChanged = onTitleFontChanged;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1846,9 +2364,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QDateTimeAxis, font: QFont) callconv(.c) void `
     ///
-    pub fn OnTitleFontChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QFont) callconv(.c) void) void {
+    pub fn onTitleFontChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QFont) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_TitleFontChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `shadesVisibleChanged` instead
+    ///
+    pub const ShadesVisibleChanged = shadesVisibleChanged;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1860,9 +2382,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn ShadesVisibleChanged(self: QDateTimeAxis, visible: bool) void {
+    pub fn shadesVisibleChanged(self: QDateTimeAxis, visible: bool) void {
         qtc.QAbstractAxis_ShadesVisibleChanged(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onShadesVisibleChanged` instead
+    ///
+    pub const OnShadesVisibleChanged = onShadesVisibleChanged;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1874,9 +2400,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QDateTimeAxis, visible: bool) callconv(.c) void `
     ///
-    pub fn OnShadesVisibleChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, bool) callconv(.c) void) void {
+    pub fn onShadesVisibleChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, bool) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_ShadesVisibleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `shadesColorChanged` instead
+    ///
+    pub const ShadesColorChanged = shadesColorChanged;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1888,11 +2418,15 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn ShadesColorChanged(self: QDateTimeAxis, color: anytype) void {
+    pub fn shadesColorChanged(self: QDateTimeAxis, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.QAbstractAxis_ShadesColorChanged(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
+    /// ### DEPRECATED: Use `onShadesColorChanged` instead
+    ///
+    pub const OnShadesColorChanged = onShadesColorChanged;
+
     /// Inherited from QAbstractAxis
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis.html#shadesColorChanged)
@@ -1903,9 +2437,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QDateTimeAxis, color: QColor) callconv(.c) void `
     ///
-    pub fn OnShadesColorChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QColor) callconv(.c) void) void {
+    pub fn onShadesColorChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QColor) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_ShadesColorChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `shadesBorderColorChanged` instead
+    ///
+    pub const ShadesBorderColorChanged = shadesBorderColorChanged;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1917,10 +2455,14 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn ShadesBorderColorChanged(self: QDateTimeAxis, color: anytype) void {
+    pub fn shadesBorderColorChanged(self: QDateTimeAxis, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.QAbstractAxis_ShadesBorderColorChanged(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShadesBorderColorChanged` instead
+    ///
+    pub const OnShadesBorderColorChanged = onShadesBorderColorChanged;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1932,9 +2474,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QDateTimeAxis, color: QColor) callconv(.c) void `
     ///
-    pub fn OnShadesBorderColorChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QColor) callconv(.c) void) void {
+    pub fn onShadesBorderColorChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QColor) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_ShadesBorderColorChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `shadesPenChanged` instead
+    ///
+    pub const ShadesPenChanged = shadesPenChanged;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1946,10 +2492,14 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` pen: QPen `
     ///
-    pub fn ShadesPenChanged(self: QDateTimeAxis, pen: anytype) void {
+    pub fn shadesPenChanged(self: QDateTimeAxis, pen: anytype) void {
         comptime _ = @TypeOf(pen)._is_QPen;
         qtc.QAbstractAxis_ShadesPenChanged(@ptrCast(self.ptr), @ptrCast(pen.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShadesPenChanged` instead
+    ///
+    pub const OnShadesPenChanged = onShadesPenChanged;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1961,9 +2511,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QDateTimeAxis, pen: QPen) callconv(.c) void `
     ///
-    pub fn OnShadesPenChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QPen) callconv(.c) void) void {
+    pub fn onShadesPenChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QPen) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_ShadesPenChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `shadesBrushChanged` instead
+    ///
+    pub const ShadesBrushChanged = shadesBrushChanged;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1975,10 +2529,14 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` brush: QBrush `
     ///
-    pub fn ShadesBrushChanged(self: QDateTimeAxis, brush: anytype) void {
+    pub fn shadesBrushChanged(self: QDateTimeAxis, brush: anytype) void {
         comptime _ = @TypeOf(brush)._is_QBrush;
         qtc.QAbstractAxis_ShadesBrushChanged(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShadesBrushChanged` instead
+    ///
+    pub const OnShadesBrushChanged = onShadesBrushChanged;
 
     /// Inherited from QAbstractAxis
     ///
@@ -1990,9 +2548,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QDateTimeAxis, brush: QBrush) callconv(.c) void `
     ///
-    pub fn OnShadesBrushChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QBrush) callconv(.c) void) void {
+    pub fn onShadesBrushChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QBrush) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_ShadesBrushChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `reverseChanged` instead
+    ///
+    pub const ReverseChanged = reverseChanged;
 
     /// Inherited from QAbstractAxis
     ///
@@ -2004,9 +2566,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` reverse: bool `
     ///
-    pub fn ReverseChanged(self: QDateTimeAxis, reverse: bool) void {
+    pub fn reverseChanged(self: QDateTimeAxis, reverse: bool) void {
         qtc.QAbstractAxis_ReverseChanged(@ptrCast(self.ptr), reverse);
     }
+
+    /// ### DEPRECATED: Use `onReverseChanged` instead
+    ///
+    pub const OnReverseChanged = onReverseChanged;
 
     /// Inherited from QAbstractAxis
     ///
@@ -2018,9 +2584,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QDateTimeAxis, reverse: bool) callconv(.c) void `
     ///
-    pub fn OnReverseChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, bool) callconv(.c) void) void {
+    pub fn onReverseChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, bool) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_ReverseChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `labelsEditableChanged` instead
+    ///
+    pub const LabelsEditableChanged = labelsEditableChanged;
 
     /// Inherited from QAbstractAxis
     ///
@@ -2032,9 +2602,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` editable: bool `
     ///
-    pub fn LabelsEditableChanged(self: QDateTimeAxis, editable: bool) void {
+    pub fn labelsEditableChanged(self: QDateTimeAxis, editable: bool) void {
         qtc.QAbstractAxis_LabelsEditableChanged(@ptrCast(self.ptr), editable);
     }
+
+    /// ### DEPRECATED: Use `onLabelsEditableChanged` instead
+    ///
+    pub const OnLabelsEditableChanged = onLabelsEditableChanged;
 
     /// Inherited from QAbstractAxis
     ///
@@ -2046,9 +2620,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QDateTimeAxis, editable: bool) callconv(.c) void `
     ///
-    pub fn OnLabelsEditableChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, bool) callconv(.c) void) void {
+    pub fn onLabelsEditableChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, bool) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_LabelsEditableChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `labelsTruncatedChanged` instead
+    ///
+    pub const LabelsTruncatedChanged = labelsTruncatedChanged;
 
     /// Inherited from QAbstractAxis
     ///
@@ -2058,11 +2636,15 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    /// ` labelsTruncated: bool `
+    /// ` _labelsTruncated: bool `
     ///
-    pub fn LabelsTruncatedChanged(self: QDateTimeAxis, labelsTruncated: bool) void {
-        qtc.QAbstractAxis_LabelsTruncatedChanged(@ptrCast(self.ptr), labelsTruncated);
+    pub fn labelsTruncatedChanged(self: QDateTimeAxis, _labelsTruncated: bool) void {
+        qtc.QAbstractAxis_LabelsTruncatedChanged(@ptrCast(self.ptr), _labelsTruncated);
     }
+
+    /// ### DEPRECATED: Use `onLabelsTruncatedChanged` instead
+    ///
+    pub const OnLabelsTruncatedChanged = onLabelsTruncatedChanged;
 
     /// Inherited from QAbstractAxis
     ///
@@ -2074,9 +2656,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QDateTimeAxis, labelsTruncated: bool) callconv(.c) void `
     ///
-    pub fn OnLabelsTruncatedChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, bool) callconv(.c) void) void {
+    pub fn onLabelsTruncatedChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, bool) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_LabelsTruncatedChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `truncateLabelsChanged` instead
+    ///
+    pub const TruncateLabelsChanged = truncateLabelsChanged;
 
     /// Inherited from QAbstractAxis
     ///
@@ -2086,11 +2672,15 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    /// ` truncateLabels: bool `
+    /// ` _truncateLabels: bool `
     ///
-    pub fn TruncateLabelsChanged(self: QDateTimeAxis, truncateLabels: bool) void {
-        qtc.QAbstractAxis_TruncateLabelsChanged(@ptrCast(self.ptr), truncateLabels);
+    pub fn truncateLabelsChanged(self: QDateTimeAxis, _truncateLabels: bool) void {
+        qtc.QAbstractAxis_TruncateLabelsChanged(@ptrCast(self.ptr), _truncateLabels);
     }
+
+    /// ### DEPRECATED: Use `onTruncateLabelsChanged` instead
+    ///
+    pub const OnTruncateLabelsChanged = onTruncateLabelsChanged;
 
     /// Inherited from QAbstractAxis
     ///
@@ -2102,9 +2692,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QDateTimeAxis, truncateLabels: bool) callconv(.c) void `
     ///
-    pub fn OnTruncateLabelsChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, bool) callconv(.c) void) void {
+    pub fn onTruncateLabelsChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, bool) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_TruncateLabelsChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible1` instead
+    ///
+    pub const SetVisible1 = setVisible1;
 
     /// Inherited from QAbstractAxis
     ///
@@ -2116,9 +2710,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible1(self: QDateTimeAxis, visible: bool) void {
+    pub fn setVisible1(self: QDateTimeAxis, visible: bool) void {
         qtc.QAbstractAxis_SetVisible1(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `setLineVisible1` instead
+    ///
+    pub const SetLineVisible1 = setLineVisible1;
 
     /// Inherited from QAbstractAxis
     ///
@@ -2130,9 +2728,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetLineVisible1(self: QDateTimeAxis, visible: bool) void {
+    pub fn setLineVisible1(self: QDateTimeAxis, visible: bool) void {
         qtc.QAbstractAxis_SetLineVisible1(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `setGridLineVisible1` instead
+    ///
+    pub const SetGridLineVisible1 = setGridLineVisible1;
 
     /// Inherited from QAbstractAxis
     ///
@@ -2144,9 +2746,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetGridLineVisible1(self: QDateTimeAxis, visible: bool) void {
+    pub fn setGridLineVisible1(self: QDateTimeAxis, visible: bool) void {
         qtc.QAbstractAxis_SetGridLineVisible1(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `setMinorGridLineVisible1` instead
+    ///
+    pub const SetMinorGridLineVisible1 = setMinorGridLineVisible1;
 
     /// Inherited from QAbstractAxis
     ///
@@ -2158,9 +2764,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetMinorGridLineVisible1(self: QDateTimeAxis, visible: bool) void {
+    pub fn setMinorGridLineVisible1(self: QDateTimeAxis, visible: bool) void {
         qtc.QAbstractAxis_SetMinorGridLineVisible1(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `setLabelsVisible1` instead
+    ///
+    pub const SetLabelsVisible1 = setLabelsVisible1;
 
     /// Inherited from QAbstractAxis
     ///
@@ -2172,9 +2782,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetLabelsVisible1(self: QDateTimeAxis, visible: bool) void {
+    pub fn setLabelsVisible1(self: QDateTimeAxis, visible: bool) void {
         qtc.QAbstractAxis_SetLabelsVisible1(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `setTitleVisible1` instead
+    ///
+    pub const SetTitleVisible1 = setTitleVisible1;
 
     /// Inherited from QAbstractAxis
     ///
@@ -2186,9 +2800,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetTitleVisible1(self: QDateTimeAxis, visible: bool) void {
+    pub fn setTitleVisible1(self: QDateTimeAxis, visible: bool) void {
         qtc.QAbstractAxis_SetTitleVisible1(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `setShadesVisible1` instead
+    ///
+    pub const SetShadesVisible1 = setShadesVisible1;
 
     /// Inherited from QAbstractAxis
     ///
@@ -2200,9 +2818,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetShadesVisible1(self: QDateTimeAxis, visible: bool) void {
+    pub fn setShadesVisible1(self: QDateTimeAxis, visible: bool) void {
         qtc.QAbstractAxis_SetShadesVisible1(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `setReverse1` instead
+    ///
+    pub const SetReverse1 = setReverse1;
 
     /// Inherited from QAbstractAxis
     ///
@@ -2214,9 +2836,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` reverse: bool `
     ///
-    pub fn SetReverse1(self: QDateTimeAxis, reverse: bool) void {
+    pub fn setReverse1(self: QDateTimeAxis, reverse: bool) void {
         qtc.QAbstractAxis_SetReverse1(@ptrCast(self.ptr), reverse);
     }
+
+    /// ### DEPRECATED: Use `setLabelsEditable1` instead
+    ///
+    pub const SetLabelsEditable1 = setLabelsEditable1;
 
     /// Inherited from QAbstractAxis
     ///
@@ -2228,9 +2854,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` editable: bool `
     ///
-    pub fn SetLabelsEditable1(self: QDateTimeAxis, editable: bool) void {
+    pub fn setLabelsEditable1(self: QDateTimeAxis, editable: bool) void {
         qtc.QAbstractAxis_SetLabelsEditable1(@ptrCast(self.ptr), editable);
     }
+
+    /// ### DEPRECATED: Use `setTruncateLabels1` instead
+    ///
+    pub const SetTruncateLabels1 = setTruncateLabels1;
 
     /// Inherited from QAbstractAxis
     ///
@@ -2240,11 +2870,15 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    /// ` truncateLabels: bool `
+    /// ` _truncateLabels: bool `
     ///
-    pub fn SetTruncateLabels1(self: QDateTimeAxis, truncateLabels: bool) void {
-        qtc.QAbstractAxis_SetTruncateLabels1(@ptrCast(self.ptr), truncateLabels);
+    pub fn setTruncateLabels1(self: QDateTimeAxis, _truncateLabels: bool) void {
+        qtc.QAbstractAxis_SetTruncateLabels1(@ptrCast(self.ptr), _truncateLabels);
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -2256,13 +2890,17 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QDateTimeAxis, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QDateTimeAxis, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDateTimeAxis.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDateTimeAxis.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -2274,13 +2912,17 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QDateTimeAxis, name: []const u8) void {
+    pub fn setObjectName(self: QDateTimeAxis, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -2290,9 +2932,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn IsWidgetType(self: QDateTimeAxis) bool {
+    pub fn isWidgetType(self: QDateTimeAxis) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -2302,9 +2948,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn IsWindowType(self: QDateTimeAxis) bool {
+    pub fn isWindowType(self: QDateTimeAxis) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -2314,9 +2964,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn IsQuickItemType(self: QDateTimeAxis) bool {
+    pub fn isQuickItemType(self: QDateTimeAxis) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -2326,9 +2980,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn SignalsBlocked(self: QDateTimeAxis) bool {
+    pub fn signalsBlocked(self: QDateTimeAxis) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -2340,9 +2998,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QDateTimeAxis, b: bool) bool {
+    pub fn blockSignals(self: QDateTimeAxis, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -2352,9 +3014,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn Thread(self: QDateTimeAxis) QThread {
+    pub fn thread(self: QDateTimeAxis) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -2364,12 +3030,16 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QDateTimeAxis, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QDateTimeAxis, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -2381,9 +3051,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QDateTimeAxis, interval: i32) i32 {
+    pub fn startTimer(self: QDateTimeAxis, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -2395,9 +3069,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QDateTimeAxis, time: i64) i32 {
+    pub fn startTimer2(self: QDateTimeAxis, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -2409,9 +3087,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QDateTimeAxis, id: i32) void {
+    pub fn killTimer(self: QDateTimeAxis, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -2423,9 +3105,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QDateTimeAxis, id: i32) void {
+    pub fn killTimer2(self: QDateTimeAxis, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -2437,15 +3123,19 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QDateTimeAxis, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QDateTimeAxis, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QDateTimeAxis.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QDateTimeAxis.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -2455,12 +3145,16 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QDateTimeAxis, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QDateTimeAxis, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2472,10 +3166,14 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QDateTimeAxis, filterObj: anytype) void {
+    pub fn installEventFilter(self: QDateTimeAxis, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2487,10 +3185,14 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QDateTimeAxis, obj: anytype) void {
+    pub fn removeEventFilter(self: QDateTimeAxis, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -2498,7 +3200,7 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2506,13 +3208,17 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -2520,7 +3226,7 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2528,13 +3234,17 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -2544,18 +3254,22 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QDateTimeAxis, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QDateTimeAxis, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -2563,7 +3277,7 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2571,13 +3285,17 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -2585,7 +3303,7 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2593,13 +3311,17 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -2609,9 +3331,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn Disconnect3(self: QDateTimeAxis) bool {
+    pub fn disconnect3(self: QDateTimeAxis) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -2623,10 +3349,14 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QDateTimeAxis, receiver: anytype) bool {
+    pub fn disconnect4(self: QDateTimeAxis, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -2636,10 +3366,14 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -2649,9 +3383,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn DumpObjectTree(self: QDateTimeAxis) void {
+    pub fn dumpObjectTree(self: QDateTimeAxis) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -2661,9 +3399,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn DumpObjectInfo(self: QDateTimeAxis) void {
+    pub fn dumpObjectInfo(self: QDateTimeAxis) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -2677,11 +3419,15 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QDateTimeAxis, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QDateTimeAxis, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -2693,10 +3439,14 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QDateTimeAxis, name: [:0]const u8) QVariant {
+    pub fn property(self: QDateTimeAxis, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -2708,7 +3458,7 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QDateTimeAxis, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QDateTimeAxis, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -2716,27 +3466,19 @@ pub const QDateTimeAxis = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDateTimeAxis.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDateTimeAxis.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QDateTimeAxis.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QDateTimeAxis.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDateTimeAxis `
-    ///
-    pub fn BindingStorage(self: QDateTimeAxis) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -2746,9 +3488,29 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn BindingStorage2(self: QDateTimeAxis) QBindingStorage {
+    pub fn bindingStorage(self: QDateTimeAxis) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QDateTimeAxis `
+    ///
+    pub fn bindingStorage2(self: QDateTimeAxis) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -2758,9 +3520,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn Destroyed(self: QDateTimeAxis) void {
+    pub fn destroyed(self: QDateTimeAxis) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -2772,9 +3538,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QDateTimeAxis) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis) callconv(.c) void) void {
+    pub fn onDestroyed(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -2784,9 +3554,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn Parent(self: QDateTimeAxis) QObject {
+    pub fn parent(self: QDateTimeAxis) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -2798,10 +3572,14 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QDateTimeAxis, classname: [:0]const u8) bool {
+    pub fn inherits(self: QDateTimeAxis, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -2811,9 +3589,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn DeleteLater(self: QDateTimeAxis) void {
+    pub fn deleteLater(self: QDateTimeAxis) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -2827,9 +3609,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QDateTimeAxis, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QDateTimeAxis, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -2843,9 +3629,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QDateTimeAxis, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QDateTimeAxis, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -2853,7 +3643,7 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2863,13 +3653,17 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -2877,7 +3671,7 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2887,13 +3681,17 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -2903,7 +3701,7 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2911,12 +3709,16 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QDateTimeAxis, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QDateTimeAxis, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -2928,10 +3730,14 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QDateTimeAxis, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QDateTimeAxis, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -2945,11 +3751,15 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QDateTimeAxis, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QDateTimeAxis, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -2965,13 +3775,17 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QDateTimeAxis, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QDateTimeAxis, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -2984,11 +3798,15 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QDateTimeAxis, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QDateTimeAxis, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -3000,10 +3818,14 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QDateTimeAxis, param1: anytype) void {
+    pub fn destroyed1(self: QDateTimeAxis, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -3015,9 +3837,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QDateTimeAxis, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -3029,16 +3855,16 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QDateTimeAxis, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QDateTimeAxis_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QDateTimeAxis, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QDateTimeAxis_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -3050,12 +3876,16 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QDateTimeAxis, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QDateTimeAxis_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QDateTimeAxis, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QDateTimeAxis_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -3069,9 +3899,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QDateTimeAxis, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QEvent) callconv(.c) bool) void {
         qtc.QDateTimeAxis_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -3085,17 +3919,17 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QDateTimeAxis, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QDateTimeAxis, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QDateTimeAxis_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QDateTimeAxis_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -3109,13 +3943,17 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QDateTimeAxis, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QDateTimeAxis, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QDateTimeAxis_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QDateTimeAxis_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -3129,9 +3967,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QDateTimeAxis, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QObject, QEvent) callconv(.c) bool) void {
         qtc.QDateTimeAxis_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -3143,16 +3985,16 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QDateTimeAxis, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QDateTimeAxis_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QDateTimeAxis, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QDateTimeAxis_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -3164,12 +4006,16 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QDateTimeAxis, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QDateTimeAxis_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QDateTimeAxis, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QDateTimeAxis_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -3183,9 +4029,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QDateTimeAxis, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QTimerEvent) callconv(.c) void) void {
         qtc.QDateTimeAxis_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -3197,16 +4047,16 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QDateTimeAxis, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QDateTimeAxis_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QDateTimeAxis, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QDateTimeAxis_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -3218,12 +4068,16 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QDateTimeAxis, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QDateTimeAxis_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QDateTimeAxis, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QDateTimeAxis_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -3237,9 +4091,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QDateTimeAxis, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QChildEvent) callconv(.c) void) void {
         qtc.QDateTimeAxis_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -3251,16 +4109,16 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QDateTimeAxis, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QDateTimeAxis_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QDateTimeAxis, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QDateTimeAxis_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -3272,12 +4130,16 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QDateTimeAxis, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QDateTimeAxis_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QDateTimeAxis, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QDateTimeAxis_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -3291,9 +4153,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QDateTimeAxis, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QEvent) callconv(.c) void) void {
         qtc.QDateTimeAxis_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -3307,14 +4173,14 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QDateTimeAxis, signal: anytype) void {
+    pub fn connectNotify(self: QDateTimeAxis, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QDateTimeAxis_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3328,11 +4194,15 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QDateTimeAxis, signal: anytype) void {
+    pub fn superConnectNotify(self: QDateTimeAxis, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QDateTimeAxis_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -3345,9 +4215,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QDateTimeAxis, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QMetaMethod) callconv(.c) void) void {
         qtc.QDateTimeAxis_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3361,14 +4235,14 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QDateTimeAxis, signal: anytype) void {
+    pub fn disconnectNotify(self: QDateTimeAxis, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QDateTimeAxis_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3382,10 +4256,14 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QDateTimeAxis, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QDateTimeAxis, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QDateTimeAxis_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3399,9 +4277,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QDateTimeAxis, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QMetaMethod) callconv(.c) void) void {
         qtc.QDateTimeAxis_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -3413,13 +4295,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn Sender(self: QDateTimeAxis) QObject {
+    pub fn sender(self: QDateTimeAxis) QObject {
         return .{ .ptr = qtc.QDateTimeAxis_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -3431,9 +4313,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn SuperSender(self: QDateTimeAxis) QObject {
+    pub fn superSender(self: QDateTimeAxis) QObject {
         return .{ .ptr = qtc.QDateTimeAxis_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -3447,9 +4333,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QDateTimeAxis, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QDateTimeAxis, callback: *const fn () callconv(.c) QObject) void {
         qtc.QDateTimeAxis_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -3461,13 +4351,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn SenderSignalIndex(self: QDateTimeAxis) i32 {
+    pub fn senderSignalIndex(self: QDateTimeAxis) i32 {
         return qtc.QDateTimeAxis_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -3479,9 +4369,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn SuperSenderSignalIndex(self: QDateTimeAxis) i32 {
+    pub fn superSenderSignalIndex(self: QDateTimeAxis) i32 {
         return qtc.QDateTimeAxis_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -3495,9 +4389,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QDateTimeAxis, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QDateTimeAxis, callback: *const fn () callconv(.c) i32) void {
         qtc.QDateTimeAxis_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -3511,14 +4409,14 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QDateTimeAxis, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QDateTimeAxis, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QDateTimeAxis_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -3532,10 +4430,14 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QDateTimeAxis, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QDateTimeAxis, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QDateTimeAxis_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -3549,9 +4451,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QDateTimeAxis, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, [*:0]const u8) callconv(.c) i32) void {
         qtc.QDateTimeAxis_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -3565,14 +4471,14 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QDateTimeAxis, signal: anytype) bool {
+    pub fn isSignalConnected(self: QDateTimeAxis, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QDateTimeAxis_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -3586,10 +4492,14 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QDateTimeAxis, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QDateTimeAxis, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QDateTimeAxis_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -3603,9 +4513,13 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QDateTimeAxis, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, QMetaMethod) callconv(.c) bool) void {
         qtc.QDateTimeAxis_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -3619,23 +4533,23 @@ pub const QDateTimeAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QDateTimeAxis, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QDateTimeAxis, callback: *const fn (QDateTimeAxis, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#dtor.QDateTimeAxis)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDateTimeAxis `
     ///
-    pub fn Delete(self: QDateTimeAxis) void {
+    pub fn delete(self: QDateTimeAxis) void {
         qtc.QDateTimeAxis_Delete(@ptrCast(self.ptr));
     }
 };

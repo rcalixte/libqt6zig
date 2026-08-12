@@ -30,22 +30,34 @@ pub const QParallelAnimationGroup = extern struct {
     pub const _is_QAbstractAnimation = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QParallelAnimationGroup object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QParallelAnimationGroup {
+    pub const New = new;
+
+    /// Allocate a new QParallelAnimationGroup object in C++ memory
+    ///
+    pub fn new() QParallelAnimationGroup {
         return .{ .ptr = qtc.QParallelAnimationGroup_new() };
     }
 
-    /// New2 constructs a new QParallelAnimationGroup object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QParallelAnimationGroup object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) QParallelAnimationGroup {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QParallelAnimationGroup_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) QParallelAnimationGroup {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QParallelAnimationGroup_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -53,9 +65,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    pub fn MetaObject(self: QParallelAnimationGroup) QMetaObject {
+    pub fn metaObject(self: QParallelAnimationGroup) QMetaObject {
         return .{ .ptr = qtc.QParallelAnimationGroup_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -67,13 +83,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QParallelAnimationGroup, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QParallelAnimationGroup, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QParallelAnimationGroup_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -83,9 +99,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    pub fn SuperMetaObject(self: QParallelAnimationGroup) QMetaObject {
+    pub fn superMetaObject(self: QParallelAnimationGroup) QMetaObject {
         return .{ .ptr = qtc.QParallelAnimationGroup_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -93,10 +113,14 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QParallelAnimationGroup, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QParallelAnimationGroup, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QParallelAnimationGroup_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -106,13 +130,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QParallelAnimationGroup, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QParallelAnimationGroup, callback: *const fn (QParallelAnimationGroup, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QParallelAnimationGroup, callback: *const fn (QParallelAnimationGroup, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QParallelAnimationGroup_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -122,10 +146,14 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QParallelAnimationGroup, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QParallelAnimationGroup, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QParallelAnimationGroup_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -137,9 +165,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QParallelAnimationGroup, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QParallelAnimationGroup, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QParallelAnimationGroup_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -149,13 +181,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QParallelAnimationGroup, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QParallelAnimationGroup, callback: *const fn (QParallelAnimationGroup, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QParallelAnimationGroup, callback: *const fn (QParallelAnimationGroup, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QParallelAnimationGroup_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -169,9 +201,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QParallelAnimationGroup, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QParallelAnimationGroup, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QParallelAnimationGroup_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -181,14 +217,18 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QParallelAnimationGroup.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QParallelAnimationGroup.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `duration` instead
+    ///
+    pub const Duration = duration;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qparallelanimationgroup.html#duration)
     ///
@@ -196,9 +236,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    pub fn Duration(self: QParallelAnimationGroup) i32 {
+    pub fn duration(self: QParallelAnimationGroup) i32 {
         return qtc.QParallelAnimationGroup_Duration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDuration` instead
+    ///
+    pub const OnDuration = onDuration;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qparallelanimationgroup.html#duration)
     ///
@@ -210,13 +254,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDuration(self: QParallelAnimationGroup, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDuration(self: QParallelAnimationGroup, callback: *const fn () callconv(.c) i32) void {
         qtc.QParallelAnimationGroup_OnDuration(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDuration` instead
+    /// ### DEPRECATED: Use `superDuration` instead
     ///
-    pub const QBaseDuration = SuperDuration;
+    pub const SuperDuration = superDuration;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qparallelanimationgroup.html#duration)
     ///
@@ -226,9 +270,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    pub fn SuperDuration(self: QParallelAnimationGroup) i32 {
+    pub fn superDuration(self: QParallelAnimationGroup) i32 {
         return qtc.QParallelAnimationGroup_SuperDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qparallelanimationgroup.html#event)
     ///
@@ -236,12 +284,16 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QParallelAnimationGroup, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QParallelAnimationGroup_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QParallelAnimationGroup, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QParallelAnimationGroup_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qparallelanimationgroup.html#event)
     ///
@@ -253,13 +305,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QParallelAnimationGroup, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QParallelAnimationGroup, callback: *const fn (QParallelAnimationGroup, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QParallelAnimationGroup, callback: *const fn (QParallelAnimationGroup, QEvent) callconv(.c) bool) void {
         qtc.QParallelAnimationGroup_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qparallelanimationgroup.html#event)
     ///
@@ -269,12 +321,16 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QParallelAnimationGroup, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QParallelAnimationGroup_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QParallelAnimationGroup, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QParallelAnimationGroup_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateCurrentTime` instead
+    ///
+    pub const UpdateCurrentTime = updateCurrentTime;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qparallelanimationgroup.html#updateCurrentTime)
     ///
@@ -282,11 +338,15 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    /// ` currentTime: i32 `
+    /// ` _currentTime: i32 `
     ///
-    pub fn UpdateCurrentTime(self: QParallelAnimationGroup, currentTime: i32) void {
-        qtc.QParallelAnimationGroup_UpdateCurrentTime(@ptrCast(self.ptr), @bitCast(currentTime));
+    pub fn updateCurrentTime(self: QParallelAnimationGroup, _currentTime: i32) void {
+        qtc.QParallelAnimationGroup_UpdateCurrentTime(@ptrCast(self.ptr), @bitCast(_currentTime));
     }
+
+    /// ### DEPRECATED: Use `onUpdateCurrentTime` instead
+    ///
+    pub const OnUpdateCurrentTime = onUpdateCurrentTime;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qparallelanimationgroup.html#updateCurrentTime)
     ///
@@ -298,13 +358,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QParallelAnimationGroup, currentTime: i32) callconv(.c) void `
     ///
-    pub fn OnUpdateCurrentTime(self: QParallelAnimationGroup, callback: *const fn (QParallelAnimationGroup, i32) callconv(.c) void) void {
+    pub fn onUpdateCurrentTime(self: QParallelAnimationGroup, callback: *const fn (QParallelAnimationGroup, i32) callconv(.c) void) void {
         qtc.QParallelAnimationGroup_OnUpdateCurrentTime(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateCurrentTime` instead
+    /// ### DEPRECATED: Use `superUpdateCurrentTime` instead
     ///
-    pub const QBaseUpdateCurrentTime = SuperUpdateCurrentTime;
+    pub const SuperUpdateCurrentTime = superUpdateCurrentTime;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qparallelanimationgroup.html#updateCurrentTime)
     ///
@@ -314,11 +374,15 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    /// ` currentTime: i32 `
+    /// ` _currentTime: i32 `
     ///
-    pub fn SuperUpdateCurrentTime(self: QParallelAnimationGroup, currentTime: i32) void {
-        qtc.QParallelAnimationGroup_SuperUpdateCurrentTime(@ptrCast(self.ptr), @bitCast(currentTime));
+    pub fn superUpdateCurrentTime(self: QParallelAnimationGroup, _currentTime: i32) void {
+        qtc.QParallelAnimationGroup_SuperUpdateCurrentTime(@ptrCast(self.ptr), @bitCast(_currentTime));
     }
+
+    /// ### DEPRECATED: Use `updateState` instead
+    ///
+    pub const UpdateState = updateState;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qparallelanimationgroup.html#updateState)
     ///
@@ -330,9 +394,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` oldState: qabstractanimation_enums.State `
     ///
-    pub fn UpdateState(self: QParallelAnimationGroup, newState: i32, oldState: i32) void {
+    pub fn updateState(self: QParallelAnimationGroup, newState: i32, oldState: i32) void {
         qtc.QParallelAnimationGroup_UpdateState(@ptrCast(self.ptr), @bitCast(newState), @bitCast(oldState));
     }
+
+    /// ### DEPRECATED: Use `onUpdateState` instead
+    ///
+    pub const OnUpdateState = onUpdateState;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qparallelanimationgroup.html#updateState)
     ///
@@ -344,13 +412,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QParallelAnimationGroup, newState: qabstractanimation_enums.State, oldState: qabstractanimation_enums.State) callconv(.c) void `
     ///
-    pub fn OnUpdateState(self: QParallelAnimationGroup, callback: *const fn (QParallelAnimationGroup, i32, i32) callconv(.c) void) void {
+    pub fn onUpdateState(self: QParallelAnimationGroup, callback: *const fn (QParallelAnimationGroup, i32, i32) callconv(.c) void) void {
         qtc.QParallelAnimationGroup_OnUpdateState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateState` instead
+    /// ### DEPRECATED: Use `superUpdateState` instead
     ///
-    pub const QBaseUpdateState = SuperUpdateState;
+    pub const SuperUpdateState = superUpdateState;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qparallelanimationgroup.html#updateState)
     ///
@@ -364,9 +432,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` oldState: qabstractanimation_enums.State `
     ///
-    pub fn SuperUpdateState(self: QParallelAnimationGroup, newState: i32, oldState: i32) void {
+    pub fn superUpdateState(self: QParallelAnimationGroup, newState: i32, oldState: i32) void {
         qtc.QParallelAnimationGroup_SuperUpdateState(@ptrCast(self.ptr), @bitCast(newState), @bitCast(oldState));
     }
+
+    /// ### DEPRECATED: Use `updateDirection` instead
+    ///
+    pub const UpdateDirection = updateDirection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qparallelanimationgroup.html#updateDirection)
     ///
@@ -374,11 +446,15 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    /// ` direction: qabstractanimation_enums.Direction `
+    /// ` _direction: qabstractanimation_enums.Direction `
     ///
-    pub fn UpdateDirection(self: QParallelAnimationGroup, direction: i32) void {
-        qtc.QParallelAnimationGroup_UpdateDirection(@ptrCast(self.ptr), @bitCast(direction));
+    pub fn updateDirection(self: QParallelAnimationGroup, _direction: i32) void {
+        qtc.QParallelAnimationGroup_UpdateDirection(@ptrCast(self.ptr), @bitCast(_direction));
     }
+
+    /// ### DEPRECATED: Use `onUpdateDirection` instead
+    ///
+    pub const OnUpdateDirection = onUpdateDirection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qparallelanimationgroup.html#updateDirection)
     ///
@@ -390,13 +466,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QParallelAnimationGroup, direction: qabstractanimation_enums.Direction) callconv(.c) void `
     ///
-    pub fn OnUpdateDirection(self: QParallelAnimationGroup, callback: *const fn (QParallelAnimationGroup, i32) callconv(.c) void) void {
+    pub fn onUpdateDirection(self: QParallelAnimationGroup, callback: *const fn (QParallelAnimationGroup, i32) callconv(.c) void) void {
         qtc.QParallelAnimationGroup_OnUpdateDirection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateDirection` instead
+    /// ### DEPRECATED: Use `superUpdateDirection` instead
     ///
-    pub const QBaseUpdateDirection = SuperUpdateDirection;
+    pub const SuperUpdateDirection = superUpdateDirection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qparallelanimationgroup.html#updateDirection)
     ///
@@ -406,11 +482,15 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    /// ` direction: qabstractanimation_enums.Direction `
+    /// ` _direction: qabstractanimation_enums.Direction `
     ///
-    pub fn SuperUpdateDirection(self: QParallelAnimationGroup, direction: i32) void {
-        qtc.QParallelAnimationGroup_SuperUpdateDirection(@ptrCast(self.ptr), @bitCast(direction));
+    pub fn superUpdateDirection(self: QParallelAnimationGroup, _direction: i32) void {
+        qtc.QParallelAnimationGroup_SuperUpdateDirection(@ptrCast(self.ptr), @bitCast(_direction));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -422,15 +502,19 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QParallelAnimationGroup.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QParallelAnimationGroup.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -444,15 +528,19 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QParallelAnimationGroup.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QParallelAnimationGroup.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `animationAt` instead
+    ///
+    pub const AnimationAt = animationAt;
 
     /// Inherited from QAnimationGroup
     ///
@@ -464,9 +552,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn AnimationAt(self: QParallelAnimationGroup, index: i32) QAbstractAnimation {
+    pub fn animationAt(self: QParallelAnimationGroup, index: i32) QAbstractAnimation {
         return .{ .ptr = qtc.QAnimationGroup_AnimationAt(@ptrCast(self.ptr), @bitCast(index)) };
     }
+
+    /// ### DEPRECATED: Use `animationCount` instead
+    ///
+    pub const AnimationCount = animationCount;
 
     /// Inherited from QAnimationGroup
     ///
@@ -476,9 +568,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    pub fn AnimationCount(self: QParallelAnimationGroup) i32 {
+    pub fn animationCount(self: QParallelAnimationGroup) i32 {
         return qtc.QAnimationGroup_AnimationCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `indexOfAnimation` instead
+    ///
+    pub const IndexOfAnimation = indexOfAnimation;
 
     /// Inherited from QAnimationGroup
     ///
@@ -490,10 +586,14 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` animation: QAbstractAnimation `
     ///
-    pub fn IndexOfAnimation(self: QParallelAnimationGroup, animation: anytype) i32 {
+    pub fn indexOfAnimation(self: QParallelAnimationGroup, animation: anytype) i32 {
         comptime _ = @TypeOf(animation)._is_QAbstractAnimation;
         return qtc.QAnimationGroup_IndexOfAnimation(@ptrCast(self.ptr), @ptrCast(animation.ptr));
     }
+
+    /// ### DEPRECATED: Use `addAnimation` instead
+    ///
+    pub const AddAnimation = addAnimation;
 
     /// Inherited from QAnimationGroup
     ///
@@ -505,10 +605,14 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` animation: QAbstractAnimation `
     ///
-    pub fn AddAnimation(self: QParallelAnimationGroup, animation: anytype) void {
+    pub fn addAnimation(self: QParallelAnimationGroup, animation: anytype) void {
         comptime _ = @TypeOf(animation)._is_QAbstractAnimation;
         qtc.QAnimationGroup_AddAnimation(@ptrCast(self.ptr), @ptrCast(animation.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertAnimation` instead
+    ///
+    pub const InsertAnimation = insertAnimation;
 
     /// Inherited from QAnimationGroup
     ///
@@ -522,10 +626,14 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` animation: QAbstractAnimation `
     ///
-    pub fn InsertAnimation(self: QParallelAnimationGroup, index: i32, animation: anytype) void {
+    pub fn insertAnimation(self: QParallelAnimationGroup, index: i32, animation: anytype) void {
         comptime _ = @TypeOf(animation)._is_QAbstractAnimation;
         qtc.QAnimationGroup_InsertAnimation(@ptrCast(self.ptr), @bitCast(index), @ptrCast(animation.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAnimation` instead
+    ///
+    pub const RemoveAnimation = removeAnimation;
 
     /// Inherited from QAnimationGroup
     ///
@@ -537,10 +645,14 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` animation: QAbstractAnimation `
     ///
-    pub fn RemoveAnimation(self: QParallelAnimationGroup, animation: anytype) void {
+    pub fn removeAnimation(self: QParallelAnimationGroup, animation: anytype) void {
         comptime _ = @TypeOf(animation)._is_QAbstractAnimation;
         qtc.QAnimationGroup_RemoveAnimation(@ptrCast(self.ptr), @ptrCast(animation.ptr));
     }
+
+    /// ### DEPRECATED: Use `takeAnimation` instead
+    ///
+    pub const TakeAnimation = takeAnimation;
 
     /// Inherited from QAnimationGroup
     ///
@@ -552,9 +664,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn TakeAnimation(self: QParallelAnimationGroup, index: i32) QAbstractAnimation {
+    pub fn takeAnimation(self: QParallelAnimationGroup, index: i32) QAbstractAnimation {
         return .{ .ptr = qtc.QAnimationGroup_TakeAnimation(@ptrCast(self.ptr), @bitCast(index)) };
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// Inherited from QAnimationGroup
     ///
@@ -564,9 +680,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    pub fn Clear(self: QParallelAnimationGroup) void {
+    pub fn clear(self: QParallelAnimationGroup) void {
         qtc.QAnimationGroup_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `state` instead
+    ///
+    pub const State = state;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -580,9 +700,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` qabstractanimation_enums.State `
     ///
-    pub fn State(self: QParallelAnimationGroup) i32 {
+    pub fn state(self: QParallelAnimationGroup) i32 {
         return qtc.QAbstractAnimation_State(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `group` instead
+    ///
+    pub const Group = group;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -592,9 +716,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    pub fn Group(self: QParallelAnimationGroup) QAnimationGroup {
+    pub fn group(self: QParallelAnimationGroup) QAnimationGroup {
         return .{ .ptr = qtc.QAbstractAnimation_Group(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `direction` instead
+    ///
+    pub const Direction = direction;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -608,9 +736,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` qabstractanimation_enums.Direction `
     ///
-    pub fn Direction(self: QParallelAnimationGroup) i32 {
+    pub fn direction(self: QParallelAnimationGroup) i32 {
         return qtc.QAbstractAnimation_Direction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDirection` instead
+    ///
+    pub const SetDirection = setDirection;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -620,11 +752,15 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    /// ` direction: qabstractanimation_enums.Direction `
+    /// ` _direction: qabstractanimation_enums.Direction `
     ///
-    pub fn SetDirection(self: QParallelAnimationGroup, direction: i32) void {
-        qtc.QAbstractAnimation_SetDirection(@ptrCast(self.ptr), @bitCast(direction));
+    pub fn setDirection(self: QParallelAnimationGroup, _direction: i32) void {
+        qtc.QAbstractAnimation_SetDirection(@ptrCast(self.ptr), @bitCast(_direction));
     }
+
+    /// ### DEPRECATED: Use `currentTime` instead
+    ///
+    pub const CurrentTime = currentTime;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -634,9 +770,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    pub fn CurrentTime(self: QParallelAnimationGroup) i32 {
+    pub fn currentTime(self: QParallelAnimationGroup) i32 {
         return qtc.QAbstractAnimation_CurrentTime(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `currentLoopTime` instead
+    ///
+    pub const CurrentLoopTime = currentLoopTime;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -646,9 +786,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    pub fn CurrentLoopTime(self: QParallelAnimationGroup) i32 {
+    pub fn currentLoopTime(self: QParallelAnimationGroup) i32 {
         return qtc.QAbstractAnimation_CurrentLoopTime(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `loopCount` instead
+    ///
+    pub const LoopCount = loopCount;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -658,9 +802,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    pub fn LoopCount(self: QParallelAnimationGroup) i32 {
+    pub fn loopCount(self: QParallelAnimationGroup) i32 {
         return qtc.QAbstractAnimation_LoopCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLoopCount` instead
+    ///
+    pub const SetLoopCount = setLoopCount;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -670,11 +818,15 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    /// ` loopCount: i32 `
+    /// ` _loopCount: i32 `
     ///
-    pub fn SetLoopCount(self: QParallelAnimationGroup, loopCount: i32) void {
-        qtc.QAbstractAnimation_SetLoopCount(@ptrCast(self.ptr), @bitCast(loopCount));
+    pub fn setLoopCount(self: QParallelAnimationGroup, _loopCount: i32) void {
+        qtc.QAbstractAnimation_SetLoopCount(@ptrCast(self.ptr), @bitCast(_loopCount));
     }
+
+    /// ### DEPRECATED: Use `currentLoop` instead
+    ///
+    pub const CurrentLoop = currentLoop;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -684,9 +836,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    pub fn CurrentLoop(self: QParallelAnimationGroup) i32 {
+    pub fn currentLoop(self: QParallelAnimationGroup) i32 {
         return qtc.QAbstractAnimation_CurrentLoop(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `totalDuration` instead
+    ///
+    pub const TotalDuration = totalDuration;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -696,9 +852,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    pub fn TotalDuration(self: QParallelAnimationGroup) i32 {
+    pub fn totalDuration(self: QParallelAnimationGroup) i32 {
         return qtc.QAbstractAnimation_TotalDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `finished` instead
+    ///
+    pub const Finished = finished;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -708,9 +868,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    pub fn Finished(self: QParallelAnimationGroup) void {
+    pub fn finished(self: QParallelAnimationGroup) void {
         qtc.QAbstractAnimation_Finished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFinished` instead
+    ///
+    pub const OnFinished = onFinished;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -722,9 +886,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QParallelAnimationGroup) callconv(.c) void `
     ///
-    pub fn OnFinished(self: QParallelAnimationGroup, callback: *const fn (QParallelAnimationGroup) callconv(.c) void) void {
+    pub fn onFinished(self: QParallelAnimationGroup, callback: *const fn (QParallelAnimationGroup) callconv(.c) void) void {
         qtc.QAbstractAnimation_Connect_Finished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `stateChanged` instead
+    ///
+    pub const StateChanged = stateChanged;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -738,9 +906,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` oldState: qabstractanimation_enums.State `
     ///
-    pub fn StateChanged(self: QParallelAnimationGroup, newState: i32, oldState: i32) void {
+    pub fn stateChanged(self: QParallelAnimationGroup, newState: i32, oldState: i32) void {
         qtc.QAbstractAnimation_StateChanged(@ptrCast(self.ptr), @bitCast(newState), @bitCast(oldState));
     }
+
+    /// ### DEPRECATED: Use `onStateChanged` instead
+    ///
+    pub const OnStateChanged = onStateChanged;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -752,9 +924,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QParallelAnimationGroup, newState: qabstractanimation_enums.State, oldState: qabstractanimation_enums.State) callconv(.c) void `
     ///
-    pub fn OnStateChanged(self: QParallelAnimationGroup, callback: *const fn (QParallelAnimationGroup, i32, i32) callconv(.c) void) void {
+    pub fn onStateChanged(self: QParallelAnimationGroup, callback: *const fn (QParallelAnimationGroup, i32, i32) callconv(.c) void) void {
         qtc.QAbstractAnimation_Connect_StateChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `currentLoopChanged` instead
+    ///
+    pub const CurrentLoopChanged = currentLoopChanged;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -764,11 +940,15 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    /// ` currentLoop: i32 `
+    /// ` _currentLoop: i32 `
     ///
-    pub fn CurrentLoopChanged(self: QParallelAnimationGroup, currentLoop: i32) void {
-        qtc.QAbstractAnimation_CurrentLoopChanged(@ptrCast(self.ptr), @bitCast(currentLoop));
+    pub fn currentLoopChanged(self: QParallelAnimationGroup, _currentLoop: i32) void {
+        qtc.QAbstractAnimation_CurrentLoopChanged(@ptrCast(self.ptr), @bitCast(_currentLoop));
     }
+
+    /// ### DEPRECATED: Use `onCurrentLoopChanged` instead
+    ///
+    pub const OnCurrentLoopChanged = onCurrentLoopChanged;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -780,9 +960,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QParallelAnimationGroup, currentLoop: i32) callconv(.c) void `
     ///
-    pub fn OnCurrentLoopChanged(self: QParallelAnimationGroup, callback: *const fn (QParallelAnimationGroup, i32) callconv(.c) void) void {
+    pub fn onCurrentLoopChanged(self: QParallelAnimationGroup, callback: *const fn (QParallelAnimationGroup, i32) callconv(.c) void) void {
         qtc.QAbstractAnimation_Connect_CurrentLoopChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `directionChanged` instead
+    ///
+    pub const DirectionChanged = directionChanged;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -794,9 +978,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` param1: qabstractanimation_enums.Direction `
     ///
-    pub fn DirectionChanged(self: QParallelAnimationGroup, param1: i32) void {
+    pub fn directionChanged(self: QParallelAnimationGroup, param1: i32) void {
         qtc.QAbstractAnimation_DirectionChanged(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onDirectionChanged` instead
+    ///
+    pub const OnDirectionChanged = onDirectionChanged;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -808,9 +996,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QParallelAnimationGroup, param1: qabstractanimation_enums.Direction) callconv(.c) void `
     ///
-    pub fn OnDirectionChanged(self: QParallelAnimationGroup, callback: *const fn (QParallelAnimationGroup, i32) callconv(.c) void) void {
+    pub fn onDirectionChanged(self: QParallelAnimationGroup, callback: *const fn (QParallelAnimationGroup, i32) callconv(.c) void) void {
         qtc.QAbstractAnimation_Connect_DirectionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `start` instead
+    ///
+    pub const Start = start;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -820,9 +1012,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    pub fn Start(self: QParallelAnimationGroup) void {
+    pub fn start(self: QParallelAnimationGroup) void {
         qtc.QAbstractAnimation_Start(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pause` instead
+    ///
+    pub const Pause = pause;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -832,9 +1028,15 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    pub fn Pause(self: QParallelAnimationGroup) void {
+    pub fn pause(self: QParallelAnimationGroup) void {
         qtc.QAbstractAnimation_Pause(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `resume0` instead
+    ///
+    pub const Resume = resume0;
+
+    pub const @"resume" = resume0;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -844,9 +1046,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    pub fn Resume(self: QParallelAnimationGroup) void {
+    pub fn resume0(self: QParallelAnimationGroup) void {
         qtc.QAbstractAnimation_Resume(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPaused` instead
+    ///
+    pub const SetPaused = setPaused;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -858,9 +1064,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` paused: bool `
     ///
-    pub fn SetPaused(self: QParallelAnimationGroup, paused: bool) void {
+    pub fn setPaused(self: QParallelAnimationGroup, paused: bool) void {
         qtc.QAbstractAnimation_SetPaused(@ptrCast(self.ptr), paused);
     }
+
+    /// ### DEPRECATED: Use `stop` instead
+    ///
+    pub const Stop = stop;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -870,9 +1080,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    pub fn Stop(self: QParallelAnimationGroup) void {
+    pub fn stop(self: QParallelAnimationGroup) void {
         qtc.QAbstractAnimation_Stop(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCurrentTime` instead
+    ///
+    pub const SetCurrentTime = setCurrentTime;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -884,9 +1098,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` msecs: i32 `
     ///
-    pub fn SetCurrentTime(self: QParallelAnimationGroup, msecs: i32) void {
+    pub fn setCurrentTime(self: QParallelAnimationGroup, msecs: i32) void {
         qtc.QAbstractAnimation_SetCurrentTime(@ptrCast(self.ptr), @bitCast(msecs));
     }
+
+    /// ### DEPRECATED: Use `start1` instead
+    ///
+    pub const Start1 = start1;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -898,9 +1116,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` policy: qabstractanimation_enums.DeletionPolicy `
     ///
-    pub fn Start1(self: QParallelAnimationGroup, policy: i32) void {
+    pub fn start1(self: QParallelAnimationGroup, policy: i32) void {
         qtc.QAbstractAnimation_Start1(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -912,13 +1134,17 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QParallelAnimationGroup, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QParallelAnimationGroup, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QParallelAnimationGroup.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QParallelAnimationGroup.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -930,13 +1156,17 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QParallelAnimationGroup, name: []const u8) void {
+    pub fn setObjectName(self: QParallelAnimationGroup, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -946,9 +1176,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    pub fn IsWidgetType(self: QParallelAnimationGroup) bool {
+    pub fn isWidgetType(self: QParallelAnimationGroup) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -958,9 +1192,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    pub fn IsWindowType(self: QParallelAnimationGroup) bool {
+    pub fn isWindowType(self: QParallelAnimationGroup) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -970,9 +1208,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    pub fn IsQuickItemType(self: QParallelAnimationGroup) bool {
+    pub fn isQuickItemType(self: QParallelAnimationGroup) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -982,9 +1224,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    pub fn SignalsBlocked(self: QParallelAnimationGroup) bool {
+    pub fn signalsBlocked(self: QParallelAnimationGroup) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -996,9 +1242,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QParallelAnimationGroup, b: bool) bool {
+    pub fn blockSignals(self: QParallelAnimationGroup, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -1008,9 +1258,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    pub fn Thread(self: QParallelAnimationGroup) QThread {
+    pub fn thread(self: QParallelAnimationGroup) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -1020,12 +1274,16 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QParallelAnimationGroup, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QParallelAnimationGroup, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -1037,9 +1295,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QParallelAnimationGroup, interval: i32) i32 {
+    pub fn startTimer(self: QParallelAnimationGroup, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -1051,9 +1313,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QParallelAnimationGroup, time: i64) i32 {
+    pub fn startTimer2(self: QParallelAnimationGroup, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -1065,9 +1331,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QParallelAnimationGroup, id: i32) void {
+    pub fn killTimer(self: QParallelAnimationGroup, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -1079,9 +1349,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QParallelAnimationGroup, id: i32) void {
+    pub fn killTimer2(self: QParallelAnimationGroup, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -1093,15 +1367,19 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QParallelAnimationGroup, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QParallelAnimationGroup, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QParallelAnimationGroup.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QParallelAnimationGroup.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -1111,12 +1389,16 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QParallelAnimationGroup, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QParallelAnimationGroup, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1128,10 +1410,14 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QParallelAnimationGroup, filterObj: anytype) void {
+    pub fn installEventFilter(self: QParallelAnimationGroup, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1143,10 +1429,14 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QParallelAnimationGroup, obj: anytype) void {
+    pub fn removeEventFilter(self: QParallelAnimationGroup, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -1154,7 +1444,7 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1162,13 +1452,17 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -1176,7 +1470,7 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1184,13 +1478,17 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1200,18 +1498,22 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QParallelAnimationGroup, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QParallelAnimationGroup, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1219,7 +1521,7 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1227,13 +1529,17 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1241,7 +1547,7 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1249,13 +1555,17 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1265,9 +1575,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    pub fn Disconnect3(self: QParallelAnimationGroup) bool {
+    pub fn disconnect3(self: QParallelAnimationGroup) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1279,10 +1593,14 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QParallelAnimationGroup, receiver: anytype) bool {
+    pub fn disconnect4(self: QParallelAnimationGroup, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1292,10 +1610,14 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1305,9 +1627,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    pub fn DumpObjectTree(self: QParallelAnimationGroup) void {
+    pub fn dumpObjectTree(self: QParallelAnimationGroup) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1317,9 +1643,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    pub fn DumpObjectInfo(self: QParallelAnimationGroup) void {
+    pub fn dumpObjectInfo(self: QParallelAnimationGroup) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1333,11 +1663,15 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QParallelAnimationGroup, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QParallelAnimationGroup, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1349,10 +1683,14 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QParallelAnimationGroup, name: [:0]const u8) QVariant {
+    pub fn property(self: QParallelAnimationGroup, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1364,7 +1702,7 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QParallelAnimationGroup, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QParallelAnimationGroup, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1372,27 +1710,19 @@ pub const QParallelAnimationGroup = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QParallelAnimationGroup.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QParallelAnimationGroup.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QParallelAnimationGroup.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QParallelAnimationGroup.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QParallelAnimationGroup `
-    ///
-    pub fn BindingStorage(self: QParallelAnimationGroup) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1402,9 +1732,29 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    pub fn BindingStorage2(self: QParallelAnimationGroup) QBindingStorage {
+    pub fn bindingStorage(self: QParallelAnimationGroup) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QParallelAnimationGroup `
+    ///
+    pub fn bindingStorage2(self: QParallelAnimationGroup) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1414,9 +1764,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    pub fn Destroyed(self: QParallelAnimationGroup) void {
+    pub fn destroyed(self: QParallelAnimationGroup) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1428,9 +1782,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QParallelAnimationGroup) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QParallelAnimationGroup, callback: *const fn (QParallelAnimationGroup) callconv(.c) void) void {
+    pub fn onDestroyed(self: QParallelAnimationGroup, callback: *const fn (QParallelAnimationGroup) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1440,9 +1798,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    pub fn Parent(self: QParallelAnimationGroup) QObject {
+    pub fn parent(self: QParallelAnimationGroup) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1454,10 +1816,14 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QParallelAnimationGroup, classname: [:0]const u8) bool {
+    pub fn inherits(self: QParallelAnimationGroup, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1467,9 +1833,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    pub fn DeleteLater(self: QParallelAnimationGroup) void {
+    pub fn deleteLater(self: QParallelAnimationGroup) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1483,9 +1853,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QParallelAnimationGroup, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QParallelAnimationGroup, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1499,9 +1873,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QParallelAnimationGroup, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QParallelAnimationGroup, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1509,7 +1887,7 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1519,13 +1897,17 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1533,7 +1915,7 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1543,13 +1925,17 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1559,7 +1945,7 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1567,12 +1953,16 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QParallelAnimationGroup, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QParallelAnimationGroup, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1584,10 +1974,14 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QParallelAnimationGroup, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QParallelAnimationGroup, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1601,11 +1995,15 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QParallelAnimationGroup, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QParallelAnimationGroup, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1621,13 +2019,17 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QParallelAnimationGroup, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QParallelAnimationGroup, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1640,11 +2042,15 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QParallelAnimationGroup, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QParallelAnimationGroup, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1656,10 +2062,14 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QParallelAnimationGroup, param1: anytype) void {
+    pub fn destroyed1(self: QParallelAnimationGroup, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1671,9 +2081,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QParallelAnimationGroup, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QParallelAnimationGroup, callback: *const fn (QParallelAnimationGroup, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QParallelAnimationGroup, callback: *const fn (QParallelAnimationGroup, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1687,17 +2101,17 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QParallelAnimationGroup, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QParallelAnimationGroup, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QParallelAnimationGroup_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QParallelAnimationGroup_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1711,13 +2125,17 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QParallelAnimationGroup, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QParallelAnimationGroup, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QParallelAnimationGroup_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QParallelAnimationGroup_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1731,9 +2149,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QParallelAnimationGroup, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QParallelAnimationGroup, callback: *const fn (QParallelAnimationGroup, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QParallelAnimationGroup, callback: *const fn (QParallelAnimationGroup, QObject, QEvent) callconv(.c) bool) void {
         qtc.QParallelAnimationGroup_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1745,16 +2167,16 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QParallelAnimationGroup, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QParallelAnimationGroup_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QParallelAnimationGroup, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QParallelAnimationGroup_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1766,12 +2188,16 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QParallelAnimationGroup, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QParallelAnimationGroup_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QParallelAnimationGroup, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QParallelAnimationGroup_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1785,9 +2211,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QParallelAnimationGroup, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QParallelAnimationGroup, callback: *const fn (QParallelAnimationGroup, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QParallelAnimationGroup, callback: *const fn (QParallelAnimationGroup, QTimerEvent) callconv(.c) void) void {
         qtc.QParallelAnimationGroup_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -1799,16 +2229,16 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QParallelAnimationGroup, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QParallelAnimationGroup_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QParallelAnimationGroup, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QParallelAnimationGroup_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1820,12 +2250,16 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QParallelAnimationGroup, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QParallelAnimationGroup_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QParallelAnimationGroup, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QParallelAnimationGroup_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1839,9 +2273,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QParallelAnimationGroup, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QParallelAnimationGroup, callback: *const fn (QParallelAnimationGroup, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QParallelAnimationGroup, callback: *const fn (QParallelAnimationGroup, QChildEvent) callconv(.c) void) void {
         qtc.QParallelAnimationGroup_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -1853,16 +2291,16 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QParallelAnimationGroup, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QParallelAnimationGroup_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QParallelAnimationGroup, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QParallelAnimationGroup_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1874,12 +2312,16 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QParallelAnimationGroup, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QParallelAnimationGroup_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QParallelAnimationGroup, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QParallelAnimationGroup_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1893,9 +2335,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QParallelAnimationGroup, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QParallelAnimationGroup, callback: *const fn (QParallelAnimationGroup, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QParallelAnimationGroup, callback: *const fn (QParallelAnimationGroup, QEvent) callconv(.c) void) void {
         qtc.QParallelAnimationGroup_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -1909,14 +2355,14 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QParallelAnimationGroup, signal: anytype) void {
+    pub fn connectNotify(self: QParallelAnimationGroup, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QParallelAnimationGroup_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1930,11 +2376,15 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QParallelAnimationGroup, signal: anytype) void {
+    pub fn superConnectNotify(self: QParallelAnimationGroup, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QParallelAnimationGroup_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1947,9 +2397,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QParallelAnimationGroup, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QParallelAnimationGroup, callback: *const fn (QParallelAnimationGroup, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QParallelAnimationGroup, callback: *const fn (QParallelAnimationGroup, QMetaMethod) callconv(.c) void) void {
         qtc.QParallelAnimationGroup_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1963,14 +2417,14 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QParallelAnimationGroup, signal: anytype) void {
+    pub fn disconnectNotify(self: QParallelAnimationGroup, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QParallelAnimationGroup_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1984,10 +2438,14 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QParallelAnimationGroup, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QParallelAnimationGroup, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QParallelAnimationGroup_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2001,9 +2459,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QParallelAnimationGroup, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QParallelAnimationGroup, callback: *const fn (QParallelAnimationGroup, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QParallelAnimationGroup, callback: *const fn (QParallelAnimationGroup, QMetaMethod) callconv(.c) void) void {
         qtc.QParallelAnimationGroup_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -2015,13 +2477,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    pub fn Sender(self: QParallelAnimationGroup) QObject {
+    pub fn sender(self: QParallelAnimationGroup) QObject {
         return .{ .ptr = qtc.QParallelAnimationGroup_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -2033,9 +2495,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    pub fn SuperSender(self: QParallelAnimationGroup) QObject {
+    pub fn superSender(self: QParallelAnimationGroup) QObject {
         return .{ .ptr = qtc.QParallelAnimationGroup_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -2049,9 +2515,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QParallelAnimationGroup, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QParallelAnimationGroup, callback: *const fn () callconv(.c) QObject) void {
         qtc.QParallelAnimationGroup_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2063,13 +2533,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    pub fn SenderSignalIndex(self: QParallelAnimationGroup) i32 {
+    pub fn senderSignalIndex(self: QParallelAnimationGroup) i32 {
         return qtc.QParallelAnimationGroup_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2081,9 +2551,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    pub fn SuperSenderSignalIndex(self: QParallelAnimationGroup) i32 {
+    pub fn superSenderSignalIndex(self: QParallelAnimationGroup) i32 {
         return qtc.QParallelAnimationGroup_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2097,9 +2571,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QParallelAnimationGroup, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QParallelAnimationGroup, callback: *const fn () callconv(.c) i32) void {
         qtc.QParallelAnimationGroup_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -2113,14 +2591,14 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QParallelAnimationGroup, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QParallelAnimationGroup, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QParallelAnimationGroup_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -2134,10 +2612,14 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QParallelAnimationGroup, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QParallelAnimationGroup, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QParallelAnimationGroup_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -2151,9 +2633,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QParallelAnimationGroup, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QParallelAnimationGroup, callback: *const fn (QParallelAnimationGroup, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QParallelAnimationGroup, callback: *const fn (QParallelAnimationGroup, [*:0]const u8) callconv(.c) i32) void {
         qtc.QParallelAnimationGroup_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2167,14 +2653,14 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QParallelAnimationGroup, signal: anytype) bool {
+    pub fn isSignalConnected(self: QParallelAnimationGroup, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QParallelAnimationGroup_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2188,10 +2674,14 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QParallelAnimationGroup, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QParallelAnimationGroup, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QParallelAnimationGroup_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2205,9 +2695,13 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QParallelAnimationGroup, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QParallelAnimationGroup, callback: *const fn (QParallelAnimationGroup, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QParallelAnimationGroup, callback: *const fn (QParallelAnimationGroup, QMetaMethod) callconv(.c) bool) void {
         qtc.QParallelAnimationGroup_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -2221,23 +2715,23 @@ pub const QParallelAnimationGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QParallelAnimationGroup, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QParallelAnimationGroup, callback: *const fn (QParallelAnimationGroup, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QParallelAnimationGroup, callback: *const fn (QParallelAnimationGroup, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qparallelanimationgroup.html#dtor.QParallelAnimationGroup)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QParallelAnimationGroup `
     ///
-    pub fn Delete(self: QParallelAnimationGroup) void {
+    pub fn delete(self: QParallelAnimationGroup) void {
         qtc.QParallelAnimationGroup_Delete(@ptrCast(self.ptr));
     }
 };

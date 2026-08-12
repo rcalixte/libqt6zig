@@ -29,6 +29,10 @@ pub const KStandardActions = extern struct {
         return .{ .ptr = qtc.KStandardActions_KguiCreateInternal(@bitCast(id), @ptrCast(parent.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
+
     /// ### [Upstream resources](https://api.kde.org/kstandardactions.html#name)
     ///
     /// ## Parameter(s):
@@ -37,13 +41,17 @@ pub const KStandardActions = extern struct {
     ///
     /// ` id: kstandardactions_enums.StandardAction `
     ///
-    pub fn Name(allocator: std.mem.Allocator, id: i32) []const u8 {
+    pub fn name(allocator: std.mem.Allocator, id: i32) []const u8 {
         var _str = qtc.KStandardActions_Name(@bitCast(id));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KStandardActions.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KStandardActions.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `actionIds` instead
+    ///
+    pub const ActionIds = actionIds;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardactions.html#actionIds)
     ///
@@ -55,14 +63,18 @@ pub const KStandardActions = extern struct {
     ///
     /// ` []kstandardactions_enums.StandardAction `
     ///
-    pub fn ActionIds(allocator: std.mem.Allocator) []i32 {
+    pub fn actionIds(allocator: std.mem.Allocator) []i32 {
         const _arr: qtc.libqt_list = qtc.KStandardActions_ActionIds();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("KStandardActions.ActionIds: Memory allocation failed");
-        const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("KStandardActions.actionIds: Memory allocation failed");
+        const _data_val: [*]i32 = @ptrCast(@alignCast(_arr.data));
+        @memcpy(_ret, _data_val[0.._arr.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `shortcutForActionId` instead
+    ///
+    pub const ShortcutForActionId = shortcutForActionId;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardactions.html#shortcutForActionId)
     ///
@@ -74,7 +86,7 @@ pub const KStandardActions = extern struct {
     ///
     /// ` kstandardshortcut_enums.StandardShortcut `
     ///
-    pub fn ShortcutForActionId(id: i32) i32 {
+    pub fn shortcutForActionId(id: i32) i32 {
         return qtc.KStandardActions_ShortcutForActionId(@bitCast(id));
     }
 };

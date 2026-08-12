@@ -14,6 +14,10 @@ pub const KFontUtils = extern struct {
 
     pub const _is_KFontUtils = {};
 
+    /// ### DEPRECATED: Use `adaptFontSize` instead
+    ///
+    pub const AdaptFontSize = adaptFontSize;
+
     /// ### [Upstream resources](https://api.kde.org/kfontutils.html#adaptFontSize)
     ///
     /// ## Parameter(s):
@@ -32,7 +36,7 @@ pub const KFontUtils = extern struct {
     ///
     /// ` flags: flag of kfontutils_enums.AdaptFontSizeOption `
     ///
-    pub fn AdaptFontSize(painter: anytype, text: []const u8, width: f64, height: f64, maxFontSize: f64, minFontSize: f64, flags: i32) f64 {
+    pub fn adaptFontSize(painter: anytype, text: []const u8, width: f64, height: f64, maxFontSize: f64, minFontSize: f64, flags: i32) f64 {
         comptime _ = @TypeOf(painter)._is_QPainter;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -40,6 +44,10 @@ pub const KFontUtils = extern struct {
         };
         return qtc.KFontUtils_AdaptFontSize(@ptrCast(painter.ptr), text_str, @bitCast(width), @bitCast(height), @bitCast(maxFontSize), @bitCast(minFontSize), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `adaptFontSize2` instead
+    ///
+    pub const AdaptFontSize2 = adaptFontSize2;
 
     /// ### [Upstream resources](https://api.kde.org/kfontutils.html#adaptFontSize)
     ///
@@ -57,7 +65,7 @@ pub const KFontUtils = extern struct {
     ///
     /// ` flags: flag of kfontutils_enums.AdaptFontSizeOption `
     ///
-    pub fn AdaptFontSize2(painter: anytype, text: []const u8, availableSize: anytype, maxFontSize: f64, minFontSize: f64, flags: i32) f64 {
+    pub fn adaptFontSize2(painter: anytype, text: []const u8, availableSize: anytype, maxFontSize: f64, minFontSize: f64, flags: i32) f64 {
         comptime _ = @TypeOf(painter)._is_QPainter;
         const text_str = qtc.libqt_string{
             .len = text.len,

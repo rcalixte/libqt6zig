@@ -11,36 +11,44 @@ pub const QSharedData = extern struct {
 
     pub const _is_QSharedData = {};
 
-    /// New constructs a new QSharedData object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QSharedData {
+    pub const New = new;
+
+    /// Allocate a new QSharedData object in C++ memory
+    ///
+    pub fn new() QSharedData {
         return .{ .ptr = qtc.QSharedData_new() };
     }
 
-    /// New2 constructs a new QSharedData object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QSharedData object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QSharedData `
     ///
-    pub fn New2(param1: anytype) QSharedData {
+    pub fn new2(param1: anytype) QSharedData {
         comptime _ = @TypeOf(param1)._is_QSharedData;
         return .{ .ptr = qtc.QSharedData_new2(@ptrCast(param1.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qshareddata.html#dtor.QSharedData)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QSharedData `
     ///
-    pub fn Delete(self: QSharedData) void {
+    pub fn delete(self: QSharedData) void {
         qtc.QSharedData_Delete(@ptrCast(self.ptr));
     }
 };
@@ -55,35 +63,50 @@ pub const QAdoptSharedDataTag = extern struct {
 
     pub const _is_QAdoptSharedDataTag = {};
 
-    /// New constructs a new QAdoptSharedDataTag object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QAdoptSharedDataTag object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QAdoptSharedDataTag `
     ///
-    pub fn New(other: anytype) QAdoptSharedDataTag {
+    pub fn new(other: anytype) QAdoptSharedDataTag {
         comptime _ = @TypeOf(other)._is_QAdoptSharedDataTag;
         return .{ .ptr = qtc.QAdoptSharedDataTag_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new QAdoptSharedDataTag object and invalidates the source QAdoptSharedDataTag object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QAdoptSharedDataTag object and invalidate the source QAdoptSharedDataTag object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QAdoptSharedDataTag `
     ///
-    pub fn New2(other: anytype) QAdoptSharedDataTag {
+    pub fn new2(other: anytype) QAdoptSharedDataTag {
         comptime _ = @TypeOf(other)._is_QAdoptSharedDataTag;
         return .{ .ptr = qtc.QAdoptSharedDataTag_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QAdoptSharedDataTag object.
+    /// ### DEPRECATED: Use `new3` instead
     ///
-    pub fn New3() QAdoptSharedDataTag {
+    pub const New3 = new3;
+
+    /// Allocate a new QAdoptSharedDataTag object in C++ memory
+    ///
+    pub fn new3() QAdoptSharedDataTag {
         return .{ .ptr = qtc.QAdoptSharedDataTag_new3() };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -91,11 +114,14 @@ pub const QAdoptSharedDataTag = extern struct {
     ///
     /// ` other: QAdoptSharedDataTag `
     ///
-    pub fn CopyAssign(self: QAdoptSharedDataTag, other: QAdoptSharedDataTag) void {
+    pub fn copyAssign(self: QAdoptSharedDataTag, other: QAdoptSharedDataTag) void {
         qtc.QAdoptSharedDataTag_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -103,23 +129,23 @@ pub const QAdoptSharedDataTag = extern struct {
     ///
     /// ` other: QAdoptSharedDataTag `
     ///
-    pub fn MoveAssign(self: QAdoptSharedDataTag, other: QAdoptSharedDataTag) void {
+    pub fn moveAssign(self: QAdoptSharedDataTag, other: QAdoptSharedDataTag) void {
         qtc.QAdoptSharedDataTag_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qadoptshareddatatag.html#dtor.QAdoptSharedDataTag)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QAdoptSharedDataTag `
     ///
-    pub fn Delete(self: QAdoptSharedDataTag) void {
+    pub fn delete(self: QAdoptSharedDataTag) void {
         qtc.QAdoptSharedDataTag_Delete(@ptrCast(self.ptr));
     }
 };

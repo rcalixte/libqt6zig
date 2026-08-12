@@ -15,36 +15,52 @@ pub const Solid__Device = extern struct {
 
     pub const _is_Solid__Device = {};
 
-    /// New constructs a new Solid::Device object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() Solid__Device {
+    pub const New = new;
+
+    /// Allocate a new Solid::Device object in C++ memory
+    ///
+    pub fn new() Solid__Device {
         return .{ .ptr = qtc.Solid__Device_new() };
     }
 
-    /// New2 constructs a new Solid::Device object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new Solid::Device object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` device: Solid__Device `
     ///
-    pub fn New2(device: anytype) Solid__Device {
+    pub fn new2(device: anytype) Solid__Device {
         comptime _ = @TypeOf(device)._is_Solid__Device;
         return .{ .ptr = qtc.Solid__Device_new2(@ptrCast(device.ptr)) };
     }
 
-    /// New3 constructs a new Solid::Device object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new Solid::Device object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` udi: []const u8 `
+    /// ` _udi: []const u8 `
     ///
-    pub fn New3(udi: []const u8) Solid__Device {
+    pub fn new3(_udi: []const u8) Solid__Device {
         const udi_str = qtc.libqt_string{
-            .len = udi.len,
-            .data = udi.ptr,
+            .len = _udi.len,
+            .data = _udi.ptr,
         };
         return .{ .ptr = qtc.Solid__Device_new3(udi_str) };
     }
+
+    /// ### DEPRECATED: Use `allDevices` instead
+    ///
+    pub const AllDevices = allDevices;
 
     /// ### [Upstream resources](https://api.kde.org/solid-device.html#allDevices)
     ///
@@ -52,15 +68,19 @@ pub const Solid__Device = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AllDevices(allocator: std.mem.Allocator) []Solid__Device {
+    pub fn allDevices(allocator: std.mem.Allocator) []Solid__Device {
         const _arr: qtc.libqt_list = qtc.Solid__Device_AllDevices();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Solid__Device, _arr.len) catch @panic("Solid__Device.AllDevices: Memory allocation failed");
-        const _data: [*]QtC.Solid__Device = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(Solid__Device, _arr.len) catch @panic("Solid__Device.allDevices: Memory allocation failed");
+        const _data_val: [*]QtC.Solid__Device = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `listFromType` instead
+    ///
+    pub const ListFromType = listFromType;
 
     /// ### [Upstream resources](https://api.kde.org/solid-device.html#listFromType)
     ///
@@ -70,15 +90,19 @@ pub const Solid__Device = extern struct {
     ///
     /// ` typeVal: *const deviceinterface_enums.Type `
     ///
-    pub fn ListFromType(allocator: std.mem.Allocator, typeVal: *const i32) []Solid__Device {
+    pub fn listFromType(allocator: std.mem.Allocator, typeVal: *const i32) []Solid__Device {
         const _arr: qtc.libqt_list = qtc.Solid__Device_ListFromType(@ptrCast(typeVal));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Solid__Device, _arr.len) catch @panic("Solid__Device.ListFromType: Memory allocation failed");
-        const _data: [*]QtC.Solid__Device = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(Solid__Device, _arr.len) catch @panic("Solid__Device.listFromType: Memory allocation failed");
+        const _data_val: [*]QtC.Solid__Device = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `listFromQuery` instead
+    ///
+    pub const ListFromQuery = listFromQuery;
 
     /// ### [Upstream resources](https://api.kde.org/solid-device.html#listFromQuery)
     ///
@@ -88,16 +112,20 @@ pub const Solid__Device = extern struct {
     ///
     /// ` predicate: Solid__Predicate `
     ///
-    pub fn ListFromQuery(allocator: std.mem.Allocator, predicate: anytype) []Solid__Device {
+    pub fn listFromQuery(allocator: std.mem.Allocator, predicate: anytype) []Solid__Device {
         comptime _ = @TypeOf(predicate)._is_Solid__Predicate;
         const _arr: qtc.libqt_list = qtc.Solid__Device_ListFromQuery(@ptrCast(predicate.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Solid__Device, _arr.len) catch @panic("Solid__Device.ListFromQuery: Memory allocation failed");
-        const _data: [*]QtC.Solid__Device = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(Solid__Device, _arr.len) catch @panic("Solid__Device.listFromQuery: Memory allocation failed");
+        const _data_val: [*]QtC.Solid__Device = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `listFromQuery2` instead
+    ///
+    pub const ListFromQuery2 = listFromQuery2;
 
     /// ### [Upstream resources](https://api.kde.org/solid-device.html#listFromQuery)
     ///
@@ -107,19 +135,23 @@ pub const Solid__Device = extern struct {
     ///
     /// ` predicate: []const u8 `
     ///
-    pub fn ListFromQuery2(allocator: std.mem.Allocator, predicate: []const u8) []Solid__Device {
+    pub fn listFromQuery2(allocator: std.mem.Allocator, predicate: []const u8) []Solid__Device {
         const predicate_str = qtc.libqt_string{
             .len = predicate.len,
             .data = predicate.ptr,
         };
         const _arr: qtc.libqt_list = qtc.Solid__Device_ListFromQuery2(predicate_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Solid__Device, _arr.len) catch @panic("Solid__Device.ListFromQuery2: Memory allocation failed");
-        const _data: [*]QtC.Solid__Device = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(Solid__Device, _arr.len) catch @panic("Solid__Device.listFromQuery2: Memory allocation failed");
+        const _data_val: [*]QtC.Solid__Device = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `storageAccessFromPath` instead
+    ///
+    pub const StorageAccessFromPath = storageAccessFromPath;
 
     /// ### [Upstream resources](https://api.kde.org/solid-device.html#storageAccessFromPath)
     ///
@@ -127,13 +159,17 @@ pub const Solid__Device = extern struct {
     ///
     /// ` path: []const u8 `
     ///
-    pub fn StorageAccessFromPath(path: []const u8) Solid__Device {
+    pub fn storageAccessFromPath(path: []const u8) Solid__Device {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
         return .{ .ptr = qtc.Solid__Device_StorageAccessFromPath(path_str) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://api.kde.org/solid-device.html#operator-eq)
     ///
@@ -143,10 +179,14 @@ pub const Solid__Device = extern struct {
     ///
     /// ` device: Solid__Device `
     ///
-    pub fn OperatorAssign(self: Solid__Device, device: anytype) void {
+    pub fn operatorAssign(self: Solid__Device, device: anytype) void {
         comptime _ = @TypeOf(device)._is_Solid__Device;
         qtc.Solid__Device_OperatorAssign(@ptrCast(self.ptr), @ptrCast(device.ptr));
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://api.kde.org/solid-device.html#isValid)
     ///
@@ -154,9 +194,13 @@ pub const Solid__Device = extern struct {
     ///
     /// ` self: Solid__Device `
     ///
-    pub fn IsValid(self: Solid__Device) bool {
+    pub fn isValid(self: Solid__Device) bool {
         return qtc.Solid__Device_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `udi` instead
+    ///
+    pub const Udi = udi;
 
     /// ### [Upstream resources](https://api.kde.org/solid-device.html#udi)
     ///
@@ -166,13 +210,17 @@ pub const Solid__Device = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Udi(self: Solid__Device, allocator: std.mem.Allocator) []const u8 {
+    pub fn udi(self: Solid__Device, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Solid__Device_Udi(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__Device.Udi: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__Device.udi: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `parentUdi` instead
+    ///
+    pub const ParentUdi = parentUdi;
 
     /// ### [Upstream resources](https://api.kde.org/solid-device.html#parentUdi)
     ///
@@ -182,13 +230,17 @@ pub const Solid__Device = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ParentUdi(self: Solid__Device, allocator: std.mem.Allocator) []const u8 {
+    pub fn parentUdi(self: Solid__Device, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Solid__Device_ParentUdi(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__Device.ParentUdi: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__Device.parentUdi: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// ### [Upstream resources](https://api.kde.org/solid-device.html#parent)
     ///
@@ -196,9 +248,13 @@ pub const Solid__Device = extern struct {
     ///
     /// ` self: Solid__Device `
     ///
-    pub fn Parent(self: Solid__Device) Solid__Device {
+    pub fn parent(self: Solid__Device) Solid__Device {
         return .{ .ptr = qtc.Solid__Device_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `vendor` instead
+    ///
+    pub const Vendor = vendor;
 
     /// ### [Upstream resources](https://api.kde.org/solid-device.html#vendor)
     ///
@@ -208,13 +264,17 @@ pub const Solid__Device = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Vendor(self: Solid__Device, allocator: std.mem.Allocator) []const u8 {
+    pub fn vendor(self: Solid__Device, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Solid__Device_Vendor(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__Device.Vendor: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__Device.vendor: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `product` instead
+    ///
+    pub const Product = product;
 
     /// ### [Upstream resources](https://api.kde.org/solid-device.html#product)
     ///
@@ -224,13 +284,17 @@ pub const Solid__Device = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Product(self: Solid__Device, allocator: std.mem.Allocator) []const u8 {
+    pub fn product(self: Solid__Device, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Solid__Device_Product(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__Device.Product: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__Device.product: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `icon` instead
+    ///
+    pub const Icon = icon;
 
     /// ### [Upstream resources](https://api.kde.org/solid-device.html#icon)
     ///
@@ -240,13 +304,17 @@ pub const Solid__Device = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Icon(self: Solid__Device, allocator: std.mem.Allocator) []const u8 {
+    pub fn icon(self: Solid__Device, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Solid__Device_Icon(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__Device.Icon: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__Device.icon: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `emblems` instead
+    ///
+    pub const Emblems = emblems;
 
     /// ### [Upstream resources](https://api.kde.org/solid-device.html#emblems)
     ///
@@ -256,7 +324,7 @@ pub const Solid__Device = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Emblems(self: Solid__Device, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn emblems(self: Solid__Device, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.Solid__Device_Emblems(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -264,15 +332,19 @@ pub const Solid__Device = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("Solid__Device.Emblems: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("Solid__Device.emblems: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("Solid__Device.Emblems: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("Solid__Device.emblems: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `displayName` instead
+    ///
+    pub const DisplayName = displayName;
 
     /// ### [Upstream resources](https://api.kde.org/solid-device.html#displayName)
     ///
@@ -282,13 +354,17 @@ pub const Solid__Device = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DisplayName(self: Solid__Device, allocator: std.mem.Allocator) []const u8 {
+    pub fn displayName(self: Solid__Device, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Solid__Device_DisplayName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__Device.DisplayName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__Device.displayName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `description` instead
+    ///
+    pub const Description = description;
 
     /// ### [Upstream resources](https://api.kde.org/solid-device.html#description)
     ///
@@ -298,13 +374,17 @@ pub const Solid__Device = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Description(self: Solid__Device, allocator: std.mem.Allocator) []const u8 {
+    pub fn description(self: Solid__Device, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Solid__Device_Description(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__Device.Description: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__Device.description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isDeviceInterface` instead
+    ///
+    pub const IsDeviceInterface = isDeviceInterface;
 
     /// ### [Upstream resources](https://api.kde.org/solid-device.html#isDeviceInterface)
     ///
@@ -314,21 +394,13 @@ pub const Solid__Device = extern struct {
     ///
     /// ` typeVal: *const deviceinterface_enums.Type `
     ///
-    pub fn IsDeviceInterface(self: Solid__Device, typeVal: *const i32) bool {
+    pub fn isDeviceInterface(self: Solid__Device, typeVal: *const i32) bool {
         return qtc.Solid__Device_IsDeviceInterface(@ptrCast(self.ptr), @ptrCast(typeVal));
     }
 
-    /// ### [Upstream resources](https://api.kde.org/solid-device.html#asDeviceInterface)
+    /// ### DEPRECATED: Use `asDeviceInterface` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Solid__Device `
-    ///
-    /// ` typeVal: *const deviceinterface_enums.Type `
-    ///
-    pub fn AsDeviceInterface(self: Solid__Device, typeVal: *const i32) Solid__DeviceInterface {
-        return .{ .ptr = qtc.Solid__Device_AsDeviceInterface(@ptrCast(self.ptr), @ptrCast(typeVal)) };
-    }
+    pub const AsDeviceInterface = asDeviceInterface;
 
     /// ### [Upstream resources](https://api.kde.org/solid-device.html#asDeviceInterface)
     ///
@@ -338,9 +410,29 @@ pub const Solid__Device = extern struct {
     ///
     /// ` typeVal: *const deviceinterface_enums.Type `
     ///
-    pub fn AsDeviceInterface2(self: Solid__Device, typeVal: *const i32) Solid__DeviceInterface {
+    pub fn asDeviceInterface(self: Solid__Device, typeVal: *const i32) Solid__DeviceInterface {
+        return .{ .ptr = qtc.Solid__Device_AsDeviceInterface(@ptrCast(self.ptr), @ptrCast(typeVal)) };
+    }
+
+    /// ### DEPRECATED: Use `asDeviceInterface2` instead
+    ///
+    pub const AsDeviceInterface2 = asDeviceInterface2;
+
+    /// ### [Upstream resources](https://api.kde.org/solid-device.html#asDeviceInterface)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Solid__Device `
+    ///
+    /// ` typeVal: *const deviceinterface_enums.Type `
+    ///
+    pub fn asDeviceInterface2(self: Solid__Device, typeVal: *const i32) Solid__DeviceInterface {
         return .{ .ptr = qtc.Solid__Device_AsDeviceInterface2(@ptrCast(self.ptr), @ptrCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `listFromType2` instead
+    ///
+    pub const ListFromType2 = listFromType2;
 
     /// ### [Upstream resources](https://api.kde.org/solid-device.html#listFromType)
     ///
@@ -350,21 +442,25 @@ pub const Solid__Device = extern struct {
     ///
     /// ` typeVal: *const deviceinterface_enums.Type `
     ///
-    /// ` parentUdi: []const u8 `
+    /// ` _parentUdi: []const u8 `
     ///
-    pub fn ListFromType2(allocator: std.mem.Allocator, typeVal: *const i32, parentUdi: []const u8) []Solid__Device {
+    pub fn listFromType2(allocator: std.mem.Allocator, typeVal: *const i32, _parentUdi: []const u8) []Solid__Device {
         const parentUdi_str = qtc.libqt_string{
-            .len = parentUdi.len,
-            .data = parentUdi.ptr,
+            .len = _parentUdi.len,
+            .data = _parentUdi.ptr,
         };
         const _arr: qtc.libqt_list = qtc.Solid__Device_ListFromType2(@ptrCast(typeVal), parentUdi_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Solid__Device, _arr.len) catch @panic("Solid__Device.ListFromType2: Memory allocation failed");
-        const _data: [*]QtC.Solid__Device = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(Solid__Device, _arr.len) catch @panic("Solid__Device.listFromType2: Memory allocation failed");
+        const _data_val: [*]QtC.Solid__Device = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `listFromQuery22` instead
+    ///
+    pub const ListFromQuery22 = listFromQuery22;
 
     /// ### [Upstream resources](https://api.kde.org/solid-device.html#listFromQuery)
     ///
@@ -374,22 +470,26 @@ pub const Solid__Device = extern struct {
     ///
     /// ` predicate: Solid__Predicate `
     ///
-    /// ` parentUdi: []const u8 `
+    /// ` _parentUdi: []const u8 `
     ///
-    pub fn ListFromQuery22(allocator: std.mem.Allocator, predicate: anytype, parentUdi: []const u8) []Solid__Device {
+    pub fn listFromQuery22(allocator: std.mem.Allocator, predicate: anytype, _parentUdi: []const u8) []Solid__Device {
         comptime _ = @TypeOf(predicate)._is_Solid__Predicate;
         const parentUdi_str = qtc.libqt_string{
-            .len = parentUdi.len,
-            .data = parentUdi.ptr,
+            .len = _parentUdi.len,
+            .data = _parentUdi.ptr,
         };
         const _arr: qtc.libqt_list = qtc.Solid__Device_ListFromQuery22(@ptrCast(predicate.ptr), parentUdi_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Solid__Device, _arr.len) catch @panic("Solid__Device.ListFromQuery22: Memory allocation failed");
-        const _data: [*]QtC.Solid__Device = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(Solid__Device, _arr.len) catch @panic("Solid__Device.listFromQuery22: Memory allocation failed");
+        const _data_val: [*]QtC.Solid__Device = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `listFromQuery23` instead
+    ///
+    pub const ListFromQuery23 = listFromQuery23;
 
     /// ### [Upstream resources](https://api.kde.org/solid-device.html#listFromQuery)
     ///
@@ -399,37 +499,37 @@ pub const Solid__Device = extern struct {
     ///
     /// ` predicate: []const u8 `
     ///
-    /// ` parentUdi: []const u8 `
+    /// ` _parentUdi: []const u8 `
     ///
-    pub fn ListFromQuery23(allocator: std.mem.Allocator, predicate: []const u8, parentUdi: []const u8) []Solid__Device {
+    pub fn listFromQuery23(allocator: std.mem.Allocator, predicate: []const u8, _parentUdi: []const u8) []Solid__Device {
         const predicate_str = qtc.libqt_string{
             .len = predicate.len,
             .data = predicate.ptr,
         };
         const parentUdi_str = qtc.libqt_string{
-            .len = parentUdi.len,
-            .data = parentUdi.ptr,
+            .len = _parentUdi.len,
+            .data = _parentUdi.ptr,
         };
         const _arr: qtc.libqt_list = qtc.Solid__Device_ListFromQuery23(predicate_str, parentUdi_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Solid__Device, _arr.len) catch @panic("Solid__Device.ListFromQuery23: Memory allocation failed");
-        const _data: [*]QtC.Solid__Device = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(Solid__Device, _arr.len) catch @panic("Solid__Device.listFromQuery23: Memory allocation failed");
+        const _data_val: [*]QtC.Solid__Device = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Solid__Device `
     ///
-    pub fn Delete(self: Solid__Device) void {
+    pub fn delete(self: Solid__Device) void {
         qtc.Solid__Device_Delete(@ptrCast(self.ptr));
     }
 };

@@ -12,6 +12,10 @@ pub const QFactoryInterface = extern struct {
 
     pub const _is_QFactoryInterface = {};
 
+    /// ### DEPRECATED: Use `keys` instead
+    ///
+    pub const Keys = keys;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfactoryinterface.html#keys)
     ///
     /// ## Parameter(s):
@@ -20,7 +24,7 @@ pub const QFactoryInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Keys(self: QFactoryInterface, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn keys(self: QFactoryInterface, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QFactoryInterface_Keys(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -28,29 +32,29 @@ pub const QFactoryInterface = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QFactoryInterface.Keys: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QFactoryInterface.keys: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QFactoryInterface.Keys: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QFactoryInterface.keys: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfactoryinterface.html#dtor.QFactoryInterface)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QFactoryInterface `
     ///
-    pub fn Delete(self: QFactoryInterface) void {
+    pub fn delete(self: QFactoryInterface) void {
         qtc.QFactoryInterface_Delete(@ptrCast(self.ptr));
     }
 };

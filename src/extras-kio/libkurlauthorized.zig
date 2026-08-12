@@ -12,6 +12,10 @@ pub const KUrlAuthorized = extern struct {
 
     pub const _is_KUrlAuthorized = {};
 
+    /// ### DEPRECATED: Use `authorizeUrlAction` instead
+    ///
+    pub const AuthorizeUrlAction = authorizeUrlAction;
+
     /// ### [Upstream resources](https://api.kde.org/kurlauthorized.html#authorizeUrlAction)
     ///
     /// ## Parameter(s):
@@ -22,7 +26,7 @@ pub const KUrlAuthorized = extern struct {
     ///
     /// ` destUrl: QUrl `
     ///
-    pub fn AuthorizeUrlAction(action: []const u8, baseUrl: anytype, destUrl: anytype) bool {
+    pub fn authorizeUrlAction(action: []const u8, baseUrl: anytype, destUrl: anytype) bool {
         const action_str = qtc.libqt_string{
             .len = action.len,
             .data = action.ptr,
@@ -31,6 +35,10 @@ pub const KUrlAuthorized = extern struct {
         comptime _ = @TypeOf(destUrl)._is_QUrl;
         return qtc.KUrlAuthorized_AuthorizeUrlAction(action_str, @ptrCast(baseUrl.ptr), @ptrCast(destUrl.ptr));
     }
+
+    /// ### DEPRECATED: Use `allowUrlAction` instead
+    ///
+    pub const AllowUrlAction = allowUrlAction;
 
     /// ### [Upstream resources](https://api.kde.org/kurlauthorized.html#allowUrlAction)
     ///
@@ -42,7 +50,7 @@ pub const KUrlAuthorized = extern struct {
     ///
     /// ` destUrl: QUrl `
     ///
-    pub fn AllowUrlAction(action: []const u8, baseUrl: anytype, destUrl: anytype) void {
+    pub fn allowUrlAction(action: []const u8, baseUrl: anytype, destUrl: anytype) void {
         const action_str = qtc.libqt_string{
             .len = action.len,
             .data = action.ptr,

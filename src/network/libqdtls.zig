@@ -35,22 +35,34 @@ pub const QDtlsClientVerifier = extern struct {
     pub const _is_QDtlsClientVerifier = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QDtlsClientVerifier object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QDtlsClientVerifier {
+    pub const New = new;
+
+    /// Allocate a new QDtlsClientVerifier object in C++ memory
+    ///
+    pub fn new() QDtlsClientVerifier {
         return .{ .ptr = qtc.QDtlsClientVerifier_new() };
     }
 
-    /// New2 constructs a new QDtlsClientVerifier object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QDtlsClientVerifier object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) QDtlsClientVerifier {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QDtlsClientVerifier_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) QDtlsClientVerifier {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QDtlsClientVerifier_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -58,9 +70,13 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` self: QDtlsClientVerifier `
     ///
-    pub fn MetaObject(self: QDtlsClientVerifier) QMetaObject {
+    pub fn metaObject(self: QDtlsClientVerifier) QMetaObject {
         return .{ .ptr = qtc.QDtlsClientVerifier_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -72,13 +88,13 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QDtlsClientVerifier, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QDtlsClientVerifier, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QDtlsClientVerifier_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -88,9 +104,13 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` self: QDtlsClientVerifier `
     ///
-    pub fn SuperMetaObject(self: QDtlsClientVerifier) QMetaObject {
+    pub fn superMetaObject(self: QDtlsClientVerifier) QMetaObject {
         return .{ .ptr = qtc.QDtlsClientVerifier_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -98,10 +118,14 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QDtlsClientVerifier, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QDtlsClientVerifier, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QDtlsClientVerifier_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -111,13 +135,13 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` callback: *const fn (self: QDtlsClientVerifier, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QDtlsClientVerifier, callback: *const fn (QDtlsClientVerifier, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QDtlsClientVerifier, callback: *const fn (QDtlsClientVerifier, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QDtlsClientVerifier_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -127,10 +151,14 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QDtlsClientVerifier, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QDtlsClientVerifier, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QDtlsClientVerifier_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -142,9 +170,13 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QDtlsClientVerifier, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QDtlsClientVerifier, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QDtlsClientVerifier_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -154,13 +186,13 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` callback: *const fn (self: QDtlsClientVerifier, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QDtlsClientVerifier, callback: *const fn (QDtlsClientVerifier, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QDtlsClientVerifier, callback: *const fn (QDtlsClientVerifier, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QDtlsClientVerifier_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -174,9 +206,13 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QDtlsClientVerifier, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QDtlsClientVerifier, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QDtlsClientVerifier_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -186,14 +222,18 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDtlsClientVerifier.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDtlsClientVerifier.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setCookieGeneratorParameters` instead
+    ///
+    pub const SetCookieGeneratorParameters = setCookieGeneratorParameters;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtlsclientverifier.html#setCookieGeneratorParameters)
     ///
@@ -203,10 +243,14 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` params: QDtlsClientVerifier__GeneratorParameters `
     ///
-    pub fn SetCookieGeneratorParameters(self: QDtlsClientVerifier, params: anytype) bool {
+    pub fn setCookieGeneratorParameters(self: QDtlsClientVerifier, params: anytype) bool {
         comptime _ = @TypeOf(params)._is_QDtlsClientVerifier__GeneratorParameters;
         return qtc.QDtlsClientVerifier_SetCookieGeneratorParameters(@ptrCast(self.ptr), @ptrCast(params.ptr));
     }
+
+    /// ### DEPRECATED: Use `cookieGeneratorParameters` instead
+    ///
+    pub const CookieGeneratorParameters = cookieGeneratorParameters;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtlsclientverifier.html#cookieGeneratorParameters)
     ///
@@ -214,9 +258,13 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` self: QDtlsClientVerifier `
     ///
-    pub fn CookieGeneratorParameters(self: QDtlsClientVerifier) QDtlsClientVerifier__GeneratorParameters {
+    pub fn cookieGeneratorParameters(self: QDtlsClientVerifier) QDtlsClientVerifier__GeneratorParameters {
         return .{ .ptr = qtc.QDtlsClientVerifier_CookieGeneratorParameters(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `verifyClient` instead
+    ///
+    pub const VerifyClient = verifyClient;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtlsclientverifier.html#verifyClient)
     ///
@@ -232,7 +280,7 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` port: u16 `
     ///
-    pub fn VerifyClient(self: QDtlsClientVerifier, socket: anytype, dgram: []u8, address: anytype, port: u16) bool {
+    pub fn verifyClient(self: QDtlsClientVerifier, socket: anytype, dgram: []u8, address: anytype, port: u16) bool {
         comptime _ = @TypeOf(socket)._is_QUdpSocket;
         const dgram_str = qtc.libqt_string{
             .len = dgram.len,
@@ -242,6 +290,10 @@ pub const QDtlsClientVerifier = extern struct {
         return qtc.QDtlsClientVerifier_VerifyClient(@ptrCast(self.ptr), @ptrCast(socket.ptr), dgram_str, @ptrCast(address.ptr), @bitCast(port));
     }
 
+    /// ### DEPRECATED: Use `verifiedHello` instead
+    ///
+    pub const VerifiedHello = verifiedHello;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtlsclientverifier.html#verifiedHello)
     ///
     /// ## Parameter(s):
@@ -250,13 +302,17 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn VerifiedHello(self: QDtlsClientVerifier, allocator: std.mem.Allocator) []u8 {
+    pub fn verifiedHello(self: QDtlsClientVerifier, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QDtlsClientVerifier_VerifiedHello(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QDtlsClientVerifier.VerifiedHello: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QDtlsClientVerifier.verifiedHello: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `dtlsError` instead
+    ///
+    pub const DtlsError = dtlsError;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtlsclientverifier.html#dtlsError)
     ///
@@ -268,9 +324,13 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` qdtls_enums.QDtlsError `
     ///
-    pub fn DtlsError(self: QDtlsClientVerifier) u8 {
+    pub fn dtlsError(self: QDtlsClientVerifier) u8 {
         return qtc.QDtlsClientVerifier_DtlsError(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dtlsErrorString` instead
+    ///
+    pub const DtlsErrorString = dtlsErrorString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtlsclientverifier.html#dtlsErrorString)
     ///
@@ -280,13 +340,17 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DtlsErrorString(self: QDtlsClientVerifier, allocator: std.mem.Allocator) []const u8 {
+    pub fn dtlsErrorString(self: QDtlsClientVerifier, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDtlsClientVerifier_DtlsErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDtlsClientVerifier.DtlsErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDtlsClientVerifier.dtlsErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -298,15 +362,19 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDtlsClientVerifier.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDtlsClientVerifier.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -320,15 +388,19 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDtlsClientVerifier.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDtlsClientVerifier.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -340,13 +412,17 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QDtlsClientVerifier, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QDtlsClientVerifier, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDtlsClientVerifier.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDtlsClientVerifier.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -358,13 +434,17 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QDtlsClientVerifier, name: []const u8) void {
+    pub fn setObjectName(self: QDtlsClientVerifier, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -374,9 +454,13 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` self: QDtlsClientVerifier `
     ///
-    pub fn IsWidgetType(self: QDtlsClientVerifier) bool {
+    pub fn isWidgetType(self: QDtlsClientVerifier) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -386,9 +470,13 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` self: QDtlsClientVerifier `
     ///
-    pub fn IsWindowType(self: QDtlsClientVerifier) bool {
+    pub fn isWindowType(self: QDtlsClientVerifier) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -398,9 +486,13 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` self: QDtlsClientVerifier `
     ///
-    pub fn IsQuickItemType(self: QDtlsClientVerifier) bool {
+    pub fn isQuickItemType(self: QDtlsClientVerifier) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -410,9 +502,13 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` self: QDtlsClientVerifier `
     ///
-    pub fn SignalsBlocked(self: QDtlsClientVerifier) bool {
+    pub fn signalsBlocked(self: QDtlsClientVerifier) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -424,9 +520,13 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QDtlsClientVerifier, b: bool) bool {
+    pub fn blockSignals(self: QDtlsClientVerifier, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -436,9 +536,13 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` self: QDtlsClientVerifier `
     ///
-    pub fn Thread(self: QDtlsClientVerifier) QThread {
+    pub fn thread(self: QDtlsClientVerifier) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -448,12 +552,16 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` self: QDtlsClientVerifier `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QDtlsClientVerifier, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QDtlsClientVerifier, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -465,9 +573,13 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QDtlsClientVerifier, interval: i32) i32 {
+    pub fn startTimer(self: QDtlsClientVerifier, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -479,9 +591,13 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QDtlsClientVerifier, time: i64) i32 {
+    pub fn startTimer2(self: QDtlsClientVerifier, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -493,9 +609,13 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QDtlsClientVerifier, id: i32) void {
+    pub fn killTimer(self: QDtlsClientVerifier, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -507,9 +627,13 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QDtlsClientVerifier, id: i32) void {
+    pub fn killTimer2(self: QDtlsClientVerifier, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -521,15 +645,19 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QDtlsClientVerifier, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QDtlsClientVerifier, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QDtlsClientVerifier.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QDtlsClientVerifier.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -539,12 +667,16 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` self: QDtlsClientVerifier `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QDtlsClientVerifier, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QDtlsClientVerifier, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -556,10 +688,14 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QDtlsClientVerifier, filterObj: anytype) void {
+    pub fn installEventFilter(self: QDtlsClientVerifier, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -571,10 +707,14 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QDtlsClientVerifier, obj: anytype) void {
+    pub fn removeEventFilter(self: QDtlsClientVerifier, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -582,7 +722,7 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -590,13 +730,17 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -604,7 +748,7 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -612,13 +756,17 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -628,18 +776,22 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` self: QDtlsClientVerifier `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QDtlsClientVerifier, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QDtlsClientVerifier, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -647,7 +799,7 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -655,13 +807,17 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -669,7 +825,7 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -677,13 +833,17 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -693,9 +853,13 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` self: QDtlsClientVerifier `
     ///
-    pub fn Disconnect3(self: QDtlsClientVerifier) bool {
+    pub fn disconnect3(self: QDtlsClientVerifier) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -707,10 +871,14 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QDtlsClientVerifier, receiver: anytype) bool {
+    pub fn disconnect4(self: QDtlsClientVerifier, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -720,10 +888,14 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -733,9 +905,13 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` self: QDtlsClientVerifier `
     ///
-    pub fn DumpObjectTree(self: QDtlsClientVerifier) void {
+    pub fn dumpObjectTree(self: QDtlsClientVerifier) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -745,9 +921,13 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` self: QDtlsClientVerifier `
     ///
-    pub fn DumpObjectInfo(self: QDtlsClientVerifier) void {
+    pub fn dumpObjectInfo(self: QDtlsClientVerifier) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -761,11 +941,15 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QDtlsClientVerifier, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QDtlsClientVerifier, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -777,10 +961,14 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QDtlsClientVerifier, name: [:0]const u8) QVariant {
+    pub fn property(self: QDtlsClientVerifier, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -792,7 +980,7 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QDtlsClientVerifier, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QDtlsClientVerifier, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -800,27 +988,19 @@ pub const QDtlsClientVerifier = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDtlsClientVerifier.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDtlsClientVerifier.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QDtlsClientVerifier.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QDtlsClientVerifier.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDtlsClientVerifier `
-    ///
-    pub fn BindingStorage(self: QDtlsClientVerifier) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -830,9 +1010,29 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` self: QDtlsClientVerifier `
     ///
-    pub fn BindingStorage2(self: QDtlsClientVerifier) QBindingStorage {
+    pub fn bindingStorage(self: QDtlsClientVerifier) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QDtlsClientVerifier `
+    ///
+    pub fn bindingStorage2(self: QDtlsClientVerifier) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -842,9 +1042,13 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` self: QDtlsClientVerifier `
     ///
-    pub fn Destroyed(self: QDtlsClientVerifier) void {
+    pub fn destroyed(self: QDtlsClientVerifier) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -856,9 +1060,13 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` callback: *const fn (self: QDtlsClientVerifier) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QDtlsClientVerifier, callback: *const fn (QDtlsClientVerifier) callconv(.c) void) void {
+    pub fn onDestroyed(self: QDtlsClientVerifier, callback: *const fn (QDtlsClientVerifier) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -868,9 +1076,13 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` self: QDtlsClientVerifier `
     ///
-    pub fn Parent(self: QDtlsClientVerifier) QObject {
+    pub fn parent(self: QDtlsClientVerifier) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -882,10 +1094,14 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QDtlsClientVerifier, classname: [:0]const u8) bool {
+    pub fn inherits(self: QDtlsClientVerifier, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -895,9 +1111,13 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` self: QDtlsClientVerifier `
     ///
-    pub fn DeleteLater(self: QDtlsClientVerifier) void {
+    pub fn deleteLater(self: QDtlsClientVerifier) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -911,9 +1131,13 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QDtlsClientVerifier, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QDtlsClientVerifier, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -927,9 +1151,13 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QDtlsClientVerifier, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QDtlsClientVerifier, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -937,7 +1165,7 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -947,13 +1175,17 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -961,7 +1193,7 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -971,13 +1203,17 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -987,7 +1223,7 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` self: QDtlsClientVerifier `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -995,12 +1231,16 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QDtlsClientVerifier, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QDtlsClientVerifier, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1012,10 +1252,14 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QDtlsClientVerifier, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QDtlsClientVerifier, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1029,11 +1273,15 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QDtlsClientVerifier, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QDtlsClientVerifier, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1049,13 +1297,17 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QDtlsClientVerifier, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QDtlsClientVerifier, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1068,11 +1320,15 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QDtlsClientVerifier, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QDtlsClientVerifier, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1084,10 +1340,14 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QDtlsClientVerifier, param1: anytype) void {
+    pub fn destroyed1(self: QDtlsClientVerifier, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1099,9 +1359,13 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` callback: *const fn (self: QDtlsClientVerifier, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QDtlsClientVerifier, callback: *const fn (QDtlsClientVerifier, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QDtlsClientVerifier, callback: *const fn (QDtlsClientVerifier, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1113,16 +1377,16 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` self: QDtlsClientVerifier `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QDtlsClientVerifier, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QDtlsClientVerifier_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QDtlsClientVerifier, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QDtlsClientVerifier_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1134,12 +1398,16 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` self: QDtlsClientVerifier `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QDtlsClientVerifier, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QDtlsClientVerifier_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QDtlsClientVerifier, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QDtlsClientVerifier_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -1153,9 +1421,13 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` callback: *const fn (self: QDtlsClientVerifier, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QDtlsClientVerifier, callback: *const fn (QDtlsClientVerifier, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QDtlsClientVerifier, callback: *const fn (QDtlsClientVerifier, QEvent) callconv(.c) bool) void {
         qtc.QDtlsClientVerifier_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1169,17 +1441,17 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QDtlsClientVerifier, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QDtlsClientVerifier, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QDtlsClientVerifier_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QDtlsClientVerifier_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1193,13 +1465,17 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QDtlsClientVerifier, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QDtlsClientVerifier, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QDtlsClientVerifier_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QDtlsClientVerifier_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1213,9 +1489,13 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` callback: *const fn (self: QDtlsClientVerifier, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QDtlsClientVerifier, callback: *const fn (QDtlsClientVerifier, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QDtlsClientVerifier, callback: *const fn (QDtlsClientVerifier, QObject, QEvent) callconv(.c) bool) void {
         qtc.QDtlsClientVerifier_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1227,16 +1507,16 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` self: QDtlsClientVerifier `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QDtlsClientVerifier, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QDtlsClientVerifier_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QDtlsClientVerifier, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QDtlsClientVerifier_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1248,12 +1528,16 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` self: QDtlsClientVerifier `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QDtlsClientVerifier, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QDtlsClientVerifier_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QDtlsClientVerifier, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QDtlsClientVerifier_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1267,9 +1551,13 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` callback: *const fn (self: QDtlsClientVerifier, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QDtlsClientVerifier, callback: *const fn (QDtlsClientVerifier, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QDtlsClientVerifier, callback: *const fn (QDtlsClientVerifier, QTimerEvent) callconv(.c) void) void {
         qtc.QDtlsClientVerifier_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -1281,16 +1569,16 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` self: QDtlsClientVerifier `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QDtlsClientVerifier, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QDtlsClientVerifier_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QDtlsClientVerifier, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QDtlsClientVerifier_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1302,12 +1590,16 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` self: QDtlsClientVerifier `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QDtlsClientVerifier, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QDtlsClientVerifier_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QDtlsClientVerifier, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QDtlsClientVerifier_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1321,9 +1613,13 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` callback: *const fn (self: QDtlsClientVerifier, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QDtlsClientVerifier, callback: *const fn (QDtlsClientVerifier, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QDtlsClientVerifier, callback: *const fn (QDtlsClientVerifier, QChildEvent) callconv(.c) void) void {
         qtc.QDtlsClientVerifier_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -1335,16 +1631,16 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` self: QDtlsClientVerifier `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QDtlsClientVerifier, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QDtlsClientVerifier_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QDtlsClientVerifier, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QDtlsClientVerifier_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1356,12 +1652,16 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` self: QDtlsClientVerifier `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QDtlsClientVerifier, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QDtlsClientVerifier_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QDtlsClientVerifier, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QDtlsClientVerifier_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1375,9 +1675,13 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` callback: *const fn (self: QDtlsClientVerifier, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QDtlsClientVerifier, callback: *const fn (QDtlsClientVerifier, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QDtlsClientVerifier, callback: *const fn (QDtlsClientVerifier, QEvent) callconv(.c) void) void {
         qtc.QDtlsClientVerifier_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -1391,14 +1695,14 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QDtlsClientVerifier, signal: anytype) void {
+    pub fn connectNotify(self: QDtlsClientVerifier, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QDtlsClientVerifier_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1412,11 +1716,15 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QDtlsClientVerifier, signal: anytype) void {
+    pub fn superConnectNotify(self: QDtlsClientVerifier, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QDtlsClientVerifier_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1429,9 +1737,13 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` callback: *const fn (self: QDtlsClientVerifier, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QDtlsClientVerifier, callback: *const fn (QDtlsClientVerifier, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QDtlsClientVerifier, callback: *const fn (QDtlsClientVerifier, QMetaMethod) callconv(.c) void) void {
         qtc.QDtlsClientVerifier_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1445,14 +1757,14 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QDtlsClientVerifier, signal: anytype) void {
+    pub fn disconnectNotify(self: QDtlsClientVerifier, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QDtlsClientVerifier_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1466,10 +1778,14 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QDtlsClientVerifier, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QDtlsClientVerifier, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QDtlsClientVerifier_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1483,9 +1799,13 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` callback: *const fn (self: QDtlsClientVerifier, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QDtlsClientVerifier, callback: *const fn (QDtlsClientVerifier, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QDtlsClientVerifier, callback: *const fn (QDtlsClientVerifier, QMetaMethod) callconv(.c) void) void {
         qtc.QDtlsClientVerifier_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -1497,13 +1817,13 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` self: QDtlsClientVerifier `
     ///
-    pub fn Sender(self: QDtlsClientVerifier) QObject {
+    pub fn sender(self: QDtlsClientVerifier) QObject {
         return .{ .ptr = qtc.QDtlsClientVerifier_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -1515,9 +1835,13 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` self: QDtlsClientVerifier `
     ///
-    pub fn SuperSender(self: QDtlsClientVerifier) QObject {
+    pub fn superSender(self: QDtlsClientVerifier) QObject {
         return .{ .ptr = qtc.QDtlsClientVerifier_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -1531,9 +1855,13 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QDtlsClientVerifier, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QDtlsClientVerifier, callback: *const fn () callconv(.c) QObject) void {
         qtc.QDtlsClientVerifier_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1545,13 +1873,13 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` self: QDtlsClientVerifier `
     ///
-    pub fn SenderSignalIndex(self: QDtlsClientVerifier) i32 {
+    pub fn senderSignalIndex(self: QDtlsClientVerifier) i32 {
         return qtc.QDtlsClientVerifier_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1563,9 +1891,13 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` self: QDtlsClientVerifier `
     ///
-    pub fn SuperSenderSignalIndex(self: QDtlsClientVerifier) i32 {
+    pub fn superSenderSignalIndex(self: QDtlsClientVerifier) i32 {
         return qtc.QDtlsClientVerifier_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1579,9 +1911,13 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QDtlsClientVerifier, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QDtlsClientVerifier, callback: *const fn () callconv(.c) i32) void {
         qtc.QDtlsClientVerifier_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -1595,14 +1931,14 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QDtlsClientVerifier, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QDtlsClientVerifier, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QDtlsClientVerifier_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -1616,10 +1952,14 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QDtlsClientVerifier, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QDtlsClientVerifier, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QDtlsClientVerifier_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -1633,9 +1973,13 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` callback: *const fn (self: QDtlsClientVerifier, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QDtlsClientVerifier, callback: *const fn (QDtlsClientVerifier, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QDtlsClientVerifier, callback: *const fn (QDtlsClientVerifier, [*:0]const u8) callconv(.c) i32) void {
         qtc.QDtlsClientVerifier_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1649,14 +1993,14 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QDtlsClientVerifier, signal: anytype) bool {
+    pub fn isSignalConnected(self: QDtlsClientVerifier, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QDtlsClientVerifier_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1670,10 +2014,14 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QDtlsClientVerifier, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QDtlsClientVerifier, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QDtlsClientVerifier_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1687,9 +2035,13 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` callback: *const fn (self: QDtlsClientVerifier, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QDtlsClientVerifier, callback: *const fn (QDtlsClientVerifier, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QDtlsClientVerifier, callback: *const fn (QDtlsClientVerifier, QMetaMethod) callconv(.c) bool) void {
         qtc.QDtlsClientVerifier_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -1703,23 +2055,23 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` callback: *const fn (self: QDtlsClientVerifier, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QDtlsClientVerifier, callback: *const fn (QDtlsClientVerifier, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QDtlsClientVerifier, callback: *const fn (QDtlsClientVerifier, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtlsclientverifier.html#dtor.QDtlsClientVerifier)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDtlsClientVerifier `
     ///
-    pub fn Delete(self: QDtlsClientVerifier) void {
+    pub fn delete(self: QDtlsClientVerifier) void {
         qtc.QDtlsClientVerifier_Delete(@ptrCast(self.ptr));
     }
 };
@@ -1735,28 +2087,40 @@ pub const QDtls = extern struct {
     pub const _is_QDtls = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QDtls object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QDtls object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` mode: qsslsocket_enums.SslMode `
     ///
-    pub fn New(mode: i32) QDtls {
+    pub fn new(mode: i32) QDtls {
         return .{ .ptr = qtc.QDtls_new(@bitCast(mode)) };
     }
 
-    /// New2 constructs a new QDtls object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QDtls object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` mode: qsslsocket_enums.SslMode `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(mode: i32, parent: anytype) QDtls {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QDtls_new2(@bitCast(mode), @ptrCast(parent.ptr)) };
+    pub fn new2(mode: i32, _parent: anytype) QDtls {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QDtls_new2(@bitCast(mode), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -1764,9 +2128,13 @@ pub const QDtls = extern struct {
     ///
     /// ` self: QDtls `
     ///
-    pub fn MetaObject(self: QDtls) QMetaObject {
+    pub fn metaObject(self: QDtls) QMetaObject {
         return .{ .ptr = qtc.QDtls_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -1778,13 +2146,13 @@ pub const QDtls = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QDtls, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QDtls, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QDtls_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -1794,9 +2162,13 @@ pub const QDtls = extern struct {
     ///
     /// ` self: QDtls `
     ///
-    pub fn SuperMetaObject(self: QDtls) QMetaObject {
+    pub fn superMetaObject(self: QDtls) QMetaObject {
         return .{ .ptr = qtc.QDtls_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -1804,10 +2176,14 @@ pub const QDtls = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QDtls, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QDtls, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QDtls_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -1817,13 +2193,13 @@ pub const QDtls = extern struct {
     ///
     /// ` callback: *const fn (self: QDtls, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QDtls, callback: *const fn (QDtls, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QDtls, callback: *const fn (QDtls, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QDtls_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -1833,10 +2209,14 @@ pub const QDtls = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QDtls, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QDtls, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QDtls_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -1848,9 +2228,13 @@ pub const QDtls = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QDtls, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QDtls, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QDtls_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -1860,13 +2244,13 @@ pub const QDtls = extern struct {
     ///
     /// ` callback: *const fn (self: QDtls, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QDtls, callback: *const fn (QDtls, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QDtls, callback: *const fn (QDtls, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QDtls_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -1880,9 +2264,13 @@ pub const QDtls = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QDtls, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QDtls, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QDtls_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1892,14 +2280,18 @@ pub const QDtls = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDtls.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDtls.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setPeer` instead
+    ///
+    pub const SetPeer = setPeer;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#setPeer)
     ///
@@ -1911,10 +2303,14 @@ pub const QDtls = extern struct {
     ///
     /// ` port: u16 `
     ///
-    pub fn SetPeer(self: QDtls, address: anytype, port: u16) bool {
+    pub fn setPeer(self: QDtls, address: anytype, port: u16) bool {
         comptime _ = @TypeOf(address)._is_QHostAddress;
         return qtc.QDtls_SetPeer(@ptrCast(self.ptr), @ptrCast(address.ptr), @bitCast(port));
     }
+
+    /// ### DEPRECATED: Use `setPeerVerificationName` instead
+    ///
+    pub const SetPeerVerificationName = setPeerVerificationName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#setPeerVerificationName)
     ///
@@ -1924,7 +2320,7 @@ pub const QDtls = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetPeerVerificationName(self: QDtls, name: []const u8) bool {
+    pub fn setPeerVerificationName(self: QDtls, name: []const u8) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1932,15 +2328,23 @@ pub const QDtls = extern struct {
         return qtc.QDtls_SetPeerVerificationName(@ptrCast(self.ptr), name_str);
     }
 
+    /// ### DEPRECATED: Use `peerAddress` instead
+    ///
+    pub const PeerAddress = peerAddress;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#peerAddress)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QDtls `
     ///
-    pub fn PeerAddress(self: QDtls) QHostAddress {
+    pub fn peerAddress(self: QDtls) QHostAddress {
         return .{ .ptr = qtc.QDtls_PeerAddress(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `peerPort` instead
+    ///
+    pub const PeerPort = peerPort;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#peerPort)
     ///
@@ -1948,9 +2352,13 @@ pub const QDtls = extern struct {
     ///
     /// ` self: QDtls `
     ///
-    pub fn PeerPort(self: QDtls) u16 {
+    pub fn peerPort(self: QDtls) u16 {
         return qtc.QDtls_PeerPort(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `peerVerificationName` instead
+    ///
+    pub const PeerVerificationName = peerVerificationName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#peerVerificationName)
     ///
@@ -1960,13 +2368,17 @@ pub const QDtls = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PeerVerificationName(self: QDtls, allocator: std.mem.Allocator) []const u8 {
+    pub fn peerVerificationName(self: QDtls, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDtls_PeerVerificationName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDtls.PeerVerificationName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDtls.peerVerificationName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `sslMode` instead
+    ///
+    pub const SslMode = sslMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#sslMode)
     ///
@@ -1978,9 +2390,13 @@ pub const QDtls = extern struct {
     ///
     /// ` qsslsocket_enums.SslMode `
     ///
-    pub fn SslMode(self: QDtls) i32 {
+    pub fn sslMode(self: QDtls) i32 {
         return qtc.QDtls_SslMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMtuHint` instead
+    ///
+    pub const SetMtuHint = setMtuHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#setMtuHint)
     ///
@@ -1988,11 +2404,15 @@ pub const QDtls = extern struct {
     ///
     /// ` self: QDtls `
     ///
-    /// ` mtuHint: u16 `
+    /// ` _mtuHint: u16 `
     ///
-    pub fn SetMtuHint(self: QDtls, mtuHint: u16) void {
-        qtc.QDtls_SetMtuHint(@ptrCast(self.ptr), @bitCast(mtuHint));
+    pub fn setMtuHint(self: QDtls, _mtuHint: u16) void {
+        qtc.QDtls_SetMtuHint(@ptrCast(self.ptr), @bitCast(_mtuHint));
     }
+
+    /// ### DEPRECATED: Use `mtuHint` instead
+    ///
+    pub const MtuHint = mtuHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#mtuHint)
     ///
@@ -2000,9 +2420,13 @@ pub const QDtls = extern struct {
     ///
     /// ` self: QDtls `
     ///
-    pub fn MtuHint(self: QDtls) u16 {
+    pub fn mtuHint(self: QDtls) u16 {
         return qtc.QDtls_MtuHint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCookieGeneratorParameters` instead
+    ///
+    pub const SetCookieGeneratorParameters = setCookieGeneratorParameters;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#setCookieGeneratorParameters)
     ///
@@ -2012,10 +2436,14 @@ pub const QDtls = extern struct {
     ///
     /// ` params: QDtlsClientVerifier__GeneratorParameters `
     ///
-    pub fn SetCookieGeneratorParameters(self: QDtls, params: anytype) bool {
+    pub fn setCookieGeneratorParameters(self: QDtls, params: anytype) bool {
         comptime _ = @TypeOf(params)._is_QDtlsClientVerifier__GeneratorParameters;
         return qtc.QDtls_SetCookieGeneratorParameters(@ptrCast(self.ptr), @ptrCast(params.ptr));
     }
+
+    /// ### DEPRECATED: Use `cookieGeneratorParameters` instead
+    ///
+    pub const CookieGeneratorParameters = cookieGeneratorParameters;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#cookieGeneratorParameters)
     ///
@@ -2023,9 +2451,13 @@ pub const QDtls = extern struct {
     ///
     /// ` self: QDtls `
     ///
-    pub fn CookieGeneratorParameters(self: QDtls) QDtlsClientVerifier__GeneratorParameters {
+    pub fn cookieGeneratorParameters(self: QDtls) QDtlsClientVerifier__GeneratorParameters {
         return .{ .ptr = qtc.QDtls_CookieGeneratorParameters(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setDtlsConfiguration` instead
+    ///
+    pub const SetDtlsConfiguration = setDtlsConfiguration;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#setDtlsConfiguration)
     ///
@@ -2035,10 +2467,14 @@ pub const QDtls = extern struct {
     ///
     /// ` configuration: QSslConfiguration `
     ///
-    pub fn SetDtlsConfiguration(self: QDtls, configuration: anytype) bool {
+    pub fn setDtlsConfiguration(self: QDtls, configuration: anytype) bool {
         comptime _ = @TypeOf(configuration)._is_QSslConfiguration;
         return qtc.QDtls_SetDtlsConfiguration(@ptrCast(self.ptr), @ptrCast(configuration.ptr));
     }
+
+    /// ### DEPRECATED: Use `dtlsConfiguration` instead
+    ///
+    pub const DtlsConfiguration = dtlsConfiguration;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#dtlsConfiguration)
     ///
@@ -2046,9 +2482,13 @@ pub const QDtls = extern struct {
     ///
     /// ` self: QDtls `
     ///
-    pub fn DtlsConfiguration(self: QDtls) QSslConfiguration {
+    pub fn dtlsConfiguration(self: QDtls) QSslConfiguration {
         return .{ .ptr = qtc.QDtls_DtlsConfiguration(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `handshakeState` instead
+    ///
+    pub const HandshakeState = handshakeState;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#handshakeState)
     ///
@@ -2060,9 +2500,13 @@ pub const QDtls = extern struct {
     ///
     /// ` qdtls_enums.HandshakeState `
     ///
-    pub fn HandshakeState(self: QDtls) i32 {
+    pub fn handshakeState(self: QDtls) i32 {
         return qtc.QDtls_HandshakeState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `doHandshake` instead
+    ///
+    pub const DoHandshake = doHandshake;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#doHandshake)
     ///
@@ -2072,10 +2516,14 @@ pub const QDtls = extern struct {
     ///
     /// ` socket: QUdpSocket `
     ///
-    pub fn DoHandshake(self: QDtls, socket: anytype) bool {
+    pub fn doHandshake(self: QDtls, socket: anytype) bool {
         comptime _ = @TypeOf(socket)._is_QUdpSocket;
         return qtc.QDtls_DoHandshake(@ptrCast(self.ptr), @ptrCast(socket.ptr));
     }
+
+    /// ### DEPRECATED: Use `handleTimeout` instead
+    ///
+    pub const HandleTimeout = handleTimeout;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#handleTimeout)
     ///
@@ -2085,10 +2533,14 @@ pub const QDtls = extern struct {
     ///
     /// ` socket: QUdpSocket `
     ///
-    pub fn HandleTimeout(self: QDtls, socket: anytype) bool {
+    pub fn handleTimeout(self: QDtls, socket: anytype) bool {
         comptime _ = @TypeOf(socket)._is_QUdpSocket;
         return qtc.QDtls_HandleTimeout(@ptrCast(self.ptr), @ptrCast(socket.ptr));
     }
+
+    /// ### DEPRECATED: Use `resumeHandshake` instead
+    ///
+    pub const ResumeHandshake = resumeHandshake;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#resumeHandshake)
     ///
@@ -2098,10 +2550,14 @@ pub const QDtls = extern struct {
     ///
     /// ` socket: QUdpSocket `
     ///
-    pub fn ResumeHandshake(self: QDtls, socket: anytype) bool {
+    pub fn resumeHandshake(self: QDtls, socket: anytype) bool {
         comptime _ = @TypeOf(socket)._is_QUdpSocket;
         return qtc.QDtls_ResumeHandshake(@ptrCast(self.ptr), @ptrCast(socket.ptr));
     }
+
+    /// ### DEPRECATED: Use `abortHandshake` instead
+    ///
+    pub const AbortHandshake = abortHandshake;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#abortHandshake)
     ///
@@ -2111,10 +2567,14 @@ pub const QDtls = extern struct {
     ///
     /// ` socket: QUdpSocket `
     ///
-    pub fn AbortHandshake(self: QDtls, socket: anytype) bool {
+    pub fn abortHandshake(self: QDtls, socket: anytype) bool {
         comptime _ = @TypeOf(socket)._is_QUdpSocket;
         return qtc.QDtls_AbortHandshake(@ptrCast(self.ptr), @ptrCast(socket.ptr));
     }
+
+    /// ### DEPRECATED: Use `shutdown` instead
+    ///
+    pub const Shutdown = shutdown;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#shutdown)
     ///
@@ -2124,10 +2584,14 @@ pub const QDtls = extern struct {
     ///
     /// ` socket: QUdpSocket `
     ///
-    pub fn Shutdown(self: QDtls, socket: anytype) bool {
+    pub fn shutdown(self: QDtls, socket: anytype) bool {
         comptime _ = @TypeOf(socket)._is_QUdpSocket;
         return qtc.QDtls_Shutdown(@ptrCast(self.ptr), @ptrCast(socket.ptr));
     }
+
+    /// ### DEPRECATED: Use `isConnectionEncrypted` instead
+    ///
+    pub const IsConnectionEncrypted = isConnectionEncrypted;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#isConnectionEncrypted)
     ///
@@ -2135,9 +2599,13 @@ pub const QDtls = extern struct {
     ///
     /// ` self: QDtls `
     ///
-    pub fn IsConnectionEncrypted(self: QDtls) bool {
+    pub fn isConnectionEncrypted(self: QDtls) bool {
         return qtc.QDtls_IsConnectionEncrypted(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `sessionCipher` instead
+    ///
+    pub const SessionCipher = sessionCipher;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#sessionCipher)
     ///
@@ -2145,9 +2613,13 @@ pub const QDtls = extern struct {
     ///
     /// ` self: QDtls `
     ///
-    pub fn SessionCipher(self: QDtls) QSslCipher {
+    pub fn sessionCipher(self: QDtls) QSslCipher {
         return .{ .ptr = qtc.QDtls_SessionCipher(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `sessionProtocol` instead
+    ///
+    pub const SessionProtocol = sessionProtocol;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#sessionProtocol)
     ///
@@ -2159,9 +2631,13 @@ pub const QDtls = extern struct {
     ///
     /// ` qssl_enums.SslProtocol `
     ///
-    pub fn SessionProtocol(self: QDtls) i32 {
+    pub fn sessionProtocol(self: QDtls) i32 {
         return qtc.QDtls_SessionProtocol(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `writeDatagramEncrypted` instead
+    ///
+    pub const WriteDatagramEncrypted = writeDatagramEncrypted;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#writeDatagramEncrypted)
     ///
@@ -2173,7 +2649,7 @@ pub const QDtls = extern struct {
     ///
     /// ` dgram: []u8 `
     ///
-    pub fn WriteDatagramEncrypted(self: QDtls, socket: anytype, dgram: []u8) i64 {
+    pub fn writeDatagramEncrypted(self: QDtls, socket: anytype, dgram: []u8) i64 {
         comptime _ = @TypeOf(socket)._is_QUdpSocket;
         const dgram_str = qtc.libqt_string{
             .len = dgram.len,
@@ -2181,6 +2657,10 @@ pub const QDtls = extern struct {
         };
         return qtc.QDtls_WriteDatagramEncrypted(@ptrCast(self.ptr), @ptrCast(socket.ptr), dgram_str);
     }
+
+    /// ### DEPRECATED: Use `decryptDatagram` instead
+    ///
+    pub const DecryptDatagram = decryptDatagram;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#decryptDatagram)
     ///
@@ -2194,7 +2674,7 @@ pub const QDtls = extern struct {
     ///
     /// ` dgram: []u8 `
     ///
-    pub fn DecryptDatagram(self: QDtls, allocator: std.mem.Allocator, socket: anytype, dgram: []u8) []u8 {
+    pub fn decryptDatagram(self: QDtls, allocator: std.mem.Allocator, socket: anytype, dgram: []u8) []u8 {
         comptime _ = @TypeOf(socket)._is_QUdpSocket;
         const dgram_str = qtc.libqt_string{
             .len = dgram.len,
@@ -2202,10 +2682,14 @@ pub const QDtls = extern struct {
         };
         var _bytearray: qtc.libqt_string = qtc.QDtls_DecryptDatagram(@ptrCast(self.ptr), @ptrCast(socket.ptr), dgram_str);
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QDtls.DecryptDatagram: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QDtls.decryptDatagram: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `dtlsError` instead
+    ///
+    pub const DtlsError = dtlsError;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#dtlsError)
     ///
@@ -2217,9 +2701,13 @@ pub const QDtls = extern struct {
     ///
     /// ` qdtls_enums.QDtlsError `
     ///
-    pub fn DtlsError(self: QDtls) u8 {
+    pub fn dtlsError(self: QDtls) u8 {
         return qtc.QDtls_DtlsError(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dtlsErrorString` instead
+    ///
+    pub const DtlsErrorString = dtlsErrorString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#dtlsErrorString)
     ///
@@ -2229,13 +2717,17 @@ pub const QDtls = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DtlsErrorString(self: QDtls, allocator: std.mem.Allocator) []const u8 {
+    pub fn dtlsErrorString(self: QDtls, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDtls_DtlsErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDtls.DtlsErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDtls.dtlsErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `peerVerificationErrors` instead
+    ///
+    pub const PeerVerificationErrors = peerVerificationErrors;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#peerVerificationErrors)
     ///
@@ -2245,15 +2737,19 @@ pub const QDtls = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PeerVerificationErrors(self: QDtls, allocator: std.mem.Allocator) []QSslError {
+    pub fn peerVerificationErrors(self: QDtls, allocator: std.mem.Allocator) []QSslError {
         const _arr: qtc.libqt_list = qtc.QDtls_PeerVerificationErrors(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QSslError, _arr.len) catch @panic("QDtls.PeerVerificationErrors: Memory allocation failed");
-        const _data: [*]QtC.QSslError = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QSslError, _arr.len) catch @panic("QDtls.peerVerificationErrors: Memory allocation failed");
+        const _data_val: [*]QtC.QSslError = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `ignoreVerificationErrors` instead
+    ///
+    pub const IgnoreVerificationErrors = ignoreVerificationErrors;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#ignoreVerificationErrors)
     ///
@@ -2263,13 +2759,17 @@ pub const QDtls = extern struct {
     ///
     /// ` errorsToIgnore: []QSslError `
     ///
-    pub fn IgnoreVerificationErrors(self: QDtls, errorsToIgnore: []QSslError) void {
+    pub fn ignoreVerificationErrors(self: QDtls, errorsToIgnore: []QSslError) void {
         const errorsToIgnore_list = qtc.libqt_list{
             .len = errorsToIgnore.len,
             .data = @ptrCast(errorsToIgnore.ptr),
         };
         qtc.QDtls_IgnoreVerificationErrors(@ptrCast(self.ptr), errorsToIgnore_list);
     }
+
+    /// ### DEPRECATED: Use `pskRequired` instead
+    ///
+    pub const PskRequired = pskRequired;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#pskRequired)
     ///
@@ -2279,10 +2779,14 @@ pub const QDtls = extern struct {
     ///
     /// ` authenticator: QSslPreSharedKeyAuthenticator `
     ///
-    pub fn PskRequired(self: QDtls, authenticator: anytype) void {
+    pub fn pskRequired(self: QDtls, authenticator: anytype) void {
         comptime _ = @TypeOf(authenticator)._is_QSslPreSharedKeyAuthenticator;
         qtc.QDtls_PskRequired(@ptrCast(self.ptr), @ptrCast(authenticator.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPskRequired` instead
+    ///
+    pub const OnPskRequired = onPskRequired;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#pskRequired)
     ///
@@ -2292,9 +2796,13 @@ pub const QDtls = extern struct {
     ///
     /// ` callback: *const fn (self: QDtls, authenticator: QSslPreSharedKeyAuthenticator) callconv(.c) void `
     ///
-    pub fn OnPskRequired(self: QDtls, callback: *const fn (QDtls, QSslPreSharedKeyAuthenticator) callconv(.c) void) void {
+    pub fn onPskRequired(self: QDtls, callback: *const fn (QDtls, QSslPreSharedKeyAuthenticator) callconv(.c) void) void {
         qtc.QDtls_Connect_PskRequired(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `handshakeTimeout` instead
+    ///
+    pub const HandshakeTimeout = handshakeTimeout;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#handshakeTimeout)
     ///
@@ -2302,9 +2810,13 @@ pub const QDtls = extern struct {
     ///
     /// ` self: QDtls `
     ///
-    pub fn HandshakeTimeout(self: QDtls) void {
+    pub fn handshakeTimeout(self: QDtls) void {
         qtc.QDtls_HandshakeTimeout(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHandshakeTimeout` instead
+    ///
+    pub const OnHandshakeTimeout = onHandshakeTimeout;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#handshakeTimeout)
     ///
@@ -2314,9 +2826,13 @@ pub const QDtls = extern struct {
     ///
     /// ` callback: *const fn (self: QDtls) callconv(.c) void `
     ///
-    pub fn OnHandshakeTimeout(self: QDtls, callback: *const fn (QDtls) callconv(.c) void) void {
+    pub fn onHandshakeTimeout(self: QDtls, callback: *const fn (QDtls) callconv(.c) void) void {
         qtc.QDtls_Connect_HandshakeTimeout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -2328,15 +2844,19 @@ pub const QDtls = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDtls.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDtls.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -2350,15 +2870,19 @@ pub const QDtls = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDtls.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDtls.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setPeer3` instead
+    ///
+    pub const SetPeer3 = setPeer3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#setPeer)
     ///
@@ -2372,7 +2896,7 @@ pub const QDtls = extern struct {
     ///
     /// ` verificationName: []const u8 `
     ///
-    pub fn SetPeer3(self: QDtls, address: anytype, port: u16, verificationName: []const u8) bool {
+    pub fn setPeer3(self: QDtls, address: anytype, port: u16, verificationName: []const u8) bool {
         comptime _ = @TypeOf(address)._is_QHostAddress;
         const verificationName_str = qtc.libqt_string{
             .len = verificationName.len,
@@ -2380,6 +2904,10 @@ pub const QDtls = extern struct {
         };
         return qtc.QDtls_SetPeer3(@ptrCast(self.ptr), @ptrCast(address.ptr), @bitCast(port), verificationName_str);
     }
+
+    /// ### DEPRECATED: Use `doHandshake2` instead
+    ///
+    pub const DoHandshake2 = doHandshake2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#doHandshake)
     ///
@@ -2391,7 +2919,7 @@ pub const QDtls = extern struct {
     ///
     /// ` dgram: []u8 `
     ///
-    pub fn DoHandshake2(self: QDtls, socket: anytype, dgram: []u8) bool {
+    pub fn doHandshake2(self: QDtls, socket: anytype, dgram: []u8) bool {
         comptime _ = @TypeOf(socket)._is_QUdpSocket;
         const dgram_str = qtc.libqt_string{
             .len = dgram.len,
@@ -2399,6 +2927,10 @@ pub const QDtls = extern struct {
         };
         return qtc.QDtls_DoHandshake2(@ptrCast(self.ptr), @ptrCast(socket.ptr), dgram_str);
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -2410,13 +2942,17 @@ pub const QDtls = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QDtls, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QDtls, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDtls.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDtls.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -2428,13 +2964,17 @@ pub const QDtls = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QDtls, name: []const u8) void {
+    pub fn setObjectName(self: QDtls, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -2444,9 +2984,13 @@ pub const QDtls = extern struct {
     ///
     /// ` self: QDtls `
     ///
-    pub fn IsWidgetType(self: QDtls) bool {
+    pub fn isWidgetType(self: QDtls) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -2456,9 +3000,13 @@ pub const QDtls = extern struct {
     ///
     /// ` self: QDtls `
     ///
-    pub fn IsWindowType(self: QDtls) bool {
+    pub fn isWindowType(self: QDtls) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -2468,9 +3016,13 @@ pub const QDtls = extern struct {
     ///
     /// ` self: QDtls `
     ///
-    pub fn IsQuickItemType(self: QDtls) bool {
+    pub fn isQuickItemType(self: QDtls) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -2480,9 +3032,13 @@ pub const QDtls = extern struct {
     ///
     /// ` self: QDtls `
     ///
-    pub fn SignalsBlocked(self: QDtls) bool {
+    pub fn signalsBlocked(self: QDtls) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -2494,9 +3050,13 @@ pub const QDtls = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QDtls, b: bool) bool {
+    pub fn blockSignals(self: QDtls, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -2506,9 +3066,13 @@ pub const QDtls = extern struct {
     ///
     /// ` self: QDtls `
     ///
-    pub fn Thread(self: QDtls) QThread {
+    pub fn thread(self: QDtls) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -2518,12 +3082,16 @@ pub const QDtls = extern struct {
     ///
     /// ` self: QDtls `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QDtls, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QDtls, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -2535,9 +3103,13 @@ pub const QDtls = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QDtls, interval: i32) i32 {
+    pub fn startTimer(self: QDtls, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -2549,9 +3121,13 @@ pub const QDtls = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QDtls, time: i64) i32 {
+    pub fn startTimer2(self: QDtls, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -2563,9 +3139,13 @@ pub const QDtls = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QDtls, id: i32) void {
+    pub fn killTimer(self: QDtls, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -2577,9 +3157,13 @@ pub const QDtls = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QDtls, id: i32) void {
+    pub fn killTimer2(self: QDtls, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -2591,15 +3175,19 @@ pub const QDtls = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QDtls, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QDtls, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QDtls.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QDtls.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -2609,12 +3197,16 @@ pub const QDtls = extern struct {
     ///
     /// ` self: QDtls `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QDtls, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QDtls, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2626,10 +3218,14 @@ pub const QDtls = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QDtls, filterObj: anytype) void {
+    pub fn installEventFilter(self: QDtls, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2641,10 +3237,14 @@ pub const QDtls = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QDtls, obj: anytype) void {
+    pub fn removeEventFilter(self: QDtls, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -2652,7 +3252,7 @@ pub const QDtls = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2660,13 +3260,17 @@ pub const QDtls = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -2674,7 +3278,7 @@ pub const QDtls = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2682,13 +3286,17 @@ pub const QDtls = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -2698,18 +3306,22 @@ pub const QDtls = extern struct {
     ///
     /// ` self: QDtls `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QDtls, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QDtls, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -2717,7 +3329,7 @@ pub const QDtls = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2725,13 +3337,17 @@ pub const QDtls = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -2739,7 +3355,7 @@ pub const QDtls = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2747,13 +3363,17 @@ pub const QDtls = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -2763,9 +3383,13 @@ pub const QDtls = extern struct {
     ///
     /// ` self: QDtls `
     ///
-    pub fn Disconnect3(self: QDtls) bool {
+    pub fn disconnect3(self: QDtls) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -2777,10 +3401,14 @@ pub const QDtls = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QDtls, receiver: anytype) bool {
+    pub fn disconnect4(self: QDtls, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -2790,10 +3418,14 @@ pub const QDtls = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -2803,9 +3435,13 @@ pub const QDtls = extern struct {
     ///
     /// ` self: QDtls `
     ///
-    pub fn DumpObjectTree(self: QDtls) void {
+    pub fn dumpObjectTree(self: QDtls) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -2815,9 +3451,13 @@ pub const QDtls = extern struct {
     ///
     /// ` self: QDtls `
     ///
-    pub fn DumpObjectInfo(self: QDtls) void {
+    pub fn dumpObjectInfo(self: QDtls) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -2831,11 +3471,15 @@ pub const QDtls = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QDtls, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QDtls, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -2847,10 +3491,14 @@ pub const QDtls = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QDtls, name: [:0]const u8) QVariant {
+    pub fn property(self: QDtls, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -2862,7 +3510,7 @@ pub const QDtls = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QDtls, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QDtls, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -2870,27 +3518,19 @@ pub const QDtls = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDtls.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDtls.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QDtls.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QDtls.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDtls `
-    ///
-    pub fn BindingStorage(self: QDtls) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -2900,9 +3540,29 @@ pub const QDtls = extern struct {
     ///
     /// ` self: QDtls `
     ///
-    pub fn BindingStorage2(self: QDtls) QBindingStorage {
+    pub fn bindingStorage(self: QDtls) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QDtls `
+    ///
+    pub fn bindingStorage2(self: QDtls) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -2912,9 +3572,13 @@ pub const QDtls = extern struct {
     ///
     /// ` self: QDtls `
     ///
-    pub fn Destroyed(self: QDtls) void {
+    pub fn destroyed(self: QDtls) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -2926,9 +3590,13 @@ pub const QDtls = extern struct {
     ///
     /// ` callback: *const fn (self: QDtls) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QDtls, callback: *const fn (QDtls) callconv(.c) void) void {
+    pub fn onDestroyed(self: QDtls, callback: *const fn (QDtls) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -2938,9 +3606,13 @@ pub const QDtls = extern struct {
     ///
     /// ` self: QDtls `
     ///
-    pub fn Parent(self: QDtls) QObject {
+    pub fn parent(self: QDtls) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -2952,10 +3624,14 @@ pub const QDtls = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QDtls, classname: [:0]const u8) bool {
+    pub fn inherits(self: QDtls, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -2965,9 +3641,13 @@ pub const QDtls = extern struct {
     ///
     /// ` self: QDtls `
     ///
-    pub fn DeleteLater(self: QDtls) void {
+    pub fn deleteLater(self: QDtls) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -2981,9 +3661,13 @@ pub const QDtls = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QDtls, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QDtls, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -2997,9 +3681,13 @@ pub const QDtls = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QDtls, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QDtls, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -3007,7 +3695,7 @@ pub const QDtls = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -3017,13 +3705,17 @@ pub const QDtls = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -3031,7 +3723,7 @@ pub const QDtls = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -3041,13 +3733,17 @@ pub const QDtls = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -3057,7 +3753,7 @@ pub const QDtls = extern struct {
     ///
     /// ` self: QDtls `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -3065,12 +3761,16 @@ pub const QDtls = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QDtls, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QDtls, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -3082,10 +3782,14 @@ pub const QDtls = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QDtls, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QDtls, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -3099,11 +3803,15 @@ pub const QDtls = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QDtls, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QDtls, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -3119,13 +3827,17 @@ pub const QDtls = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QDtls, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QDtls, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -3138,11 +3850,15 @@ pub const QDtls = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QDtls, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QDtls, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -3154,10 +3870,14 @@ pub const QDtls = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QDtls, param1: anytype) void {
+    pub fn destroyed1(self: QDtls, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -3169,9 +3889,13 @@ pub const QDtls = extern struct {
     ///
     /// ` callback: *const fn (self: QDtls, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QDtls, callback: *const fn (QDtls, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QDtls, callback: *const fn (QDtls, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -3183,16 +3907,16 @@ pub const QDtls = extern struct {
     ///
     /// ` self: QDtls `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QDtls, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QDtls_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QDtls, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QDtls_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -3204,12 +3928,16 @@ pub const QDtls = extern struct {
     ///
     /// ` self: QDtls `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QDtls, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QDtls_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QDtls, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QDtls_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -3223,9 +3951,13 @@ pub const QDtls = extern struct {
     ///
     /// ` callback: *const fn (self: QDtls, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QDtls, callback: *const fn (QDtls, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QDtls, callback: *const fn (QDtls, QEvent) callconv(.c) bool) void {
         qtc.QDtls_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -3239,17 +3971,17 @@ pub const QDtls = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QDtls, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QDtls, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QDtls_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QDtls_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -3263,13 +3995,17 @@ pub const QDtls = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QDtls, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QDtls, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QDtls_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QDtls_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -3283,9 +4019,13 @@ pub const QDtls = extern struct {
     ///
     /// ` callback: *const fn (self: QDtls, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QDtls, callback: *const fn (QDtls, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QDtls, callback: *const fn (QDtls, QObject, QEvent) callconv(.c) bool) void {
         qtc.QDtls_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -3297,16 +4037,16 @@ pub const QDtls = extern struct {
     ///
     /// ` self: QDtls `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QDtls, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QDtls_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QDtls, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QDtls_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -3318,12 +4058,16 @@ pub const QDtls = extern struct {
     ///
     /// ` self: QDtls `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QDtls, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QDtls_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QDtls, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QDtls_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -3337,9 +4081,13 @@ pub const QDtls = extern struct {
     ///
     /// ` callback: *const fn (self: QDtls, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QDtls, callback: *const fn (QDtls, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QDtls, callback: *const fn (QDtls, QTimerEvent) callconv(.c) void) void {
         qtc.QDtls_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -3351,16 +4099,16 @@ pub const QDtls = extern struct {
     ///
     /// ` self: QDtls `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QDtls, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QDtls_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QDtls, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QDtls_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -3372,12 +4120,16 @@ pub const QDtls = extern struct {
     ///
     /// ` self: QDtls `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QDtls, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QDtls_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QDtls, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QDtls_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -3391,9 +4143,13 @@ pub const QDtls = extern struct {
     ///
     /// ` callback: *const fn (self: QDtls, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QDtls, callback: *const fn (QDtls, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QDtls, callback: *const fn (QDtls, QChildEvent) callconv(.c) void) void {
         qtc.QDtls_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -3405,16 +4161,16 @@ pub const QDtls = extern struct {
     ///
     /// ` self: QDtls `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QDtls, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QDtls_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QDtls, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QDtls_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -3426,12 +4182,16 @@ pub const QDtls = extern struct {
     ///
     /// ` self: QDtls `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QDtls, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QDtls_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QDtls, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QDtls_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -3445,9 +4205,13 @@ pub const QDtls = extern struct {
     ///
     /// ` callback: *const fn (self: QDtls, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QDtls, callback: *const fn (QDtls, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QDtls, callback: *const fn (QDtls, QEvent) callconv(.c) void) void {
         qtc.QDtls_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -3461,14 +4225,14 @@ pub const QDtls = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QDtls, signal: anytype) void {
+    pub fn connectNotify(self: QDtls, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QDtls_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3482,11 +4246,15 @@ pub const QDtls = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QDtls, signal: anytype) void {
+    pub fn superConnectNotify(self: QDtls, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QDtls_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -3499,9 +4267,13 @@ pub const QDtls = extern struct {
     ///
     /// ` callback: *const fn (self: QDtls, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QDtls, callback: *const fn (QDtls, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QDtls, callback: *const fn (QDtls, QMetaMethod) callconv(.c) void) void {
         qtc.QDtls_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3515,14 +4287,14 @@ pub const QDtls = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QDtls, signal: anytype) void {
+    pub fn disconnectNotify(self: QDtls, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QDtls_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3536,10 +4308,14 @@ pub const QDtls = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QDtls, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QDtls, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QDtls_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3553,9 +4329,13 @@ pub const QDtls = extern struct {
     ///
     /// ` callback: *const fn (self: QDtls, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QDtls, callback: *const fn (QDtls, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QDtls, callback: *const fn (QDtls, QMetaMethod) callconv(.c) void) void {
         qtc.QDtls_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -3567,13 +4347,13 @@ pub const QDtls = extern struct {
     ///
     /// ` self: QDtls `
     ///
-    pub fn Sender(self: QDtls) QObject {
+    pub fn sender(self: QDtls) QObject {
         return .{ .ptr = qtc.QDtls_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -3585,9 +4365,13 @@ pub const QDtls = extern struct {
     ///
     /// ` self: QDtls `
     ///
-    pub fn SuperSender(self: QDtls) QObject {
+    pub fn superSender(self: QDtls) QObject {
         return .{ .ptr = qtc.QDtls_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -3601,9 +4385,13 @@ pub const QDtls = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QDtls, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QDtls, callback: *const fn () callconv(.c) QObject) void {
         qtc.QDtls_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -3615,13 +4403,13 @@ pub const QDtls = extern struct {
     ///
     /// ` self: QDtls `
     ///
-    pub fn SenderSignalIndex(self: QDtls) i32 {
+    pub fn senderSignalIndex(self: QDtls) i32 {
         return qtc.QDtls_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -3633,9 +4421,13 @@ pub const QDtls = extern struct {
     ///
     /// ` self: QDtls `
     ///
-    pub fn SuperSenderSignalIndex(self: QDtls) i32 {
+    pub fn superSenderSignalIndex(self: QDtls) i32 {
         return qtc.QDtls_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -3649,9 +4441,13 @@ pub const QDtls = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QDtls, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QDtls, callback: *const fn () callconv(.c) i32) void {
         qtc.QDtls_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -3665,14 +4461,14 @@ pub const QDtls = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QDtls, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QDtls, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QDtls_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -3686,10 +4482,14 @@ pub const QDtls = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QDtls, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QDtls, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QDtls_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -3703,9 +4503,13 @@ pub const QDtls = extern struct {
     ///
     /// ` callback: *const fn (self: QDtls, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QDtls, callback: *const fn (QDtls, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QDtls, callback: *const fn (QDtls, [*:0]const u8) callconv(.c) i32) void {
         qtc.QDtls_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -3719,14 +4523,14 @@ pub const QDtls = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QDtls, signal: anytype) bool {
+    pub fn isSignalConnected(self: QDtls, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QDtls_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -3740,10 +4544,14 @@ pub const QDtls = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QDtls, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QDtls, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QDtls_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -3757,9 +4565,13 @@ pub const QDtls = extern struct {
     ///
     /// ` callback: *const fn (self: QDtls, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QDtls, callback: *const fn (QDtls, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QDtls, callback: *const fn (QDtls, QMetaMethod) callconv(.c) bool) void {
         qtc.QDtls_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -3773,23 +4585,23 @@ pub const QDtls = extern struct {
     ///
     /// ` callback: *const fn (self: QDtls, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QDtls, callback: *const fn (QDtls, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QDtls, callback: *const fn (QDtls, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#dtor.QDtls)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDtls `
     ///
-    pub fn Delete(self: QDtls) void {
+    pub fn delete(self: QDtls) void {
         qtc.QDtls_Delete(@ptrCast(self.ptr));
     }
 };
@@ -3804,13 +4616,21 @@ pub const QDtlsClientVerifier__GeneratorParameters = extern struct {
 
     pub const _is_QDtlsClientVerifier__GeneratorParameters = {};
 
-    /// New constructs a new QDtlsClientVerifier::GeneratorParameters object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QDtlsClientVerifier__GeneratorParameters {
+    pub const New = new;
+
+    /// Allocate a new QDtlsClientVerifier::GeneratorParameters object in C++ memory
+    ///
+    pub fn new() QDtlsClientVerifier__GeneratorParameters {
         return .{ .ptr = qtc.QDtlsClientVerifier__GeneratorParameters_new() };
     }
 
-    /// New2 constructs a new QDtlsClientVerifier::GeneratorParameters object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QDtlsClientVerifier::GeneratorParameters object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -3818,7 +4638,7 @@ pub const QDtlsClientVerifier__GeneratorParameters = extern struct {
     ///
     /// ` s: []u8 `
     ///
-    pub fn New2(a: i32, s: []u8) QDtlsClientVerifier__GeneratorParameters {
+    pub fn new2(a: i32, s: []u8) QDtlsClientVerifier__GeneratorParameters {
         const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
@@ -3826,16 +4646,24 @@ pub const QDtlsClientVerifier__GeneratorParameters = extern struct {
         return .{ .ptr = qtc.QDtlsClientVerifier__GeneratorParameters_new2(@bitCast(a), s_str) };
     }
 
-    /// New3 constructs a new QDtlsClientVerifier::GeneratorParameters object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QDtlsClientVerifier::GeneratorParameters object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QDtlsClientVerifier__GeneratorParameters `
     ///
-    pub fn New3(param1: anytype) QDtlsClientVerifier__GeneratorParameters {
+    pub fn new3(param1: anytype) QDtlsClientVerifier__GeneratorParameters {
         comptime _ = @TypeOf(param1)._is_QDtlsClientVerifier__GeneratorParameters;
         return .{ .ptr = qtc.QDtlsClientVerifier__GeneratorParameters_new3(@ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `hash` instead
+    ///
+    pub const Hash = hash;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtlsclientverifier-generatorparameters.html#hash-var)
     ///
@@ -3847,9 +4675,13 @@ pub const QDtlsClientVerifier__GeneratorParameters = extern struct {
     ///
     /// ` qcryptographichash_enums.Algorithm `
     ///
-    pub fn Hash(self: QDtlsClientVerifier__GeneratorParameters) i32 {
+    pub fn hash(self: QDtlsClientVerifier__GeneratorParameters) i32 {
         return qtc.QDtlsClientVerifier__GeneratorParameters_Hash(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHash` instead
+    ///
+    pub const SetHash = setHash;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtlsclientverifier-generatorparameters.html#hash-var)
     ///
@@ -3857,11 +4689,15 @@ pub const QDtlsClientVerifier__GeneratorParameters = extern struct {
     ///
     /// ` self: QDtlsClientVerifier__GeneratorParameters `
     ///
-    /// ` hash: qcryptographichash_enums.Algorithm `
+    /// ` _hash: qcryptographichash_enums.Algorithm `
     ///
-    pub fn SetHash(self: QDtlsClientVerifier__GeneratorParameters, hash: i32) void {
-        qtc.QDtlsClientVerifier__GeneratorParameters_SetHash(@ptrCast(self.ptr), @bitCast(hash));
+    pub fn setHash(self: QDtlsClientVerifier__GeneratorParameters, _hash: i32) void {
+        qtc.QDtlsClientVerifier__GeneratorParameters_SetHash(@ptrCast(self.ptr), @bitCast(_hash));
     }
+
+    /// ### DEPRECATED: Use `secret` instead
+    ///
+    pub const Secret = secret;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtlsclientverifier-generatorparameters.html#secret-var)
     ///
@@ -3871,13 +4707,17 @@ pub const QDtlsClientVerifier__GeneratorParameters = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Secret(self: QDtlsClientVerifier__GeneratorParameters, allocator: std.mem.Allocator) []u8 {
+    pub fn secret(self: QDtlsClientVerifier__GeneratorParameters, allocator: std.mem.Allocator) []u8 {
         var secret_bytearray: qtc.libqt_string = qtc.QDtlsClientVerifier__GeneratorParameters_Secret(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&secret_bytearray);
-        const secret_ret = allocator.alloc(u8, secret_bytearray.len) catch @panic("QDtlsClientVerifier__GeneratorParameters.Secret: Memory allocation failed");
+        const secret_ret = allocator.alloc(u8, secret_bytearray.len) catch @panic("QDtlsClientVerifier__GeneratorParameters.secret: Memory allocation failed");
         @memcpy(secret_ret, secret_bytearray.data[0..secret_bytearray.len]);
         return secret_ret;
     }
+
+    /// ### DEPRECATED: Use `setSecret` instead
+    ///
+    pub const SetSecret = setSecret;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtlsclientverifier-generatorparameters.html#secret-var)
     ///
@@ -3885,15 +4725,19 @@ pub const QDtlsClientVerifier__GeneratorParameters = extern struct {
     ///
     /// ` self: QDtlsClientVerifier__GeneratorParameters `
     ///
-    /// ` secret: []u8 `
+    /// ` _secret: []u8 `
     ///
-    pub fn SetSecret(self: QDtlsClientVerifier__GeneratorParameters, secret: []u8) void {
+    pub fn setSecret(self: QDtlsClientVerifier__GeneratorParameters, _secret: []u8) void {
         const secret_str = qtc.libqt_string{
-            .len = secret.len,
-            .data = secret.ptr,
+            .len = _secret.len,
+            .data = _secret.ptr,
         };
         qtc.QDtlsClientVerifier__GeneratorParameters_SetSecret(@ptrCast(self.ptr), secret_str);
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtlsclientverifier-generatorparameters.html#operator-eq)
     ///
@@ -3903,22 +4747,22 @@ pub const QDtlsClientVerifier__GeneratorParameters = extern struct {
     ///
     /// ` param1: QDtlsClientVerifier__GeneratorParameters `
     ///
-    pub fn OperatorAssign(self: QDtlsClientVerifier__GeneratorParameters, param1: anytype) void {
+    pub fn operatorAssign(self: QDtlsClientVerifier__GeneratorParameters, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QDtlsClientVerifier__GeneratorParameters;
         qtc.QDtlsClientVerifier__GeneratorParameters_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDtlsClientVerifier__GeneratorParameters `
     ///
-    pub fn Delete(self: QDtlsClientVerifier__GeneratorParameters) void {
+    pub fn delete(self: QDtlsClientVerifier__GeneratorParameters) void {
         qtc.QDtlsClientVerifier__GeneratorParameters_Delete(@ptrCast(self.ptr));
     }
 };

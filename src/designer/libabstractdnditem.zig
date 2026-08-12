@@ -14,15 +14,23 @@ pub const QDesignerDnDItemInterface = extern struct {
 
     pub const _is_QDesignerDnDItemInterface = {};
 
+    /// ### DEPRECATED: Use `widget` instead
+    ///
+    pub const Widget = widget;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerdnditeminterface.html#widget)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerDnDItemInterface `
     ///
-    pub fn Widget(self: QDesignerDnDItemInterface) QWidget {
+    pub fn widget(self: QDesignerDnDItemInterface) QWidget {
         return .{ .ptr = qtc.QDesignerDnDItemInterface_Widget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `decoration` instead
+    ///
+    pub const Decoration = decoration;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerdnditeminterface.html#decoration)
     ///
@@ -30,9 +38,13 @@ pub const QDesignerDnDItemInterface = extern struct {
     ///
     /// ` self: QDesignerDnDItemInterface `
     ///
-    pub fn Decoration(self: QDesignerDnDItemInterface) QWidget {
+    pub fn decoration(self: QDesignerDnDItemInterface) QWidget {
         return .{ .ptr = qtc.QDesignerDnDItemInterface_Decoration(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `hotSpot` instead
+    ///
+    pub const HotSpot = hotSpot;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerdnditeminterface.html#hotSpot)
     ///
@@ -40,9 +52,15 @@ pub const QDesignerDnDItemInterface = extern struct {
     ///
     /// ` self: QDesignerDnDItemInterface `
     ///
-    pub fn HotSpot(self: QDesignerDnDItemInterface) QPoint {
+    pub fn hotSpot(self: QDesignerDnDItemInterface) QPoint {
         return .{ .ptr = qtc.QDesignerDnDItemInterface_HotSpot(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerdnditeminterface.html#type)
     ///
@@ -54,9 +72,13 @@ pub const QDesignerDnDItemInterface = extern struct {
     ///
     /// ` abstractdnditem_enums.DropType `
     ///
-    pub fn Type(self: QDesignerDnDItemInterface) i32 {
+    pub fn type0(self: QDesignerDnDItemInterface) i32 {
         return qtc.QDesignerDnDItemInterface_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `source` instead
+    ///
+    pub const Source = source;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerdnditeminterface.html#source)
     ///
@@ -64,23 +86,23 @@ pub const QDesignerDnDItemInterface = extern struct {
     ///
     /// ` self: QDesignerDnDItemInterface `
     ///
-    pub fn Source(self: QDesignerDnDItemInterface) QWidget {
+    pub fn source(self: QDesignerDnDItemInterface) QWidget {
         return .{ .ptr = qtc.QDesignerDnDItemInterface_Source(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerdnditeminterface.html#dtor.QDesignerDnDItemInterface)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDesignerDnDItemInterface `
     ///
-    pub fn Delete(self: QDesignerDnDItemInterface) void {
+    pub fn delete(self: QDesignerDnDItemInterface) void {
         qtc.QDesignerDnDItemInterface_Delete(@ptrCast(self.ptr));
     }
 };

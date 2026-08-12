@@ -83,35 +83,51 @@ pub const QOpenGLWidget = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new QOpenGLWidget object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QOpenGLWidget object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) QOpenGLWidget {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QOpenGLWidget_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) QOpenGLWidget {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QOpenGLWidget_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new QOpenGLWidget object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() QOpenGLWidget {
+    pub const New2 = new2;
+
+    /// Allocate a new QOpenGLWidget object in C++ memory
+    ///
+    pub fn new2() QOpenGLWidget {
         return .{ .ptr = qtc.QOpenGLWidget_new2() };
     }
 
-    /// New3 constructs a new QOpenGLWidget object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QOpenGLWidget object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn New3(parent: anytype, f: i32) QOpenGLWidget {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QOpenGLWidget_new3(@ptrCast(parent.ptr), @bitCast(f)) };
+    pub fn new3(_parent: anytype, f: i32) QOpenGLWidget {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QOpenGLWidget_new3(@ptrCast(_parent.ptr), @bitCast(f)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -119,9 +135,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn MetaObject(self: QOpenGLWidget) QMetaObject {
+    pub fn metaObject(self: QOpenGLWidget) QMetaObject {
         return .{ .ptr = qtc.QOpenGLWidget_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -133,13 +153,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QOpenGLWidget, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QOpenGLWidget, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QOpenGLWidget_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -149,9 +169,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn SuperMetaObject(self: QOpenGLWidget) QMetaObject {
+    pub fn superMetaObject(self: QOpenGLWidget) QMetaObject {
         return .{ .ptr = qtc.QOpenGLWidget_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -159,10 +183,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QOpenGLWidget, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QOpenGLWidget, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QOpenGLWidget_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -172,13 +200,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QOpenGLWidget_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -188,10 +216,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QOpenGLWidget, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QOpenGLWidget, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QOpenGLWidget_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -203,9 +235,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QOpenGLWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QOpenGLWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QOpenGLWidget_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -215,13 +251,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QOpenGLWidget_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -235,9 +271,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QOpenGLWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QOpenGLWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QOpenGLWidget_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -247,14 +287,18 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLWidget.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLWidget.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setUpdateBehavior` instead
+    ///
+    pub const SetUpdateBehavior = setUpdateBehavior;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#setUpdateBehavior)
     ///
@@ -262,11 +306,15 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` updateBehavior: qopenglwidget_enums.UpdateBehavior `
+    /// ` _updateBehavior: qopenglwidget_enums.UpdateBehavior `
     ///
-    pub fn SetUpdateBehavior(self: QOpenGLWidget, updateBehavior: i32) void {
-        qtc.QOpenGLWidget_SetUpdateBehavior(@ptrCast(self.ptr), @bitCast(updateBehavior));
+    pub fn setUpdateBehavior(self: QOpenGLWidget, _updateBehavior: i32) void {
+        qtc.QOpenGLWidget_SetUpdateBehavior(@ptrCast(self.ptr), @bitCast(_updateBehavior));
     }
+
+    /// ### DEPRECATED: Use `updateBehavior` instead
+    ///
+    pub const UpdateBehavior = updateBehavior;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#updateBehavior)
     ///
@@ -278,9 +326,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` qopenglwidget_enums.UpdateBehavior `
     ///
-    pub fn UpdateBehavior(self: QOpenGLWidget) i32 {
+    pub fn updateBehavior(self: QOpenGLWidget) i32 {
         return qtc.QOpenGLWidget_UpdateBehavior(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFormat` instead
+    ///
+    pub const SetFormat = setFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#setFormat)
     ///
@@ -288,12 +340,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` format: QSurfaceFormat `
+    /// ` _format: QSurfaceFormat `
     ///
-    pub fn SetFormat(self: QOpenGLWidget, format: anytype) void {
-        comptime _ = @TypeOf(format)._is_QSurfaceFormat;
-        qtc.QOpenGLWidget_SetFormat(@ptrCast(self.ptr), @ptrCast(format.ptr));
+    pub fn setFormat(self: QOpenGLWidget, _format: anytype) void {
+        comptime _ = @TypeOf(_format)._is_QSurfaceFormat;
+        qtc.QOpenGLWidget_SetFormat(@ptrCast(self.ptr), @ptrCast(_format.ptr));
     }
+
+    /// ### DEPRECATED: Use `format` instead
+    ///
+    pub const Format = format;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#format)
     ///
@@ -301,9 +357,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn Format(self: QOpenGLWidget) QSurfaceFormat {
+    pub fn format(self: QOpenGLWidget) QSurfaceFormat {
         return .{ .ptr = qtc.QOpenGLWidget_Format(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setTextureFormat` instead
+    ///
+    pub const SetTextureFormat = setTextureFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#setTextureFormat)
     ///
@@ -313,9 +373,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` texFormat: u32 `
     ///
-    pub fn SetTextureFormat(self: QOpenGLWidget, texFormat: u32) void {
+    pub fn setTextureFormat(self: QOpenGLWidget, texFormat: u32) void {
         qtc.QOpenGLWidget_SetTextureFormat(@ptrCast(self.ptr), @bitCast(texFormat));
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#isValid)
     ///
@@ -323,9 +387,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn IsValid(self: QOpenGLWidget) bool {
+    pub fn isValid(self: QOpenGLWidget) bool {
         return qtc.QOpenGLWidget_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `makeCurrent` instead
+    ///
+    pub const MakeCurrent = makeCurrent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#makeCurrent)
     ///
@@ -333,9 +401,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn MakeCurrent(self: QOpenGLWidget) void {
+    pub fn makeCurrent(self: QOpenGLWidget) void {
         qtc.QOpenGLWidget_MakeCurrent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `makeCurrent2` instead
+    ///
+    pub const MakeCurrent2 = makeCurrent2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#makeCurrent)
     ///
@@ -345,9 +417,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` targetBuffer: qopenglwidget_enums.TargetBuffer `
     ///
-    pub fn MakeCurrent2(self: QOpenGLWidget, targetBuffer: u8) void {
+    pub fn makeCurrent2(self: QOpenGLWidget, targetBuffer: u8) void {
         qtc.QOpenGLWidget_MakeCurrent2(@ptrCast(self.ptr), @bitCast(targetBuffer));
     }
+
+    /// ### DEPRECATED: Use `doneCurrent` instead
+    ///
+    pub const DoneCurrent = doneCurrent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#doneCurrent)
     ///
@@ -355,9 +431,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn DoneCurrent(self: QOpenGLWidget) void {
+    pub fn doneCurrent(self: QOpenGLWidget) void {
         qtc.QOpenGLWidget_DoneCurrent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `context` instead
+    ///
+    pub const Context = context;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#context)
     ///
@@ -365,20 +445,28 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn Context(self: QOpenGLWidget) QOpenGLContext {
+    pub fn context(self: QOpenGLWidget) QOpenGLContext {
         return .{ .ptr = qtc.QOpenGLWidget_Context(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `defaultFramebufferObject` instead
+    ///
+    pub const DefaultFramebufferObject = defaultFramebufferObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#defaultFramebufferObject)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn DefaultFramebufferObject(self: QOpenGLWidget) u32 {
+    pub fn defaultFramebufferObject(self: QOpenGLWidget) u32 {
         return qtc.QOpenGLWidget_DefaultFramebufferObject(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `defaultFramebufferObject2` instead
+    ///
+    pub const DefaultFramebufferObject2 = defaultFramebufferObject2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#defaultFramebufferObject)
     ///
     /// ## Parameter(s):
@@ -387,9 +475,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` targetBuffer: qopenglwidget_enums.TargetBuffer `
     ///
-    pub fn DefaultFramebufferObject2(self: QOpenGLWidget, targetBuffer: u8) u32 {
+    pub fn defaultFramebufferObject2(self: QOpenGLWidget, targetBuffer: u8) u32 {
         return qtc.QOpenGLWidget_DefaultFramebufferObject2(@ptrCast(self.ptr), @bitCast(targetBuffer));
     }
+
+    /// ### DEPRECATED: Use `grabFramebuffer` instead
+    ///
+    pub const GrabFramebuffer = grabFramebuffer;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#grabFramebuffer)
     ///
@@ -397,9 +489,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn GrabFramebuffer(self: QOpenGLWidget) QImage {
+    pub fn grabFramebuffer(self: QOpenGLWidget) QImage {
         return .{ .ptr = qtc.QOpenGLWidget_GrabFramebuffer(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabFramebuffer2` instead
+    ///
+    pub const GrabFramebuffer2 = grabFramebuffer2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#grabFramebuffer)
     ///
@@ -409,9 +505,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` targetBuffer: qopenglwidget_enums.TargetBuffer `
     ///
-    pub fn GrabFramebuffer2(self: QOpenGLWidget, targetBuffer: u8) QImage {
+    pub fn grabFramebuffer2(self: QOpenGLWidget, targetBuffer: u8) QImage {
         return .{ .ptr = qtc.QOpenGLWidget_GrabFramebuffer2(@ptrCast(self.ptr), @bitCast(targetBuffer)) };
     }
+
+    /// ### DEPRECATED: Use `currentTargetBuffer` instead
+    ///
+    pub const CurrentTargetBuffer = currentTargetBuffer;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#currentTargetBuffer)
     ///
@@ -423,20 +523,28 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` qopenglwidget_enums.TargetBuffer `
     ///
-    pub fn CurrentTargetBuffer(self: QOpenGLWidget) u8 {
+    pub fn currentTargetBuffer(self: QOpenGLWidget) u8 {
         return qtc.QOpenGLWidget_CurrentTargetBuffer(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `aboutToCompose` instead
+    ///
+    pub const AboutToCompose = aboutToCompose;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#aboutToCompose)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn AboutToCompose(self: QOpenGLWidget) void {
+    pub fn aboutToCompose(self: QOpenGLWidget) void {
         qtc.QOpenGLWidget_AboutToCompose(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onAboutToCompose` instead
+    ///
+    pub const OnAboutToCompose = onAboutToCompose;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#aboutToCompose)
     ///
     /// ## Parameters:
@@ -445,20 +553,28 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget) callconv(.c) void `
     ///
-    pub fn OnAboutToCompose(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget) callconv(.c) void) void {
+    pub fn onAboutToCompose(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget) callconv(.c) void) void {
         qtc.QOpenGLWidget_Connect_AboutToCompose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `frameSwapped` instead
+    ///
+    pub const FrameSwapped = frameSwapped;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#frameSwapped)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn FrameSwapped(self: QOpenGLWidget) void {
+    pub fn frameSwapped(self: QOpenGLWidget) void {
         qtc.QOpenGLWidget_FrameSwapped(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFrameSwapped` instead
+    ///
+    pub const OnFrameSwapped = onFrameSwapped;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#frameSwapped)
     ///
     /// ## Parameters:
@@ -467,20 +583,28 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget) callconv(.c) void `
     ///
-    pub fn OnFrameSwapped(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget) callconv(.c) void) void {
+    pub fn onFrameSwapped(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget) callconv(.c) void) void {
         qtc.QOpenGLWidget_Connect_FrameSwapped(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `aboutToResize` instead
+    ///
+    pub const AboutToResize = aboutToResize;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#aboutToResize)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn AboutToResize(self: QOpenGLWidget) void {
+    pub fn aboutToResize(self: QOpenGLWidget) void {
         qtc.QOpenGLWidget_AboutToResize(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onAboutToResize` instead
+    ///
+    pub const OnAboutToResize = onAboutToResize;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#aboutToResize)
     ///
     /// ## Parameters:
@@ -489,9 +613,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget) callconv(.c) void `
     ///
-    pub fn OnAboutToResize(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget) callconv(.c) void) void {
+    pub fn onAboutToResize(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget) callconv(.c) void) void {
         qtc.QOpenGLWidget_Connect_AboutToResize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resized` instead
+    ///
+    pub const Resized = resized;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#resized)
     ///
@@ -499,9 +627,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn Resized(self: QOpenGLWidget) void {
+    pub fn resized(self: QOpenGLWidget) void {
         qtc.QOpenGLWidget_Resized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResized` instead
+    ///
+    pub const OnResized = onResized;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#resized)
     ///
@@ -511,9 +643,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget) callconv(.c) void `
     ///
-    pub fn OnResized(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget) callconv(.c) void) void {
+    pub fn onResized(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget) callconv(.c) void) void {
         qtc.QOpenGLWidget_Connect_Resized(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initializeGL` instead
+    ///
+    pub const InitializeGL = initializeGL;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#initializeGL)
     ///
@@ -521,9 +657,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn InitializeGL(self: QOpenGLWidget) void {
+    pub fn initializeGL(self: QOpenGLWidget) void {
         qtc.QOpenGLWidget_InitializeGL(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitializeGL` instead
+    ///
+    pub const OnInitializeGL = onInitializeGL;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#initializeGL)
     ///
@@ -535,13 +675,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnInitializeGL(self: QOpenGLWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onInitializeGL(self: QOpenGLWidget, callback: *const fn () callconv(.c) void) void {
         qtc.QOpenGLWidget_OnInitializeGL(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperInitializeGL` instead
+    /// ### DEPRECATED: Use `superInitializeGL` instead
     ///
-    pub const QBaseInitializeGL = SuperInitializeGL;
+    pub const SuperInitializeGL = superInitializeGL;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#initializeGL)
     ///
@@ -551,9 +691,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn SuperInitializeGL(self: QOpenGLWidget) void {
+    pub fn superInitializeGL(self: QOpenGLWidget) void {
         qtc.QOpenGLWidget_SuperInitializeGL(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `resizeGL` instead
+    ///
+    pub const ResizeGL = resizeGL;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#resizeGL)
     ///
@@ -565,9 +709,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn ResizeGL(self: QOpenGLWidget, w: i32, h: i32) void {
+    pub fn resizeGL(self: QOpenGLWidget, w: i32, h: i32) void {
         qtc.QOpenGLWidget_ResizeGL(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `onResizeGL` instead
+    ///
+    pub const OnResizeGL = onResizeGL;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#resizeGL)
     ///
@@ -579,13 +727,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, w: i32, h: i32) callconv(.c) void `
     ///
-    pub fn OnResizeGL(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, i32, i32) callconv(.c) void) void {
+    pub fn onResizeGL(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, i32, i32) callconv(.c) void) void {
         qtc.QOpenGLWidget_OnResizeGL(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeGL` instead
+    /// ### DEPRECATED: Use `superResizeGL` instead
     ///
-    pub const QBaseResizeGL = SuperResizeGL;
+    pub const SuperResizeGL = superResizeGL;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#resizeGL)
     ///
@@ -599,9 +747,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SuperResizeGL(self: QOpenGLWidget, w: i32, h: i32) void {
+    pub fn superResizeGL(self: QOpenGLWidget, w: i32, h: i32) void {
         qtc.QOpenGLWidget_SuperResizeGL(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `paintGL` instead
+    ///
+    pub const PaintGL = paintGL;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#paintGL)
     ///
@@ -609,9 +761,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn PaintGL(self: QOpenGLWidget) void {
+    pub fn paintGL(self: QOpenGLWidget) void {
         qtc.QOpenGLWidget_PaintGL(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintGL` instead
+    ///
+    pub const OnPaintGL = onPaintGL;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#paintGL)
     ///
@@ -623,13 +779,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnPaintGL(self: QOpenGLWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onPaintGL(self: QOpenGLWidget, callback: *const fn () callconv(.c) void) void {
         qtc.QOpenGLWidget_OnPaintGL(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintGL` instead
+    /// ### DEPRECATED: Use `superPaintGL` instead
     ///
-    pub const QBasePaintGL = SuperPaintGL;
+    pub const SuperPaintGL = superPaintGL;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#paintGL)
     ///
@@ -639,9 +795,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn SuperPaintGL(self: QOpenGLWidget) void {
+    pub fn superPaintGL(self: QOpenGLWidget) void {
         qtc.QOpenGLWidget_SuperPaintGL(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#paintEvent)
     ///
@@ -651,10 +811,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` e: QPaintEvent `
     ///
-    pub fn PaintEvent(self: QOpenGLWidget, e: anytype) void {
+    pub fn paintEvent(self: QOpenGLWidget, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QPaintEvent;
         qtc.QOpenGLWidget_PaintEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#paintEvent)
     ///
@@ -666,13 +830,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, e: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QPaintEvent) callconv(.c) void) void {
         qtc.QOpenGLWidget_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#paintEvent)
     ///
@@ -684,10 +848,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` e: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: QOpenGLWidget, e: anytype) void {
+    pub fn superPaintEvent(self: QOpenGLWidget, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QPaintEvent;
         qtc.QOpenGLWidget_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#resizeEvent)
     ///
@@ -697,10 +865,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` e: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: QOpenGLWidget, e: anytype) void {
+    pub fn resizeEvent(self: QOpenGLWidget, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QResizeEvent;
         qtc.QOpenGLWidget_ResizeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#resizeEvent)
     ///
@@ -712,13 +884,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, e: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QResizeEvent) callconv(.c) void) void {
         qtc.QOpenGLWidget_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#resizeEvent)
     ///
@@ -730,10 +902,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` e: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: QOpenGLWidget, e: anytype) void {
+    pub fn superResizeEvent(self: QOpenGLWidget, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QResizeEvent;
         qtc.QOpenGLWidget_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#event)
     ///
@@ -743,10 +919,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn Event(self: QOpenGLWidget, e: anytype) bool {
+    pub fn event(self: QOpenGLWidget, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.QOpenGLWidget_Event(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#event)
     ///
@@ -758,13 +938,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, e: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QEvent) callconv(.c) bool) void {
         qtc.QOpenGLWidget_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#event)
     ///
@@ -776,10 +956,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn SuperEvent(self: QOpenGLWidget, e: anytype) bool {
+    pub fn superEvent(self: QOpenGLWidget, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.QOpenGLWidget_SuperEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#metric)
     ///
@@ -787,11 +971,15 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: QOpenGLWidget, metric: i32) i32 {
-        return qtc.QOpenGLWidget_Metric(@ptrCast(self.ptr), @bitCast(metric));
+    pub fn metric(self: QOpenGLWidget, _metric: i32) i32 {
+        return qtc.QOpenGLWidget_Metric(@ptrCast(self.ptr), @bitCast(_metric));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#metric)
     ///
@@ -803,13 +991,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, metric: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, i32) callconv(.c) i32) void {
         qtc.QOpenGLWidget_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#metric)
     ///
@@ -819,11 +1007,15 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: QOpenGLWidget, metric: i32) i32 {
-        return qtc.QOpenGLWidget_SuperMetric(@ptrCast(self.ptr), @bitCast(metric));
+    pub fn superMetric(self: QOpenGLWidget, _metric: i32) i32 {
+        return qtc.QOpenGLWidget_SuperMetric(@ptrCast(self.ptr), @bitCast(_metric));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#redirected)
     ///
@@ -833,10 +1025,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn Redirected(self: QOpenGLWidget, p: anytype) QPaintDevice {
+    pub fn redirected(self: QOpenGLWidget, p: anytype) QPaintDevice {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QOpenGLWidget_Redirected(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#redirected)
     ///
@@ -848,13 +1044,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, p: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QPoint) callconv(.c) QPaintDevice) void {
         qtc.QOpenGLWidget_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#redirected)
     ///
@@ -866,10 +1062,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn SuperRedirected(self: QOpenGLWidget, p: anytype) QPaintDevice {
+    pub fn superRedirected(self: QOpenGLWidget, p: anytype) QPaintDevice {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QOpenGLWidget_SuperRedirected(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#paintEngine)
     ///
@@ -877,9 +1077,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn PaintEngine(self: QOpenGLWidget) QPaintEngine {
+    pub fn paintEngine(self: QOpenGLWidget) QPaintEngine {
         return .{ .ptr = qtc.QOpenGLWidget_PaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#paintEngine)
     ///
@@ -891,13 +1095,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: QOpenGLWidget, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QOpenGLWidget, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.QOpenGLWidget_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#paintEngine)
     ///
@@ -907,9 +1111,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn SuperPaintEngine(self: QOpenGLWidget) QPaintEngine {
+    pub fn superPaintEngine(self: QOpenGLWidget) QPaintEngine {
         return .{ .ptr = qtc.QOpenGLWidget_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -921,15 +1129,19 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLWidget.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLWidget.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -943,15 +1155,19 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLWidget.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLWidget.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -961,9 +1177,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn WinId(self: QOpenGLWidget) usize {
+    pub fn winId(self: QOpenGLWidget) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -973,9 +1193,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn CreateWinId(self: QOpenGLWidget) void {
+    pub fn createWinId(self: QOpenGLWidget) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -985,9 +1209,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn InternalWinId(self: QOpenGLWidget) usize {
+    pub fn internalWinId(self: QOpenGLWidget) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -997,9 +1225,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn EffectiveWinId(self: QOpenGLWidget) usize {
+    pub fn effectiveWinId(self: QOpenGLWidget) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -1009,9 +1241,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn Style(self: QOpenGLWidget) QStyle {
+    pub fn style(self: QOpenGLWidget) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -1021,12 +1257,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: QOpenGLWidget, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: QOpenGLWidget, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -1036,9 +1276,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn IsTopLevel(self: QOpenGLWidget) bool {
+    pub fn isTopLevel(self: QOpenGLWidget) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -1048,9 +1292,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn IsWindow(self: QOpenGLWidget) bool {
+    pub fn isWindow(self: QOpenGLWidget) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -1060,9 +1308,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn IsModal(self: QOpenGLWidget) bool {
+    pub fn isModal(self: QOpenGLWidget) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -1076,9 +1328,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: QOpenGLWidget) i32 {
+    pub fn windowModality(self: QOpenGLWidget) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -1088,11 +1344,15 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: QOpenGLWidget, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: QOpenGLWidget, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1102,9 +1362,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn IsEnabled(self: QOpenGLWidget) bool {
+    pub fn isEnabled(self: QOpenGLWidget) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -1116,10 +1380,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: QOpenGLWidget, param1: anytype) bool {
+    pub fn isEnabledTo(self: QOpenGLWidget, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1131,9 +1399,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: QOpenGLWidget, enabled: bool) void {
+    pub fn setEnabled(self: QOpenGLWidget, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -1145,9 +1417,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: QOpenGLWidget, disabled: bool) void {
+    pub fn setDisabled(self: QOpenGLWidget, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -1159,9 +1435,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: QOpenGLWidget, windowModified: bool) void {
+    pub fn setWindowModified(self: QOpenGLWidget, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1171,9 +1451,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn FrameGeometry(self: QOpenGLWidget) QRect {
+    pub fn frameGeometry(self: QOpenGLWidget) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -1183,9 +1467,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn Geometry(self: QOpenGLWidget) QRect {
+    pub fn geometry(self: QOpenGLWidget) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1195,9 +1483,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn NormalGeometry(self: QOpenGLWidget) QRect {
+    pub fn normalGeometry(self: QOpenGLWidget) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -1207,9 +1499,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn X(self: QOpenGLWidget) i32 {
+    pub fn x(self: QOpenGLWidget) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -1219,9 +1515,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn Y(self: QOpenGLWidget) i32 {
+    pub fn y(self: QOpenGLWidget) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -1231,9 +1531,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn Pos(self: QOpenGLWidget) QPoint {
+    pub fn pos(self: QOpenGLWidget) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -1243,9 +1547,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn FrameSize(self: QOpenGLWidget) QSize {
+    pub fn frameSize(self: QOpenGLWidget) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -1255,9 +1563,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn Size(self: QOpenGLWidget) QSize {
+    pub fn size(self: QOpenGLWidget) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -1267,9 +1579,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn Width(self: QOpenGLWidget) i32 {
+    pub fn width(self: QOpenGLWidget) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -1279,9 +1595,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn Height(self: QOpenGLWidget) i32 {
+    pub fn height(self: QOpenGLWidget) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -1291,9 +1611,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn Rect(self: QOpenGLWidget) QRect {
+    pub fn rect(self: QOpenGLWidget) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -1303,9 +1627,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn ChildrenRect(self: QOpenGLWidget) QRect {
+    pub fn childrenRect(self: QOpenGLWidget) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -1315,9 +1643,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn ChildrenRegion(self: QOpenGLWidget) QRegion {
+    pub fn childrenRegion(self: QOpenGLWidget) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1327,9 +1659,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn MinimumSize(self: QOpenGLWidget) QSize {
+    pub fn minimumSize(self: QOpenGLWidget) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1339,9 +1675,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn MaximumSize(self: QOpenGLWidget) QSize {
+    pub fn maximumSize(self: QOpenGLWidget) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1351,9 +1691,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn MinimumWidth(self: QOpenGLWidget) i32 {
+    pub fn minimumWidth(self: QOpenGLWidget) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1363,9 +1707,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn MinimumHeight(self: QOpenGLWidget) i32 {
+    pub fn minimumHeight(self: QOpenGLWidget) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1375,9 +1723,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn MaximumWidth(self: QOpenGLWidget) i32 {
+    pub fn maximumWidth(self: QOpenGLWidget) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1387,9 +1739,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn MaximumHeight(self: QOpenGLWidget) i32 {
+    pub fn maximumHeight(self: QOpenGLWidget) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1399,12 +1755,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: QOpenGLWidget, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: QOpenGLWidget, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1418,9 +1778,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: QOpenGLWidget, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: QOpenGLWidget, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1430,12 +1794,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: QOpenGLWidget, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: QOpenGLWidget, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1449,9 +1817,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: QOpenGLWidget, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: QOpenGLWidget, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1463,9 +1835,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: QOpenGLWidget, minw: i32) void {
+    pub fn setMinimumWidth(self: QOpenGLWidget, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1477,9 +1853,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: QOpenGLWidget, minh: i32) void {
+    pub fn setMinimumHeight(self: QOpenGLWidget, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1491,9 +1871,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: QOpenGLWidget, maxw: i32) void {
+    pub fn setMaximumWidth(self: QOpenGLWidget, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1505,9 +1889,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: QOpenGLWidget, maxh: i32) void {
+    pub fn setMaximumHeight(self: QOpenGLWidget, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1517,9 +1905,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn SizeIncrement(self: QOpenGLWidget) QSize {
+    pub fn sizeIncrement(self: QOpenGLWidget) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1529,12 +1921,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: QOpenGLWidget, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: QOpenGLWidget, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -1548,9 +1944,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: QOpenGLWidget, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: QOpenGLWidget, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -1560,9 +1960,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn BaseSize(self: QOpenGLWidget) QSize {
+    pub fn baseSize(self: QOpenGLWidget) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -1572,12 +1976,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: QOpenGLWidget, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: QOpenGLWidget, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -1591,9 +1999,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: QOpenGLWidget, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: QOpenGLWidget, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -1605,10 +2017,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: QOpenGLWidget, fixedSize: anytype) void {
+    pub fn setFixedSize(self: QOpenGLWidget, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -1622,9 +2038,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: QOpenGLWidget, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: QOpenGLWidget, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -1636,9 +2056,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: QOpenGLWidget, w: i32) void {
+    pub fn setFixedWidth(self: QOpenGLWidget, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -1650,9 +2074,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: QOpenGLWidget, h: i32) void {
+    pub fn setFixedHeight(self: QOpenGLWidget, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -1664,11 +2092,15 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: QOpenGLWidget, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: QOpenGLWidget, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -1679,11 +2111,15 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: QOpenGLWidget, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: QOpenGLWidget, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1694,11 +2130,15 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: QOpenGLWidget, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: QOpenGLWidget, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1709,11 +2149,15 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: QOpenGLWidget, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: QOpenGLWidget, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1724,11 +2168,15 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: QOpenGLWidget, param1: anytype) QPointF {
+    pub fn mapToParent(self: QOpenGLWidget, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1739,10 +2187,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: QOpenGLWidget, param1: anytype) QPoint {
+    pub fn mapToParent2(self: QOpenGLWidget, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -1754,10 +2206,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: QOpenGLWidget, param1: anytype) QPointF {
+    pub fn mapFromParent(self: QOpenGLWidget, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -1769,10 +2225,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: QOpenGLWidget, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: QOpenGLWidget, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -1786,12 +2246,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: QOpenGLWidget, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: QOpenGLWidget, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -1804,11 +2268,15 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: QOpenGLWidget, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: QOpenGLWidget, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -1822,11 +2290,15 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: QOpenGLWidget, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: QOpenGLWidget, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -1840,11 +2312,15 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: QOpenGLWidget, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: QOpenGLWidget, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -1854,9 +2330,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn Window(self: QOpenGLWidget) QWidget {
+    pub fn window(self: QOpenGLWidget) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -1866,9 +2346,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn NativeParentWidget(self: QOpenGLWidget) QWidget {
+    pub fn nativeParentWidget(self: QOpenGLWidget) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -1878,9 +2362,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn TopLevelWidget(self: QOpenGLWidget) QWidget {
+    pub fn topLevelWidget(self: QOpenGLWidget) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -1890,9 +2378,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn Palette(self: QOpenGLWidget) QPalette {
+    pub fn palette(self: QOpenGLWidget) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -1902,12 +2394,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: QOpenGLWidget, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: QOpenGLWidget, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1917,11 +2413,15 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: QOpenGLWidget, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: QOpenGLWidget, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1935,9 +2435,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: QOpenGLWidget) i32 {
+    pub fn backgroundRole(self: QOpenGLWidget) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1947,11 +2451,15 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: QOpenGLWidget, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: QOpenGLWidget, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1965,9 +2473,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: QOpenGLWidget) i32 {
+    pub fn foregroundRole(self: QOpenGLWidget) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -1977,9 +2489,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn Font(self: QOpenGLWidget) QFont {
+    pub fn font(self: QOpenGLWidget) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -1989,12 +2505,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: QOpenGLWidget, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: QOpenGLWidget, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -2004,9 +2524,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn FontMetrics(self: QOpenGLWidget) QFontMetrics {
+    pub fn fontMetrics(self: QOpenGLWidget) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -2016,9 +2540,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn FontInfo(self: QOpenGLWidget) QFontInfo {
+    pub fn fontInfo(self: QOpenGLWidget) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -2028,9 +2556,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn Cursor(self: QOpenGLWidget) QCursor {
+    pub fn cursor(self: QOpenGLWidget) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -2040,12 +2572,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: QOpenGLWidget, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: QOpenGLWidget, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -2055,9 +2591,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn UnsetCursor(self: QOpenGLWidget) void {
+    pub fn unsetCursor(self: QOpenGLWidget) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2069,9 +2609,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: QOpenGLWidget, enable: bool) void {
+    pub fn setMouseTracking(self: QOpenGLWidget, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2081,9 +2625,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn HasMouseTracking(self: QOpenGLWidget) bool {
+    pub fn hasMouseTracking(self: QOpenGLWidget) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -2093,9 +2641,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn UnderMouse(self: QOpenGLWidget) bool {
+    pub fn underMouse(self: QOpenGLWidget) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2107,9 +2659,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: QOpenGLWidget, enable: bool) void {
+    pub fn setTabletTracking(self: QOpenGLWidget, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2119,24 +2675,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn HasTabletTracking(self: QOpenGLWidget) bool {
+    pub fn hasTabletTracking(self: QOpenGLWidget) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLWidget `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: QOpenGLWidget, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -2146,12 +2691,35 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: QOpenGLWidget, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: QOpenGLWidget, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QOpenGLWidget `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: QOpenGLWidget, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -2161,9 +2729,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn Mask(self: QOpenGLWidget) QRegion {
+    pub fn mask(self: QOpenGLWidget) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -2173,9 +2745,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn ClearMask(self: QOpenGLWidget) void {
+    pub fn clearMask(self: QOpenGLWidget) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -2187,10 +2763,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: QOpenGLWidget, target: anytype) void {
+    pub fn render(self: QOpenGLWidget, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -2202,10 +2782,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: QOpenGLWidget, painter: anytype) void {
+    pub fn render2(self: QOpenGLWidget, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -2215,9 +2799,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn Grab(self: QOpenGLWidget) QPixmap {
+    pub fn grab(self: QOpenGLWidget) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2227,9 +2815,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn GraphicsEffect(self: QOpenGLWidget) QGraphicsEffect {
+    pub fn graphicsEffect(self: QOpenGLWidget) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2241,10 +2833,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: QOpenGLWidget, effect: anytype) void {
+    pub fn setGraphicsEffect(self: QOpenGLWidget, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2256,9 +2852,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: QOpenGLWidget, typeVal: i32) void {
+    pub fn grabGesture(self: QOpenGLWidget, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2270,9 +2870,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: QOpenGLWidget, typeVal: i32) void {
+    pub fn ungrabGesture(self: QOpenGLWidget, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2282,15 +2886,19 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: QOpenGLWidget, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: QOpenGLWidget, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2300,15 +2908,19 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: QOpenGLWidget, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: QOpenGLWidget, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2320,13 +2932,17 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: QOpenGLWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: QOpenGLWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLWidget.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLWidget.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2338,13 +2954,17 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: QOpenGLWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: QOpenGLWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLWidget.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLWidget.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2356,10 +2976,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: QOpenGLWidget, icon: anytype) void {
+    pub fn setWindowIcon(self: QOpenGLWidget, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2369,9 +2993,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn WindowIcon(self: QOpenGLWidget) QIcon {
+    pub fn windowIcon(self: QOpenGLWidget) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2381,15 +3009,19 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: QOpenGLWidget, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: QOpenGLWidget, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2401,13 +3033,17 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: QOpenGLWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: QOpenGLWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLWidget.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLWidget.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -2417,15 +3053,19 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: QOpenGLWidget, windowRole: []const u8) void {
+    pub fn setWindowRole(self: QOpenGLWidget, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -2437,13 +3077,17 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: QOpenGLWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: QOpenGLWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLWidget.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLWidget.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2455,13 +3099,17 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: QOpenGLWidget, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: QOpenGLWidget, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2473,13 +3121,17 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: QOpenGLWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: QOpenGLWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLWidget.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLWidget.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2491,9 +3143,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: QOpenGLWidget, level: f64) void {
+    pub fn setWindowOpacity(self: QOpenGLWidget, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2503,9 +3159,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn WindowOpacity(self: QOpenGLWidget) f64 {
+    pub fn windowOpacity(self: QOpenGLWidget) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -2515,9 +3175,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn IsWindowModified(self: QOpenGLWidget) bool {
+    pub fn isWindowModified(self: QOpenGLWidget) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -2527,15 +3191,19 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: QOpenGLWidget, toolTip: []const u8) void {
+    pub fn setToolTip(self: QOpenGLWidget, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -2547,13 +3215,17 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: QOpenGLWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: QOpenGLWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLWidget.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLWidget.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2565,9 +3237,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: QOpenGLWidget, msec: i32) void {
+    pub fn setToolTipDuration(self: QOpenGLWidget, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2577,9 +3253,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn ToolTipDuration(self: QOpenGLWidget) i32 {
+    pub fn toolTipDuration(self: QOpenGLWidget) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -2589,15 +3269,19 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: QOpenGLWidget, statusTip: []const u8) void {
+    pub fn setStatusTip(self: QOpenGLWidget, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -2609,13 +3293,17 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: QOpenGLWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: QOpenGLWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLWidget.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLWidget.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2625,15 +3313,19 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: QOpenGLWidget, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: QOpenGLWidget, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2645,13 +3337,17 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: QOpenGLWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: QOpenGLWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLWidget.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLWidget.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2663,13 +3359,17 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: QOpenGLWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: QOpenGLWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLWidget.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLWidget.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2681,13 +3381,17 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: QOpenGLWidget, name: []const u8) void {
+    pub fn setAccessibleName(self: QOpenGLWidget, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2699,13 +3403,17 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: QOpenGLWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: QOpenGLWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLWidget.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLWidget.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2717,13 +3425,17 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: QOpenGLWidget, description: []const u8) void {
+    pub fn setAccessibleDescription(self: QOpenGLWidget, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2735,9 +3447,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: QOpenGLWidget, direction: i32) void {
+    pub fn setLayoutDirection(self: QOpenGLWidget, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2751,9 +3467,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: QOpenGLWidget) i32 {
+    pub fn layoutDirection(self: QOpenGLWidget) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2763,9 +3483,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn UnsetLayoutDirection(self: QOpenGLWidget) void {
+    pub fn unsetLayoutDirection(self: QOpenGLWidget) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -2775,12 +3499,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: QOpenGLWidget, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: QOpenGLWidget, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -2790,9 +3518,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn Locale(self: QOpenGLWidget) QLocale {
+    pub fn locale(self: QOpenGLWidget) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -2802,9 +3534,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn UnsetLocale(self: QOpenGLWidget) void {
+    pub fn unsetLocale(self: QOpenGLWidget) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -2814,9 +3550,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn IsRightToLeft(self: QOpenGLWidget) bool {
+    pub fn isRightToLeft(self: QOpenGLWidget) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -2826,9 +3566,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn IsLeftToRight(self: QOpenGLWidget) bool {
+    pub fn isLeftToRight(self: QOpenGLWidget) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -2838,9 +3582,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn SetFocus(self: QOpenGLWidget) void {
+    pub fn setFocus(self: QOpenGLWidget) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -2850,9 +3598,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn IsActiveWindow(self: QOpenGLWidget) bool {
+    pub fn isActiveWindow(self: QOpenGLWidget) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -2862,9 +3614,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn ActivateWindow(self: QOpenGLWidget) void {
+    pub fn activateWindow(self: QOpenGLWidget) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -2874,9 +3630,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn ClearFocus(self: QOpenGLWidget) void {
+    pub fn clearFocus(self: QOpenGLWidget) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -2888,9 +3648,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: QOpenGLWidget, reason: i32) void {
+    pub fn setFocus2(self: QOpenGLWidget, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2904,9 +3668,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: QOpenGLWidget) i32 {
+    pub fn focusPolicy(self: QOpenGLWidget) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2918,9 +3686,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: QOpenGLWidget, policy: i32) void {
+    pub fn setFocusPolicy(self: QOpenGLWidget, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -2930,9 +3702,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn HasFocus(self: QOpenGLWidget) bool {
+    pub fn hasFocus(self: QOpenGLWidget) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -2944,11 +3720,15 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2958,12 +3738,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: QOpenGLWidget, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: QOpenGLWidget, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2973,9 +3757,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn FocusProxy(self: QOpenGLWidget) QWidget {
+    pub fn focusProxy(self: QOpenGLWidget) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2989,9 +3777,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: QOpenGLWidget) i32 {
+    pub fn contextMenuPolicy(self: QOpenGLWidget) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3003,9 +3795,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: QOpenGLWidget, policy: i32) void {
+    pub fn setContextMenuPolicy(self: QOpenGLWidget, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -3015,9 +3811,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn GrabMouse(self: QOpenGLWidget) void {
+    pub fn grabMouse(self: QOpenGLWidget) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -3029,10 +3829,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: QOpenGLWidget, param1: anytype) void {
+    pub fn grabMouse2(self: QOpenGLWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -3042,9 +3846,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn ReleaseMouse(self: QOpenGLWidget) void {
+    pub fn releaseMouse(self: QOpenGLWidget) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3054,9 +3862,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn GrabKeyboard(self: QOpenGLWidget) void {
+    pub fn grabKeyboard(self: QOpenGLWidget) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3066,9 +3878,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn ReleaseKeyboard(self: QOpenGLWidget) void {
+    pub fn releaseKeyboard(self: QOpenGLWidget) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3080,10 +3896,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: QOpenGLWidget, key: anytype) i32 {
+    pub fn grabShortcut(self: QOpenGLWidget, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3095,9 +3915,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: QOpenGLWidget, id: i32) void {
+    pub fn releaseShortcut(self: QOpenGLWidget, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3109,9 +3933,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: QOpenGLWidget, id: i32) void {
+    pub fn setShortcutEnabled(self: QOpenGLWidget, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -3123,25 +3951,37 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: QOpenGLWidget, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: QOpenGLWidget, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3151,9 +3991,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn UpdatesEnabled(self: QOpenGLWidget) bool {
+    pub fn updatesEnabled(self: QOpenGLWidget) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3165,9 +4009,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: QOpenGLWidget, enable: bool) void {
+    pub fn setUpdatesEnabled(self: QOpenGLWidget, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -3177,9 +4025,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn GraphicsProxyWidget(self: QOpenGLWidget) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: QOpenGLWidget) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -3189,9 +4041,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn Update(self: QOpenGLWidget) void {
+    pub fn update(self: QOpenGLWidget) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -3201,9 +4057,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn Repaint(self: QOpenGLWidget) void {
+    pub fn repaint(self: QOpenGLWidget) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -3213,17 +4073,21 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: QOpenGLWidget, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: QOpenGLWidget, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -3235,11 +4099,15 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: QOpenGLWidget, param1: anytype) void {
+    pub fn update3(self: QOpenGLWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -3250,10 +4118,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: QOpenGLWidget, param1: anytype) void {
+    pub fn update4(self: QOpenGLWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -3263,17 +4135,21 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: QOpenGLWidget, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: QOpenGLWidget, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -3285,10 +4161,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: QOpenGLWidget, param1: anytype) void {
+    pub fn repaint3(self: QOpenGLWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -3300,10 +4180,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: QOpenGLWidget, param1: anytype) void {
+    pub fn repaint4(self: QOpenGLWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -3315,9 +4199,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: QOpenGLWidget, hidden: bool) void {
+    pub fn setHidden(self: QOpenGLWidget, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -3327,9 +4215,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn Show(self: QOpenGLWidget) void {
+    pub fn show(self: QOpenGLWidget) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -3339,9 +4231,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn Hide(self: QOpenGLWidget) void {
+    pub fn hide(self: QOpenGLWidget) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3351,9 +4247,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn ShowMinimized(self: QOpenGLWidget) void {
+    pub fn showMinimized(self: QOpenGLWidget) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3363,9 +4263,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn ShowMaximized(self: QOpenGLWidget) void {
+    pub fn showMaximized(self: QOpenGLWidget) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3375,9 +4279,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn ShowFullScreen(self: QOpenGLWidget) void {
+    pub fn showFullScreen(self: QOpenGLWidget) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -3387,9 +4295,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn ShowNormal(self: QOpenGLWidget) void {
+    pub fn showNormal(self: QOpenGLWidget) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -3399,9 +4311,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn Close(self: QOpenGLWidget) bool {
+    pub fn close(self: QOpenGLWidget) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -3411,9 +4327,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn Raise(self: QOpenGLWidget) void {
+    pub fn raise(self: QOpenGLWidget) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -3423,9 +4343,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn Lower(self: QOpenGLWidget) void {
+    pub fn lower(self: QOpenGLWidget) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -3437,10 +4361,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: QOpenGLWidget, param1: anytype) void {
+    pub fn stackUnder(self: QOpenGLWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -3450,13 +4378,17 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: QOpenGLWidget, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: QOpenGLWidget, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -3468,10 +4400,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: QOpenGLWidget, param1: anytype) void {
+    pub fn move2(self: QOpenGLWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -3485,9 +4421,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: QOpenGLWidget, w: i32, h: i32) void {
+    pub fn resize(self: QOpenGLWidget, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -3499,10 +4439,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: QOpenGLWidget, param1: anytype) void {
+    pub fn resize2(self: QOpenGLWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3512,17 +4456,21 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: QOpenGLWidget, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: QOpenGLWidget, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -3532,12 +4480,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: QOpenGLWidget, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: QOpenGLWidget, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3549,13 +4501,17 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: QOpenGLWidget, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: QOpenGLWidget, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QOpenGLWidget.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QOpenGLWidget.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3565,15 +4521,19 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: QOpenGLWidget, geometry: []u8) bool {
+    pub fn restoreGeometry(self: QOpenGLWidget, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -3583,9 +4543,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn AdjustSize(self: QOpenGLWidget) void {
+    pub fn adjustSize(self: QOpenGLWidget) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -3595,9 +4559,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn IsVisible(self: QOpenGLWidget) bool {
+    pub fn isVisible(self: QOpenGLWidget) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -3609,10 +4577,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: QOpenGLWidget, param1: anytype) bool {
+    pub fn isVisibleTo(self: QOpenGLWidget, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -3622,9 +4594,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn IsHidden(self: QOpenGLWidget) bool {
+    pub fn isHidden(self: QOpenGLWidget) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3634,9 +4610,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn IsMinimized(self: QOpenGLWidget) bool {
+    pub fn isMinimized(self: QOpenGLWidget) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3646,9 +4626,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn IsMaximized(self: QOpenGLWidget) bool {
+    pub fn isMaximized(self: QOpenGLWidget) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3658,9 +4642,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn IsFullScreen(self: QOpenGLWidget) bool {
+    pub fn isFullScreen(self: QOpenGLWidget) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -3674,9 +4662,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: QOpenGLWidget) i32 {
+    pub fn windowState(self: QOpenGLWidget) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3688,9 +4680,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: QOpenGLWidget, state: i32) void {
+    pub fn setWindowState(self: QOpenGLWidget, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3702,9 +4698,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: QOpenGLWidget, state: i32) void {
+    pub fn overrideWindowState(self: QOpenGLWidget, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3714,9 +4714,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn SizePolicy(self: QOpenGLWidget) QSizePolicy {
+    pub fn sizePolicy(self: QOpenGLWidget) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3726,12 +4730,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: QOpenGLWidget, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: QOpenGLWidget, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -3745,9 +4753,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: QOpenGLWidget, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: QOpenGLWidget, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -3757,9 +4769,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn VisibleRegion(self: QOpenGLWidget) QRegion {
+    pub fn visibleRegion(self: QOpenGLWidget) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3777,9 +4793,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: QOpenGLWidget, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: QOpenGLWidget, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -3791,10 +4811,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: QOpenGLWidget, margins: anytype) void {
+    pub fn setContentsMargins2(self: QOpenGLWidget, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3804,9 +4828,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn ContentsMargins(self: QOpenGLWidget) QMargins {
+    pub fn contentsMargins(self: QOpenGLWidget) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -3816,9 +4844,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn ContentsRect(self: QOpenGLWidget) QRect {
+    pub fn contentsRect(self: QOpenGLWidget) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -3828,9 +4860,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn Layout(self: QOpenGLWidget) QLayout {
+    pub fn layout(self: QOpenGLWidget) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -3840,12 +4876,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: QOpenGLWidget, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: QOpenGLWidget, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3855,24 +4895,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn UpdateGeometry(self: QOpenGLWidget) void {
+    pub fn updateGeometry(self: QOpenGLWidget) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLWidget `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: QOpenGLWidget, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -3882,14 +4911,37 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: QOpenGLWidget, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QOpenGLWidget `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: QOpenGLWidget, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: QOpenGLWidget, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -3903,9 +4955,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: QOpenGLWidget, dx: i32, dy: i32) void {
+    pub fn scroll(self: QOpenGLWidget, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -3921,10 +4977,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: QOpenGLWidget, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: QOpenGLWidget, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -3934,9 +4994,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn FocusWidget(self: QOpenGLWidget) QWidget {
+    pub fn focusWidget(self: QOpenGLWidget) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3946,9 +5010,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn NextInFocusChain(self: QOpenGLWidget) QWidget {
+    pub fn nextInFocusChain(self: QOpenGLWidget) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3958,9 +5026,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn PreviousInFocusChain(self: QOpenGLWidget) QWidget {
+    pub fn previousInFocusChain(self: QOpenGLWidget) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3970,9 +5042,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn AcceptDrops(self: QOpenGLWidget) bool {
+    pub fn acceptDrops(self: QOpenGLWidget) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3984,9 +5060,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: QOpenGLWidget, on: bool) void {
+    pub fn setAcceptDrops(self: QOpenGLWidget, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -3998,10 +5078,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: QOpenGLWidget, action: anytype) void {
+    pub fn addAction(self: QOpenGLWidget, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -4011,15 +5095,19 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: QOpenGLWidget, actions: []QAction) void {
+    pub fn addActions(self: QOpenGLWidget, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -4031,16 +5119,20 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: QOpenGLWidget, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: QOpenGLWidget, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -4054,11 +5146,15 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: QOpenGLWidget, before: anytype, action: anytype) void {
+    pub fn insertAction(self: QOpenGLWidget, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -4070,10 +5166,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: QOpenGLWidget, action: anytype) void {
+    pub fn removeAction(self: QOpenGLWidget, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -4085,15 +5185,19 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: QOpenGLWidget, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: QOpenGLWidget, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QOpenGLWidget.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QOpenGLWidget.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -4105,13 +5209,17 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: QOpenGLWidget, text: []const u8) QAction {
+    pub fn addAction2(self: QOpenGLWidget, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -4125,7 +5233,7 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: QOpenGLWidget, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: QOpenGLWidget, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -4134,6 +5242,10 @@ pub const QOpenGLWidget = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -4146,7 +5258,7 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: QOpenGLWidget, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: QOpenGLWidget, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -4154,6 +5266,10 @@ pub const QOpenGLWidget = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -4169,7 +5285,7 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: QOpenGLWidget, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: QOpenGLWidget, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -4179,6 +5295,10 @@ pub const QOpenGLWidget = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -4187,9 +5307,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn ParentWidget(self: QOpenGLWidget) QWidget {
+    pub fn parentWidget(self: QOpenGLWidget) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4201,9 +5325,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: QOpenGLWidget, typeVal: i32) void {
+    pub fn setWindowFlags(self: QOpenGLWidget, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4217,9 +5345,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: QOpenGLWidget) i32 {
+    pub fn windowFlags(self: QOpenGLWidget) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -4231,9 +5363,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: QOpenGLWidget, param1: i32) void {
+    pub fn setWindowFlag(self: QOpenGLWidget, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4245,9 +5381,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: QOpenGLWidget, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: QOpenGLWidget, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -4261,9 +5401,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: QOpenGLWidget) i32 {
+    pub fn windowType(self: QOpenGLWidget) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -4273,9 +5417,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -4285,13 +5433,17 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: QOpenGLWidget, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: QOpenGLWidget, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -4303,10 +5455,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: QOpenGLWidget, p: anytype) QWidget {
+    pub fn childAt2(self: QOpenGLWidget, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -4318,10 +5474,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: QOpenGLWidget, p: anytype) QWidget {
+    pub fn childAt3(self: QOpenGLWidget, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4333,9 +5493,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: QOpenGLWidget, param1: i32) void {
+    pub fn setAttribute(self: QOpenGLWidget, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4347,9 +5511,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: QOpenGLWidget, param1: i32) bool {
+    pub fn testAttribute(self: QOpenGLWidget, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -4359,9 +5527,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn EnsurePolished(self: QOpenGLWidget) void {
+    pub fn ensurePolished(self: QOpenGLWidget) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -4373,10 +5545,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: QOpenGLWidget, child: anytype) bool {
+    pub fn isAncestorOf(self: QOpenGLWidget, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4386,9 +5562,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn AutoFillBackground(self: QOpenGLWidget) bool {
+    pub fn autoFillBackground(self: QOpenGLWidget) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4400,9 +5580,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: QOpenGLWidget, enabled: bool) void {
+    pub fn setAutoFillBackground(self: QOpenGLWidget, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -4412,9 +5596,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn BackingStore(self: QOpenGLWidget) QBackingStore {
+    pub fn backingStore(self: QOpenGLWidget) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -4424,9 +5612,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn WindowHandle(self: QOpenGLWidget) QWindow {
+    pub fn windowHandle(self: QOpenGLWidget) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -4436,9 +5628,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn Screen(self: QOpenGLWidget) QScreen {
+    pub fn screen(self: QOpenGLWidget) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -4448,12 +5644,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: QOpenGLWidget, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: QOpenGLWidget, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -4461,12 +5661,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4478,13 +5682,17 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: QOpenGLWidget, title: []const u8) void {
+    pub fn windowTitleChanged(self: QOpenGLWidget, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4496,9 +5704,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4510,10 +5722,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: QOpenGLWidget, icon: anytype) void {
+    pub fn windowIconChanged(self: QOpenGLWidget, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4525,9 +5741,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4539,13 +5759,17 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: QOpenGLWidget, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: QOpenGLWidget, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4557,9 +5781,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4569,12 +5797,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: QOpenGLWidget, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: QOpenGLWidget, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4586,9 +5818,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4602,9 +5838,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: QOpenGLWidget) i32 {
+    pub fn inputMethodHints(self: QOpenGLWidget) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4616,9 +5856,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: QOpenGLWidget, hints: i32) void {
+    pub fn setInputMethodHints(self: QOpenGLWidget, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -4632,11 +5876,15 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: QOpenGLWidget, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: QOpenGLWidget, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -4652,13 +5900,17 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: QOpenGLWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: QOpenGLWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -4675,12 +5927,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: QOpenGLWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: QOpenGLWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -4694,11 +5950,15 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: QOpenGLWidget, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: QOpenGLWidget, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -4714,12 +5974,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: QOpenGLWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: QOpenGLWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -4737,12 +6001,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: QOpenGLWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: QOpenGLWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -4754,10 +6022,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: QOpenGLWidget, rectangle: anytype) QPixmap {
+    pub fn grab1(self: QOpenGLWidget, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -4771,9 +6043,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: QOpenGLWidget, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: QOpenGLWidget, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -4785,12 +6061,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    /// ` context: qnamespace_enums.ShortcutContext `
+    /// ` _context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: QOpenGLWidget, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: QOpenGLWidget, key: anytype, _context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
-        return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
+        return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(_context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -4804,9 +6084,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: QOpenGLWidget, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: QOpenGLWidget, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -4820,9 +6104,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: QOpenGLWidget, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: QOpenGLWidget, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -4836,9 +6124,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: QOpenGLWidget, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: QOpenGLWidget, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -4852,25 +6144,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: QOpenGLWidget, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: QOpenGLWidget, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -4878,17 +6158,41 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -4900,13 +6204,17 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QOpenGLWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QOpenGLWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLWidget.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLWidget.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -4918,13 +6226,17 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QOpenGLWidget, name: []const u8) void {
+    pub fn setObjectName(self: QOpenGLWidget, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -4934,9 +6246,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn IsWidgetType(self: QOpenGLWidget) bool {
+    pub fn isWidgetType(self: QOpenGLWidget) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -4946,9 +6262,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn IsWindowType(self: QOpenGLWidget) bool {
+    pub fn isWindowType(self: QOpenGLWidget) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -4958,9 +6278,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn IsQuickItemType(self: QOpenGLWidget) bool {
+    pub fn isQuickItemType(self: QOpenGLWidget) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -4970,9 +6294,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn SignalsBlocked(self: QOpenGLWidget) bool {
+    pub fn signalsBlocked(self: QOpenGLWidget) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -4984,9 +6312,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QOpenGLWidget, b: bool) bool {
+    pub fn blockSignals(self: QOpenGLWidget, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -4996,9 +6328,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn Thread(self: QOpenGLWidget) QThread {
+    pub fn thread(self: QOpenGLWidget) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -5008,12 +6344,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QOpenGLWidget, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QOpenGLWidget, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -5025,9 +6365,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QOpenGLWidget, interval: i32) i32 {
+    pub fn startTimer(self: QOpenGLWidget, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -5039,9 +6383,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QOpenGLWidget, time: i64) i32 {
+    pub fn startTimer2(self: QOpenGLWidget, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -5053,9 +6401,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QOpenGLWidget, id: i32) void {
+    pub fn killTimer(self: QOpenGLWidget, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -5067,9 +6419,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QOpenGLWidget, id: i32) void {
+    pub fn killTimer2(self: QOpenGLWidget, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -5081,15 +6437,19 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QOpenGLWidget, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QOpenGLWidget, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QOpenGLWidget.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QOpenGLWidget.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5101,10 +6461,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QOpenGLWidget, filterObj: anytype) void {
+    pub fn installEventFilter(self: QOpenGLWidget, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5116,10 +6480,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QOpenGLWidget, obj: anytype) void {
+    pub fn removeEventFilter(self: QOpenGLWidget, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -5127,7 +6495,7 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5135,13 +6503,17 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -5149,7 +6521,7 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5157,13 +6529,17 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -5173,18 +6549,22 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QOpenGLWidget, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QOpenGLWidget, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -5192,7 +6572,7 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5200,13 +6580,17 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -5214,7 +6598,7 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5222,13 +6606,17 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -5238,9 +6626,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn Disconnect3(self: QOpenGLWidget) bool {
+    pub fn disconnect3(self: QOpenGLWidget) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -5252,10 +6644,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QOpenGLWidget, receiver: anytype) bool {
+    pub fn disconnect4(self: QOpenGLWidget, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -5265,10 +6661,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -5278,9 +6678,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn DumpObjectTree(self: QOpenGLWidget) void {
+    pub fn dumpObjectTree(self: QOpenGLWidget) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -5290,9 +6694,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn DumpObjectInfo(self: QOpenGLWidget) void {
+    pub fn dumpObjectInfo(self: QOpenGLWidget) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -5306,11 +6714,15 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QOpenGLWidget, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QOpenGLWidget, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -5322,10 +6734,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QOpenGLWidget, name: [:0]const u8) QVariant {
+    pub fn property(self: QOpenGLWidget, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -5337,7 +6753,7 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QOpenGLWidget, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QOpenGLWidget, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -5345,27 +6761,19 @@ pub const QOpenGLWidget = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QOpenGLWidget.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QOpenGLWidget.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QOpenGLWidget.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QOpenGLWidget.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLWidget `
-    ///
-    pub fn BindingStorage(self: QOpenGLWidget) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -5375,9 +6783,29 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn BindingStorage2(self: QOpenGLWidget) QBindingStorage {
+    pub fn bindingStorage(self: QOpenGLWidget) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QOpenGLWidget `
+    ///
+    pub fn bindingStorage2(self: QOpenGLWidget) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -5387,9 +6815,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn Destroyed(self: QOpenGLWidget) void {
+    pub fn destroyed(self: QOpenGLWidget) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -5401,9 +6833,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget) callconv(.c) void) void {
+    pub fn onDestroyed(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -5413,9 +6849,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn Parent(self: QOpenGLWidget) QObject {
+    pub fn parent(self: QOpenGLWidget) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -5427,10 +6867,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QOpenGLWidget, classname: [:0]const u8) bool {
+    pub fn inherits(self: QOpenGLWidget, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -5440,9 +6884,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn DeleteLater(self: QOpenGLWidget) void {
+    pub fn deleteLater(self: QOpenGLWidget) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -5456,9 +6904,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QOpenGLWidget, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QOpenGLWidget, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -5472,9 +6924,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QOpenGLWidget, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QOpenGLWidget, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -5482,7 +6938,7 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5492,13 +6948,17 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -5506,7 +6966,7 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5516,13 +6976,17 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -5532,7 +6996,7 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5540,12 +7004,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QOpenGLWidget, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QOpenGLWidget, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -5557,10 +7025,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QOpenGLWidget, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QOpenGLWidget, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -5574,11 +7046,15 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QOpenGLWidget, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QOpenGLWidget, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -5594,13 +7070,17 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QOpenGLWidget, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QOpenGLWidget, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -5613,11 +7093,15 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QOpenGLWidget, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QOpenGLWidget, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -5629,10 +7113,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QOpenGLWidget, param1: anytype) void {
+    pub fn destroyed1(self: QOpenGLWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -5644,9 +7132,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -5656,9 +7148,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn PaintingActive(self: QOpenGLWidget) bool {
+    pub fn paintingActive(self: QOpenGLWidget) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5668,9 +7164,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn WidthMM(self: QOpenGLWidget) i32 {
+    pub fn widthMM(self: QOpenGLWidget) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5680,9 +7180,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn HeightMM(self: QOpenGLWidget) i32 {
+    pub fn heightMM(self: QOpenGLWidget) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5692,9 +7196,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn LogicalDpiX(self: QOpenGLWidget) i32 {
+    pub fn logicalDpiX(self: QOpenGLWidget) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5704,9 +7212,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn LogicalDpiY(self: QOpenGLWidget) i32 {
+    pub fn logicalDpiY(self: QOpenGLWidget) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5716,9 +7228,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn PhysicalDpiX(self: QOpenGLWidget) i32 {
+    pub fn physicalDpiX(self: QOpenGLWidget) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5728,9 +7244,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn PhysicalDpiY(self: QOpenGLWidget) i32 {
+    pub fn physicalDpiY(self: QOpenGLWidget) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -5740,9 +7260,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn DevicePixelRatio(self: QOpenGLWidget) f64 {
+    pub fn devicePixelRatio(self: QOpenGLWidget) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5752,9 +7276,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn DevicePixelRatioF(self: QOpenGLWidget) f64 {
+    pub fn devicePixelRatioF(self: QOpenGLWidget) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -5764,9 +7292,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn ColorCount(self: QOpenGLWidget) i32 {
+    pub fn colorCount(self: QOpenGLWidget) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -5776,17 +7308,25 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn Depth(self: QOpenGLWidget) i32 {
+    pub fn depth(self: QOpenGLWidget) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5794,13 +7334,17 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -5812,13 +7356,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn DevType(self: QOpenGLWidget) i32 {
+    pub fn devType(self: QOpenGLWidget) i32 {
         return qtc.QOpenGLWidget_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -5830,9 +7374,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn SuperDevType(self: QOpenGLWidget) i32 {
+    pub fn superDevType(self: QOpenGLWidget) i32 {
         return qtc.QOpenGLWidget_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -5846,9 +7394,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: QOpenGLWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QOpenGLWidget, callback: *const fn () callconv(.c) i32) void {
         qtc.QOpenGLWidget_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -5862,13 +7414,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: QOpenGLWidget, visible: bool) void {
+    pub fn setVisible(self: QOpenGLWidget, visible: bool) void {
         qtc.QOpenGLWidget_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -5882,9 +7434,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: QOpenGLWidget, visible: bool) void {
+    pub fn superSetVisible(self: QOpenGLWidget, visible: bool) void {
         qtc.QOpenGLWidget_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -5898,10 +7454,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, bool) callconv(.c) void) void {
         qtc.QOpenGLWidget_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
@@ -5912,13 +7472,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn SizeHint(self: QOpenGLWidget) QSize {
+    pub fn sizeHint(self: QOpenGLWidget) QSize {
         return .{ .ptr = qtc.QOpenGLWidget_SizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5930,10 +7490,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn SuperSizeHint(self: QOpenGLWidget) QSize {
+    pub fn superSizeHint(self: QOpenGLWidget) QSize {
         return .{ .ptr = qtc.QOpenGLWidget_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
@@ -5948,9 +7512,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: QOpenGLWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QOpenGLWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.QOpenGLWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5962,13 +7530,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn MinimumSizeHint(self: QOpenGLWidget) QSize {
+    pub fn minimumSizeHint(self: QOpenGLWidget) QSize {
         return .{ .ptr = qtc.QOpenGLWidget_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5980,9 +7548,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn SuperMinimumSizeHint(self: QOpenGLWidget) QSize {
+    pub fn superMinimumSizeHint(self: QOpenGLWidget) QSize {
         return .{ .ptr = qtc.QOpenGLWidget_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5998,9 +7570,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: QOpenGLWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QOpenGLWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.QOpenGLWidget_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6014,13 +7590,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: QOpenGLWidget, param1: i32) i32 {
+    pub fn heightForWidth(self: QOpenGLWidget, param1: i32) i32 {
         return qtc.QOpenGLWidget_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6034,9 +7610,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: QOpenGLWidget, param1: i32) i32 {
+    pub fn superHeightForWidth(self: QOpenGLWidget, param1: i32) i32 {
         return qtc.QOpenGLWidget_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6050,9 +7630,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, i32) callconv(.c) i32) void {
         qtc.QOpenGLWidget_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6064,13 +7648,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn HasHeightForWidth(self: QOpenGLWidget) bool {
+    pub fn hasHeightForWidth(self: QOpenGLWidget) bool {
         return qtc.QOpenGLWidget_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6082,9 +7666,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn SuperHasHeightForWidth(self: QOpenGLWidget) bool {
+    pub fn superHasHeightForWidth(self: QOpenGLWidget) bool {
         return qtc.QOpenGLWidget_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6098,10 +7686,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: QOpenGLWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QOpenGLWidget, callback: *const fn () callconv(.c) bool) void {
         qtc.QOpenGLWidget_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
@@ -6112,16 +7704,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QOpenGLWidget_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mousePressEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QOpenGLWidget_MousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6133,12 +7725,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QOpenGLWidget_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMousePressEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QOpenGLWidget_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6152,10 +7748,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QMouseEvent) callconv(.c) void) void {
         qtc.QOpenGLWidget_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
@@ -6166,16 +7766,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QOpenGLWidget_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseReleaseEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QOpenGLWidget_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6187,12 +7787,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QOpenGLWidget_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseReleaseEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QOpenGLWidget_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6206,10 +7810,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QMouseEvent) callconv(.c) void) void {
         qtc.QOpenGLWidget_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -6220,16 +7828,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QOpenGLWidget_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QOpenGLWidget_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -6241,12 +7849,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QOpenGLWidget_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QOpenGLWidget_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -6260,10 +7872,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QMouseEvent) callconv(.c) void) void {
         qtc.QOpenGLWidget_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -6274,16 +7890,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QOpenGLWidget_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QOpenGLWidget_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6295,12 +7911,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QOpenGLWidget_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QOpenGLWidget_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6314,9 +7934,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QMouseEvent) callconv(.c) void) void {
         qtc.QOpenGLWidget_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6328,16 +7952,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.QOpenGLWidget_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.QOpenGLWidget_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6349,12 +7973,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.QOpenGLWidget_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.QOpenGLWidget_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6368,10 +7996,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QWheelEvent) callconv(.c) void) void {
         qtc.QOpenGLWidget_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyPressEvent)
@@ -6382,16 +8014,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QOpenGLWidget_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyPressEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QOpenGLWidget_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6403,12 +8035,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QOpenGLWidget_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyPressEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QOpenGLWidget_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6422,10 +8058,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QKeyEvent) callconv(.c) void) void {
         qtc.QOpenGLWidget_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
@@ -6436,16 +8076,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QOpenGLWidget_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QOpenGLWidget_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6457,12 +8097,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QOpenGLWidget_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QOpenGLWidget_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6476,10 +8120,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QKeyEvent) callconv(.c) void) void {
         qtc.QOpenGLWidget_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -6490,16 +8138,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QOpenGLWidget_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QOpenGLWidget_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6511,12 +8159,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QOpenGLWidget_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QOpenGLWidget_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6530,10 +8182,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QFocusEvent) callconv(.c) void) void {
         qtc.QOpenGLWidget_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -6544,16 +8200,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QOpenGLWidget_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QOpenGLWidget_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6565,12 +8221,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QOpenGLWidget_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QOpenGLWidget_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6584,9 +8244,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QFocusEvent) callconv(.c) void) void {
         qtc.QOpenGLWidget_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6598,16 +8262,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.QOpenGLWidget_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.QOpenGLWidget_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6619,12 +8283,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.QOpenGLWidget_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.QOpenGLWidget_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6638,9 +8306,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QEnterEvent) callconv(.c) void) void {
         qtc.QOpenGLWidget_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6652,16 +8324,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QOpenGLWidget_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QOpenGLWidget_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6673,12 +8345,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QOpenGLWidget_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QOpenGLWidget_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6692,9 +8368,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QEvent) callconv(.c) void) void {
         qtc.QOpenGLWidget_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6706,16 +8386,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.QOpenGLWidget_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.QOpenGLWidget_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6727,12 +8407,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.QOpenGLWidget_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.QOpenGLWidget_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6746,9 +8430,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QMoveEvent) callconv(.c) void) void {
         qtc.QOpenGLWidget_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6760,16 +8448,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.QOpenGLWidget_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.QOpenGLWidget_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6781,12 +8469,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.QOpenGLWidget_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.QOpenGLWidget_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6800,9 +8492,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QCloseEvent) callconv(.c) void) void {
         qtc.QOpenGLWidget_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -6814,16 +8510,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.QOpenGLWidget_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn contextMenuEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.QOpenGLWidget_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -6835,12 +8531,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.QOpenGLWidget_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superContextMenuEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.QOpenGLWidget_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -6854,9 +8554,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, event: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QContextMenuEvent) callconv(.c) void) void {
         qtc.QOpenGLWidget_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6868,16 +8572,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.QOpenGLWidget_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.QOpenGLWidget_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6889,12 +8593,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.QOpenGLWidget_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.QOpenGLWidget_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6908,9 +8616,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QTabletEvent) callconv(.c) void) void {
         qtc.QOpenGLWidget_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -6922,16 +8634,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.QOpenGLWidget_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.QOpenGLWidget_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -6943,12 +8655,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.QOpenGLWidget_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.QOpenGLWidget_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -6962,9 +8678,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QActionEvent) callconv(.c) void) void {
         qtc.QOpenGLWidget_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6976,16 +8696,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.QOpenGLWidget_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.QOpenGLWidget_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6997,12 +8717,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.QOpenGLWidget_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.QOpenGLWidget_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7016,9 +8740,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QDragEnterEvent) callconv(.c) void) void {
         qtc.QOpenGLWidget_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7030,16 +8758,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.QOpenGLWidget_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.QOpenGLWidget_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7051,12 +8779,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.QOpenGLWidget_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.QOpenGLWidget_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7070,9 +8802,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QDragMoveEvent) callconv(.c) void) void {
         qtc.QOpenGLWidget_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7084,16 +8820,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.QOpenGLWidget_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.QOpenGLWidget_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7105,12 +8841,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.QOpenGLWidget_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.QOpenGLWidget_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7124,9 +8864,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QDragLeaveEvent) callconv(.c) void) void {
         qtc.QOpenGLWidget_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7138,16 +8882,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.QOpenGLWidget_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.QOpenGLWidget_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7159,12 +8903,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.QOpenGLWidget_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.QOpenGLWidget_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7178,9 +8926,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QDropEvent) callconv(.c) void) void {
         qtc.QOpenGLWidget_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QWidget
     ///
@@ -7192,16 +8944,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn ShowEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.QOpenGLWidget_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn showEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.QOpenGLWidget_ShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -7213,12 +8965,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.QOpenGLWidget_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superShowEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.QOpenGLWidget_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -7232,9 +8988,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QShowEvent) callconv(.c) void) void {
         qtc.QOpenGLWidget_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7246,16 +9006,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.QOpenGLWidget_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.QOpenGLWidget_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7267,12 +9027,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.QOpenGLWidget_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.QOpenGLWidget_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7286,9 +9050,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QHideEvent) callconv(.c) void) void {
         qtc.QOpenGLWidget_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7306,7 +9074,7 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: QOpenGLWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: QOpenGLWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -7314,9 +9082,9 @@ pub const QOpenGLWidget = extern struct {
         return qtc.QOpenGLWidget_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7334,13 +9102,17 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: QOpenGLWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: QOpenGLWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.QOpenGLWidget_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7354,9 +9126,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QOpenGLWidget_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7370,14 +9146,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: QOpenGLWidget, param1: anytype) void {
+    pub fn changeEvent(self: QOpenGLWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.QOpenGLWidget_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7391,10 +9167,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: QOpenGLWidget, param1: anytype) void {
+    pub fn superChangeEvent(self: QOpenGLWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.QOpenGLWidget_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7408,9 +9188,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QEvent) callconv(.c) void) void {
         qtc.QOpenGLWidget_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -7424,14 +9208,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: QOpenGLWidget, painter: anytype) void {
+    pub fn initPainter(self: QOpenGLWidget, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QOpenGLWidget_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7445,10 +9229,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: QOpenGLWidget, painter: anytype) void {
+    pub fn superInitPainter(self: QOpenGLWidget, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QOpenGLWidget_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7462,9 +9250,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QPainter) callconv(.c) void) void {
         qtc.QOpenGLWidget_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7476,13 +9268,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn SharedPainter(self: QOpenGLWidget) QPainter {
+    pub fn sharedPainter(self: QOpenGLWidget) QPainter {
         return .{ .ptr = qtc.QOpenGLWidget_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7494,9 +9286,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn SuperSharedPainter(self: QOpenGLWidget) QPainter {
+    pub fn superSharedPainter(self: QOpenGLWidget) QPainter {
         return .{ .ptr = qtc.QOpenGLWidget_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7510,9 +9306,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: QOpenGLWidget, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QOpenGLWidget, callback: *const fn () callconv(.c) QPainter) void {
         qtc.QOpenGLWidget_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7526,14 +9326,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: QOpenGLWidget, param1: anytype) void {
+    pub fn inputMethodEvent(self: QOpenGLWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.QOpenGLWidget_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7547,10 +9347,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: QOpenGLWidget, param1: anytype) void {
+    pub fn superInputMethodEvent(self: QOpenGLWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.QOpenGLWidget_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7564,9 +9368,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QInputMethodEvent) callconv(.c) void) void {
         qtc.QOpenGLWidget_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7580,13 +9388,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: QOpenGLWidget, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: QOpenGLWidget, param1: i32) QVariant {
         return .{ .ptr = qtc.QOpenGLWidget_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7600,9 +9408,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: QOpenGLWidget, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: QOpenGLWidget, param1: i32) QVariant {
         return .{ .ptr = qtc.QOpenGLWidget_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7618,9 +9430,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, i32) callconv(.c) QVariant) void {
         qtc.QOpenGLWidget_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7634,13 +9450,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: QOpenGLWidget, next: bool) bool {
+    pub fn focusNextPrevChild(self: QOpenGLWidget, next: bool) bool {
         return qtc.QOpenGLWidget_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7654,9 +9470,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: QOpenGLWidget, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: QOpenGLWidget, next: bool) bool {
         return qtc.QOpenGLWidget_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7670,9 +9490,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, bool) callconv(.c) bool) void {
         qtc.QOpenGLWidget_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -7686,17 +9510,17 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QOpenGLWidget, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QOpenGLWidget, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QOpenGLWidget_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QOpenGLWidget_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -7710,13 +9534,17 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QOpenGLWidget, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QOpenGLWidget, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QOpenGLWidget_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QOpenGLWidget_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -7730,9 +9558,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QObject, QEvent) callconv(.c) bool) void {
         qtc.QOpenGLWidget_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -7744,16 +9576,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QOpenGLWidget_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QOpenGLWidget_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -7765,12 +9597,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QOpenGLWidget_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QOpenGLWidget_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -7784,9 +9620,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QTimerEvent) callconv(.c) void) void {
         qtc.QOpenGLWidget_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -7798,16 +9638,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QOpenGLWidget_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QOpenGLWidget_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -7819,12 +9659,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QOpenGLWidget_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QOpenGLWidget_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -7838,9 +9682,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QChildEvent) callconv(.c) void) void {
         qtc.QOpenGLWidget_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -7852,16 +9700,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QOpenGLWidget_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QOpenGLWidget_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -7873,12 +9721,16 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QOpenGLWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QOpenGLWidget_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QOpenGLWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QOpenGLWidget_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -7892,9 +9744,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QEvent) callconv(.c) void) void {
         qtc.QOpenGLWidget_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -7908,14 +9764,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QOpenGLWidget, signal: anytype) void {
+    pub fn connectNotify(self: QOpenGLWidget, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QOpenGLWidget_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7929,11 +9785,15 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QOpenGLWidget, signal: anytype) void {
+    pub fn superConnectNotify(self: QOpenGLWidget, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QOpenGLWidget_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -7946,9 +9806,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QMetaMethod) callconv(.c) void) void {
         qtc.QOpenGLWidget_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7962,14 +9826,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QOpenGLWidget, signal: anytype) void {
+    pub fn disconnectNotify(self: QOpenGLWidget, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QOpenGLWidget_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7983,10 +9847,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QOpenGLWidget, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QOpenGLWidget, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QOpenGLWidget_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8000,10 +9868,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QMetaMethod) callconv(.c) void) void {
         qtc.QOpenGLWidget_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8014,13 +9886,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn UpdateMicroFocus(self: QOpenGLWidget) void {
+    pub fn updateMicroFocus(self: QOpenGLWidget) void {
         qtc.QOpenGLWidget_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -8032,10 +9904,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn SuperUpdateMicroFocus(self: QOpenGLWidget) void {
+    pub fn superUpdateMicroFocus(self: QOpenGLWidget) void {
         qtc.QOpenGLWidget_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8048,10 +9924,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: QOpenGLWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: QOpenGLWidget, callback: *const fn () callconv(.c) void) void {
         qtc.QOpenGLWidget_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8062,13 +9942,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn Create(self: QOpenGLWidget) void {
+    pub fn create(self: QOpenGLWidget) void {
         qtc.QOpenGLWidget_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -8080,10 +9960,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn SuperCreate(self: QOpenGLWidget) void {
+    pub fn superCreate(self: QOpenGLWidget) void {
         qtc.QOpenGLWidget_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8096,9 +9980,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: QOpenGLWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: QOpenGLWidget, callback: *const fn () callconv(.c) void) void {
         qtc.QOpenGLWidget_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -8110,13 +9998,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn Destroy(self: QOpenGLWidget) void {
+    pub fn destroy(self: QOpenGLWidget) void {
         qtc.QOpenGLWidget_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8128,9 +10016,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn SuperDestroy(self: QOpenGLWidget) void {
+    pub fn superDestroy(self: QOpenGLWidget) void {
         qtc.QOpenGLWidget_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8144,10 +10036,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: QOpenGLWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: QOpenGLWidget, callback: *const fn () callconv(.c) void) void {
         qtc.QOpenGLWidget_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8158,13 +10054,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn FocusNextChild(self: QOpenGLWidget) bool {
+    pub fn focusNextChild(self: QOpenGLWidget) bool {
         return qtc.QOpenGLWidget_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -8176,10 +10072,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn SuperFocusNextChild(self: QOpenGLWidget) bool {
+    pub fn superFocusNextChild(self: QOpenGLWidget) bool {
         return qtc.QOpenGLWidget_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8192,9 +10092,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: QOpenGLWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: QOpenGLWidget, callback: *const fn () callconv(.c) bool) void {
         qtc.QOpenGLWidget_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8206,13 +10110,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn FocusPreviousChild(self: QOpenGLWidget) bool {
+    pub fn focusPreviousChild(self: QOpenGLWidget) bool {
         return qtc.QOpenGLWidget_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8224,9 +10128,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn SuperFocusPreviousChild(self: QOpenGLWidget) bool {
+    pub fn superFocusPreviousChild(self: QOpenGLWidget) bool {
         return qtc.QOpenGLWidget_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8240,9 +10148,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: QOpenGLWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: QOpenGLWidget, callback: *const fn () callconv(.c) bool) void {
         qtc.QOpenGLWidget_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -8254,13 +10166,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn Sender(self: QOpenGLWidget) QObject {
+    pub fn sender(self: QOpenGLWidget) QObject {
         return .{ .ptr = qtc.QOpenGLWidget_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -8272,9 +10184,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn SuperSender(self: QOpenGLWidget) QObject {
+    pub fn superSender(self: QOpenGLWidget) QObject {
         return .{ .ptr = qtc.QOpenGLWidget_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -8288,9 +10204,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QOpenGLWidget, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QOpenGLWidget, callback: *const fn () callconv(.c) QObject) void {
         qtc.QOpenGLWidget_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8302,13 +10222,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn SenderSignalIndex(self: QOpenGLWidget) i32 {
+    pub fn senderSignalIndex(self: QOpenGLWidget) i32 {
         return qtc.QOpenGLWidget_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8320,9 +10240,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn SuperSenderSignalIndex(self: QOpenGLWidget) i32 {
+    pub fn superSenderSignalIndex(self: QOpenGLWidget) i32 {
         return qtc.QOpenGLWidget_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8336,9 +10260,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QOpenGLWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QOpenGLWidget, callback: *const fn () callconv(.c) i32) void {
         qtc.QOpenGLWidget_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -8352,14 +10280,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QOpenGLWidget, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QOpenGLWidget, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QOpenGLWidget_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -8373,10 +10301,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QOpenGLWidget, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QOpenGLWidget, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QOpenGLWidget_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -8390,9 +10322,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, [*:0]const u8) callconv(.c) i32) void {
         qtc.QOpenGLWidget_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8406,14 +10342,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QOpenGLWidget, signal: anytype) bool {
+    pub fn isSignalConnected(self: QOpenGLWidget, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QOpenGLWidget_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8427,10 +10363,14 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QOpenGLWidget, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QOpenGLWidget, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QOpenGLWidget_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8444,9 +10384,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, QMetaMethod) callconv(.c) bool) void {
         qtc.QOpenGLWidget_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8462,13 +10406,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: QOpenGLWidget, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: QOpenGLWidget, metricA: i32, metricB: i32) f64 {
         return qtc.QOpenGLWidget_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8484,9 +10428,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: QOpenGLWidget, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: QOpenGLWidget, metricA: i32, metricB: i32) f64 {
         return qtc.QOpenGLWidget_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8500,9 +10448,13 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, i32, i32) callconv(.c) f64) void {
         qtc.QOpenGLWidget_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -8516,23 +10468,23 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglwidget.html#dtor.QOpenGLWidget)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QOpenGLWidget `
     ///
-    pub fn Delete(self: QOpenGLWidget) void {
+    pub fn delete(self: QOpenGLWidget) void {
         qtc.QOpenGLWidget_Delete(@ptrCast(self.ptr));
     }
 };

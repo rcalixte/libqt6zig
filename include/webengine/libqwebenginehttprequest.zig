@@ -15,46 +15,66 @@ pub const QWebEngineHttpRequest = extern struct {
 
     pub const _is_QWebEngineHttpRequest = {};
 
-    /// New constructs a new QWebEngineHttpRequest object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QWebEngineHttpRequest {
+    pub const New = new;
+
+    /// Allocate a new QWebEngineHttpRequest object in C++ memory
+    ///
+    pub fn new() QWebEngineHttpRequest {
         return .{ .ptr = qtc.QWebEngineHttpRequest_new() };
     }
 
-    /// New2 constructs a new QWebEngineHttpRequest object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QWebEngineHttpRequest object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QWebEngineHttpRequest `
     ///
-    pub fn New2(other: anytype) QWebEngineHttpRequest {
+    pub fn new2(other: anytype) QWebEngineHttpRequest {
         comptime _ = @TypeOf(other)._is_QWebEngineHttpRequest;
         return .{ .ptr = qtc.QWebEngineHttpRequest_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QWebEngineHttpRequest object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QWebEngineHttpRequest object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` url: QUrl `
+    /// ` _url: QUrl `
     ///
-    pub fn New3(url: anytype) QWebEngineHttpRequest {
-        comptime _ = @TypeOf(url)._is_QUrl;
-        return .{ .ptr = qtc.QWebEngineHttpRequest_new3(@ptrCast(url.ptr)) };
+    pub fn new3(_url: anytype) QWebEngineHttpRequest {
+        comptime _ = @TypeOf(_url)._is_QUrl;
+        return .{ .ptr = qtc.QWebEngineHttpRequest_new3(@ptrCast(_url.ptr)) };
     }
 
-    /// New4 constructs a new QWebEngineHttpRequest object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QWebEngineHttpRequest object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` url: QUrl `
+    /// ` _url: QUrl `
     ///
-    /// ` method: *const qwebenginehttprequest_enums.Method `
+    /// ` _method: *const qwebenginehttprequest_enums.Method `
     ///
-    pub fn New4(url: anytype, method: *const i32) QWebEngineHttpRequest {
-        comptime _ = @TypeOf(url)._is_QUrl;
-        return .{ .ptr = qtc.QWebEngineHttpRequest_new4(@ptrCast(url.ptr), @ptrCast(method)) };
+    pub fn new4(_url: anytype, _method: *const i32) QWebEngineHttpRequest {
+        comptime _ = @TypeOf(_url)._is_QUrl;
+        return .{ .ptr = qtc.QWebEngineHttpRequest_new4(@ptrCast(_url.ptr), @ptrCast(_method)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginehttprequest.html#operator-eq)
     ///
@@ -64,10 +84,14 @@ pub const QWebEngineHttpRequest = extern struct {
     ///
     /// ` other: QWebEngineHttpRequest `
     ///
-    pub fn OperatorAssign(self: QWebEngineHttpRequest, other: anytype) void {
+    pub fn operatorAssign(self: QWebEngineHttpRequest, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QWebEngineHttpRequest;
         qtc.QWebEngineHttpRequest_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `postRequest` instead
+    ///
+    pub const PostRequest = postRequest;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginehttprequest.html#postRequest)
     ///
@@ -75,19 +99,19 @@ pub const QWebEngineHttpRequest = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` url: QUrl `
+    /// ` _url: QUrl `
     ///
-    /// ` postData: ArrayMap_constu8_constu8 `
+    /// ` _postData: ArrayMap_constu8_constu8 `
     ///
-    pub fn PostRequest(allocator: std.mem.Allocator, url: anytype, postData: ArrayMap_constu8_constu8) QWebEngineHttpRequest {
-        comptime _ = @TypeOf(url)._is_QUrl;
-        const postData_count = postData.count();
-        const postData_keys = allocator.alloc(qtc.libqt_string, postData_count) catch @panic("QWebEngineHttpRequest.PostRequest: Memory allocation failed");
+    pub fn postRequest(allocator: std.mem.Allocator, _url: anytype, _postData: ArrayMap_constu8_constu8) QWebEngineHttpRequest {
+        comptime _ = @TypeOf(_url)._is_QUrl;
+        const postData_count = _postData.count();
+        const postData_keys = allocator.alloc(qtc.libqt_string, postData_count) catch @panic("QWebEngineHttpRequest.postRequest: Memory allocation failed");
         defer allocator.free(postData_keys);
-        const postData_values = allocator.alloc(qtc.libqt_string, postData_count) catch @panic("QWebEngineHttpRequest.PostRequest: Memory allocation failed");
+        const postData_values = allocator.alloc(qtc.libqt_string, postData_count) catch @panic("QWebEngineHttpRequest.postRequest: Memory allocation failed");
         defer allocator.free(postData_values);
         var i: usize = 0;
-        var postData_it = postData.iterator();
+        var postData_it = _postData.iterator();
         while (postData_it.next()) |it_entry| : (i += 1) {
             const postData_key = it_entry.key_ptr.*;
             postData_keys[i] = qtc.libqt_string{
@@ -105,8 +129,12 @@ pub const QWebEngineHttpRequest = extern struct {
             .keys = @ptrCast(postData_keys.ptr),
             .values = @ptrCast(postData_values.ptr),
         };
-        return .{ .ptr = qtc.QWebEngineHttpRequest_PostRequest(@ptrCast(url.ptr), postData_map) };
+        return .{ .ptr = qtc.QWebEngineHttpRequest_PostRequest(@ptrCast(_url.ptr), postData_map) };
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginehttprequest.html#swap)
     ///
@@ -116,10 +144,14 @@ pub const QWebEngineHttpRequest = extern struct {
     ///
     /// ` other: QWebEngineHttpRequest `
     ///
-    pub fn Swap(self: QWebEngineHttpRequest, other: anytype) void {
+    pub fn swap(self: QWebEngineHttpRequest, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QWebEngineHttpRequest;
         qtc.QWebEngineHttpRequest_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginehttprequest.html#operator-eq-eq)
     ///
@@ -129,10 +161,14 @@ pub const QWebEngineHttpRequest = extern struct {
     ///
     /// ` other: QWebEngineHttpRequest `
     ///
-    pub fn OperatorEqual(self: QWebEngineHttpRequest, other: anytype) bool {
+    pub fn operatorEqual(self: QWebEngineHttpRequest, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QWebEngineHttpRequest;
         return qtc.QWebEngineHttpRequest_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginehttprequest.html#operator-not-eq)
     ///
@@ -142,10 +178,14 @@ pub const QWebEngineHttpRequest = extern struct {
     ///
     /// ` other: QWebEngineHttpRequest `
     ///
-    pub fn OperatorNotEqual(self: QWebEngineHttpRequest, other: anytype) bool {
+    pub fn operatorNotEqual(self: QWebEngineHttpRequest, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QWebEngineHttpRequest;
         return qtc.QWebEngineHttpRequest_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `method` instead
+    ///
+    pub const Method = method;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginehttprequest.html#method)
     ///
@@ -157,9 +197,13 @@ pub const QWebEngineHttpRequest = extern struct {
     ///
     /// ` qwebenginehttprequest_enums.Method `
     ///
-    pub fn Method(self: QWebEngineHttpRequest) i32 {
+    pub fn method(self: QWebEngineHttpRequest) i32 {
         return qtc.QWebEngineHttpRequest_Method(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMethod` instead
+    ///
+    pub const SetMethod = setMethod;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginehttprequest.html#setMethod)
     ///
@@ -167,11 +211,15 @@ pub const QWebEngineHttpRequest = extern struct {
     ///
     /// ` self: QWebEngineHttpRequest `
     ///
-    /// ` method: qwebenginehttprequest_enums.Method `
+    /// ` _method: qwebenginehttprequest_enums.Method `
     ///
-    pub fn SetMethod(self: QWebEngineHttpRequest, method: i32) void {
-        qtc.QWebEngineHttpRequest_SetMethod(@ptrCast(self.ptr), @bitCast(method));
+    pub fn setMethod(self: QWebEngineHttpRequest, _method: i32) void {
+        qtc.QWebEngineHttpRequest_SetMethod(@ptrCast(self.ptr), @bitCast(_method));
     }
+
+    /// ### DEPRECATED: Use `url` instead
+    ///
+    pub const Url = url;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginehttprequest.html#url)
     ///
@@ -179,9 +227,13 @@ pub const QWebEngineHttpRequest = extern struct {
     ///
     /// ` self: QWebEngineHttpRequest `
     ///
-    pub fn Url(self: QWebEngineHttpRequest) QUrl {
+    pub fn url(self: QWebEngineHttpRequest) QUrl {
         return .{ .ptr = qtc.QWebEngineHttpRequest_Url(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setUrl` instead
+    ///
+    pub const SetUrl = setUrl;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginehttprequest.html#setUrl)
     ///
@@ -189,12 +241,16 @@ pub const QWebEngineHttpRequest = extern struct {
     ///
     /// ` self: QWebEngineHttpRequest `
     ///
-    /// ` url: QUrl `
+    /// ` _url: QUrl `
     ///
-    pub fn SetUrl(self: QWebEngineHttpRequest, url: anytype) void {
-        comptime _ = @TypeOf(url)._is_QUrl;
-        qtc.QWebEngineHttpRequest_SetUrl(@ptrCast(self.ptr), @ptrCast(url.ptr));
+    pub fn setUrl(self: QWebEngineHttpRequest, _url: anytype) void {
+        comptime _ = @TypeOf(_url)._is_QUrl;
+        qtc.QWebEngineHttpRequest_SetUrl(@ptrCast(self.ptr), @ptrCast(_url.ptr));
     }
+
+    /// ### DEPRECATED: Use `postData` instead
+    ///
+    pub const PostData = postData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginehttprequest.html#postData)
     ///
@@ -204,13 +260,17 @@ pub const QWebEngineHttpRequest = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PostData(self: QWebEngineHttpRequest, allocator: std.mem.Allocator) []u8 {
+    pub fn postData(self: QWebEngineHttpRequest, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWebEngineHttpRequest_PostData(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QWebEngineHttpRequest.PostData: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QWebEngineHttpRequest.postData: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setPostData` instead
+    ///
+    pub const SetPostData = setPostData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginehttprequest.html#setPostData)
     ///
@@ -218,15 +278,19 @@ pub const QWebEngineHttpRequest = extern struct {
     ///
     /// ` self: QWebEngineHttpRequest `
     ///
-    /// ` postData: []u8 `
+    /// ` _postData: []u8 `
     ///
-    pub fn SetPostData(self: QWebEngineHttpRequest, postData: []u8) void {
+    pub fn setPostData(self: QWebEngineHttpRequest, _postData: []u8) void {
         const postData_str = qtc.libqt_string{
-            .len = postData.len,
-            .data = postData.ptr,
+            .len = _postData.len,
+            .data = _postData.ptr,
         };
         qtc.QWebEngineHttpRequest_SetPostData(@ptrCast(self.ptr), postData_str);
     }
+
+    /// ### DEPRECATED: Use `hasHeader` instead
+    ///
+    pub const HasHeader = hasHeader;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginehttprequest.html#hasHeader)
     ///
@@ -236,13 +300,17 @@ pub const QWebEngineHttpRequest = extern struct {
     ///
     /// ` headerName: []u8 `
     ///
-    pub fn HasHeader(self: QWebEngineHttpRequest, headerName: []u8) bool {
+    pub fn hasHeader(self: QWebEngineHttpRequest, headerName: []u8) bool {
         const headerName_str = qtc.libqt_string{
             .len = headerName.len,
             .data = headerName.ptr,
         };
         return qtc.QWebEngineHttpRequest_HasHeader(@ptrCast(self.ptr), headerName_str);
     }
+
+    /// ### DEPRECATED: Use `headers` instead
+    ///
+    pub const Headers = headers;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginehttprequest.html#headers)
     ///
@@ -252,7 +320,7 @@ pub const QWebEngineHttpRequest = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Headers(self: QWebEngineHttpRequest, allocator: std.mem.Allocator) [][]u8 {
+    pub fn headers(self: QWebEngineHttpRequest, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QWebEngineHttpRequest_Headers(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -260,15 +328,19 @@ pub const QWebEngineHttpRequest = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QWebEngineHttpRequest.Headers: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QWebEngineHttpRequest.headers: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QWebEngineHttpRequest.Headers: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QWebEngineHttpRequest.headers: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `header` instead
+    ///
+    pub const Header = header;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginehttprequest.html#header)
     ///
@@ -280,17 +352,21 @@ pub const QWebEngineHttpRequest = extern struct {
     ///
     /// ` headerName: []u8 `
     ///
-    pub fn Header(self: QWebEngineHttpRequest, allocator: std.mem.Allocator, headerName: []u8) []u8 {
+    pub fn header(self: QWebEngineHttpRequest, allocator: std.mem.Allocator, headerName: []u8) []u8 {
         const headerName_str = qtc.libqt_string{
             .len = headerName.len,
             .data = headerName.ptr,
         };
         var _bytearray: qtc.libqt_string = qtc.QWebEngineHttpRequest_Header(@ptrCast(self.ptr), headerName_str);
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QWebEngineHttpRequest.Header: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QWebEngineHttpRequest.header: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setHeader` instead
+    ///
+    pub const SetHeader = setHeader;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginehttprequest.html#setHeader)
     ///
@@ -302,7 +378,7 @@ pub const QWebEngineHttpRequest = extern struct {
     ///
     /// ` value: []u8 `
     ///
-    pub fn SetHeader(self: QWebEngineHttpRequest, headerName: []u8, value: []u8) void {
+    pub fn setHeader(self: QWebEngineHttpRequest, headerName: []u8, value: []u8) void {
         const headerName_str = qtc.libqt_string{
             .len = headerName.len,
             .data = headerName.ptr,
@@ -314,6 +390,10 @@ pub const QWebEngineHttpRequest = extern struct {
         qtc.QWebEngineHttpRequest_SetHeader(@ptrCast(self.ptr), headerName_str, value_str);
     }
 
+    /// ### DEPRECATED: Use `unsetHeader` instead
+    ///
+    pub const UnsetHeader = unsetHeader;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginehttprequest.html#unsetHeader)
     ///
     /// ## Parameter(s):
@@ -322,7 +402,7 @@ pub const QWebEngineHttpRequest = extern struct {
     ///
     /// ` headerName: []u8 `
     ///
-    pub fn UnsetHeader(self: QWebEngineHttpRequest, headerName: []u8) void {
+    pub fn unsetHeader(self: QWebEngineHttpRequest, headerName: []u8) void {
         const headerName_str = qtc.libqt_string{
             .len = headerName.len,
             .data = headerName.ptr,
@@ -330,19 +410,19 @@ pub const QWebEngineHttpRequest = extern struct {
         qtc.QWebEngineHttpRequest_UnsetHeader(@ptrCast(self.ptr), headerName_str);
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginehttprequest.html#dtor.QWebEngineHttpRequest)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QWebEngineHttpRequest `
     ///
-    pub fn Delete(self: QWebEngineHttpRequest) void {
+    pub fn delete(self: QWebEngineHttpRequest) void {
         qtc.QWebEngineHttpRequest_Delete(@ptrCast(self.ptr));
     }
 };

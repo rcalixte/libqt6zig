@@ -13,11 +13,19 @@ pub const QDesignerPropertySheetExtension = extern struct {
 
     pub const _is_QDesignerPropertySheetExtension = {};
 
-    /// New constructs a new QDesignerPropertySheetExtension object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QDesignerPropertySheetExtension {
+    pub const New = new;
+
+    /// Allocate a new QDesignerPropertySheetExtension object in C++ memory
+    ///
+    pub fn new() QDesignerPropertySheetExtension {
         return .{ .ptr = qtc.QDesignerPropertySheetExtension_new() };
     }
+
+    /// ### DEPRECATED: Use `count` instead
+    ///
+    pub const Count = count;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#count)
     ///
@@ -25,9 +33,13 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` self: QDesignerPropertySheetExtension `
     ///
-    pub fn Count(self: QDesignerPropertySheetExtension) i32 {
+    pub fn count(self: QDesignerPropertySheetExtension) i32 {
         return qtc.QDesignerPropertySheetExtension_Count(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCount` instead
+    ///
+    pub const OnCount = onCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#count)
     ///
@@ -39,13 +51,13 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnCount(self: QDesignerPropertySheetExtension, callback: *const fn () callconv(.c) i32) void {
+    pub fn onCount(self: QDesignerPropertySheetExtension, callback: *const fn () callconv(.c) i32) void {
         qtc.QDesignerPropertySheetExtension_OnCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCount` instead
+    /// ### DEPRECATED: Use `superCount` instead
     ///
-    pub const QBaseCount = SuperCount;
+    pub const SuperCount = superCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#count)
     ///
@@ -55,9 +67,13 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` self: QDesignerPropertySheetExtension `
     ///
-    pub fn SuperCount(self: QDesignerPropertySheetExtension) i32 {
+    pub fn superCount(self: QDesignerPropertySheetExtension) i32 {
         return qtc.QDesignerPropertySheetExtension_SuperCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `indexOf` instead
+    ///
+    pub const IndexOf = indexOf;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#indexOf)
     ///
@@ -67,13 +83,17 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn IndexOf(self: QDesignerPropertySheetExtension, name: []const u8) i32 {
+    pub fn indexOf(self: QDesignerPropertySheetExtension, name: []const u8) i32 {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         return qtc.QDesignerPropertySheetExtension_IndexOf(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `onIndexOf` instead
+    ///
+    pub const OnIndexOf = onIndexOf;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#indexOf)
     ///
@@ -85,13 +105,13 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerPropertySheetExtension, name: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnIndexOf(self: QDesignerPropertySheetExtension, callback: *const fn (QDesignerPropertySheetExtension, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onIndexOf(self: QDesignerPropertySheetExtension, callback: *const fn (QDesignerPropertySheetExtension, [*:0]const u8) callconv(.c) i32) void {
         qtc.QDesignerPropertySheetExtension_OnIndexOf(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperIndexOf` instead
+    /// ### DEPRECATED: Use `superIndexOf` instead
     ///
-    pub const QBaseIndexOf = SuperIndexOf;
+    pub const SuperIndexOf = superIndexOf;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#indexOf)
     ///
@@ -103,7 +123,7 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SuperIndexOf(self: QDesignerPropertySheetExtension, name: []const u8) i32 {
+    pub fn superIndexOf(self: QDesignerPropertySheetExtension, name: []const u8) i32 {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -111,6 +131,10 @@ pub const QDesignerPropertySheetExtension = extern struct {
         return qtc.QDesignerPropertySheetExtension_SuperIndexOf(@ptrCast(self.ptr), name_str);
     }
 
+    /// ### DEPRECATED: Use `propertyName` instead
+    ///
+    pub const PropertyName = propertyName;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#propertyName)
     ///
     /// ## Parameter(s):
@@ -121,13 +145,17 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn PropertyName(self: QDesignerPropertySheetExtension, allocator: std.mem.Allocator, index: i32) []const u8 {
+    pub fn propertyName(self: QDesignerPropertySheetExtension, allocator: std.mem.Allocator, index: i32) []const u8 {
         var _str = qtc.QDesignerPropertySheetExtension_PropertyName(@ptrCast(self.ptr), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerPropertySheetExtension.PropertyName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerPropertySheetExtension.propertyName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onPropertyName` instead
+    ///
+    pub const OnPropertyName = onPropertyName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#propertyName)
     ///
@@ -139,13 +167,13 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerPropertySheetExtension, index: i32) callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnPropertyName(self: QDesignerPropertySheetExtension, callback: *const fn (QDesignerPropertySheetExtension, i32) callconv(.c) [*:0]const u8) void {
+    pub fn onPropertyName(self: QDesignerPropertySheetExtension, callback: *const fn (QDesignerPropertySheetExtension, i32) callconv(.c) [*:0]const u8) void {
         qtc.QDesignerPropertySheetExtension_OnPropertyName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPropertyName` instead
+    /// ### DEPRECATED: Use `superPropertyName` instead
     ///
-    pub const QBasePropertyName = SuperPropertyName;
+    pub const SuperPropertyName = superPropertyName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#propertyName)
     ///
@@ -159,13 +187,17 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn SuperPropertyName(self: QDesignerPropertySheetExtension, allocator: std.mem.Allocator, index: i32) []const u8 {
+    pub fn superPropertyName(self: QDesignerPropertySheetExtension, allocator: std.mem.Allocator, index: i32) []const u8 {
         var _str = qtc.QDesignerPropertySheetExtension_SuperPropertyName(@ptrCast(self.ptr), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerPropertySheetExtension.PropertyName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerPropertySheetExtension.propertyName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `propertyGroup` instead
+    ///
+    pub const PropertyGroup = propertyGroup;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#propertyGroup)
     ///
@@ -177,13 +209,17 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn PropertyGroup(self: QDesignerPropertySheetExtension, allocator: std.mem.Allocator, index: i32) []const u8 {
+    pub fn propertyGroup(self: QDesignerPropertySheetExtension, allocator: std.mem.Allocator, index: i32) []const u8 {
         var _str = qtc.QDesignerPropertySheetExtension_PropertyGroup(@ptrCast(self.ptr), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerPropertySheetExtension.PropertyGroup: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerPropertySheetExtension.propertyGroup: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onPropertyGroup` instead
+    ///
+    pub const OnPropertyGroup = onPropertyGroup;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#propertyGroup)
     ///
@@ -195,13 +231,13 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerPropertySheetExtension, index: i32) callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnPropertyGroup(self: QDesignerPropertySheetExtension, callback: *const fn (QDesignerPropertySheetExtension, i32) callconv(.c) [*:0]const u8) void {
+    pub fn onPropertyGroup(self: QDesignerPropertySheetExtension, callback: *const fn (QDesignerPropertySheetExtension, i32) callconv(.c) [*:0]const u8) void {
         qtc.QDesignerPropertySheetExtension_OnPropertyGroup(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPropertyGroup` instead
+    /// ### DEPRECATED: Use `superPropertyGroup` instead
     ///
-    pub const QBasePropertyGroup = SuperPropertyGroup;
+    pub const SuperPropertyGroup = superPropertyGroup;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#propertyGroup)
     ///
@@ -215,13 +251,17 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn SuperPropertyGroup(self: QDesignerPropertySheetExtension, allocator: std.mem.Allocator, index: i32) []const u8 {
+    pub fn superPropertyGroup(self: QDesignerPropertySheetExtension, allocator: std.mem.Allocator, index: i32) []const u8 {
         var _str = qtc.QDesignerPropertySheetExtension_SuperPropertyGroup(@ptrCast(self.ptr), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerPropertySheetExtension.PropertyGroup: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerPropertySheetExtension.propertyGroup: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setPropertyGroup` instead
+    ///
+    pub const SetPropertyGroup = setPropertyGroup;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#setPropertyGroup)
     ///
@@ -233,13 +273,17 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` group: []const u8 `
     ///
-    pub fn SetPropertyGroup(self: QDesignerPropertySheetExtension, index: i32, group: []const u8) void {
+    pub fn setPropertyGroup(self: QDesignerPropertySheetExtension, index: i32, group: []const u8) void {
         const group_str = qtc.libqt_string{
             .len = group.len,
             .data = group.ptr,
         };
         qtc.QDesignerPropertySheetExtension_SetPropertyGroup(@ptrCast(self.ptr), @bitCast(index), group_str);
     }
+
+    /// ### DEPRECATED: Use `onSetPropertyGroup` instead
+    ///
+    pub const OnSetPropertyGroup = onSetPropertyGroup;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#setPropertyGroup)
     ///
@@ -251,13 +295,13 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerPropertySheetExtension, index: i32, group: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetPropertyGroup(self: QDesignerPropertySheetExtension, callback: *const fn (QDesignerPropertySheetExtension, i32, [*:0]const u8) callconv(.c) void) void {
+    pub fn onSetPropertyGroup(self: QDesignerPropertySheetExtension, callback: *const fn (QDesignerPropertySheetExtension, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.QDesignerPropertySheetExtension_OnSetPropertyGroup(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetPropertyGroup` instead
+    /// ### DEPRECATED: Use `superSetPropertyGroup` instead
     ///
-    pub const QBaseSetPropertyGroup = SuperSetPropertyGroup;
+    pub const SuperSetPropertyGroup = superSetPropertyGroup;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#setPropertyGroup)
     ///
@@ -271,7 +315,7 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` group: []const u8 `
     ///
-    pub fn SuperSetPropertyGroup(self: QDesignerPropertySheetExtension, index: i32, group: []const u8) void {
+    pub fn superSetPropertyGroup(self: QDesignerPropertySheetExtension, index: i32, group: []const u8) void {
         const group_str = qtc.libqt_string{
             .len = group.len,
             .data = group.ptr,
@@ -279,6 +323,10 @@ pub const QDesignerPropertySheetExtension = extern struct {
         qtc.QDesignerPropertySheetExtension_SuperSetPropertyGroup(@ptrCast(self.ptr), @bitCast(index), group_str);
     }
 
+    /// ### DEPRECATED: Use `hasReset` instead
+    ///
+    pub const HasReset = hasReset;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#hasReset)
     ///
     /// ## Parameter(s):
@@ -287,10 +335,14 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn HasReset(self: QDesignerPropertySheetExtension, index: i32) bool {
+    pub fn hasReset(self: QDesignerPropertySheetExtension, index: i32) bool {
         return qtc.QDesignerPropertySheetExtension_HasReset(@ptrCast(self.ptr), @bitCast(index));
     }
 
+    /// ### DEPRECATED: Use `onHasReset` instead
+    ///
+    pub const OnHasReset = onHasReset;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#hasReset)
     ///
     /// Allows for overriding the related default method
@@ -301,13 +353,13 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerPropertySheetExtension, index: i32) callconv(.c) bool `
     ///
-    pub fn OnHasReset(self: QDesignerPropertySheetExtension, callback: *const fn (QDesignerPropertySheetExtension, i32) callconv(.c) bool) void {
+    pub fn onHasReset(self: QDesignerPropertySheetExtension, callback: *const fn (QDesignerPropertySheetExtension, i32) callconv(.c) bool) void {
         qtc.QDesignerPropertySheetExtension_OnHasReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperHasReset` instead
+    /// ### DEPRECATED: Use `superHasReset` instead
     ///
-    pub const QBaseHasReset = SuperHasReset;
+    pub const SuperHasReset = superHasReset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#hasReset)
     ///
@@ -319,10 +371,14 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn SuperHasReset(self: QDesignerPropertySheetExtension, index: i32) bool {
+    pub fn superHasReset(self: QDesignerPropertySheetExtension, index: i32) bool {
         return qtc.QDesignerPropertySheetExtension_SuperHasReset(@ptrCast(self.ptr), @bitCast(index));
     }
 
+    /// ### DEPRECATED: Use `reset` instead
+    ///
+    pub const Reset = reset;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#reset)
     ///
     /// ## Parameter(s):
@@ -331,10 +387,14 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn Reset(self: QDesignerPropertySheetExtension, index: i32) bool {
+    pub fn reset(self: QDesignerPropertySheetExtension, index: i32) bool {
         return qtc.QDesignerPropertySheetExtension_Reset(@ptrCast(self.ptr), @bitCast(index));
     }
 
+    /// ### DEPRECATED: Use `onReset` instead
+    ///
+    pub const OnReset = onReset;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#reset)
     ///
     /// Allows for overriding the related default method
@@ -345,13 +405,13 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerPropertySheetExtension, index: i32) callconv(.c) bool `
     ///
-    pub fn OnReset(self: QDesignerPropertySheetExtension, callback: *const fn (QDesignerPropertySheetExtension, i32) callconv(.c) bool) void {
+    pub fn onReset(self: QDesignerPropertySheetExtension, callback: *const fn (QDesignerPropertySheetExtension, i32) callconv(.c) bool) void {
         qtc.QDesignerPropertySheetExtension_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperReset` instead
+    /// ### DEPRECATED: Use `superReset` instead
     ///
-    pub const QBaseReset = SuperReset;
+    pub const SuperReset = superReset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#reset)
     ///
@@ -363,10 +423,14 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn SuperReset(self: QDesignerPropertySheetExtension, index: i32) bool {
+    pub fn superReset(self: QDesignerPropertySheetExtension, index: i32) bool {
         return qtc.QDesignerPropertySheetExtension_SuperReset(@ptrCast(self.ptr), @bitCast(index));
     }
 
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#isVisible)
     ///
     /// ## Parameter(s):
@@ -375,10 +439,14 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn IsVisible(self: QDesignerPropertySheetExtension, index: i32) bool {
+    pub fn isVisible(self: QDesignerPropertySheetExtension, index: i32) bool {
         return qtc.QDesignerPropertySheetExtension_IsVisible(@ptrCast(self.ptr), @bitCast(index));
     }
 
+    /// ### DEPRECATED: Use `onIsVisible` instead
+    ///
+    pub const OnIsVisible = onIsVisible;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#isVisible)
     ///
     /// Allows for overriding the related default method
@@ -389,13 +457,13 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerPropertySheetExtension, index: i32) callconv(.c) bool `
     ///
-    pub fn OnIsVisible(self: QDesignerPropertySheetExtension, callback: *const fn (QDesignerPropertySheetExtension, i32) callconv(.c) bool) void {
+    pub fn onIsVisible(self: QDesignerPropertySheetExtension, callback: *const fn (QDesignerPropertySheetExtension, i32) callconv(.c) bool) void {
         qtc.QDesignerPropertySheetExtension_OnIsVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperIsVisible` instead
+    /// ### DEPRECATED: Use `superIsVisible` instead
     ///
-    pub const QBaseIsVisible = SuperIsVisible;
+    pub const SuperIsVisible = superIsVisible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#isVisible)
     ///
@@ -407,9 +475,13 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn SuperIsVisible(self: QDesignerPropertySheetExtension, index: i32) bool {
+    pub fn superIsVisible(self: QDesignerPropertySheetExtension, index: i32) bool {
         return qtc.QDesignerPropertySheetExtension_SuperIsVisible(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#setVisible)
     ///
@@ -421,9 +493,13 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetVisible(self: QDesignerPropertySheetExtension, index: i32, b: bool) void {
+    pub fn setVisible(self: QDesignerPropertySheetExtension, index: i32, b: bool) void {
         qtc.QDesignerPropertySheetExtension_SetVisible(@ptrCast(self.ptr), @bitCast(index), b);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#setVisible)
     ///
@@ -435,13 +511,13 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerPropertySheetExtension, index: i32, b: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: QDesignerPropertySheetExtension, callback: *const fn (QDesignerPropertySheetExtension, i32, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: QDesignerPropertySheetExtension, callback: *const fn (QDesignerPropertySheetExtension, i32, bool) callconv(.c) void) void {
         qtc.QDesignerPropertySheetExtension_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#setVisible)
     ///
@@ -455,9 +531,13 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SuperSetVisible(self: QDesignerPropertySheetExtension, index: i32, b: bool) void {
+    pub fn superSetVisible(self: QDesignerPropertySheetExtension, index: i32, b: bool) void {
         qtc.QDesignerPropertySheetExtension_SuperSetVisible(@ptrCast(self.ptr), @bitCast(index), b);
     }
+
+    /// ### DEPRECATED: Use `isAttribute` instead
+    ///
+    pub const IsAttribute = isAttribute;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#isAttribute)
     ///
@@ -467,9 +547,13 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn IsAttribute(self: QDesignerPropertySheetExtension, index: i32) bool {
+    pub fn isAttribute(self: QDesignerPropertySheetExtension, index: i32) bool {
         return qtc.QDesignerPropertySheetExtension_IsAttribute(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `onIsAttribute` instead
+    ///
+    pub const OnIsAttribute = onIsAttribute;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#isAttribute)
     ///
@@ -481,13 +565,13 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerPropertySheetExtension, index: i32) callconv(.c) bool `
     ///
-    pub fn OnIsAttribute(self: QDesignerPropertySheetExtension, callback: *const fn (QDesignerPropertySheetExtension, i32) callconv(.c) bool) void {
+    pub fn onIsAttribute(self: QDesignerPropertySheetExtension, callback: *const fn (QDesignerPropertySheetExtension, i32) callconv(.c) bool) void {
         qtc.QDesignerPropertySheetExtension_OnIsAttribute(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperIsAttribute` instead
+    /// ### DEPRECATED: Use `superIsAttribute` instead
     ///
-    pub const QBaseIsAttribute = SuperIsAttribute;
+    pub const SuperIsAttribute = superIsAttribute;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#isAttribute)
     ///
@@ -499,9 +583,13 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn SuperIsAttribute(self: QDesignerPropertySheetExtension, index: i32) bool {
+    pub fn superIsAttribute(self: QDesignerPropertySheetExtension, index: i32) bool {
         return qtc.QDesignerPropertySheetExtension_SuperIsAttribute(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#setAttribute)
     ///
@@ -513,9 +601,13 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetAttribute(self: QDesignerPropertySheetExtension, index: i32, b: bool) void {
+    pub fn setAttribute(self: QDesignerPropertySheetExtension, index: i32, b: bool) void {
         qtc.QDesignerPropertySheetExtension_SetAttribute(@ptrCast(self.ptr), @bitCast(index), b);
     }
+
+    /// ### DEPRECATED: Use `onSetAttribute` instead
+    ///
+    pub const OnSetAttribute = onSetAttribute;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#setAttribute)
     ///
@@ -527,13 +619,13 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerPropertySheetExtension, index: i32, b: bool) callconv(.c) void `
     ///
-    pub fn OnSetAttribute(self: QDesignerPropertySheetExtension, callback: *const fn (QDesignerPropertySheetExtension, i32, bool) callconv(.c) void) void {
+    pub fn onSetAttribute(self: QDesignerPropertySheetExtension, callback: *const fn (QDesignerPropertySheetExtension, i32, bool) callconv(.c) void) void {
         qtc.QDesignerPropertySheetExtension_OnSetAttribute(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetAttribute` instead
+    /// ### DEPRECATED: Use `superSetAttribute` instead
     ///
-    pub const QBaseSetAttribute = SuperSetAttribute;
+    pub const SuperSetAttribute = superSetAttribute;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#setAttribute)
     ///
@@ -547,9 +639,13 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SuperSetAttribute(self: QDesignerPropertySheetExtension, index: i32, b: bool) void {
+    pub fn superSetAttribute(self: QDesignerPropertySheetExtension, index: i32, b: bool) void {
         qtc.QDesignerPropertySheetExtension_SuperSetAttribute(@ptrCast(self.ptr), @bitCast(index), b);
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#property)
     ///
@@ -559,9 +655,13 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn Property(self: QDesignerPropertySheetExtension, index: i32) QVariant {
+    pub fn property(self: QDesignerPropertySheetExtension, index: i32) QVariant {
         return .{ .ptr = qtc.QDesignerPropertySheetExtension_Property(@ptrCast(self.ptr), @bitCast(index)) };
     }
+
+    /// ### DEPRECATED: Use `onProperty` instead
+    ///
+    pub const OnProperty = onProperty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#property)
     ///
@@ -575,13 +675,13 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnProperty(self: QDesignerPropertySheetExtension, callback: *const fn (QDesignerPropertySheetExtension, i32) callconv(.c) QVariant) void {
+    pub fn onProperty(self: QDesignerPropertySheetExtension, callback: *const fn (QDesignerPropertySheetExtension, i32) callconv(.c) QVariant) void {
         qtc.QDesignerPropertySheetExtension_OnProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperProperty` instead
+    /// ### DEPRECATED: Use `superProperty` instead
     ///
-    pub const QBaseProperty = SuperProperty;
+    pub const SuperProperty = superProperty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#property)
     ///
@@ -593,9 +693,13 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn SuperProperty(self: QDesignerPropertySheetExtension, index: i32) QVariant {
+    pub fn superProperty(self: QDesignerPropertySheetExtension, index: i32) QVariant {
         return .{ .ptr = qtc.QDesignerPropertySheetExtension_SuperProperty(@ptrCast(self.ptr), @bitCast(index)) };
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#setProperty)
     ///
@@ -607,10 +711,14 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QDesignerPropertySheetExtension, index: i32, value: anytype) void {
+    pub fn setProperty(self: QDesignerPropertySheetExtension, index: i32, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QVariant;
         qtc.QDesignerPropertySheetExtension_SetProperty(@ptrCast(self.ptr), @bitCast(index), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetProperty` instead
+    ///
+    pub const OnSetProperty = onSetProperty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#setProperty)
     ///
@@ -622,13 +730,13 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerPropertySheetExtension, index: i32, value: QVariant) callconv(.c) void `
     ///
-    pub fn OnSetProperty(self: QDesignerPropertySheetExtension, callback: *const fn (QDesignerPropertySheetExtension, i32, QVariant) callconv(.c) void) void {
+    pub fn onSetProperty(self: QDesignerPropertySheetExtension, callback: *const fn (QDesignerPropertySheetExtension, i32, QVariant) callconv(.c) void) void {
         qtc.QDesignerPropertySheetExtension_OnSetProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetProperty` instead
+    /// ### DEPRECATED: Use `superSetProperty` instead
     ///
-    pub const QBaseSetProperty = SuperSetProperty;
+    pub const SuperSetProperty = superSetProperty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#setProperty)
     ///
@@ -642,10 +750,14 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SuperSetProperty(self: QDesignerPropertySheetExtension, index: i32, value: anytype) void {
+    pub fn superSetProperty(self: QDesignerPropertySheetExtension, index: i32, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QVariant;
         qtc.QDesignerPropertySheetExtension_SuperSetProperty(@ptrCast(self.ptr), @bitCast(index), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `isChanged` instead
+    ///
+    pub const IsChanged = isChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#isChanged)
     ///
@@ -655,9 +767,13 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn IsChanged(self: QDesignerPropertySheetExtension, index: i32) bool {
+    pub fn isChanged(self: QDesignerPropertySheetExtension, index: i32) bool {
         return qtc.QDesignerPropertySheetExtension_IsChanged(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `onIsChanged` instead
+    ///
+    pub const OnIsChanged = onIsChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#isChanged)
     ///
@@ -669,13 +785,13 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerPropertySheetExtension, index: i32) callconv(.c) bool `
     ///
-    pub fn OnIsChanged(self: QDesignerPropertySheetExtension, callback: *const fn (QDesignerPropertySheetExtension, i32) callconv(.c) bool) void {
+    pub fn onIsChanged(self: QDesignerPropertySheetExtension, callback: *const fn (QDesignerPropertySheetExtension, i32) callconv(.c) bool) void {
         qtc.QDesignerPropertySheetExtension_OnIsChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperIsChanged` instead
+    /// ### DEPRECATED: Use `superIsChanged` instead
     ///
-    pub const QBaseIsChanged = SuperIsChanged;
+    pub const SuperIsChanged = superIsChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#isChanged)
     ///
@@ -687,9 +803,13 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn SuperIsChanged(self: QDesignerPropertySheetExtension, index: i32) bool {
+    pub fn superIsChanged(self: QDesignerPropertySheetExtension, index: i32) bool {
         return qtc.QDesignerPropertySheetExtension_SuperIsChanged(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `setChanged` instead
+    ///
+    pub const SetChanged = setChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#setChanged)
     ///
@@ -701,9 +821,13 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` changed: bool `
     ///
-    pub fn SetChanged(self: QDesignerPropertySheetExtension, index: i32, changed: bool) void {
+    pub fn setChanged(self: QDesignerPropertySheetExtension, index: i32, changed: bool) void {
         qtc.QDesignerPropertySheetExtension_SetChanged(@ptrCast(self.ptr), @bitCast(index), changed);
     }
+
+    /// ### DEPRECATED: Use `onSetChanged` instead
+    ///
+    pub const OnSetChanged = onSetChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#setChanged)
     ///
@@ -715,13 +839,13 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerPropertySheetExtension, index: i32, changed: bool) callconv(.c) void `
     ///
-    pub fn OnSetChanged(self: QDesignerPropertySheetExtension, callback: *const fn (QDesignerPropertySheetExtension, i32, bool) callconv(.c) void) void {
+    pub fn onSetChanged(self: QDesignerPropertySheetExtension, callback: *const fn (QDesignerPropertySheetExtension, i32, bool) callconv(.c) void) void {
         qtc.QDesignerPropertySheetExtension_OnSetChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetChanged` instead
+    /// ### DEPRECATED: Use `superSetChanged` instead
     ///
-    pub const QBaseSetChanged = SuperSetChanged;
+    pub const SuperSetChanged = superSetChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#setChanged)
     ///
@@ -735,9 +859,13 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` changed: bool `
     ///
-    pub fn SuperSetChanged(self: QDesignerPropertySheetExtension, index: i32, changed: bool) void {
+    pub fn superSetChanged(self: QDesignerPropertySheetExtension, index: i32, changed: bool) void {
         qtc.QDesignerPropertySheetExtension_SuperSetChanged(@ptrCast(self.ptr), @bitCast(index), changed);
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#isEnabled)
     ///
@@ -747,9 +875,13 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn IsEnabled(self: QDesignerPropertySheetExtension, index: i32) bool {
+    pub fn isEnabled(self: QDesignerPropertySheetExtension, index: i32) bool {
         return qtc.QDesignerPropertySheetExtension_IsEnabled(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `onIsEnabled` instead
+    ///
+    pub const OnIsEnabled = onIsEnabled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#isEnabled)
     ///
@@ -761,13 +893,13 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerPropertySheetExtension, index: i32) callconv(.c) bool `
     ///
-    pub fn OnIsEnabled(self: QDesignerPropertySheetExtension, callback: *const fn (QDesignerPropertySheetExtension, i32) callconv(.c) bool) void {
+    pub fn onIsEnabled(self: QDesignerPropertySheetExtension, callback: *const fn (QDesignerPropertySheetExtension, i32) callconv(.c) bool) void {
         qtc.QDesignerPropertySheetExtension_OnIsEnabled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperIsEnabled` instead
+    /// ### DEPRECATED: Use `superIsEnabled` instead
     ///
-    pub const QBaseIsEnabled = SuperIsEnabled;
+    pub const SuperIsEnabled = superIsEnabled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#isEnabled)
     ///
@@ -779,23 +911,23 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn SuperIsEnabled(self: QDesignerPropertySheetExtension, index: i32) bool {
+    pub fn superIsEnabled(self: QDesignerPropertySheetExtension, index: i32) bool {
         return qtc.QDesignerPropertySheetExtension_SuperIsEnabled(@ptrCast(self.ptr), @bitCast(index));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertysheetextension.html#dtor.QDesignerPropertySheetExtension)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDesignerPropertySheetExtension `
     ///
-    pub fn Delete(self: QDesignerPropertySheetExtension) void {
+    pub fn delete(self: QDesignerPropertySheetExtension) void {
         qtc.QDesignerPropertySheetExtension_Delete(@ptrCast(self.ptr));
     }
 };

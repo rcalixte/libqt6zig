@@ -13,99 +13,123 @@ pub const QSqlError = extern struct {
 
     pub const _is_QSqlError = {};
 
-    /// New constructs a new QSqlError object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QSqlError {
+    pub const New = new;
+
+    /// Allocate a new QSqlError object in C++ memory
+    ///
+    pub fn new() QSqlError {
         return .{ .ptr = qtc.QSqlError_new() };
     }
 
-    /// New2 constructs a new QSqlError object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QSqlError object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QSqlError `
     ///
-    pub fn New2(other: anytype) QSqlError {
+    pub fn new2(other: anytype) QSqlError {
         comptime _ = @TypeOf(other)._is_QSqlError;
         return .{ .ptr = qtc.QSqlError_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QSqlError object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QSqlError object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` driverText: []const u8 `
+    /// ` _driverText: []const u8 `
     ///
-    pub fn New3(driverText: []const u8) QSqlError {
+    pub fn new3(_driverText: []const u8) QSqlError {
         const driverText_str = qtc.libqt_string{
-            .len = driverText.len,
-            .data = driverText.ptr,
+            .len = _driverText.len,
+            .data = _driverText.ptr,
         };
         return .{ .ptr = qtc.QSqlError_new3(driverText_str) };
     }
 
-    /// New4 constructs a new QSqlError object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QSqlError object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` driverText: []const u8 `
+    /// ` _driverText: []const u8 `
     ///
-    /// ` databaseText: []const u8 `
+    /// ` _databaseText: []const u8 `
     ///
-    pub fn New4(driverText: []const u8, databaseText: []const u8) QSqlError {
+    pub fn new4(_driverText: []const u8, _databaseText: []const u8) QSqlError {
         const driverText_str = qtc.libqt_string{
-            .len = driverText.len,
-            .data = driverText.ptr,
+            .len = _driverText.len,
+            .data = _driverText.ptr,
         };
         const databaseText_str = qtc.libqt_string{
-            .len = databaseText.len,
-            .data = databaseText.ptr,
+            .len = _databaseText.len,
+            .data = _databaseText.ptr,
         };
         return .{ .ptr = qtc.QSqlError_new4(driverText_str, databaseText_str) };
     }
 
-    /// New5 constructs a new QSqlError object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QSqlError object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` driverText: []const u8 `
+    /// ` _driverText: []const u8 `
     ///
-    /// ` databaseText: []const u8 `
+    /// ` _databaseText: []const u8 `
     ///
     /// ` typeVal: qsqlerror_enums.ErrorType `
     ///
-    pub fn New5(driverText: []const u8, databaseText: []const u8, typeVal: i32) QSqlError {
+    pub fn new5(_driverText: []const u8, _databaseText: []const u8, typeVal: i32) QSqlError {
         const driverText_str = qtc.libqt_string{
-            .len = driverText.len,
-            .data = driverText.ptr,
+            .len = _driverText.len,
+            .data = _driverText.ptr,
         };
         const databaseText_str = qtc.libqt_string{
-            .len = databaseText.len,
-            .data = databaseText.ptr,
+            .len = _databaseText.len,
+            .data = _databaseText.ptr,
         };
         return .{ .ptr = qtc.QSqlError_new5(driverText_str, databaseText_str, @bitCast(typeVal)) };
     }
 
-    /// New6 constructs a new QSqlError object.
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new QSqlError object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` driverText: []const u8 `
+    /// ` _driverText: []const u8 `
     ///
-    /// ` databaseText: []const u8 `
+    /// ` _databaseText: []const u8 `
     ///
     /// ` typeVal: qsqlerror_enums.ErrorType `
     ///
     /// ` errorCode: []const u8 `
     ///
-    pub fn New6(driverText: []const u8, databaseText: []const u8, typeVal: i32, errorCode: []const u8) QSqlError {
+    pub fn new6(_driverText: []const u8, _databaseText: []const u8, typeVal: i32, errorCode: []const u8) QSqlError {
         const driverText_str = qtc.libqt_string{
-            .len = driverText.len,
-            .data = driverText.ptr,
+            .len = _driverText.len,
+            .data = _driverText.ptr,
         };
         const databaseText_str = qtc.libqt_string{
-            .len = databaseText.len,
-            .data = databaseText.ptr,
+            .len = _databaseText.len,
+            .data = _databaseText.ptr,
         };
         const errorCode_str = qtc.libqt_string{
             .len = errorCode.len,
@@ -113,6 +137,10 @@ pub const QSqlError = extern struct {
         };
         return .{ .ptr = qtc.QSqlError_new6(driverText_str, databaseText_str, @bitCast(typeVal), errorCode_str) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlerror.html#operator-eq)
     ///
@@ -122,10 +150,14 @@ pub const QSqlError = extern struct {
     ///
     /// ` other: QSqlError `
     ///
-    pub fn OperatorAssign(self: QSqlError, other: anytype) void {
+    pub fn operatorAssign(self: QSqlError, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QSqlError;
         qtc.QSqlError_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlerror.html#operator-eq-eq)
     ///
@@ -135,10 +167,14 @@ pub const QSqlError = extern struct {
     ///
     /// ` other: QSqlError `
     ///
-    pub fn OperatorEqual(self: QSqlError, other: anytype) bool {
+    pub fn operatorEqual(self: QSqlError, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QSqlError;
         return qtc.QSqlError_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlerror.html#operator-not-eq)
     ///
@@ -148,10 +184,14 @@ pub const QSqlError = extern struct {
     ///
     /// ` other: QSqlError `
     ///
-    pub fn OperatorNotEqual(self: QSqlError, other: anytype) bool {
+    pub fn operatorNotEqual(self: QSqlError, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QSqlError;
         return qtc.QSqlError_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlerror.html#swap)
     ///
@@ -161,10 +201,14 @@ pub const QSqlError = extern struct {
     ///
     /// ` other: QSqlError `
     ///
-    pub fn Swap(self: QSqlError, other: anytype) void {
+    pub fn swap(self: QSqlError, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QSqlError;
         qtc.QSqlError_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `driverText` instead
+    ///
+    pub const DriverText = driverText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlerror.html#driverText)
     ///
@@ -174,13 +218,17 @@ pub const QSqlError = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DriverText(self: QSqlError, allocator: std.mem.Allocator) []const u8 {
+    pub fn driverText(self: QSqlError, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSqlError_DriverText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlError.DriverText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlError.driverText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `databaseText` instead
+    ///
+    pub const DatabaseText = databaseText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlerror.html#databaseText)
     ///
@@ -190,13 +238,19 @@ pub const QSqlError = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DatabaseText(self: QSqlError, allocator: std.mem.Allocator) []const u8 {
+    pub fn databaseText(self: QSqlError, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSqlError_DatabaseText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlError.DatabaseText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlError.databaseText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlerror.html#type)
     ///
@@ -208,9 +262,13 @@ pub const QSqlError = extern struct {
     ///
     /// ` qsqlerror_enums.ErrorType `
     ///
-    pub fn Type(self: QSqlError) i32 {
+    pub fn type0(self: QSqlError) i32 {
         return qtc.QSqlError_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `nativeErrorCode` instead
+    ///
+    pub const NativeErrorCode = nativeErrorCode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlerror.html#nativeErrorCode)
     ///
@@ -220,13 +278,17 @@ pub const QSqlError = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NativeErrorCode(self: QSqlError, allocator: std.mem.Allocator) []const u8 {
+    pub fn nativeErrorCode(self: QSqlError, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSqlError_NativeErrorCode(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlError.NativeErrorCode: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlError.nativeErrorCode: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `text` instead
+    ///
+    pub const Text = text;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlerror.html#text)
     ///
@@ -236,13 +298,17 @@ pub const QSqlError = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: QSqlError, allocator: std.mem.Allocator) []const u8 {
+    pub fn text(self: QSqlError, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSqlError_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlError.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlError.text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlerror.html#isValid)
     ///
@@ -250,23 +316,23 @@ pub const QSqlError = extern struct {
     ///
     /// ` self: QSqlError `
     ///
-    pub fn IsValid(self: QSqlError) bool {
+    pub fn isValid(self: QSqlError) bool {
         return qtc.QSqlError_IsValid(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlerror.html#dtor.QSqlError)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QSqlError `
     ///
-    pub fn Delete(self: QSqlError) void {
+    pub fn delete(self: QSqlError) void {
         qtc.QSqlError_Delete(@ptrCast(self.ptr));
     }
 };

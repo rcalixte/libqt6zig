@@ -20,30 +20,42 @@ pub const QTextStream = extern struct {
     pub const _is_QTextStream = {};
     pub const _is_QIODeviceBase = {};
 
-    /// New constructs a new QTextStream object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QTextStream {
+    pub const New = new;
+
+    /// Allocate a new QTextStream object in C++ memory
+    ///
+    pub fn new() QTextStream {
         return .{ .ptr = qtc.QTextStream_new() };
     }
 
-    /// New2 constructs a new QTextStream object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QTextStream object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` device: QIODevice `
+    /// ` _device: QIODevice `
     ///
-    pub fn New2(device: anytype) QTextStream {
-        comptime _ = @TypeOf(device)._is_QIODevice;
-        return .{ .ptr = qtc.QTextStream_new2(@ptrCast(device.ptr)) };
+    pub fn new2(_device: anytype) QTextStream {
+        comptime _ = @TypeOf(_device)._is_QIODevice;
+        return .{ .ptr = qtc.QTextStream_new2(@ptrCast(_device.ptr)) };
     }
 
-    /// New3 constructs a new QTextStream object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QTextStream object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` array: []u8 `
     ///
-    pub fn New3(array: []u8) QTextStream {
+    pub fn new3(array: []u8) QTextStream {
         const array_str = qtc.libqt_string{
             .len = array.len,
             .data = array.ptr,
@@ -51,7 +63,11 @@ pub const QTextStream = extern struct {
         return .{ .ptr = qtc.QTextStream_new3(array_str) };
     }
 
-    /// New4 constructs a new QTextStream object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QTextStream object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -59,7 +75,7 @@ pub const QTextStream = extern struct {
     ///
     /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn New4(array: []u8, openMode: i32) QTextStream {
+    pub fn new4(array: []u8, openMode: i32) QTextStream {
         const array_str = qtc.libqt_string{
             .len = array.len,
             .data = array.ptr,
@@ -67,17 +83,25 @@ pub const QTextStream = extern struct {
         return .{ .ptr = qtc.QTextStream_new4(array_str, @bitCast(openMode)) };
     }
 
+    /// ### DEPRECATED: Use `setEncoding` instead
+    ///
+    pub const SetEncoding = setEncoding;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#setEncoding)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QTextStream `
     ///
-    /// ` encoding: qstringconverter_base_enums.Encoding `
+    /// ` _encoding: qstringconverter_base_enums.Encoding `
     ///
-    pub fn SetEncoding(self: QTextStream, encoding: i32) void {
-        qtc.QTextStream_SetEncoding(@ptrCast(self.ptr), @bitCast(encoding));
+    pub fn setEncoding(self: QTextStream, _encoding: i32) void {
+        qtc.QTextStream_SetEncoding(@ptrCast(self.ptr), @bitCast(_encoding));
     }
+
+    /// ### DEPRECATED: Use `encoding` instead
+    ///
+    pub const Encoding = encoding;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#encoding)
     ///
@@ -89,9 +113,13 @@ pub const QTextStream = extern struct {
     ///
     /// ` qstringconverter_base_enums.Encoding `
     ///
-    pub fn Encoding(self: QTextStream) i32 {
+    pub fn encoding(self: QTextStream) i32 {
         return qtc.QTextStream_Encoding(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoDetectUnicode` instead
+    ///
+    pub const SetAutoDetectUnicode = setAutoDetectUnicode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#setAutoDetectUnicode)
     ///
@@ -101,9 +129,13 @@ pub const QTextStream = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoDetectUnicode(self: QTextStream, enabled: bool) void {
+    pub fn setAutoDetectUnicode(self: QTextStream, enabled: bool) void {
         qtc.QTextStream_SetAutoDetectUnicode(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `autoDetectUnicode` instead
+    ///
+    pub const AutoDetectUnicode = autoDetectUnicode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#autoDetectUnicode)
     ///
@@ -111,9 +143,13 @@ pub const QTextStream = extern struct {
     ///
     /// ` self: QTextStream `
     ///
-    pub fn AutoDetectUnicode(self: QTextStream) bool {
+    pub fn autoDetectUnicode(self: QTextStream) bool {
         return qtc.QTextStream_AutoDetectUnicode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGenerateByteOrderMark` instead
+    ///
+    pub const SetGenerateByteOrderMark = setGenerateByteOrderMark;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#setGenerateByteOrderMark)
     ///
@@ -123,9 +159,13 @@ pub const QTextStream = extern struct {
     ///
     /// ` generate: bool `
     ///
-    pub fn SetGenerateByteOrderMark(self: QTextStream, generate: bool) void {
+    pub fn setGenerateByteOrderMark(self: QTextStream, generate: bool) void {
         qtc.QTextStream_SetGenerateByteOrderMark(@ptrCast(self.ptr), generate);
     }
+
+    /// ### DEPRECATED: Use `generateByteOrderMark` instead
+    ///
+    pub const GenerateByteOrderMark = generateByteOrderMark;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#generateByteOrderMark)
     ///
@@ -133,9 +173,13 @@ pub const QTextStream = extern struct {
     ///
     /// ` self: QTextStream `
     ///
-    pub fn GenerateByteOrderMark(self: QTextStream) bool {
+    pub fn generateByteOrderMark(self: QTextStream) bool {
         return qtc.QTextStream_GenerateByteOrderMark(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#setLocale)
     ///
@@ -143,12 +187,16 @@ pub const QTextStream = extern struct {
     ///
     /// ` self: QTextStream `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: QTextStream, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QTextStream_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: QTextStream, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QTextStream_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#locale)
     ///
@@ -156,9 +204,13 @@ pub const QTextStream = extern struct {
     ///
     /// ` self: QTextStream `
     ///
-    pub fn Locale(self: QTextStream) QLocale {
+    pub fn locale(self: QTextStream) QLocale {
         return .{ .ptr = qtc.QTextStream_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setDevice` instead
+    ///
+    pub const SetDevice = setDevice;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#setDevice)
     ///
@@ -166,12 +218,16 @@ pub const QTextStream = extern struct {
     ///
     /// ` self: QTextStream `
     ///
-    /// ` device: QIODevice `
+    /// ` _device: QIODevice `
     ///
-    pub fn SetDevice(self: QTextStream, device: anytype) void {
-        comptime _ = @TypeOf(device)._is_QIODevice;
-        qtc.QTextStream_SetDevice(@ptrCast(self.ptr), @ptrCast(device.ptr));
+    pub fn setDevice(self: QTextStream, _device: anytype) void {
+        comptime _ = @TypeOf(_device)._is_QIODevice;
+        qtc.QTextStream_SetDevice(@ptrCast(self.ptr), @ptrCast(_device.ptr));
     }
+
+    /// ### DEPRECATED: Use `device` instead
+    ///
+    pub const Device = device;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#device)
     ///
@@ -179,9 +235,13 @@ pub const QTextStream = extern struct {
     ///
     /// ` self: QTextStream `
     ///
-    pub fn Device(self: QTextStream) QIODevice {
+    pub fn device(self: QTextStream) QIODevice {
         return .{ .ptr = qtc.QTextStream_Device(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `string` instead
+    ///
+    pub const String = string;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#string)
     ///
@@ -191,13 +251,17 @@ pub const QTextStream = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn String(self: QTextStream, allocator: std.mem.Allocator) []const u8 {
+    pub fn string(self: QTextStream, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextStream_String(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextStream.String: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextStream.string: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `status` instead
+    ///
+    pub const Status = status;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#status)
     ///
@@ -209,9 +273,13 @@ pub const QTextStream = extern struct {
     ///
     /// ` qtextstream_enums.Status `
     ///
-    pub fn Status(self: QTextStream) i32 {
+    pub fn status(self: QTextStream) i32 {
         return qtc.QTextStream_Status(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatus` instead
+    ///
+    pub const SetStatus = setStatus;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#setStatus)
     ///
@@ -219,11 +287,15 @@ pub const QTextStream = extern struct {
     ///
     /// ` self: QTextStream `
     ///
-    /// ` status: qtextstream_enums.Status `
+    /// ` _status: qtextstream_enums.Status `
     ///
-    pub fn SetStatus(self: QTextStream, status: i32) void {
-        qtc.QTextStream_SetStatus(@ptrCast(self.ptr), @bitCast(status));
+    pub fn setStatus(self: QTextStream, _status: i32) void {
+        qtc.QTextStream_SetStatus(@ptrCast(self.ptr), @bitCast(_status));
     }
+
+    /// ### DEPRECATED: Use `resetStatus` instead
+    ///
+    pub const ResetStatus = resetStatus;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#resetStatus)
     ///
@@ -231,9 +303,13 @@ pub const QTextStream = extern struct {
     ///
     /// ` self: QTextStream `
     ///
-    pub fn ResetStatus(self: QTextStream) void {
+    pub fn resetStatus(self: QTextStream) void {
         qtc.QTextStream_ResetStatus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `atEnd` instead
+    ///
+    pub const AtEnd = atEnd;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#atEnd)
     ///
@@ -241,9 +317,13 @@ pub const QTextStream = extern struct {
     ///
     /// ` self: QTextStream `
     ///
-    pub fn AtEnd(self: QTextStream) bool {
+    pub fn atEnd(self: QTextStream) bool {
         return qtc.QTextStream_AtEnd(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `reset` instead
+    ///
+    pub const Reset = reset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#reset)
     ///
@@ -251,9 +331,13 @@ pub const QTextStream = extern struct {
     ///
     /// ` self: QTextStream `
     ///
-    pub fn Reset(self: QTextStream) void {
+    pub fn reset(self: QTextStream) void {
         qtc.QTextStream_Reset(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `flush` instead
+    ///
+    pub const Flush = flush;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#flush)
     ///
@@ -261,9 +345,13 @@ pub const QTextStream = extern struct {
     ///
     /// ` self: QTextStream `
     ///
-    pub fn Flush(self: QTextStream) void {
+    pub fn flush(self: QTextStream) void {
         qtc.QTextStream_Flush(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `seek` instead
+    ///
+    pub const Seek = seek;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#seek)
     ///
@@ -271,11 +359,15 @@ pub const QTextStream = extern struct {
     ///
     /// ` self: QTextStream `
     ///
-    /// ` pos: i64 `
+    /// ` _pos: i64 `
     ///
-    pub fn Seek(self: QTextStream, pos: i64) bool {
-        return qtc.QTextStream_Seek(@ptrCast(self.ptr), @bitCast(pos));
+    pub fn seek(self: QTextStream, _pos: i64) bool {
+        return qtc.QTextStream_Seek(@ptrCast(self.ptr), @bitCast(_pos));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#pos)
     ///
@@ -283,9 +375,13 @@ pub const QTextStream = extern struct {
     ///
     /// ` self: QTextStream `
     ///
-    pub fn Pos(self: QTextStream) i64 {
+    pub fn pos(self: QTextStream) i64 {
         return qtc.QTextStream_Pos(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `skipWhiteSpace` instead
+    ///
+    pub const SkipWhiteSpace = skipWhiteSpace;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#skipWhiteSpace)
     ///
@@ -293,9 +389,13 @@ pub const QTextStream = extern struct {
     ///
     /// ` self: QTextStream `
     ///
-    pub fn SkipWhiteSpace(self: QTextStream) void {
+    pub fn skipWhiteSpace(self: QTextStream) void {
         qtc.QTextStream_SkipWhiteSpace(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `readLine` instead
+    ///
+    pub const ReadLine = readLine;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#readLine)
     ///
@@ -305,13 +405,17 @@ pub const QTextStream = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadLine(self: QTextStream, allocator: std.mem.Allocator) []const u8 {
+    pub fn readLine(self: QTextStream, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextStream_ReadLine(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextStream.ReadLine: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextStream.readLine: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `readAll` instead
+    ///
+    pub const ReadAll = readAll;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#readAll)
     ///
@@ -321,13 +425,17 @@ pub const QTextStream = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadAll(self: QTextStream, allocator: std.mem.Allocator) []const u8 {
+    pub fn readAll(self: QTextStream, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextStream_ReadAll(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextStream.ReadAll: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextStream.readAll: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `read` instead
+    ///
+    pub const Read = read;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#read)
     ///
@@ -339,13 +447,17 @@ pub const QTextStream = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn Read(self: QTextStream, allocator: std.mem.Allocator, maxlen: i64) []const u8 {
+    pub fn read(self: QTextStream, allocator: std.mem.Allocator, maxlen: i64) []const u8 {
         var _str = qtc.QTextStream_Read(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextStream.Read: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextStream.read: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setFieldAlignment` instead
+    ///
+    pub const SetFieldAlignment = setFieldAlignment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#setFieldAlignment)
     ///
@@ -355,9 +467,13 @@ pub const QTextStream = extern struct {
     ///
     /// ` alignment: qtextstream_enums.FieldAlignment `
     ///
-    pub fn SetFieldAlignment(self: QTextStream, alignment: i32) void {
+    pub fn setFieldAlignment(self: QTextStream, alignment: i32) void {
         qtc.QTextStream_SetFieldAlignment(@ptrCast(self.ptr), @bitCast(alignment));
     }
+
+    /// ### DEPRECATED: Use `fieldAlignment` instead
+    ///
+    pub const FieldAlignment = fieldAlignment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#fieldAlignment)
     ///
@@ -369,9 +485,13 @@ pub const QTextStream = extern struct {
     ///
     /// ` qtextstream_enums.FieldAlignment `
     ///
-    pub fn FieldAlignment(self: QTextStream) i32 {
+    pub fn fieldAlignment(self: QTextStream) i32 {
         return qtc.QTextStream_FieldAlignment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPadChar` instead
+    ///
+    pub const SetPadChar = setPadChar;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#setPadChar)
     ///
@@ -381,10 +501,14 @@ pub const QTextStream = extern struct {
     ///
     /// ` ch: QChar `
     ///
-    pub fn SetPadChar(self: QTextStream, ch: anytype) void {
+    pub fn setPadChar(self: QTextStream, ch: anytype) void {
         comptime _ = @TypeOf(ch)._is_QChar;
         qtc.QTextStream_SetPadChar(@ptrCast(self.ptr), @ptrCast(ch.ptr));
     }
+
+    /// ### DEPRECATED: Use `padChar` instead
+    ///
+    pub const PadChar = padChar;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#padChar)
     ///
@@ -392,9 +516,13 @@ pub const QTextStream = extern struct {
     ///
     /// ` self: QTextStream `
     ///
-    pub fn PadChar(self: QTextStream) QChar {
+    pub fn padChar(self: QTextStream) QChar {
         return .{ .ptr = qtc.QTextStream_PadChar(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFieldWidth` instead
+    ///
+    pub const SetFieldWidth = setFieldWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#setFieldWidth)
     ///
@@ -404,9 +532,13 @@ pub const QTextStream = extern struct {
     ///
     /// ` width: i32 `
     ///
-    pub fn SetFieldWidth(self: QTextStream, width: i32) void {
+    pub fn setFieldWidth(self: QTextStream, width: i32) void {
         qtc.QTextStream_SetFieldWidth(@ptrCast(self.ptr), @bitCast(width));
     }
+
+    /// ### DEPRECATED: Use `fieldWidth` instead
+    ///
+    pub const FieldWidth = fieldWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#fieldWidth)
     ///
@@ -414,9 +546,13 @@ pub const QTextStream = extern struct {
     ///
     /// ` self: QTextStream `
     ///
-    pub fn FieldWidth(self: QTextStream) i32 {
+    pub fn fieldWidth(self: QTextStream) i32 {
         return qtc.QTextStream_FieldWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setNumberFlags` instead
+    ///
+    pub const SetNumberFlags = setNumberFlags;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#setNumberFlags)
     ///
@@ -426,9 +562,13 @@ pub const QTextStream = extern struct {
     ///
     /// ` flags: flag of qtextstream_enums.NumberFlag `
     ///
-    pub fn SetNumberFlags(self: QTextStream, flags: i32) void {
+    pub fn setNumberFlags(self: QTextStream, flags: i32) void {
         qtc.QTextStream_SetNumberFlags(@ptrCast(self.ptr), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `numberFlags` instead
+    ///
+    pub const NumberFlags = numberFlags;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#numberFlags)
     ///
@@ -440,9 +580,13 @@ pub const QTextStream = extern struct {
     ///
     /// ` flag of qtextstream_enums.NumberFlag `
     ///
-    pub fn NumberFlags(self: QTextStream) i32 {
+    pub fn numberFlags(self: QTextStream) i32 {
         return qtc.QTextStream_NumberFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setIntegerBase` instead
+    ///
+    pub const SetIntegerBase = setIntegerBase;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#setIntegerBase)
     ///
@@ -452,9 +596,13 @@ pub const QTextStream = extern struct {
     ///
     /// ` base: i32 `
     ///
-    pub fn SetIntegerBase(self: QTextStream, base: i32) void {
+    pub fn setIntegerBase(self: QTextStream, base: i32) void {
         qtc.QTextStream_SetIntegerBase(@ptrCast(self.ptr), @bitCast(base));
     }
+
+    /// ### DEPRECATED: Use `integerBase` instead
+    ///
+    pub const IntegerBase = integerBase;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#integerBase)
     ///
@@ -462,9 +610,13 @@ pub const QTextStream = extern struct {
     ///
     /// ` self: QTextStream `
     ///
-    pub fn IntegerBase(self: QTextStream) i32 {
+    pub fn integerBase(self: QTextStream) i32 {
         return qtc.QTextStream_IntegerBase(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setRealNumberNotation` instead
+    ///
+    pub const SetRealNumberNotation = setRealNumberNotation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#setRealNumberNotation)
     ///
@@ -474,9 +626,13 @@ pub const QTextStream = extern struct {
     ///
     /// ` notation: qtextstream_enums.RealNumberNotation `
     ///
-    pub fn SetRealNumberNotation(self: QTextStream, notation: i32) void {
+    pub fn setRealNumberNotation(self: QTextStream, notation: i32) void {
         qtc.QTextStream_SetRealNumberNotation(@ptrCast(self.ptr), @bitCast(notation));
     }
+
+    /// ### DEPRECATED: Use `realNumberNotation` instead
+    ///
+    pub const RealNumberNotation = realNumberNotation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#realNumberNotation)
     ///
@@ -488,9 +644,13 @@ pub const QTextStream = extern struct {
     ///
     /// ` qtextstream_enums.RealNumberNotation `
     ///
-    pub fn RealNumberNotation(self: QTextStream) i32 {
+    pub fn realNumberNotation(self: QTextStream) i32 {
         return qtc.QTextStream_RealNumberNotation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setRealNumberPrecision` instead
+    ///
+    pub const SetRealNumberPrecision = setRealNumberPrecision;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#setRealNumberPrecision)
     ///
@@ -500,9 +660,13 @@ pub const QTextStream = extern struct {
     ///
     /// ` precision: i32 `
     ///
-    pub fn SetRealNumberPrecision(self: QTextStream, precision: i32) void {
+    pub fn setRealNumberPrecision(self: QTextStream, precision: i32) void {
         qtc.QTextStream_SetRealNumberPrecision(@ptrCast(self.ptr), @bitCast(precision));
     }
+
+    /// ### DEPRECATED: Use `realNumberPrecision` instead
+    ///
+    pub const RealNumberPrecision = realNumberPrecision;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#realNumberPrecision)
     ///
@@ -510,9 +674,13 @@ pub const QTextStream = extern struct {
     ///
     /// ` self: QTextStream `
     ///
-    pub fn RealNumberPrecision(self: QTextStream) i32 {
+    pub fn realNumberPrecision(self: QTextStream) i32 {
         return qtc.QTextStream_RealNumberPrecision(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorShiftRight` instead
+    ///
+    pub const OperatorShiftRight = operatorShiftRight;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#operator-gt-gt)
     ///
@@ -522,10 +690,14 @@ pub const QTextStream = extern struct {
     ///
     /// ` ch: QChar `
     ///
-    pub fn OperatorShiftRight(self: QTextStream, ch: anytype) QTextStream {
+    pub fn operatorShiftRight(self: QTextStream, ch: anytype) QTextStream {
         comptime _ = @TypeOf(ch)._is_QChar;
         return .{ .ptr = qtc.QTextStream_OperatorShiftRight(@ptrCast(self.ptr), @ptrCast(ch.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftRight2` instead
+    ///
+    pub const OperatorShiftRight2 = operatorShiftRight2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#operator-gt-gt)
     ///
@@ -535,9 +707,13 @@ pub const QTextStream = extern struct {
     ///
     /// ` ch: *u8 `
     ///
-    pub fn OperatorShiftRight2(self: QTextStream, ch: *u8) QTextStream {
+    pub fn operatorShiftRight2(self: QTextStream, ch: *u8) QTextStream {
         return .{ .ptr = qtc.QTextStream_OperatorShiftRight2(@ptrCast(self.ptr), @ptrCast(ch)) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftRight4` instead
+    ///
+    pub const OperatorShiftRight4 = operatorShiftRight4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#operator-gt-gt)
     ///
@@ -547,9 +723,13 @@ pub const QTextStream = extern struct {
     ///
     /// ` i: *i16 `
     ///
-    pub fn OperatorShiftRight4(self: QTextStream, i: *i16) QTextStream {
+    pub fn operatorShiftRight4(self: QTextStream, i: *i16) QTextStream {
         return .{ .ptr = qtc.QTextStream_OperatorShiftRight4(@ptrCast(self.ptr), @ptrCast(i)) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftRight5` instead
+    ///
+    pub const OperatorShiftRight5 = operatorShiftRight5;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#operator-gt-gt)
     ///
@@ -559,9 +739,13 @@ pub const QTextStream = extern struct {
     ///
     /// ` i: *u16 `
     ///
-    pub fn OperatorShiftRight5(self: QTextStream, i: *u16) QTextStream {
+    pub fn operatorShiftRight5(self: QTextStream, i: *u16) QTextStream {
         return .{ .ptr = qtc.QTextStream_OperatorShiftRight5(@ptrCast(self.ptr), @ptrCast(i)) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftRight6` instead
+    ///
+    pub const OperatorShiftRight6 = operatorShiftRight6;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#operator-gt-gt)
     ///
@@ -571,9 +755,13 @@ pub const QTextStream = extern struct {
     ///
     /// ` i: *i32 `
     ///
-    pub fn OperatorShiftRight6(self: QTextStream, i: *i32) QTextStream {
+    pub fn operatorShiftRight6(self: QTextStream, i: *i32) QTextStream {
         return .{ .ptr = qtc.QTextStream_OperatorShiftRight6(@ptrCast(self.ptr), @ptrCast(i)) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftRight7` instead
+    ///
+    pub const OperatorShiftRight7 = operatorShiftRight7;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#operator-gt-gt)
     ///
@@ -583,9 +771,13 @@ pub const QTextStream = extern struct {
     ///
     /// ` i: *u32 `
     ///
-    pub fn OperatorShiftRight7(self: QTextStream, i: *u32) QTextStream {
+    pub fn operatorShiftRight7(self: QTextStream, i: *u32) QTextStream {
         return .{ .ptr = qtc.QTextStream_OperatorShiftRight7(@ptrCast(self.ptr), @ptrCast(i)) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftRight8` instead
+    ///
+    pub const OperatorShiftRight8 = operatorShiftRight8;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#operator-gt-gt)
     ///
@@ -595,7 +787,7 @@ pub const QTextStream = extern struct {
     ///
     /// ` i: *isize `
     ///
-    pub fn OperatorShiftRight8(self: QTextStream, i: *isize) QTextStream {
+    pub fn operatorShiftRight8(self: QTextStream, i: *isize) QTextStream {
         switch (builtin.target.os.tag) {
             .linux, .freebsd => {},
             else => @compileError("Unsupported operating system"),
@@ -604,6 +796,10 @@ pub const QTextStream = extern struct {
         return .{ .ptr = qtc.QTextStream_OperatorShiftRight8(@ptrCast(self.ptr), @ptrCast(i)) };
     }
 
+    /// ### DEPRECATED: Use `operatorShiftRight9` instead
+    ///
+    pub const OperatorShiftRight9 = operatorShiftRight9;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#operator-gt-gt)
     ///
     /// ## Parameter(s):
@@ -612,7 +808,7 @@ pub const QTextStream = extern struct {
     ///
     /// ` i: *usize `
     ///
-    pub fn OperatorShiftRight9(self: QTextStream, i: *usize) QTextStream {
+    pub fn operatorShiftRight9(self: QTextStream, i: *usize) QTextStream {
         switch (builtin.target.os.tag) {
             .linux, .freebsd => {},
             else => @compileError("Unsupported operating system"),
@@ -620,6 +816,10 @@ pub const QTextStream = extern struct {
 
         return .{ .ptr = qtc.QTextStream_OperatorShiftRight9(@ptrCast(self.ptr), @ptrCast(i)) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftRight10` instead
+    ///
+    pub const OperatorShiftRight10 = operatorShiftRight10;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#operator-gt-gt)
     ///
@@ -629,9 +829,13 @@ pub const QTextStream = extern struct {
     ///
     /// ` i: *isize `
     ///
-    pub fn OperatorShiftRight10(self: QTextStream, i: *isize) QTextStream {
+    pub fn operatorShiftRight10(self: QTextStream, i: *isize) QTextStream {
         return .{ .ptr = qtc.QTextStream_OperatorShiftRight10(@ptrCast(self.ptr), @ptrCast(i)) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftRight11` instead
+    ///
+    pub const OperatorShiftRight11 = operatorShiftRight11;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#operator-gt-gt)
     ///
@@ -641,9 +845,13 @@ pub const QTextStream = extern struct {
     ///
     /// ` i: *usize `
     ///
-    pub fn OperatorShiftRight11(self: QTextStream, i: *usize) QTextStream {
+    pub fn operatorShiftRight11(self: QTextStream, i: *usize) QTextStream {
         return .{ .ptr = qtc.QTextStream_OperatorShiftRight11(@ptrCast(self.ptr), @ptrCast(i)) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftRight12` instead
+    ///
+    pub const OperatorShiftRight12 = operatorShiftRight12;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#operator-gt-gt)
     ///
@@ -653,9 +861,13 @@ pub const QTextStream = extern struct {
     ///
     /// ` f: *f32 `
     ///
-    pub fn OperatorShiftRight12(self: QTextStream, f: *f32) QTextStream {
+    pub fn operatorShiftRight12(self: QTextStream, f: *f32) QTextStream {
         return .{ .ptr = qtc.QTextStream_OperatorShiftRight12(@ptrCast(self.ptr), @ptrCast(f)) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftRight13` instead
+    ///
+    pub const OperatorShiftRight13 = operatorShiftRight13;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#operator-gt-gt)
     ///
@@ -665,9 +877,13 @@ pub const QTextStream = extern struct {
     ///
     /// ` f: *f64 `
     ///
-    pub fn OperatorShiftRight13(self: QTextStream, f: *f64) QTextStream {
+    pub fn operatorShiftRight13(self: QTextStream, f: *f64) QTextStream {
         return .{ .ptr = qtc.QTextStream_OperatorShiftRight13(@ptrCast(self.ptr), @ptrCast(f)) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftRight14` instead
+    ///
+    pub const OperatorShiftRight14 = operatorShiftRight14;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#operator-gt-gt)
     ///
@@ -677,13 +893,17 @@ pub const QTextStream = extern struct {
     ///
     /// ` s: []const u8 `
     ///
-    pub fn OperatorShiftRight14(self: QTextStream, s: []const u8) QTextStream {
+    pub fn operatorShiftRight14(self: QTextStream, s: []const u8) QTextStream {
         const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
         };
         return .{ .ptr = qtc.QTextStream_OperatorShiftRight14(@ptrCast(self.ptr), s_str) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftRight15` instead
+    ///
+    pub const OperatorShiftRight15 = operatorShiftRight15;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#operator-gt-gt)
     ///
@@ -693,13 +913,17 @@ pub const QTextStream = extern struct {
     ///
     /// ` array: []u8 `
     ///
-    pub fn OperatorShiftRight15(self: QTextStream, array: []u8) QTextStream {
+    pub fn operatorShiftRight15(self: QTextStream, array: []u8) QTextStream {
         const array_str = qtc.libqt_string{
             .len = array.len,
             .data = array.ptr,
         };
         return .{ .ptr = qtc.QTextStream_OperatorShiftRight15(@ptrCast(self.ptr), array_str) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftRight16` instead
+    ///
+    pub const OperatorShiftRight16 = operatorShiftRight16;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#operator-gt-gt)
     ///
@@ -709,10 +933,14 @@ pub const QTextStream = extern struct {
     ///
     /// ` c: [:0]u8 `
     ///
-    pub fn OperatorShiftRight16(self: QTextStream, c: [:0]u8) QTextStream {
+    pub fn operatorShiftRight16(self: QTextStream, c: [:0]u8) QTextStream {
         const c_Cstring = c.ptr;
         return .{ .ptr = qtc.QTextStream_OperatorShiftRight16(@ptrCast(self.ptr), c_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftLeft` instead
+    ///
+    pub const OperatorShiftLeft = operatorShiftLeft;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#operator-lt-lt)
     ///
@@ -722,10 +950,14 @@ pub const QTextStream = extern struct {
     ///
     /// ` ch: QChar `
     ///
-    pub fn OperatorShiftLeft(self: QTextStream, ch: anytype) QTextStream {
+    pub fn operatorShiftLeft(self: QTextStream, ch: anytype) QTextStream {
         comptime _ = @TypeOf(ch)._is_QChar;
         return .{ .ptr = qtc.QTextStream_OperatorShiftLeft(@ptrCast(self.ptr), @ptrCast(ch.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftLeft2` instead
+    ///
+    pub const OperatorShiftLeft2 = operatorShiftLeft2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#operator-lt-lt)
     ///
@@ -735,9 +967,13 @@ pub const QTextStream = extern struct {
     ///
     /// ` ch: u8 `
     ///
-    pub fn OperatorShiftLeft2(self: QTextStream, ch: u8) QTextStream {
+    pub fn operatorShiftLeft2(self: QTextStream, ch: u8) QTextStream {
         return .{ .ptr = qtc.QTextStream_OperatorShiftLeft2(@ptrCast(self.ptr), @bitCast(ch)) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftLeft4` instead
+    ///
+    pub const OperatorShiftLeft4 = operatorShiftLeft4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#operator-lt-lt)
     ///
@@ -747,9 +983,13 @@ pub const QTextStream = extern struct {
     ///
     /// ` i: i16 `
     ///
-    pub fn OperatorShiftLeft4(self: QTextStream, i: i16) QTextStream {
+    pub fn operatorShiftLeft4(self: QTextStream, i: i16) QTextStream {
         return .{ .ptr = qtc.QTextStream_OperatorShiftLeft4(@ptrCast(self.ptr), @bitCast(i)) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftLeft5` instead
+    ///
+    pub const OperatorShiftLeft5 = operatorShiftLeft5;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#operator-lt-lt)
     ///
@@ -759,9 +999,13 @@ pub const QTextStream = extern struct {
     ///
     /// ` i: u16 `
     ///
-    pub fn OperatorShiftLeft5(self: QTextStream, i: u16) QTextStream {
+    pub fn operatorShiftLeft5(self: QTextStream, i: u16) QTextStream {
         return .{ .ptr = qtc.QTextStream_OperatorShiftLeft5(@ptrCast(self.ptr), @bitCast(i)) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftLeft6` instead
+    ///
+    pub const OperatorShiftLeft6 = operatorShiftLeft6;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#operator-lt-lt)
     ///
@@ -771,9 +1015,13 @@ pub const QTextStream = extern struct {
     ///
     /// ` i: i32 `
     ///
-    pub fn OperatorShiftLeft6(self: QTextStream, i: i32) QTextStream {
+    pub fn operatorShiftLeft6(self: QTextStream, i: i32) QTextStream {
         return .{ .ptr = qtc.QTextStream_OperatorShiftLeft6(@ptrCast(self.ptr), @bitCast(i)) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftLeft7` instead
+    ///
+    pub const OperatorShiftLeft7 = operatorShiftLeft7;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#operator-lt-lt)
     ///
@@ -783,10 +1031,14 @@ pub const QTextStream = extern struct {
     ///
     /// ` i: u32 `
     ///
-    pub fn OperatorShiftLeft7(self: QTextStream, i: u32) QTextStream {
+    pub fn operatorShiftLeft7(self: QTextStream, i: u32) QTextStream {
         return .{ .ptr = qtc.QTextStream_OperatorShiftLeft7(@ptrCast(self.ptr), @bitCast(i)) };
     }
 
+    /// ### DEPRECATED: Use `operatorShiftLeft8` instead
+    ///
+    pub const OperatorShiftLeft8 = operatorShiftLeft8;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#operator-lt-lt)
     ///
     /// ## Parameter(s):
@@ -795,10 +1047,14 @@ pub const QTextStream = extern struct {
     ///
     /// ` i: isize `
     ///
-    pub fn OperatorShiftLeft8(self: QTextStream, i: isize) QTextStream {
+    pub fn operatorShiftLeft8(self: QTextStream, i: isize) QTextStream {
         return .{ .ptr = qtc.QTextStream_OperatorShiftLeft8(@ptrCast(self.ptr), @bitCast(i)) };
     }
 
+    /// ### DEPRECATED: Use `operatorShiftLeft9` instead
+    ///
+    pub const OperatorShiftLeft9 = operatorShiftLeft9;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#operator-lt-lt)
     ///
     /// ## Parameter(s):
@@ -807,9 +1063,13 @@ pub const QTextStream = extern struct {
     ///
     /// ` i: usize `
     ///
-    pub fn OperatorShiftLeft9(self: QTextStream, i: usize) QTextStream {
+    pub fn operatorShiftLeft9(self: QTextStream, i: usize) QTextStream {
         return .{ .ptr = qtc.QTextStream_OperatorShiftLeft9(@ptrCast(self.ptr), @bitCast(i)) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftLeft10` instead
+    ///
+    pub const OperatorShiftLeft10 = operatorShiftLeft10;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#operator-lt-lt)
     ///
@@ -819,9 +1079,13 @@ pub const QTextStream = extern struct {
     ///
     /// ` i: isize `
     ///
-    pub fn OperatorShiftLeft10(self: QTextStream, i: isize) QTextStream {
+    pub fn operatorShiftLeft10(self: QTextStream, i: isize) QTextStream {
         return .{ .ptr = qtc.QTextStream_OperatorShiftLeft10(@ptrCast(self.ptr), @bitCast(i)) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftLeft11` instead
+    ///
+    pub const OperatorShiftLeft11 = operatorShiftLeft11;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#operator-lt-lt)
     ///
@@ -831,9 +1095,13 @@ pub const QTextStream = extern struct {
     ///
     /// ` i: usize `
     ///
-    pub fn OperatorShiftLeft11(self: QTextStream, i: usize) QTextStream {
+    pub fn operatorShiftLeft11(self: QTextStream, i: usize) QTextStream {
         return .{ .ptr = qtc.QTextStream_OperatorShiftLeft11(@ptrCast(self.ptr), @bitCast(i)) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftLeft12` instead
+    ///
+    pub const OperatorShiftLeft12 = operatorShiftLeft12;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#operator-lt-lt)
     ///
@@ -843,9 +1111,13 @@ pub const QTextStream = extern struct {
     ///
     /// ` f: f32 `
     ///
-    pub fn OperatorShiftLeft12(self: QTextStream, f: f32) QTextStream {
+    pub fn operatorShiftLeft12(self: QTextStream, f: f32) QTextStream {
         return .{ .ptr = qtc.QTextStream_OperatorShiftLeft12(@ptrCast(self.ptr), @bitCast(f)) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftLeft13` instead
+    ///
+    pub const OperatorShiftLeft13 = operatorShiftLeft13;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#operator-lt-lt)
     ///
@@ -855,9 +1127,13 @@ pub const QTextStream = extern struct {
     ///
     /// ` f: f64 `
     ///
-    pub fn OperatorShiftLeft13(self: QTextStream, f: f64) QTextStream {
+    pub fn operatorShiftLeft13(self: QTextStream, f: f64) QTextStream {
         return .{ .ptr = qtc.QTextStream_OperatorShiftLeft13(@ptrCast(self.ptr), @bitCast(f)) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftLeft14` instead
+    ///
+    pub const OperatorShiftLeft14 = operatorShiftLeft14;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#operator-lt-lt)
     ///
@@ -867,7 +1143,7 @@ pub const QTextStream = extern struct {
     ///
     /// ` s: []const u8 `
     ///
-    pub fn OperatorShiftLeft14(self: QTextStream, s: []const u8) QTextStream {
+    pub fn operatorShiftLeft14(self: QTextStream, s: []const u8) QTextStream {
         const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
@@ -875,6 +1151,10 @@ pub const QTextStream = extern struct {
         return .{ .ptr = qtc.QTextStream_OperatorShiftLeft14(@ptrCast(self.ptr), s_str) };
     }
 
+    /// ### DEPRECATED: Use `operatorShiftLeft15` instead
+    ///
+    pub const OperatorShiftLeft15 = operatorShiftLeft15;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#operator-lt-lt)
     ///
     /// ## Parameter(s):
@@ -883,13 +1163,17 @@ pub const QTextStream = extern struct {
     ///
     /// ` s: []const u8 `
     ///
-    pub fn OperatorShiftLeft15(self: QTextStream, s: []const u8) QTextStream {
+    pub fn operatorShiftLeft15(self: QTextStream, s: []const u8) QTextStream {
         const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
         };
         return .{ .ptr = qtc.QTextStream_OperatorShiftLeft15(@ptrCast(self.ptr), s_str) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftLeft16` instead
+    ///
+    pub const OperatorShiftLeft16 = operatorShiftLeft16;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#operator-lt-lt)
     ///
@@ -899,13 +1183,17 @@ pub const QTextStream = extern struct {
     ///
     /// ` s: []u8 `
     ///
-    pub fn OperatorShiftLeft16(self: QTextStream, s: []u8) QTextStream {
+    pub fn operatorShiftLeft16(self: QTextStream, s: []u8) QTextStream {
         const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
         };
         return .{ .ptr = qtc.QTextStream_OperatorShiftLeft16(@ptrCast(self.ptr), s_str) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftLeft17` instead
+    ///
+    pub const OperatorShiftLeft17 = operatorShiftLeft17;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#operator-lt-lt)
     ///
@@ -915,13 +1203,17 @@ pub const QTextStream = extern struct {
     ///
     /// ` array: []u8 `
     ///
-    pub fn OperatorShiftLeft17(self: QTextStream, array: []u8) QTextStream {
+    pub fn operatorShiftLeft17(self: QTextStream, array: []u8) QTextStream {
         const array_str = qtc.libqt_string{
             .len = array.len,
             .data = array.ptr,
         };
         return .{ .ptr = qtc.QTextStream_OperatorShiftLeft17(@ptrCast(self.ptr), array_str) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftLeft18` instead
+    ///
+    pub const OperatorShiftLeft18 = operatorShiftLeft18;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#operator-lt-lt)
     ///
@@ -931,10 +1223,14 @@ pub const QTextStream = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn OperatorShiftLeft18(self: QTextStream, c: [:0]const u8) QTextStream {
+    pub fn operatorShiftLeft18(self: QTextStream, c: [:0]const u8) QTextStream {
         const c_Cstring = c.ptr;
         return .{ .ptr = qtc.QTextStream_OperatorShiftLeft18(@ptrCast(self.ptr), c_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftLeft19` instead
+    ///
+    pub const OperatorShiftLeft19 = operatorShiftLeft19;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#operator-lt-lt)
     ///
@@ -944,9 +1240,13 @@ pub const QTextStream = extern struct {
     ///
     /// ` ptr: ?*const anyopaque `
     ///
-    pub fn OperatorShiftLeft19(self: QTextStream, ptr: ?*const anyopaque) QTextStream {
+    pub fn operatorShiftLeft19(self: QTextStream, ptr: ?*const anyopaque) QTextStream {
         return .{ .ptr = qtc.QTextStream_OperatorShiftLeft19(@ptrCast(self.ptr), @ptrCast(ptr)) };
     }
+
+    /// ### DEPRECATED: Use `readLine1` instead
+    ///
+    pub const ReadLine1 = readLine1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#readLine)
     ///
@@ -958,27 +1258,27 @@ pub const QTextStream = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn ReadLine1(self: QTextStream, allocator: std.mem.Allocator, maxlen: i64) []const u8 {
+    pub fn readLine1(self: QTextStream, allocator: std.mem.Allocator, maxlen: i64) []const u8 {
         var _str = qtc.QTextStream_ReadLine1(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextStream.ReadLine1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextStream.readLine1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#dtor.QTextStream)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QTextStream `
     ///
-    pub fn Delete(self: QTextStream) void {
+    pub fn delete(self: QTextStream) void {
         qtc.QTextStream_Delete(@ptrCast(self.ptr));
     }
 };

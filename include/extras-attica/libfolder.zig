@@ -12,22 +12,34 @@ pub const Attica__Folder = extern struct {
 
     pub const _is_Attica__Folder = {};
 
-    /// New constructs a new Attica::Folder object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() Attica__Folder {
+    pub const New = new;
+
+    /// Allocate a new Attica::Folder object in C++ memory
+    ///
+    pub fn new() Attica__Folder {
         return .{ .ptr = qtc.Attica__Folder_new() };
     }
 
-    /// New2 constructs a new Attica::Folder object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new Attica::Folder object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: Attica__Folder `
     ///
-    pub fn New2(other: anytype) Attica__Folder {
+    pub fn new2(other: anytype) Attica__Folder {
         comptime _ = @TypeOf(other)._is_Attica__Folder;
         return .{ .ptr = qtc.Attica__Folder_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://api.kde.org/attica-folder.html#operator-eq)
     ///
@@ -37,10 +49,14 @@ pub const Attica__Folder = extern struct {
     ///
     /// ` other: Attica__Folder `
     ///
-    pub fn OperatorAssign(self: Attica__Folder, other: anytype) void {
+    pub fn operatorAssign(self: Attica__Folder, other: anytype) void {
         comptime _ = @TypeOf(other)._is_Attica__Folder;
         qtc.Attica__Folder_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `setId` instead
+    ///
+    pub const SetId = setId;
 
     /// ### [Upstream resources](https://api.kde.org/attica-folder.html#setId)
     ///
@@ -48,15 +64,19 @@ pub const Attica__Folder = extern struct {
     ///
     /// ` self: Attica__Folder `
     ///
-    /// ` id: []const u8 `
+    /// ` _id: []const u8 `
     ///
-    pub fn SetId(self: Attica__Folder, id: []const u8) void {
+    pub fn setId(self: Attica__Folder, _id: []const u8) void {
         const id_str = qtc.libqt_string{
-            .len = id.len,
-            .data = id.ptr,
+            .len = _id.len,
+            .data = _id.ptr,
         };
         qtc.Attica__Folder_SetId(@ptrCast(self.ptr), id_str);
     }
+
+    /// ### DEPRECATED: Use `id` instead
+    ///
+    pub const Id = id;
 
     /// ### [Upstream resources](https://api.kde.org/attica-folder.html#id)
     ///
@@ -66,13 +86,17 @@ pub const Attica__Folder = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Id(self: Attica__Folder, allocator: std.mem.Allocator) []const u8 {
+    pub fn id(self: Attica__Folder, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Folder_Id(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Folder.Id: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Folder.id: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setName` instead
+    ///
+    pub const SetName = setName;
 
     /// ### [Upstream resources](https://api.kde.org/attica-folder.html#setName)
     ///
@@ -80,15 +104,19 @@ pub const Attica__Folder = extern struct {
     ///
     /// ` self: Attica__Folder `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn SetName(self: Attica__Folder, name: []const u8) void {
+    pub fn setName(self: Attica__Folder, _name: []const u8) void {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         qtc.Attica__Folder_SetName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://api.kde.org/attica-folder.html#name)
     ///
@@ -98,13 +126,17 @@ pub const Attica__Folder = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: Attica__Folder, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: Attica__Folder, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Folder_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Folder.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Folder.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setMessageCount` instead
+    ///
+    pub const SetMessageCount = setMessageCount;
 
     /// ### [Upstream resources](https://api.kde.org/attica-folder.html#setMessageCount)
     ///
@@ -112,11 +144,15 @@ pub const Attica__Folder = extern struct {
     ///
     /// ` self: Attica__Folder `
     ///
-    /// ` messageCount: i32 `
+    /// ` _messageCount: i32 `
     ///
-    pub fn SetMessageCount(self: Attica__Folder, messageCount: i32) void {
-        qtc.Attica__Folder_SetMessageCount(@ptrCast(self.ptr), @bitCast(messageCount));
+    pub fn setMessageCount(self: Attica__Folder, _messageCount: i32) void {
+        qtc.Attica__Folder_SetMessageCount(@ptrCast(self.ptr), @bitCast(_messageCount));
     }
+
+    /// ### DEPRECATED: Use `messageCount` instead
+    ///
+    pub const MessageCount = messageCount;
 
     /// ### [Upstream resources](https://api.kde.org/attica-folder.html#messageCount)
     ///
@@ -124,9 +160,13 @@ pub const Attica__Folder = extern struct {
     ///
     /// ` self: Attica__Folder `
     ///
-    pub fn MessageCount(self: Attica__Folder) i32 {
+    pub fn messageCount(self: Attica__Folder) i32 {
         return qtc.Attica__Folder_MessageCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setType` instead
+    ///
+    pub const SetType = setType;
 
     /// ### [Upstream resources](https://api.kde.org/attica-folder.html#setType)
     ///
@@ -136,13 +176,19 @@ pub const Attica__Folder = extern struct {
     ///
     /// ` typeVal: []const u8 `
     ///
-    pub fn SetType(self: Attica__Folder, typeVal: []const u8) void {
+    pub fn setType(self: Attica__Folder, typeVal: []const u8) void {
         const typeVal_str = qtc.libqt_string{
             .len = typeVal.len,
             .data = typeVal.ptr,
         };
         qtc.Attica__Folder_SetType(@ptrCast(self.ptr), typeVal_str);
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://api.kde.org/attica-folder.html#type)
     ///
@@ -152,13 +198,17 @@ pub const Attica__Folder = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Type(self: Attica__Folder, allocator: std.mem.Allocator) []const u8 {
+    pub fn type0(self: Attica__Folder, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Folder_Type(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Folder.Type: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Folder.type0: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://api.kde.org/attica-folder.html#isValid)
     ///
@@ -166,21 +216,21 @@ pub const Attica__Folder = extern struct {
     ///
     /// ` self: Attica__Folder `
     ///
-    pub fn IsValid(self: Attica__Folder) bool {
+    pub fn isValid(self: Attica__Folder) bool {
         return qtc.Attica__Folder_IsValid(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Attica__Folder `
     ///
-    pub fn Delete(self: Attica__Folder) void {
+    pub fn delete(self: Attica__Folder) void {
         qtc.Attica__Folder_Delete(@ptrCast(self.ptr));
     }
 };

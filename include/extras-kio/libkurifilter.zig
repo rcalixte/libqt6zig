@@ -15,22 +15,34 @@ pub const KUriFilterSearchProvider = extern struct {
 
     pub const _is_KUriFilterSearchProvider = {};
 
-    /// New constructs a new KUriFilterSearchProvider object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KUriFilterSearchProvider {
+    pub const New = new;
+
+    /// Allocate a new KUriFilterSearchProvider object in C++ memory
+    ///
+    pub fn new() KUriFilterSearchProvider {
         return .{ .ptr = qtc.KUriFilterSearchProvider_new() };
     }
 
-    /// New2 constructs a new KUriFilterSearchProvider object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KUriFilterSearchProvider object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: KUriFilterSearchProvider `
     ///
-    pub fn New2(param1: anytype) KUriFilterSearchProvider {
+    pub fn new2(param1: anytype) KUriFilterSearchProvider {
         comptime _ = @TypeOf(param1)._is_KUriFilterSearchProvider;
         return .{ .ptr = qtc.KUriFilterSearchProvider_new2(@ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `desktopEntryName` instead
+    ///
+    pub const DesktopEntryName = desktopEntryName;
 
     /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#desktopEntryName)
     ///
@@ -40,13 +52,17 @@ pub const KUriFilterSearchProvider = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DesktopEntryName(self: KUriFilterSearchProvider, allocator: std.mem.Allocator) []const u8 {
+    pub fn desktopEntryName(self: KUriFilterSearchProvider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KUriFilterSearchProvider_DesktopEntryName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUriFilterSearchProvider.DesktopEntryName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUriFilterSearchProvider.desktopEntryName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#name)
     ///
@@ -56,13 +72,17 @@ pub const KUriFilterSearchProvider = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: KUriFilterSearchProvider, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: KUriFilterSearchProvider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KUriFilterSearchProvider_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUriFilterSearchProvider.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUriFilterSearchProvider.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `iconName` instead
+    ///
+    pub const IconName = iconName;
 
     /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#iconName)
     ///
@@ -72,13 +92,17 @@ pub const KUriFilterSearchProvider = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn IconName(self: KUriFilterSearchProvider, allocator: std.mem.Allocator) []const u8 {
+    pub fn iconName(self: KUriFilterSearchProvider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KUriFilterSearchProvider_IconName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUriFilterSearchProvider.IconName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUriFilterSearchProvider.iconName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onIconName` instead
+    ///
+    pub const OnIconName = onIconName;
 
     /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#iconName)
     ///
@@ -90,13 +114,13 @@ pub const KUriFilterSearchProvider = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnIconName(self: KUriFilterSearchProvider, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onIconName(self: KUriFilterSearchProvider, callback: *const fn () callconv(.c) [*:0]const u8) void {
         qtc.KUriFilterSearchProvider_OnIconName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperIconName` instead
+    /// ### DEPRECATED: Use `superIconName` instead
     ///
-    pub const QBaseIconName = SuperIconName;
+    pub const SuperIconName = superIconName;
 
     /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#iconName)
     ///
@@ -108,13 +132,17 @@ pub const KUriFilterSearchProvider = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperIconName(self: KUriFilterSearchProvider, allocator: std.mem.Allocator) []const u8 {
+    pub fn superIconName(self: KUriFilterSearchProvider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KUriFilterSearchProvider_SuperIconName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUriFilterSearchProvider.IconName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUriFilterSearchProvider.iconName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `keys` instead
+    ///
+    pub const Keys = keys;
 
     /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#keys)
     ///
@@ -124,7 +152,7 @@ pub const KUriFilterSearchProvider = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Keys(self: KUriFilterSearchProvider, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn keys(self: KUriFilterSearchProvider, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KUriFilterSearchProvider_Keys(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -132,15 +160,19 @@ pub const KUriFilterSearchProvider = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUriFilterSearchProvider.Keys: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUriFilterSearchProvider.keys: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUriFilterSearchProvider.Keys: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KUriFilterSearchProvider.keys: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `defaultKey` instead
+    ///
+    pub const DefaultKey = defaultKey;
 
     /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#defaultKey)
     ///
@@ -150,13 +182,17 @@ pub const KUriFilterSearchProvider = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DefaultKey(self: KUriFilterSearchProvider, allocator: std.mem.Allocator) []const u8 {
+    pub fn defaultKey(self: KUriFilterSearchProvider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KUriFilterSearchProvider_DefaultKey(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUriFilterSearchProvider.DefaultKey: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUriFilterSearchProvider.defaultKey: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#operator-eq)
     ///
@@ -166,10 +202,14 @@ pub const KUriFilterSearchProvider = extern struct {
     ///
     /// ` param1: KUriFilterSearchProvider `
     ///
-    pub fn OperatorAssign(self: KUriFilterSearchProvider, param1: anytype) void {
+    pub fn operatorAssign(self: KUriFilterSearchProvider, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_KUriFilterSearchProvider;
         qtc.KUriFilterSearchProvider_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDesktopEntryName` instead
+    ///
+    pub const SetDesktopEntryName = setDesktopEntryName;
 
     /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setDesktopEntryName)
     ///
@@ -177,15 +217,19 @@ pub const KUriFilterSearchProvider = extern struct {
     ///
     /// ` self: KUriFilterSearchProvider `
     ///
-    /// ` desktopEntryName: []const u8 `
+    /// ` _desktopEntryName: []const u8 `
     ///
-    pub fn SetDesktopEntryName(self: KUriFilterSearchProvider, desktopEntryName: []const u8) void {
+    pub fn setDesktopEntryName(self: KUriFilterSearchProvider, _desktopEntryName: []const u8) void {
         const desktopEntryName_str = qtc.libqt_string{
-            .len = desktopEntryName.len,
-            .data = desktopEntryName.ptr,
+            .len = _desktopEntryName.len,
+            .data = _desktopEntryName.ptr,
         };
         qtc.KUriFilterSearchProvider_SetDesktopEntryName(@ptrCast(self.ptr), desktopEntryName_str);
     }
+
+    /// ### DEPRECATED: Use `onSetDesktopEntryName` instead
+    ///
+    pub const OnSetDesktopEntryName = onSetDesktopEntryName;
 
     /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setDesktopEntryName)
     ///
@@ -197,13 +241,13 @@ pub const KUriFilterSearchProvider = extern struct {
     ///
     /// ` callback: *const fn (self: KUriFilterSearchProvider, desktopEntryName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetDesktopEntryName(self: KUriFilterSearchProvider, callback: *const fn (KUriFilterSearchProvider, [*:0]const u8) callconv(.c) void) void {
+    pub fn onSetDesktopEntryName(self: KUriFilterSearchProvider, callback: *const fn (KUriFilterSearchProvider, [*:0]const u8) callconv(.c) void) void {
         qtc.KUriFilterSearchProvider_OnSetDesktopEntryName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetDesktopEntryName` instead
+    /// ### DEPRECATED: Use `superSetDesktopEntryName` instead
     ///
-    pub const QBaseSetDesktopEntryName = SuperSetDesktopEntryName;
+    pub const SuperSetDesktopEntryName = superSetDesktopEntryName;
 
     /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setDesktopEntryName)
     ///
@@ -213,15 +257,19 @@ pub const KUriFilterSearchProvider = extern struct {
     ///
     /// ` self: KUriFilterSearchProvider `
     ///
-    /// ` desktopEntryName: []const u8 `
+    /// ` _desktopEntryName: []const u8 `
     ///
-    pub fn SuperSetDesktopEntryName(self: KUriFilterSearchProvider, desktopEntryName: []const u8) void {
+    pub fn superSetDesktopEntryName(self: KUriFilterSearchProvider, _desktopEntryName: []const u8) void {
         const desktopEntryName_str = qtc.libqt_string{
-            .len = desktopEntryName.len,
-            .data = desktopEntryName.ptr,
+            .len = _desktopEntryName.len,
+            .data = _desktopEntryName.ptr,
         };
         qtc.KUriFilterSearchProvider_SuperSetDesktopEntryName(@ptrCast(self.ptr), desktopEntryName_str);
     }
+
+    /// ### DEPRECATED: Use `setIconName` instead
+    ///
+    pub const SetIconName = setIconName;
 
     /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setIconName)
     ///
@@ -229,15 +277,19 @@ pub const KUriFilterSearchProvider = extern struct {
     ///
     /// ` self: KUriFilterSearchProvider `
     ///
-    /// ` iconName: []const u8 `
+    /// ` _iconName: []const u8 `
     ///
-    pub fn SetIconName(self: KUriFilterSearchProvider, iconName: []const u8) void {
+    pub fn setIconName(self: KUriFilterSearchProvider, _iconName: []const u8) void {
         const iconName_str = qtc.libqt_string{
-            .len = iconName.len,
-            .data = iconName.ptr,
+            .len = _iconName.len,
+            .data = _iconName.ptr,
         };
         qtc.KUriFilterSearchProvider_SetIconName(@ptrCast(self.ptr), iconName_str);
     }
+
+    /// ### DEPRECATED: Use `onSetIconName` instead
+    ///
+    pub const OnSetIconName = onSetIconName;
 
     /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setIconName)
     ///
@@ -249,13 +301,13 @@ pub const KUriFilterSearchProvider = extern struct {
     ///
     /// ` callback: *const fn (self: KUriFilterSearchProvider, iconName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetIconName(self: KUriFilterSearchProvider, callback: *const fn (KUriFilterSearchProvider, [*:0]const u8) callconv(.c) void) void {
+    pub fn onSetIconName(self: KUriFilterSearchProvider, callback: *const fn (KUriFilterSearchProvider, [*:0]const u8) callconv(.c) void) void {
         qtc.KUriFilterSearchProvider_OnSetIconName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetIconName` instead
+    /// ### DEPRECATED: Use `superSetIconName` instead
     ///
-    pub const QBaseSetIconName = SuperSetIconName;
+    pub const SuperSetIconName = superSetIconName;
 
     /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setIconName)
     ///
@@ -265,15 +317,19 @@ pub const KUriFilterSearchProvider = extern struct {
     ///
     /// ` self: KUriFilterSearchProvider `
     ///
-    /// ` iconName: []const u8 `
+    /// ` _iconName: []const u8 `
     ///
-    pub fn SuperSetIconName(self: KUriFilterSearchProvider, iconName: []const u8) void {
+    pub fn superSetIconName(self: KUriFilterSearchProvider, _iconName: []const u8) void {
         const iconName_str = qtc.libqt_string{
-            .len = iconName.len,
-            .data = iconName.ptr,
+            .len = _iconName.len,
+            .data = _iconName.ptr,
         };
         qtc.KUriFilterSearchProvider_SuperSetIconName(@ptrCast(self.ptr), iconName_str);
     }
+
+    /// ### DEPRECATED: Use `setKeys` instead
+    ///
+    pub const SetKeys = setKeys;
 
     /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setKeys)
     ///
@@ -283,22 +339,26 @@ pub const KUriFilterSearchProvider = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` keys: []const []const u8 `
+    /// ` _keys: []const []const u8 `
     ///
-    pub fn SetKeys(self: KUriFilterSearchProvider, allocator: std.mem.Allocator, keys: []const []const u8) void {
-        const keys_arr = allocator.alloc(qtc.libqt_string, keys.len) catch @panic("KUriFilterSearchProvider.SetKeys: Memory allocation failed");
+    pub fn setKeys(self: KUriFilterSearchProvider, allocator: std.mem.Allocator, _keys: []const []const u8) void {
+        const keys_arr = allocator.alloc(qtc.libqt_string, _keys.len) catch @panic("KUriFilterSearchProvider.setKeys: Memory allocation failed");
         defer allocator.free(keys_arr);
-        for (keys, 0..keys.len) |item, i|
+        for (_keys, 0.._keys.len) |str_item, i|
             keys_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const keys_list = qtc.libqt_list{
-            .len = keys.len,
+            .len = _keys.len,
             .data = keys_arr.ptr,
         };
         qtc.KUriFilterSearchProvider_SetKeys(@ptrCast(self.ptr), keys_list);
     }
+
+    /// ### DEPRECATED: Use `onSetKeys` instead
+    ///
+    pub const OnSetKeys = onSetKeys;
 
     /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setKeys)
     ///
@@ -310,13 +370,13 @@ pub const KUriFilterSearchProvider = extern struct {
     ///
     /// ` callback: *const fn (self: KUriFilterSearchProvider, keys: ?[*:null]?[*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetKeys(self: KUriFilterSearchProvider, callback: *const fn (KUriFilterSearchProvider, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
+    pub fn onSetKeys(self: KUriFilterSearchProvider, callback: *const fn (KUriFilterSearchProvider, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
         qtc.KUriFilterSearchProvider_OnSetKeys(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetKeys` instead
+    /// ### DEPRECATED: Use `superSetKeys` instead
     ///
-    pub const QBaseSetKeys = SuperSetKeys;
+    pub const SuperSetKeys = superSetKeys;
 
     /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setKeys)
     ///
@@ -328,22 +388,26 @@ pub const KUriFilterSearchProvider = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` keys: []const []const u8 `
+    /// ` _keys: []const []const u8 `
     ///
-    pub fn SuperSetKeys(self: KUriFilterSearchProvider, allocator: std.mem.Allocator, keys: []const []const u8) void {
-        const keys_arr = allocator.alloc(qtc.libqt_string, keys.len) catch @panic("KUriFilterSearchProvider.SetKeys: Memory allocation failed");
+    pub fn superSetKeys(self: KUriFilterSearchProvider, allocator: std.mem.Allocator, _keys: []const []const u8) void {
+        const keys_arr = allocator.alloc(qtc.libqt_string, _keys.len) catch @panic("KUriFilterSearchProvider.setKeys: Memory allocation failed");
         defer allocator.free(keys_arr);
-        for (keys, 0..keys.len) |item, i|
+        for (_keys, 0.._keys.len) |str_item, i|
             keys_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const keys_list = qtc.libqt_list{
-            .len = keys.len,
+            .len = _keys.len,
             .data = keys_arr.ptr,
         };
         qtc.KUriFilterSearchProvider_SuperSetKeys(@ptrCast(self.ptr), keys_list);
     }
+
+    /// ### DEPRECATED: Use `setName` instead
+    ///
+    pub const SetName = setName;
 
     /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setName)
     ///
@@ -351,15 +415,19 @@ pub const KUriFilterSearchProvider = extern struct {
     ///
     /// ` self: KUriFilterSearchProvider `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn SetName(self: KUriFilterSearchProvider, name: []const u8) void {
+    pub fn setName(self: KUriFilterSearchProvider, _name: []const u8) void {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         qtc.KUriFilterSearchProvider_SetName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `onSetName` instead
+    ///
+    pub const OnSetName = onSetName;
 
     /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setName)
     ///
@@ -371,13 +439,13 @@ pub const KUriFilterSearchProvider = extern struct {
     ///
     /// ` callback: *const fn (self: KUriFilterSearchProvider, name: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetName(self: KUriFilterSearchProvider, callback: *const fn (KUriFilterSearchProvider, [*:0]const u8) callconv(.c) void) void {
+    pub fn onSetName(self: KUriFilterSearchProvider, callback: *const fn (KUriFilterSearchProvider, [*:0]const u8) callconv(.c) void) void {
         qtc.KUriFilterSearchProvider_OnSetName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetName` instead
+    /// ### DEPRECATED: Use `superSetName` instead
     ///
-    pub const QBaseSetName = SuperSetName;
+    pub const SuperSetName = superSetName;
 
     /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setName)
     ///
@@ -387,29 +455,29 @@ pub const KUriFilterSearchProvider = extern struct {
     ///
     /// ` self: KUriFilterSearchProvider `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn SuperSetName(self: KUriFilterSearchProvider, name: []const u8) void {
+    pub fn superSetName(self: KUriFilterSearchProvider, _name: []const u8) void {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         qtc.KUriFilterSearchProvider_SuperSetName(@ptrCast(self.ptr), name_str);
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#dtor.KUriFilterSearchProvider)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KUriFilterSearchProvider `
     ///
-    pub fn Delete(self: KUriFilterSearchProvider) void {
+    pub fn delete(self: KUriFilterSearchProvider) void {
         qtc.KUriFilterSearchProvider_Delete(@ptrCast(self.ptr));
     }
 };
@@ -424,30 +492,42 @@ pub const KUriFilterData = extern struct {
 
     pub const _is_KUriFilterData = {};
 
-    /// New constructs a new KUriFilterData object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KUriFilterData {
+    pub const New = new;
+
+    /// Allocate a new KUriFilterData object in C++ memory
+    ///
+    pub fn new() KUriFilterData {
         return .{ .ptr = qtc.KUriFilterData_new() };
     }
 
-    /// New2 constructs a new KUriFilterData object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KUriFilterData object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` url: QUrl `
     ///
-    pub fn New2(url: anytype) KUriFilterData {
+    pub fn new2(url: anytype) KUriFilterData {
         comptime _ = @TypeOf(url)._is_QUrl;
         return .{ .ptr = qtc.KUriFilterData_new2(@ptrCast(url.ptr)) };
     }
 
-    /// New3 constructs a new KUriFilterData object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new KUriFilterData object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` url: []const u8 `
     ///
-    pub fn New3(url: []const u8) KUriFilterData {
+    pub fn new3(url: []const u8) KUriFilterData {
         const url_str = qtc.libqt_string{
             .len = url.len,
             .data = url.ptr,
@@ -455,16 +535,24 @@ pub const KUriFilterData = extern struct {
         return .{ .ptr = qtc.KUriFilterData_new3(url_str) };
     }
 
-    /// New4 constructs a new KUriFilterData object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new KUriFilterData object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: KUriFilterData `
     ///
-    pub fn New4(other: anytype) KUriFilterData {
+    pub fn new4(other: anytype) KUriFilterData {
         comptime _ = @TypeOf(other)._is_KUriFilterData;
         return .{ .ptr = qtc.KUriFilterData_new4(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `uri` instead
+    ///
+    pub const Uri = uri;
 
     /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#uri)
     ///
@@ -472,9 +560,13 @@ pub const KUriFilterData = extern struct {
     ///
     /// ` self: KUriFilterData `
     ///
-    pub fn Uri(self: KUriFilterData) QUrl {
+    pub fn uri(self: KUriFilterData) QUrl {
         return .{ .ptr = qtc.KUriFilterData_Uri(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `errorMsg` instead
+    ///
+    pub const ErrorMsg = errorMsg;
 
     /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#errorMsg)
     ///
@@ -484,13 +576,17 @@ pub const KUriFilterData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorMsg(self: KUriFilterData, allocator: std.mem.Allocator) []const u8 {
+    pub fn errorMsg(self: KUriFilterData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KUriFilterData_ErrorMsg(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUriFilterData.ErrorMsg: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUriFilterData.errorMsg: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `uriType` instead
+    ///
+    pub const UriType = uriType;
 
     /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#uriType)
     ///
@@ -502,9 +598,13 @@ pub const KUriFilterData = extern struct {
     ///
     /// ` kurifilter_enums.UriTypes `
     ///
-    pub fn UriType(self: KUriFilterData) i32 {
+    pub fn uriType(self: KUriFilterData) i32 {
         return qtc.KUriFilterData_UriType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `absolutePath` instead
+    ///
+    pub const AbsolutePath = absolutePath;
 
     /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#absolutePath)
     ///
@@ -514,13 +614,17 @@ pub const KUriFilterData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AbsolutePath(self: KUriFilterData, allocator: std.mem.Allocator) []const u8 {
+    pub fn absolutePath(self: KUriFilterData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KUriFilterData_AbsolutePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUriFilterData.AbsolutePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUriFilterData.absolutePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `hasAbsolutePath` instead
+    ///
+    pub const HasAbsolutePath = hasAbsolutePath;
 
     /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#hasAbsolutePath)
     ///
@@ -528,9 +632,13 @@ pub const KUriFilterData = extern struct {
     ///
     /// ` self: KUriFilterData `
     ///
-    pub fn HasAbsolutePath(self: KUriFilterData) bool {
+    pub fn hasAbsolutePath(self: KUriFilterData) bool {
         return qtc.KUriFilterData_HasAbsolutePath(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `argsAndOptions` instead
+    ///
+    pub const ArgsAndOptions = argsAndOptions;
 
     /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#argsAndOptions)
     ///
@@ -540,13 +648,17 @@ pub const KUriFilterData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ArgsAndOptions(self: KUriFilterData, allocator: std.mem.Allocator) []const u8 {
+    pub fn argsAndOptions(self: KUriFilterData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KUriFilterData_ArgsAndOptions(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUriFilterData.ArgsAndOptions: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUriFilterData.argsAndOptions: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `hasArgsAndOptions` instead
+    ///
+    pub const HasArgsAndOptions = hasArgsAndOptions;
 
     /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#hasArgsAndOptions)
     ///
@@ -554,9 +666,13 @@ pub const KUriFilterData = extern struct {
     ///
     /// ` self: KUriFilterData `
     ///
-    pub fn HasArgsAndOptions(self: KUriFilterData) bool {
+    pub fn hasArgsAndOptions(self: KUriFilterData) bool {
         return qtc.KUriFilterData_HasArgsAndOptions(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `checkForExecutables` instead
+    ///
+    pub const CheckForExecutables = checkForExecutables;
 
     /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#checkForExecutables)
     ///
@@ -564,9 +680,13 @@ pub const KUriFilterData = extern struct {
     ///
     /// ` self: KUriFilterData `
     ///
-    pub fn CheckForExecutables(self: KUriFilterData) bool {
+    pub fn checkForExecutables(self: KUriFilterData) bool {
         return qtc.KUriFilterData_CheckForExecutables(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `typedString` instead
+    ///
+    pub const TypedString = typedString;
 
     /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#typedString)
     ///
@@ -576,13 +696,17 @@ pub const KUriFilterData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TypedString(self: KUriFilterData, allocator: std.mem.Allocator) []const u8 {
+    pub fn typedString(self: KUriFilterData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KUriFilterData_TypedString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUriFilterData.TypedString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUriFilterData.typedString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `searchTerm` instead
+    ///
+    pub const SearchTerm = searchTerm;
 
     /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#searchTerm)
     ///
@@ -592,13 +716,17 @@ pub const KUriFilterData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SearchTerm(self: KUriFilterData, allocator: std.mem.Allocator) []const u8 {
+    pub fn searchTerm(self: KUriFilterData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KUriFilterData_SearchTerm(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUriFilterData.SearchTerm: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUriFilterData.searchTerm: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `searchTermSeparator` instead
+    ///
+    pub const SearchTermSeparator = searchTermSeparator;
 
     /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#searchTermSeparator)
     ///
@@ -606,9 +734,13 @@ pub const KUriFilterData = extern struct {
     ///
     /// ` self: KUriFilterData `
     ///
-    pub fn SearchTermSeparator(self: KUriFilterData) QChar {
+    pub fn searchTermSeparator(self: KUriFilterData) QChar {
         return .{ .ptr = qtc.KUriFilterData_SearchTermSeparator(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `searchProvider` instead
+    ///
+    pub const SearchProvider = searchProvider;
 
     /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#searchProvider)
     ///
@@ -618,13 +750,17 @@ pub const KUriFilterData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SearchProvider(self: KUriFilterData, allocator: std.mem.Allocator) []const u8 {
+    pub fn searchProvider(self: KUriFilterData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KUriFilterData_SearchProvider(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUriFilterData.SearchProvider: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUriFilterData.searchProvider: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `preferredSearchProviders` instead
+    ///
+    pub const PreferredSearchProviders = preferredSearchProviders;
 
     /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#preferredSearchProviders)
     ///
@@ -634,7 +770,7 @@ pub const KUriFilterData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PreferredSearchProviders(self: KUriFilterData, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn preferredSearchProviders(self: KUriFilterData, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KUriFilterData_PreferredSearchProviders(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -642,15 +778,19 @@ pub const KUriFilterData = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUriFilterData.PreferredSearchProviders: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUriFilterData.preferredSearchProviders: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUriFilterData.PreferredSearchProviders: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KUriFilterData.preferredSearchProviders: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `queryForSearchProvider` instead
+    ///
+    pub const QueryForSearchProvider = queryForSearchProvider;
 
     /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#queryForSearchProvider)
     ///
@@ -660,13 +800,17 @@ pub const KUriFilterData = extern struct {
     ///
     /// ` provider: []const u8 `
     ///
-    pub fn QueryForSearchProvider(self: KUriFilterData, provider: []const u8) KUriFilterSearchProvider {
+    pub fn queryForSearchProvider(self: KUriFilterData, provider: []const u8) KUriFilterSearchProvider {
         const provider_str = qtc.libqt_string{
             .len = provider.len,
             .data = provider.ptr,
         };
         return .{ .ptr = qtc.KUriFilterData_QueryForSearchProvider(@ptrCast(self.ptr), provider_str) };
     }
+
+    /// ### DEPRECATED: Use `queryForPreferredSearchProvider` instead
+    ///
+    pub const QueryForPreferredSearchProvider = queryForPreferredSearchProvider;
 
     /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#queryForPreferredSearchProvider)
     ///
@@ -678,17 +822,21 @@ pub const KUriFilterData = extern struct {
     ///
     /// ` provider: []const u8 `
     ///
-    pub fn QueryForPreferredSearchProvider(self: KUriFilterData, allocator: std.mem.Allocator, provider: []const u8) []const u8 {
+    pub fn queryForPreferredSearchProvider(self: KUriFilterData, allocator: std.mem.Allocator, provider: []const u8) []const u8 {
         const provider_str = qtc.libqt_string{
             .len = provider.len,
             .data = provider.ptr,
         };
         var _str = qtc.KUriFilterData_QueryForPreferredSearchProvider(@ptrCast(self.ptr), provider_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUriFilterData.QueryForPreferredSearchProvider: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUriFilterData.queryForPreferredSearchProvider: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `allQueriesForSearchProvider` instead
+    ///
+    pub const AllQueriesForSearchProvider = allQueriesForSearchProvider;
 
     /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#allQueriesForSearchProvider)
     ///
@@ -700,7 +848,7 @@ pub const KUriFilterData = extern struct {
     ///
     /// ` provider: []const u8 `
     ///
-    pub fn AllQueriesForSearchProvider(self: KUriFilterData, allocator: std.mem.Allocator, provider: []const u8) []const []const u8 {
+    pub fn allQueriesForSearchProvider(self: KUriFilterData, allocator: std.mem.Allocator, provider: []const u8) []const []const u8 {
         const provider_str = qtc.libqt_string{
             .len = provider.len,
             .data = provider.ptr,
@@ -712,15 +860,19 @@ pub const KUriFilterData = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUriFilterData.AllQueriesForSearchProvider: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUriFilterData.allQueriesForSearchProvider: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUriFilterData.AllQueriesForSearchProvider: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KUriFilterData.allQueriesForSearchProvider: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `iconNameForPreferredSearchProvider` instead
+    ///
+    pub const IconNameForPreferredSearchProvider = iconNameForPreferredSearchProvider;
 
     /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#iconNameForPreferredSearchProvider)
     ///
@@ -732,17 +884,21 @@ pub const KUriFilterData = extern struct {
     ///
     /// ` provider: []const u8 `
     ///
-    pub fn IconNameForPreferredSearchProvider(self: KUriFilterData, allocator: std.mem.Allocator, provider: []const u8) []const u8 {
+    pub fn iconNameForPreferredSearchProvider(self: KUriFilterData, allocator: std.mem.Allocator, provider: []const u8) []const u8 {
         const provider_str = qtc.libqt_string{
             .len = provider.len,
             .data = provider.ptr,
         };
         var _str = qtc.KUriFilterData_IconNameForPreferredSearchProvider(@ptrCast(self.ptr), provider_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUriFilterData.IconNameForPreferredSearchProvider: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUriFilterData.iconNameForPreferredSearchProvider: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `alternateSearchProviders` instead
+    ///
+    pub const AlternateSearchProviders = alternateSearchProviders;
 
     /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#alternateSearchProviders)
     ///
@@ -752,7 +908,7 @@ pub const KUriFilterData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AlternateSearchProviders(self: KUriFilterData, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn alternateSearchProviders(self: KUriFilterData, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KUriFilterData_AlternateSearchProviders(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -760,15 +916,19 @@ pub const KUriFilterData = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUriFilterData.AlternateSearchProviders: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUriFilterData.alternateSearchProviders: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUriFilterData.AlternateSearchProviders: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KUriFilterData.alternateSearchProviders: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `alternateDefaultSearchProvider` instead
+    ///
+    pub const AlternateDefaultSearchProvider = alternateDefaultSearchProvider;
 
     /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#alternateDefaultSearchProvider)
     ///
@@ -778,13 +938,17 @@ pub const KUriFilterData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AlternateDefaultSearchProvider(self: KUriFilterData, allocator: std.mem.Allocator) []const u8 {
+    pub fn alternateDefaultSearchProvider(self: KUriFilterData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KUriFilterData_AlternateDefaultSearchProvider(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUriFilterData.AlternateDefaultSearchProvider: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUriFilterData.alternateDefaultSearchProvider: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `defaultUrlScheme` instead
+    ///
+    pub const DefaultUrlScheme = defaultUrlScheme;
 
     /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#defaultUrlScheme)
     ///
@@ -794,13 +958,17 @@ pub const KUriFilterData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DefaultUrlScheme(self: KUriFilterData, allocator: std.mem.Allocator) []const u8 {
+    pub fn defaultUrlScheme(self: KUriFilterData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KUriFilterData_DefaultUrlScheme(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUriFilterData.DefaultUrlScheme: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUriFilterData.defaultUrlScheme: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `searchFilteringOptions` instead
+    ///
+    pub const SearchFilteringOptions = searchFilteringOptions;
 
     /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#searchFilteringOptions)
     ///
@@ -812,9 +980,13 @@ pub const KUriFilterData = extern struct {
     ///
     /// ` flag of kurifilter_enums.SearchFilterOption `
     ///
-    pub fn SearchFilteringOptions(self: KUriFilterData) i32 {
+    pub fn searchFilteringOptions(self: KUriFilterData) i32 {
         return qtc.KUriFilterData_SearchFilteringOptions(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `iconName` instead
+    ///
+    pub const IconName = iconName;
 
     /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#iconName)
     ///
@@ -824,13 +996,17 @@ pub const KUriFilterData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn IconName(self: KUriFilterData, allocator: std.mem.Allocator) []const u8 {
+    pub fn iconName(self: KUriFilterData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KUriFilterData_IconName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUriFilterData.IconName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUriFilterData.iconName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setCheckForExecutables` instead
+    ///
+    pub const SetCheckForExecutables = setCheckForExecutables;
 
     /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#setCheckForExecutables)
     ///
@@ -840,9 +1016,13 @@ pub const KUriFilterData = extern struct {
     ///
     /// ` check: bool `
     ///
-    pub fn SetCheckForExecutables(self: KUriFilterData, check: bool) void {
+    pub fn setCheckForExecutables(self: KUriFilterData, check: bool) void {
         qtc.KUriFilterData_SetCheckForExecutables(@ptrCast(self.ptr), check);
     }
+
+    /// ### DEPRECATED: Use `setData` instead
+    ///
+    pub const SetData = setData;
 
     /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#setData)
     ///
@@ -852,10 +1032,14 @@ pub const KUriFilterData = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn SetData(self: KUriFilterData, url: anytype) void {
+    pub fn setData(self: KUriFilterData, url: anytype) void {
         comptime _ = @TypeOf(url)._is_QUrl;
         qtc.KUriFilterData_SetData(@ptrCast(self.ptr), @ptrCast(url.ptr));
     }
+
+    /// ### DEPRECATED: Use `setData2` instead
+    ///
+    pub const SetData2 = setData2;
 
     /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#setData)
     ///
@@ -865,13 +1049,17 @@ pub const KUriFilterData = extern struct {
     ///
     /// ` url: []const u8 `
     ///
-    pub fn SetData2(self: KUriFilterData, url: []const u8) void {
+    pub fn setData2(self: KUriFilterData, url: []const u8) void {
         const url_str = qtc.libqt_string{
             .len = url.len,
             .data = url.ptr,
         };
         qtc.KUriFilterData_SetData2(@ptrCast(self.ptr), url_str);
     }
+
+    /// ### DEPRECATED: Use `setAbsolutePath` instead
+    ///
+    pub const SetAbsolutePath = setAbsolutePath;
 
     /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#setAbsolutePath)
     ///
@@ -881,13 +1069,17 @@ pub const KUriFilterData = extern struct {
     ///
     /// ` abs_path: []const u8 `
     ///
-    pub fn SetAbsolutePath(self: KUriFilterData, abs_path: []const u8) bool {
+    pub fn setAbsolutePath(self: KUriFilterData, abs_path: []const u8) bool {
         const abs_path_str = qtc.libqt_string{
             .len = abs_path.len,
             .data = abs_path.ptr,
         };
         return qtc.KUriFilterData_SetAbsolutePath(@ptrCast(self.ptr), abs_path_str);
     }
+
+    /// ### DEPRECATED: Use `setAlternateSearchProviders` instead
+    ///
+    pub const SetAlternateSearchProviders = setAlternateSearchProviders;
 
     /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#setAlternateSearchProviders)
     ///
@@ -899,13 +1091,13 @@ pub const KUriFilterData = extern struct {
     ///
     /// ` providers: []const []const u8 `
     ///
-    pub fn SetAlternateSearchProviders(self: KUriFilterData, allocator: std.mem.Allocator, providers: []const []const u8) void {
-        const providers_arr = allocator.alloc(qtc.libqt_string, providers.len) catch @panic("KUriFilterData.SetAlternateSearchProviders: Memory allocation failed");
+    pub fn setAlternateSearchProviders(self: KUriFilterData, allocator: std.mem.Allocator, providers: []const []const u8) void {
+        const providers_arr = allocator.alloc(qtc.libqt_string, providers.len) catch @panic("KUriFilterData.setAlternateSearchProviders: Memory allocation failed");
         defer allocator.free(providers_arr);
-        for (providers, 0..providers.len) |item, i|
+        for (providers, 0..providers.len) |str_item, i|
             providers_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const providers_list = qtc.libqt_list{
             .len = providers.len,
@@ -913,6 +1105,10 @@ pub const KUriFilterData = extern struct {
         };
         qtc.KUriFilterData_SetAlternateSearchProviders(@ptrCast(self.ptr), providers_list);
     }
+
+    /// ### DEPRECATED: Use `setAlternateDefaultSearchProvider` instead
+    ///
+    pub const SetAlternateDefaultSearchProvider = setAlternateDefaultSearchProvider;
 
     /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#setAlternateDefaultSearchProvider)
     ///
@@ -922,7 +1118,7 @@ pub const KUriFilterData = extern struct {
     ///
     /// ` provider: []const u8 `
     ///
-    pub fn SetAlternateDefaultSearchProvider(self: KUriFilterData, provider: []const u8) void {
+    pub fn setAlternateDefaultSearchProvider(self: KUriFilterData, provider: []const u8) void {
         const provider_str = qtc.libqt_string{
             .len = provider.len,
             .data = provider.ptr,
@@ -930,21 +1126,29 @@ pub const KUriFilterData = extern struct {
         qtc.KUriFilterData_SetAlternateDefaultSearchProvider(@ptrCast(self.ptr), provider_str);
     }
 
+    /// ### DEPRECATED: Use `setDefaultUrlScheme` instead
+    ///
+    pub const SetDefaultUrlScheme = setDefaultUrlScheme;
+
     /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#setDefaultUrlScheme)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KUriFilterData `
     ///
-    /// ` defaultUrlScheme: []const u8 `
+    /// ` _defaultUrlScheme: []const u8 `
     ///
-    pub fn SetDefaultUrlScheme(self: KUriFilterData, defaultUrlScheme: []const u8) void {
+    pub fn setDefaultUrlScheme(self: KUriFilterData, _defaultUrlScheme: []const u8) void {
         const defaultUrlScheme_str = qtc.libqt_string{
-            .len = defaultUrlScheme.len,
-            .data = defaultUrlScheme.ptr,
+            .len = _defaultUrlScheme.len,
+            .data = _defaultUrlScheme.ptr,
         };
         qtc.KUriFilterData_SetDefaultUrlScheme(@ptrCast(self.ptr), defaultUrlScheme_str);
     }
+
+    /// ### DEPRECATED: Use `setSearchFilteringOptions` instead
+    ///
+    pub const SetSearchFilteringOptions = setSearchFilteringOptions;
 
     /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#setSearchFilteringOptions)
     ///
@@ -954,9 +1158,13 @@ pub const KUriFilterData = extern struct {
     ///
     /// ` options: flag of kurifilter_enums.SearchFilterOption `
     ///
-    pub fn SetSearchFilteringOptions(self: KUriFilterData, options: i32) void {
+    pub fn setSearchFilteringOptions(self: KUriFilterData, options: i32) void {
         qtc.KUriFilterData_SetSearchFilteringOptions(@ptrCast(self.ptr), @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#operator-eq)
     ///
@@ -966,10 +1174,14 @@ pub const KUriFilterData = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn OperatorAssign(self: KUriFilterData, url: anytype) void {
+    pub fn operatorAssign(self: KUriFilterData, url: anytype) void {
         comptime _ = @TypeOf(url)._is_QUrl;
         qtc.KUriFilterData_OperatorAssign(@ptrCast(self.ptr), @ptrCast(url.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign2` instead
+    ///
+    pub const OperatorAssign2 = operatorAssign2;
 
     /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#operator-eq)
     ///
@@ -979,7 +1191,7 @@ pub const KUriFilterData = extern struct {
     ///
     /// ` url: []const u8 `
     ///
-    pub fn OperatorAssign2(self: KUriFilterData, url: []const u8) void {
+    pub fn operatorAssign2(self: KUriFilterData, url: []const u8) void {
         const url_str = qtc.libqt_string{
             .len = url.len,
             .data = url.ptr,
@@ -987,19 +1199,19 @@ pub const KUriFilterData = extern struct {
         qtc.KUriFilterData_OperatorAssign2(@ptrCast(self.ptr), url_str);
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#dtor.KUriFilterData)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KUriFilterData `
     ///
-    pub fn Delete(self: KUriFilterData) void {
+    pub fn delete(self: KUriFilterData) void {
         qtc.KUriFilterData_Delete(@ptrCast(self.ptr));
     }
 };
@@ -1014,11 +1226,19 @@ pub const KUriFilter = extern struct {
 
     pub const _is_KUriFilter = {};
 
+    /// ### DEPRECATED: Use `self0` instead
+    ///
+    pub const Self = self0;
+
     /// ### [Upstream resources](https://api.kde.org/kurifilter.html#self)
     ///
-    pub fn Self() KUriFilter {
+    pub fn self0() KUriFilter {
         return .{ .ptr = qtc.KUriFilter_Self() };
     }
+
+    /// ### DEPRECATED: Use `filterUri` instead
+    ///
+    pub const FilterUri = filterUri;
 
     /// ### [Upstream resources](https://api.kde.org/kurifilter.html#filterUri)
     ///
@@ -1028,23 +1248,14 @@ pub const KUriFilter = extern struct {
     ///
     /// ` data: KUriFilterData `
     ///
-    pub fn FilterUri(self: KUriFilter, data: anytype) bool {
+    pub fn filterUri(self: KUriFilter, data: anytype) bool {
         comptime _ = @TypeOf(data)._is_KUriFilterData;
         return qtc.KUriFilter_FilterUri(@ptrCast(self.ptr), @ptrCast(data.ptr));
     }
 
-    /// ### [Upstream resources](https://api.kde.org/kurifilter.html#filterUri)
+    /// ### DEPRECATED: Use `filterUri2` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUriFilter `
-    ///
-    /// ` uri: QUrl `
-    ///
-    pub fn FilterUri2(self: KUriFilter, uri: anytype) bool {
-        comptime _ = @TypeOf(uri)._is_QUrl;
-        return qtc.KUriFilter_FilterUri2(@ptrCast(self.ptr), @ptrCast(uri.ptr));
-    }
+    pub const FilterUri2 = filterUri2;
 
     /// ### [Upstream resources](https://api.kde.org/kurifilter.html#filterUri)
     ///
@@ -1052,15 +1263,36 @@ pub const KUriFilter = extern struct {
     ///
     /// ` self: KUriFilter `
     ///
-    /// ` uri: []const u8 `
+    /// ` _uri: QUrl `
     ///
-    pub fn FilterUri3(self: KUriFilter, uri: []const u8) bool {
+    pub fn filterUri2(self: KUriFilter, _uri: anytype) bool {
+        comptime _ = @TypeOf(_uri)._is_QUrl;
+        return qtc.KUriFilter_FilterUri2(@ptrCast(self.ptr), @ptrCast(_uri.ptr));
+    }
+
+    /// ### DEPRECATED: Use `filterUri3` instead
+    ///
+    pub const FilterUri3 = filterUri3;
+
+    /// ### [Upstream resources](https://api.kde.org/kurifilter.html#filterUri)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KUriFilter `
+    ///
+    /// ` _uri: []const u8 `
+    ///
+    pub fn filterUri3(self: KUriFilter, _uri: []const u8) bool {
         const uri_str = qtc.libqt_string{
-            .len = uri.len,
-            .data = uri.ptr,
+            .len = _uri.len,
+            .data = _uri.ptr,
         };
         return qtc.KUriFilter_FilterUri3(@ptrCast(self.ptr), uri_str);
     }
+
+    /// ### DEPRECATED: Use `filteredUri` instead
+    ///
+    pub const FilteredUri = filteredUri;
 
     /// ### [Upstream resources](https://api.kde.org/kurifilter.html#filteredUri)
     ///
@@ -1068,12 +1300,16 @@ pub const KUriFilter = extern struct {
     ///
     /// ` self: KUriFilter `
     ///
-    /// ` uri: QUrl `
+    /// ` _uri: QUrl `
     ///
-    pub fn FilteredUri(self: KUriFilter, uri: anytype) QUrl {
-        comptime _ = @TypeOf(uri)._is_QUrl;
-        return .{ .ptr = qtc.KUriFilter_FilteredUri(@ptrCast(self.ptr), @ptrCast(uri.ptr)) };
+    pub fn filteredUri(self: KUriFilter, _uri: anytype) QUrl {
+        comptime _ = @TypeOf(_uri)._is_QUrl;
+        return .{ .ptr = qtc.KUriFilter_FilteredUri(@ptrCast(self.ptr), @ptrCast(_uri.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `filteredUri2` instead
+    ///
+    pub const FilteredUri2 = filteredUri2;
 
     /// ### [Upstream resources](https://api.kde.org/kurifilter.html#filteredUri)
     ///
@@ -1083,19 +1319,23 @@ pub const KUriFilter = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` uri: []const u8 `
+    /// ` _uri: []const u8 `
     ///
-    pub fn FilteredUri2(self: KUriFilter, allocator: std.mem.Allocator, uri: []const u8) []const u8 {
+    pub fn filteredUri2(self: KUriFilter, allocator: std.mem.Allocator, _uri: []const u8) []const u8 {
         const uri_str = qtc.libqt_string{
-            .len = uri.len,
-            .data = uri.ptr,
+            .len = _uri.len,
+            .data = _uri.ptr,
         };
         var _str = qtc.KUriFilter_FilteredUri2(@ptrCast(self.ptr), uri_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUriFilter.FilteredUri2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUriFilter.filteredUri2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `filterSearchUri` instead
+    ///
+    pub const FilterSearchUri = filterSearchUri;
 
     /// ### [Upstream resources](https://api.kde.org/kurifilter.html#filterSearchUri)
     ///
@@ -1107,10 +1347,14 @@ pub const KUriFilter = extern struct {
     ///
     /// ` types: flag of kurifilter_enums.SearchFilterType `
     ///
-    pub fn FilterSearchUri(self: KUriFilter, data: anytype, types: i32) bool {
+    pub fn filterSearchUri(self: KUriFilter, data: anytype, types: i32) bool {
         comptime _ = @TypeOf(data)._is_KUriFilterData;
         return qtc.KUriFilter_FilterSearchUri(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(types));
     }
+
+    /// ### DEPRECATED: Use `pluginNames` instead
+    ///
+    pub const PluginNames = pluginNames;
 
     /// ### [Upstream resources](https://api.kde.org/kurifilter.html#pluginNames)
     ///
@@ -1120,7 +1364,7 @@ pub const KUriFilter = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PluginNames(self: KUriFilter, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn pluginNames(self: KUriFilter, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KUriFilter_PluginNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1128,15 +1372,19 @@ pub const KUriFilter = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUriFilter.PluginNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUriFilter.pluginNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUriFilter.PluginNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KUriFilter.pluginNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `filterUri22` instead
+    ///
+    pub const FilterUri22 = filterUri22;
 
     /// ### [Upstream resources](https://api.kde.org/kurifilter.html#filterUri)
     ///
@@ -1150,14 +1398,14 @@ pub const KUriFilter = extern struct {
     ///
     /// ` filters: []const []const u8 `
     ///
-    pub fn FilterUri22(self: KUriFilter, allocator: std.mem.Allocator, data: anytype, filters: []const []const u8) bool {
+    pub fn filterUri22(self: KUriFilter, allocator: std.mem.Allocator, data: anytype, filters: []const []const u8) bool {
         comptime _ = @TypeOf(data)._is_KUriFilterData;
-        const filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("KUriFilter.FilterUri22: Memory allocation failed");
+        const filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("KUriFilter.filterUri22: Memory allocation failed");
         defer allocator.free(filters_arr);
-        for (filters, 0..filters.len) |item, i|
+        for (filters, 0..filters.len) |str_item, i|
             filters_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const filters_list = qtc.libqt_list{
             .len = filters.len,
@@ -1166,33 +1414,9 @@ pub const KUriFilter = extern struct {
         return qtc.KUriFilter_FilterUri22(@ptrCast(self.ptr), @ptrCast(data.ptr), filters_list);
     }
 
-    /// ### [Upstream resources](https://api.kde.org/kurifilter.html#filterUri)
+    /// ### DEPRECATED: Use `filterUri23` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUriFilter `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` uri: QUrl `
-    ///
-    /// ` filters: []const []const u8 `
-    ///
-    pub fn FilterUri23(self: KUriFilter, allocator: std.mem.Allocator, uri: anytype, filters: []const []const u8) bool {
-        comptime _ = @TypeOf(uri)._is_QUrl;
-        const filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("KUriFilter.FilterUri23: Memory allocation failed");
-        defer allocator.free(filters_arr);
-        for (filters, 0..filters.len) |item, i|
-            filters_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
-            };
-        const filters_list = qtc.libqt_list{
-            .len = filters.len,
-            .data = filters_arr.ptr,
-        };
-        return qtc.KUriFilter_FilterUri23(@ptrCast(self.ptr), @ptrCast(uri.ptr), filters_list);
-    }
+    pub const FilterUri23 = filterUri23;
 
     /// ### [Upstream resources](https://api.kde.org/kurifilter.html#filterUri)
     ///
@@ -1202,21 +1426,53 @@ pub const KUriFilter = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` uri: []const u8 `
+    /// ` _uri: QUrl `
     ///
     /// ` filters: []const []const u8 `
     ///
-    pub fn FilterUri24(self: KUriFilter, allocator: std.mem.Allocator, uri: []const u8, filters: []const []const u8) bool {
-        const uri_str = qtc.libqt_string{
-            .len = uri.len,
-            .data = uri.ptr,
-        };
-        const filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("KUriFilter.FilterUri24: Memory allocation failed");
+    pub fn filterUri23(self: KUriFilter, allocator: std.mem.Allocator, _uri: anytype, filters: []const []const u8) bool {
+        comptime _ = @TypeOf(_uri)._is_QUrl;
+        const filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("KUriFilter.filterUri23: Memory allocation failed");
         defer allocator.free(filters_arr);
-        for (filters, 0..filters.len) |item, i|
+        for (filters, 0..filters.len) |str_item, i|
             filters_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
+            };
+        const filters_list = qtc.libqt_list{
+            .len = filters.len,
+            .data = filters_arr.ptr,
+        };
+        return qtc.KUriFilter_FilterUri23(@ptrCast(self.ptr), @ptrCast(_uri.ptr), filters_list);
+    }
+
+    /// ### DEPRECATED: Use `filterUri24` instead
+    ///
+    pub const FilterUri24 = filterUri24;
+
+    /// ### [Upstream resources](https://api.kde.org/kurifilter.html#filterUri)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KUriFilter `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` _uri: []const u8 `
+    ///
+    /// ` filters: []const []const u8 `
+    ///
+    pub fn filterUri24(self: KUriFilter, allocator: std.mem.Allocator, _uri: []const u8, filters: []const []const u8) bool {
+        const uri_str = qtc.libqt_string{
+            .len = _uri.len,
+            .data = _uri.ptr,
+        };
+        const filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("KUriFilter.filterUri24: Memory allocation failed");
+        defer allocator.free(filters_arr);
+        for (filters, 0..filters.len) |str_item, i|
+            filters_arr[i] = .{
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const filters_list = qtc.libqt_list{
             .len = filters.len,
@@ -1225,33 +1481,9 @@ pub const KUriFilter = extern struct {
         return qtc.KUriFilter_FilterUri24(@ptrCast(self.ptr), uri_str, filters_list);
     }
 
-    /// ### [Upstream resources](https://api.kde.org/kurifilter.html#filteredUri)
+    /// ### DEPRECATED: Use `filteredUri22` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUriFilter `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` uri: QUrl `
-    ///
-    /// ` filters: []const []const u8 `
-    ///
-    pub fn FilteredUri22(self: KUriFilter, allocator: std.mem.Allocator, uri: anytype, filters: []const []const u8) QUrl {
-        comptime _ = @TypeOf(uri)._is_QUrl;
-        const filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("KUriFilter.FilteredUri22: Memory allocation failed");
-        defer allocator.free(filters_arr);
-        for (filters, 0..filters.len) |item, i|
-            filters_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
-            };
-        const filters_list = qtc.libqt_list{
-            .len = filters.len,
-            .data = filters_arr.ptr,
-        };
-        return .{ .ptr = qtc.KUriFilter_FilteredUri22(@ptrCast(self.ptr), @ptrCast(uri.ptr), filters_list) };
-    }
+    pub const FilteredUri22 = filteredUri22;
 
     /// ### [Upstream resources](https://api.kde.org/kurifilter.html#filteredUri)
     ///
@@ -1261,21 +1493,53 @@ pub const KUriFilter = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` uri: []const u8 `
+    /// ` _uri: QUrl `
     ///
     /// ` filters: []const []const u8 `
     ///
-    pub fn FilteredUri23(self: KUriFilter, allocator: std.mem.Allocator, uri: []const u8, filters: []const []const u8) []const u8 {
-        const uri_str = qtc.libqt_string{
-            .len = uri.len,
-            .data = uri.ptr,
-        };
-        const filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("KUriFilter.FilteredUri23: Memory allocation failed");
+    pub fn filteredUri22(self: KUriFilter, allocator: std.mem.Allocator, _uri: anytype, filters: []const []const u8) QUrl {
+        comptime _ = @TypeOf(_uri)._is_QUrl;
+        const filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("KUriFilter.filteredUri22: Memory allocation failed");
         defer allocator.free(filters_arr);
-        for (filters, 0..filters.len) |item, i|
+        for (filters, 0..filters.len) |str_item, i|
             filters_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
+            };
+        const filters_list = qtc.libqt_list{
+            .len = filters.len,
+            .data = filters_arr.ptr,
+        };
+        return .{ .ptr = qtc.KUriFilter_FilteredUri22(@ptrCast(self.ptr), @ptrCast(_uri.ptr), filters_list) };
+    }
+
+    /// ### DEPRECATED: Use `filteredUri23` instead
+    ///
+    pub const FilteredUri23 = filteredUri23;
+
+    /// ### [Upstream resources](https://api.kde.org/kurifilter.html#filteredUri)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KUriFilter `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` _uri: []const u8 `
+    ///
+    /// ` filters: []const []const u8 `
+    ///
+    pub fn filteredUri23(self: KUriFilter, allocator: std.mem.Allocator, _uri: []const u8, filters: []const []const u8) []const u8 {
+        const uri_str = qtc.libqt_string{
+            .len = _uri.len,
+            .data = _uri.ptr,
+        };
+        const filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("KUriFilter.filteredUri23: Memory allocation failed");
+        defer allocator.free(filters_arr);
+        for (filters, 0..filters.len) |str_item, i|
+            filters_arr[i] = .{
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const filters_list = qtc.libqt_list{
             .len = filters.len,
@@ -1283,24 +1547,24 @@ pub const KUriFilter = extern struct {
         };
         var _str = qtc.KUriFilter_FilteredUri23(@ptrCast(self.ptr), uri_str, filters_list);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUriFilter.FilteredUri23: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUriFilter.filteredUri23: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kurifilter.html#dtor.KUriFilter)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KUriFilter `
     ///
-    pub fn Delete(self: KUriFilter) void {
+    pub fn delete(self: KUriFilter) void {
         qtc.KUriFilter_Delete(@ptrCast(self.ptr));
     }
 };

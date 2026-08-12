@@ -16,11 +16,19 @@ pub const KCrash = extern struct {
 
     pub const _is_KCrash = {};
 
+    /// ### DEPRECATED: Use `initialize` instead
+    ///
+    pub const Initialize = initialize;
+
     /// ### [Upstream resources](https://api.kde.org/kcrash.html#initialize)
     ///
-    pub fn Initialize() void {
+    pub fn initialize() void {
         qtc.KCrash_Initialize();
     }
+
+    /// ### DEPRECATED: Use `defaultCrashHandler` instead
+    ///
+    pub const DefaultCrashHandler = defaultCrashHandler;
 
     /// ### [Upstream resources](https://api.kde.org/kcrash.html#defaultCrashHandler)
     ///
@@ -28,9 +36,13 @@ pub const KCrash = extern struct {
     ///
     /// ` signal: i32 `
     ///
-    pub fn DefaultCrashHandler(signal: i32) void {
+    pub fn defaultCrashHandler(signal: i32) void {
         qtc.KCrash_DefaultCrashHandler(@bitCast(signal));
     }
+
+    /// ### DEPRECATED: Use `setCrashHandler` instead
+    ///
+    pub const SetCrashHandler = setCrashHandler;
 
     /// ### [Upstream resources](https://api.kde.org/kcrash.html#setCrashHandler)
     ///
@@ -38,9 +50,13 @@ pub const KCrash = extern struct {
     ///
     /// ` handler: *const fn (funcparam1: i32) callconv(.c) void `
     ///
-    pub fn SetCrashHandler(handler: *const fn (i32) callconv(.c) void) void {
+    pub fn setCrashHandler(handler: *const fn (i32) callconv(.c) void) void {
         qtc.KCrash_SetCrashHandler(@bitCast(@intFromPtr(handler)));
     }
+
+    /// ### DEPRECATED: Use `crashHandler` instead
+    ///
+    pub const CrashHandler = crashHandler;
 
     /// ### [Upstream resources](https://api.kde.org/kcrash.html#crashHandler)
     ///
@@ -48,9 +64,13 @@ pub const KCrash = extern struct {
     ///
     /// ` ?*const fn (funcparam1: i32) callconv(.c) void `
     ///
-    pub fn CrashHandler() ?*const fn (i32) callconv(.c) void {
+    pub fn crashHandler() ?*const fn (i32) callconv(.c) void {
         return @ptrFromInt(@as(usize, @bitCast(qtc.KCrash_CrashHandler())));
     }
+
+    /// ### DEPRECATED: Use `setEmergencySaveFunction` instead
+    ///
+    pub const SetEmergencySaveFunction = setEmergencySaveFunction;
 
     /// ### [Upstream resources](https://api.kde.org/kcrash.html#setEmergencySaveFunction)
     ///
@@ -58,9 +78,13 @@ pub const KCrash = extern struct {
     ///
     /// ` saveFunction: *const fn (funcparam1: i32) callconv(.c) void `
     ///
-    pub fn SetEmergencySaveFunction(saveFunction: *const fn (i32) callconv(.c) void) void {
+    pub fn setEmergencySaveFunction(saveFunction: *const fn (i32) callconv(.c) void) void {
         qtc.KCrash_SetEmergencySaveFunction(@bitCast(@intFromPtr(saveFunction)));
     }
+
+    /// ### DEPRECATED: Use `emergencySaveFunction` instead
+    ///
+    pub const EmergencySaveFunction = emergencySaveFunction;
 
     /// ### [Upstream resources](https://api.kde.org/kcrash.html#emergencySaveFunction)
     ///
@@ -68,9 +92,13 @@ pub const KCrash = extern struct {
     ///
     /// ` ?*const fn (funcparam1: i32) callconv(.c) void `
     ///
-    pub fn EmergencySaveFunction() ?*const fn (i32) callconv(.c) void {
+    pub fn emergencySaveFunction() ?*const fn (i32) callconv(.c) void {
         return @ptrFromInt(@as(usize, @bitCast(qtc.KCrash_EmergencySaveFunction())));
     }
+
+    /// ### DEPRECATED: Use `setFlags` instead
+    ///
+    pub const SetFlags = setFlags;
 
     /// ### [Upstream resources](https://api.kde.org/kcrash.html#setFlags)
     ///
@@ -78,9 +106,13 @@ pub const KCrash = extern struct {
     ///
     /// ` flags: flag of kcrash_enums.CrashFlag `
     ///
-    pub fn SetFlags(flags: i32) void {
+    pub fn setFlags(flags: i32) void {
         qtc.KCrash_SetFlags(@bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `setDrKonqiEnabled` instead
+    ///
+    pub const SetDrKonqiEnabled = setDrKonqiEnabled;
 
     /// ### [Upstream resources](https://api.kde.org/kcrash.html#setDrKonqiEnabled)
     ///
@@ -88,15 +120,23 @@ pub const KCrash = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetDrKonqiEnabled(enabled: bool) void {
+    pub fn setDrKonqiEnabled(enabled: bool) void {
         qtc.KCrash_SetDrKonqiEnabled(enabled);
     }
 
+    /// ### DEPRECATED: Use `isDrKonqiEnabled` instead
+    ///
+    pub const IsDrKonqiEnabled = isDrKonqiEnabled;
+
     /// ### [Upstream resources](https://api.kde.org/kcrash.html#isDrKonqiEnabled)
     ///
-    pub fn IsDrKonqiEnabled() bool {
+    pub fn isDrKonqiEnabled() bool {
         return qtc.KCrash_IsDrKonqiEnabled();
     }
+
+    /// ### DEPRECATED: Use `setErrorMessage` instead
+    ///
+    pub const SetErrorMessage = setErrorMessage;
 
     /// ### [Upstream resources](https://api.kde.org/kcrash.html#setErrorMessage)
     ///
@@ -104,13 +144,17 @@ pub const KCrash = extern struct {
     ///
     /// ` message: []const u8 `
     ///
-    pub fn SetErrorMessage(message: []const u8) void {
+    pub fn setErrorMessage(message: []const u8) void {
         const message_str = qtc.libqt_string{
             .len = message.len,
             .data = message.ptr,
         };
         qtc.KCrash_SetErrorMessage(message_str);
     }
+
+    /// ### DEPRECATED: Use `setErrorTags` instead
+    ///
+    pub const SetErrorTags = setErrorTags;
 
     /// ### [Upstream resources](https://api.kde.org/kcrash.html#setErrorTags)
     ///
@@ -120,11 +164,11 @@ pub const KCrash = extern struct {
     ///
     /// ` details: Map_constu8_constu8 `
     ///
-    pub fn SetErrorTags(allocator: std.mem.Allocator, details: Map_constu8_constu8) void {
+    pub fn setErrorTags(allocator: std.mem.Allocator, details: Map_constu8_constu8) void {
         const details_count = details.count();
-        const details_keys = allocator.alloc(qtc.libqt_string, details_count) catch @panic("KCrash.SetErrorTags: Memory allocation failed");
+        const details_keys = allocator.alloc(qtc.libqt_string, details_count) catch @panic("KCrash.setErrorTags: Memory allocation failed");
         defer allocator.free(details_keys);
-        const details_values = allocator.alloc(qtc.libqt_string, details_count) catch @panic("KCrash.SetErrorTags: Memory allocation failed");
+        const details_values = allocator.alloc(qtc.libqt_string, details_count) catch @panic("KCrash.setErrorTags: Memory allocation failed");
         defer allocator.free(details_values);
         var i: usize = 0;
         var details_it = details.iterator();
@@ -148,6 +192,10 @@ pub const KCrash = extern struct {
         qtc.KCrash_SetErrorTags(details_map);
     }
 
+    /// ### DEPRECATED: Use `setErrorExtraData` instead
+    ///
+    pub const SetErrorExtraData = setErrorExtraData;
+
     /// ### [Upstream resources](https://api.kde.org/kcrash.html#setErrorExtraData)
     ///
     /// ## Parameter(s):
@@ -156,11 +204,11 @@ pub const KCrash = extern struct {
     ///
     /// ` details: Map_constu8_constu8 `
     ///
-    pub fn SetErrorExtraData(allocator: std.mem.Allocator, details: Map_constu8_constu8) void {
+    pub fn setErrorExtraData(allocator: std.mem.Allocator, details: Map_constu8_constu8) void {
         const details_count = details.count();
-        const details_keys = allocator.alloc(qtc.libqt_string, details_count) catch @panic("KCrash.SetErrorExtraData: Memory allocation failed");
+        const details_keys = allocator.alloc(qtc.libqt_string, details_count) catch @panic("KCrash.setErrorExtraData: Memory allocation failed");
         defer allocator.free(details_keys);
-        const details_values = allocator.alloc(qtc.libqt_string, details_count) catch @panic("KCrash.SetErrorExtraData: Memory allocation failed");
+        const details_values = allocator.alloc(qtc.libqt_string, details_count) catch @panic("KCrash.setErrorExtraData: Memory allocation failed");
         defer allocator.free(details_values);
         var i: usize = 0;
         var details_it = details.iterator();
@@ -184,6 +232,10 @@ pub const KCrash = extern struct {
         qtc.KCrash_SetErrorExtraData(details_map);
     }
 
+    /// ### DEPRECATED: Use `setGPUData` instead
+    ///
+    pub const SetGPUData = setGPUData;
+
     /// ### [Upstream resources](https://api.kde.org/kcrash.html#setGPUData)
     ///
     /// ## Parameter(s):
@@ -192,11 +244,11 @@ pub const KCrash = extern struct {
     ///
     /// ` data: Map_constu8_QVariant `
     ///
-    pub fn SetGPUData(allocator: std.mem.Allocator, data: Map_constu8_QVariant) void {
+    pub fn setGPUData(allocator: std.mem.Allocator, data: Map_constu8_QVariant) void {
         const data_count = data.count();
-        const data_keys = allocator.alloc(qtc.libqt_string, data_count) catch @panic("KCrash.SetGPUData: Memory allocation failed");
+        const data_keys = allocator.alloc(qtc.libqt_string, data_count) catch @panic("KCrash.setGPUData: Memory allocation failed");
         defer allocator.free(data_keys);
-        const data_values = allocator.alloc(QtC.QVariant, data_count) catch @panic("KCrash.SetGPUData: Memory allocation failed");
+        const data_values = allocator.alloc(QtC.QVariant, data_count) catch @panic("KCrash.setGPUData: Memory allocation failed");
         defer allocator.free(data_values);
         var i: usize = 0;
         var data_it = data.iterator();

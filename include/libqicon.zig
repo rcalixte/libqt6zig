@@ -21,41 +21,57 @@ pub const QIcon = extern struct {
 
     pub const _is_QIcon = {};
 
-    /// New constructs a new QIcon object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QIcon {
+    pub const New = new;
+
+    /// Allocate a new QIcon object in C++ memory
+    ///
+    pub fn new() QIcon {
         return .{ .ptr = qtc.QIcon_new() };
     }
 
-    /// New2 constructs a new QIcon object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QIcon object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` pixmap: QPixmap `
+    /// ` _pixmap: QPixmap `
     ///
-    pub fn New2(pixmap: anytype) QIcon {
-        comptime _ = @TypeOf(pixmap)._is_QPixmap;
-        return .{ .ptr = qtc.QIcon_new2(@ptrCast(pixmap.ptr)) };
+    pub fn new2(_pixmap: anytype) QIcon {
+        comptime _ = @TypeOf(_pixmap)._is_QPixmap;
+        return .{ .ptr = qtc.QIcon_new2(@ptrCast(_pixmap.ptr)) };
     }
 
-    /// New3 constructs a new QIcon object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QIcon object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QIcon `
     ///
-    pub fn New3(other: anytype) QIcon {
+    pub fn new3(other: anytype) QIcon {
         comptime _ = @TypeOf(other)._is_QIcon;
         return .{ .ptr = qtc.QIcon_new3(@ptrCast(other.ptr)) };
     }
 
-    /// New4 constructs a new QIcon object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QIcon object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` fileName: []const u8 `
     ///
-    pub fn New4(fileName: []const u8) QIcon {
+    pub fn new4(fileName: []const u8) QIcon {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -63,16 +79,24 @@ pub const QIcon = extern struct {
         return .{ .ptr = qtc.QIcon_new4(fileName_str) };
     }
 
-    /// New5 constructs a new QIcon object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QIcon object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` engine: QIconEngine `
     ///
-    pub fn New5(engine: anytype) QIcon {
+    pub fn new5(engine: anytype) QIcon {
         comptime _ = @TypeOf(engine)._is_QIconEngine;
         return .{ .ptr = qtc.QIcon_new5(@ptrCast(engine.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#operator-eq)
     ///
@@ -82,10 +106,14 @@ pub const QIcon = extern struct {
     ///
     /// ` other: QIcon `
     ///
-    pub fn OperatorAssign(self: QIcon, other: anytype) void {
+    pub fn operatorAssign(self: QIcon, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QIcon;
         qtc.QIcon_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#swap)
     ///
@@ -95,10 +123,14 @@ pub const QIcon = extern struct {
     ///
     /// ` other: QIcon `
     ///
-    pub fn Swap(self: QIcon, other: anytype) void {
+    pub fn swap(self: QIcon, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QIcon;
         qtc.QIcon_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `toQVariant` instead
+    ///
+    pub const ToQVariant = toQVariant;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#operator)
     ///
@@ -106,9 +138,13 @@ pub const QIcon = extern struct {
     ///
     /// ` self: QIcon `
     ///
-    pub fn ToQVariant(self: QIcon) QVariant {
+    pub fn toQVariant(self: QIcon) QVariant {
         return .{ .ptr = qtc.QIcon_ToQVariant(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `pixmap` instead
+    ///
+    pub const Pixmap = pixmap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#pixmap)
     ///
@@ -118,10 +154,14 @@ pub const QIcon = extern struct {
     ///
     /// ` size: QSize `
     ///
-    pub fn Pixmap(self: QIcon, size: anytype) QPixmap {
+    pub fn pixmap(self: QIcon, size: anytype) QPixmap {
         comptime _ = @TypeOf(size)._is_QSize;
         return .{ .ptr = qtc.QIcon_Pixmap(@ptrCast(self.ptr), @ptrCast(size.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `pixmap2` instead
+    ///
+    pub const Pixmap2 = pixmap2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#pixmap)
     ///
@@ -133,9 +173,13 @@ pub const QIcon = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Pixmap2(self: QIcon, w: i32, h: i32) QPixmap {
+    pub fn pixmap2(self: QIcon, w: i32, h: i32) QPixmap {
         return .{ .ptr = qtc.QIcon_Pixmap2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h)) };
     }
+
+    /// ### DEPRECATED: Use `pixmap3` instead
+    ///
+    pub const Pixmap3 = pixmap3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#pixmap)
     ///
@@ -145,9 +189,13 @@ pub const QIcon = extern struct {
     ///
     /// ` extent: i32 `
     ///
-    pub fn Pixmap3(self: QIcon, extent: i32) QPixmap {
+    pub fn pixmap3(self: QIcon, extent: i32) QPixmap {
         return .{ .ptr = qtc.QIcon_Pixmap3(@ptrCast(self.ptr), @bitCast(extent)) };
     }
+
+    /// ### DEPRECATED: Use `pixmap4` instead
+    ///
+    pub const Pixmap4 = pixmap4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#pixmap)
     ///
@@ -159,10 +207,14 @@ pub const QIcon = extern struct {
     ///
     /// ` devicePixelRatio: f64 `
     ///
-    pub fn Pixmap4(self: QIcon, size: anytype, devicePixelRatio: f64) QPixmap {
+    pub fn pixmap4(self: QIcon, size: anytype, devicePixelRatio: f64) QPixmap {
         comptime _ = @TypeOf(size)._is_QSize;
         return .{ .ptr = qtc.QIcon_Pixmap4(@ptrCast(self.ptr), @ptrCast(size.ptr), @bitCast(devicePixelRatio)) };
     }
+
+    /// ### DEPRECATED: Use `pixmap5` instead
+    ///
+    pub const Pixmap5 = pixmap5;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#pixmap)
     ///
@@ -174,11 +226,15 @@ pub const QIcon = extern struct {
     ///
     /// ` size: QSize `
     ///
-    pub fn Pixmap5(self: QIcon, window: anytype, size: anytype) QPixmap {
+    pub fn pixmap5(self: QIcon, window: anytype, size: anytype) QPixmap {
         comptime _ = @TypeOf(window)._is_QWindow;
         comptime _ = @TypeOf(size)._is_QSize;
         return .{ .ptr = qtc.QIcon_Pixmap5(@ptrCast(self.ptr), @ptrCast(window.ptr), @ptrCast(size.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `actualSize` instead
+    ///
+    pub const ActualSize = actualSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#actualSize)
     ///
@@ -188,10 +244,14 @@ pub const QIcon = extern struct {
     ///
     /// ` size: QSize `
     ///
-    pub fn ActualSize(self: QIcon, size: anytype) QSize {
+    pub fn actualSize(self: QIcon, size: anytype) QSize {
         comptime _ = @TypeOf(size)._is_QSize;
         return .{ .ptr = qtc.QIcon_ActualSize(@ptrCast(self.ptr), @ptrCast(size.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `actualSize2` instead
+    ///
+    pub const ActualSize2 = actualSize2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#actualSize)
     ///
@@ -203,11 +263,15 @@ pub const QIcon = extern struct {
     ///
     /// ` size: QSize `
     ///
-    pub fn ActualSize2(self: QIcon, window: anytype, size: anytype) QSize {
+    pub fn actualSize2(self: QIcon, window: anytype, size: anytype) QSize {
         comptime _ = @TypeOf(window)._is_QWindow;
         comptime _ = @TypeOf(size)._is_QSize;
         return .{ .ptr = qtc.QIcon_ActualSize2(@ptrCast(self.ptr), @ptrCast(window.ptr), @ptrCast(size.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#name)
     ///
@@ -217,13 +281,17 @@ pub const QIcon = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: QIcon, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: QIcon, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QIcon_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QIcon.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QIcon.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `paint` instead
+    ///
+    pub const Paint = paint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#paint)
     ///
@@ -235,11 +303,15 @@ pub const QIcon = extern struct {
     ///
     /// ` rect: QRect `
     ///
-    pub fn Paint(self: QIcon, painter: anytype, rect: anytype) void {
+    pub fn paint(self: QIcon, painter: anytype, rect: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(rect)._is_QRect;
         qtc.QIcon_Paint(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `paint2` instead
+    ///
+    pub const Paint2 = paint2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#paint)
     ///
@@ -257,10 +329,14 @@ pub const QIcon = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Paint2(self: QIcon, painter: anytype, x: i32, y: i32, w: i32, h: i32) void {
+    pub fn paint2(self: QIcon, painter: anytype, x: i32, y: i32, w: i32, h: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QIcon_Paint2(@ptrCast(self.ptr), @ptrCast(painter.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `isNull` instead
+    ///
+    pub const IsNull = isNull;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#isNull)
     ///
@@ -268,9 +344,13 @@ pub const QIcon = extern struct {
     ///
     /// ` self: QIcon `
     ///
-    pub fn IsNull(self: QIcon) bool {
+    pub fn isNull(self: QIcon) bool {
         return qtc.QIcon_IsNull(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDetached` instead
+    ///
+    pub const IsDetached = isDetached;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#isDetached)
     ///
@@ -278,9 +358,13 @@ pub const QIcon = extern struct {
     ///
     /// ` self: QIcon `
     ///
-    pub fn IsDetached(self: QIcon) bool {
+    pub fn isDetached(self: QIcon) bool {
         return qtc.QIcon_IsDetached(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `detach` instead
+    ///
+    pub const Detach = detach;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#detach)
     ///
@@ -288,9 +372,13 @@ pub const QIcon = extern struct {
     ///
     /// ` self: QIcon `
     ///
-    pub fn Detach(self: QIcon) void {
+    pub fn detach(self: QIcon) void {
         qtc.QIcon_Detach(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `cacheKey` instead
+    ///
+    pub const CacheKey = cacheKey;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#cacheKey)
     ///
@@ -298,9 +386,13 @@ pub const QIcon = extern struct {
     ///
     /// ` self: QIcon `
     ///
-    pub fn CacheKey(self: QIcon) i64 {
+    pub fn cacheKey(self: QIcon) i64 {
         return qtc.QIcon_CacheKey(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `addPixmap` instead
+    ///
+    pub const AddPixmap = addPixmap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#addPixmap)
     ///
@@ -308,12 +400,16 @@ pub const QIcon = extern struct {
     ///
     /// ` self: QIcon `
     ///
-    /// ` pixmap: QPixmap `
+    /// ` _pixmap: QPixmap `
     ///
-    pub fn AddPixmap(self: QIcon, pixmap: anytype) void {
-        comptime _ = @TypeOf(pixmap)._is_QPixmap;
-        qtc.QIcon_AddPixmap(@ptrCast(self.ptr), @ptrCast(pixmap.ptr));
+    pub fn addPixmap(self: QIcon, _pixmap: anytype) void {
+        comptime _ = @TypeOf(_pixmap)._is_QPixmap;
+        qtc.QIcon_AddPixmap(@ptrCast(self.ptr), @ptrCast(_pixmap.ptr));
     }
+
+    /// ### DEPRECATED: Use `addFile` instead
+    ///
+    pub const AddFile = addFile;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#addFile)
     ///
@@ -323,13 +419,17 @@ pub const QIcon = extern struct {
     ///
     /// ` fileName: []const u8 `
     ///
-    pub fn AddFile(self: QIcon, fileName: []const u8) void {
+    pub fn addFile(self: QIcon, fileName: []const u8) void {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
         qtc.QIcon_AddFile(@ptrCast(self.ptr), fileName_str);
     }
+
+    /// ### DEPRECATED: Use `availableSizes` instead
+    ///
+    pub const AvailableSizes = availableSizes;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#availableSizes)
     ///
@@ -339,15 +439,19 @@ pub const QIcon = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AvailableSizes(self: QIcon, allocator: std.mem.Allocator) []QSize {
+    pub fn availableSizes(self: QIcon, allocator: std.mem.Allocator) []QSize {
         const _arr: qtc.libqt_list = qtc.QIcon_AvailableSizes(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QSize, _arr.len) catch @panic("QIcon.AvailableSizes: Memory allocation failed");
-        const _data: [*]QtC.QSize = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QSize, _arr.len) catch @panic("QIcon.availableSizes: Memory allocation failed");
+        const _data_val: [*]QtC.QSize = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setIsMask` instead
+    ///
+    pub const SetIsMask = setIsMask;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#setIsMask)
     ///
@@ -355,11 +459,15 @@ pub const QIcon = extern struct {
     ///
     /// ` self: QIcon `
     ///
-    /// ` isMask: bool `
+    /// ` _isMask: bool `
     ///
-    pub fn SetIsMask(self: QIcon, isMask: bool) void {
-        qtc.QIcon_SetIsMask(@ptrCast(self.ptr), isMask);
+    pub fn setIsMask(self: QIcon, _isMask: bool) void {
+        qtc.QIcon_SetIsMask(@ptrCast(self.ptr), _isMask);
     }
+
+    /// ### DEPRECATED: Use `isMask` instead
+    ///
+    pub const IsMask = isMask;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#isMask)
     ///
@@ -367,54 +475,70 @@ pub const QIcon = extern struct {
     ///
     /// ` self: QIcon `
     ///
-    pub fn IsMask(self: QIcon) bool {
+    pub fn isMask(self: QIcon) bool {
         return qtc.QIcon_IsMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `fromTheme` instead
+    ///
+    pub const FromTheme = fromTheme;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#fromTheme)
     ///
     /// ## Parameter(s):
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn FromTheme(name: []const u8) QIcon {
+    pub fn fromTheme(_name: []const u8) QIcon {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         return .{ .ptr = qtc.QIcon_FromTheme(name_str) };
     }
 
+    /// ### DEPRECATED: Use `fromTheme2` instead
+    ///
+    pub const FromTheme2 = fromTheme2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#fromTheme)
     ///
     /// ## Parameter(s):
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
     /// ` fallback: QIcon `
     ///
-    pub fn FromTheme2(name: []const u8, fallback: anytype) QIcon {
+    pub fn fromTheme2(_name: []const u8, fallback: anytype) QIcon {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         comptime _ = @TypeOf(fallback)._is_QIcon;
         return .{ .ptr = qtc.QIcon_FromTheme2(name_str, @ptrCast(fallback.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `hasThemeIcon` instead
+    ///
+    pub const HasThemeIcon = hasThemeIcon;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#hasThemeIcon)
     ///
     /// ## Parameter(s):
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn HasThemeIcon(name: []const u8) bool {
+    pub fn hasThemeIcon(_name: []const u8) bool {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         return qtc.QIcon_HasThemeIcon(name_str);
     }
+
+    /// ### DEPRECATED: Use `fromTheme3` instead
+    ///
+    pub const FromTheme3 = fromTheme3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#fromTheme)
     ///
@@ -422,9 +546,13 @@ pub const QIcon = extern struct {
     ///
     /// ` icon: qicon_enums.ThemeIcon `
     ///
-    pub fn FromTheme3(icon: i32) QIcon {
+    pub fn fromTheme3(icon: i32) QIcon {
         return .{ .ptr = qtc.QIcon_FromTheme3(@bitCast(icon)) };
     }
+
+    /// ### DEPRECATED: Use `fromTheme4` instead
+    ///
+    pub const FromTheme4 = fromTheme4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#fromTheme)
     ///
@@ -434,10 +562,14 @@ pub const QIcon = extern struct {
     ///
     /// ` fallback: QIcon `
     ///
-    pub fn FromTheme4(icon: i32, fallback: anytype) QIcon {
+    pub fn fromTheme4(icon: i32, fallback: anytype) QIcon {
         comptime _ = @TypeOf(fallback)._is_QIcon;
         return .{ .ptr = qtc.QIcon_FromTheme4(@bitCast(icon), @ptrCast(fallback.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `hasThemeIcon2` instead
+    ///
+    pub const HasThemeIcon2 = hasThemeIcon2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#hasThemeIcon)
     ///
@@ -445,9 +577,13 @@ pub const QIcon = extern struct {
     ///
     /// ` icon: qicon_enums.ThemeIcon `
     ///
-    pub fn HasThemeIcon2(icon: i32) bool {
+    pub fn hasThemeIcon2(icon: i32) bool {
         return qtc.QIcon_HasThemeIcon2(@bitCast(icon));
     }
+
+    /// ### DEPRECATED: Use `themeSearchPaths` instead
+    ///
+    pub const ThemeSearchPaths = themeSearchPaths;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#themeSearchPaths)
     ///
@@ -455,7 +591,7 @@ pub const QIcon = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ThemeSearchPaths(allocator: std.mem.Allocator) []const []const u8 {
+    pub fn themeSearchPaths(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QIcon_ThemeSearchPaths();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -463,15 +599,19 @@ pub const QIcon = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QIcon.ThemeSearchPaths: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QIcon.themeSearchPaths: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QIcon.ThemeSearchPaths: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QIcon.themeSearchPaths: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setThemeSearchPaths` instead
+    ///
+    pub const SetThemeSearchPaths = setThemeSearchPaths;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#setThemeSearchPaths)
     ///
@@ -481,13 +621,13 @@ pub const QIcon = extern struct {
     ///
     /// ` searchpath: []const []const u8 `
     ///
-    pub fn SetThemeSearchPaths(allocator: std.mem.Allocator, searchpath: []const []const u8) void {
-        const searchpath_arr = allocator.alloc(qtc.libqt_string, searchpath.len) catch @panic("QIcon.SetThemeSearchPaths: Memory allocation failed");
+    pub fn setThemeSearchPaths(allocator: std.mem.Allocator, searchpath: []const []const u8) void {
+        const searchpath_arr = allocator.alloc(qtc.libqt_string, searchpath.len) catch @panic("QIcon.setThemeSearchPaths: Memory allocation failed");
         defer allocator.free(searchpath_arr);
-        for (searchpath, 0..searchpath.len) |item, i|
+        for (searchpath, 0..searchpath.len) |str_item, i|
             searchpath_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const searchpath_list = qtc.libqt_list{
             .len = searchpath.len,
@@ -496,13 +636,17 @@ pub const QIcon = extern struct {
         qtc.QIcon_SetThemeSearchPaths(searchpath_list);
     }
 
+    /// ### DEPRECATED: Use `fallbackSearchPaths` instead
+    ///
+    pub const FallbackSearchPaths = fallbackSearchPaths;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#fallbackSearchPaths)
     ///
     /// ## Parameter(s):
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FallbackSearchPaths(allocator: std.mem.Allocator) []const []const u8 {
+    pub fn fallbackSearchPaths(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QIcon_FallbackSearchPaths();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -510,15 +654,19 @@ pub const QIcon = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QIcon.FallbackSearchPaths: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QIcon.fallbackSearchPaths: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QIcon.FallbackSearchPaths: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QIcon.fallbackSearchPaths: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setFallbackSearchPaths` instead
+    ///
+    pub const SetFallbackSearchPaths = setFallbackSearchPaths;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#setFallbackSearchPaths)
     ///
@@ -528,13 +676,13 @@ pub const QIcon = extern struct {
     ///
     /// ` paths: []const []const u8 `
     ///
-    pub fn SetFallbackSearchPaths(allocator: std.mem.Allocator, paths: []const []const u8) void {
-        const paths_arr = allocator.alloc(qtc.libqt_string, paths.len) catch @panic("QIcon.SetFallbackSearchPaths: Memory allocation failed");
+    pub fn setFallbackSearchPaths(allocator: std.mem.Allocator, paths: []const []const u8) void {
+        const paths_arr = allocator.alloc(qtc.libqt_string, paths.len) catch @panic("QIcon.setFallbackSearchPaths: Memory allocation failed");
         defer allocator.free(paths_arr);
-        for (paths, 0..paths.len) |item, i|
+        for (paths, 0..paths.len) |str_item, i|
             paths_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const paths_list = qtc.libqt_list{
             .len = paths.len,
@@ -543,19 +691,27 @@ pub const QIcon = extern struct {
         qtc.QIcon_SetFallbackSearchPaths(paths_list);
     }
 
+    /// ### DEPRECATED: Use `themeName` instead
+    ///
+    pub const ThemeName = themeName;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#themeName)
     ///
     /// ## Parameter(s):
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ThemeName(allocator: std.mem.Allocator) []const u8 {
+    pub fn themeName(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QIcon_ThemeName();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QIcon.ThemeName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QIcon.themeName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setThemeName` instead
+    ///
+    pub const SetThemeName = setThemeName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#setThemeName)
     ///
@@ -563,7 +719,7 @@ pub const QIcon = extern struct {
     ///
     /// ` path: []const u8 `
     ///
-    pub fn SetThemeName(path: []const u8) void {
+    pub fn setThemeName(path: []const u8) void {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
@@ -571,34 +727,46 @@ pub const QIcon = extern struct {
         qtc.QIcon_SetThemeName(path_str);
     }
 
+    /// ### DEPRECATED: Use `fallbackThemeName` instead
+    ///
+    pub const FallbackThemeName = fallbackThemeName;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#fallbackThemeName)
     ///
     /// ## Parameter(s):
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FallbackThemeName(allocator: std.mem.Allocator) []const u8 {
+    pub fn fallbackThemeName(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QIcon_FallbackThemeName();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QIcon.FallbackThemeName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QIcon.fallbackThemeName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setFallbackThemeName` instead
+    ///
+    pub const SetFallbackThemeName = setFallbackThemeName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#setFallbackThemeName)
     ///
     /// ## Parameter(s):
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn SetFallbackThemeName(name: []const u8) void {
+    pub fn setFallbackThemeName(_name: []const u8) void {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         qtc.QIcon_SetFallbackThemeName(name_str);
     }
 
+    /// ### DEPRECATED: Use `pixmap22` instead
+    ///
+    pub const Pixmap22 = pixmap22;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#pixmap)
     ///
     /// ## Parameter(s):
@@ -609,11 +777,15 @@ pub const QIcon = extern struct {
     ///
     /// ` mode: qicon_enums.Mode `
     ///
-    pub fn Pixmap22(self: QIcon, size: anytype, mode: i32) QPixmap {
+    pub fn pixmap22(self: QIcon, size: anytype, mode: i32) QPixmap {
         comptime _ = @TypeOf(size)._is_QSize;
         return .{ .ptr = qtc.QIcon_Pixmap22(@ptrCast(self.ptr), @ptrCast(size.ptr), @bitCast(mode)) };
     }
 
+    /// ### DEPRECATED: Use `pixmap32` instead
+    ///
+    pub const Pixmap32 = pixmap32;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#pixmap)
     ///
     /// ## Parameter(s):
@@ -626,11 +798,15 @@ pub const QIcon = extern struct {
     ///
     /// ` state: qicon_enums.State `
     ///
-    pub fn Pixmap32(self: QIcon, size: anytype, mode: i32, state: i32) QPixmap {
+    pub fn pixmap32(self: QIcon, size: anytype, mode: i32, state: i32) QPixmap {
         comptime _ = @TypeOf(size)._is_QSize;
         return .{ .ptr = qtc.QIcon_Pixmap32(@ptrCast(self.ptr), @ptrCast(size.ptr), @bitCast(mode), @bitCast(state)) };
     }
 
+    /// ### DEPRECATED: Use `pixmap33` instead
+    ///
+    pub const Pixmap33 = pixmap33;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#pixmap)
     ///
     /// ## Parameter(s):
@@ -643,10 +819,14 @@ pub const QIcon = extern struct {
     ///
     /// ` mode: qicon_enums.Mode `
     ///
-    pub fn Pixmap33(self: QIcon, w: i32, h: i32, mode: i32) QPixmap {
+    pub fn pixmap33(self: QIcon, w: i32, h: i32, mode: i32) QPixmap {
         return .{ .ptr = qtc.QIcon_Pixmap33(@ptrCast(self.ptr), @bitCast(w), @bitCast(h), @bitCast(mode)) };
     }
 
+    /// ### DEPRECATED: Use `pixmap42` instead
+    ///
+    pub const Pixmap42 = pixmap42;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#pixmap)
     ///
     /// ## Parameter(s):
@@ -661,9 +841,13 @@ pub const QIcon = extern struct {
     ///
     /// ` state: qicon_enums.State `
     ///
-    pub fn Pixmap42(self: QIcon, w: i32, h: i32, mode: i32, state: i32) QPixmap {
+    pub fn pixmap42(self: QIcon, w: i32, h: i32, mode: i32, state: i32) QPixmap {
         return .{ .ptr = qtc.QIcon_Pixmap42(@ptrCast(self.ptr), @bitCast(w), @bitCast(h), @bitCast(mode), @bitCast(state)) };
     }
+
+    /// ### DEPRECATED: Use `pixmap23` instead
+    ///
+    pub const Pixmap23 = pixmap23;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#pixmap)
     ///
@@ -675,9 +859,13 @@ pub const QIcon = extern struct {
     ///
     /// ` mode: qicon_enums.Mode `
     ///
-    pub fn Pixmap23(self: QIcon, extent: i32, mode: i32) QPixmap {
+    pub fn pixmap23(self: QIcon, extent: i32, mode: i32) QPixmap {
         return .{ .ptr = qtc.QIcon_Pixmap23(@ptrCast(self.ptr), @bitCast(extent), @bitCast(mode)) };
     }
+
+    /// ### DEPRECATED: Use `pixmap34` instead
+    ///
+    pub const Pixmap34 = pixmap34;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#pixmap)
     ///
@@ -691,9 +879,13 @@ pub const QIcon = extern struct {
     ///
     /// ` state: qicon_enums.State `
     ///
-    pub fn Pixmap34(self: QIcon, extent: i32, mode: i32, state: i32) QPixmap {
+    pub fn pixmap34(self: QIcon, extent: i32, mode: i32, state: i32) QPixmap {
         return .{ .ptr = qtc.QIcon_Pixmap34(@ptrCast(self.ptr), @bitCast(extent), @bitCast(mode), @bitCast(state)) };
     }
+
+    /// ### DEPRECATED: Use `pixmap35` instead
+    ///
+    pub const Pixmap35 = pixmap35;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#pixmap)
     ///
@@ -707,11 +899,15 @@ pub const QIcon = extern struct {
     ///
     /// ` mode: qicon_enums.Mode `
     ///
-    pub fn Pixmap35(self: QIcon, size: anytype, devicePixelRatio: f64, mode: i32) QPixmap {
+    pub fn pixmap35(self: QIcon, size: anytype, devicePixelRatio: f64, mode: i32) QPixmap {
         comptime _ = @TypeOf(size)._is_QSize;
         return .{ .ptr = qtc.QIcon_Pixmap35(@ptrCast(self.ptr), @ptrCast(size.ptr), @bitCast(devicePixelRatio), @bitCast(mode)) };
     }
 
+    /// ### DEPRECATED: Use `pixmap43` instead
+    ///
+    pub const Pixmap43 = pixmap43;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#pixmap)
     ///
     /// ## Parameter(s):
@@ -726,10 +922,14 @@ pub const QIcon = extern struct {
     ///
     /// ` state: qicon_enums.State `
     ///
-    pub fn Pixmap43(self: QIcon, size: anytype, devicePixelRatio: f64, mode: i32, state: i32) QPixmap {
+    pub fn pixmap43(self: QIcon, size: anytype, devicePixelRatio: f64, mode: i32, state: i32) QPixmap {
         comptime _ = @TypeOf(size)._is_QSize;
         return .{ .ptr = qtc.QIcon_Pixmap43(@ptrCast(self.ptr), @ptrCast(size.ptr), @bitCast(devicePixelRatio), @bitCast(mode), @bitCast(state)) };
     }
+
+    /// ### DEPRECATED: Use `pixmap36` instead
+    ///
+    pub const Pixmap36 = pixmap36;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#pixmap)
     ///
@@ -743,12 +943,16 @@ pub const QIcon = extern struct {
     ///
     /// ` mode: qicon_enums.Mode `
     ///
-    pub fn Pixmap36(self: QIcon, window: anytype, size: anytype, mode: i32) QPixmap {
+    pub fn pixmap36(self: QIcon, window: anytype, size: anytype, mode: i32) QPixmap {
         comptime _ = @TypeOf(window)._is_QWindow;
         comptime _ = @TypeOf(size)._is_QSize;
         return .{ .ptr = qtc.QIcon_Pixmap36(@ptrCast(self.ptr), @ptrCast(window.ptr), @ptrCast(size.ptr), @bitCast(mode)) };
     }
 
+    /// ### DEPRECATED: Use `pixmap44` instead
+    ///
+    pub const Pixmap44 = pixmap44;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#pixmap)
     ///
     /// ## Parameter(s):
@@ -763,12 +967,16 @@ pub const QIcon = extern struct {
     ///
     /// ` state: qicon_enums.State `
     ///
-    pub fn Pixmap44(self: QIcon, window: anytype, size: anytype, mode: i32, state: i32) QPixmap {
+    pub fn pixmap44(self: QIcon, window: anytype, size: anytype, mode: i32, state: i32) QPixmap {
         comptime _ = @TypeOf(window)._is_QWindow;
         comptime _ = @TypeOf(size)._is_QSize;
         return .{ .ptr = qtc.QIcon_Pixmap44(@ptrCast(self.ptr), @ptrCast(window.ptr), @ptrCast(size.ptr), @bitCast(mode), @bitCast(state)) };
     }
 
+    /// ### DEPRECATED: Use `actualSize22` instead
+    ///
+    pub const ActualSize22 = actualSize22;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#actualSize)
     ///
     /// ## Parameter(s):
@@ -779,10 +987,14 @@ pub const QIcon = extern struct {
     ///
     /// ` mode: qicon_enums.Mode `
     ///
-    pub fn ActualSize22(self: QIcon, size: anytype, mode: i32) QSize {
+    pub fn actualSize22(self: QIcon, size: anytype, mode: i32) QSize {
         comptime _ = @TypeOf(size)._is_QSize;
         return .{ .ptr = qtc.QIcon_ActualSize22(@ptrCast(self.ptr), @ptrCast(size.ptr), @bitCast(mode)) };
     }
+
+    /// ### DEPRECATED: Use `actualSize3` instead
+    ///
+    pub const ActualSize3 = actualSize3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#actualSize)
     ///
@@ -796,10 +1008,14 @@ pub const QIcon = extern struct {
     ///
     /// ` state: qicon_enums.State `
     ///
-    pub fn ActualSize3(self: QIcon, size: anytype, mode: i32, state: i32) QSize {
+    pub fn actualSize3(self: QIcon, size: anytype, mode: i32, state: i32) QSize {
         comptime _ = @TypeOf(size)._is_QSize;
         return .{ .ptr = qtc.QIcon_ActualSize3(@ptrCast(self.ptr), @ptrCast(size.ptr), @bitCast(mode), @bitCast(state)) };
     }
+
+    /// ### DEPRECATED: Use `actualSize32` instead
+    ///
+    pub const ActualSize32 = actualSize32;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#actualSize)
     ///
@@ -813,12 +1029,16 @@ pub const QIcon = extern struct {
     ///
     /// ` mode: qicon_enums.Mode `
     ///
-    pub fn ActualSize32(self: QIcon, window: anytype, size: anytype, mode: i32) QSize {
+    pub fn actualSize32(self: QIcon, window: anytype, size: anytype, mode: i32) QSize {
         comptime _ = @TypeOf(window)._is_QWindow;
         comptime _ = @TypeOf(size)._is_QSize;
         return .{ .ptr = qtc.QIcon_ActualSize32(@ptrCast(self.ptr), @ptrCast(window.ptr), @ptrCast(size.ptr), @bitCast(mode)) };
     }
 
+    /// ### DEPRECATED: Use `actualSize4` instead
+    ///
+    pub const ActualSize4 = actualSize4;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#actualSize)
     ///
     /// ## Parameter(s):
@@ -833,12 +1053,16 @@ pub const QIcon = extern struct {
     ///
     /// ` state: qicon_enums.State `
     ///
-    pub fn ActualSize4(self: QIcon, window: anytype, size: anytype, mode: i32, state: i32) QSize {
+    pub fn actualSize4(self: QIcon, window: anytype, size: anytype, mode: i32, state: i32) QSize {
         comptime _ = @TypeOf(window)._is_QWindow;
         comptime _ = @TypeOf(size)._is_QSize;
         return .{ .ptr = qtc.QIcon_ActualSize4(@ptrCast(self.ptr), @ptrCast(window.ptr), @ptrCast(size.ptr), @bitCast(mode), @bitCast(state)) };
     }
 
+    /// ### DEPRECATED: Use `paint3` instead
+    ///
+    pub const Paint3 = paint3;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#paint)
     ///
     /// ## Parameter(s):
@@ -851,12 +1075,16 @@ pub const QIcon = extern struct {
     ///
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn Paint3(self: QIcon, painter: anytype, rect: anytype, alignment: i32) void {
+    pub fn paint3(self: QIcon, painter: anytype, rect: anytype, alignment: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(rect)._is_QRect;
         qtc.QIcon_Paint3(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(rect.ptr), @bitCast(alignment));
     }
 
+    /// ### DEPRECATED: Use `paint4` instead
+    ///
+    pub const Paint4 = paint4;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#paint)
     ///
     /// ## Parameter(s):
@@ -871,12 +1099,16 @@ pub const QIcon = extern struct {
     ///
     /// ` mode: qicon_enums.Mode `
     ///
-    pub fn Paint4(self: QIcon, painter: anytype, rect: anytype, alignment: i32, mode: i32) void {
+    pub fn paint4(self: QIcon, painter: anytype, rect: anytype, alignment: i32, mode: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(rect)._is_QRect;
         qtc.QIcon_Paint4(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(rect.ptr), @bitCast(alignment), @bitCast(mode));
     }
 
+    /// ### DEPRECATED: Use `paint5` instead
+    ///
+    pub const Paint5 = paint5;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#paint)
     ///
     /// ## Parameter(s):
@@ -893,12 +1125,16 @@ pub const QIcon = extern struct {
     ///
     /// ` state: qicon_enums.State `
     ///
-    pub fn Paint5(self: QIcon, painter: anytype, rect: anytype, alignment: i32, mode: i32, state: i32) void {
+    pub fn paint5(self: QIcon, painter: anytype, rect: anytype, alignment: i32, mode: i32, state: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(rect)._is_QRect;
         qtc.QIcon_Paint5(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(rect.ptr), @bitCast(alignment), @bitCast(mode), @bitCast(state));
     }
 
+    /// ### DEPRECATED: Use `paint6` instead
+    ///
+    pub const Paint6 = paint6;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#paint)
     ///
     /// ## Parameter(s):
@@ -917,11 +1153,15 @@ pub const QIcon = extern struct {
     ///
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn Paint6(self: QIcon, painter: anytype, x: i32, y: i32, w: i32, h: i32, alignment: i32) void {
+    pub fn paint6(self: QIcon, painter: anytype, x: i32, y: i32, w: i32, h: i32, alignment: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QIcon_Paint6(@ptrCast(self.ptr), @ptrCast(painter.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(alignment));
     }
 
+    /// ### DEPRECATED: Use `paint7` instead
+    ///
+    pub const Paint7 = paint7;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#paint)
     ///
     /// ## Parameter(s):
@@ -942,11 +1182,15 @@ pub const QIcon = extern struct {
     ///
     /// ` mode: qicon_enums.Mode `
     ///
-    pub fn Paint7(self: QIcon, painter: anytype, x: i32, y: i32, w: i32, h: i32, alignment: i32, mode: i32) void {
+    pub fn paint7(self: QIcon, painter: anytype, x: i32, y: i32, w: i32, h: i32, alignment: i32, mode: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QIcon_Paint7(@ptrCast(self.ptr), @ptrCast(painter.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(alignment), @bitCast(mode));
     }
 
+    /// ### DEPRECATED: Use `paint8` instead
+    ///
+    pub const Paint8 = paint8;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#paint)
     ///
     /// ## Parameter(s):
@@ -969,25 +1213,14 @@ pub const QIcon = extern struct {
     ///
     /// ` state: qicon_enums.State `
     ///
-    pub fn Paint8(self: QIcon, painter: anytype, x: i32, y: i32, w: i32, h: i32, alignment: i32, mode: i32, state: i32) void {
+    pub fn paint8(self: QIcon, painter: anytype, x: i32, y: i32, w: i32, h: i32, alignment: i32, mode: i32, state: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QIcon_Paint8(@ptrCast(self.ptr), @ptrCast(painter.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(alignment), @bitCast(mode), @bitCast(state));
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#addPixmap)
+    /// ### DEPRECATED: Use `addPixmap2` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QIcon `
-    ///
-    /// ` pixmap: QPixmap `
-    ///
-    /// ` mode: qicon_enums.Mode `
-    ///
-    pub fn AddPixmap2(self: QIcon, pixmap: anytype, mode: i32) void {
-        comptime _ = @TypeOf(pixmap)._is_QPixmap;
-        qtc.QIcon_AddPixmap2(@ptrCast(self.ptr), @ptrCast(pixmap.ptr), @bitCast(mode));
-    }
+    pub const AddPixmap2 = addPixmap2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#addPixmap)
     ///
@@ -995,16 +1228,39 @@ pub const QIcon = extern struct {
     ///
     /// ` self: QIcon `
     ///
-    /// ` pixmap: QPixmap `
+    /// ` _pixmap: QPixmap `
+    ///
+    /// ` mode: qicon_enums.Mode `
+    ///
+    pub fn addPixmap2(self: QIcon, _pixmap: anytype, mode: i32) void {
+        comptime _ = @TypeOf(_pixmap)._is_QPixmap;
+        qtc.QIcon_AddPixmap2(@ptrCast(self.ptr), @ptrCast(_pixmap.ptr), @bitCast(mode));
+    }
+
+    /// ### DEPRECATED: Use `addPixmap3` instead
+    ///
+    pub const AddPixmap3 = addPixmap3;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#addPixmap)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QIcon `
+    ///
+    /// ` _pixmap: QPixmap `
     ///
     /// ` mode: qicon_enums.Mode `
     ///
     /// ` state: qicon_enums.State `
     ///
-    pub fn AddPixmap3(self: QIcon, pixmap: anytype, mode: i32, state: i32) void {
-        comptime _ = @TypeOf(pixmap)._is_QPixmap;
-        qtc.QIcon_AddPixmap3(@ptrCast(self.ptr), @ptrCast(pixmap.ptr), @bitCast(mode), @bitCast(state));
+    pub fn addPixmap3(self: QIcon, _pixmap: anytype, mode: i32, state: i32) void {
+        comptime _ = @TypeOf(_pixmap)._is_QPixmap;
+        qtc.QIcon_AddPixmap3(@ptrCast(self.ptr), @ptrCast(_pixmap.ptr), @bitCast(mode), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `addFile2` instead
+    ///
+    pub const AddFile2 = addFile2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#addFile)
     ///
@@ -1016,7 +1272,7 @@ pub const QIcon = extern struct {
     ///
     /// ` size: QSize `
     ///
-    pub fn AddFile2(self: QIcon, fileName: []const u8, size: anytype) void {
+    pub fn addFile2(self: QIcon, fileName: []const u8, size: anytype) void {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -1025,6 +1281,10 @@ pub const QIcon = extern struct {
         qtc.QIcon_AddFile2(@ptrCast(self.ptr), fileName_str, @ptrCast(size.ptr));
     }
 
+    /// ### DEPRECATED: Use `addFile3` instead
+    ///
+    pub const AddFile3 = addFile3;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#addFile)
     ///
     /// ## Parameter(s):
@@ -1037,7 +1297,7 @@ pub const QIcon = extern struct {
     ///
     /// ` mode: qicon_enums.Mode `
     ///
-    pub fn AddFile3(self: QIcon, fileName: []const u8, size: anytype, mode: i32) void {
+    pub fn addFile3(self: QIcon, fileName: []const u8, size: anytype, mode: i32) void {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -1046,6 +1306,10 @@ pub const QIcon = extern struct {
         qtc.QIcon_AddFile3(@ptrCast(self.ptr), fileName_str, @ptrCast(size.ptr), @bitCast(mode));
     }
 
+    /// ### DEPRECATED: Use `addFile4` instead
+    ///
+    pub const AddFile4 = addFile4;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#addFile)
     ///
     /// ## Parameter(s):
@@ -1060,7 +1324,7 @@ pub const QIcon = extern struct {
     ///
     /// ` state: qicon_enums.State `
     ///
-    pub fn AddFile4(self: QIcon, fileName: []const u8, size: anytype, mode: i32, state: i32) void {
+    pub fn addFile4(self: QIcon, fileName: []const u8, size: anytype, mode: i32, state: i32) void {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -1068,6 +1332,10 @@ pub const QIcon = extern struct {
         comptime _ = @TypeOf(size)._is_QSize;
         qtc.QIcon_AddFile4(@ptrCast(self.ptr), fileName_str, @ptrCast(size.ptr), @bitCast(mode), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `availableSizes1` instead
+    ///
+    pub const AvailableSizes1 = availableSizes1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#availableSizes)
     ///
@@ -1079,15 +1347,19 @@ pub const QIcon = extern struct {
     ///
     /// ` mode: qicon_enums.Mode `
     ///
-    pub fn AvailableSizes1(self: QIcon, allocator: std.mem.Allocator, mode: i32) []QSize {
+    pub fn availableSizes1(self: QIcon, allocator: std.mem.Allocator, mode: i32) []QSize {
         const _arr: qtc.libqt_list = qtc.QIcon_AvailableSizes1(@ptrCast(self.ptr), @bitCast(mode));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QSize, _arr.len) catch @panic("QIcon.AvailableSizes1: Memory allocation failed");
-        const _data: [*]QtC.QSize = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QSize, _arr.len) catch @panic("QIcon.availableSizes1: Memory allocation failed");
+        const _data_val: [*]QtC.QSize = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `availableSizes2` instead
+    ///
+    pub const AvailableSizes2 = availableSizes2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#availableSizes)
     ///
@@ -1101,29 +1373,29 @@ pub const QIcon = extern struct {
     ///
     /// ` state: qicon_enums.State `
     ///
-    pub fn AvailableSizes2(self: QIcon, allocator: std.mem.Allocator, mode: i32, state: i32) []QSize {
+    pub fn availableSizes2(self: QIcon, allocator: std.mem.Allocator, mode: i32, state: i32) []QSize {
         const _arr: qtc.libqt_list = qtc.QIcon_AvailableSizes2(@ptrCast(self.ptr), @bitCast(mode), @bitCast(state));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QSize, _arr.len) catch @panic("QIcon.AvailableSizes2: Memory allocation failed");
-        const _data: [*]QtC.QSize = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QSize, _arr.len) catch @panic("QIcon.availableSizes2: Memory allocation failed");
+        const _data_val: [*]QtC.QSize = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#dtor.QIcon)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QIcon `
     ///
-    pub fn Delete(self: QIcon) void {
+    pub fn delete(self: QIcon) void {
         qtc.QIcon_Delete(@ptrCast(self.ptr));
     }
 };
