@@ -17,24 +17,36 @@ pub const Solid__Predicate = extern struct {
 
     pub const _is_Solid__Predicate = {};
 
-    /// New constructs a new Solid::Predicate object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() Solid__Predicate {
+    pub const New = new;
+
+    /// Allocate a new Solid::Predicate object in C++ memory
+    ///
+    pub fn new() Solid__Predicate {
         return .{ .ptr = qtc.Solid__Predicate_new() };
     }
 
-    /// New2 constructs a new Solid::Predicate object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new Solid::Predicate object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: Solid__Predicate `
     ///
-    pub fn New2(other: anytype) Solid__Predicate {
+    pub fn new2(other: anytype) Solid__Predicate {
         comptime _ = @TypeOf(other)._is_Solid__Predicate;
         return .{ .ptr = qtc.Solid__Predicate_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new Solid::Predicate object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new Solid::Predicate object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -44,7 +56,7 @@ pub const Solid__Predicate = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn New3(ifaceType: *const i32, property: []const u8, value: anytype) Solid__Predicate {
+    pub fn new3(ifaceType: *const i32, property: []const u8, value: anytype) Solid__Predicate {
         const property_str = qtc.libqt_string{
             .len = property.len,
             .data = property.ptr,
@@ -53,7 +65,11 @@ pub const Solid__Predicate = extern struct {
         return .{ .ptr = qtc.Solid__Predicate_new3(@ptrCast(ifaceType), property_str, @ptrCast(value.ptr)) };
     }
 
-    /// New4 constructs a new Solid::Predicate object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new Solid::Predicate object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -63,7 +79,7 @@ pub const Solid__Predicate = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn New4(ifaceName: []const u8, property: []const u8, value: anytype) Solid__Predicate {
+    pub fn new4(ifaceName: []const u8, property: []const u8, value: anytype) Solid__Predicate {
         const ifaceName_str = qtc.libqt_string{
             .len = ifaceName.len,
             .data = ifaceName.ptr,
@@ -76,23 +92,31 @@ pub const Solid__Predicate = extern struct {
         return .{ .ptr = qtc.Solid__Predicate_new4(ifaceName_str, property_str, @ptrCast(value.ptr)) };
     }
 
-    /// New5 constructs a new Solid::Predicate object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new Solid::Predicate object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` ifaceType: *const deviceinterface_enums.Type `
     ///
-    pub fn New5(ifaceType: *const i32) Solid__Predicate {
+    pub fn new5(ifaceType: *const i32) Solid__Predicate {
         return .{ .ptr = qtc.Solid__Predicate_new5(@ptrCast(ifaceType)) };
     }
 
-    /// New6 constructs a new Solid::Predicate object.
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new Solid::Predicate object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` ifaceName: []const u8 `
     ///
-    pub fn New6(ifaceName: []const u8) Solid__Predicate {
+    pub fn new6(ifaceName: []const u8) Solid__Predicate {
         const ifaceName_str = qtc.libqt_string{
             .len = ifaceName.len,
             .data = ifaceName.ptr,
@@ -100,7 +124,11 @@ pub const Solid__Predicate = extern struct {
         return .{ .ptr = qtc.Solid__Predicate_new6(ifaceName_str) };
     }
 
-    /// New7 constructs a new Solid::Predicate object.
+    /// ### DEPRECATED: Use `new7` instead
+    ///
+    pub const New7 = new7;
+
+    /// Allocate a new Solid::Predicate object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -112,7 +140,7 @@ pub const Solid__Predicate = extern struct {
     ///
     /// ` compOperator: predicate_enums.ComparisonOperator `
     ///
-    pub fn New7(ifaceType: *const i32, property: []const u8, value: anytype, compOperator: i32) Solid__Predicate {
+    pub fn new7(ifaceType: *const i32, property: []const u8, value: anytype, compOperator: i32) Solid__Predicate {
         const property_str = qtc.libqt_string{
             .len = property.len,
             .data = property.ptr,
@@ -121,7 +149,11 @@ pub const Solid__Predicate = extern struct {
         return .{ .ptr = qtc.Solid__Predicate_new7(@ptrCast(ifaceType), property_str, @ptrCast(value.ptr), @bitCast(compOperator)) };
     }
 
-    /// New8 constructs a new Solid::Predicate object.
+    /// ### DEPRECATED: Use `new8` instead
+    ///
+    pub const New8 = new8;
+
+    /// Allocate a new Solid::Predicate object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -133,7 +165,7 @@ pub const Solid__Predicate = extern struct {
     ///
     /// ` compOperator: predicate_enums.ComparisonOperator `
     ///
-    pub fn New8(ifaceName: []const u8, property: []const u8, value: anytype, compOperator: i32) Solid__Predicate {
+    pub fn new8(ifaceName: []const u8, property: []const u8, value: anytype, compOperator: i32) Solid__Predicate {
         const ifaceName_str = qtc.libqt_string{
             .len = ifaceName.len,
             .data = ifaceName.ptr,
@@ -146,6 +178,10 @@ pub const Solid__Predicate = extern struct {
         return .{ .ptr = qtc.Solid__Predicate_new8(ifaceName_str, property_str, @ptrCast(value.ptr), @bitCast(compOperator)) };
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
     /// ### [Upstream resources](https://api.kde.org/solid-predicate.html#operator-eq)
     ///
     /// ## Parameter(s):
@@ -154,10 +190,14 @@ pub const Solid__Predicate = extern struct {
     ///
     /// ` other: Solid__Predicate `
     ///
-    pub fn OperatorAssign(self: Solid__Predicate, other: anytype) void {
+    pub fn operatorAssign(self: Solid__Predicate, other: anytype) void {
         comptime _ = @TypeOf(other)._is_Solid__Predicate;
         qtc.Solid__Predicate_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorBitwiseAnd` instead
+    ///
+    pub const OperatorBitwiseAnd = operatorBitwiseAnd;
 
     /// ### [Upstream resources](https://api.kde.org/solid-predicate.html#operator-and)
     ///
@@ -167,10 +207,14 @@ pub const Solid__Predicate = extern struct {
     ///
     /// ` other: Solid__Predicate `
     ///
-    pub fn OperatorBitwiseAnd(self: Solid__Predicate, other: anytype) Solid__Predicate {
+    pub fn operatorBitwiseAnd(self: Solid__Predicate, other: anytype) Solid__Predicate {
         comptime _ = @TypeOf(other)._is_Solid__Predicate;
         return .{ .ptr = qtc.Solid__Predicate_OperatorBitwiseAnd(@ptrCast(self.ptr), @ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorBitwiseAndAssign` instead
+    ///
+    pub const OperatorBitwiseAndAssign = operatorBitwiseAndAssign;
 
     /// ### [Upstream resources](https://api.kde.org/solid-predicate.html#operator-and-eq)
     ///
@@ -180,10 +224,14 @@ pub const Solid__Predicate = extern struct {
     ///
     /// ` other: Solid__Predicate `
     ///
-    pub fn OperatorBitwiseAndAssign(self: Solid__Predicate, other: anytype) void {
+    pub fn operatorBitwiseAndAssign(self: Solid__Predicate, other: anytype) void {
         comptime _ = @TypeOf(other)._is_Solid__Predicate;
         qtc.Solid__Predicate_OperatorBitwiseAndAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorBitwiseOr` instead
+    ///
+    pub const OperatorBitwiseOr = operatorBitwiseOr;
 
     /// ### [Upstream resources](https://api.kde.org/solid-predicate.html#operator-7c)
     ///
@@ -193,10 +241,14 @@ pub const Solid__Predicate = extern struct {
     ///
     /// ` other: Solid__Predicate `
     ///
-    pub fn OperatorBitwiseOr(self: Solid__Predicate, other: anytype) Solid__Predicate {
+    pub fn operatorBitwiseOr(self: Solid__Predicate, other: anytype) Solid__Predicate {
         comptime _ = @TypeOf(other)._is_Solid__Predicate;
         return .{ .ptr = qtc.Solid__Predicate_OperatorBitwiseOr(@ptrCast(self.ptr), @ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorBitwiseOrAssign` instead
+    ///
+    pub const OperatorBitwiseOrAssign = operatorBitwiseOrAssign;
 
     /// ### [Upstream resources](https://api.kde.org/solid-predicate.html#operator-7c-eq)
     ///
@@ -206,10 +258,14 @@ pub const Solid__Predicate = extern struct {
     ///
     /// ` other: Solid__Predicate `
     ///
-    pub fn OperatorBitwiseOrAssign(self: Solid__Predicate, other: anytype) void {
+    pub fn operatorBitwiseOrAssign(self: Solid__Predicate, other: anytype) void {
         comptime _ = @TypeOf(other)._is_Solid__Predicate;
         qtc.Solid__Predicate_OperatorBitwiseOrAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://api.kde.org/solid-predicate.html#isValid)
     ///
@@ -217,9 +273,13 @@ pub const Solid__Predicate = extern struct {
     ///
     /// ` self: Solid__Predicate `
     ///
-    pub fn IsValid(self: Solid__Predicate) bool {
+    pub fn isValid(self: Solid__Predicate) bool {
         return qtc.Solid__Predicate_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `matches` instead
+    ///
+    pub const Matches = matches;
 
     /// ### [Upstream resources](https://api.kde.org/solid-predicate.html#matches)
     ///
@@ -229,10 +289,14 @@ pub const Solid__Predicate = extern struct {
     ///
     /// ` device: Solid__Device `
     ///
-    pub fn Matches(self: Solid__Predicate, device: anytype) bool {
+    pub fn matches(self: Solid__Predicate, device: anytype) bool {
         comptime _ = @TypeOf(device)._is_Solid__Device;
         return qtc.Solid__Predicate_Matches(@ptrCast(self.ptr), @ptrCast(device.ptr));
     }
+
+    /// ### DEPRECATED: Use `usedTypes` instead
+    ///
+    pub const UsedTypes = usedTypes;
 
     /// ### [Upstream resources](https://api.kde.org/solid-predicate.html#usedTypes)
     ///
@@ -246,15 +310,19 @@ pub const Solid__Predicate = extern struct {
     ///
     /// ` Set_i32 of deviceinterface_enums.Type `
     ///
-    pub fn UsedTypes(self: Solid__Predicate, allocator: std.mem.Allocator) Set_i32 {
+    pub fn usedTypes(self: Solid__Predicate, allocator: std.mem.Allocator) Set_i32 {
         const _set: qtc.libqt_list = qtc.Solid__Predicate_UsedTypes(@ptrCast(self.ptr));
         var _ret: Set_i32 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_set.len)) catch @panic("Solid__Predicate.UsedTypes: Total capacity allocation failed");
-        const _data: [*]i32 = @ptrCast(@alignCast(_set.data));
+        _ret.ensureTotalCapacity(allocator, @intCast(_set.len)) catch @panic("Solid__Predicate.usedTypes: Total capacity allocation failed");
+        const _data_val: [*]i32 = @ptrCast(@alignCast(_set.data));
         for (0.._set.len) |i|
-            _ret.putAssumeCapacity(_data[i], {});
+            _ret.putAssumeCapacity(_data_val[i], {});
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `toString` instead
+    ///
+    pub const ToString = toString;
 
     /// ### [Upstream resources](https://api.kde.org/solid-predicate.html#toString)
     ///
@@ -264,13 +332,17 @@ pub const Solid__Predicate = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToString(self: Solid__Predicate, allocator: std.mem.Allocator) []const u8 {
+    pub fn toString(self: Solid__Predicate, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Solid__Predicate_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__Predicate.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__Predicate.toString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `fromString` instead
+    ///
+    pub const FromString = fromString;
 
     /// ### [Upstream resources](https://api.kde.org/solid-predicate.html#fromString)
     ///
@@ -278,13 +350,19 @@ pub const Solid__Predicate = extern struct {
     ///
     /// ` predicate: []const u8 `
     ///
-    pub fn FromString(predicate: []const u8) Solid__Predicate {
+    pub fn fromString(predicate: []const u8) Solid__Predicate {
         const predicate_str = qtc.libqt_string{
             .len = predicate.len,
             .data = predicate.ptr,
         };
         return .{ .ptr = qtc.Solid__Predicate_FromString(predicate_str) };
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://api.kde.org/solid-predicate.html#type)
     ///
@@ -296,9 +374,13 @@ pub const Solid__Predicate = extern struct {
     ///
     /// ` predicate_enums.Type `
     ///
-    pub fn Type(self: Solid__Predicate) i32 {
+    pub fn type0(self: Solid__Predicate) i32 {
         return qtc.Solid__Predicate_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `interfaceType` instead
+    ///
+    pub const InterfaceType = interfaceType;
 
     /// ### [Upstream resources](https://api.kde.org/solid-predicate.html#interfaceType)
     ///
@@ -310,9 +392,13 @@ pub const Solid__Predicate = extern struct {
     ///
     /// ` deviceinterface_enums.Type `
     ///
-    pub fn InterfaceType(self: Solid__Predicate) i32 {
+    pub fn interfaceType(self: Solid__Predicate) i32 {
         return qtc.Solid__Predicate_InterfaceType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `propertyName` instead
+    ///
+    pub const PropertyName = propertyName;
 
     /// ### [Upstream resources](https://api.kde.org/solid-predicate.html#propertyName)
     ///
@@ -322,13 +408,17 @@ pub const Solid__Predicate = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PropertyName(self: Solid__Predicate, allocator: std.mem.Allocator) []const u8 {
+    pub fn propertyName(self: Solid__Predicate, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Solid__Predicate_PropertyName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__Predicate.PropertyName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__Predicate.propertyName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `matchingValue` instead
+    ///
+    pub const MatchingValue = matchingValue;
 
     /// ### [Upstream resources](https://api.kde.org/solid-predicate.html#matchingValue)
     ///
@@ -336,9 +426,13 @@ pub const Solid__Predicate = extern struct {
     ///
     /// ` self: Solid__Predicate `
     ///
-    pub fn MatchingValue(self: Solid__Predicate) QVariant {
+    pub fn matchingValue(self: Solid__Predicate) QVariant {
         return .{ .ptr = qtc.Solid__Predicate_MatchingValue(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `comparisonOperator` instead
+    ///
+    pub const ComparisonOperator = comparisonOperator;
 
     /// ### [Upstream resources](https://api.kde.org/solid-predicate.html#comparisonOperator)
     ///
@@ -350,9 +444,13 @@ pub const Solid__Predicate = extern struct {
     ///
     /// ` predicate_enums.ComparisonOperator `
     ///
-    pub fn ComparisonOperator(self: Solid__Predicate) i32 {
+    pub fn comparisonOperator(self: Solid__Predicate) i32 {
         return qtc.Solid__Predicate_ComparisonOperator(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `firstOperand` instead
+    ///
+    pub const FirstOperand = firstOperand;
 
     /// ### [Upstream resources](https://api.kde.org/solid-predicate.html#firstOperand)
     ///
@@ -360,9 +458,13 @@ pub const Solid__Predicate = extern struct {
     ///
     /// ` self: Solid__Predicate `
     ///
-    pub fn FirstOperand(self: Solid__Predicate) Solid__Predicate {
+    pub fn firstOperand(self: Solid__Predicate) Solid__Predicate {
         return .{ .ptr = qtc.Solid__Predicate_FirstOperand(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `secondOperand` instead
+    ///
+    pub const SecondOperand = secondOperand;
 
     /// ### [Upstream resources](https://api.kde.org/solid-predicate.html#secondOperand)
     ///
@@ -370,21 +472,21 @@ pub const Solid__Predicate = extern struct {
     ///
     /// ` self: Solid__Predicate `
     ///
-    pub fn SecondOperand(self: Solid__Predicate) Solid__Predicate {
+    pub fn secondOperand(self: Solid__Predicate) Solid__Predicate {
         return .{ .ptr = qtc.Solid__Predicate_SecondOperand(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Solid__Predicate `
     ///
-    pub fn Delete(self: Solid__Predicate) void {
+    pub fn delete(self: Solid__Predicate) void {
         qtc.Solid__Predicate_Delete(@ptrCast(self.ptr));
     }
 };

@@ -14,15 +14,23 @@ pub const QStringConverter = extern struct {
     pub const _is_QStringConverter = {};
     pub const _is_QStringConverterBase = {};
 
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringconverter.html#isValid)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStringConverter `
     ///
-    pub fn IsValid(self: QStringConverter) bool {
+    pub fn isValid(self: QStringConverter) bool {
         return qtc.QStringConverter_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `resetState` instead
+    ///
+    pub const ResetState = resetState;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringconverter.html#resetState)
     ///
@@ -30,9 +38,13 @@ pub const QStringConverter = extern struct {
     ///
     /// ` self: QStringConverter `
     ///
-    pub fn ResetState(self: QStringConverter) void {
+    pub fn resetState(self: QStringConverter) void {
         qtc.QStringConverter_ResetState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasError` instead
+    ///
+    pub const HasError = hasError;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringconverter.html#hasError)
     ///
@@ -40,9 +52,13 @@ pub const QStringConverter = extern struct {
     ///
     /// ` self: QStringConverter `
     ///
-    pub fn HasError(self: QStringConverter) bool {
+    pub fn hasError(self: QStringConverter) bool {
         return qtc.QStringConverter_HasError(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringconverter.html#name)
     ///
@@ -50,28 +66,36 @@ pub const QStringConverter = extern struct {
     ///
     /// ` self: QStringConverter `
     ///
-    pub fn Name(self: QStringConverter) [:0]const u8 {
+    pub fn name(self: QStringConverter) [:0]const u8 {
         const _ret = qtc.QStringConverter_Name(@ptrCast(self.ptr));
         return std.mem.span(_ret);
     }
+
+    /// ### DEPRECATED: Use `encodingForName` instead
+    ///
+    pub const EncodingForName = encodingForName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringconverter.html#encodingForName)
     ///
     /// ## Parameter(s):
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
     /// ## Returns:
     ///
     /// ` qstringconverter_base_enums.Encoding ` (Returns -1 for an invalid value)
     ///
-    pub fn EncodingForName(name: []const u8) i32 {
+    pub fn encodingForName(_name: []const u8) i32 {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         return qtc.QStringConverter_EncodingForName(name_str);
     }
+
+    /// ### DEPRECATED: Use `nameForEncoding` instead
+    ///
+    pub const NameForEncoding = nameForEncoding;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringconverter.html#nameForEncoding)
     ///
@@ -79,10 +103,14 @@ pub const QStringConverter = extern struct {
     ///
     /// ` e: qstringconverter_base_enums.Encoding `
     ///
-    pub fn NameForEncoding(e: i32) [:0]const u8 {
+    pub fn nameForEncoding(e: i32) [:0]const u8 {
         const _ret = qtc.QStringConverter_NameForEncoding(@bitCast(e));
         return std.mem.span(_ret);
     }
+
+    /// ### DEPRECATED: Use `encodingForData` instead
+    ///
+    pub const EncodingForData = encodingForData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringconverter.html#encodingForData)
     ///
@@ -94,13 +122,17 @@ pub const QStringConverter = extern struct {
     ///
     /// ` qstringconverter_base_enums.Encoding ` (Returns -1 for an invalid value)
     ///
-    pub fn EncodingForData(data: []u8) i32 {
+    pub fn encodingForData(data: []u8) i32 {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
         return qtc.QStringConverter_EncodingForData(data_str);
     }
+
+    /// ### DEPRECATED: Use `encodingForHtml` instead
+    ///
+    pub const EncodingForHtml = encodingForHtml;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringconverter.html#encodingForHtml)
     ///
@@ -112,7 +144,7 @@ pub const QStringConverter = extern struct {
     ///
     /// ` qstringconverter_base_enums.Encoding ` (Returns -1 for an invalid value)
     ///
-    pub fn EncodingForHtml(data: []u8) i32 {
+    pub fn encodingForHtml(data: []u8) i32 {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -120,13 +152,17 @@ pub const QStringConverter = extern struct {
         return qtc.QStringConverter_EncodingForHtml(data_str);
     }
 
+    /// ### DEPRECATED: Use `availableCodecs` instead
+    ///
+    pub const AvailableCodecs = availableCodecs;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringconverter.html#availableCodecs)
     ///
     /// ## Parameter(s):
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AvailableCodecs(allocator: std.mem.Allocator) []const []const u8 {
+    pub fn availableCodecs(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QStringConverter_AvailableCodecs();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -134,11 +170,11 @@ pub const QStringConverter = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QStringConverter.AvailableCodecs: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QStringConverter.availableCodecs: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QStringConverter.AvailableCodecs: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QStringConverter.availableCodecs: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;

@@ -15,27 +15,39 @@ pub const QDebug = extern struct {
     pub const _is_QDebug = {};
     pub const _is_QIODeviceBase = {};
 
-    /// New constructs a new QDebug object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QDebug object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` device: QIODevice `
     ///
-    pub fn New(device: anytype) QDebug {
+    pub fn new(device: anytype) QDebug {
         comptime _ = @TypeOf(device)._is_QIODevice;
         return .{ .ptr = qtc.QDebug_new(@ptrCast(device.ptr)) };
     }
 
-    /// New2 constructs a new QDebug object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QDebug object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` o: QDebug `
     ///
-    pub fn New2(o: anytype) QDebug {
+    pub fn new2(o: anytype) QDebug {
         comptime _ = @TypeOf(o)._is_QDebug;
         return .{ .ptr = qtc.QDebug_new2(@ptrCast(o.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#operator-eq)
     ///
@@ -45,10 +57,14 @@ pub const QDebug = extern struct {
     ///
     /// ` other: QDebug `
     ///
-    pub fn OperatorAssign(self: QDebug, other: anytype) void {
+    pub fn operatorAssign(self: QDebug, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QDebug;
         qtc.QDebug_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#swap)
     ///
@@ -58,10 +74,14 @@ pub const QDebug = extern struct {
     ///
     /// ` other: QDebug `
     ///
-    pub fn Swap(self: QDebug, other: anytype) void {
+    pub fn swap(self: QDebug, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QDebug;
         qtc.QDebug_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `resetFormat` instead
+    ///
+    pub const ResetFormat = resetFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#resetFormat)
     ///
@@ -69,9 +89,13 @@ pub const QDebug = extern struct {
     ///
     /// ` self: QDebug `
     ///
-    pub fn ResetFormat(self: QDebug) QDebug {
+    pub fn resetFormat(self: QDebug) QDebug {
         return .{ .ptr = qtc.QDebug_ResetFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `space` instead
+    ///
+    pub const Space = space;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#space)
     ///
@@ -79,9 +103,13 @@ pub const QDebug = extern struct {
     ///
     /// ` self: QDebug `
     ///
-    pub fn Space(self: QDebug) QDebug {
+    pub fn space(self: QDebug) QDebug {
         return .{ .ptr = qtc.QDebug_Space(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nospace` instead
+    ///
+    pub const Nospace = nospace;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#nospace)
     ///
@@ -89,9 +117,13 @@ pub const QDebug = extern struct {
     ///
     /// ` self: QDebug `
     ///
-    pub fn Nospace(self: QDebug) QDebug {
+    pub fn nospace(self: QDebug) QDebug {
         return .{ .ptr = qtc.QDebug_Nospace(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maybeSpace` instead
+    ///
+    pub const MaybeSpace = maybeSpace;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#maybeSpace)
     ///
@@ -99,9 +131,13 @@ pub const QDebug = extern struct {
     ///
     /// ` self: QDebug `
     ///
-    pub fn MaybeSpace(self: QDebug) QDebug {
+    pub fn maybeSpace(self: QDebug) QDebug {
         return .{ .ptr = qtc.QDebug_MaybeSpace(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `verbosity` instead
+    ///
+    pub const Verbosity = verbosity;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#verbosity)
     ///
@@ -111,9 +147,13 @@ pub const QDebug = extern struct {
     ///
     /// ` verbosityLevel: i32 `
     ///
-    pub fn Verbosity(self: QDebug, verbosityLevel: i32) QDebug {
+    pub fn verbosity(self: QDebug, verbosityLevel: i32) QDebug {
         return .{ .ptr = qtc.QDebug_Verbosity(@ptrCast(self.ptr), @bitCast(verbosityLevel)) };
     }
+
+    /// ### DEPRECATED: Use `verbosity2` instead
+    ///
+    pub const Verbosity2 = verbosity2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#verbosity)
     ///
@@ -121,9 +161,13 @@ pub const QDebug = extern struct {
     ///
     /// ` self: QDebug `
     ///
-    pub fn Verbosity2(self: QDebug) i32 {
+    pub fn verbosity2(self: QDebug) i32 {
         return qtc.QDebug_Verbosity2(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setVerbosity` instead
+    ///
+    pub const SetVerbosity = setVerbosity;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#setVerbosity)
     ///
@@ -133,9 +177,13 @@ pub const QDebug = extern struct {
     ///
     /// ` verbosityLevel: i32 `
     ///
-    pub fn SetVerbosity(self: QDebug, verbosityLevel: i32) void {
+    pub fn setVerbosity(self: QDebug, verbosityLevel: i32) void {
         qtc.QDebug_SetVerbosity(@ptrCast(self.ptr), @bitCast(verbosityLevel));
     }
+
+    /// ### DEPRECATED: Use `autoInsertSpaces` instead
+    ///
+    pub const AutoInsertSpaces = autoInsertSpaces;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#autoInsertSpaces)
     ///
@@ -143,9 +191,13 @@ pub const QDebug = extern struct {
     ///
     /// ` self: QDebug `
     ///
-    pub fn AutoInsertSpaces(self: QDebug) bool {
+    pub fn autoInsertSpaces(self: QDebug) bool {
         return qtc.QDebug_AutoInsertSpaces(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoInsertSpaces` instead
+    ///
+    pub const SetAutoInsertSpaces = setAutoInsertSpaces;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#setAutoInsertSpaces)
     ///
@@ -155,9 +207,13 @@ pub const QDebug = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetAutoInsertSpaces(self: QDebug, b: bool) void {
+    pub fn setAutoInsertSpaces(self: QDebug, b: bool) void {
         qtc.QDebug_SetAutoInsertSpaces(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `quoteStrings` instead
+    ///
+    pub const QuoteStrings = quoteStrings;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#quoteStrings)
     ///
@@ -165,9 +221,13 @@ pub const QDebug = extern struct {
     ///
     /// ` self: QDebug `
     ///
-    pub fn QuoteStrings(self: QDebug) bool {
+    pub fn quoteStrings(self: QDebug) bool {
         return qtc.QDebug_QuoteStrings(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setQuoteStrings` instead
+    ///
+    pub const SetQuoteStrings = setQuoteStrings;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#setQuoteStrings)
     ///
@@ -177,9 +237,13 @@ pub const QDebug = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetQuoteStrings(self: QDebug, b: bool) void {
+    pub fn setQuoteStrings(self: QDebug, b: bool) void {
         qtc.QDebug_SetQuoteStrings(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `quote` instead
+    ///
+    pub const Quote = quote;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#quote)
     ///
@@ -187,9 +251,13 @@ pub const QDebug = extern struct {
     ///
     /// ` self: QDebug `
     ///
-    pub fn Quote(self: QDebug) QDebug {
+    pub fn quote(self: QDebug) QDebug {
         return .{ .ptr = qtc.QDebug_Quote(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `noquote` instead
+    ///
+    pub const Noquote = noquote;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#noquote)
     ///
@@ -197,9 +265,13 @@ pub const QDebug = extern struct {
     ///
     /// ` self: QDebug `
     ///
-    pub fn Noquote(self: QDebug) QDebug {
+    pub fn noquote(self: QDebug) QDebug {
         return .{ .ptr = qtc.QDebug_Noquote(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maybeQuote` instead
+    ///
+    pub const MaybeQuote = maybeQuote;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#maybeQuote)
     ///
@@ -207,9 +279,13 @@ pub const QDebug = extern struct {
     ///
     /// ` self: QDebug `
     ///
-    pub fn MaybeQuote(self: QDebug) QDebug {
+    pub fn maybeQuote(self: QDebug) QDebug {
         return .{ .ptr = qtc.QDebug_MaybeQuote(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftLeft` instead
+    ///
+    pub const OperatorShiftLeft = operatorShiftLeft;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#operator-lt-lt)
     ///
@@ -219,10 +295,14 @@ pub const QDebug = extern struct {
     ///
     /// ` t: QChar `
     ///
-    pub fn OperatorShiftLeft(self: QDebug, t: anytype) QDebug {
+    pub fn operatorShiftLeft(self: QDebug, t: anytype) QDebug {
         comptime _ = @TypeOf(t)._is_QChar;
         return .{ .ptr = qtc.QDebug_OperatorShiftLeft(@ptrCast(self.ptr), @ptrCast(t.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftLeft2` instead
+    ///
+    pub const OperatorShiftLeft2 = operatorShiftLeft2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#operator-lt-lt)
     ///
@@ -232,9 +312,13 @@ pub const QDebug = extern struct {
     ///
     /// ` t: bool `
     ///
-    pub fn OperatorShiftLeft2(self: QDebug, t: bool) QDebug {
+    pub fn operatorShiftLeft2(self: QDebug, t: bool) QDebug {
         return .{ .ptr = qtc.QDebug_OperatorShiftLeft2(@ptrCast(self.ptr), t) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftLeft3` instead
+    ///
+    pub const OperatorShiftLeft3 = operatorShiftLeft3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#operator-lt-lt)
     ///
@@ -244,9 +328,13 @@ pub const QDebug = extern struct {
     ///
     /// ` t: u8 `
     ///
-    pub fn OperatorShiftLeft3(self: QDebug, t: u8) QDebug {
+    pub fn operatorShiftLeft3(self: QDebug, t: u8) QDebug {
         return .{ .ptr = qtc.QDebug_OperatorShiftLeft3(@ptrCast(self.ptr), @bitCast(t)) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftLeft4` instead
+    ///
+    pub const OperatorShiftLeft4 = operatorShiftLeft4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#operator-lt-lt)
     ///
@@ -256,9 +344,13 @@ pub const QDebug = extern struct {
     ///
     /// ` t: i16 `
     ///
-    pub fn OperatorShiftLeft4(self: QDebug, t: i16) QDebug {
+    pub fn operatorShiftLeft4(self: QDebug, t: i16) QDebug {
         return .{ .ptr = qtc.QDebug_OperatorShiftLeft4(@ptrCast(self.ptr), @bitCast(t)) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftLeft5` instead
+    ///
+    pub const OperatorShiftLeft5 = operatorShiftLeft5;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#operator-lt-lt)
     ///
@@ -268,9 +360,13 @@ pub const QDebug = extern struct {
     ///
     /// ` t: u16 `
     ///
-    pub fn OperatorShiftLeft5(self: QDebug, t: u16) QDebug {
+    pub fn operatorShiftLeft5(self: QDebug, t: u16) QDebug {
         return .{ .ptr = qtc.QDebug_OperatorShiftLeft5(@ptrCast(self.ptr), @bitCast(t)) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftLeft8` instead
+    ///
+    pub const OperatorShiftLeft8 = operatorShiftLeft8;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#operator-lt-lt)
     ///
@@ -280,9 +376,13 @@ pub const QDebug = extern struct {
     ///
     /// ` t: i32 `
     ///
-    pub fn OperatorShiftLeft8(self: QDebug, t: i32) QDebug {
+    pub fn operatorShiftLeft8(self: QDebug, t: i32) QDebug {
         return .{ .ptr = qtc.QDebug_OperatorShiftLeft8(@ptrCast(self.ptr), @bitCast(t)) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftLeft9` instead
+    ///
+    pub const OperatorShiftLeft9 = operatorShiftLeft9;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#operator-lt-lt)
     ///
@@ -292,9 +392,13 @@ pub const QDebug = extern struct {
     ///
     /// ` t: u32 `
     ///
-    pub fn OperatorShiftLeft9(self: QDebug, t: u32) QDebug {
+    pub fn operatorShiftLeft9(self: QDebug, t: u32) QDebug {
         return .{ .ptr = qtc.QDebug_OperatorShiftLeft9(@ptrCast(self.ptr), @bitCast(t)) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftLeft10` instead
+    ///
+    pub const OperatorShiftLeft10 = operatorShiftLeft10;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#operator-lt-lt)
     ///
@@ -304,9 +408,13 @@ pub const QDebug = extern struct {
     ///
     /// ` t: isize `
     ///
-    pub fn OperatorShiftLeft10(self: QDebug, t: isize) QDebug {
+    pub fn operatorShiftLeft10(self: QDebug, t: isize) QDebug {
         return .{ .ptr = qtc.QDebug_OperatorShiftLeft10(@ptrCast(self.ptr), @bitCast(t)) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftLeft11` instead
+    ///
+    pub const OperatorShiftLeft11 = operatorShiftLeft11;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#operator-lt-lt)
     ///
@@ -316,9 +424,13 @@ pub const QDebug = extern struct {
     ///
     /// ` t: usize `
     ///
-    pub fn OperatorShiftLeft11(self: QDebug, t: usize) QDebug {
+    pub fn operatorShiftLeft11(self: QDebug, t: usize) QDebug {
         return .{ .ptr = qtc.QDebug_OperatorShiftLeft11(@ptrCast(self.ptr), @bitCast(t)) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftLeft12` instead
+    ///
+    pub const OperatorShiftLeft12 = operatorShiftLeft12;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#operator-lt-lt)
     ///
@@ -328,9 +440,13 @@ pub const QDebug = extern struct {
     ///
     /// ` t: i64 `
     ///
-    pub fn OperatorShiftLeft12(self: QDebug, t: i64) QDebug {
+    pub fn operatorShiftLeft12(self: QDebug, t: i64) QDebug {
         return .{ .ptr = qtc.QDebug_OperatorShiftLeft12(@ptrCast(self.ptr), @bitCast(t)) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftLeft13` instead
+    ///
+    pub const OperatorShiftLeft13 = operatorShiftLeft13;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#operator-lt-lt)
     ///
@@ -340,9 +456,13 @@ pub const QDebug = extern struct {
     ///
     /// ` t: u64 `
     ///
-    pub fn OperatorShiftLeft13(self: QDebug, t: u64) QDebug {
+    pub fn operatorShiftLeft13(self: QDebug, t: u64) QDebug {
         return .{ .ptr = qtc.QDebug_OperatorShiftLeft13(@ptrCast(self.ptr), @bitCast(t)) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftLeft15` instead
+    ///
+    pub const OperatorShiftLeft15 = operatorShiftLeft15;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#operator-lt-lt)
     ///
@@ -352,9 +472,13 @@ pub const QDebug = extern struct {
     ///
     /// ` t: f32 `
     ///
-    pub fn OperatorShiftLeft15(self: QDebug, t: f32) QDebug {
+    pub fn operatorShiftLeft15(self: QDebug, t: f32) QDebug {
         return .{ .ptr = qtc.QDebug_OperatorShiftLeft15(@ptrCast(self.ptr), @bitCast(t)) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftLeft16` instead
+    ///
+    pub const OperatorShiftLeft16 = operatorShiftLeft16;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#operator-lt-lt)
     ///
@@ -364,9 +488,13 @@ pub const QDebug = extern struct {
     ///
     /// ` t: f64 `
     ///
-    pub fn OperatorShiftLeft16(self: QDebug, t: f64) QDebug {
+    pub fn operatorShiftLeft16(self: QDebug, t: f64) QDebug {
         return .{ .ptr = qtc.QDebug_OperatorShiftLeft16(@ptrCast(self.ptr), @bitCast(t)) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftLeft17` instead
+    ///
+    pub const OperatorShiftLeft17 = operatorShiftLeft17;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#operator-lt-lt)
     ///
@@ -376,10 +504,14 @@ pub const QDebug = extern struct {
     ///
     /// ` t: [:0]const u8 `
     ///
-    pub fn OperatorShiftLeft17(self: QDebug, t: [:0]const u8) QDebug {
+    pub fn operatorShiftLeft17(self: QDebug, t: [:0]const u8) QDebug {
         const t_Cstring = t.ptr;
         return .{ .ptr = qtc.QDebug_OperatorShiftLeft17(@ptrCast(self.ptr), t_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftLeft19` instead
+    ///
+    pub const OperatorShiftLeft19 = operatorShiftLeft19;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#operator-lt-lt)
     ///
@@ -389,13 +521,17 @@ pub const QDebug = extern struct {
     ///
     /// ` t: []const u8 `
     ///
-    pub fn OperatorShiftLeft19(self: QDebug, t: []const u8) QDebug {
+    pub fn operatorShiftLeft19(self: QDebug, t: []const u8) QDebug {
         const t_str = qtc.libqt_string{
             .len = t.len,
             .data = t.ptr,
         };
         return .{ .ptr = qtc.QDebug_OperatorShiftLeft19(@ptrCast(self.ptr), t_str) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftLeft20` instead
+    ///
+    pub const OperatorShiftLeft20 = operatorShiftLeft20;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#operator-lt-lt)
     ///
@@ -405,7 +541,7 @@ pub const QDebug = extern struct {
     ///
     /// ` s: []const u8 `
     ///
-    pub fn OperatorShiftLeft20(self: QDebug, s: []const u8) QDebug {
+    pub fn operatorShiftLeft20(self: QDebug, s: []const u8) QDebug {
         const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
@@ -413,6 +549,10 @@ pub const QDebug = extern struct {
         return .{ .ptr = qtc.QDebug_OperatorShiftLeft20(@ptrCast(self.ptr), s_str) };
     }
 
+    /// ### DEPRECATED: Use `operatorShiftLeft22` instead
+    ///
+    pub const OperatorShiftLeft22 = operatorShiftLeft22;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#operator-lt-lt)
     ///
     /// ## Parameter(s):
@@ -421,7 +561,7 @@ pub const QDebug = extern struct {
     ///
     /// ` t: []u8 `
     ///
-    pub fn OperatorShiftLeft22(self: QDebug, t: []u8) QDebug {
+    pub fn operatorShiftLeft22(self: QDebug, t: []u8) QDebug {
         const t_str = qtc.libqt_string{
             .len = t.len,
             .data = t.ptr,
@@ -429,21 +569,9 @@ pub const QDebug = extern struct {
         return .{ .ptr = qtc.QDebug_OperatorShiftLeft22(@ptrCast(self.ptr), t_str) };
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#operator-lt-lt)
+    /// ### DEPRECATED: Use `operatorShiftLeft23` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDebug `
-    ///
-    /// ` t: []u8 `
-    ///
-    pub fn OperatorShiftLeft23(self: QDebug, t: []u8) QDebug {
-        const t_str = qtc.libqt_string{
-            .len = t.len,
-            .data = t.ptr,
-        };
-        return .{ .ptr = qtc.QDebug_OperatorShiftLeft23(@ptrCast(self.ptr), t_str) };
-    }
+    pub const OperatorShiftLeft23 = operatorShiftLeft23;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#operator-lt-lt)
     ///
@@ -453,13 +581,37 @@ pub const QDebug = extern struct {
     ///
     /// ` t: []u8 `
     ///
-    pub fn OperatorShiftLeft24(self: QDebug, t: []u8) QDebug {
+    pub fn operatorShiftLeft23(self: QDebug, t: []u8) QDebug {
+        const t_str = qtc.libqt_string{
+            .len = t.len,
+            .data = t.ptr,
+        };
+        return .{ .ptr = qtc.QDebug_OperatorShiftLeft23(@ptrCast(self.ptr), t_str) };
+    }
+
+    /// ### DEPRECATED: Use `operatorShiftLeft24` instead
+    ///
+    pub const OperatorShiftLeft24 = operatorShiftLeft24;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#operator-lt-lt)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QDebug `
+    ///
+    /// ` t: []u8 `
+    ///
+    pub fn operatorShiftLeft24(self: QDebug, t: []u8) QDebug {
         const t_str = qtc.libqt_string{
             .len = t.len,
             .data = t.ptr,
         };
         return .{ .ptr = qtc.QDebug_OperatorShiftLeft24(@ptrCast(self.ptr), t_str) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftLeft25` instead
+    ///
+    pub const OperatorShiftLeft25 = operatorShiftLeft25;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#operator-lt-lt)
     ///
@@ -469,9 +621,13 @@ pub const QDebug = extern struct {
     ///
     /// ` t: ?*const anyopaque `
     ///
-    pub fn OperatorShiftLeft25(self: QDebug, t: ?*const anyopaque) QDebug {
+    pub fn operatorShiftLeft25(self: QDebug, t: ?*const anyopaque) QDebug {
         return .{ .ptr = qtc.QDebug_OperatorShiftLeft25(@ptrCast(self.ptr), @ptrCast(t)) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftLeft28` instead
+    ///
+    pub const OperatorShiftLeft28 = operatorShiftLeft28;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#operator-lt-lt)
     ///
@@ -481,9 +637,13 @@ pub const QDebug = extern struct {
     ///
     /// ` f: *const fn (funcparam1: QTextStream) callconv(.c) QTextStream `
     ///
-    pub fn OperatorShiftLeft28(self: QDebug, f: *const fn (QTextStream) callconv(.c) QTextStream) QDebug {
+    pub fn operatorShiftLeft28(self: QDebug, f: *const fn (QTextStream) callconv(.c) QTextStream) QDebug {
         return .{ .ptr = qtc.QDebug_OperatorShiftLeft28(@ptrCast(self.ptr), @bitCast(@intFromPtr(f))) };
     }
+
+    /// ### DEPRECATED: Use `maybeQuote1` instead
+    ///
+    pub const MaybeQuote1 = maybeQuote1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#maybeQuote)
     ///
@@ -493,23 +653,23 @@ pub const QDebug = extern struct {
     ///
     /// ` c: u8 `
     ///
-    pub fn MaybeQuote1(self: QDebug, c: u8) QDebug {
+    pub fn maybeQuote1(self: QDebug, c: u8) QDebug {
         return .{ .ptr = qtc.QDebug_MaybeQuote1(@ptrCast(self.ptr), @bitCast(c)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#dtor.QDebug)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDebug `
     ///
-    pub fn Delete(self: QDebug) void {
+    pub fn delete(self: QDebug) void {
         qtc.QDebug_Delete(@ptrCast(self.ptr));
     }
 };
@@ -524,30 +684,34 @@ pub const QDebugStateSaver = extern struct {
 
     pub const _is_QDebugStateSaver = {};
 
-    /// New constructs a new QDebugStateSaver object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QDebugStateSaver object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` dbg: QDebug `
     ///
-    pub fn New(dbg: anytype) QDebugStateSaver {
+    pub fn new(dbg: anytype) QDebugStateSaver {
         comptime _ = @TypeOf(dbg)._is_QDebug;
         return .{ .ptr = qtc.QDebugStateSaver_new(@ptrCast(dbg.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebugstatesaver.html#dtor.QDebugStateSaver)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDebugStateSaver `
     ///
-    pub fn Delete(self: QDebugStateSaver) void {
+    pub fn delete(self: QDebugStateSaver) void {
         qtc.QDebugStateSaver_Delete(@ptrCast(self.ptr));
     }
 };
@@ -562,29 +726,40 @@ pub const QNoDebug = extern struct {
 
     pub const _is_QNoDebug = {};
 
-    /// New constructs a new QNoDebug object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QNoDebug object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QNoDebug `
     ///
-    pub fn New(other: anytype) QNoDebug {
+    pub fn new(other: anytype) QNoDebug {
         comptime _ = @TypeOf(other)._is_QNoDebug;
         return .{ .ptr = qtc.QNoDebug_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new QNoDebug object and invalidates the source QNoDebug object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QNoDebug object and invalidate the source QNoDebug object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QNoDebug `
     ///
-    pub fn New2(other: anytype) QNoDebug {
+    pub fn new2(other: anytype) QNoDebug {
         comptime _ = @TypeOf(other)._is_QNoDebug;
         return .{ .ptr = qtc.QNoDebug_new2(@ptrCast(other.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -592,11 +767,14 @@ pub const QNoDebug = extern struct {
     ///
     /// ` other: QNoDebug `
     ///
-    pub fn CopyAssign(self: QNoDebug, other: QNoDebug) void {
+    pub fn copyAssign(self: QNoDebug, other: QNoDebug) void {
         qtc.QNoDebug_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -604,9 +782,13 @@ pub const QNoDebug = extern struct {
     ///
     /// ` other: QNoDebug `
     ///
-    pub fn MoveAssign(self: QNoDebug, other: QNoDebug) void {
+    pub fn moveAssign(self: QNoDebug, other: QNoDebug) void {
         qtc.QNoDebug_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorShiftLeft` instead
+    ///
+    pub const OperatorShiftLeft = operatorShiftLeft;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnodebug.html#operator-lt-lt)
     ///
@@ -616,9 +798,13 @@ pub const QNoDebug = extern struct {
     ///
     /// ` param1: *const fn (funcparam1: QTextStream) callconv(.c) QTextStream `
     ///
-    pub fn OperatorShiftLeft(self: QNoDebug, param1: *const fn (QTextStream) callconv(.c) QTextStream) QNoDebug {
+    pub fn operatorShiftLeft(self: QNoDebug, param1: *const fn (QTextStream) callconv(.c) QTextStream) QNoDebug {
         return .{ .ptr = qtc.QNoDebug_OperatorShiftLeft(@ptrCast(self.ptr), @bitCast(@intFromPtr(param1))) };
     }
+
+    /// ### DEPRECATED: Use `space` instead
+    ///
+    pub const Space = space;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnodebug.html#space)
     ///
@@ -626,9 +812,13 @@ pub const QNoDebug = extern struct {
     ///
     /// ` self: QNoDebug `
     ///
-    pub fn Space(self: QNoDebug) QNoDebug {
+    pub fn space(self: QNoDebug) QNoDebug {
         return .{ .ptr = qtc.QNoDebug_Space(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nospace` instead
+    ///
+    pub const Nospace = nospace;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnodebug.html#nospace)
     ///
@@ -636,9 +826,13 @@ pub const QNoDebug = extern struct {
     ///
     /// ` self: QNoDebug `
     ///
-    pub fn Nospace(self: QNoDebug) QNoDebug {
+    pub fn nospace(self: QNoDebug) QNoDebug {
         return .{ .ptr = qtc.QNoDebug_Nospace(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maybeSpace` instead
+    ///
+    pub const MaybeSpace = maybeSpace;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnodebug.html#maybeSpace)
     ///
@@ -646,9 +840,13 @@ pub const QNoDebug = extern struct {
     ///
     /// ` self: QNoDebug `
     ///
-    pub fn MaybeSpace(self: QNoDebug) QNoDebug {
+    pub fn maybeSpace(self: QNoDebug) QNoDebug {
         return .{ .ptr = qtc.QNoDebug_MaybeSpace(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `quote` instead
+    ///
+    pub const Quote = quote;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnodebug.html#quote)
     ///
@@ -656,9 +854,13 @@ pub const QNoDebug = extern struct {
     ///
     /// ` self: QNoDebug `
     ///
-    pub fn Quote(self: QNoDebug) QNoDebug {
+    pub fn quote(self: QNoDebug) QNoDebug {
         return .{ .ptr = qtc.QNoDebug_Quote(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `noquote` instead
+    ///
+    pub const Noquote = noquote;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnodebug.html#noquote)
     ///
@@ -666,9 +868,13 @@ pub const QNoDebug = extern struct {
     ///
     /// ` self: QNoDebug `
     ///
-    pub fn Noquote(self: QNoDebug) QNoDebug {
+    pub fn noquote(self: QNoDebug) QNoDebug {
         return .{ .ptr = qtc.QNoDebug_Noquote(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maybeQuote` instead
+    ///
+    pub const MaybeQuote = maybeQuote;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnodebug.html#maybeQuote)
     ///
@@ -676,9 +882,13 @@ pub const QNoDebug = extern struct {
     ///
     /// ` self: QNoDebug `
     ///
-    pub fn MaybeQuote(self: QNoDebug) QNoDebug {
+    pub fn maybeQuote(self: QNoDebug) QNoDebug {
         return .{ .ptr = qtc.QNoDebug_MaybeQuote(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `verbosity` instead
+    ///
+    pub const Verbosity = verbosity;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnodebug.html#verbosity)
     ///
@@ -688,9 +898,13 @@ pub const QNoDebug = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn Verbosity(self: QNoDebug, param1: i32) QNoDebug {
+    pub fn verbosity(self: QNoDebug, param1: i32) QNoDebug {
         return .{ .ptr = qtc.QNoDebug_Verbosity(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `maybeQuote1` instead
+    ///
+    pub const MaybeQuote1 = maybeQuote1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnodebug.html#maybeQuote)
     ///
@@ -700,23 +914,23 @@ pub const QNoDebug = extern struct {
     ///
     /// ` param1: u8 `
     ///
-    pub fn MaybeQuote1(self: QNoDebug, param1: u8) QNoDebug {
+    pub fn maybeQuote1(self: QNoDebug, param1: u8) QNoDebug {
         return .{ .ptr = qtc.QNoDebug_MaybeQuote1(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnodebug.html#dtor.QNoDebug)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QNoDebug `
     ///
-    pub fn Delete(self: QNoDebug) void {
+    pub fn delete(self: QNoDebug) void {
         qtc.QNoDebug_Delete(@ptrCast(self.ptr));
     }
 };

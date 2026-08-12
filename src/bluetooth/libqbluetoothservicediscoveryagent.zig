@@ -29,47 +29,67 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     pub const _is_QBluetoothServiceDiscoveryAgent = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QBluetoothServiceDiscoveryAgent object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QBluetoothServiceDiscoveryAgent {
+    pub const New = new;
+
+    /// Allocate a new QBluetoothServiceDiscoveryAgent object in C++ memory
+    ///
+    pub fn new() QBluetoothServiceDiscoveryAgent {
         return .{ .ptr = qtc.QBluetoothServiceDiscoveryAgent_new() };
     }
 
-    /// New2 constructs a new QBluetoothServiceDiscoveryAgent object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QBluetoothServiceDiscoveryAgent object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` deviceAdapter: QBluetoothAddress `
     ///
-    pub fn New2(deviceAdapter: anytype) QBluetoothServiceDiscoveryAgent {
+    pub fn new2(deviceAdapter: anytype) QBluetoothServiceDiscoveryAgent {
         comptime _ = @TypeOf(deviceAdapter)._is_QBluetoothAddress;
         return .{ .ptr = qtc.QBluetoothServiceDiscoveryAgent_new2(@ptrCast(deviceAdapter.ptr)) };
     }
 
-    /// New3 constructs a new QBluetoothServiceDiscoveryAgent object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QBluetoothServiceDiscoveryAgent object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New3(parent: anytype) QBluetoothServiceDiscoveryAgent {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QBluetoothServiceDiscoveryAgent_new3(@ptrCast(parent.ptr)) };
+    pub fn new3(_parent: anytype) QBluetoothServiceDiscoveryAgent {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QBluetoothServiceDiscoveryAgent_new3(@ptrCast(_parent.ptr)) };
     }
 
-    /// New4 constructs a new QBluetoothServiceDiscoveryAgent object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QBluetoothServiceDiscoveryAgent object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` deviceAdapter: QBluetoothAddress `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New4(deviceAdapter: anytype, parent: anytype) QBluetoothServiceDiscoveryAgent {
+    pub fn new4(deviceAdapter: anytype, _parent: anytype) QBluetoothServiceDiscoveryAgent {
         comptime _ = @TypeOf(deviceAdapter)._is_QBluetoothAddress;
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QBluetoothServiceDiscoveryAgent_new4(@ptrCast(deviceAdapter.ptr), @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QBluetoothServiceDiscoveryAgent_new4(@ptrCast(deviceAdapter.ptr), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -77,9 +97,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` self: QBluetoothServiceDiscoveryAgent `
     ///
-    pub fn MetaObject(self: QBluetoothServiceDiscoveryAgent) QMetaObject {
+    pub fn metaObject(self: QBluetoothServiceDiscoveryAgent) QMetaObject {
         return .{ .ptr = qtc.QBluetoothServiceDiscoveryAgent_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -91,13 +115,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QBluetoothServiceDiscoveryAgent, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QBluetoothServiceDiscoveryAgent, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QBluetoothServiceDiscoveryAgent_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -107,9 +131,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` self: QBluetoothServiceDiscoveryAgent `
     ///
-    pub fn SuperMetaObject(self: QBluetoothServiceDiscoveryAgent) QMetaObject {
+    pub fn superMetaObject(self: QBluetoothServiceDiscoveryAgent) QMetaObject {
         return .{ .ptr = qtc.QBluetoothServiceDiscoveryAgent_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -117,10 +145,14 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QBluetoothServiceDiscoveryAgent, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QBluetoothServiceDiscoveryAgent, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QBluetoothServiceDiscoveryAgent_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -130,13 +162,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` callback: *const fn (self: QBluetoothServiceDiscoveryAgent, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QBluetoothServiceDiscoveryAgent, callback: *const fn (QBluetoothServiceDiscoveryAgent, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QBluetoothServiceDiscoveryAgent, callback: *const fn (QBluetoothServiceDiscoveryAgent, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QBluetoothServiceDiscoveryAgent_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -146,10 +178,14 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QBluetoothServiceDiscoveryAgent, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QBluetoothServiceDiscoveryAgent, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QBluetoothServiceDiscoveryAgent_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -161,9 +197,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QBluetoothServiceDiscoveryAgent, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QBluetoothServiceDiscoveryAgent, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QBluetoothServiceDiscoveryAgent_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -173,13 +213,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` callback: *const fn (self: QBluetoothServiceDiscoveryAgent, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QBluetoothServiceDiscoveryAgent, callback: *const fn (QBluetoothServiceDiscoveryAgent, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QBluetoothServiceDiscoveryAgent, callback: *const fn (QBluetoothServiceDiscoveryAgent, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QBluetoothServiceDiscoveryAgent_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -193,9 +233,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QBluetoothServiceDiscoveryAgent, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QBluetoothServiceDiscoveryAgent, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QBluetoothServiceDiscoveryAgent_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -205,14 +249,18 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBluetoothServiceDiscoveryAgent.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBluetoothServiceDiscoveryAgent.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isActive` instead
+    ///
+    pub const IsActive = isActive;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothservicediscoveryagent.html#isActive)
     ///
@@ -220,9 +268,15 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` self: QBluetoothServiceDiscoveryAgent `
     ///
-    pub fn IsActive(self: QBluetoothServiceDiscoveryAgent) bool {
+    pub fn isActive(self: QBluetoothServiceDiscoveryAgent) bool {
         return qtc.QBluetoothServiceDiscoveryAgent_IsActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `error0` instead
+    ///
+    pub const Error = error0;
+
+    pub const @"error" = error0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothservicediscoveryagent.html#error)
     ///
@@ -234,9 +288,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` qbluetoothservicediscoveryagent_enums.Error `
     ///
-    pub fn Error(self: QBluetoothServiceDiscoveryAgent) i32 {
+    pub fn error0(self: QBluetoothServiceDiscoveryAgent) i32 {
         return qtc.QBluetoothServiceDiscoveryAgent_Error(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `errorString` instead
+    ///
+    pub const ErrorString = errorString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothservicediscoveryagent.html#errorString)
     ///
@@ -246,13 +304,17 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorString(self: QBluetoothServiceDiscoveryAgent, allocator: std.mem.Allocator) []const u8 {
+    pub fn errorString(self: QBluetoothServiceDiscoveryAgent, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QBluetoothServiceDiscoveryAgent_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBluetoothServiceDiscoveryAgent.ErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBluetoothServiceDiscoveryAgent.errorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `discoveredServices` instead
+    ///
+    pub const DiscoveredServices = discoveredServices;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothservicediscoveryagent.html#discoveredServices)
     ///
@@ -262,15 +324,19 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DiscoveredServices(self: QBluetoothServiceDiscoveryAgent, allocator: std.mem.Allocator) []QBluetoothServiceInfo {
+    pub fn discoveredServices(self: QBluetoothServiceDiscoveryAgent, allocator: std.mem.Allocator) []QBluetoothServiceInfo {
         const _arr: qtc.libqt_list = qtc.QBluetoothServiceDiscoveryAgent_DiscoveredServices(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QBluetoothServiceInfo, _arr.len) catch @panic("QBluetoothServiceDiscoveryAgent.DiscoveredServices: Memory allocation failed");
-        const _data: [*]QtC.QBluetoothServiceInfo = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QBluetoothServiceInfo, _arr.len) catch @panic("QBluetoothServiceDiscoveryAgent.discoveredServices: Memory allocation failed");
+        const _data_val: [*]QtC.QBluetoothServiceInfo = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setUuidFilter` instead
+    ///
+    pub const SetUuidFilter = setUuidFilter;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothservicediscoveryagent.html#setUuidFilter)
     ///
@@ -280,13 +346,17 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` uuids: []QBluetoothUuid `
     ///
-    pub fn SetUuidFilter(self: QBluetoothServiceDiscoveryAgent, uuids: []QBluetoothUuid) void {
+    pub fn setUuidFilter(self: QBluetoothServiceDiscoveryAgent, uuids: []QBluetoothUuid) void {
         const uuids_list = qtc.libqt_list{
             .len = uuids.len,
             .data = @ptrCast(uuids.ptr),
         };
         qtc.QBluetoothServiceDiscoveryAgent_SetUuidFilter(@ptrCast(self.ptr), uuids_list);
     }
+
+    /// ### DEPRECATED: Use `setUuidFilter2` instead
+    ///
+    pub const SetUuidFilter2 = setUuidFilter2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothservicediscoveryagent.html#setUuidFilter)
     ///
@@ -296,10 +366,14 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` uuid: QBluetoothUuid `
     ///
-    pub fn SetUuidFilter2(self: QBluetoothServiceDiscoveryAgent, uuid: anytype) void {
+    pub fn setUuidFilter2(self: QBluetoothServiceDiscoveryAgent, uuid: anytype) void {
         comptime _ = @TypeOf(uuid)._is_QBluetoothUuid;
         qtc.QBluetoothServiceDiscoveryAgent_SetUuidFilter2(@ptrCast(self.ptr), @ptrCast(uuid.ptr));
     }
+
+    /// ### DEPRECATED: Use `uuidFilter` instead
+    ///
+    pub const UuidFilter = uuidFilter;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothservicediscoveryagent.html#uuidFilter)
     ///
@@ -309,15 +383,19 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UuidFilter(self: QBluetoothServiceDiscoveryAgent, allocator: std.mem.Allocator) []QBluetoothUuid {
+    pub fn uuidFilter(self: QBluetoothServiceDiscoveryAgent, allocator: std.mem.Allocator) []QBluetoothUuid {
         const _arr: qtc.libqt_list = qtc.QBluetoothServiceDiscoveryAgent_UuidFilter(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QBluetoothUuid, _arr.len) catch @panic("QBluetoothServiceDiscoveryAgent.UuidFilter: Memory allocation failed");
-        const _data: [*]QtC.QBluetoothUuid = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QBluetoothUuid, _arr.len) catch @panic("QBluetoothServiceDiscoveryAgent.uuidFilter: Memory allocation failed");
+        const _data_val: [*]QtC.QBluetoothUuid = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setRemoteAddress` instead
+    ///
+    pub const SetRemoteAddress = setRemoteAddress;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothservicediscoveryagent.html#setRemoteAddress)
     ///
@@ -327,10 +405,14 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` address: QBluetoothAddress `
     ///
-    pub fn SetRemoteAddress(self: QBluetoothServiceDiscoveryAgent, address: anytype) bool {
+    pub fn setRemoteAddress(self: QBluetoothServiceDiscoveryAgent, address: anytype) bool {
         comptime _ = @TypeOf(address)._is_QBluetoothAddress;
         return qtc.QBluetoothServiceDiscoveryAgent_SetRemoteAddress(@ptrCast(self.ptr), @ptrCast(address.ptr));
     }
+
+    /// ### DEPRECATED: Use `remoteAddress` instead
+    ///
+    pub const RemoteAddress = remoteAddress;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothservicediscoveryagent.html#remoteAddress)
     ///
@@ -338,9 +420,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` self: QBluetoothServiceDiscoveryAgent `
     ///
-    pub fn RemoteAddress(self: QBluetoothServiceDiscoveryAgent) QBluetoothAddress {
+    pub fn remoteAddress(self: QBluetoothServiceDiscoveryAgent) QBluetoothAddress {
         return .{ .ptr = qtc.QBluetoothServiceDiscoveryAgent_RemoteAddress(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `start` instead
+    ///
+    pub const Start = start;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothservicediscoveryagent.html#start)
     ///
@@ -348,9 +434,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` self: QBluetoothServiceDiscoveryAgent `
     ///
-    pub fn Start(self: QBluetoothServiceDiscoveryAgent) void {
+    pub fn start(self: QBluetoothServiceDiscoveryAgent) void {
         qtc.QBluetoothServiceDiscoveryAgent_Start(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stop` instead
+    ///
+    pub const Stop = stop;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothservicediscoveryagent.html#stop)
     ///
@@ -358,9 +448,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` self: QBluetoothServiceDiscoveryAgent `
     ///
-    pub fn Stop(self: QBluetoothServiceDiscoveryAgent) void {
+    pub fn stop(self: QBluetoothServiceDiscoveryAgent) void {
         qtc.QBluetoothServiceDiscoveryAgent_Stop(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothservicediscoveryagent.html#clear)
     ///
@@ -368,9 +462,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` self: QBluetoothServiceDiscoveryAgent `
     ///
-    pub fn Clear(self: QBluetoothServiceDiscoveryAgent) void {
+    pub fn clear(self: QBluetoothServiceDiscoveryAgent) void {
         qtc.QBluetoothServiceDiscoveryAgent_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `serviceDiscovered` instead
+    ///
+    pub const ServiceDiscovered = serviceDiscovered;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothservicediscoveryagent.html#serviceDiscovered)
     ///
@@ -380,10 +478,14 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` info: QBluetoothServiceInfo `
     ///
-    pub fn ServiceDiscovered(self: QBluetoothServiceDiscoveryAgent, info: anytype) void {
+    pub fn serviceDiscovered(self: QBluetoothServiceDiscoveryAgent, info: anytype) void {
         comptime _ = @TypeOf(info)._is_QBluetoothServiceInfo;
         qtc.QBluetoothServiceDiscoveryAgent_ServiceDiscovered(@ptrCast(self.ptr), @ptrCast(info.ptr));
     }
+
+    /// ### DEPRECATED: Use `onServiceDiscovered` instead
+    ///
+    pub const OnServiceDiscovered = onServiceDiscovered;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothservicediscoveryagent.html#serviceDiscovered)
     ///
@@ -393,20 +495,28 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` callback: *const fn (self: QBluetoothServiceDiscoveryAgent, info: QBluetoothServiceInfo) callconv(.c) void `
     ///
-    pub fn OnServiceDiscovered(self: QBluetoothServiceDiscoveryAgent, callback: *const fn (QBluetoothServiceDiscoveryAgent, QBluetoothServiceInfo) callconv(.c) void) void {
+    pub fn onServiceDiscovered(self: QBluetoothServiceDiscoveryAgent, callback: *const fn (QBluetoothServiceDiscoveryAgent, QBluetoothServiceInfo) callconv(.c) void) void {
         qtc.QBluetoothServiceDiscoveryAgent_Connect_ServiceDiscovered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `finished` instead
+    ///
+    pub const Finished = finished;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothservicediscoveryagent.html#finished)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QBluetoothServiceDiscoveryAgent `
     ///
-    pub fn Finished(self: QBluetoothServiceDiscoveryAgent) void {
+    pub fn finished(self: QBluetoothServiceDiscoveryAgent) void {
         qtc.QBluetoothServiceDiscoveryAgent_Finished(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFinished` instead
+    ///
+    pub const OnFinished = onFinished;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothservicediscoveryagent.html#finished)
     ///
     /// ## Parameters:
@@ -415,9 +525,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` callback: *const fn (self: QBluetoothServiceDiscoveryAgent) callconv(.c) void `
     ///
-    pub fn OnFinished(self: QBluetoothServiceDiscoveryAgent, callback: *const fn (QBluetoothServiceDiscoveryAgent) callconv(.c) void) void {
+    pub fn onFinished(self: QBluetoothServiceDiscoveryAgent, callback: *const fn (QBluetoothServiceDiscoveryAgent) callconv(.c) void) void {
         qtc.QBluetoothServiceDiscoveryAgent_Connect_Finished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `canceled` instead
+    ///
+    pub const Canceled = canceled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothservicediscoveryagent.html#canceled)
     ///
@@ -425,9 +539,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` self: QBluetoothServiceDiscoveryAgent `
     ///
-    pub fn Canceled(self: QBluetoothServiceDiscoveryAgent) void {
+    pub fn canceled(self: QBluetoothServiceDiscoveryAgent) void {
         qtc.QBluetoothServiceDiscoveryAgent_Canceled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCanceled` instead
+    ///
+    pub const OnCanceled = onCanceled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothservicediscoveryagent.html#canceled)
     ///
@@ -437,9 +555,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` callback: *const fn (self: QBluetoothServiceDiscoveryAgent) callconv(.c) void `
     ///
-    pub fn OnCanceled(self: QBluetoothServiceDiscoveryAgent, callback: *const fn (QBluetoothServiceDiscoveryAgent) callconv(.c) void) void {
+    pub fn onCanceled(self: QBluetoothServiceDiscoveryAgent, callback: *const fn (QBluetoothServiceDiscoveryAgent) callconv(.c) void) void {
         qtc.QBluetoothServiceDiscoveryAgent_Connect_Canceled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `errorOccurred` instead
+    ///
+    pub const ErrorOccurred = errorOccurred;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothservicediscoveryagent.html#errorOccurred)
     ///
@@ -449,9 +571,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` errorVal: qbluetoothservicediscoveryagent_enums.Error `
     ///
-    pub fn ErrorOccurred(self: QBluetoothServiceDiscoveryAgent, errorVal: i32) void {
+    pub fn errorOccurred(self: QBluetoothServiceDiscoveryAgent, errorVal: i32) void {
         qtc.QBluetoothServiceDiscoveryAgent_ErrorOccurred(@ptrCast(self.ptr), @bitCast(errorVal));
     }
+
+    /// ### DEPRECATED: Use `onErrorOccurred` instead
+    ///
+    pub const OnErrorOccurred = onErrorOccurred;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothservicediscoveryagent.html#errorOccurred)
     ///
@@ -461,9 +587,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` callback: *const fn (self: QBluetoothServiceDiscoveryAgent, errorVal: qbluetoothservicediscoveryagent_enums.Error) callconv(.c) void `
     ///
-    pub fn OnErrorOccurred(self: QBluetoothServiceDiscoveryAgent, callback: *const fn (QBluetoothServiceDiscoveryAgent, i32) callconv(.c) void) void {
+    pub fn onErrorOccurred(self: QBluetoothServiceDiscoveryAgent, callback: *const fn (QBluetoothServiceDiscoveryAgent, i32) callconv(.c) void) void {
         qtc.QBluetoothServiceDiscoveryAgent_Connect_ErrorOccurred(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -475,15 +605,19 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBluetoothServiceDiscoveryAgent.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBluetoothServiceDiscoveryAgent.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -497,15 +631,19 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBluetoothServiceDiscoveryAgent.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBluetoothServiceDiscoveryAgent.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `start1` instead
+    ///
+    pub const Start1 = start1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothservicediscoveryagent.html#start)
     ///
@@ -515,9 +653,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` mode: qbluetoothservicediscoveryagent_enums.DiscoveryMode `
     ///
-    pub fn Start1(self: QBluetoothServiceDiscoveryAgent, mode: i32) void {
+    pub fn start1(self: QBluetoothServiceDiscoveryAgent, mode: i32) void {
         qtc.QBluetoothServiceDiscoveryAgent_Start1(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -529,13 +671,17 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QBluetoothServiceDiscoveryAgent, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QBluetoothServiceDiscoveryAgent, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBluetoothServiceDiscoveryAgent.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBluetoothServiceDiscoveryAgent.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -547,13 +693,17 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QBluetoothServiceDiscoveryAgent, name: []const u8) void {
+    pub fn setObjectName(self: QBluetoothServiceDiscoveryAgent, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -563,9 +713,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` self: QBluetoothServiceDiscoveryAgent `
     ///
-    pub fn IsWidgetType(self: QBluetoothServiceDiscoveryAgent) bool {
+    pub fn isWidgetType(self: QBluetoothServiceDiscoveryAgent) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -575,9 +729,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` self: QBluetoothServiceDiscoveryAgent `
     ///
-    pub fn IsWindowType(self: QBluetoothServiceDiscoveryAgent) bool {
+    pub fn isWindowType(self: QBluetoothServiceDiscoveryAgent) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -587,9 +745,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` self: QBluetoothServiceDiscoveryAgent `
     ///
-    pub fn IsQuickItemType(self: QBluetoothServiceDiscoveryAgent) bool {
+    pub fn isQuickItemType(self: QBluetoothServiceDiscoveryAgent) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -599,9 +761,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` self: QBluetoothServiceDiscoveryAgent `
     ///
-    pub fn SignalsBlocked(self: QBluetoothServiceDiscoveryAgent) bool {
+    pub fn signalsBlocked(self: QBluetoothServiceDiscoveryAgent) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -613,9 +779,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QBluetoothServiceDiscoveryAgent, b: bool) bool {
+    pub fn blockSignals(self: QBluetoothServiceDiscoveryAgent, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -625,9 +795,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` self: QBluetoothServiceDiscoveryAgent `
     ///
-    pub fn Thread(self: QBluetoothServiceDiscoveryAgent) QThread {
+    pub fn thread(self: QBluetoothServiceDiscoveryAgent) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -637,12 +811,16 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` self: QBluetoothServiceDiscoveryAgent `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QBluetoothServiceDiscoveryAgent, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QBluetoothServiceDiscoveryAgent, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -654,9 +832,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QBluetoothServiceDiscoveryAgent, interval: i32) i32 {
+    pub fn startTimer(self: QBluetoothServiceDiscoveryAgent, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -668,9 +850,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QBluetoothServiceDiscoveryAgent, time: i64) i32 {
+    pub fn startTimer2(self: QBluetoothServiceDiscoveryAgent, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -682,9 +868,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QBluetoothServiceDiscoveryAgent, id: i32) void {
+    pub fn killTimer(self: QBluetoothServiceDiscoveryAgent, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -696,9 +886,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QBluetoothServiceDiscoveryAgent, id: i32) void {
+    pub fn killTimer2(self: QBluetoothServiceDiscoveryAgent, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -710,15 +904,19 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QBluetoothServiceDiscoveryAgent, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QBluetoothServiceDiscoveryAgent, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QBluetoothServiceDiscoveryAgent.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QBluetoothServiceDiscoveryAgent.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -728,12 +926,16 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` self: QBluetoothServiceDiscoveryAgent `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QBluetoothServiceDiscoveryAgent, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QBluetoothServiceDiscoveryAgent, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -745,10 +947,14 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QBluetoothServiceDiscoveryAgent, filterObj: anytype) void {
+    pub fn installEventFilter(self: QBluetoothServiceDiscoveryAgent, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -760,10 +966,14 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QBluetoothServiceDiscoveryAgent, obj: anytype) void {
+    pub fn removeEventFilter(self: QBluetoothServiceDiscoveryAgent, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -771,7 +981,7 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -779,13 +989,17 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -793,7 +1007,7 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -801,13 +1015,17 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -817,18 +1035,22 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` self: QBluetoothServiceDiscoveryAgent `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QBluetoothServiceDiscoveryAgent, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QBluetoothServiceDiscoveryAgent, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -836,7 +1058,7 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -844,13 +1066,17 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -858,7 +1084,7 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -866,13 +1092,17 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -882,9 +1112,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` self: QBluetoothServiceDiscoveryAgent `
     ///
-    pub fn Disconnect3(self: QBluetoothServiceDiscoveryAgent) bool {
+    pub fn disconnect3(self: QBluetoothServiceDiscoveryAgent) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -896,10 +1130,14 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QBluetoothServiceDiscoveryAgent, receiver: anytype) bool {
+    pub fn disconnect4(self: QBluetoothServiceDiscoveryAgent, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -909,10 +1147,14 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -922,9 +1164,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` self: QBluetoothServiceDiscoveryAgent `
     ///
-    pub fn DumpObjectTree(self: QBluetoothServiceDiscoveryAgent) void {
+    pub fn dumpObjectTree(self: QBluetoothServiceDiscoveryAgent) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -934,9 +1180,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` self: QBluetoothServiceDiscoveryAgent `
     ///
-    pub fn DumpObjectInfo(self: QBluetoothServiceDiscoveryAgent) void {
+    pub fn dumpObjectInfo(self: QBluetoothServiceDiscoveryAgent) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -950,11 +1200,15 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QBluetoothServiceDiscoveryAgent, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QBluetoothServiceDiscoveryAgent, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -966,10 +1220,14 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QBluetoothServiceDiscoveryAgent, name: [:0]const u8) QVariant {
+    pub fn property(self: QBluetoothServiceDiscoveryAgent, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -981,7 +1239,7 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QBluetoothServiceDiscoveryAgent, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QBluetoothServiceDiscoveryAgent, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -989,27 +1247,19 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QBluetoothServiceDiscoveryAgent.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QBluetoothServiceDiscoveryAgent.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QBluetoothServiceDiscoveryAgent.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QBluetoothServiceDiscoveryAgent.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QBluetoothServiceDiscoveryAgent `
-    ///
-    pub fn BindingStorage(self: QBluetoothServiceDiscoveryAgent) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1019,9 +1269,29 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` self: QBluetoothServiceDiscoveryAgent `
     ///
-    pub fn BindingStorage2(self: QBluetoothServiceDiscoveryAgent) QBindingStorage {
+    pub fn bindingStorage(self: QBluetoothServiceDiscoveryAgent) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QBluetoothServiceDiscoveryAgent `
+    ///
+    pub fn bindingStorage2(self: QBluetoothServiceDiscoveryAgent) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1031,9 +1301,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` self: QBluetoothServiceDiscoveryAgent `
     ///
-    pub fn Destroyed(self: QBluetoothServiceDiscoveryAgent) void {
+    pub fn destroyed(self: QBluetoothServiceDiscoveryAgent) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1045,9 +1319,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` callback: *const fn (self: QBluetoothServiceDiscoveryAgent) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QBluetoothServiceDiscoveryAgent, callback: *const fn (QBluetoothServiceDiscoveryAgent) callconv(.c) void) void {
+    pub fn onDestroyed(self: QBluetoothServiceDiscoveryAgent, callback: *const fn (QBluetoothServiceDiscoveryAgent) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1057,9 +1335,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` self: QBluetoothServiceDiscoveryAgent `
     ///
-    pub fn Parent(self: QBluetoothServiceDiscoveryAgent) QObject {
+    pub fn parent(self: QBluetoothServiceDiscoveryAgent) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1071,10 +1353,14 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QBluetoothServiceDiscoveryAgent, classname: [:0]const u8) bool {
+    pub fn inherits(self: QBluetoothServiceDiscoveryAgent, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1084,9 +1370,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` self: QBluetoothServiceDiscoveryAgent `
     ///
-    pub fn DeleteLater(self: QBluetoothServiceDiscoveryAgent) void {
+    pub fn deleteLater(self: QBluetoothServiceDiscoveryAgent) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1100,9 +1390,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QBluetoothServiceDiscoveryAgent, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QBluetoothServiceDiscoveryAgent, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1116,9 +1410,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QBluetoothServiceDiscoveryAgent, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QBluetoothServiceDiscoveryAgent, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1126,7 +1424,7 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1136,13 +1434,17 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1150,7 +1452,7 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1160,13 +1462,17 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1176,7 +1482,7 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` self: QBluetoothServiceDiscoveryAgent `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1184,12 +1490,16 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QBluetoothServiceDiscoveryAgent, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QBluetoothServiceDiscoveryAgent, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1201,10 +1511,14 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QBluetoothServiceDiscoveryAgent, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QBluetoothServiceDiscoveryAgent, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1218,11 +1532,15 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QBluetoothServiceDiscoveryAgent, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QBluetoothServiceDiscoveryAgent, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1238,13 +1556,17 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QBluetoothServiceDiscoveryAgent, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QBluetoothServiceDiscoveryAgent, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1257,11 +1579,15 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QBluetoothServiceDiscoveryAgent, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QBluetoothServiceDiscoveryAgent, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1273,10 +1599,14 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QBluetoothServiceDiscoveryAgent, param1: anytype) void {
+    pub fn destroyed1(self: QBluetoothServiceDiscoveryAgent, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1288,9 +1618,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` callback: *const fn (self: QBluetoothServiceDiscoveryAgent, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QBluetoothServiceDiscoveryAgent, callback: *const fn (QBluetoothServiceDiscoveryAgent, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QBluetoothServiceDiscoveryAgent, callback: *const fn (QBluetoothServiceDiscoveryAgent, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1302,16 +1636,16 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` self: QBluetoothServiceDiscoveryAgent `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QBluetoothServiceDiscoveryAgent, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QBluetoothServiceDiscoveryAgent_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QBluetoothServiceDiscoveryAgent, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QBluetoothServiceDiscoveryAgent_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1323,12 +1657,16 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` self: QBluetoothServiceDiscoveryAgent `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QBluetoothServiceDiscoveryAgent, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QBluetoothServiceDiscoveryAgent_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QBluetoothServiceDiscoveryAgent, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QBluetoothServiceDiscoveryAgent_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -1342,9 +1680,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` callback: *const fn (self: QBluetoothServiceDiscoveryAgent, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QBluetoothServiceDiscoveryAgent, callback: *const fn (QBluetoothServiceDiscoveryAgent, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QBluetoothServiceDiscoveryAgent, callback: *const fn (QBluetoothServiceDiscoveryAgent, QEvent) callconv(.c) bool) void {
         qtc.QBluetoothServiceDiscoveryAgent_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1358,17 +1700,17 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QBluetoothServiceDiscoveryAgent, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QBluetoothServiceDiscoveryAgent, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QBluetoothServiceDiscoveryAgent_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QBluetoothServiceDiscoveryAgent_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1382,13 +1724,17 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QBluetoothServiceDiscoveryAgent, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QBluetoothServiceDiscoveryAgent, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QBluetoothServiceDiscoveryAgent_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QBluetoothServiceDiscoveryAgent_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1402,9 +1748,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` callback: *const fn (self: QBluetoothServiceDiscoveryAgent, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QBluetoothServiceDiscoveryAgent, callback: *const fn (QBluetoothServiceDiscoveryAgent, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QBluetoothServiceDiscoveryAgent, callback: *const fn (QBluetoothServiceDiscoveryAgent, QObject, QEvent) callconv(.c) bool) void {
         qtc.QBluetoothServiceDiscoveryAgent_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1416,16 +1766,16 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` self: QBluetoothServiceDiscoveryAgent `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QBluetoothServiceDiscoveryAgent, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QBluetoothServiceDiscoveryAgent_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QBluetoothServiceDiscoveryAgent, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QBluetoothServiceDiscoveryAgent_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1437,12 +1787,16 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` self: QBluetoothServiceDiscoveryAgent `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QBluetoothServiceDiscoveryAgent, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QBluetoothServiceDiscoveryAgent_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QBluetoothServiceDiscoveryAgent, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QBluetoothServiceDiscoveryAgent_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1456,9 +1810,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` callback: *const fn (self: QBluetoothServiceDiscoveryAgent, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QBluetoothServiceDiscoveryAgent, callback: *const fn (QBluetoothServiceDiscoveryAgent, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QBluetoothServiceDiscoveryAgent, callback: *const fn (QBluetoothServiceDiscoveryAgent, QTimerEvent) callconv(.c) void) void {
         qtc.QBluetoothServiceDiscoveryAgent_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -1470,16 +1828,16 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` self: QBluetoothServiceDiscoveryAgent `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QBluetoothServiceDiscoveryAgent, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QBluetoothServiceDiscoveryAgent_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QBluetoothServiceDiscoveryAgent, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QBluetoothServiceDiscoveryAgent_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1491,12 +1849,16 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` self: QBluetoothServiceDiscoveryAgent `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QBluetoothServiceDiscoveryAgent, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QBluetoothServiceDiscoveryAgent_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QBluetoothServiceDiscoveryAgent, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QBluetoothServiceDiscoveryAgent_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1510,9 +1872,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` callback: *const fn (self: QBluetoothServiceDiscoveryAgent, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QBluetoothServiceDiscoveryAgent, callback: *const fn (QBluetoothServiceDiscoveryAgent, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QBluetoothServiceDiscoveryAgent, callback: *const fn (QBluetoothServiceDiscoveryAgent, QChildEvent) callconv(.c) void) void {
         qtc.QBluetoothServiceDiscoveryAgent_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -1524,16 +1890,16 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` self: QBluetoothServiceDiscoveryAgent `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QBluetoothServiceDiscoveryAgent, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QBluetoothServiceDiscoveryAgent_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QBluetoothServiceDiscoveryAgent, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QBluetoothServiceDiscoveryAgent_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1545,12 +1911,16 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` self: QBluetoothServiceDiscoveryAgent `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QBluetoothServiceDiscoveryAgent, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QBluetoothServiceDiscoveryAgent_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QBluetoothServiceDiscoveryAgent, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QBluetoothServiceDiscoveryAgent_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1564,9 +1934,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` callback: *const fn (self: QBluetoothServiceDiscoveryAgent, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QBluetoothServiceDiscoveryAgent, callback: *const fn (QBluetoothServiceDiscoveryAgent, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QBluetoothServiceDiscoveryAgent, callback: *const fn (QBluetoothServiceDiscoveryAgent, QEvent) callconv(.c) void) void {
         qtc.QBluetoothServiceDiscoveryAgent_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -1580,14 +1954,14 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QBluetoothServiceDiscoveryAgent, signal: anytype) void {
+    pub fn connectNotify(self: QBluetoothServiceDiscoveryAgent, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QBluetoothServiceDiscoveryAgent_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1601,11 +1975,15 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QBluetoothServiceDiscoveryAgent, signal: anytype) void {
+    pub fn superConnectNotify(self: QBluetoothServiceDiscoveryAgent, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QBluetoothServiceDiscoveryAgent_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1618,9 +1996,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` callback: *const fn (self: QBluetoothServiceDiscoveryAgent, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QBluetoothServiceDiscoveryAgent, callback: *const fn (QBluetoothServiceDiscoveryAgent, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QBluetoothServiceDiscoveryAgent, callback: *const fn (QBluetoothServiceDiscoveryAgent, QMetaMethod) callconv(.c) void) void {
         qtc.QBluetoothServiceDiscoveryAgent_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1634,14 +2016,14 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QBluetoothServiceDiscoveryAgent, signal: anytype) void {
+    pub fn disconnectNotify(self: QBluetoothServiceDiscoveryAgent, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QBluetoothServiceDiscoveryAgent_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1655,10 +2037,14 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QBluetoothServiceDiscoveryAgent, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QBluetoothServiceDiscoveryAgent, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QBluetoothServiceDiscoveryAgent_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1672,9 +2058,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` callback: *const fn (self: QBluetoothServiceDiscoveryAgent, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QBluetoothServiceDiscoveryAgent, callback: *const fn (QBluetoothServiceDiscoveryAgent, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QBluetoothServiceDiscoveryAgent, callback: *const fn (QBluetoothServiceDiscoveryAgent, QMetaMethod) callconv(.c) void) void {
         qtc.QBluetoothServiceDiscoveryAgent_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -1686,13 +2076,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` self: QBluetoothServiceDiscoveryAgent `
     ///
-    pub fn Sender(self: QBluetoothServiceDiscoveryAgent) QObject {
+    pub fn sender(self: QBluetoothServiceDiscoveryAgent) QObject {
         return .{ .ptr = qtc.QBluetoothServiceDiscoveryAgent_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -1704,9 +2094,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` self: QBluetoothServiceDiscoveryAgent `
     ///
-    pub fn SuperSender(self: QBluetoothServiceDiscoveryAgent) QObject {
+    pub fn superSender(self: QBluetoothServiceDiscoveryAgent) QObject {
         return .{ .ptr = qtc.QBluetoothServiceDiscoveryAgent_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -1720,9 +2114,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QBluetoothServiceDiscoveryAgent, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QBluetoothServiceDiscoveryAgent, callback: *const fn () callconv(.c) QObject) void {
         qtc.QBluetoothServiceDiscoveryAgent_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1734,13 +2132,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` self: QBluetoothServiceDiscoveryAgent `
     ///
-    pub fn SenderSignalIndex(self: QBluetoothServiceDiscoveryAgent) i32 {
+    pub fn senderSignalIndex(self: QBluetoothServiceDiscoveryAgent) i32 {
         return qtc.QBluetoothServiceDiscoveryAgent_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1752,9 +2150,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` self: QBluetoothServiceDiscoveryAgent `
     ///
-    pub fn SuperSenderSignalIndex(self: QBluetoothServiceDiscoveryAgent) i32 {
+    pub fn superSenderSignalIndex(self: QBluetoothServiceDiscoveryAgent) i32 {
         return qtc.QBluetoothServiceDiscoveryAgent_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1768,9 +2170,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QBluetoothServiceDiscoveryAgent, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QBluetoothServiceDiscoveryAgent, callback: *const fn () callconv(.c) i32) void {
         qtc.QBluetoothServiceDiscoveryAgent_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -1784,14 +2190,14 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QBluetoothServiceDiscoveryAgent, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QBluetoothServiceDiscoveryAgent, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QBluetoothServiceDiscoveryAgent_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -1805,10 +2211,14 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QBluetoothServiceDiscoveryAgent, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QBluetoothServiceDiscoveryAgent, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QBluetoothServiceDiscoveryAgent_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -1822,9 +2232,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` callback: *const fn (self: QBluetoothServiceDiscoveryAgent, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QBluetoothServiceDiscoveryAgent, callback: *const fn (QBluetoothServiceDiscoveryAgent, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QBluetoothServiceDiscoveryAgent, callback: *const fn (QBluetoothServiceDiscoveryAgent, [*:0]const u8) callconv(.c) i32) void {
         qtc.QBluetoothServiceDiscoveryAgent_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1838,14 +2252,14 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QBluetoothServiceDiscoveryAgent, signal: anytype) bool {
+    pub fn isSignalConnected(self: QBluetoothServiceDiscoveryAgent, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QBluetoothServiceDiscoveryAgent_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1859,10 +2273,14 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QBluetoothServiceDiscoveryAgent, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QBluetoothServiceDiscoveryAgent, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QBluetoothServiceDiscoveryAgent_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1876,9 +2294,13 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` callback: *const fn (self: QBluetoothServiceDiscoveryAgent, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QBluetoothServiceDiscoveryAgent, callback: *const fn (QBluetoothServiceDiscoveryAgent, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QBluetoothServiceDiscoveryAgent, callback: *const fn (QBluetoothServiceDiscoveryAgent, QMetaMethod) callconv(.c) bool) void {
         qtc.QBluetoothServiceDiscoveryAgent_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -1892,23 +2314,23 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
     ///
     /// ` callback: *const fn (self: QBluetoothServiceDiscoveryAgent, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QBluetoothServiceDiscoveryAgent, callback: *const fn (QBluetoothServiceDiscoveryAgent, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QBluetoothServiceDiscoveryAgent, callback: *const fn (QBluetoothServiceDiscoveryAgent, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothservicediscoveryagent.html#dtor.QBluetoothServiceDiscoveryAgent)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QBluetoothServiceDiscoveryAgent `
     ///
-    pub fn Delete(self: QBluetoothServiceDiscoveryAgent) void {
+    pub fn delete(self: QBluetoothServiceDiscoveryAgent) void {
         qtc.QBluetoothServiceDiscoveryAgent_Delete(@ptrCast(self.ptr));
     }
 };

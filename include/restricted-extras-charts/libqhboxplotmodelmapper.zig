@@ -28,22 +28,34 @@ pub const QHBoxPlotModelMapper = extern struct {
     pub const _is_QBoxPlotModelMapper = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QHBoxPlotModelMapper object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QHBoxPlotModelMapper {
+    pub const New = new;
+
+    /// Allocate a new QHBoxPlotModelMapper object in C++ memory
+    ///
+    pub fn new() QHBoxPlotModelMapper {
         return .{ .ptr = qtc.QHBoxPlotModelMapper_new() };
     }
 
-    /// New2 constructs a new QHBoxPlotModelMapper object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QHBoxPlotModelMapper object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) QHBoxPlotModelMapper {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QHBoxPlotModelMapper_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) QHBoxPlotModelMapper {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QHBoxPlotModelMapper_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -51,9 +63,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    pub fn MetaObject(self: QHBoxPlotModelMapper) QMetaObject {
+    pub fn metaObject(self: QHBoxPlotModelMapper) QMetaObject {
         return .{ .ptr = qtc.QHBoxPlotModelMapper_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -65,13 +81,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QHBoxPlotModelMapper, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QHBoxPlotModelMapper, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QHBoxPlotModelMapper_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -81,9 +97,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    pub fn SuperMetaObject(self: QHBoxPlotModelMapper) QMetaObject {
+    pub fn superMetaObject(self: QHBoxPlotModelMapper) QMetaObject {
         return .{ .ptr = qtc.QHBoxPlotModelMapper_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -91,10 +111,14 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QHBoxPlotModelMapper, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QHBoxPlotModelMapper, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QHBoxPlotModelMapper_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -104,13 +128,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QHBoxPlotModelMapper, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QHBoxPlotModelMapper_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -120,10 +144,14 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QHBoxPlotModelMapper, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QHBoxPlotModelMapper, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QHBoxPlotModelMapper_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -135,9 +163,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QHBoxPlotModelMapper, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QHBoxPlotModelMapper, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QHBoxPlotModelMapper_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -147,13 +179,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QHBoxPlotModelMapper, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QHBoxPlotModelMapper_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -167,9 +199,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QHBoxPlotModelMapper, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QHBoxPlotModelMapper, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QHBoxPlotModelMapper_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -179,14 +215,18 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHBoxPlotModelMapper.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHBoxPlotModelMapper.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `model` instead
+    ///
+    pub const Model = model;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhboxplotmodelmapper-qtcharts.html#model)
     ///
@@ -194,9 +234,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    pub fn Model(self: QHBoxPlotModelMapper) QAbstractItemModel {
+    pub fn model(self: QHBoxPlotModelMapper) QAbstractItemModel {
         return .{ .ptr = qtc.QHBoxPlotModelMapper_Model(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setModel` instead
+    ///
+    pub const SetModel = setModel;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhboxplotmodelmapper-qtcharts.html#setModel)
     ///
@@ -204,12 +248,16 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    /// ` model: QAbstractItemModel `
+    /// ` _model: QAbstractItemModel `
     ///
-    pub fn SetModel(self: QHBoxPlotModelMapper, model: anytype) void {
-        comptime _ = @TypeOf(model)._is_QAbstractItemModel;
-        qtc.QHBoxPlotModelMapper_SetModel(@ptrCast(self.ptr), @ptrCast(model.ptr));
+    pub fn setModel(self: QHBoxPlotModelMapper, _model: anytype) void {
+        comptime _ = @TypeOf(_model)._is_QAbstractItemModel;
+        qtc.QHBoxPlotModelMapper_SetModel(@ptrCast(self.ptr), @ptrCast(_model.ptr));
     }
+
+    /// ### DEPRECATED: Use `series` instead
+    ///
+    pub const Series = series;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhboxplotmodelmapper-qtcharts.html#series)
     ///
@@ -217,9 +265,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    pub fn Series(self: QHBoxPlotModelMapper) QBoxPlotSeries {
+    pub fn series(self: QHBoxPlotModelMapper) QBoxPlotSeries {
         return .{ .ptr = qtc.QHBoxPlotModelMapper_Series(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSeries` instead
+    ///
+    pub const SetSeries = setSeries;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhboxplotmodelmapper-qtcharts.html#setSeries)
     ///
@@ -227,12 +279,16 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    /// ` series: QBoxPlotSeries `
+    /// ` _series: QBoxPlotSeries `
     ///
-    pub fn SetSeries(self: QHBoxPlotModelMapper, series: anytype) void {
-        comptime _ = @TypeOf(series)._is_QBoxPlotSeries;
-        qtc.QHBoxPlotModelMapper_SetSeries(@ptrCast(self.ptr), @ptrCast(series.ptr));
+    pub fn setSeries(self: QHBoxPlotModelMapper, _series: anytype) void {
+        comptime _ = @TypeOf(_series)._is_QBoxPlotSeries;
+        qtc.QHBoxPlotModelMapper_SetSeries(@ptrCast(self.ptr), @ptrCast(_series.ptr));
     }
+
+    /// ### DEPRECATED: Use `firstBoxSetRow` instead
+    ///
+    pub const FirstBoxSetRow = firstBoxSetRow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhboxplotmodelmapper-qtcharts.html#firstBoxSetRow)
     ///
@@ -240,9 +296,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    pub fn FirstBoxSetRow(self: QHBoxPlotModelMapper) i32 {
+    pub fn firstBoxSetRow(self: QHBoxPlotModelMapper) i32 {
         return qtc.QHBoxPlotModelMapper_FirstBoxSetRow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFirstBoxSetRow` instead
+    ///
+    pub const SetFirstBoxSetRow = setFirstBoxSetRow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhboxplotmodelmapper-qtcharts.html#setFirstBoxSetRow)
     ///
@@ -250,11 +310,15 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    /// ` firstBoxSetRow: i32 `
+    /// ` _firstBoxSetRow: i32 `
     ///
-    pub fn SetFirstBoxSetRow(self: QHBoxPlotModelMapper, firstBoxSetRow: i32) void {
-        qtc.QHBoxPlotModelMapper_SetFirstBoxSetRow(@ptrCast(self.ptr), @bitCast(firstBoxSetRow));
+    pub fn setFirstBoxSetRow(self: QHBoxPlotModelMapper, _firstBoxSetRow: i32) void {
+        qtc.QHBoxPlotModelMapper_SetFirstBoxSetRow(@ptrCast(self.ptr), @bitCast(_firstBoxSetRow));
     }
+
+    /// ### DEPRECATED: Use `lastBoxSetRow` instead
+    ///
+    pub const LastBoxSetRow = lastBoxSetRow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhboxplotmodelmapper-qtcharts.html#lastBoxSetRow)
     ///
@@ -262,9 +326,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    pub fn LastBoxSetRow(self: QHBoxPlotModelMapper) i32 {
+    pub fn lastBoxSetRow(self: QHBoxPlotModelMapper) i32 {
         return qtc.QHBoxPlotModelMapper_LastBoxSetRow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLastBoxSetRow` instead
+    ///
+    pub const SetLastBoxSetRow = setLastBoxSetRow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhboxplotmodelmapper-qtcharts.html#setLastBoxSetRow)
     ///
@@ -272,11 +340,15 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    /// ` lastBoxSetRow: i32 `
+    /// ` _lastBoxSetRow: i32 `
     ///
-    pub fn SetLastBoxSetRow(self: QHBoxPlotModelMapper, lastBoxSetRow: i32) void {
-        qtc.QHBoxPlotModelMapper_SetLastBoxSetRow(@ptrCast(self.ptr), @bitCast(lastBoxSetRow));
+    pub fn setLastBoxSetRow(self: QHBoxPlotModelMapper, _lastBoxSetRow: i32) void {
+        qtc.QHBoxPlotModelMapper_SetLastBoxSetRow(@ptrCast(self.ptr), @bitCast(_lastBoxSetRow));
     }
+
+    /// ### DEPRECATED: Use `firstColumn` instead
+    ///
+    pub const FirstColumn = firstColumn;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhboxplotmodelmapper-qtcharts.html#firstColumn)
     ///
@@ -284,9 +356,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    pub fn FirstColumn(self: QHBoxPlotModelMapper) i32 {
+    pub fn firstColumn(self: QHBoxPlotModelMapper) i32 {
         return qtc.QHBoxPlotModelMapper_FirstColumn(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFirstColumn` instead
+    ///
+    pub const SetFirstColumn = setFirstColumn;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhboxplotmodelmapper-qtcharts.html#setFirstColumn)
     ///
@@ -294,11 +370,15 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    /// ` firstColumn: i32 `
+    /// ` _firstColumn: i32 `
     ///
-    pub fn SetFirstColumn(self: QHBoxPlotModelMapper, firstColumn: i32) void {
-        qtc.QHBoxPlotModelMapper_SetFirstColumn(@ptrCast(self.ptr), @bitCast(firstColumn));
+    pub fn setFirstColumn(self: QHBoxPlotModelMapper, _firstColumn: i32) void {
+        qtc.QHBoxPlotModelMapper_SetFirstColumn(@ptrCast(self.ptr), @bitCast(_firstColumn));
     }
+
+    /// ### DEPRECATED: Use `columnCount` instead
+    ///
+    pub const ColumnCount = columnCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhboxplotmodelmapper-qtcharts.html#columnCount)
     ///
@@ -306,9 +386,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    pub fn ColumnCount(self: QHBoxPlotModelMapper) i32 {
+    pub fn columnCount(self: QHBoxPlotModelMapper) i32 {
         return qtc.QHBoxPlotModelMapper_ColumnCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setColumnCount` instead
+    ///
+    pub const SetColumnCount = setColumnCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhboxplotmodelmapper-qtcharts.html#setColumnCount)
     ///
@@ -318,20 +402,28 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` rowCount: i32 `
     ///
-    pub fn SetColumnCount(self: QHBoxPlotModelMapper, rowCount: i32) void {
+    pub fn setColumnCount(self: QHBoxPlotModelMapper, rowCount: i32) void {
         qtc.QHBoxPlotModelMapper_SetColumnCount(@ptrCast(self.ptr), @bitCast(rowCount));
     }
 
+    /// ### DEPRECATED: Use `seriesReplaced` instead
+    ///
+    pub const SeriesReplaced = seriesReplaced;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhboxplotmodelmapper-qtcharts.html#seriesReplaced)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    pub fn SeriesReplaced(self: QHBoxPlotModelMapper) void {
+    pub fn seriesReplaced(self: QHBoxPlotModelMapper) void {
         qtc.QHBoxPlotModelMapper_SeriesReplaced(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSeriesReplaced` instead
+    ///
+    pub const OnSeriesReplaced = onSeriesReplaced;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhboxplotmodelmapper-qtcharts.html#seriesReplaced)
     ///
     /// ## Parameters:
@@ -340,20 +432,28 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QHBoxPlotModelMapper) callconv(.c) void `
     ///
-    pub fn OnSeriesReplaced(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper) callconv(.c) void) void {
+    pub fn onSeriesReplaced(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper) callconv(.c) void) void {
         qtc.QHBoxPlotModelMapper_Connect_SeriesReplaced(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `modelReplaced` instead
+    ///
+    pub const ModelReplaced = modelReplaced;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhboxplotmodelmapper-qtcharts.html#modelReplaced)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    pub fn ModelReplaced(self: QHBoxPlotModelMapper) void {
+    pub fn modelReplaced(self: QHBoxPlotModelMapper) void {
         qtc.QHBoxPlotModelMapper_ModelReplaced(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onModelReplaced` instead
+    ///
+    pub const OnModelReplaced = onModelReplaced;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhboxplotmodelmapper-qtcharts.html#modelReplaced)
     ///
     /// ## Parameters:
@@ -362,20 +462,28 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QHBoxPlotModelMapper) callconv(.c) void `
     ///
-    pub fn OnModelReplaced(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper) callconv(.c) void) void {
+    pub fn onModelReplaced(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper) callconv(.c) void) void {
         qtc.QHBoxPlotModelMapper_Connect_ModelReplaced(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `firstBoxSetRowChanged` instead
+    ///
+    pub const FirstBoxSetRowChanged = firstBoxSetRowChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhboxplotmodelmapper-qtcharts.html#firstBoxSetRowChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    pub fn FirstBoxSetRowChanged(self: QHBoxPlotModelMapper) void {
+    pub fn firstBoxSetRowChanged(self: QHBoxPlotModelMapper) void {
         qtc.QHBoxPlotModelMapper_FirstBoxSetRowChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFirstBoxSetRowChanged` instead
+    ///
+    pub const OnFirstBoxSetRowChanged = onFirstBoxSetRowChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhboxplotmodelmapper-qtcharts.html#firstBoxSetRowChanged)
     ///
     /// ## Parameters:
@@ -384,20 +492,28 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QHBoxPlotModelMapper) callconv(.c) void `
     ///
-    pub fn OnFirstBoxSetRowChanged(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper) callconv(.c) void) void {
+    pub fn onFirstBoxSetRowChanged(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper) callconv(.c) void) void {
         qtc.QHBoxPlotModelMapper_Connect_FirstBoxSetRowChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `lastBoxSetRowChanged` instead
+    ///
+    pub const LastBoxSetRowChanged = lastBoxSetRowChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhboxplotmodelmapper-qtcharts.html#lastBoxSetRowChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    pub fn LastBoxSetRowChanged(self: QHBoxPlotModelMapper) void {
+    pub fn lastBoxSetRowChanged(self: QHBoxPlotModelMapper) void {
         qtc.QHBoxPlotModelMapper_LastBoxSetRowChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onLastBoxSetRowChanged` instead
+    ///
+    pub const OnLastBoxSetRowChanged = onLastBoxSetRowChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhboxplotmodelmapper-qtcharts.html#lastBoxSetRowChanged)
     ///
     /// ## Parameters:
@@ -406,20 +522,28 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QHBoxPlotModelMapper) callconv(.c) void `
     ///
-    pub fn OnLastBoxSetRowChanged(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper) callconv(.c) void) void {
+    pub fn onLastBoxSetRowChanged(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper) callconv(.c) void) void {
         qtc.QHBoxPlotModelMapper_Connect_LastBoxSetRowChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `firstColumnChanged` instead
+    ///
+    pub const FirstColumnChanged = firstColumnChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhboxplotmodelmapper-qtcharts.html#firstColumnChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    pub fn FirstColumnChanged(self: QHBoxPlotModelMapper) void {
+    pub fn firstColumnChanged(self: QHBoxPlotModelMapper) void {
         qtc.QHBoxPlotModelMapper_FirstColumnChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFirstColumnChanged` instead
+    ///
+    pub const OnFirstColumnChanged = onFirstColumnChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhboxplotmodelmapper-qtcharts.html#firstColumnChanged)
     ///
     /// ## Parameters:
@@ -428,9 +552,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QHBoxPlotModelMapper) callconv(.c) void `
     ///
-    pub fn OnFirstColumnChanged(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper) callconv(.c) void) void {
+    pub fn onFirstColumnChanged(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper) callconv(.c) void) void {
         qtc.QHBoxPlotModelMapper_Connect_FirstColumnChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `columnCountChanged` instead
+    ///
+    pub const ColumnCountChanged = columnCountChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhboxplotmodelmapper-qtcharts.html#columnCountChanged)
     ///
@@ -438,9 +566,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    pub fn ColumnCountChanged(self: QHBoxPlotModelMapper) void {
+    pub fn columnCountChanged(self: QHBoxPlotModelMapper) void {
         qtc.QHBoxPlotModelMapper_ColumnCountChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onColumnCountChanged` instead
+    ///
+    pub const OnColumnCountChanged = onColumnCountChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhboxplotmodelmapper-qtcharts.html#columnCountChanged)
     ///
@@ -450,9 +582,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QHBoxPlotModelMapper) callconv(.c) void `
     ///
-    pub fn OnColumnCountChanged(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper) callconv(.c) void) void {
+    pub fn onColumnCountChanged(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper) callconv(.c) void) void {
         qtc.QHBoxPlotModelMapper_Connect_ColumnCountChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -464,15 +600,19 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHBoxPlotModelMapper.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHBoxPlotModelMapper.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -486,15 +626,19 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHBoxPlotModelMapper.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHBoxPlotModelMapper.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -506,13 +650,17 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QHBoxPlotModelMapper, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QHBoxPlotModelMapper, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHBoxPlotModelMapper.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHBoxPlotModelMapper.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -524,13 +672,17 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QHBoxPlotModelMapper, name: []const u8) void {
+    pub fn setObjectName(self: QHBoxPlotModelMapper, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -540,9 +692,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    pub fn IsWidgetType(self: QHBoxPlotModelMapper) bool {
+    pub fn isWidgetType(self: QHBoxPlotModelMapper) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -552,9 +708,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    pub fn IsWindowType(self: QHBoxPlotModelMapper) bool {
+    pub fn isWindowType(self: QHBoxPlotModelMapper) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -564,9 +724,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    pub fn IsQuickItemType(self: QHBoxPlotModelMapper) bool {
+    pub fn isQuickItemType(self: QHBoxPlotModelMapper) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -576,9 +740,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    pub fn SignalsBlocked(self: QHBoxPlotModelMapper) bool {
+    pub fn signalsBlocked(self: QHBoxPlotModelMapper) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -590,9 +758,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QHBoxPlotModelMapper, b: bool) bool {
+    pub fn blockSignals(self: QHBoxPlotModelMapper, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -602,9 +774,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    pub fn Thread(self: QHBoxPlotModelMapper) QThread {
+    pub fn thread(self: QHBoxPlotModelMapper) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -614,12 +790,16 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QHBoxPlotModelMapper, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QHBoxPlotModelMapper, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -631,9 +811,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QHBoxPlotModelMapper, interval: i32) i32 {
+    pub fn startTimer(self: QHBoxPlotModelMapper, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -645,9 +829,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QHBoxPlotModelMapper, time: i64) i32 {
+    pub fn startTimer2(self: QHBoxPlotModelMapper, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -659,9 +847,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QHBoxPlotModelMapper, id: i32) void {
+    pub fn killTimer(self: QHBoxPlotModelMapper, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -673,9 +865,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QHBoxPlotModelMapper, id: i32) void {
+    pub fn killTimer2(self: QHBoxPlotModelMapper, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -687,15 +883,19 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QHBoxPlotModelMapper, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QHBoxPlotModelMapper, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QHBoxPlotModelMapper.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QHBoxPlotModelMapper.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -705,12 +905,16 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QHBoxPlotModelMapper, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QHBoxPlotModelMapper, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -722,10 +926,14 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QHBoxPlotModelMapper, filterObj: anytype) void {
+    pub fn installEventFilter(self: QHBoxPlotModelMapper, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -737,10 +945,14 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QHBoxPlotModelMapper, obj: anytype) void {
+    pub fn removeEventFilter(self: QHBoxPlotModelMapper, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -748,7 +960,7 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -756,13 +968,17 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -770,7 +986,7 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -778,13 +994,17 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -794,18 +1014,22 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QHBoxPlotModelMapper, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QHBoxPlotModelMapper, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -813,7 +1037,7 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -821,13 +1045,17 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -835,7 +1063,7 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -843,13 +1071,17 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -859,9 +1091,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    pub fn Disconnect3(self: QHBoxPlotModelMapper) bool {
+    pub fn disconnect3(self: QHBoxPlotModelMapper) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -873,10 +1109,14 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QHBoxPlotModelMapper, receiver: anytype) bool {
+    pub fn disconnect4(self: QHBoxPlotModelMapper, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -886,10 +1126,14 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -899,9 +1143,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    pub fn DumpObjectTree(self: QHBoxPlotModelMapper) void {
+    pub fn dumpObjectTree(self: QHBoxPlotModelMapper) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -911,9 +1159,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    pub fn DumpObjectInfo(self: QHBoxPlotModelMapper) void {
+    pub fn dumpObjectInfo(self: QHBoxPlotModelMapper) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -927,11 +1179,15 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QHBoxPlotModelMapper, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QHBoxPlotModelMapper, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -943,10 +1199,14 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QHBoxPlotModelMapper, name: [:0]const u8) QVariant {
+    pub fn property(self: QHBoxPlotModelMapper, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -958,7 +1218,7 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QHBoxPlotModelMapper, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QHBoxPlotModelMapper, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -966,27 +1226,19 @@ pub const QHBoxPlotModelMapper = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QHBoxPlotModelMapper.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QHBoxPlotModelMapper.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QHBoxPlotModelMapper.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QHBoxPlotModelMapper.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHBoxPlotModelMapper `
-    ///
-    pub fn BindingStorage(self: QHBoxPlotModelMapper) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -996,9 +1248,29 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    pub fn BindingStorage2(self: QHBoxPlotModelMapper) QBindingStorage {
+    pub fn bindingStorage(self: QHBoxPlotModelMapper) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QHBoxPlotModelMapper `
+    ///
+    pub fn bindingStorage2(self: QHBoxPlotModelMapper) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1008,9 +1280,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    pub fn Destroyed(self: QHBoxPlotModelMapper) void {
+    pub fn destroyed(self: QHBoxPlotModelMapper) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1022,9 +1298,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QHBoxPlotModelMapper) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper) callconv(.c) void) void {
+    pub fn onDestroyed(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1034,9 +1314,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    pub fn Parent(self: QHBoxPlotModelMapper) QObject {
+    pub fn parent(self: QHBoxPlotModelMapper) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1048,10 +1332,14 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QHBoxPlotModelMapper, classname: [:0]const u8) bool {
+    pub fn inherits(self: QHBoxPlotModelMapper, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1061,9 +1349,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    pub fn DeleteLater(self: QHBoxPlotModelMapper) void {
+    pub fn deleteLater(self: QHBoxPlotModelMapper) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1077,9 +1369,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QHBoxPlotModelMapper, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QHBoxPlotModelMapper, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1093,9 +1389,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QHBoxPlotModelMapper, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QHBoxPlotModelMapper, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1103,7 +1403,7 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1113,13 +1413,17 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1127,7 +1431,7 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1137,13 +1441,17 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1153,7 +1461,7 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1161,12 +1469,16 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QHBoxPlotModelMapper, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QHBoxPlotModelMapper, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1178,10 +1490,14 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QHBoxPlotModelMapper, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QHBoxPlotModelMapper, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1195,11 +1511,15 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QHBoxPlotModelMapper, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QHBoxPlotModelMapper, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1215,13 +1535,17 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QHBoxPlotModelMapper, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QHBoxPlotModelMapper, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1234,11 +1558,15 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QHBoxPlotModelMapper, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QHBoxPlotModelMapper, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1250,10 +1578,14 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QHBoxPlotModelMapper, param1: anytype) void {
+    pub fn destroyed1(self: QHBoxPlotModelMapper, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1265,9 +1597,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QHBoxPlotModelMapper, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1279,16 +1615,16 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QHBoxPlotModelMapper, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QHBoxPlotModelMapper_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QHBoxPlotModelMapper, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QHBoxPlotModelMapper_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1300,12 +1636,16 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QHBoxPlotModelMapper, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QHBoxPlotModelMapper_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QHBoxPlotModelMapper, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QHBoxPlotModelMapper_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -1319,9 +1659,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QHBoxPlotModelMapper, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper, QEvent) callconv(.c) bool) void {
         qtc.QHBoxPlotModelMapper_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1335,17 +1679,17 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QHBoxPlotModelMapper, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QHBoxPlotModelMapper, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QHBoxPlotModelMapper_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QHBoxPlotModelMapper_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1359,13 +1703,17 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QHBoxPlotModelMapper, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QHBoxPlotModelMapper, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QHBoxPlotModelMapper_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QHBoxPlotModelMapper_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1379,9 +1727,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QHBoxPlotModelMapper, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper, QObject, QEvent) callconv(.c) bool) void {
         qtc.QHBoxPlotModelMapper_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1393,16 +1745,16 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QHBoxPlotModelMapper, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QHBoxPlotModelMapper_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QHBoxPlotModelMapper, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QHBoxPlotModelMapper_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1414,12 +1766,16 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QHBoxPlotModelMapper, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QHBoxPlotModelMapper_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QHBoxPlotModelMapper, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QHBoxPlotModelMapper_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1433,9 +1789,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QHBoxPlotModelMapper, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper, QTimerEvent) callconv(.c) void) void {
         qtc.QHBoxPlotModelMapper_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -1447,16 +1807,16 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QHBoxPlotModelMapper, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QHBoxPlotModelMapper_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QHBoxPlotModelMapper, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QHBoxPlotModelMapper_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1468,12 +1828,16 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QHBoxPlotModelMapper, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QHBoxPlotModelMapper_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QHBoxPlotModelMapper, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QHBoxPlotModelMapper_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1487,9 +1851,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QHBoxPlotModelMapper, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper, QChildEvent) callconv(.c) void) void {
         qtc.QHBoxPlotModelMapper_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -1501,16 +1869,16 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QHBoxPlotModelMapper, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QHBoxPlotModelMapper_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QHBoxPlotModelMapper, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QHBoxPlotModelMapper_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1522,12 +1890,16 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QHBoxPlotModelMapper, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QHBoxPlotModelMapper_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QHBoxPlotModelMapper, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QHBoxPlotModelMapper_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1541,9 +1913,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QHBoxPlotModelMapper, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper, QEvent) callconv(.c) void) void {
         qtc.QHBoxPlotModelMapper_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -1557,14 +1933,14 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QHBoxPlotModelMapper, signal: anytype) void {
+    pub fn connectNotify(self: QHBoxPlotModelMapper, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QHBoxPlotModelMapper_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1578,11 +1954,15 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QHBoxPlotModelMapper, signal: anytype) void {
+    pub fn superConnectNotify(self: QHBoxPlotModelMapper, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QHBoxPlotModelMapper_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1595,9 +1975,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QHBoxPlotModelMapper, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper, QMetaMethod) callconv(.c) void) void {
         qtc.QHBoxPlotModelMapper_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1611,14 +1995,14 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QHBoxPlotModelMapper, signal: anytype) void {
+    pub fn disconnectNotify(self: QHBoxPlotModelMapper, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QHBoxPlotModelMapper_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1632,10 +2016,14 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QHBoxPlotModelMapper, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QHBoxPlotModelMapper, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QHBoxPlotModelMapper_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1649,9 +2037,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QHBoxPlotModelMapper, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper, QMetaMethod) callconv(.c) void) void {
         qtc.QHBoxPlotModelMapper_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `first` instead
+    ///
+    pub const First = first;
 
     /// Inherited from QBoxPlotModelMapper
     ///
@@ -1663,13 +2055,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    pub fn First(self: QHBoxPlotModelMapper) i32 {
+    pub fn first(self: QHBoxPlotModelMapper) i32 {
         return qtc.QHBoxPlotModelMapper_First(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFirst` instead
+    /// ### DEPRECATED: Use `superFirst` instead
     ///
-    pub const QBaseFirst = SuperFirst;
+    pub const SuperFirst = superFirst;
 
     /// Inherited from QBoxPlotModelMapper
     ///
@@ -1681,9 +2073,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    pub fn SuperFirst(self: QHBoxPlotModelMapper) i32 {
+    pub fn superFirst(self: QHBoxPlotModelMapper) i32 {
         return qtc.QHBoxPlotModelMapper_SuperFirst(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFirst` instead
+    ///
+    pub const OnFirst = onFirst;
 
     /// Inherited from QBoxPlotModelMapper
     ///
@@ -1697,9 +2093,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnFirst(self: QHBoxPlotModelMapper, callback: *const fn () callconv(.c) i32) void {
+    pub fn onFirst(self: QHBoxPlotModelMapper, callback: *const fn () callconv(.c) i32) void {
         qtc.QHBoxPlotModelMapper_OnFirst(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setFirst` instead
+    ///
+    pub const SetFirst = setFirst;
 
     /// Inherited from QBoxPlotModelMapper
     ///
@@ -1711,15 +2111,15 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    /// ` first: i32 `
+    /// ` _first: i32 `
     ///
-    pub fn SetFirst(self: QHBoxPlotModelMapper, first: i32) void {
-        qtc.QHBoxPlotModelMapper_SetFirst(@ptrCast(self.ptr), @bitCast(first));
+    pub fn setFirst(self: QHBoxPlotModelMapper, _first: i32) void {
+        qtc.QHBoxPlotModelMapper_SetFirst(@ptrCast(self.ptr), @bitCast(_first));
     }
 
-    /// ### DEPRECATED: Use `SuperSetFirst` instead
+    /// ### DEPRECATED: Use `superSetFirst` instead
     ///
-    pub const QBaseSetFirst = SuperSetFirst;
+    pub const SuperSetFirst = superSetFirst;
 
     /// Inherited from QBoxPlotModelMapper
     ///
@@ -1731,11 +2131,15 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    /// ` first: i32 `
+    /// ` _first: i32 `
     ///
-    pub fn SuperSetFirst(self: QHBoxPlotModelMapper, first: i32) void {
-        qtc.QHBoxPlotModelMapper_SuperSetFirst(@ptrCast(self.ptr), @bitCast(first));
+    pub fn superSetFirst(self: QHBoxPlotModelMapper, _first: i32) void {
+        qtc.QHBoxPlotModelMapper_SuperSetFirst(@ptrCast(self.ptr), @bitCast(_first));
     }
+
+    /// ### DEPRECATED: Use `onSetFirst` instead
+    ///
+    pub const OnSetFirst = onSetFirst;
 
     /// Inherited from QBoxPlotModelMapper
     ///
@@ -1749,9 +2153,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QHBoxPlotModelMapper, first: i32) callconv(.c) void `
     ///
-    pub fn OnSetFirst(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper, i32) callconv(.c) void) void {
+    pub fn onSetFirst(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper, i32) callconv(.c) void) void {
         qtc.QHBoxPlotModelMapper_OnSetFirst(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `count` instead
+    ///
+    pub const Count = count;
 
     /// Inherited from QBoxPlotModelMapper
     ///
@@ -1763,13 +2171,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    pub fn Count(self: QHBoxPlotModelMapper) i32 {
+    pub fn count(self: QHBoxPlotModelMapper) i32 {
         return qtc.QHBoxPlotModelMapper_Count(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCount` instead
+    /// ### DEPRECATED: Use `superCount` instead
     ///
-    pub const QBaseCount = SuperCount;
+    pub const SuperCount = superCount;
 
     /// Inherited from QBoxPlotModelMapper
     ///
@@ -1781,9 +2189,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    pub fn SuperCount(self: QHBoxPlotModelMapper) i32 {
+    pub fn superCount(self: QHBoxPlotModelMapper) i32 {
         return qtc.QHBoxPlotModelMapper_SuperCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCount` instead
+    ///
+    pub const OnCount = onCount;
 
     /// Inherited from QBoxPlotModelMapper
     ///
@@ -1797,9 +2209,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnCount(self: QHBoxPlotModelMapper, callback: *const fn () callconv(.c) i32) void {
+    pub fn onCount(self: QHBoxPlotModelMapper, callback: *const fn () callconv(.c) i32) void {
         qtc.QHBoxPlotModelMapper_OnCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setCount` instead
+    ///
+    pub const SetCount = setCount;
 
     /// Inherited from QBoxPlotModelMapper
     ///
@@ -1811,15 +2227,15 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    /// ` count: i32 `
+    /// ` _count: i32 `
     ///
-    pub fn SetCount(self: QHBoxPlotModelMapper, count: i32) void {
-        qtc.QHBoxPlotModelMapper_SetCount(@ptrCast(self.ptr), @bitCast(count));
+    pub fn setCount(self: QHBoxPlotModelMapper, _count: i32) void {
+        qtc.QHBoxPlotModelMapper_SetCount(@ptrCast(self.ptr), @bitCast(_count));
     }
 
-    /// ### DEPRECATED: Use `SuperSetCount` instead
+    /// ### DEPRECATED: Use `superSetCount` instead
     ///
-    pub const QBaseSetCount = SuperSetCount;
+    pub const SuperSetCount = superSetCount;
 
     /// Inherited from QBoxPlotModelMapper
     ///
@@ -1831,11 +2247,15 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    /// ` count: i32 `
+    /// ` _count: i32 `
     ///
-    pub fn SuperSetCount(self: QHBoxPlotModelMapper, count: i32) void {
-        qtc.QHBoxPlotModelMapper_SuperSetCount(@ptrCast(self.ptr), @bitCast(count));
+    pub fn superSetCount(self: QHBoxPlotModelMapper, _count: i32) void {
+        qtc.QHBoxPlotModelMapper_SuperSetCount(@ptrCast(self.ptr), @bitCast(_count));
     }
+
+    /// ### DEPRECATED: Use `onSetCount` instead
+    ///
+    pub const OnSetCount = onSetCount;
 
     /// Inherited from QBoxPlotModelMapper
     ///
@@ -1849,9 +2269,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QHBoxPlotModelMapper, count: i32) callconv(.c) void `
     ///
-    pub fn OnSetCount(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper, i32) callconv(.c) void) void {
+    pub fn onSetCount(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper, i32) callconv(.c) void) void {
         qtc.QHBoxPlotModelMapper_OnSetCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `firstBoxSetSection` instead
+    ///
+    pub const FirstBoxSetSection = firstBoxSetSection;
 
     /// Inherited from QBoxPlotModelMapper
     ///
@@ -1863,13 +2287,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    pub fn FirstBoxSetSection(self: QHBoxPlotModelMapper) i32 {
+    pub fn firstBoxSetSection(self: QHBoxPlotModelMapper) i32 {
         return qtc.QHBoxPlotModelMapper_FirstBoxSetSection(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFirstBoxSetSection` instead
+    /// ### DEPRECATED: Use `superFirstBoxSetSection` instead
     ///
-    pub const QBaseFirstBoxSetSection = SuperFirstBoxSetSection;
+    pub const SuperFirstBoxSetSection = superFirstBoxSetSection;
 
     /// Inherited from QBoxPlotModelMapper
     ///
@@ -1881,9 +2305,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    pub fn SuperFirstBoxSetSection(self: QHBoxPlotModelMapper) i32 {
+    pub fn superFirstBoxSetSection(self: QHBoxPlotModelMapper) i32 {
         return qtc.QHBoxPlotModelMapper_SuperFirstBoxSetSection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFirstBoxSetSection` instead
+    ///
+    pub const OnFirstBoxSetSection = onFirstBoxSetSection;
 
     /// Inherited from QBoxPlotModelMapper
     ///
@@ -1897,9 +2325,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnFirstBoxSetSection(self: QHBoxPlotModelMapper, callback: *const fn () callconv(.c) i32) void {
+    pub fn onFirstBoxSetSection(self: QHBoxPlotModelMapper, callback: *const fn () callconv(.c) i32) void {
         qtc.QHBoxPlotModelMapper_OnFirstBoxSetSection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setFirstBoxSetSection` instead
+    ///
+    pub const SetFirstBoxSetSection = setFirstBoxSetSection;
 
     /// Inherited from QBoxPlotModelMapper
     ///
@@ -1911,15 +2343,15 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    /// ` firstBoxSetSection: i32 `
+    /// ` _firstBoxSetSection: i32 `
     ///
-    pub fn SetFirstBoxSetSection(self: QHBoxPlotModelMapper, firstBoxSetSection: i32) void {
-        qtc.QHBoxPlotModelMapper_SetFirstBoxSetSection(@ptrCast(self.ptr), @bitCast(firstBoxSetSection));
+    pub fn setFirstBoxSetSection(self: QHBoxPlotModelMapper, _firstBoxSetSection: i32) void {
+        qtc.QHBoxPlotModelMapper_SetFirstBoxSetSection(@ptrCast(self.ptr), @bitCast(_firstBoxSetSection));
     }
 
-    /// ### DEPRECATED: Use `SuperSetFirstBoxSetSection` instead
+    /// ### DEPRECATED: Use `superSetFirstBoxSetSection` instead
     ///
-    pub const QBaseSetFirstBoxSetSection = SuperSetFirstBoxSetSection;
+    pub const SuperSetFirstBoxSetSection = superSetFirstBoxSetSection;
 
     /// Inherited from QBoxPlotModelMapper
     ///
@@ -1931,11 +2363,15 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    /// ` firstBoxSetSection: i32 `
+    /// ` _firstBoxSetSection: i32 `
     ///
-    pub fn SuperSetFirstBoxSetSection(self: QHBoxPlotModelMapper, firstBoxSetSection: i32) void {
-        qtc.QHBoxPlotModelMapper_SuperSetFirstBoxSetSection(@ptrCast(self.ptr), @bitCast(firstBoxSetSection));
+    pub fn superSetFirstBoxSetSection(self: QHBoxPlotModelMapper, _firstBoxSetSection: i32) void {
+        qtc.QHBoxPlotModelMapper_SuperSetFirstBoxSetSection(@ptrCast(self.ptr), @bitCast(_firstBoxSetSection));
     }
+
+    /// ### DEPRECATED: Use `onSetFirstBoxSetSection` instead
+    ///
+    pub const OnSetFirstBoxSetSection = onSetFirstBoxSetSection;
 
     /// Inherited from QBoxPlotModelMapper
     ///
@@ -1949,9 +2385,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QHBoxPlotModelMapper, firstBoxSetSection: i32) callconv(.c) void `
     ///
-    pub fn OnSetFirstBoxSetSection(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper, i32) callconv(.c) void) void {
+    pub fn onSetFirstBoxSetSection(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper, i32) callconv(.c) void) void {
         qtc.QHBoxPlotModelMapper_OnSetFirstBoxSetSection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `lastBoxSetSection` instead
+    ///
+    pub const LastBoxSetSection = lastBoxSetSection;
 
     /// Inherited from QBoxPlotModelMapper
     ///
@@ -1963,13 +2403,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    pub fn LastBoxSetSection(self: QHBoxPlotModelMapper) i32 {
+    pub fn lastBoxSetSection(self: QHBoxPlotModelMapper) i32 {
         return qtc.QHBoxPlotModelMapper_LastBoxSetSection(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLastBoxSetSection` instead
+    /// ### DEPRECATED: Use `superLastBoxSetSection` instead
     ///
-    pub const QBaseLastBoxSetSection = SuperLastBoxSetSection;
+    pub const SuperLastBoxSetSection = superLastBoxSetSection;
 
     /// Inherited from QBoxPlotModelMapper
     ///
@@ -1981,9 +2421,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    pub fn SuperLastBoxSetSection(self: QHBoxPlotModelMapper) i32 {
+    pub fn superLastBoxSetSection(self: QHBoxPlotModelMapper) i32 {
         return qtc.QHBoxPlotModelMapper_SuperLastBoxSetSection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLastBoxSetSection` instead
+    ///
+    pub const OnLastBoxSetSection = onLastBoxSetSection;
 
     /// Inherited from QBoxPlotModelMapper
     ///
@@ -1997,9 +2441,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnLastBoxSetSection(self: QHBoxPlotModelMapper, callback: *const fn () callconv(.c) i32) void {
+    pub fn onLastBoxSetSection(self: QHBoxPlotModelMapper, callback: *const fn () callconv(.c) i32) void {
         qtc.QHBoxPlotModelMapper_OnLastBoxSetSection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setLastBoxSetSection` instead
+    ///
+    pub const SetLastBoxSetSection = setLastBoxSetSection;
 
     /// Inherited from QBoxPlotModelMapper
     ///
@@ -2011,15 +2459,15 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    /// ` lastBoxSetSection: i32 `
+    /// ` _lastBoxSetSection: i32 `
     ///
-    pub fn SetLastBoxSetSection(self: QHBoxPlotModelMapper, lastBoxSetSection: i32) void {
-        qtc.QHBoxPlotModelMapper_SetLastBoxSetSection(@ptrCast(self.ptr), @bitCast(lastBoxSetSection));
+    pub fn setLastBoxSetSection(self: QHBoxPlotModelMapper, _lastBoxSetSection: i32) void {
+        qtc.QHBoxPlotModelMapper_SetLastBoxSetSection(@ptrCast(self.ptr), @bitCast(_lastBoxSetSection));
     }
 
-    /// ### DEPRECATED: Use `SuperSetLastBoxSetSection` instead
+    /// ### DEPRECATED: Use `superSetLastBoxSetSection` instead
     ///
-    pub const QBaseSetLastBoxSetSection = SuperSetLastBoxSetSection;
+    pub const SuperSetLastBoxSetSection = superSetLastBoxSetSection;
 
     /// Inherited from QBoxPlotModelMapper
     ///
@@ -2031,11 +2479,15 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    /// ` lastBoxSetSection: i32 `
+    /// ` _lastBoxSetSection: i32 `
     ///
-    pub fn SuperSetLastBoxSetSection(self: QHBoxPlotModelMapper, lastBoxSetSection: i32) void {
-        qtc.QHBoxPlotModelMapper_SuperSetLastBoxSetSection(@ptrCast(self.ptr), @bitCast(lastBoxSetSection));
+    pub fn superSetLastBoxSetSection(self: QHBoxPlotModelMapper, _lastBoxSetSection: i32) void {
+        qtc.QHBoxPlotModelMapper_SuperSetLastBoxSetSection(@ptrCast(self.ptr), @bitCast(_lastBoxSetSection));
     }
+
+    /// ### DEPRECATED: Use `onSetLastBoxSetSection` instead
+    ///
+    pub const OnSetLastBoxSetSection = onSetLastBoxSetSection;
 
     /// Inherited from QBoxPlotModelMapper
     ///
@@ -2049,9 +2501,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QHBoxPlotModelMapper, lastBoxSetSection: i32) callconv(.c) void `
     ///
-    pub fn OnSetLastBoxSetSection(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper, i32) callconv(.c) void) void {
+    pub fn onSetLastBoxSetSection(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper, i32) callconv(.c) void) void {
         qtc.QHBoxPlotModelMapper_OnSetLastBoxSetSection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `orientation` instead
+    ///
+    pub const Orientation = orientation;
 
     /// Inherited from QBoxPlotModelMapper
     ///
@@ -2067,13 +2523,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` qnamespace_enums.Orientation `
     ///
-    pub fn Orientation(self: QHBoxPlotModelMapper) i32 {
+    pub fn orientation(self: QHBoxPlotModelMapper) i32 {
         return qtc.QHBoxPlotModelMapper_Orientation(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperOrientation` instead
+    /// ### DEPRECATED: Use `superOrientation` instead
     ///
-    pub const QBaseOrientation = SuperOrientation;
+    pub const SuperOrientation = superOrientation;
 
     /// Inherited from QBoxPlotModelMapper
     ///
@@ -2089,9 +2545,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` qnamespace_enums.Orientation `
     ///
-    pub fn SuperOrientation(self: QHBoxPlotModelMapper) i32 {
+    pub fn superOrientation(self: QHBoxPlotModelMapper) i32 {
         return qtc.QHBoxPlotModelMapper_SuperOrientation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onOrientation` instead
+    ///
+    pub const OnOrientation = onOrientation;
 
     /// Inherited from QBoxPlotModelMapper
     ///
@@ -2105,9 +2565,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnOrientation(self: QHBoxPlotModelMapper, callback: *const fn () callconv(.c) i32) void {
+    pub fn onOrientation(self: QHBoxPlotModelMapper, callback: *const fn () callconv(.c) i32) void {
         qtc.QHBoxPlotModelMapper_OnOrientation(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setOrientation` instead
+    ///
+    pub const SetOrientation = setOrientation;
 
     /// Inherited from QBoxPlotModelMapper
     ///
@@ -2119,15 +2583,15 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    /// ` orientation: qnamespace_enums.Orientation `
+    /// ` _orientation: qnamespace_enums.Orientation `
     ///
-    pub fn SetOrientation(self: QHBoxPlotModelMapper, orientation: i32) void {
-        qtc.QHBoxPlotModelMapper_SetOrientation(@ptrCast(self.ptr), @bitCast(orientation));
+    pub fn setOrientation(self: QHBoxPlotModelMapper, _orientation: i32) void {
+        qtc.QHBoxPlotModelMapper_SetOrientation(@ptrCast(self.ptr), @bitCast(_orientation));
     }
 
-    /// ### DEPRECATED: Use `SuperSetOrientation` instead
+    /// ### DEPRECATED: Use `superSetOrientation` instead
     ///
-    pub const QBaseSetOrientation = SuperSetOrientation;
+    pub const SuperSetOrientation = superSetOrientation;
 
     /// Inherited from QBoxPlotModelMapper
     ///
@@ -2139,11 +2603,15 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    /// ` orientation: qnamespace_enums.Orientation `
+    /// ` _orientation: qnamespace_enums.Orientation `
     ///
-    pub fn SuperSetOrientation(self: QHBoxPlotModelMapper, orientation: i32) void {
-        qtc.QHBoxPlotModelMapper_SuperSetOrientation(@ptrCast(self.ptr), @bitCast(orientation));
+    pub fn superSetOrientation(self: QHBoxPlotModelMapper, _orientation: i32) void {
+        qtc.QHBoxPlotModelMapper_SuperSetOrientation(@ptrCast(self.ptr), @bitCast(_orientation));
     }
+
+    /// ### DEPRECATED: Use `onSetOrientation` instead
+    ///
+    pub const OnSetOrientation = onSetOrientation;
 
     /// Inherited from QBoxPlotModelMapper
     ///
@@ -2157,9 +2625,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QHBoxPlotModelMapper, orientation: qnamespace_enums.Orientation) callconv(.c) void `
     ///
-    pub fn OnSetOrientation(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper, i32) callconv(.c) void) void {
+    pub fn onSetOrientation(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper, i32) callconv(.c) void) void {
         qtc.QHBoxPlotModelMapper_OnSetOrientation(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -2171,13 +2643,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    pub fn Sender(self: QHBoxPlotModelMapper) QObject {
+    pub fn sender(self: QHBoxPlotModelMapper) QObject {
         return .{ .ptr = qtc.QHBoxPlotModelMapper_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -2189,9 +2661,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    pub fn SuperSender(self: QHBoxPlotModelMapper) QObject {
+    pub fn superSender(self: QHBoxPlotModelMapper) QObject {
         return .{ .ptr = qtc.QHBoxPlotModelMapper_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -2205,9 +2681,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QHBoxPlotModelMapper, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QHBoxPlotModelMapper, callback: *const fn () callconv(.c) QObject) void {
         qtc.QHBoxPlotModelMapper_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2219,13 +2699,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    pub fn SenderSignalIndex(self: QHBoxPlotModelMapper) i32 {
+    pub fn senderSignalIndex(self: QHBoxPlotModelMapper) i32 {
         return qtc.QHBoxPlotModelMapper_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2237,9 +2717,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    pub fn SuperSenderSignalIndex(self: QHBoxPlotModelMapper) i32 {
+    pub fn superSenderSignalIndex(self: QHBoxPlotModelMapper) i32 {
         return qtc.QHBoxPlotModelMapper_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2253,9 +2737,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QHBoxPlotModelMapper, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QHBoxPlotModelMapper, callback: *const fn () callconv(.c) i32) void {
         qtc.QHBoxPlotModelMapper_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -2269,14 +2757,14 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QHBoxPlotModelMapper, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QHBoxPlotModelMapper, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QHBoxPlotModelMapper_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -2290,10 +2778,14 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QHBoxPlotModelMapper, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QHBoxPlotModelMapper, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QHBoxPlotModelMapper_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -2307,9 +2799,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QHBoxPlotModelMapper, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper, [*:0]const u8) callconv(.c) i32) void {
         qtc.QHBoxPlotModelMapper_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2323,14 +2819,14 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QHBoxPlotModelMapper, signal: anytype) bool {
+    pub fn isSignalConnected(self: QHBoxPlotModelMapper, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QHBoxPlotModelMapper_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2344,10 +2840,14 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QHBoxPlotModelMapper, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QHBoxPlotModelMapper, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QHBoxPlotModelMapper_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2361,9 +2861,13 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QHBoxPlotModelMapper, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper, QMetaMethod) callconv(.c) bool) void {
         qtc.QHBoxPlotModelMapper_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -2377,23 +2881,23 @@ pub const QHBoxPlotModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QHBoxPlotModelMapper, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QHBoxPlotModelMapper, callback: *const fn (QHBoxPlotModelMapper, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhboxplotmodelmapper-qtcharts.html#dtor.QHBoxPlotModelMapper)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QHBoxPlotModelMapper `
     ///
-    pub fn Delete(self: QHBoxPlotModelMapper) void {
+    pub fn delete(self: QHBoxPlotModelMapper) void {
         qtc.QHBoxPlotModelMapper_Delete(@ptrCast(self.ptr));
     }
 };

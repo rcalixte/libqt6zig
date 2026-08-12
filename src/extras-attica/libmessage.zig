@@ -14,22 +14,34 @@ pub const Attica__Message = extern struct {
 
     pub const _is_Attica__Message = {};
 
-    /// New constructs a new Attica::Message object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() Attica__Message {
+    pub const New = new;
+
+    /// Allocate a new Attica::Message object in C++ memory
+    ///
+    pub fn new() Attica__Message {
         return .{ .ptr = qtc.Attica__Message_new() };
     }
 
-    /// New2 constructs a new Attica::Message object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new Attica::Message object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: Attica__Message `
     ///
-    pub fn New2(other: anytype) Attica__Message {
+    pub fn new2(other: anytype) Attica__Message {
         comptime _ = @TypeOf(other)._is_Attica__Message;
         return .{ .ptr = qtc.Attica__Message_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://api.kde.org/attica-message.html#operator-eq)
     ///
@@ -39,10 +51,14 @@ pub const Attica__Message = extern struct {
     ///
     /// ` other: Attica__Message `
     ///
-    pub fn OperatorAssign(self: Attica__Message, other: anytype) void {
+    pub fn operatorAssign(self: Attica__Message, other: anytype) void {
         comptime _ = @TypeOf(other)._is_Attica__Message;
         qtc.Attica__Message_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `setId` instead
+    ///
+    pub const SetId = setId;
 
     /// ### [Upstream resources](https://api.kde.org/attica-message.html#setId)
     ///
@@ -50,15 +66,19 @@ pub const Attica__Message = extern struct {
     ///
     /// ` self: Attica__Message `
     ///
-    /// ` id: []const u8 `
+    /// ` _id: []const u8 `
     ///
-    pub fn SetId(self: Attica__Message, id: []const u8) void {
+    pub fn setId(self: Attica__Message, _id: []const u8) void {
         const id_str = qtc.libqt_string{
-            .len = id.len,
-            .data = id.ptr,
+            .len = _id.len,
+            .data = _id.ptr,
         };
         qtc.Attica__Message_SetId(@ptrCast(self.ptr), id_str);
     }
+
+    /// ### DEPRECATED: Use `id` instead
+    ///
+    pub const Id = id;
 
     /// ### [Upstream resources](https://api.kde.org/attica-message.html#id)
     ///
@@ -68,13 +88,17 @@ pub const Attica__Message = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Id(self: Attica__Message, allocator: std.mem.Allocator) []const u8 {
+    pub fn id(self: Attica__Message, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Message_Id(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Message.Id: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Message.id: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setFrom` instead
+    ///
+    pub const SetFrom = setFrom;
 
     /// ### [Upstream resources](https://api.kde.org/attica-message.html#setFrom)
     ///
@@ -82,15 +106,19 @@ pub const Attica__Message = extern struct {
     ///
     /// ` self: Attica__Message `
     ///
-    /// ` from: []const u8 `
+    /// ` _from: []const u8 `
     ///
-    pub fn SetFrom(self: Attica__Message, from: []const u8) void {
+    pub fn setFrom(self: Attica__Message, _from: []const u8) void {
         const from_str = qtc.libqt_string{
-            .len = from.len,
-            .data = from.ptr,
+            .len = _from.len,
+            .data = _from.ptr,
         };
         qtc.Attica__Message_SetFrom(@ptrCast(self.ptr), from_str);
     }
+
+    /// ### DEPRECATED: Use `from` instead
+    ///
+    pub const From = from;
 
     /// ### [Upstream resources](https://api.kde.org/attica-message.html#from)
     ///
@@ -100,13 +128,17 @@ pub const Attica__Message = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn From(self: Attica__Message, allocator: std.mem.Allocator) []const u8 {
+    pub fn from(self: Attica__Message, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Message_From(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Message.From: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Message.from: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setTo` instead
+    ///
+    pub const SetTo = setTo;
 
     /// ### [Upstream resources](https://api.kde.org/attica-message.html#setTo)
     ///
@@ -114,15 +146,19 @@ pub const Attica__Message = extern struct {
     ///
     /// ` self: Attica__Message `
     ///
-    /// ` to: []const u8 `
+    /// ` _to: []const u8 `
     ///
-    pub fn SetTo(self: Attica__Message, to: []const u8) void {
+    pub fn setTo(self: Attica__Message, _to: []const u8) void {
         const to_str = qtc.libqt_string{
-            .len = to.len,
-            .data = to.ptr,
+            .len = _to.len,
+            .data = _to.ptr,
         };
         qtc.Attica__Message_SetTo(@ptrCast(self.ptr), to_str);
     }
+
+    /// ### DEPRECATED: Use `to` instead
+    ///
+    pub const To = to;
 
     /// ### [Upstream resources](https://api.kde.org/attica-message.html#to)
     ///
@@ -132,13 +168,17 @@ pub const Attica__Message = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn To(self: Attica__Message, allocator: std.mem.Allocator) []const u8 {
+    pub fn to(self: Attica__Message, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Message_To(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Message.To: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Message.to: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setSent` instead
+    ///
+    pub const SetSent = setSent;
 
     /// ### [Upstream resources](https://api.kde.org/attica-message.html#setSent)
     ///
@@ -146,12 +186,16 @@ pub const Attica__Message = extern struct {
     ///
     /// ` self: Attica__Message `
     ///
-    /// ` sent: QDateTime `
+    /// ` _sent: QDateTime `
     ///
-    pub fn SetSent(self: Attica__Message, sent: anytype) void {
-        comptime _ = @TypeOf(sent)._is_QDateTime;
-        qtc.Attica__Message_SetSent(@ptrCast(self.ptr), @ptrCast(sent.ptr));
+    pub fn setSent(self: Attica__Message, _sent: anytype) void {
+        comptime _ = @TypeOf(_sent)._is_QDateTime;
+        qtc.Attica__Message_SetSent(@ptrCast(self.ptr), @ptrCast(_sent.ptr));
     }
+
+    /// ### DEPRECATED: Use `sent` instead
+    ///
+    pub const Sent = sent;
 
     /// ### [Upstream resources](https://api.kde.org/attica-message.html#sent)
     ///
@@ -159,9 +203,13 @@ pub const Attica__Message = extern struct {
     ///
     /// ` self: Attica__Message `
     ///
-    pub fn Sent(self: Attica__Message) QDateTime {
+    pub fn sent(self: Attica__Message) QDateTime {
         return .{ .ptr = qtc.Attica__Message_Sent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStatus` instead
+    ///
+    pub const SetStatus = setStatus;
 
     /// ### [Upstream resources](https://api.kde.org/attica-message.html#setStatus)
     ///
@@ -169,11 +217,15 @@ pub const Attica__Message = extern struct {
     ///
     /// ` self: Attica__Message `
     ///
-    /// ` status: message_enums.Status `
+    /// ` _status: message_enums.Status `
     ///
-    pub fn SetStatus(self: Attica__Message, status: i32) void {
-        qtc.Attica__Message_SetStatus(@ptrCast(self.ptr), @bitCast(status));
+    pub fn setStatus(self: Attica__Message, _status: i32) void {
+        qtc.Attica__Message_SetStatus(@ptrCast(self.ptr), @bitCast(_status));
     }
+
+    /// ### DEPRECATED: Use `status` instead
+    ///
+    pub const Status = status;
 
     /// ### [Upstream resources](https://api.kde.org/attica-message.html#status)
     ///
@@ -185,9 +237,13 @@ pub const Attica__Message = extern struct {
     ///
     /// ` message_enums.Status `
     ///
-    pub fn Status(self: Attica__Message) i32 {
+    pub fn status(self: Attica__Message) i32 {
         return qtc.Attica__Message_Status(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSubject` instead
+    ///
+    pub const SetSubject = setSubject;
 
     /// ### [Upstream resources](https://api.kde.org/attica-message.html#setSubject)
     ///
@@ -195,15 +251,19 @@ pub const Attica__Message = extern struct {
     ///
     /// ` self: Attica__Message `
     ///
-    /// ` subject: []const u8 `
+    /// ` _subject: []const u8 `
     ///
-    pub fn SetSubject(self: Attica__Message, subject: []const u8) void {
+    pub fn setSubject(self: Attica__Message, _subject: []const u8) void {
         const subject_str = qtc.libqt_string{
-            .len = subject.len,
-            .data = subject.ptr,
+            .len = _subject.len,
+            .data = _subject.ptr,
         };
         qtc.Attica__Message_SetSubject(@ptrCast(self.ptr), subject_str);
     }
+
+    /// ### DEPRECATED: Use `subject` instead
+    ///
+    pub const Subject = subject;
 
     /// ### [Upstream resources](https://api.kde.org/attica-message.html#subject)
     ///
@@ -213,13 +273,17 @@ pub const Attica__Message = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Subject(self: Attica__Message, allocator: std.mem.Allocator) []const u8 {
+    pub fn subject(self: Attica__Message, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Message_Subject(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Message.Subject: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Message.subject: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setBody` instead
+    ///
+    pub const SetBody = setBody;
 
     /// ### [Upstream resources](https://api.kde.org/attica-message.html#setBody)
     ///
@@ -227,15 +291,19 @@ pub const Attica__Message = extern struct {
     ///
     /// ` self: Attica__Message `
     ///
-    /// ` body: []const u8 `
+    /// ` _body: []const u8 `
     ///
-    pub fn SetBody(self: Attica__Message, body: []const u8) void {
+    pub fn setBody(self: Attica__Message, _body: []const u8) void {
         const body_str = qtc.libqt_string{
-            .len = body.len,
-            .data = body.ptr,
+            .len = _body.len,
+            .data = _body.ptr,
         };
         qtc.Attica__Message_SetBody(@ptrCast(self.ptr), body_str);
     }
+
+    /// ### DEPRECATED: Use `body` instead
+    ///
+    pub const Body = body;
 
     /// ### [Upstream resources](https://api.kde.org/attica-message.html#body)
     ///
@@ -245,13 +313,17 @@ pub const Attica__Message = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Body(self: Attica__Message, allocator: std.mem.Allocator) []const u8 {
+    pub fn body(self: Attica__Message, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Message_Body(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Message.Body: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Message.body: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://api.kde.org/attica-message.html#isValid)
     ///
@@ -259,21 +331,21 @@ pub const Attica__Message = extern struct {
     ///
     /// ` self: Attica__Message `
     ///
-    pub fn IsValid(self: Attica__Message) bool {
+    pub fn isValid(self: Attica__Message) bool {
         return qtc.Attica__Message_IsValid(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Attica__Message `
     ///
-    pub fn Delete(self: Attica__Message) void {
+    pub fn delete(self: Attica__Message) void {
         qtc.Attica__Message_Delete(@ptrCast(self.ptr));
     }
 };

@@ -11,80 +11,111 @@ pub const QFlag = extern struct {
 
     pub const _is_QFlag = {};
 
-    /// New constructs a new QFlag object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QFlag object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QFlag `
     ///
-    pub fn New(other: anytype) QFlag {
+    pub fn new(other: anytype) QFlag {
         comptime _ = @TypeOf(other)._is_QFlag;
         return .{ .ptr = qtc.QFlag_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new QFlag object and invalidates the source QFlag object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QFlag object and invalidate the source QFlag object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QFlag `
     ///
-    pub fn New2(other: anytype) QFlag {
+    pub fn new2(other: anytype) QFlag {
         comptime _ = @TypeOf(other)._is_QFlag;
         return .{ .ptr = qtc.QFlag_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QFlag object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QFlag object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` value: i32 `
     ///
-    pub fn New3(value: i32) QFlag {
+    pub fn new3(value: i32) QFlag {
         return .{ .ptr = qtc.QFlag_new3(@bitCast(value)) };
     }
 
-    /// New4 constructs a new QFlag object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QFlag object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` value: u32 `
     ///
-    pub fn New4(value: u32) QFlag {
+    pub fn new4(value: u32) QFlag {
         return .{ .ptr = qtc.QFlag_new4(@bitCast(value)) };
     }
 
-    /// New5 constructs a new QFlag object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QFlag object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` value: i16 `
     ///
-    pub fn New5(value: i16) QFlag {
+    pub fn new5(value: i16) QFlag {
         return .{ .ptr = qtc.QFlag_new5(@bitCast(value)) };
     }
 
-    /// New6 constructs a new QFlag object.
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new QFlag object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` value: u16 `
     ///
-    pub fn New6(value: u16) QFlag {
+    pub fn new6(value: u16) QFlag {
         return .{ .ptr = qtc.QFlag_new6(@bitCast(value)) };
     }
 
-    /// New7 constructs a new QFlag object.
+    /// ### DEPRECATED: Use `new7` instead
+    ///
+    pub const New7 = new7;
+
+    /// Allocate a new QFlag object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QFlag `
     ///
-    pub fn New7(param1: anytype) QFlag {
+    pub fn new7(param1: anytype) QFlag {
         comptime _ = @TypeOf(param1)._is_QFlag;
         return .{ .ptr = qtc.QFlag_new7(@ptrCast(param1.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -92,11 +123,14 @@ pub const QFlag = extern struct {
     ///
     /// ` other: QFlag `
     ///
-    pub fn CopyAssign(self: QFlag, other: QFlag) void {
+    pub fn copyAssign(self: QFlag, other: QFlag) void {
         qtc.QFlag_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -104,43 +138,51 @@ pub const QFlag = extern struct {
     ///
     /// ` other: QFlag `
     ///
-    pub fn MoveAssign(self: QFlag, other: QFlag) void {
+    pub fn moveAssign(self: QFlag, other: QFlag) void {
         qtc.QFlag_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
+    /// ### DEPRECATED: Use `toInt` instead
+    ///
+    pub const ToInt = toInt;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qflag.html#operator)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QFlag `
     ///
-    pub fn ToInt(self: QFlag) i32 {
+    pub fn toInt(self: QFlag) i32 {
         return qtc.QFlag_ToInt(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `toUnsignedInt` instead
+    ///
+    pub const ToUnsignedInt = toUnsignedInt;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qflag.html#operator)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QFlag `
     ///
-    pub fn ToUnsignedInt(self: QFlag) u32 {
+    pub fn toUnsignedInt(self: QFlag) u32 {
         return qtc.QFlag_ToUnsignedInt(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qflag.html#dtor.QFlag)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QFlag `
     ///
-    pub fn Delete(self: QFlag) void {
+    pub fn delete(self: QFlag) void {
         qtc.QFlag_Delete(@ptrCast(self.ptr));
     }
 };
@@ -155,50 +197,69 @@ pub const QIncompatibleFlag = extern struct {
 
     pub const _is_QIncompatibleFlag = {};
 
-    /// New constructs a new QIncompatibleFlag object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QIncompatibleFlag object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QIncompatibleFlag `
     ///
-    pub fn New(other: anytype) QIncompatibleFlag {
+    pub fn new(other: anytype) QIncompatibleFlag {
         comptime _ = @TypeOf(other)._is_QIncompatibleFlag;
         return .{ .ptr = qtc.QIncompatibleFlag_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new QIncompatibleFlag object and invalidates the source QIncompatibleFlag object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QIncompatibleFlag object and invalidate the source QIncompatibleFlag object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QIncompatibleFlag `
     ///
-    pub fn New2(other: anytype) QIncompatibleFlag {
+    pub fn new2(other: anytype) QIncompatibleFlag {
         comptime _ = @TypeOf(other)._is_QIncompatibleFlag;
         return .{ .ptr = qtc.QIncompatibleFlag_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QIncompatibleFlag object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QIncompatibleFlag object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` i: i32 `
     ///
-    pub fn New3(i: i32) QIncompatibleFlag {
+    pub fn new3(i: i32) QIncompatibleFlag {
         return .{ .ptr = qtc.QIncompatibleFlag_new3(@bitCast(i)) };
     }
 
-    /// New4 constructs a new QIncompatibleFlag object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QIncompatibleFlag object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QIncompatibleFlag `
     ///
-    pub fn New4(param1: anytype) QIncompatibleFlag {
+    pub fn new4(param1: anytype) QIncompatibleFlag {
         comptime _ = @TypeOf(param1)._is_QIncompatibleFlag;
         return .{ .ptr = qtc.QIncompatibleFlag_new4(@ptrCast(param1.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -206,11 +267,14 @@ pub const QIncompatibleFlag = extern struct {
     ///
     /// ` other: QIncompatibleFlag `
     ///
-    pub fn CopyAssign(self: QIncompatibleFlag, other: QIncompatibleFlag) void {
+    pub fn copyAssign(self: QIncompatibleFlag, other: QIncompatibleFlag) void {
         qtc.QIncompatibleFlag_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -218,9 +282,13 @@ pub const QIncompatibleFlag = extern struct {
     ///
     /// ` other: QIncompatibleFlag `
     ///
-    pub fn MoveAssign(self: QIncompatibleFlag, other: QIncompatibleFlag) void {
+    pub fn moveAssign(self: QIncompatibleFlag, other: QIncompatibleFlag) void {
         qtc.QIncompatibleFlag_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `toInt` instead
+    ///
+    pub const ToInt = toInt;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qincompatibleflag.html#operator)
     ///
@@ -228,23 +296,23 @@ pub const QIncompatibleFlag = extern struct {
     ///
     /// ` self: QIncompatibleFlag `
     ///
-    pub fn ToInt(self: QIncompatibleFlag) i32 {
+    pub fn toInt(self: QIncompatibleFlag) i32 {
         return qtc.QIncompatibleFlag_ToInt(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qincompatibleflag.html#dtor.QIncompatibleFlag)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QIncompatibleFlag `
     ///
-    pub fn Delete(self: QIncompatibleFlag) void {
+    pub fn delete(self: QIncompatibleFlag) void {
         qtc.QIncompatibleFlag_Delete(@ptrCast(self.ptr));
     }
 };

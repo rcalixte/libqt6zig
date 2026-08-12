@@ -32,46 +32,65 @@ pub const QTextItem = extern struct {
 
     pub const _is_QTextItem = {};
 
-    /// New constructs a new QTextItem object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QTextItem object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QTextItem `
     ///
-    pub fn New(other: anytype) QTextItem {
+    pub fn new(other: anytype) QTextItem {
         comptime _ = @TypeOf(other)._is_QTextItem;
         return .{ .ptr = qtc.QTextItem_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new QTextItem object and invalidates the source QTextItem object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QTextItem object and invalidate the source QTextItem object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QTextItem `
     ///
-    pub fn New2(other: anytype) QTextItem {
+    pub fn new2(other: anytype) QTextItem {
         comptime _ = @TypeOf(other)._is_QTextItem;
         return .{ .ptr = qtc.QTextItem_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QTextItem object.
+    /// ### DEPRECATED: Use `new3` instead
     ///
-    pub fn New3() QTextItem {
+    pub const New3 = new3;
+
+    /// Allocate a new QTextItem object in C++ memory
+    ///
+    pub fn new3() QTextItem {
         return .{ .ptr = qtc.QTextItem_new3() };
     }
 
-    /// New4 constructs a new QTextItem object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QTextItem object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QTextItem `
     ///
-    pub fn New4(param1: anytype) QTextItem {
+    pub fn new4(param1: anytype) QTextItem {
         comptime _ = @TypeOf(param1)._is_QTextItem;
         return .{ .ptr = qtc.QTextItem_new4(@ptrCast(param1.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -79,11 +98,14 @@ pub const QTextItem = extern struct {
     ///
     /// ` other: QTextItem `
     ///
-    pub fn CopyAssign(self: QTextItem, other: QTextItem) void {
+    pub fn copyAssign(self: QTextItem, other: QTextItem) void {
         qtc.QTextItem_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -91,9 +113,13 @@ pub const QTextItem = extern struct {
     ///
     /// ` other: QTextItem `
     ///
-    pub fn MoveAssign(self: QTextItem, other: QTextItem) void {
+    pub fn moveAssign(self: QTextItem, other: QTextItem) void {
         qtc.QTextItem_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `descent` instead
+    ///
+    pub const Descent = descent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextitem.html#descent)
     ///
@@ -101,9 +127,13 @@ pub const QTextItem = extern struct {
     ///
     /// ` self: QTextItem `
     ///
-    pub fn Descent(self: QTextItem) f64 {
+    pub fn descent(self: QTextItem) f64 {
         return qtc.QTextItem_Descent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `ascent` instead
+    ///
+    pub const Ascent = ascent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextitem.html#ascent)
     ///
@@ -111,9 +141,13 @@ pub const QTextItem = extern struct {
     ///
     /// ` self: QTextItem `
     ///
-    pub fn Ascent(self: QTextItem) f64 {
+    pub fn ascent(self: QTextItem) f64 {
         return qtc.QTextItem_Ascent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextitem.html#width)
     ///
@@ -121,9 +155,13 @@ pub const QTextItem = extern struct {
     ///
     /// ` self: QTextItem `
     ///
-    pub fn Width(self: QTextItem) f64 {
+    pub fn width(self: QTextItem) f64 {
         return qtc.QTextItem_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `renderFlags` instead
+    ///
+    pub const RenderFlags = renderFlags;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextitem.html#renderFlags)
     ///
@@ -135,9 +173,13 @@ pub const QTextItem = extern struct {
     ///
     /// ` flag of qpaintengine_enums.RenderFlag `
     ///
-    pub fn RenderFlags(self: QTextItem) i32 {
+    pub fn renderFlags(self: QTextItem) i32 {
         return qtc.QTextItem_RenderFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `text` instead
+    ///
+    pub const Text = text;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextitem.html#text)
     ///
@@ -147,13 +189,17 @@ pub const QTextItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: QTextItem, allocator: std.mem.Allocator) []const u8 {
+    pub fn text(self: QTextItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextItem_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextItem.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextItem.text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextitem.html#font)
     ///
@@ -161,23 +207,23 @@ pub const QTextItem = extern struct {
     ///
     /// ` self: QTextItem `
     ///
-    pub fn Font(self: QTextItem) QFont {
+    pub fn font(self: QTextItem) QFont {
         return .{ .ptr = qtc.QTextItem_Font(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextitem.html#dtor.QTextItem)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QTextItem `
     ///
-    pub fn Delete(self: QTextItem) void {
+    pub fn delete(self: QTextItem) void {
         qtc.QTextItem_Delete(@ptrCast(self.ptr));
     }
 };
@@ -192,21 +238,33 @@ pub const QPaintEngine = extern struct {
 
     pub const _is_QPaintEngine = {};
 
-    /// New constructs a new QPaintEngine object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QPaintEngine {
+    pub const New = new;
+
+    /// Allocate a new QPaintEngine object in C++ memory
+    ///
+    pub fn new() QPaintEngine {
         return .{ .ptr = qtc.QPaintEngine_new() };
     }
 
-    /// New2 constructs a new QPaintEngine object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QPaintEngine object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` features: flag of qpaintengine_enums.PaintEngineFeature `
     ///
-    pub fn New2(features: i32) QPaintEngine {
+    pub fn new2(features: i32) QPaintEngine {
         return .{ .ptr = qtc.QPaintEngine_new2(@bitCast(features)) };
     }
+
+    /// ### DEPRECATED: Use `isActive` instead
+    ///
+    pub const IsActive = isActive;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#isActive)
     ///
@@ -214,9 +272,13 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` self: QPaintEngine `
     ///
-    pub fn IsActive(self: QPaintEngine) bool {
+    pub fn isActive(self: QPaintEngine) bool {
         return qtc.QPaintEngine_IsActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setActive` instead
+    ///
+    pub const SetActive = setActive;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#setActive)
     ///
@@ -226,9 +288,13 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` newState: bool `
     ///
-    pub fn SetActive(self: QPaintEngine, newState: bool) void {
+    pub fn setActive(self: QPaintEngine, newState: bool) void {
         qtc.QPaintEngine_SetActive(@ptrCast(self.ptr), newState);
     }
+
+    /// ### DEPRECATED: Use `begin` instead
+    ///
+    pub const Begin = begin;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#begin)
     ///
@@ -238,10 +304,14 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` pdev: QPaintDevice `
     ///
-    pub fn Begin(self: QPaintEngine, pdev: anytype) bool {
+    pub fn begin(self: QPaintEngine, pdev: anytype) bool {
         comptime _ = @TypeOf(pdev)._is_QPaintDevice;
         return qtc.QPaintEngine_Begin(@ptrCast(self.ptr), @ptrCast(pdev.ptr));
     }
+
+    /// ### DEPRECATED: Use `onBegin` instead
+    ///
+    pub const OnBegin = onBegin;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#begin)
     ///
@@ -253,13 +323,13 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPaintEngine, pdev: QPaintDevice) callconv(.c) bool `
     ///
-    pub fn OnBegin(self: QPaintEngine, callback: *const fn (QPaintEngine, QPaintDevice) callconv(.c) bool) void {
+    pub fn onBegin(self: QPaintEngine, callback: *const fn (QPaintEngine, QPaintDevice) callconv(.c) bool) void {
         qtc.QPaintEngine_OnBegin(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperBegin` instead
+    /// ### DEPRECATED: Use `superBegin` instead
     ///
-    pub const QBaseBegin = SuperBegin;
+    pub const SuperBegin = superBegin;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#begin)
     ///
@@ -271,10 +341,14 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` pdev: QPaintDevice `
     ///
-    pub fn SuperBegin(self: QPaintEngine, pdev: anytype) bool {
+    pub fn superBegin(self: QPaintEngine, pdev: anytype) bool {
         comptime _ = @TypeOf(pdev)._is_QPaintDevice;
         return qtc.QPaintEngine_SuperBegin(@ptrCast(self.ptr), @ptrCast(pdev.ptr));
     }
+
+    /// ### DEPRECATED: Use `end` instead
+    ///
+    pub const End = end;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#end)
     ///
@@ -282,9 +356,13 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` self: QPaintEngine `
     ///
-    pub fn End(self: QPaintEngine) bool {
+    pub fn end(self: QPaintEngine) bool {
         return qtc.QPaintEngine_End(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnd` instead
+    ///
+    pub const OnEnd = onEnd;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#end)
     ///
@@ -296,13 +374,13 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnEnd(self: QPaintEngine, callback: *const fn () callconv(.c) bool) void {
+    pub fn onEnd(self: QPaintEngine, callback: *const fn () callconv(.c) bool) void {
         qtc.QPaintEngine_OnEnd(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEnd` instead
+    /// ### DEPRECATED: Use `superEnd` instead
     ///
-    pub const QBaseEnd = SuperEnd;
+    pub const SuperEnd = superEnd;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#end)
     ///
@@ -312,9 +390,13 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` self: QPaintEngine `
     ///
-    pub fn SuperEnd(self: QPaintEngine) bool {
+    pub fn superEnd(self: QPaintEngine) bool {
         return qtc.QPaintEngine_SuperEnd(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateState` instead
+    ///
+    pub const UpdateState = updateState;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#updateState)
     ///
@@ -324,10 +406,14 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` state: QPaintEngineState `
     ///
-    pub fn UpdateState(self: QPaintEngine, state: anytype) void {
+    pub fn updateState(self: QPaintEngine, state: anytype) void {
         comptime _ = @TypeOf(state)._is_QPaintEngineState;
         qtc.QPaintEngine_UpdateState(@ptrCast(self.ptr), @ptrCast(state.ptr));
     }
+
+    /// ### DEPRECATED: Use `onUpdateState` instead
+    ///
+    pub const OnUpdateState = onUpdateState;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#updateState)
     ///
@@ -339,13 +425,13 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPaintEngine, state: QPaintEngineState) callconv(.c) void `
     ///
-    pub fn OnUpdateState(self: QPaintEngine, callback: *const fn (QPaintEngine, QPaintEngineState) callconv(.c) void) void {
+    pub fn onUpdateState(self: QPaintEngine, callback: *const fn (QPaintEngine, QPaintEngineState) callconv(.c) void) void {
         qtc.QPaintEngine_OnUpdateState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateState` instead
+    /// ### DEPRECATED: Use `superUpdateState` instead
     ///
-    pub const QBaseUpdateState = SuperUpdateState;
+    pub const SuperUpdateState = superUpdateState;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#updateState)
     ///
@@ -357,10 +443,14 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` state: QPaintEngineState `
     ///
-    pub fn SuperUpdateState(self: QPaintEngine, state: anytype) void {
+    pub fn superUpdateState(self: QPaintEngine, state: anytype) void {
         comptime _ = @TypeOf(state)._is_QPaintEngineState;
         qtc.QPaintEngine_SuperUpdateState(@ptrCast(self.ptr), @ptrCast(state.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawRects` instead
+    ///
+    pub const DrawRects = drawRects;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawRects)
     ///
@@ -372,10 +462,14 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` rectCount: i32 `
     ///
-    pub fn DrawRects(self: QPaintEngine, rects: anytype, rectCount: i32) void {
+    pub fn drawRects(self: QPaintEngine, rects: anytype, rectCount: i32) void {
         comptime _ = @TypeOf(rects)._is_QRect;
         qtc.QPaintEngine_DrawRects(@ptrCast(self.ptr), @ptrCast(rects.ptr), @bitCast(rectCount));
     }
+
+    /// ### DEPRECATED: Use `onDrawRects` instead
+    ///
+    pub const OnDrawRects = onDrawRects;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawRects)
     ///
@@ -387,13 +481,13 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPaintEngine, rects: QRect, rectCount: i32) callconv(.c) void `
     ///
-    pub fn OnDrawRects(self: QPaintEngine, callback: *const fn (QPaintEngine, QRect, i32) callconv(.c) void) void {
+    pub fn onDrawRects(self: QPaintEngine, callback: *const fn (QPaintEngine, QRect, i32) callconv(.c) void) void {
         qtc.QPaintEngine_OnDrawRects(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawRects` instead
+    /// ### DEPRECATED: Use `superDrawRects` instead
     ///
-    pub const QBaseDrawRects = SuperDrawRects;
+    pub const SuperDrawRects = superDrawRects;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawRects)
     ///
@@ -407,10 +501,14 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` rectCount: i32 `
     ///
-    pub fn SuperDrawRects(self: QPaintEngine, rects: anytype, rectCount: i32) void {
+    pub fn superDrawRects(self: QPaintEngine, rects: anytype, rectCount: i32) void {
         comptime _ = @TypeOf(rects)._is_QRect;
         qtc.QPaintEngine_SuperDrawRects(@ptrCast(self.ptr), @ptrCast(rects.ptr), @bitCast(rectCount));
     }
+
+    /// ### DEPRECATED: Use `drawRects2` instead
+    ///
+    pub const DrawRects2 = drawRects2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawRects)
     ///
@@ -422,10 +520,14 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` rectCount: i32 `
     ///
-    pub fn DrawRects2(self: QPaintEngine, rects: anytype, rectCount: i32) void {
+    pub fn drawRects2(self: QPaintEngine, rects: anytype, rectCount: i32) void {
         comptime _ = @TypeOf(rects)._is_QRectF;
         qtc.QPaintEngine_DrawRects2(@ptrCast(self.ptr), @ptrCast(rects.ptr), @bitCast(rectCount));
     }
+
+    /// ### DEPRECATED: Use `onDrawRects2` instead
+    ///
+    pub const OnDrawRects2 = onDrawRects2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawRects)
     ///
@@ -437,13 +539,13 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPaintEngine, rects: QRectF, rectCount: i32) callconv(.c) void `
     ///
-    pub fn OnDrawRects2(self: QPaintEngine, callback: *const fn (QPaintEngine, QRectF, i32) callconv(.c) void) void {
+    pub fn onDrawRects2(self: QPaintEngine, callback: *const fn (QPaintEngine, QRectF, i32) callconv(.c) void) void {
         qtc.QPaintEngine_OnDrawRects2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawRects2` instead
+    /// ### DEPRECATED: Use `superDrawRects2` instead
     ///
-    pub const QBaseDrawRects2 = SuperDrawRects2;
+    pub const SuperDrawRects2 = superDrawRects2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawRects)
     ///
@@ -457,10 +559,14 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` rectCount: i32 `
     ///
-    pub fn SuperDrawRects2(self: QPaintEngine, rects: anytype, rectCount: i32) void {
+    pub fn superDrawRects2(self: QPaintEngine, rects: anytype, rectCount: i32) void {
         comptime _ = @TypeOf(rects)._is_QRectF;
         qtc.QPaintEngine_SuperDrawRects2(@ptrCast(self.ptr), @ptrCast(rects.ptr), @bitCast(rectCount));
     }
+
+    /// ### DEPRECATED: Use `drawLines` instead
+    ///
+    pub const DrawLines = drawLines;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawLines)
     ///
@@ -472,10 +578,14 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` lineCount: i32 `
     ///
-    pub fn DrawLines(self: QPaintEngine, lines: anytype, lineCount: i32) void {
+    pub fn drawLines(self: QPaintEngine, lines: anytype, lineCount: i32) void {
         comptime _ = @TypeOf(lines)._is_QLine;
         qtc.QPaintEngine_DrawLines(@ptrCast(self.ptr), @ptrCast(lines.ptr), @bitCast(lineCount));
     }
+
+    /// ### DEPRECATED: Use `onDrawLines` instead
+    ///
+    pub const OnDrawLines = onDrawLines;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawLines)
     ///
@@ -487,13 +597,13 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPaintEngine, lines: QLine, lineCount: i32) callconv(.c) void `
     ///
-    pub fn OnDrawLines(self: QPaintEngine, callback: *const fn (QPaintEngine, QLine, i32) callconv(.c) void) void {
+    pub fn onDrawLines(self: QPaintEngine, callback: *const fn (QPaintEngine, QLine, i32) callconv(.c) void) void {
         qtc.QPaintEngine_OnDrawLines(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawLines` instead
+    /// ### DEPRECATED: Use `superDrawLines` instead
     ///
-    pub const QBaseDrawLines = SuperDrawLines;
+    pub const SuperDrawLines = superDrawLines;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawLines)
     ///
@@ -507,10 +617,14 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` lineCount: i32 `
     ///
-    pub fn SuperDrawLines(self: QPaintEngine, lines: anytype, lineCount: i32) void {
+    pub fn superDrawLines(self: QPaintEngine, lines: anytype, lineCount: i32) void {
         comptime _ = @TypeOf(lines)._is_QLine;
         qtc.QPaintEngine_SuperDrawLines(@ptrCast(self.ptr), @ptrCast(lines.ptr), @bitCast(lineCount));
     }
+
+    /// ### DEPRECATED: Use `drawLines2` instead
+    ///
+    pub const DrawLines2 = drawLines2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawLines)
     ///
@@ -522,10 +636,14 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` lineCount: i32 `
     ///
-    pub fn DrawLines2(self: QPaintEngine, lines: anytype, lineCount: i32) void {
+    pub fn drawLines2(self: QPaintEngine, lines: anytype, lineCount: i32) void {
         comptime _ = @TypeOf(lines)._is_QLineF;
         qtc.QPaintEngine_DrawLines2(@ptrCast(self.ptr), @ptrCast(lines.ptr), @bitCast(lineCount));
     }
+
+    /// ### DEPRECATED: Use `onDrawLines2` instead
+    ///
+    pub const OnDrawLines2 = onDrawLines2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawLines)
     ///
@@ -537,13 +655,13 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPaintEngine, lines: QLineF, lineCount: i32) callconv(.c) void `
     ///
-    pub fn OnDrawLines2(self: QPaintEngine, callback: *const fn (QPaintEngine, QLineF, i32) callconv(.c) void) void {
+    pub fn onDrawLines2(self: QPaintEngine, callback: *const fn (QPaintEngine, QLineF, i32) callconv(.c) void) void {
         qtc.QPaintEngine_OnDrawLines2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawLines2` instead
+    /// ### DEPRECATED: Use `superDrawLines2` instead
     ///
-    pub const QBaseDrawLines2 = SuperDrawLines2;
+    pub const SuperDrawLines2 = superDrawLines2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawLines)
     ///
@@ -557,10 +675,14 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` lineCount: i32 `
     ///
-    pub fn SuperDrawLines2(self: QPaintEngine, lines: anytype, lineCount: i32) void {
+    pub fn superDrawLines2(self: QPaintEngine, lines: anytype, lineCount: i32) void {
         comptime _ = @TypeOf(lines)._is_QLineF;
         qtc.QPaintEngine_SuperDrawLines2(@ptrCast(self.ptr), @ptrCast(lines.ptr), @bitCast(lineCount));
     }
+
+    /// ### DEPRECATED: Use `drawEllipse` instead
+    ///
+    pub const DrawEllipse = drawEllipse;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawEllipse)
     ///
@@ -570,10 +692,14 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` r: QRectF `
     ///
-    pub fn DrawEllipse(self: QPaintEngine, r: anytype) void {
+    pub fn drawEllipse(self: QPaintEngine, r: anytype) void {
         comptime _ = @TypeOf(r)._is_QRectF;
         qtc.QPaintEngine_DrawEllipse(@ptrCast(self.ptr), @ptrCast(r.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDrawEllipse` instead
+    ///
+    pub const OnDrawEllipse = onDrawEllipse;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawEllipse)
     ///
@@ -585,13 +711,13 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPaintEngine, r: QRectF) callconv(.c) void `
     ///
-    pub fn OnDrawEllipse(self: QPaintEngine, callback: *const fn (QPaintEngine, QRectF) callconv(.c) void) void {
+    pub fn onDrawEllipse(self: QPaintEngine, callback: *const fn (QPaintEngine, QRectF) callconv(.c) void) void {
         qtc.QPaintEngine_OnDrawEllipse(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawEllipse` instead
+    /// ### DEPRECATED: Use `superDrawEllipse` instead
     ///
-    pub const QBaseDrawEllipse = SuperDrawEllipse;
+    pub const SuperDrawEllipse = superDrawEllipse;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawEllipse)
     ///
@@ -603,10 +729,14 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` r: QRectF `
     ///
-    pub fn SuperDrawEllipse(self: QPaintEngine, r: anytype) void {
+    pub fn superDrawEllipse(self: QPaintEngine, r: anytype) void {
         comptime _ = @TypeOf(r)._is_QRectF;
         qtc.QPaintEngine_SuperDrawEllipse(@ptrCast(self.ptr), @ptrCast(r.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawEllipse2` instead
+    ///
+    pub const DrawEllipse2 = drawEllipse2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawEllipse)
     ///
@@ -616,10 +746,14 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` r: QRect `
     ///
-    pub fn DrawEllipse2(self: QPaintEngine, r: anytype) void {
+    pub fn drawEllipse2(self: QPaintEngine, r: anytype) void {
         comptime _ = @TypeOf(r)._is_QRect;
         qtc.QPaintEngine_DrawEllipse2(@ptrCast(self.ptr), @ptrCast(r.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDrawEllipse2` instead
+    ///
+    pub const OnDrawEllipse2 = onDrawEllipse2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawEllipse)
     ///
@@ -631,13 +765,13 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPaintEngine, r: QRect) callconv(.c) void `
     ///
-    pub fn OnDrawEllipse2(self: QPaintEngine, callback: *const fn (QPaintEngine, QRect) callconv(.c) void) void {
+    pub fn onDrawEllipse2(self: QPaintEngine, callback: *const fn (QPaintEngine, QRect) callconv(.c) void) void {
         qtc.QPaintEngine_OnDrawEllipse2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawEllipse2` instead
+    /// ### DEPRECATED: Use `superDrawEllipse2` instead
     ///
-    pub const QBaseDrawEllipse2 = SuperDrawEllipse2;
+    pub const SuperDrawEllipse2 = superDrawEllipse2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawEllipse)
     ///
@@ -649,10 +783,14 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` r: QRect `
     ///
-    pub fn SuperDrawEllipse2(self: QPaintEngine, r: anytype) void {
+    pub fn superDrawEllipse2(self: QPaintEngine, r: anytype) void {
         comptime _ = @TypeOf(r)._is_QRect;
         qtc.QPaintEngine_SuperDrawEllipse2(@ptrCast(self.ptr), @ptrCast(r.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawPath` instead
+    ///
+    pub const DrawPath = drawPath;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawPath)
     ///
@@ -662,10 +800,14 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` path: QPainterPath `
     ///
-    pub fn DrawPath(self: QPaintEngine, path: anytype) void {
+    pub fn drawPath(self: QPaintEngine, path: anytype) void {
         comptime _ = @TypeOf(path)._is_QPainterPath;
         qtc.QPaintEngine_DrawPath(@ptrCast(self.ptr), @ptrCast(path.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDrawPath` instead
+    ///
+    pub const OnDrawPath = onDrawPath;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawPath)
     ///
@@ -677,13 +819,13 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPaintEngine, path: QPainterPath) callconv(.c) void `
     ///
-    pub fn OnDrawPath(self: QPaintEngine, callback: *const fn (QPaintEngine, QPainterPath) callconv(.c) void) void {
+    pub fn onDrawPath(self: QPaintEngine, callback: *const fn (QPaintEngine, QPainterPath) callconv(.c) void) void {
         qtc.QPaintEngine_OnDrawPath(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawPath` instead
+    /// ### DEPRECATED: Use `superDrawPath` instead
     ///
-    pub const QBaseDrawPath = SuperDrawPath;
+    pub const SuperDrawPath = superDrawPath;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawPath)
     ///
@@ -695,10 +837,14 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` path: QPainterPath `
     ///
-    pub fn SuperDrawPath(self: QPaintEngine, path: anytype) void {
+    pub fn superDrawPath(self: QPaintEngine, path: anytype) void {
         comptime _ = @TypeOf(path)._is_QPainterPath;
         qtc.QPaintEngine_SuperDrawPath(@ptrCast(self.ptr), @ptrCast(path.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawPoints` instead
+    ///
+    pub const DrawPoints = drawPoints;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawPoints)
     ///
@@ -710,10 +856,14 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` pointCount: i32 `
     ///
-    pub fn DrawPoints(self: QPaintEngine, points: anytype, pointCount: i32) void {
+    pub fn drawPoints(self: QPaintEngine, points: anytype, pointCount: i32) void {
         comptime _ = @TypeOf(points)._is_QPointF;
         qtc.QPaintEngine_DrawPoints(@ptrCast(self.ptr), @ptrCast(points.ptr), @bitCast(pointCount));
     }
+
+    /// ### DEPRECATED: Use `onDrawPoints` instead
+    ///
+    pub const OnDrawPoints = onDrawPoints;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawPoints)
     ///
@@ -725,13 +875,13 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPaintEngine, points: QPointF, pointCount: i32) callconv(.c) void `
     ///
-    pub fn OnDrawPoints(self: QPaintEngine, callback: *const fn (QPaintEngine, QPointF, i32) callconv(.c) void) void {
+    pub fn onDrawPoints(self: QPaintEngine, callback: *const fn (QPaintEngine, QPointF, i32) callconv(.c) void) void {
         qtc.QPaintEngine_OnDrawPoints(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawPoints` instead
+    /// ### DEPRECATED: Use `superDrawPoints` instead
     ///
-    pub const QBaseDrawPoints = SuperDrawPoints;
+    pub const SuperDrawPoints = superDrawPoints;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawPoints)
     ///
@@ -745,10 +895,14 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` pointCount: i32 `
     ///
-    pub fn SuperDrawPoints(self: QPaintEngine, points: anytype, pointCount: i32) void {
+    pub fn superDrawPoints(self: QPaintEngine, points: anytype, pointCount: i32) void {
         comptime _ = @TypeOf(points)._is_QPointF;
         qtc.QPaintEngine_SuperDrawPoints(@ptrCast(self.ptr), @ptrCast(points.ptr), @bitCast(pointCount));
     }
+
+    /// ### DEPRECATED: Use `drawPoints2` instead
+    ///
+    pub const DrawPoints2 = drawPoints2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawPoints)
     ///
@@ -760,10 +914,14 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` pointCount: i32 `
     ///
-    pub fn DrawPoints2(self: QPaintEngine, points: anytype, pointCount: i32) void {
+    pub fn drawPoints2(self: QPaintEngine, points: anytype, pointCount: i32) void {
         comptime _ = @TypeOf(points)._is_QPoint;
         qtc.QPaintEngine_DrawPoints2(@ptrCast(self.ptr), @ptrCast(points.ptr), @bitCast(pointCount));
     }
+
+    /// ### DEPRECATED: Use `onDrawPoints2` instead
+    ///
+    pub const OnDrawPoints2 = onDrawPoints2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawPoints)
     ///
@@ -775,13 +933,13 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPaintEngine, points: QPoint, pointCount: i32) callconv(.c) void `
     ///
-    pub fn OnDrawPoints2(self: QPaintEngine, callback: *const fn (QPaintEngine, QPoint, i32) callconv(.c) void) void {
+    pub fn onDrawPoints2(self: QPaintEngine, callback: *const fn (QPaintEngine, QPoint, i32) callconv(.c) void) void {
         qtc.QPaintEngine_OnDrawPoints2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawPoints2` instead
+    /// ### DEPRECATED: Use `superDrawPoints2` instead
     ///
-    pub const QBaseDrawPoints2 = SuperDrawPoints2;
+    pub const SuperDrawPoints2 = superDrawPoints2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawPoints)
     ///
@@ -795,10 +953,14 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` pointCount: i32 `
     ///
-    pub fn SuperDrawPoints2(self: QPaintEngine, points: anytype, pointCount: i32) void {
+    pub fn superDrawPoints2(self: QPaintEngine, points: anytype, pointCount: i32) void {
         comptime _ = @TypeOf(points)._is_QPoint;
         qtc.QPaintEngine_SuperDrawPoints2(@ptrCast(self.ptr), @ptrCast(points.ptr), @bitCast(pointCount));
     }
+
+    /// ### DEPRECATED: Use `drawPolygon` instead
+    ///
+    pub const DrawPolygon = drawPolygon;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawPolygon)
     ///
@@ -812,10 +974,14 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` mode: qpaintengine_enums.PolygonDrawMode `
     ///
-    pub fn DrawPolygon(self: QPaintEngine, points: anytype, pointCount: i32, mode: i32) void {
+    pub fn drawPolygon(self: QPaintEngine, points: anytype, pointCount: i32, mode: i32) void {
         comptime _ = @TypeOf(points)._is_QPointF;
         qtc.QPaintEngine_DrawPolygon(@ptrCast(self.ptr), @ptrCast(points.ptr), @bitCast(pointCount), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `onDrawPolygon` instead
+    ///
+    pub const OnDrawPolygon = onDrawPolygon;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawPolygon)
     ///
@@ -827,13 +993,13 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPaintEngine, points: QPointF, pointCount: i32, mode: qpaintengine_enums.PolygonDrawMode) callconv(.c) void `
     ///
-    pub fn OnDrawPolygon(self: QPaintEngine, callback: *const fn (QPaintEngine, QPointF, i32, i32) callconv(.c) void) void {
+    pub fn onDrawPolygon(self: QPaintEngine, callback: *const fn (QPaintEngine, QPointF, i32, i32) callconv(.c) void) void {
         qtc.QPaintEngine_OnDrawPolygon(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawPolygon` instead
+    /// ### DEPRECATED: Use `superDrawPolygon` instead
     ///
-    pub const QBaseDrawPolygon = SuperDrawPolygon;
+    pub const SuperDrawPolygon = superDrawPolygon;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawPolygon)
     ///
@@ -849,10 +1015,14 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` mode: qpaintengine_enums.PolygonDrawMode `
     ///
-    pub fn SuperDrawPolygon(self: QPaintEngine, points: anytype, pointCount: i32, mode: i32) void {
+    pub fn superDrawPolygon(self: QPaintEngine, points: anytype, pointCount: i32, mode: i32) void {
         comptime _ = @TypeOf(points)._is_QPointF;
         qtc.QPaintEngine_SuperDrawPolygon(@ptrCast(self.ptr), @ptrCast(points.ptr), @bitCast(pointCount), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `drawPolygon2` instead
+    ///
+    pub const DrawPolygon2 = drawPolygon2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawPolygon)
     ///
@@ -866,10 +1036,14 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` mode: qpaintengine_enums.PolygonDrawMode `
     ///
-    pub fn DrawPolygon2(self: QPaintEngine, points: anytype, pointCount: i32, mode: i32) void {
+    pub fn drawPolygon2(self: QPaintEngine, points: anytype, pointCount: i32, mode: i32) void {
         comptime _ = @TypeOf(points)._is_QPoint;
         qtc.QPaintEngine_DrawPolygon2(@ptrCast(self.ptr), @ptrCast(points.ptr), @bitCast(pointCount), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `onDrawPolygon2` instead
+    ///
+    pub const OnDrawPolygon2 = onDrawPolygon2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawPolygon)
     ///
@@ -881,13 +1055,13 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPaintEngine, points: QPoint, pointCount: i32, mode: qpaintengine_enums.PolygonDrawMode) callconv(.c) void `
     ///
-    pub fn OnDrawPolygon2(self: QPaintEngine, callback: *const fn (QPaintEngine, QPoint, i32, i32) callconv(.c) void) void {
+    pub fn onDrawPolygon2(self: QPaintEngine, callback: *const fn (QPaintEngine, QPoint, i32, i32) callconv(.c) void) void {
         qtc.QPaintEngine_OnDrawPolygon2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawPolygon2` instead
+    /// ### DEPRECATED: Use `superDrawPolygon2` instead
     ///
-    pub const QBaseDrawPolygon2 = SuperDrawPolygon2;
+    pub const SuperDrawPolygon2 = superDrawPolygon2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawPolygon)
     ///
@@ -903,10 +1077,14 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` mode: qpaintengine_enums.PolygonDrawMode `
     ///
-    pub fn SuperDrawPolygon2(self: QPaintEngine, points: anytype, pointCount: i32, mode: i32) void {
+    pub fn superDrawPolygon2(self: QPaintEngine, points: anytype, pointCount: i32, mode: i32) void {
         comptime _ = @TypeOf(points)._is_QPoint;
         qtc.QPaintEngine_SuperDrawPolygon2(@ptrCast(self.ptr), @ptrCast(points.ptr), @bitCast(pointCount), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `drawPixmap` instead
+    ///
+    pub const DrawPixmap = drawPixmap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawPixmap)
     ///
@@ -920,12 +1098,16 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` sr: QRectF `
     ///
-    pub fn DrawPixmap(self: QPaintEngine, r: anytype, pm: anytype, sr: anytype) void {
+    pub fn drawPixmap(self: QPaintEngine, r: anytype, pm: anytype, sr: anytype) void {
         comptime _ = @TypeOf(r)._is_QRectF;
         comptime _ = @TypeOf(pm)._is_QPixmap;
         comptime _ = @TypeOf(sr)._is_QRectF;
         qtc.QPaintEngine_DrawPixmap(@ptrCast(self.ptr), @ptrCast(r.ptr), @ptrCast(pm.ptr), @ptrCast(sr.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDrawPixmap` instead
+    ///
+    pub const OnDrawPixmap = onDrawPixmap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawPixmap)
     ///
@@ -937,13 +1119,13 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPaintEngine, r: QRectF, pm: QPixmap, sr: QRectF) callconv(.c) void `
     ///
-    pub fn OnDrawPixmap(self: QPaintEngine, callback: *const fn (QPaintEngine, QRectF, QPixmap, QRectF) callconv(.c) void) void {
+    pub fn onDrawPixmap(self: QPaintEngine, callback: *const fn (QPaintEngine, QRectF, QPixmap, QRectF) callconv(.c) void) void {
         qtc.QPaintEngine_OnDrawPixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawPixmap` instead
+    /// ### DEPRECATED: Use `superDrawPixmap` instead
     ///
-    pub const QBaseDrawPixmap = SuperDrawPixmap;
+    pub const SuperDrawPixmap = superDrawPixmap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawPixmap)
     ///
@@ -959,12 +1141,16 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` sr: QRectF `
     ///
-    pub fn SuperDrawPixmap(self: QPaintEngine, r: anytype, pm: anytype, sr: anytype) void {
+    pub fn superDrawPixmap(self: QPaintEngine, r: anytype, pm: anytype, sr: anytype) void {
         comptime _ = @TypeOf(r)._is_QRectF;
         comptime _ = @TypeOf(pm)._is_QPixmap;
         comptime _ = @TypeOf(sr)._is_QRectF;
         qtc.QPaintEngine_SuperDrawPixmap(@ptrCast(self.ptr), @ptrCast(r.ptr), @ptrCast(pm.ptr), @ptrCast(sr.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawTextItem` instead
+    ///
+    pub const DrawTextItem = drawTextItem;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawTextItem)
     ///
@@ -976,11 +1162,15 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` textItem: QTextItem `
     ///
-    pub fn DrawTextItem(self: QPaintEngine, p: anytype, textItem: anytype) void {
+    pub fn drawTextItem(self: QPaintEngine, p: anytype, textItem: anytype) void {
         comptime _ = @TypeOf(p)._is_QPointF;
         comptime _ = @TypeOf(textItem)._is_QTextItem;
         qtc.QPaintEngine_DrawTextItem(@ptrCast(self.ptr), @ptrCast(p.ptr), @ptrCast(textItem.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDrawTextItem` instead
+    ///
+    pub const OnDrawTextItem = onDrawTextItem;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawTextItem)
     ///
@@ -992,13 +1182,13 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPaintEngine, p: QPointF, textItem: QTextItem) callconv(.c) void `
     ///
-    pub fn OnDrawTextItem(self: QPaintEngine, callback: *const fn (QPaintEngine, QPointF, QTextItem) callconv(.c) void) void {
+    pub fn onDrawTextItem(self: QPaintEngine, callback: *const fn (QPaintEngine, QPointF, QTextItem) callconv(.c) void) void {
         qtc.QPaintEngine_OnDrawTextItem(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawTextItem` instead
+    /// ### DEPRECATED: Use `superDrawTextItem` instead
     ///
-    pub const QBaseDrawTextItem = SuperDrawTextItem;
+    pub const SuperDrawTextItem = superDrawTextItem;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawTextItem)
     ///
@@ -1012,11 +1202,15 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` textItem: QTextItem `
     ///
-    pub fn SuperDrawTextItem(self: QPaintEngine, p: anytype, textItem: anytype) void {
+    pub fn superDrawTextItem(self: QPaintEngine, p: anytype, textItem: anytype) void {
         comptime _ = @TypeOf(p)._is_QPointF;
         comptime _ = @TypeOf(textItem)._is_QTextItem;
         qtc.QPaintEngine_SuperDrawTextItem(@ptrCast(self.ptr), @ptrCast(p.ptr), @ptrCast(textItem.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawTiledPixmap` instead
+    ///
+    pub const DrawTiledPixmap = drawTiledPixmap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawTiledPixmap)
     ///
@@ -1030,12 +1224,16 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` s: QPointF `
     ///
-    pub fn DrawTiledPixmap(self: QPaintEngine, r: anytype, pixmap: anytype, s: anytype) void {
+    pub fn drawTiledPixmap(self: QPaintEngine, r: anytype, pixmap: anytype, s: anytype) void {
         comptime _ = @TypeOf(r)._is_QRectF;
         comptime _ = @TypeOf(pixmap)._is_QPixmap;
         comptime _ = @TypeOf(s)._is_QPointF;
         qtc.QPaintEngine_DrawTiledPixmap(@ptrCast(self.ptr), @ptrCast(r.ptr), @ptrCast(pixmap.ptr), @ptrCast(s.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDrawTiledPixmap` instead
+    ///
+    pub const OnDrawTiledPixmap = onDrawTiledPixmap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawTiledPixmap)
     ///
@@ -1047,13 +1245,13 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPaintEngine, r: QRectF, pixmap: QPixmap, s: QPointF) callconv(.c) void `
     ///
-    pub fn OnDrawTiledPixmap(self: QPaintEngine, callback: *const fn (QPaintEngine, QRectF, QPixmap, QPointF) callconv(.c) void) void {
+    pub fn onDrawTiledPixmap(self: QPaintEngine, callback: *const fn (QPaintEngine, QRectF, QPixmap, QPointF) callconv(.c) void) void {
         qtc.QPaintEngine_OnDrawTiledPixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawTiledPixmap` instead
+    /// ### DEPRECATED: Use `superDrawTiledPixmap` instead
     ///
-    pub const QBaseDrawTiledPixmap = SuperDrawTiledPixmap;
+    pub const SuperDrawTiledPixmap = superDrawTiledPixmap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawTiledPixmap)
     ///
@@ -1069,12 +1267,16 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` s: QPointF `
     ///
-    pub fn SuperDrawTiledPixmap(self: QPaintEngine, r: anytype, pixmap: anytype, s: anytype) void {
+    pub fn superDrawTiledPixmap(self: QPaintEngine, r: anytype, pixmap: anytype, s: anytype) void {
         comptime _ = @TypeOf(r)._is_QRectF;
         comptime _ = @TypeOf(pixmap)._is_QPixmap;
         comptime _ = @TypeOf(s)._is_QPointF;
         qtc.QPaintEngine_SuperDrawTiledPixmap(@ptrCast(self.ptr), @ptrCast(r.ptr), @ptrCast(pixmap.ptr), @ptrCast(s.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawImage` instead
+    ///
+    pub const DrawImage = drawImage;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawImage)
     ///
@@ -1090,12 +1292,16 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.ImageConversionFlag `
     ///
-    pub fn DrawImage(self: QPaintEngine, r: anytype, pm: anytype, sr: anytype, flags: i32) void {
+    pub fn drawImage(self: QPaintEngine, r: anytype, pm: anytype, sr: anytype, flags: i32) void {
         comptime _ = @TypeOf(r)._is_QRectF;
         comptime _ = @TypeOf(pm)._is_QImage;
         comptime _ = @TypeOf(sr)._is_QRectF;
         qtc.QPaintEngine_DrawImage(@ptrCast(self.ptr), @ptrCast(r.ptr), @ptrCast(pm.ptr), @ptrCast(sr.ptr), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `onDrawImage` instead
+    ///
+    pub const OnDrawImage = onDrawImage;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawImage)
     ///
@@ -1107,13 +1313,13 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPaintEngine, r: QRectF, pm: QImage, sr: QRectF, flags: flag of qnamespace_enums.ImageConversionFlag) callconv(.c) void `
     ///
-    pub fn OnDrawImage(self: QPaintEngine, callback: *const fn (QPaintEngine, QRectF, QImage, QRectF, i32) callconv(.c) void) void {
+    pub fn onDrawImage(self: QPaintEngine, callback: *const fn (QPaintEngine, QRectF, QImage, QRectF, i32) callconv(.c) void) void {
         qtc.QPaintEngine_OnDrawImage(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawImage` instead
+    /// ### DEPRECATED: Use `superDrawImage` instead
     ///
-    pub const QBaseDrawImage = SuperDrawImage;
+    pub const SuperDrawImage = superDrawImage;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawImage)
     ///
@@ -1131,12 +1337,16 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.ImageConversionFlag `
     ///
-    pub fn SuperDrawImage(self: QPaintEngine, r: anytype, pm: anytype, sr: anytype, flags: i32) void {
+    pub fn superDrawImage(self: QPaintEngine, r: anytype, pm: anytype, sr: anytype, flags: i32) void {
         comptime _ = @TypeOf(r)._is_QRectF;
         comptime _ = @TypeOf(pm)._is_QImage;
         comptime _ = @TypeOf(sr)._is_QRectF;
         qtc.QPaintEngine_SuperDrawImage(@ptrCast(self.ptr), @ptrCast(r.ptr), @ptrCast(pm.ptr), @ptrCast(sr.ptr), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `setPaintDevice` instead
+    ///
+    pub const SetPaintDevice = setPaintDevice;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#setPaintDevice)
     ///
@@ -1146,10 +1356,14 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` device: QPaintDevice `
     ///
-    pub fn SetPaintDevice(self: QPaintEngine, device: anytype) void {
+    pub fn setPaintDevice(self: QPaintEngine, device: anytype) void {
         comptime _ = @TypeOf(device)._is_QPaintDevice;
         qtc.QPaintEngine_SetPaintDevice(@ptrCast(self.ptr), @ptrCast(device.ptr));
     }
+
+    /// ### DEPRECATED: Use `paintDevice` instead
+    ///
+    pub const PaintDevice = paintDevice;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#paintDevice)
     ///
@@ -1157,9 +1371,13 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` self: QPaintEngine `
     ///
-    pub fn PaintDevice(self: QPaintEngine) QPaintDevice {
+    pub fn paintDevice(self: QPaintEngine) QPaintDevice {
         return .{ .ptr = qtc.QPaintEngine_PaintDevice(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSystemClip` instead
+    ///
+    pub const SetSystemClip = setSystemClip;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#setSystemClip)
     ///
@@ -1169,10 +1387,14 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` baseClip: QRegion `
     ///
-    pub fn SetSystemClip(self: QPaintEngine, baseClip: anytype) void {
+    pub fn setSystemClip(self: QPaintEngine, baseClip: anytype) void {
         comptime _ = @TypeOf(baseClip)._is_QRegion;
         qtc.QPaintEngine_SetSystemClip(@ptrCast(self.ptr), @ptrCast(baseClip.ptr));
     }
+
+    /// ### DEPRECATED: Use `systemClip` instead
+    ///
+    pub const SystemClip = systemClip;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#systemClip)
     ///
@@ -1180,9 +1402,13 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` self: QPaintEngine `
     ///
-    pub fn SystemClip(self: QPaintEngine) QRegion {
+    pub fn systemClip(self: QPaintEngine) QRegion {
         return .{ .ptr = qtc.QPaintEngine_SystemClip(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSystemRect` instead
+    ///
+    pub const SetSystemRect = setSystemRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#setSystemRect)
     ///
@@ -1192,10 +1418,14 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` rect: QRect `
     ///
-    pub fn SetSystemRect(self: QPaintEngine, rect: anytype) void {
+    pub fn setSystemRect(self: QPaintEngine, rect: anytype) void {
         comptime _ = @TypeOf(rect)._is_QRect;
         qtc.QPaintEngine_SetSystemRect(@ptrCast(self.ptr), @ptrCast(rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `systemRect` instead
+    ///
+    pub const SystemRect = systemRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#systemRect)
     ///
@@ -1203,9 +1433,13 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` self: QPaintEngine `
     ///
-    pub fn SystemRect(self: QPaintEngine) QRect {
+    pub fn systemRect(self: QPaintEngine) QRect {
         return .{ .ptr = qtc.QPaintEngine_SystemRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `coordinateOffset` instead
+    ///
+    pub const CoordinateOffset = coordinateOffset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#coordinateOffset)
     ///
@@ -1213,9 +1447,13 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` self: QPaintEngine `
     ///
-    pub fn CoordinateOffset(self: QPaintEngine) QPoint {
+    pub fn coordinateOffset(self: QPaintEngine) QPoint {
         return .{ .ptr = qtc.QPaintEngine_CoordinateOffset(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onCoordinateOffset` instead
+    ///
+    pub const OnCoordinateOffset = onCoordinateOffset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#coordinateOffset)
     ///
@@ -1229,13 +1467,13 @@ pub const QPaintEngine = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnCoordinateOffset(self: QPaintEngine, callback: *const fn () callconv(.c) QPoint) void {
+    pub fn onCoordinateOffset(self: QPaintEngine, callback: *const fn () callconv(.c) QPoint) void {
         qtc.QPaintEngine_OnCoordinateOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCoordinateOffset` instead
+    /// ### DEPRECATED: Use `superCoordinateOffset` instead
     ///
-    pub const QBaseCoordinateOffset = SuperCoordinateOffset;
+    pub const SuperCoordinateOffset = superCoordinateOffset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#coordinateOffset)
     ///
@@ -1245,9 +1483,15 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` self: QPaintEngine `
     ///
-    pub fn SuperCoordinateOffset(self: QPaintEngine) QPoint {
+    pub fn superCoordinateOffset(self: QPaintEngine) QPoint {
         return .{ .ptr = qtc.QPaintEngine_SuperCoordinateOffset(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#type)
     ///
@@ -1259,9 +1503,13 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` qpaintengine_enums.Type `
     ///
-    pub fn Type(self: QPaintEngine) i32 {
+    pub fn type0(self: QPaintEngine) i32 {
         return qtc.QPaintEngine_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onType` instead
+    ///
+    pub const OnType = onType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#type)
     ///
@@ -1273,13 +1521,13 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnType(self: QPaintEngine, callback: *const fn () callconv(.c) i32) void {
+    pub fn onType(self: QPaintEngine, callback: *const fn () callconv(.c) i32) void {
         qtc.QPaintEngine_OnType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperType` instead
+    /// ### DEPRECATED: Use `superType` instead
     ///
-    pub const QBaseType = SuperType;
+    pub const SuperType = superType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#type)
     ///
@@ -1293,9 +1541,13 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` qpaintengine_enums.Type `
     ///
-    pub fn SuperType(self: QPaintEngine) i32 {
+    pub fn superType(self: QPaintEngine) i32 {
         return qtc.QPaintEngine_SuperType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `fixNegRect` instead
+    ///
+    pub const FixNegRect = fixNegRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#fix_neg_rect)
     ///
@@ -1311,9 +1563,13 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` h: *i32 `
     ///
-    pub fn FixNegRect(self: QPaintEngine, x: *i32, y: *i32, w: *i32, h: *i32) void {
+    pub fn fixNegRect(self: QPaintEngine, x: *i32, y: *i32, w: *i32, h: *i32) void {
         qtc.QPaintEngine_FixNegRect(@ptrCast(self.ptr), @ptrCast(x), @ptrCast(y), @ptrCast(w), @ptrCast(h));
     }
+
+    /// ### DEPRECATED: Use `testDirty` instead
+    ///
+    pub const TestDirty = testDirty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#testDirty)
     ///
@@ -1323,9 +1579,13 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` df: flag of qpaintengine_enums.DirtyFlag `
     ///
-    pub fn TestDirty(self: QPaintEngine, df: i32) bool {
+    pub fn testDirty(self: QPaintEngine, df: i32) bool {
         return qtc.QPaintEngine_TestDirty(@ptrCast(self.ptr), @bitCast(df));
     }
+
+    /// ### DEPRECATED: Use `setDirty` instead
+    ///
+    pub const SetDirty = setDirty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#setDirty)
     ///
@@ -1335,9 +1595,13 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` df: flag of qpaintengine_enums.DirtyFlag `
     ///
-    pub fn SetDirty(self: QPaintEngine, df: i32) void {
+    pub fn setDirty(self: QPaintEngine, df: i32) void {
         qtc.QPaintEngine_SetDirty(@ptrCast(self.ptr), @bitCast(df));
     }
+
+    /// ### DEPRECATED: Use `clearDirty` instead
+    ///
+    pub const ClearDirty = clearDirty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#clearDirty)
     ///
@@ -1347,9 +1611,13 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` df: flag of qpaintengine_enums.DirtyFlag `
     ///
-    pub fn ClearDirty(self: QPaintEngine, df: i32) void {
+    pub fn clearDirty(self: QPaintEngine, df: i32) void {
         qtc.QPaintEngine_ClearDirty(@ptrCast(self.ptr), @bitCast(df));
     }
+
+    /// ### DEPRECATED: Use `hasFeature` instead
+    ///
+    pub const HasFeature = hasFeature;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#hasFeature)
     ///
@@ -1359,9 +1627,13 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` feature: flag of qpaintengine_enums.PaintEngineFeature `
     ///
-    pub fn HasFeature(self: QPaintEngine, feature: i32) bool {
+    pub fn hasFeature(self: QPaintEngine, feature: i32) bool {
         return qtc.QPaintEngine_HasFeature(@ptrCast(self.ptr), @bitCast(feature));
     }
+
+    /// ### DEPRECATED: Use `painter` instead
+    ///
+    pub const Painter = painter;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#painter)
     ///
@@ -1369,9 +1641,13 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` self: QPaintEngine `
     ///
-    pub fn Painter(self: QPaintEngine) QPainter {
+    pub fn painter(self: QPaintEngine) QPainter {
         return .{ .ptr = qtc.QPaintEngine_Painter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `syncState` instead
+    ///
+    pub const SyncState = syncState;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#syncState)
     ///
@@ -1379,9 +1655,13 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` self: QPaintEngine `
     ///
-    pub fn SyncState(self: QPaintEngine) void {
+    pub fn syncState(self: QPaintEngine) void {
         qtc.QPaintEngine_SyncState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isExtended` instead
+    ///
+    pub const IsExtended = isExtended;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#isExtended)
     ///
@@ -1389,9 +1669,13 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` self: QPaintEngine `
     ///
-    pub fn IsExtended(self: QPaintEngine) bool {
+    pub fn isExtended(self: QPaintEngine) bool {
         return qtc.QPaintEngine_IsExtended(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createPixmap` instead
+    ///
+    pub const CreatePixmap = createPixmap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#createPixmap)
     ///
@@ -1401,10 +1685,14 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` size: QSize `
     ///
-    pub fn CreatePixmap(self: QPaintEngine, size: anytype) QPixmap {
+    pub fn createPixmap(self: QPaintEngine, size: anytype) QPixmap {
         comptime _ = @TypeOf(size)._is_QSize;
         return .{ .ptr = qtc.QPaintEngine_CreatePixmap(@ptrCast(self.ptr), @ptrCast(size.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onCreatePixmap` instead
+    ///
+    pub const OnCreatePixmap = onCreatePixmap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#createPixmap)
     ///
@@ -1418,13 +1706,13 @@ pub const QPaintEngine = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnCreatePixmap(self: QPaintEngine, callback: *const fn (QPaintEngine, QSize) callconv(.c) QPixmap) void {
+    pub fn onCreatePixmap(self: QPaintEngine, callback: *const fn (QPaintEngine, QSize) callconv(.c) QPixmap) void {
         qtc.QPaintEngine_OnCreatePixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCreatePixmap` instead
+    /// ### DEPRECATED: Use `superCreatePixmap` instead
     ///
-    pub const QBaseCreatePixmap = SuperCreatePixmap;
+    pub const SuperCreatePixmap = superCreatePixmap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#createPixmap)
     ///
@@ -1436,10 +1724,14 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` size: QSize `
     ///
-    pub fn SuperCreatePixmap(self: QPaintEngine, size: anytype) QPixmap {
+    pub fn superCreatePixmap(self: QPaintEngine, size: anytype) QPixmap {
         comptime _ = @TypeOf(size)._is_QSize;
         return .{ .ptr = qtc.QPaintEngine_SuperCreatePixmap(@ptrCast(self.ptr), @ptrCast(size.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `createPixmapFromImage` instead
+    ///
+    pub const CreatePixmapFromImage = createPixmapFromImage;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#createPixmapFromImage)
     ///
@@ -1451,10 +1743,14 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.ImageConversionFlag `
     ///
-    pub fn CreatePixmapFromImage(self: QPaintEngine, image: anytype, flags: i32) QPixmap {
+    pub fn createPixmapFromImage(self: QPaintEngine, image: anytype, flags: i32) QPixmap {
         comptime _ = @TypeOf(image)._is_QImage;
         return .{ .ptr = qtc.QPaintEngine_CreatePixmapFromImage(@ptrCast(self.ptr), @ptrCast(image.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `onCreatePixmapFromImage` instead
+    ///
+    pub const OnCreatePixmapFromImage = onCreatePixmapFromImage;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#createPixmapFromImage)
     ///
@@ -1468,13 +1764,13 @@ pub const QPaintEngine = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnCreatePixmapFromImage(self: QPaintEngine, callback: *const fn (QPaintEngine, QImage, i32) callconv(.c) QPixmap) void {
+    pub fn onCreatePixmapFromImage(self: QPaintEngine, callback: *const fn (QPaintEngine, QImage, i32) callconv(.c) QPixmap) void {
         qtc.QPaintEngine_OnCreatePixmapFromImage(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCreatePixmapFromImage` instead
+    /// ### DEPRECATED: Use `superCreatePixmapFromImage` instead
     ///
-    pub const QBaseCreatePixmapFromImage = SuperCreatePixmapFromImage;
+    pub const SuperCreatePixmapFromImage = superCreatePixmapFromImage;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#createPixmapFromImage)
     ///
@@ -1488,24 +1784,24 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.ImageConversionFlag `
     ///
-    pub fn SuperCreatePixmapFromImage(self: QPaintEngine, image: anytype, flags: i32) QPixmap {
+    pub fn superCreatePixmapFromImage(self: QPaintEngine, image: anytype, flags: i32) QPixmap {
         comptime _ = @TypeOf(image)._is_QImage;
         return .{ .ptr = qtc.QPaintEngine_SuperCreatePixmapFromImage(@ptrCast(self.ptr), @ptrCast(image.ptr), @bitCast(flags)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#dtor.QPaintEngine)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QPaintEngine `
     ///
-    pub fn Delete(self: QPaintEngine) void {
+    pub fn delete(self: QPaintEngine) void {
         qtc.QPaintEngine_Delete(@ptrCast(self.ptr));
     }
 };
@@ -1520,35 +1816,50 @@ pub const QPaintEngineState = extern struct {
 
     pub const _is_QPaintEngineState = {};
 
-    /// New constructs a new QPaintEngineState object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QPaintEngineState {
+    pub const New = new;
+
+    /// Allocate a new QPaintEngineState object in C++ memory
+    ///
+    pub fn new() QPaintEngineState {
         return .{ .ptr = qtc.QPaintEngineState_new() };
     }
 
-    /// New2 constructs a new QPaintEngineState object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QPaintEngineState object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QPaintEngineState `
     ///
-    pub fn New2(other: anytype) QPaintEngineState {
+    pub fn new2(other: anytype) QPaintEngineState {
         comptime _ = @TypeOf(other)._is_QPaintEngineState;
         return .{ .ptr = qtc.QPaintEngineState_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QPaintEngineState object and invalidates the source QPaintEngineState object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QPaintEngineState object and invalidate the source QPaintEngineState object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QPaintEngineState `
     ///
-    pub fn New3(other: anytype) QPaintEngineState {
+    pub fn new3(other: anytype) QPaintEngineState {
         comptime _ = @TypeOf(other)._is_QPaintEngineState;
         return .{ .ptr = qtc.QPaintEngineState_new3(@ptrCast(other.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -1556,11 +1867,14 @@ pub const QPaintEngineState = extern struct {
     ///
     /// ` other: QPaintEngineState `
     ///
-    pub fn CopyAssign(self: QPaintEngineState, other: QPaintEngineState) void {
+    pub fn copyAssign(self: QPaintEngineState, other: QPaintEngineState) void {
         qtc.QPaintEngineState_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -1568,9 +1882,13 @@ pub const QPaintEngineState = extern struct {
     ///
     /// ` other: QPaintEngineState `
     ///
-    pub fn MoveAssign(self: QPaintEngineState, other: QPaintEngineState) void {
+    pub fn moveAssign(self: QPaintEngineState, other: QPaintEngineState) void {
         qtc.QPaintEngineState_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `state` instead
+    ///
+    pub const State = state;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintenginestate.html#state)
     ///
@@ -1582,9 +1900,13 @@ pub const QPaintEngineState = extern struct {
     ///
     /// ` flag of qpaintengine_enums.DirtyFlag `
     ///
-    pub fn State(self: QPaintEngineState) i32 {
+    pub fn state(self: QPaintEngineState) i32 {
         return qtc.QPaintEngineState_State(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pen` instead
+    ///
+    pub const Pen = pen;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintenginestate.html#pen)
     ///
@@ -1592,9 +1914,13 @@ pub const QPaintEngineState = extern struct {
     ///
     /// ` self: QPaintEngineState `
     ///
-    pub fn Pen(self: QPaintEngineState) QPen {
+    pub fn pen(self: QPaintEngineState) QPen {
         return .{ .ptr = qtc.QPaintEngineState_Pen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `brush` instead
+    ///
+    pub const Brush = brush;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintenginestate.html#brush)
     ///
@@ -1602,9 +1928,13 @@ pub const QPaintEngineState = extern struct {
     ///
     /// ` self: QPaintEngineState `
     ///
-    pub fn Brush(self: QPaintEngineState) QBrush {
+    pub fn brush(self: QPaintEngineState) QBrush {
         return .{ .ptr = qtc.QPaintEngineState_Brush(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `brushOrigin` instead
+    ///
+    pub const BrushOrigin = brushOrigin;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintenginestate.html#brushOrigin)
     ///
@@ -1612,9 +1942,13 @@ pub const QPaintEngineState = extern struct {
     ///
     /// ` self: QPaintEngineState `
     ///
-    pub fn BrushOrigin(self: QPaintEngineState) QPointF {
+    pub fn brushOrigin(self: QPaintEngineState) QPointF {
         return .{ .ptr = qtc.QPaintEngineState_BrushOrigin(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `backgroundBrush` instead
+    ///
+    pub const BackgroundBrush = backgroundBrush;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintenginestate.html#backgroundBrush)
     ///
@@ -1622,9 +1956,13 @@ pub const QPaintEngineState = extern struct {
     ///
     /// ` self: QPaintEngineState `
     ///
-    pub fn BackgroundBrush(self: QPaintEngineState) QBrush {
+    pub fn backgroundBrush(self: QPaintEngineState) QBrush {
         return .{ .ptr = qtc.QPaintEngineState_BackgroundBrush(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `backgroundMode` instead
+    ///
+    pub const BackgroundMode = backgroundMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintenginestate.html#backgroundMode)
     ///
@@ -1636,9 +1974,13 @@ pub const QPaintEngineState = extern struct {
     ///
     /// ` qnamespace_enums.BGMode `
     ///
-    pub fn BackgroundMode(self: QPaintEngineState) i32 {
+    pub fn backgroundMode(self: QPaintEngineState) i32 {
         return qtc.QPaintEngineState_BackgroundMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintenginestate.html#font)
     ///
@@ -1646,9 +1988,13 @@ pub const QPaintEngineState = extern struct {
     ///
     /// ` self: QPaintEngineState `
     ///
-    pub fn Font(self: QPaintEngineState) QFont {
+    pub fn font(self: QPaintEngineState) QFont {
         return .{ .ptr = qtc.QPaintEngineState_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `transform` instead
+    ///
+    pub const Transform = transform;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintenginestate.html#transform)
     ///
@@ -1656,9 +2002,13 @@ pub const QPaintEngineState = extern struct {
     ///
     /// ` self: QPaintEngineState `
     ///
-    pub fn Transform(self: QPaintEngineState) QTransform {
+    pub fn transform(self: QPaintEngineState) QTransform {
         return .{ .ptr = qtc.QPaintEngineState_Transform(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clipOperation` instead
+    ///
+    pub const ClipOperation = clipOperation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintenginestate.html#clipOperation)
     ///
@@ -1670,9 +2020,13 @@ pub const QPaintEngineState = extern struct {
     ///
     /// ` qnamespace_enums.ClipOperation `
     ///
-    pub fn ClipOperation(self: QPaintEngineState) i32 {
+    pub fn clipOperation(self: QPaintEngineState) i32 {
         return qtc.QPaintEngineState_ClipOperation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clipRegion` instead
+    ///
+    pub const ClipRegion = clipRegion;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintenginestate.html#clipRegion)
     ///
@@ -1680,9 +2034,13 @@ pub const QPaintEngineState = extern struct {
     ///
     /// ` self: QPaintEngineState `
     ///
-    pub fn ClipRegion(self: QPaintEngineState) QRegion {
+    pub fn clipRegion(self: QPaintEngineState) QRegion {
         return .{ .ptr = qtc.QPaintEngineState_ClipRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clipPath` instead
+    ///
+    pub const ClipPath = clipPath;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintenginestate.html#clipPath)
     ///
@@ -1690,9 +2048,13 @@ pub const QPaintEngineState = extern struct {
     ///
     /// ` self: QPaintEngineState `
     ///
-    pub fn ClipPath(self: QPaintEngineState) QPainterPath {
+    pub fn clipPath(self: QPaintEngineState) QPainterPath {
         return .{ .ptr = qtc.QPaintEngineState_ClipPath(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isClipEnabled` instead
+    ///
+    pub const IsClipEnabled = isClipEnabled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintenginestate.html#isClipEnabled)
     ///
@@ -1700,9 +2062,13 @@ pub const QPaintEngineState = extern struct {
     ///
     /// ` self: QPaintEngineState `
     ///
-    pub fn IsClipEnabled(self: QPaintEngineState) bool {
+    pub fn isClipEnabled(self: QPaintEngineState) bool {
         return qtc.QPaintEngineState_IsClipEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `renderHints` instead
+    ///
+    pub const RenderHints = renderHints;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintenginestate.html#renderHints)
     ///
@@ -1714,9 +2080,13 @@ pub const QPaintEngineState = extern struct {
     ///
     /// ` flag of qpainter_enums.RenderHint `
     ///
-    pub fn RenderHints(self: QPaintEngineState) i32 {
+    pub fn renderHints(self: QPaintEngineState) i32 {
         return qtc.QPaintEngineState_RenderHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `compositionMode` instead
+    ///
+    pub const CompositionMode = compositionMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintenginestate.html#compositionMode)
     ///
@@ -1728,9 +2098,13 @@ pub const QPaintEngineState = extern struct {
     ///
     /// ` qpainter_enums.CompositionMode `
     ///
-    pub fn CompositionMode(self: QPaintEngineState) i32 {
+    pub fn compositionMode(self: QPaintEngineState) i32 {
         return qtc.QPaintEngineState_CompositionMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `opacity` instead
+    ///
+    pub const Opacity = opacity;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintenginestate.html#opacity)
     ///
@@ -1738,9 +2112,13 @@ pub const QPaintEngineState = extern struct {
     ///
     /// ` self: QPaintEngineState `
     ///
-    pub fn Opacity(self: QPaintEngineState) f64 {
+    pub fn opacity(self: QPaintEngineState) f64 {
         return qtc.QPaintEngineState_Opacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `painter` instead
+    ///
+    pub const Painter = painter;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintenginestate.html#painter)
     ///
@@ -1748,9 +2126,13 @@ pub const QPaintEngineState = extern struct {
     ///
     /// ` self: QPaintEngineState `
     ///
-    pub fn Painter(self: QPaintEngineState) QPainter {
+    pub fn painter(self: QPaintEngineState) QPainter {
         return .{ .ptr = qtc.QPaintEngineState_Painter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `brushNeedsResolving` instead
+    ///
+    pub const BrushNeedsResolving = brushNeedsResolving;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintenginestate.html#brushNeedsResolving)
     ///
@@ -1758,9 +2140,13 @@ pub const QPaintEngineState = extern struct {
     ///
     /// ` self: QPaintEngineState `
     ///
-    pub fn BrushNeedsResolving(self: QPaintEngineState) bool {
+    pub fn brushNeedsResolving(self: QPaintEngineState) bool {
         return qtc.QPaintEngineState_BrushNeedsResolving(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `penNeedsResolving` instead
+    ///
+    pub const PenNeedsResolving = penNeedsResolving;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintenginestate.html#penNeedsResolving)
     ///
@@ -1768,23 +2154,23 @@ pub const QPaintEngineState = extern struct {
     ///
     /// ` self: QPaintEngineState `
     ///
-    pub fn PenNeedsResolving(self: QPaintEngineState) bool {
+    pub fn penNeedsResolving(self: QPaintEngineState) bool {
         return qtc.QPaintEngineState_PenNeedsResolving(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintenginestate.html#dtor.QPaintEngineState)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QPaintEngineState `
     ///
-    pub fn Delete(self: QPaintEngineState) void {
+    pub fn delete(self: QPaintEngineState) void {
         qtc.QPaintEngineState_Delete(@ptrCast(self.ptr));
     }
 };

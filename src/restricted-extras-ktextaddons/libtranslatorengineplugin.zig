@@ -26,22 +26,34 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     pub const _is_TextTranslator__TranslatorEnginePlugin = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new TextTranslator::TranslatorEnginePlugin object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() TextTranslator__TranslatorEnginePlugin {
+    pub const New = new;
+
+    /// Allocate a new TextTranslator::TranslatorEnginePlugin object in C++ memory
+    ///
+    pub fn new() TextTranslator__TranslatorEnginePlugin {
         return .{ .ptr = qtc.TextTranslator__TranslatorEnginePlugin_new() };
     }
 
-    /// New2 constructs a new TextTranslator::TranslatorEnginePlugin object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new TextTranslator::TranslatorEnginePlugin object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) TextTranslator__TranslatorEnginePlugin {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.TextTranslator__TranslatorEnginePlugin_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) TextTranslator__TranslatorEnginePlugin {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.TextTranslator__TranslatorEnginePlugin_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
     ///
@@ -49,9 +61,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEnginePlugin `
     ///
-    pub fn MetaObject(self: TextTranslator__TranslatorEnginePlugin) QMetaObject {
+    pub fn metaObject(self: TextTranslator__TranslatorEnginePlugin) QMetaObject {
         return .{ .ptr = qtc.TextTranslator__TranslatorEnginePlugin_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
     ///
@@ -63,13 +79,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.TextTranslator__TranslatorEnginePlugin_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
     ///
@@ -79,9 +95,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEnginePlugin `
     ///
-    pub fn SuperMetaObject(self: TextTranslator__TranslatorEnginePlugin) QMetaObject {
+    pub fn superMetaObject(self: TextTranslator__TranslatorEnginePlugin) QMetaObject {
         return .{ .ptr = qtc.TextTranslator__TranslatorEnginePlugin_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -89,10 +109,14 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: TextTranslator__TranslatorEnginePlugin, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: TextTranslator__TranslatorEnginePlugin, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.TextTranslator__TranslatorEnginePlugin_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -102,13 +126,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorEnginePlugin, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn (TextTranslator__TranslatorEnginePlugin, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn (TextTranslator__TranslatorEnginePlugin, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.TextTranslator__TranslatorEnginePlugin_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -118,10 +142,14 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: TextTranslator__TranslatorEnginePlugin, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: TextTranslator__TranslatorEnginePlugin, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.TextTranslator__TranslatorEnginePlugin_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -133,9 +161,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: TextTranslator__TranslatorEnginePlugin, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: TextTranslator__TranslatorEnginePlugin, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.TextTranslator__TranslatorEnginePlugin_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -145,13 +177,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorEnginePlugin, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn (TextTranslator__TranslatorEnginePlugin, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn (TextTranslator__TranslatorEnginePlugin, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.TextTranslator__TranslatorEnginePlugin_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -165,9 +197,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: TextTranslator__TranslatorEnginePlugin, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: TextTranslator__TranslatorEnginePlugin, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.TextTranslator__TranslatorEnginePlugin_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -177,14 +213,18 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorEnginePlugin.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorEnginePlugin.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `translate` instead
+    ///
+    pub const Translate = translate;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
     ///
@@ -192,9 +232,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEnginePlugin `
     ///
-    pub fn Translate(self: TextTranslator__TranslatorEnginePlugin) void {
+    pub fn translate(self: TextTranslator__TranslatorEnginePlugin) void {
         qtc.TextTranslator__TranslatorEnginePlugin_Translate(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTranslate` instead
+    ///
+    pub const OnTranslate = onTranslate;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
     ///
@@ -206,13 +250,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnTranslate(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn () callconv(.c) void) void {
+    pub fn onTranslate(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn () callconv(.c) void) void {
         qtc.TextTranslator__TranslatorEnginePlugin_OnTranslate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperTranslate` instead
+    /// ### DEPRECATED: Use `superTranslate` instead
     ///
-    pub const QBaseTranslate = SuperTranslate;
+    pub const SuperTranslate = superTranslate;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
     ///
@@ -222,9 +266,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEnginePlugin `
     ///
-    pub fn SuperTranslate(self: TextTranslator__TranslatorEnginePlugin) void {
+    pub fn superTranslate(self: TextTranslator__TranslatorEnginePlugin) void {
         qtc.TextTranslator__TranslatorEnginePlugin_SuperTranslate(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `resultTranslate` instead
+    ///
+    pub const ResultTranslate = resultTranslate;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
     ///
@@ -234,13 +282,17 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ResultTranslate(self: TextTranslator__TranslatorEnginePlugin, allocator: std.mem.Allocator) []const u8 {
+    pub fn resultTranslate(self: TextTranslator__TranslatorEnginePlugin, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextTranslator__TranslatorEnginePlugin_ResultTranslate(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorEnginePlugin.ResultTranslate: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorEnginePlugin.resultTranslate: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setInputText` instead
+    ///
+    pub const SetInputText = setInputText;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
     ///
@@ -250,7 +302,7 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetInputText(self: TextTranslator__TranslatorEnginePlugin, text: []const u8) void {
+    pub fn setInputText(self: TextTranslator__TranslatorEnginePlugin, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -258,6 +310,10 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
         qtc.TextTranslator__TranslatorEnginePlugin_SetInputText(@ptrCast(self.ptr), text_str);
     }
 
+    /// ### DEPRECATED: Use `setFrom` instead
+    ///
+    pub const SetFrom = setFrom;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
     ///
     /// ## Parameter(s):
@@ -266,7 +322,7 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` language: []const u8 `
     ///
-    pub fn SetFrom(self: TextTranslator__TranslatorEnginePlugin, language: []const u8) void {
+    pub fn setFrom(self: TextTranslator__TranslatorEnginePlugin, language: []const u8) void {
         const language_str = qtc.libqt_string{
             .len = language.len,
             .data = language.ptr,
@@ -274,6 +330,10 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
         qtc.TextTranslator__TranslatorEnginePlugin_SetFrom(@ptrCast(self.ptr), language_str);
     }
 
+    /// ### DEPRECATED: Use `setTo` instead
+    ///
+    pub const SetTo = setTo;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
     ///
     /// ## Parameter(s):
@@ -282,7 +342,7 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` language: []const u8 `
     ///
-    pub fn SetTo(self: TextTranslator__TranslatorEnginePlugin, language: []const u8) void {
+    pub fn setTo(self: TextTranslator__TranslatorEnginePlugin, language: []const u8) void {
         const language_str = qtc.libqt_string{
             .len = language.len,
             .data = language.ptr,
@@ -290,21 +350,29 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
         qtc.TextTranslator__TranslatorEnginePlugin_SetTo(@ptrCast(self.ptr), language_str);
     }
 
+    /// ### DEPRECATED: Use `setResult` instead
+    ///
+    pub const SetResult = setResult;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: TextTranslator__TranslatorEnginePlugin `
     ///
-    /// ` result: []const u8 `
+    /// ` _result: []const u8 `
     ///
-    pub fn SetResult(self: TextTranslator__TranslatorEnginePlugin, result: []const u8) void {
+    pub fn setResult(self: TextTranslator__TranslatorEnginePlugin, _result: []const u8) void {
         const result_str = qtc.libqt_string{
-            .len = result.len,
-            .data = result.ptr,
+            .len = _result.len,
+            .data = _result.ptr,
         };
         qtc.TextTranslator__TranslatorEnginePlugin_SetResult(@ptrCast(self.ptr), result_str);
     }
+
+    /// ### DEPRECATED: Use `setJsonDebug` instead
+    ///
+    pub const SetJsonDebug = setJsonDebug;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
     ///
@@ -314,7 +382,7 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` debug: []const u8 `
     ///
-    pub fn SetJsonDebug(self: TextTranslator__TranslatorEnginePlugin, debug: []const u8) void {
+    pub fn setJsonDebug(self: TextTranslator__TranslatorEnginePlugin, debug: []const u8) void {
         const debug_str = qtc.libqt_string{
             .len = debug.len,
             .data = debug.ptr,
@@ -322,6 +390,10 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
         qtc.TextTranslator__TranslatorEnginePlugin_SetJsonDebug(@ptrCast(self.ptr), debug_str);
     }
 
+    /// ### DEPRECATED: Use `inputText` instead
+    ///
+    pub const InputText = inputText;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
     ///
     /// ## Parameter(s):
@@ -330,13 +402,17 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn InputText(self: TextTranslator__TranslatorEnginePlugin, allocator: std.mem.Allocator) []const u8 {
+    pub fn inputText(self: TextTranslator__TranslatorEnginePlugin, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextTranslator__TranslatorEnginePlugin_InputText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorEnginePlugin.InputText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorEnginePlugin.inputText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `from` instead
+    ///
+    pub const From = from;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
     ///
@@ -346,13 +422,17 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn From(self: TextTranslator__TranslatorEnginePlugin, allocator: std.mem.Allocator) []const u8 {
+    pub fn from(self: TextTranslator__TranslatorEnginePlugin, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextTranslator__TranslatorEnginePlugin_From(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorEnginePlugin.From: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorEnginePlugin.from: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `to` instead
+    ///
+    pub const To = to;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
     ///
@@ -362,13 +442,17 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn To(self: TextTranslator__TranslatorEnginePlugin, allocator: std.mem.Allocator) []const u8 {
+    pub fn to(self: TextTranslator__TranslatorEnginePlugin, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextTranslator__TranslatorEnginePlugin_To(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorEnginePlugin.To: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorEnginePlugin.to: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `result` instead
+    ///
+    pub const Result = result;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
     ///
@@ -378,13 +462,17 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Result(self: TextTranslator__TranslatorEnginePlugin, allocator: std.mem.Allocator) []const u8 {
+    pub fn result(self: TextTranslator__TranslatorEnginePlugin, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextTranslator__TranslatorEnginePlugin_Result(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorEnginePlugin.Result: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorEnginePlugin.result: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `jsonDebug` instead
+    ///
+    pub const JsonDebug = jsonDebug;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
     ///
@@ -394,13 +482,17 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn JsonDebug(self: TextTranslator__TranslatorEnginePlugin, allocator: std.mem.Allocator) []const u8 {
+    pub fn jsonDebug(self: TextTranslator__TranslatorEnginePlugin, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextTranslator__TranslatorEnginePlugin_JsonDebug(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorEnginePlugin.JsonDebug: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorEnginePlugin.jsonDebug: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
     ///
@@ -408,19 +500,27 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEnginePlugin `
     ///
-    pub fn Clear(self: TextTranslator__TranslatorEnginePlugin) void {
+    pub fn clear(self: TextTranslator__TranslatorEnginePlugin) void {
         qtc.TextTranslator__TranslatorEnginePlugin_Clear(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `translateDone` instead
+    ///
+    pub const TranslateDone = translateDone;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: TextTranslator__TranslatorEnginePlugin `
     ///
-    pub fn TranslateDone(self: TextTranslator__TranslatorEnginePlugin) void {
+    pub fn translateDone(self: TextTranslator__TranslatorEnginePlugin) void {
         qtc.TextTranslator__TranslatorEnginePlugin_TranslateDone(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTranslateDone` instead
+    ///
+    pub const OnTranslateDone = onTranslateDone;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
     ///
@@ -430,9 +530,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorEnginePlugin) callconv(.c) void `
     ///
-    pub fn OnTranslateDone(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn (TextTranslator__TranslatorEnginePlugin) callconv(.c) void) void {
+    pub fn onTranslateDone(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn (TextTranslator__TranslatorEnginePlugin) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorEnginePlugin_Connect_TranslateDone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `translateFailed` instead
+    ///
+    pub const TranslateFailed = translateFailed;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
     ///
@@ -442,13 +546,17 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` errorMessage: []const u8 `
     ///
-    pub fn TranslateFailed(self: TextTranslator__TranslatorEnginePlugin, errorMessage: []const u8) void {
+    pub fn translateFailed(self: TextTranslator__TranslatorEnginePlugin, errorMessage: []const u8) void {
         const errorMessage_str = qtc.libqt_string{
             .len = errorMessage.len,
             .data = errorMessage.ptr,
         };
         qtc.TextTranslator__TranslatorEnginePlugin_TranslateFailed(@ptrCast(self.ptr), errorMessage_str);
     }
+
+    /// ### DEPRECATED: Use `onTranslateFailed` instead
+    ///
+    pub const OnTranslateFailed = onTranslateFailed;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
     ///
@@ -458,9 +566,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorEnginePlugin, errorMessage: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnTranslateFailed(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn (TextTranslator__TranslatorEnginePlugin, [*:0]const u8) callconv(.c) void) void {
+    pub fn onTranslateFailed(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn (TextTranslator__TranslatorEnginePlugin, [*:0]const u8) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorEnginePlugin_Connect_TranslateFailed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `languagesChanged` instead
+    ///
+    pub const LanguagesChanged = languagesChanged;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
     ///
@@ -468,9 +580,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEnginePlugin `
     ///
-    pub fn LanguagesChanged(self: TextTranslator__TranslatorEnginePlugin) void {
+    pub fn languagesChanged(self: TextTranslator__TranslatorEnginePlugin) void {
         qtc.TextTranslator__TranslatorEnginePlugin_LanguagesChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLanguagesChanged` instead
+    ///
+    pub const OnLanguagesChanged = onLanguagesChanged;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
     ///
@@ -480,9 +596,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorEnginePlugin) callconv(.c) void `
     ///
-    pub fn OnLanguagesChanged(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn (TextTranslator__TranslatorEnginePlugin) callconv(.c) void) void {
+    pub fn onLanguagesChanged(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn (TextTranslator__TranslatorEnginePlugin) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorEnginePlugin_Connect_LanguagesChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `appendResult` instead
+    ///
+    pub const AppendResult = appendResult;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
     ///
@@ -490,15 +610,19 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEnginePlugin `
     ///
-    /// ` result: []const u8 `
+    /// ` _result: []const u8 `
     ///
-    pub fn AppendResult(self: TextTranslator__TranslatorEnginePlugin, result: []const u8) void {
+    pub fn appendResult(self: TextTranslator__TranslatorEnginePlugin, _result: []const u8) void {
         const result_str = qtc.libqt_string{
-            .len = result.len,
-            .data = result.ptr,
+            .len = _result.len,
+            .data = _result.ptr,
         };
         qtc.TextTranslator__TranslatorEnginePlugin_AppendResult(@ptrCast(self.ptr), result_str);
     }
+
+    /// ### DEPRECATED: Use `onAppendResult` instead
+    ///
+    pub const OnAppendResult = onAppendResult;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
     ///
@@ -510,13 +634,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorEnginePlugin, result: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnAppendResult(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn (TextTranslator__TranslatorEnginePlugin, [*:0]const u8) callconv(.c) void) void {
+    pub fn onAppendResult(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn (TextTranslator__TranslatorEnginePlugin, [*:0]const u8) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorEnginePlugin_OnAppendResult(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperAppendResult` instead
+    /// ### DEPRECATED: Use `superAppendResult` instead
     ///
-    pub const QBaseAppendResult = SuperAppendResult;
+    pub const SuperAppendResult = superAppendResult;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
     ///
@@ -526,15 +650,19 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEnginePlugin `
     ///
-    /// ` result: []const u8 `
+    /// ` _result: []const u8 `
     ///
-    pub fn SuperAppendResult(self: TextTranslator__TranslatorEnginePlugin, result: []const u8) void {
+    pub fn superAppendResult(self: TextTranslator__TranslatorEnginePlugin, _result: []const u8) void {
         const result_str = qtc.libqt_string{
-            .len = result.len,
-            .data = result.ptr,
+            .len = _result.len,
+            .data = _result.ptr,
         };
         qtc.TextTranslator__TranslatorEnginePlugin_SuperAppendResult(@ptrCast(self.ptr), result_str);
     }
+
+    /// ### DEPRECATED: Use `slotError` instead
+    ///
+    pub const SlotError = slotError;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
     ///
@@ -544,9 +672,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` errorVal: qnetworkreply_enums.NetworkError `
     ///
-    pub fn SlotError(self: TextTranslator__TranslatorEnginePlugin, errorVal: i32) void {
+    pub fn slotError(self: TextTranslator__TranslatorEnginePlugin, errorVal: i32) void {
         qtc.TextTranslator__TranslatorEnginePlugin_SlotError(@ptrCast(self.ptr), @bitCast(errorVal));
     }
+
+    /// ### DEPRECATED: Use `onSlotError` instead
+    ///
+    pub const OnSlotError = onSlotError;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
     ///
@@ -558,13 +690,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorEnginePlugin, errorVal: qnetworkreply_enums.NetworkError) callconv(.c) void `
     ///
-    pub fn OnSlotError(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn (TextTranslator__TranslatorEnginePlugin, i32) callconv(.c) void) void {
+    pub fn onSlotError(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn (TextTranslator__TranslatorEnginePlugin, i32) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorEnginePlugin_OnSlotError(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSlotError` instead
+    /// ### DEPRECATED: Use `superSlotError` instead
     ///
-    pub const QBaseSlotError = SuperSlotError;
+    pub const SuperSlotError = superSlotError;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
     ///
@@ -576,20 +708,28 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` errorVal: qnetworkreply_enums.NetworkError `
     ///
-    pub fn SuperSlotError(self: TextTranslator__TranslatorEnginePlugin, errorVal: i32) void {
+    pub fn superSlotError(self: TextTranslator__TranslatorEnginePlugin, errorVal: i32) void {
         qtc.TextTranslator__TranslatorEnginePlugin_SuperSlotError(@ptrCast(self.ptr), @bitCast(errorVal));
     }
 
+    /// ### DEPRECATED: Use `verifyFromAndToLanguage` instead
+    ///
+    pub const VerifyFromAndToLanguage = verifyFromAndToLanguage;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: TextTranslator__TranslatorEnginePlugin `
     ///
-    pub fn VerifyFromAndToLanguage(self: TextTranslator__TranslatorEnginePlugin) bool {
+    pub fn verifyFromAndToLanguage(self: TextTranslator__TranslatorEnginePlugin) bool {
         return qtc.TextTranslator__TranslatorEnginePlugin_VerifyFromAndToLanguage(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onVerifyFromAndToLanguage` instead
+    ///
+    pub const OnVerifyFromAndToLanguage = onVerifyFromAndToLanguage;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
     ///
     /// Allows for overriding the related default method
@@ -600,13 +740,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnVerifyFromAndToLanguage(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn () callconv(.c) bool) void {
+    pub fn onVerifyFromAndToLanguage(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn () callconv(.c) bool) void {
         qtc.TextTranslator__TranslatorEnginePlugin_OnVerifyFromAndToLanguage(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperVerifyFromAndToLanguage` instead
+    /// ### DEPRECATED: Use `superVerifyFromAndToLanguage` instead
     ///
-    pub const QBaseVerifyFromAndToLanguage = SuperVerifyFromAndToLanguage;
+    pub const SuperVerifyFromAndToLanguage = superVerifyFromAndToLanguage;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
     ///
@@ -616,9 +756,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEnginePlugin `
     ///
-    pub fn SuperVerifyFromAndToLanguage(self: TextTranslator__TranslatorEnginePlugin) bool {
+    pub fn superVerifyFromAndToLanguage(self: TextTranslator__TranslatorEnginePlugin) bool {
         return qtc.TextTranslator__TranslatorEnginePlugin_SuperVerifyFromAndToLanguage(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasDebug` instead
+    ///
+    pub const HasDebug = hasDebug;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
     ///
@@ -626,9 +770,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEnginePlugin `
     ///
-    pub fn HasDebug(self: TextTranslator__TranslatorEnginePlugin) bool {
+    pub fn hasDebug(self: TextTranslator__TranslatorEnginePlugin) bool {
         return qtc.TextTranslator__TranslatorEnginePlugin_HasDebug(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasDebug` instead
+    ///
+    pub const OnHasDebug = onHasDebug;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
     ///
@@ -640,13 +788,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasDebug(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasDebug(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn () callconv(.c) bool) void {
         qtc.TextTranslator__TranslatorEnginePlugin_OnHasDebug(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperHasDebug` instead
+    /// ### DEPRECATED: Use `superHasDebug` instead
     ///
-    pub const QBaseHasDebug = SuperHasDebug;
+    pub const SuperHasDebug = superHasDebug;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
     ///
@@ -656,9 +804,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEnginePlugin `
     ///
-    pub fn SuperHasDebug(self: TextTranslator__TranslatorEnginePlugin) bool {
+    pub fn superHasDebug(self: TextTranslator__TranslatorEnginePlugin) bool {
         return qtc.TextTranslator__TranslatorEnginePlugin_SuperHasDebug(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `languageCode` instead
+    ///
+    pub const LanguageCode = languageCode;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
     ///
@@ -670,17 +822,21 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` langStr: []const u8 `
     ///
-    pub fn LanguageCode(self: TextTranslator__TranslatorEnginePlugin, allocator: std.mem.Allocator, langStr: []const u8) []const u8 {
+    pub fn languageCode(self: TextTranslator__TranslatorEnginePlugin, allocator: std.mem.Allocator, langStr: []const u8) []const u8 {
         const langStr_str = qtc.libqt_string{
             .len = langStr.len,
             .data = langStr.ptr,
         };
         var _str = qtc.TextTranslator__TranslatorEnginePlugin_LanguageCode(@ptrCast(self.ptr), langStr_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorEnginePlugin.LanguageCode: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorEnginePlugin.languageCode: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onLanguageCode` instead
+    ///
+    pub const OnLanguageCode = onLanguageCode;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
     ///
@@ -692,13 +848,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorEnginePlugin, langStr: [*:0]const u8) callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnLanguageCode(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn (TextTranslator__TranslatorEnginePlugin, [*:0]const u8) callconv(.c) [*:0]const u8) void {
+    pub fn onLanguageCode(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn (TextTranslator__TranslatorEnginePlugin, [*:0]const u8) callconv(.c) [*:0]const u8) void {
         qtc.TextTranslator__TranslatorEnginePlugin_OnLanguageCode(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperLanguageCode` instead
+    /// ### DEPRECATED: Use `superLanguageCode` instead
     ///
-    pub const QBaseLanguageCode = SuperLanguageCode;
+    pub const SuperLanguageCode = superLanguageCode;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
     ///
@@ -712,17 +868,21 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` langStr: []const u8 `
     ///
-    pub fn SuperLanguageCode(self: TextTranslator__TranslatorEnginePlugin, allocator: std.mem.Allocator, langStr: []const u8) []const u8 {
+    pub fn superLanguageCode(self: TextTranslator__TranslatorEnginePlugin, allocator: std.mem.Allocator, langStr: []const u8) []const u8 {
         const langStr_str = qtc.libqt_string{
             .len = langStr.len,
             .data = langStr.ptr,
         };
         var _str = qtc.TextTranslator__TranslatorEnginePlugin_SuperLanguageCode(@ptrCast(self.ptr), langStr_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorEnginePlugin.LanguageCode: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorEnginePlugin.languageCode: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -734,15 +894,19 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorEnginePlugin.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorEnginePlugin.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -756,15 +920,19 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorEnginePlugin.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorEnginePlugin.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -776,13 +944,17 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: TextTranslator__TranslatorEnginePlugin, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: TextTranslator__TranslatorEnginePlugin, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorEnginePlugin.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorEnginePlugin.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -794,13 +966,17 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: TextTranslator__TranslatorEnginePlugin, name: []const u8) void {
+    pub fn setObjectName(self: TextTranslator__TranslatorEnginePlugin, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -810,9 +986,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEnginePlugin `
     ///
-    pub fn IsWidgetType(self: TextTranslator__TranslatorEnginePlugin) bool {
+    pub fn isWidgetType(self: TextTranslator__TranslatorEnginePlugin) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -822,9 +1002,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEnginePlugin `
     ///
-    pub fn IsWindowType(self: TextTranslator__TranslatorEnginePlugin) bool {
+    pub fn isWindowType(self: TextTranslator__TranslatorEnginePlugin) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -834,9 +1018,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEnginePlugin `
     ///
-    pub fn IsQuickItemType(self: TextTranslator__TranslatorEnginePlugin) bool {
+    pub fn isQuickItemType(self: TextTranslator__TranslatorEnginePlugin) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -846,9 +1034,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEnginePlugin `
     ///
-    pub fn SignalsBlocked(self: TextTranslator__TranslatorEnginePlugin) bool {
+    pub fn signalsBlocked(self: TextTranslator__TranslatorEnginePlugin) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -860,9 +1052,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: TextTranslator__TranslatorEnginePlugin, b: bool) bool {
+    pub fn blockSignals(self: TextTranslator__TranslatorEnginePlugin, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -872,9 +1068,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEnginePlugin `
     ///
-    pub fn Thread(self: TextTranslator__TranslatorEnginePlugin) QThread {
+    pub fn thread(self: TextTranslator__TranslatorEnginePlugin) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -884,12 +1084,16 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEnginePlugin `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: TextTranslator__TranslatorEnginePlugin, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: TextTranslator__TranslatorEnginePlugin, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -901,9 +1105,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: TextTranslator__TranslatorEnginePlugin, interval: i32) i32 {
+    pub fn startTimer(self: TextTranslator__TranslatorEnginePlugin, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -915,9 +1123,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: TextTranslator__TranslatorEnginePlugin, time: i64) i32 {
+    pub fn startTimer2(self: TextTranslator__TranslatorEnginePlugin, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -929,9 +1141,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: TextTranslator__TranslatorEnginePlugin, id: i32) void {
+    pub fn killTimer(self: TextTranslator__TranslatorEnginePlugin, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -943,9 +1159,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: TextTranslator__TranslatorEnginePlugin, id: i32) void {
+    pub fn killTimer2(self: TextTranslator__TranslatorEnginePlugin, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -957,15 +1177,19 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: TextTranslator__TranslatorEnginePlugin, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: TextTranslator__TranslatorEnginePlugin, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("TextTranslator__TranslatorEnginePlugin.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("TextTranslator__TranslatorEnginePlugin.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -975,12 +1199,16 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEnginePlugin `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: TextTranslator__TranslatorEnginePlugin, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: TextTranslator__TranslatorEnginePlugin, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -992,10 +1220,14 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: TextTranslator__TranslatorEnginePlugin, filterObj: anytype) void {
+    pub fn installEventFilter(self: TextTranslator__TranslatorEnginePlugin, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1007,10 +1239,14 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: TextTranslator__TranslatorEnginePlugin, obj: anytype) void {
+    pub fn removeEventFilter(self: TextTranslator__TranslatorEnginePlugin, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -1018,7 +1254,7 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1026,13 +1262,17 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -1040,7 +1280,7 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1048,13 +1288,17 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1064,18 +1308,22 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEnginePlugin `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: TextTranslator__TranslatorEnginePlugin, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: TextTranslator__TranslatorEnginePlugin, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1083,7 +1331,7 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1091,13 +1339,17 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1105,7 +1357,7 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1113,13 +1365,17 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1129,9 +1385,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEnginePlugin `
     ///
-    pub fn Disconnect3(self: TextTranslator__TranslatorEnginePlugin) bool {
+    pub fn disconnect3(self: TextTranslator__TranslatorEnginePlugin) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1143,10 +1403,14 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: TextTranslator__TranslatorEnginePlugin, receiver: anytype) bool {
+    pub fn disconnect4(self: TextTranslator__TranslatorEnginePlugin, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1156,10 +1420,14 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1169,9 +1437,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEnginePlugin `
     ///
-    pub fn DumpObjectTree(self: TextTranslator__TranslatorEnginePlugin) void {
+    pub fn dumpObjectTree(self: TextTranslator__TranslatorEnginePlugin) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1181,9 +1453,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEnginePlugin `
     ///
-    pub fn DumpObjectInfo(self: TextTranslator__TranslatorEnginePlugin) void {
+    pub fn dumpObjectInfo(self: TextTranslator__TranslatorEnginePlugin) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1197,11 +1473,15 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: TextTranslator__TranslatorEnginePlugin, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: TextTranslator__TranslatorEnginePlugin, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1213,10 +1493,14 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: TextTranslator__TranslatorEnginePlugin, name: [:0]const u8) QVariant {
+    pub fn property(self: TextTranslator__TranslatorEnginePlugin, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1228,7 +1512,7 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: TextTranslator__TranslatorEnginePlugin, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: TextTranslator__TranslatorEnginePlugin, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1236,27 +1520,19 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("TextTranslator__TranslatorEnginePlugin.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("TextTranslator__TranslatorEnginePlugin.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("TextTranslator__TranslatorEnginePlugin.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("TextTranslator__TranslatorEnginePlugin.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorEnginePlugin `
-    ///
-    pub fn BindingStorage(self: TextTranslator__TranslatorEnginePlugin) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1266,9 +1542,29 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEnginePlugin `
     ///
-    pub fn BindingStorage2(self: TextTranslator__TranslatorEnginePlugin) QBindingStorage {
+    pub fn bindingStorage(self: TextTranslator__TranslatorEnginePlugin) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextTranslator__TranslatorEnginePlugin `
+    ///
+    pub fn bindingStorage2(self: TextTranslator__TranslatorEnginePlugin) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1278,9 +1574,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEnginePlugin `
     ///
-    pub fn Destroyed(self: TextTranslator__TranslatorEnginePlugin) void {
+    pub fn destroyed(self: TextTranslator__TranslatorEnginePlugin) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1292,9 +1592,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorEnginePlugin) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn (TextTranslator__TranslatorEnginePlugin) callconv(.c) void) void {
+    pub fn onDestroyed(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn (TextTranslator__TranslatorEnginePlugin) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1304,9 +1608,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEnginePlugin `
     ///
-    pub fn Parent(self: TextTranslator__TranslatorEnginePlugin) QObject {
+    pub fn parent(self: TextTranslator__TranslatorEnginePlugin) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1318,10 +1626,14 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: TextTranslator__TranslatorEnginePlugin, classname: [:0]const u8) bool {
+    pub fn inherits(self: TextTranslator__TranslatorEnginePlugin, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1331,9 +1643,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEnginePlugin `
     ///
-    pub fn DeleteLater(self: TextTranslator__TranslatorEnginePlugin) void {
+    pub fn deleteLater(self: TextTranslator__TranslatorEnginePlugin) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1347,9 +1663,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: TextTranslator__TranslatorEnginePlugin, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: TextTranslator__TranslatorEnginePlugin, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1363,9 +1683,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: TextTranslator__TranslatorEnginePlugin, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: TextTranslator__TranslatorEnginePlugin, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1373,7 +1697,7 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1383,13 +1707,17 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1397,7 +1725,7 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1407,13 +1735,17 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1423,7 +1755,7 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEnginePlugin `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1431,12 +1763,16 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: TextTranslator__TranslatorEnginePlugin, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: TextTranslator__TranslatorEnginePlugin, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1448,10 +1784,14 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: TextTranslator__TranslatorEnginePlugin, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: TextTranslator__TranslatorEnginePlugin, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1465,11 +1805,15 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: TextTranslator__TranslatorEnginePlugin, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: TextTranslator__TranslatorEnginePlugin, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1485,13 +1829,17 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: TextTranslator__TranslatorEnginePlugin, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: TextTranslator__TranslatorEnginePlugin, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1504,11 +1852,15 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: TextTranslator__TranslatorEnginePlugin, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: TextTranslator__TranslatorEnginePlugin, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1520,10 +1872,14 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: TextTranslator__TranslatorEnginePlugin, param1: anytype) void {
+    pub fn destroyed1(self: TextTranslator__TranslatorEnginePlugin, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1535,9 +1891,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorEnginePlugin, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn (TextTranslator__TranslatorEnginePlugin, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn (TextTranslator__TranslatorEnginePlugin, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1549,16 +1909,16 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEnginePlugin `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: TextTranslator__TranslatorEnginePlugin, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.TextTranslator__TranslatorEnginePlugin_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: TextTranslator__TranslatorEnginePlugin, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.TextTranslator__TranslatorEnginePlugin_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1570,12 +1930,16 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEnginePlugin `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: TextTranslator__TranslatorEnginePlugin, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.TextTranslator__TranslatorEnginePlugin_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: TextTranslator__TranslatorEnginePlugin, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.TextTranslator__TranslatorEnginePlugin_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -1589,9 +1953,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorEnginePlugin, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn (TextTranslator__TranslatorEnginePlugin, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn (TextTranslator__TranslatorEnginePlugin, QEvent) callconv(.c) bool) void {
         qtc.TextTranslator__TranslatorEnginePlugin_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1605,17 +1973,17 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: TextTranslator__TranslatorEnginePlugin, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: TextTranslator__TranslatorEnginePlugin, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.TextTranslator__TranslatorEnginePlugin_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.TextTranslator__TranslatorEnginePlugin_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1629,13 +1997,17 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: TextTranslator__TranslatorEnginePlugin, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: TextTranslator__TranslatorEnginePlugin, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.TextTranslator__TranslatorEnginePlugin_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.TextTranslator__TranslatorEnginePlugin_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1649,9 +2021,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorEnginePlugin, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn (TextTranslator__TranslatorEnginePlugin, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn (TextTranslator__TranslatorEnginePlugin, QObject, QEvent) callconv(.c) bool) void {
         qtc.TextTranslator__TranslatorEnginePlugin_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1663,16 +2039,16 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEnginePlugin `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: TextTranslator__TranslatorEnginePlugin, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.TextTranslator__TranslatorEnginePlugin_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: TextTranslator__TranslatorEnginePlugin, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.TextTranslator__TranslatorEnginePlugin_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1684,12 +2060,16 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEnginePlugin `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: TextTranslator__TranslatorEnginePlugin, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.TextTranslator__TranslatorEnginePlugin_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: TextTranslator__TranslatorEnginePlugin, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.TextTranslator__TranslatorEnginePlugin_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1703,9 +2083,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorEnginePlugin, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn (TextTranslator__TranslatorEnginePlugin, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn (TextTranslator__TranslatorEnginePlugin, QTimerEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorEnginePlugin_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -1717,16 +2101,16 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEnginePlugin `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: TextTranslator__TranslatorEnginePlugin, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.TextTranslator__TranslatorEnginePlugin_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: TextTranslator__TranslatorEnginePlugin, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.TextTranslator__TranslatorEnginePlugin_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1738,12 +2122,16 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEnginePlugin `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: TextTranslator__TranslatorEnginePlugin, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.TextTranslator__TranslatorEnginePlugin_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: TextTranslator__TranslatorEnginePlugin, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.TextTranslator__TranslatorEnginePlugin_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1757,9 +2145,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorEnginePlugin, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn (TextTranslator__TranslatorEnginePlugin, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn (TextTranslator__TranslatorEnginePlugin, QChildEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorEnginePlugin_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -1771,16 +2163,16 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEnginePlugin `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: TextTranslator__TranslatorEnginePlugin, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.TextTranslator__TranslatorEnginePlugin_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: TextTranslator__TranslatorEnginePlugin, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.TextTranslator__TranslatorEnginePlugin_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1792,12 +2184,16 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEnginePlugin `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: TextTranslator__TranslatorEnginePlugin, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.TextTranslator__TranslatorEnginePlugin_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: TextTranslator__TranslatorEnginePlugin, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.TextTranslator__TranslatorEnginePlugin_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1811,9 +2207,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorEnginePlugin, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn (TextTranslator__TranslatorEnginePlugin, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn (TextTranslator__TranslatorEnginePlugin, QEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorEnginePlugin_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -1827,14 +2227,14 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: TextTranslator__TranslatorEnginePlugin, signal: anytype) void {
+    pub fn connectNotify(self: TextTranslator__TranslatorEnginePlugin, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextTranslator__TranslatorEnginePlugin_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1848,11 +2248,15 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: TextTranslator__TranslatorEnginePlugin, signal: anytype) void {
+    pub fn superConnectNotify(self: TextTranslator__TranslatorEnginePlugin, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextTranslator__TranslatorEnginePlugin_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1865,9 +2269,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorEnginePlugin, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn (TextTranslator__TranslatorEnginePlugin, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn (TextTranslator__TranslatorEnginePlugin, QMetaMethod) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorEnginePlugin_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1881,14 +2289,14 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: TextTranslator__TranslatorEnginePlugin, signal: anytype) void {
+    pub fn disconnectNotify(self: TextTranslator__TranslatorEnginePlugin, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextTranslator__TranslatorEnginePlugin_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1902,10 +2310,14 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: TextTranslator__TranslatorEnginePlugin, signal: anytype) void {
+    pub fn superDisconnectNotify(self: TextTranslator__TranslatorEnginePlugin, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextTranslator__TranslatorEnginePlugin_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1919,9 +2331,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorEnginePlugin, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn (TextTranslator__TranslatorEnginePlugin, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn (TextTranslator__TranslatorEnginePlugin, QMetaMethod) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorEnginePlugin_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -1933,13 +2349,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEnginePlugin `
     ///
-    pub fn Sender(self: TextTranslator__TranslatorEnginePlugin) QObject {
+    pub fn sender(self: TextTranslator__TranslatorEnginePlugin) QObject {
         return .{ .ptr = qtc.TextTranslator__TranslatorEnginePlugin_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -1951,9 +2367,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEnginePlugin `
     ///
-    pub fn SuperSender(self: TextTranslator__TranslatorEnginePlugin) QObject {
+    pub fn superSender(self: TextTranslator__TranslatorEnginePlugin) QObject {
         return .{ .ptr = qtc.TextTranslator__TranslatorEnginePlugin_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -1967,9 +2387,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn () callconv(.c) QObject) void {
         qtc.TextTranslator__TranslatorEnginePlugin_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1981,13 +2405,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEnginePlugin `
     ///
-    pub fn SenderSignalIndex(self: TextTranslator__TranslatorEnginePlugin) i32 {
+    pub fn senderSignalIndex(self: TextTranslator__TranslatorEnginePlugin) i32 {
         return qtc.TextTranslator__TranslatorEnginePlugin_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1999,9 +2423,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorEnginePlugin `
     ///
-    pub fn SuperSenderSignalIndex(self: TextTranslator__TranslatorEnginePlugin) i32 {
+    pub fn superSenderSignalIndex(self: TextTranslator__TranslatorEnginePlugin) i32 {
         return qtc.TextTranslator__TranslatorEnginePlugin_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2015,9 +2443,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn () callconv(.c) i32) void {
         qtc.TextTranslator__TranslatorEnginePlugin_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -2031,14 +2463,14 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: TextTranslator__TranslatorEnginePlugin, signal: [:0]const u8) i32 {
+    pub fn receivers(self: TextTranslator__TranslatorEnginePlugin, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.TextTranslator__TranslatorEnginePlugin_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -2052,10 +2484,14 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: TextTranslator__TranslatorEnginePlugin, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: TextTranslator__TranslatorEnginePlugin, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.TextTranslator__TranslatorEnginePlugin_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -2069,9 +2505,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorEnginePlugin, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn (TextTranslator__TranslatorEnginePlugin, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn (TextTranslator__TranslatorEnginePlugin, [*:0]const u8) callconv(.c) i32) void {
         qtc.TextTranslator__TranslatorEnginePlugin_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2085,14 +2525,14 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: TextTranslator__TranslatorEnginePlugin, signal: anytype) bool {
+    pub fn isSignalConnected(self: TextTranslator__TranslatorEnginePlugin, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.TextTranslator__TranslatorEnginePlugin_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2106,10 +2546,14 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: TextTranslator__TranslatorEnginePlugin, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: TextTranslator__TranslatorEnginePlugin, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.TextTranslator__TranslatorEnginePlugin_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2123,9 +2567,13 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorEnginePlugin, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn (TextTranslator__TranslatorEnginePlugin, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn (TextTranslator__TranslatorEnginePlugin, QMetaMethod) callconv(.c) bool) void {
         qtc.TextTranslator__TranslatorEnginePlugin_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -2139,23 +2587,23 @@ pub const TextTranslator__TranslatorEnginePlugin = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorEnginePlugin, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn (TextTranslator__TranslatorEnginePlugin, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: TextTranslator__TranslatorEnginePlugin, callback: *const fn (TextTranslator__TranslatorEnginePlugin, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorEnginePlugin.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: TextTranslator__TranslatorEnginePlugin `
     ///
-    pub fn Delete(self: TextTranslator__TranslatorEnginePlugin) void {
+    pub fn delete(self: TextTranslator__TranslatorEnginePlugin) void {
         qtc.TextTranslator__TranslatorEnginePlugin_Delete(@ptrCast(self.ptr));
     }
 };

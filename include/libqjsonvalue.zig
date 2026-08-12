@@ -16,59 +16,83 @@ pub const QJsonValue = extern struct {
 
     pub const _is_QJsonValue = {};
 
-    /// New constructs a new QJsonValue object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QJsonValue {
+    pub const New = new;
+
+    /// Allocate a new QJsonValue object in C++ memory
+    ///
+    pub fn new() QJsonValue {
         return .{ .ptr = qtc.QJsonValue_new() };
     }
 
-    /// New2 constructs a new QJsonValue object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QJsonValue object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` b: bool `
     ///
-    pub fn New2(b: bool) QJsonValue {
+    pub fn new2(b: bool) QJsonValue {
         return .{ .ptr = qtc.QJsonValue_new2(b) };
     }
 
-    /// New3 constructs a new QJsonValue object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QJsonValue object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` n: f64 `
     ///
-    pub fn New3(n: f64) QJsonValue {
+    pub fn new3(n: f64) QJsonValue {
         return .{ .ptr = qtc.QJsonValue_new3(@bitCast(n)) };
     }
 
-    /// New4 constructs a new QJsonValue object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QJsonValue object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` n: i32 `
     ///
-    pub fn New4(n: i32) QJsonValue {
+    pub fn new4(n: i32) QJsonValue {
         return .{ .ptr = qtc.QJsonValue_new4(@bitCast(n)) };
     }
 
-    /// New5 constructs a new QJsonValue object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QJsonValue object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` v: i64 `
     ///
-    pub fn New5(v: i64) QJsonValue {
+    pub fn new5(v: i64) QJsonValue {
         return .{ .ptr = qtc.QJsonValue_new5(@bitCast(v)) };
     }
 
-    /// New6 constructs a new QJsonValue object.
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new QJsonValue object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` s: []const u8 `
     ///
-    pub fn New6(s: []const u8) QJsonValue {
+    pub fn new6(s: []const u8) QJsonValue {
         const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
@@ -76,13 +100,17 @@ pub const QJsonValue = extern struct {
         return .{ .ptr = qtc.QJsonValue_new6(s_str) };
     }
 
-    /// New7 constructs a new QJsonValue object.
+    /// ### DEPRECATED: Use `new7` instead
+    ///
+    pub const New7 = new7;
+
+    /// Allocate a new QJsonValue object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` s: []u8 `
     ///
-    pub fn New7(s: []u8) QJsonValue {
+    pub fn new7(s: []u8) QJsonValue {
         const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
@@ -90,59 +118,83 @@ pub const QJsonValue = extern struct {
         return .{ .ptr = qtc.QJsonValue_new7(s_str) };
     }
 
-    /// New8 constructs a new QJsonValue object.
+    /// ### DEPRECATED: Use `new8` instead
+    ///
+    pub const New8 = new8;
+
+    /// Allocate a new QJsonValue object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn New8(s: [:0]const u8) QJsonValue {
+    pub fn new8(s: [:0]const u8) QJsonValue {
         const s_Cstring = s.ptr;
         return .{ .ptr = qtc.QJsonValue_new8(s_Cstring) };
     }
 
-    /// New9 constructs a new QJsonValue object.
+    /// ### DEPRECATED: Use `new9` instead
+    ///
+    pub const New9 = new9;
+
+    /// Allocate a new QJsonValue object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` a: QJsonArray `
     ///
-    pub fn New9(a: anytype) QJsonValue {
+    pub fn new9(a: anytype) QJsonValue {
         comptime _ = @TypeOf(a)._is_QJsonArray;
         return .{ .ptr = qtc.QJsonValue_new9(@ptrCast(a.ptr)) };
     }
 
-    /// New10 constructs a new QJsonValue object.
+    /// ### DEPRECATED: Use `new10` instead
+    ///
+    pub const New10 = new10;
+
+    /// Allocate a new QJsonValue object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` o: QJsonObject `
     ///
-    pub fn New10(o: anytype) QJsonValue {
+    pub fn new10(o: anytype) QJsonValue {
         comptime _ = @TypeOf(o)._is_QJsonObject;
         return .{ .ptr = qtc.QJsonValue_new10(@ptrCast(o.ptr)) };
     }
 
-    /// New11 constructs a new QJsonValue object.
+    /// ### DEPRECATED: Use `new11` instead
+    ///
+    pub const New11 = new11;
+
+    /// Allocate a new QJsonValue object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QJsonValue `
     ///
-    pub fn New11(other: anytype) QJsonValue {
+    pub fn new11(other: anytype) QJsonValue {
         comptime _ = @TypeOf(other)._is_QJsonValue;
         return .{ .ptr = qtc.QJsonValue_new11(@ptrCast(other.ptr)) };
     }
 
-    /// New12 constructs a new QJsonValue object.
+    /// ### DEPRECATED: Use `new12` instead
+    ///
+    pub const New12 = new12;
+
+    /// Allocate a new QJsonValue object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: qjsonvalue_enums.Type `
     ///
-    pub fn New12(param1: i32) QJsonValue {
+    pub fn new12(param1: i32) QJsonValue {
         return .{ .ptr = qtc.QJsonValue_new12(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#operator-eq)
     ///
@@ -152,10 +204,14 @@ pub const QJsonValue = extern struct {
     ///
     /// ` other: QJsonValue `
     ///
-    pub fn OperatorAssign(self: QJsonValue, other: anytype) void {
+    pub fn operatorAssign(self: QJsonValue, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QJsonValue;
         qtc.QJsonValue_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#swap)
     ///
@@ -165,10 +221,14 @@ pub const QJsonValue = extern struct {
     ///
     /// ` other: QJsonValue `
     ///
-    pub fn Swap(self: QJsonValue, other: anytype) void {
+    pub fn swap(self: QJsonValue, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QJsonValue;
         qtc.QJsonValue_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `fromVariant` instead
+    ///
+    pub const FromVariant = fromVariant;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#fromVariant)
     ///
@@ -176,10 +236,14 @@ pub const QJsonValue = extern struct {
     ///
     /// ` variant: QVariant `
     ///
-    pub fn FromVariant(variant: anytype) QJsonValue {
+    pub fn fromVariant(variant: anytype) QJsonValue {
         comptime _ = @TypeOf(variant)._is_QVariant;
         return .{ .ptr = qtc.QJsonValue_FromVariant(@ptrCast(variant.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toVariant` instead
+    ///
+    pub const ToVariant = toVariant;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#toVariant)
     ///
@@ -187,9 +251,15 @@ pub const QJsonValue = extern struct {
     ///
     /// ` self: QJsonValue `
     ///
-    pub fn ToVariant(self: QJsonValue) QVariant {
+    pub fn toVariant(self: QJsonValue) QVariant {
         return .{ .ptr = qtc.QJsonValue_ToVariant(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#type)
     ///
@@ -201,9 +271,13 @@ pub const QJsonValue = extern struct {
     ///
     /// ` qjsonvalue_enums.Type `
     ///
-    pub fn Type(self: QJsonValue) i32 {
+    pub fn type0(self: QJsonValue) i32 {
         return qtc.QJsonValue_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isNull` instead
+    ///
+    pub const IsNull = isNull;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#isNull)
     ///
@@ -211,9 +285,13 @@ pub const QJsonValue = extern struct {
     ///
     /// ` self: QJsonValue `
     ///
-    pub fn IsNull(self: QJsonValue) bool {
+    pub fn isNull(self: QJsonValue) bool {
         return qtc.QJsonValue_IsNull(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isBool` instead
+    ///
+    pub const IsBool = isBool;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#isBool)
     ///
@@ -221,9 +299,13 @@ pub const QJsonValue = extern struct {
     ///
     /// ` self: QJsonValue `
     ///
-    pub fn IsBool(self: QJsonValue) bool {
+    pub fn isBool(self: QJsonValue) bool {
         return qtc.QJsonValue_IsBool(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDouble` instead
+    ///
+    pub const IsDouble = isDouble;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#isDouble)
     ///
@@ -231,9 +313,13 @@ pub const QJsonValue = extern struct {
     ///
     /// ` self: QJsonValue `
     ///
-    pub fn IsDouble(self: QJsonValue) bool {
+    pub fn isDouble(self: QJsonValue) bool {
         return qtc.QJsonValue_IsDouble(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isString` instead
+    ///
+    pub const IsString = isString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#isString)
     ///
@@ -241,9 +327,13 @@ pub const QJsonValue = extern struct {
     ///
     /// ` self: QJsonValue `
     ///
-    pub fn IsString(self: QJsonValue) bool {
+    pub fn isString(self: QJsonValue) bool {
         return qtc.QJsonValue_IsString(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isArray` instead
+    ///
+    pub const IsArray = isArray;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#isArray)
     ///
@@ -251,9 +341,13 @@ pub const QJsonValue = extern struct {
     ///
     /// ` self: QJsonValue `
     ///
-    pub fn IsArray(self: QJsonValue) bool {
+    pub fn isArray(self: QJsonValue) bool {
         return qtc.QJsonValue_IsArray(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isObject` instead
+    ///
+    pub const IsObject = isObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#isObject)
     ///
@@ -261,9 +355,13 @@ pub const QJsonValue = extern struct {
     ///
     /// ` self: QJsonValue `
     ///
-    pub fn IsObject(self: QJsonValue) bool {
+    pub fn isObject(self: QJsonValue) bool {
         return qtc.QJsonValue_IsObject(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isUndefined` instead
+    ///
+    pub const IsUndefined = isUndefined;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#isUndefined)
     ///
@@ -271,9 +369,13 @@ pub const QJsonValue = extern struct {
     ///
     /// ` self: QJsonValue `
     ///
-    pub fn IsUndefined(self: QJsonValue) bool {
+    pub fn isUndefined(self: QJsonValue) bool {
         return qtc.QJsonValue_IsUndefined(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toBool` instead
+    ///
+    pub const ToBool = toBool;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#toBool)
     ///
@@ -281,9 +383,13 @@ pub const QJsonValue = extern struct {
     ///
     /// ` self: QJsonValue `
     ///
-    pub fn ToBool(self: QJsonValue) bool {
+    pub fn toBool(self: QJsonValue) bool {
         return qtc.QJsonValue_ToBool(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toInt` instead
+    ///
+    pub const ToInt = toInt;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#toInt)
     ///
@@ -291,9 +397,13 @@ pub const QJsonValue = extern struct {
     ///
     /// ` self: QJsonValue `
     ///
-    pub fn ToInt(self: QJsonValue) i32 {
+    pub fn toInt(self: QJsonValue) i32 {
         return qtc.QJsonValue_ToInt(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toInteger` instead
+    ///
+    pub const ToInteger = toInteger;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#toInteger)
     ///
@@ -301,9 +411,13 @@ pub const QJsonValue = extern struct {
     ///
     /// ` self: QJsonValue `
     ///
-    pub fn ToInteger(self: QJsonValue) i64 {
+    pub fn toInteger(self: QJsonValue) i64 {
         return qtc.QJsonValue_ToInteger(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toDouble` instead
+    ///
+    pub const ToDouble = toDouble;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#toDouble)
     ///
@@ -311,9 +425,13 @@ pub const QJsonValue = extern struct {
     ///
     /// ` self: QJsonValue `
     ///
-    pub fn ToDouble(self: QJsonValue) f64 {
+    pub fn toDouble(self: QJsonValue) f64 {
         return qtc.QJsonValue_ToDouble(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toString` instead
+    ///
+    pub const ToString = toString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#toString)
     ///
@@ -323,13 +441,17 @@ pub const QJsonValue = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToString(self: QJsonValue, allocator: std.mem.Allocator) []const u8 {
+    pub fn toString(self: QJsonValue, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QJsonValue_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QJsonValue.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QJsonValue.toString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `toString2` instead
+    ///
+    pub const ToString2 = toString2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#toString)
     ///
@@ -341,17 +463,21 @@ pub const QJsonValue = extern struct {
     ///
     /// ` defaultValue: []const u8 `
     ///
-    pub fn ToString2(self: QJsonValue, allocator: std.mem.Allocator, defaultValue: []const u8) []const u8 {
+    pub fn toString2(self: QJsonValue, allocator: std.mem.Allocator, defaultValue: []const u8) []const u8 {
         const defaultValue_str = qtc.libqt_string{
             .len = defaultValue.len,
             .data = defaultValue.ptr,
         };
         var _str = qtc.QJsonValue_ToString2(@ptrCast(self.ptr), defaultValue_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QJsonValue.ToString2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QJsonValue.toString2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `toArray` instead
+    ///
+    pub const ToArray = toArray;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#toArray)
     ///
@@ -359,9 +485,13 @@ pub const QJsonValue = extern struct {
     ///
     /// ` self: QJsonValue `
     ///
-    pub fn ToArray(self: QJsonValue) QJsonArray {
+    pub fn toArray(self: QJsonValue) QJsonArray {
         return .{ .ptr = qtc.QJsonValue_ToArray(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toArray2` instead
+    ///
+    pub const ToArray2 = toArray2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#toArray)
     ///
@@ -371,10 +501,14 @@ pub const QJsonValue = extern struct {
     ///
     /// ` defaultValue: QJsonArray `
     ///
-    pub fn ToArray2(self: QJsonValue, defaultValue: anytype) QJsonArray {
+    pub fn toArray2(self: QJsonValue, defaultValue: anytype) QJsonArray {
         comptime _ = @TypeOf(defaultValue)._is_QJsonArray;
         return .{ .ptr = qtc.QJsonValue_ToArray2(@ptrCast(self.ptr), @ptrCast(defaultValue.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toObject` instead
+    ///
+    pub const ToObject = toObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#toObject)
     ///
@@ -382,9 +516,13 @@ pub const QJsonValue = extern struct {
     ///
     /// ` self: QJsonValue `
     ///
-    pub fn ToObject(self: QJsonValue) QJsonObject {
+    pub fn toObject(self: QJsonValue) QJsonObject {
         return .{ .ptr = qtc.QJsonValue_ToObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toObject2` instead
+    ///
+    pub const ToObject2 = toObject2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#toObject)
     ///
@@ -394,10 +532,14 @@ pub const QJsonValue = extern struct {
     ///
     /// ` defaultValue: QJsonObject `
     ///
-    pub fn ToObject2(self: QJsonValue, defaultValue: anytype) QJsonObject {
+    pub fn toObject2(self: QJsonValue, defaultValue: anytype) QJsonObject {
         comptime _ = @TypeOf(defaultValue)._is_QJsonObject;
         return .{ .ptr = qtc.QJsonValue_ToObject2(@ptrCast(self.ptr), @ptrCast(defaultValue.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorSubscript` instead
+    ///
+    pub const OperatorSubscript = operatorSubscript;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#operator-5b-5d)
     ///
@@ -407,7 +549,7 @@ pub const QJsonValue = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn OperatorSubscript(self: QJsonValue, key: []const u8) QJsonValue {
+    pub fn operatorSubscript(self: QJsonValue, key: []const u8) QJsonValue {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -415,6 +557,10 @@ pub const QJsonValue = extern struct {
         return .{ .ptr = qtc.QJsonValue_OperatorSubscript(@ptrCast(self.ptr), key_str) };
     }
 
+    /// ### DEPRECATED: Use `operatorSubscript2` instead
+    ///
+    pub const OperatorSubscript2 = operatorSubscript2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#operator-5b-5d)
     ///
     /// ## Parameter(s):
@@ -423,13 +569,17 @@ pub const QJsonValue = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn OperatorSubscript2(self: QJsonValue, key: []const u8) QJsonValue {
+    pub fn operatorSubscript2(self: QJsonValue, key: []const u8) QJsonValue {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
         return .{ .ptr = qtc.QJsonValue_OperatorSubscript2(@ptrCast(self.ptr), key_str) };
     }
+
+    /// ### DEPRECATED: Use `operatorSubscript3` instead
+    ///
+    pub const OperatorSubscript3 = operatorSubscript3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#operator-5b-5d)
     ///
@@ -439,13 +589,17 @@ pub const QJsonValue = extern struct {
     ///
     /// ` key: []u8 `
     ///
-    pub fn OperatorSubscript3(self: QJsonValue, key: []u8) QJsonValue {
+    pub fn operatorSubscript3(self: QJsonValue, key: []u8) QJsonValue {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
         return .{ .ptr = qtc.QJsonValue_OperatorSubscript3(@ptrCast(self.ptr), key_str) };
     }
+
+    /// ### DEPRECATED: Use `operatorSubscript4` instead
+    ///
+    pub const OperatorSubscript4 = operatorSubscript4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#operator-5b-5d)
     ///
@@ -455,9 +609,13 @@ pub const QJsonValue = extern struct {
     ///
     /// ` i: isize `
     ///
-    pub fn OperatorSubscript4(self: QJsonValue, i: isize) QJsonValue {
+    pub fn operatorSubscript4(self: QJsonValue, i: isize) QJsonValue {
         return .{ .ptr = qtc.QJsonValue_OperatorSubscript4(@ptrCast(self.ptr), @bitCast(i)) };
     }
+
+    /// ### DEPRECATED: Use `toBool1` instead
+    ///
+    pub const ToBool1 = toBool1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#toBool)
     ///
@@ -467,9 +625,13 @@ pub const QJsonValue = extern struct {
     ///
     /// ` defaultValue: bool `
     ///
-    pub fn ToBool1(self: QJsonValue, defaultValue: bool) bool {
+    pub fn toBool1(self: QJsonValue, defaultValue: bool) bool {
         return qtc.QJsonValue_ToBool1(@ptrCast(self.ptr), defaultValue);
     }
+
+    /// ### DEPRECATED: Use `toInt1` instead
+    ///
+    pub const ToInt1 = toInt1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#toInt)
     ///
@@ -479,9 +641,13 @@ pub const QJsonValue = extern struct {
     ///
     /// ` defaultValue: i32 `
     ///
-    pub fn ToInt1(self: QJsonValue, defaultValue: i32) i32 {
+    pub fn toInt1(self: QJsonValue, defaultValue: i32) i32 {
         return qtc.QJsonValue_ToInt1(@ptrCast(self.ptr), @bitCast(defaultValue));
     }
+
+    /// ### DEPRECATED: Use `toInteger1` instead
+    ///
+    pub const ToInteger1 = toInteger1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#toInteger)
     ///
@@ -491,9 +657,13 @@ pub const QJsonValue = extern struct {
     ///
     /// ` defaultValue: i64 `
     ///
-    pub fn ToInteger1(self: QJsonValue, defaultValue: i64) i64 {
+    pub fn toInteger1(self: QJsonValue, defaultValue: i64) i64 {
         return qtc.QJsonValue_ToInteger1(@ptrCast(self.ptr), @bitCast(defaultValue));
     }
+
+    /// ### DEPRECATED: Use `toDouble1` instead
+    ///
+    pub const ToDouble1 = toDouble1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#toDouble)
     ///
@@ -503,23 +673,23 @@ pub const QJsonValue = extern struct {
     ///
     /// ` defaultValue: f64 `
     ///
-    pub fn ToDouble1(self: QJsonValue, defaultValue: f64) f64 {
+    pub fn toDouble1(self: QJsonValue, defaultValue: f64) f64 {
         return qtc.QJsonValue_ToDouble1(@ptrCast(self.ptr), @bitCast(defaultValue));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#dtor.QJsonValue)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QJsonValue `
     ///
-    pub fn Delete(self: QJsonValue) void {
+    pub fn delete(self: QJsonValue) void {
         qtc.QJsonValue_Delete(@ptrCast(self.ptr));
     }
 };
@@ -534,27 +704,39 @@ pub const QJsonValueConstRef = extern struct {
 
     pub const _is_QJsonValueConstRef = {};
 
-    /// New constructs a new QJsonValueConstRef object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QJsonValueConstRef object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QJsonValueConstRef `
     ///
-    pub fn New(other: anytype) QJsonValueConstRef {
+    pub fn new(other: anytype) QJsonValueConstRef {
         comptime _ = @TypeOf(other)._is_QJsonValueConstRef;
         return .{ .ptr = qtc.QJsonValueConstRef_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new QJsonValueConstRef object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QJsonValueConstRef object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QJsonValueConstRef `
     ///
-    pub fn New2(param1: anytype) QJsonValueConstRef {
+    pub fn new2(param1: anytype) QJsonValueConstRef {
         comptime _ = @TypeOf(param1)._is_QJsonValueConstRef;
         return .{ .ptr = qtc.QJsonValueConstRef_new2(@ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toQJsonValue` instead
+    ///
+    pub const ToQJsonValue = toQJsonValue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#operator)
     ///
@@ -562,9 +744,13 @@ pub const QJsonValueConstRef = extern struct {
     ///
     /// ` self: QJsonValueConstRef `
     ///
-    pub fn ToQJsonValue(self: QJsonValueConstRef) QJsonValue {
+    pub fn toQJsonValue(self: QJsonValueConstRef) QJsonValue {
         return .{ .ptr = qtc.QJsonValueConstRef_ToQJsonValue(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toVariant` instead
+    ///
+    pub const ToVariant = toVariant;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#toVariant)
     ///
@@ -572,9 +758,15 @@ pub const QJsonValueConstRef = extern struct {
     ///
     /// ` self: QJsonValueConstRef `
     ///
-    pub fn ToVariant(self: QJsonValueConstRef) QVariant {
+    pub fn toVariant(self: QJsonValueConstRef) QVariant {
         return .{ .ptr = qtc.QJsonValueConstRef_ToVariant(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#type)
     ///
@@ -586,9 +778,13 @@ pub const QJsonValueConstRef = extern struct {
     ///
     /// ` qjsonvalue_enums.Type `
     ///
-    pub fn Type(self: QJsonValueConstRef) i32 {
+    pub fn type0(self: QJsonValueConstRef) i32 {
         return qtc.QJsonValueConstRef_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isNull` instead
+    ///
+    pub const IsNull = isNull;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#isNull)
     ///
@@ -596,9 +792,13 @@ pub const QJsonValueConstRef = extern struct {
     ///
     /// ` self: QJsonValueConstRef `
     ///
-    pub fn IsNull(self: QJsonValueConstRef) bool {
+    pub fn isNull(self: QJsonValueConstRef) bool {
         return qtc.QJsonValueConstRef_IsNull(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isBool` instead
+    ///
+    pub const IsBool = isBool;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#isBool)
     ///
@@ -606,9 +806,13 @@ pub const QJsonValueConstRef = extern struct {
     ///
     /// ` self: QJsonValueConstRef `
     ///
-    pub fn IsBool(self: QJsonValueConstRef) bool {
+    pub fn isBool(self: QJsonValueConstRef) bool {
         return qtc.QJsonValueConstRef_IsBool(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDouble` instead
+    ///
+    pub const IsDouble = isDouble;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#isDouble)
     ///
@@ -616,9 +820,13 @@ pub const QJsonValueConstRef = extern struct {
     ///
     /// ` self: QJsonValueConstRef `
     ///
-    pub fn IsDouble(self: QJsonValueConstRef) bool {
+    pub fn isDouble(self: QJsonValueConstRef) bool {
         return qtc.QJsonValueConstRef_IsDouble(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isString` instead
+    ///
+    pub const IsString = isString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#isString)
     ///
@@ -626,9 +834,13 @@ pub const QJsonValueConstRef = extern struct {
     ///
     /// ` self: QJsonValueConstRef `
     ///
-    pub fn IsString(self: QJsonValueConstRef) bool {
+    pub fn isString(self: QJsonValueConstRef) bool {
         return qtc.QJsonValueConstRef_IsString(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isArray` instead
+    ///
+    pub const IsArray = isArray;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#isArray)
     ///
@@ -636,9 +848,13 @@ pub const QJsonValueConstRef = extern struct {
     ///
     /// ` self: QJsonValueConstRef `
     ///
-    pub fn IsArray(self: QJsonValueConstRef) bool {
+    pub fn isArray(self: QJsonValueConstRef) bool {
         return qtc.QJsonValueConstRef_IsArray(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isObject` instead
+    ///
+    pub const IsObject = isObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#isObject)
     ///
@@ -646,9 +862,13 @@ pub const QJsonValueConstRef = extern struct {
     ///
     /// ` self: QJsonValueConstRef `
     ///
-    pub fn IsObject(self: QJsonValueConstRef) bool {
+    pub fn isObject(self: QJsonValueConstRef) bool {
         return qtc.QJsonValueConstRef_IsObject(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isUndefined` instead
+    ///
+    pub const IsUndefined = isUndefined;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#isUndefined)
     ///
@@ -656,9 +876,13 @@ pub const QJsonValueConstRef = extern struct {
     ///
     /// ` self: QJsonValueConstRef `
     ///
-    pub fn IsUndefined(self: QJsonValueConstRef) bool {
+    pub fn isUndefined(self: QJsonValueConstRef) bool {
         return qtc.QJsonValueConstRef_IsUndefined(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toBool` instead
+    ///
+    pub const ToBool = toBool;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#toBool)
     ///
@@ -666,9 +890,13 @@ pub const QJsonValueConstRef = extern struct {
     ///
     /// ` self: QJsonValueConstRef `
     ///
-    pub fn ToBool(self: QJsonValueConstRef) bool {
+    pub fn toBool(self: QJsonValueConstRef) bool {
         return qtc.QJsonValueConstRef_ToBool(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toInt` instead
+    ///
+    pub const ToInt = toInt;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#toInt)
     ///
@@ -676,9 +904,13 @@ pub const QJsonValueConstRef = extern struct {
     ///
     /// ` self: QJsonValueConstRef `
     ///
-    pub fn ToInt(self: QJsonValueConstRef) i32 {
+    pub fn toInt(self: QJsonValueConstRef) i32 {
         return qtc.QJsonValueConstRef_ToInt(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toInteger` instead
+    ///
+    pub const ToInteger = toInteger;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#toInteger)
     ///
@@ -686,9 +918,13 @@ pub const QJsonValueConstRef = extern struct {
     ///
     /// ` self: QJsonValueConstRef `
     ///
-    pub fn ToInteger(self: QJsonValueConstRef) i64 {
+    pub fn toInteger(self: QJsonValueConstRef) i64 {
         return qtc.QJsonValueConstRef_ToInteger(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toDouble` instead
+    ///
+    pub const ToDouble = toDouble;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#toDouble)
     ///
@@ -696,9 +932,13 @@ pub const QJsonValueConstRef = extern struct {
     ///
     /// ` self: QJsonValueConstRef `
     ///
-    pub fn ToDouble(self: QJsonValueConstRef) f64 {
+    pub fn toDouble(self: QJsonValueConstRef) f64 {
         return qtc.QJsonValueConstRef_ToDouble(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toString` instead
+    ///
+    pub const ToString = toString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#toString)
     ///
@@ -708,13 +948,17 @@ pub const QJsonValueConstRef = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToString(self: QJsonValueConstRef, allocator: std.mem.Allocator) []const u8 {
+    pub fn toString(self: QJsonValueConstRef, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QJsonValueConstRef_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QJsonValueConstRef.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QJsonValueConstRef.toString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `toArray` instead
+    ///
+    pub const ToArray = toArray;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#toArray)
     ///
@@ -722,9 +966,13 @@ pub const QJsonValueConstRef = extern struct {
     ///
     /// ` self: QJsonValueConstRef `
     ///
-    pub fn ToArray(self: QJsonValueConstRef) QJsonArray {
+    pub fn toArray(self: QJsonValueConstRef) QJsonArray {
         return .{ .ptr = qtc.QJsonValueConstRef_ToArray(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toObject` instead
+    ///
+    pub const ToObject = toObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#toObject)
     ///
@@ -732,9 +980,13 @@ pub const QJsonValueConstRef = extern struct {
     ///
     /// ` self: QJsonValueConstRef `
     ///
-    pub fn ToObject(self: QJsonValueConstRef) QJsonObject {
+    pub fn toObject(self: QJsonValueConstRef) QJsonObject {
         return .{ .ptr = qtc.QJsonValueConstRef_ToObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorSubscript` instead
+    ///
+    pub const OperatorSubscript = operatorSubscript;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#operator-5b-5d)
     ///
@@ -744,13 +996,17 @@ pub const QJsonValueConstRef = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn OperatorSubscript(self: QJsonValueConstRef, key: []const u8) QJsonValue {
+    pub fn operatorSubscript(self: QJsonValueConstRef, key: []const u8) QJsonValue {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
         return .{ .ptr = qtc.QJsonValueConstRef_OperatorSubscript(@ptrCast(self.ptr), key_str) };
     }
+
+    /// ### DEPRECATED: Use `operatorSubscript2` instead
+    ///
+    pub const OperatorSubscript2 = operatorSubscript2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#operator-5b-5d)
     ///
@@ -760,13 +1016,17 @@ pub const QJsonValueConstRef = extern struct {
     ///
     /// ` key: []u8 `
     ///
-    pub fn OperatorSubscript2(self: QJsonValueConstRef, key: []u8) QJsonValue {
+    pub fn operatorSubscript2(self: QJsonValueConstRef, key: []u8) QJsonValue {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
         return .{ .ptr = qtc.QJsonValueConstRef_OperatorSubscript2(@ptrCast(self.ptr), key_str) };
     }
+
+    /// ### DEPRECATED: Use `operatorSubscript3` instead
+    ///
+    pub const OperatorSubscript3 = operatorSubscript3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#operator-5b-5d)
     ///
@@ -776,9 +1036,13 @@ pub const QJsonValueConstRef = extern struct {
     ///
     /// ` i: isize `
     ///
-    pub fn OperatorSubscript3(self: QJsonValueConstRef, i: isize) QJsonValue {
+    pub fn operatorSubscript3(self: QJsonValueConstRef, i: isize) QJsonValue {
         return .{ .ptr = qtc.QJsonValueConstRef_OperatorSubscript3(@ptrCast(self.ptr), @bitCast(i)) };
     }
+
+    /// ### DEPRECATED: Use `toBool1` instead
+    ///
+    pub const ToBool1 = toBool1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#toBool)
     ///
@@ -788,9 +1052,13 @@ pub const QJsonValueConstRef = extern struct {
     ///
     /// ` defaultValue: bool `
     ///
-    pub fn ToBool1(self: QJsonValueConstRef, defaultValue: bool) bool {
+    pub fn toBool1(self: QJsonValueConstRef, defaultValue: bool) bool {
         return qtc.QJsonValueConstRef_ToBool1(@ptrCast(self.ptr), defaultValue);
     }
+
+    /// ### DEPRECATED: Use `toInt1` instead
+    ///
+    pub const ToInt1 = toInt1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#toInt)
     ///
@@ -800,9 +1068,13 @@ pub const QJsonValueConstRef = extern struct {
     ///
     /// ` defaultValue: i32 `
     ///
-    pub fn ToInt1(self: QJsonValueConstRef, defaultValue: i32) i32 {
+    pub fn toInt1(self: QJsonValueConstRef, defaultValue: i32) i32 {
         return qtc.QJsonValueConstRef_ToInt1(@ptrCast(self.ptr), @bitCast(defaultValue));
     }
+
+    /// ### DEPRECATED: Use `toInteger1` instead
+    ///
+    pub const ToInteger1 = toInteger1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#toInteger)
     ///
@@ -812,9 +1084,13 @@ pub const QJsonValueConstRef = extern struct {
     ///
     /// ` defaultValue: i64 `
     ///
-    pub fn ToInteger1(self: QJsonValueConstRef, defaultValue: i64) i64 {
+    pub fn toInteger1(self: QJsonValueConstRef, defaultValue: i64) i64 {
         return qtc.QJsonValueConstRef_ToInteger1(@ptrCast(self.ptr), @bitCast(defaultValue));
     }
+
+    /// ### DEPRECATED: Use `toDouble1` instead
+    ///
+    pub const ToDouble1 = toDouble1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#toDouble)
     ///
@@ -824,9 +1100,13 @@ pub const QJsonValueConstRef = extern struct {
     ///
     /// ` defaultValue: f64 `
     ///
-    pub fn ToDouble1(self: QJsonValueConstRef, defaultValue: f64) f64 {
+    pub fn toDouble1(self: QJsonValueConstRef, defaultValue: f64) f64 {
         return qtc.QJsonValueConstRef_ToDouble1(@ptrCast(self.ptr), @bitCast(defaultValue));
     }
+
+    /// ### DEPRECATED: Use `toString1` instead
+    ///
+    pub const ToString1 = toString1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#toString)
     ///
@@ -838,31 +1118,31 @@ pub const QJsonValueConstRef = extern struct {
     ///
     /// ` defaultValue: []const u8 `
     ///
-    pub fn ToString1(self: QJsonValueConstRef, allocator: std.mem.Allocator, defaultValue: []const u8) []const u8 {
+    pub fn toString1(self: QJsonValueConstRef, allocator: std.mem.Allocator, defaultValue: []const u8) []const u8 {
         const defaultValue_str = qtc.libqt_string{
             .len = defaultValue.len,
             .data = defaultValue.ptr,
         };
         var _str = qtc.QJsonValueConstRef_ToString1(@ptrCast(self.ptr), defaultValue_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QJsonValueConstRef.ToString1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QJsonValueConstRef.toString1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#dtor.QJsonValueConstRef)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QJsonValueConstRef `
     ///
-    pub fn Delete(self: QJsonValueConstRef) void {
+    pub fn delete(self: QJsonValueConstRef) void {
         qtc.QJsonValueConstRef_Delete(@ptrCast(self.ptr));
     }
 };
@@ -878,29 +1158,41 @@ pub const QJsonValueRef = extern struct {
     pub const _is_QJsonValueRef = {};
     pub const _is_QJsonValueConstRef = {};
 
-    /// New constructs a new QJsonValueRef object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QJsonValueRef object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QJsonValueRef `
     ///
-    pub fn New(other: anytype) QJsonValueRef {
+    pub fn new(other: anytype) QJsonValueRef {
         comptime _ = @TypeOf(other)._is_QJsonValueRef;
         return .{ .ptr = qtc.QJsonValueRef_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new QJsonValueRef object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QJsonValueRef object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QJsonValueRef `
     ///
-    pub fn New2(param1: anytype) QJsonValueRef {
+    pub fn new2(param1: anytype) QJsonValueRef {
         comptime _ = @TypeOf(param1)._is_QJsonValueRef;
         return .{ .ptr = qtc.QJsonValueRef_new2(@ptrCast(param1.ptr)) };
     }
 
-    /// New3 constructs a new QJsonValueRef object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QJsonValueRef object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -908,12 +1200,16 @@ pub const QJsonValueRef = extern struct {
     ///
     /// ` idx: isize `
     ///
-    pub fn New3(array: anytype, idx: isize) QJsonValueRef {
+    pub fn new3(array: anytype, idx: isize) QJsonValueRef {
         comptime _ = @TypeOf(array)._is_QJsonArray;
         return .{ .ptr = qtc.QJsonValueRef_new3(@ptrCast(array.ptr), @bitCast(idx)) };
     }
 
-    /// New4 constructs a new QJsonValueRef object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QJsonValueRef object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -921,10 +1217,14 @@ pub const QJsonValueRef = extern struct {
     ///
     /// ` idx: isize `
     ///
-    pub fn New4(object: anytype, idx: isize) QJsonValueRef {
+    pub fn new4(object: anytype, idx: isize) QJsonValueRef {
         comptime _ = @TypeOf(object)._is_QJsonObject;
         return .{ .ptr = qtc.QJsonValueRef_new4(@ptrCast(object.ptr), @bitCast(idx)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#operator-eq)
     ///
@@ -934,10 +1234,14 @@ pub const QJsonValueRef = extern struct {
     ///
     /// ` val: QJsonValue `
     ///
-    pub fn OperatorAssign(self: QJsonValueRef, val: anytype) void {
+    pub fn operatorAssign(self: QJsonValueRef, val: anytype) void {
         comptime _ = @TypeOf(val)._is_QJsonValue;
         qtc.QJsonValueRef_OperatorAssign(@ptrCast(self.ptr), @ptrCast(val.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign2` instead
+    ///
+    pub const OperatorAssign2 = operatorAssign2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#operator-eq)
     ///
@@ -947,10 +1251,14 @@ pub const QJsonValueRef = extern struct {
     ///
     /// ` val: QJsonValueRef `
     ///
-    pub fn OperatorAssign2(self: QJsonValueRef, val: anytype) void {
+    pub fn operatorAssign2(self: QJsonValueRef, val: anytype) void {
         comptime _ = @TypeOf(val)._is_QJsonValueRef;
         qtc.QJsonValueRef_OperatorAssign2(@ptrCast(self.ptr), @ptrCast(val.ptr));
     }
+
+    /// ### DEPRECATED: Use `toQJsonValue` instead
+    ///
+    pub const ToQJsonValue = toQJsonValue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#operator)
     ///
@@ -958,9 +1266,13 @@ pub const QJsonValueRef = extern struct {
     ///
     /// ` self: QJsonValueRef `
     ///
-    pub fn ToQJsonValue(self: QJsonValueRef) QJsonValue {
+    pub fn toQJsonValue(self: QJsonValueRef) QJsonValue {
         return .{ .ptr = qtc.QJsonValueRef_ToQJsonValue(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toVariant` instead
+    ///
+    pub const ToVariant = toVariant;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#toVariant)
     ///
@@ -968,9 +1280,15 @@ pub const QJsonValueRef = extern struct {
     ///
     /// ` self: QJsonValueRef `
     ///
-    pub fn ToVariant(self: QJsonValueRef) QVariant {
+    pub fn toVariant(self: QJsonValueRef) QVariant {
         return .{ .ptr = qtc.QJsonValueRef_ToVariant(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#type)
     ///
@@ -982,9 +1300,13 @@ pub const QJsonValueRef = extern struct {
     ///
     /// ` qjsonvalue_enums.Type `
     ///
-    pub fn Type(self: QJsonValueRef) i32 {
+    pub fn type0(self: QJsonValueRef) i32 {
         return qtc.QJsonValueRef_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isNull` instead
+    ///
+    pub const IsNull = isNull;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#isNull)
     ///
@@ -992,9 +1314,13 @@ pub const QJsonValueRef = extern struct {
     ///
     /// ` self: QJsonValueRef `
     ///
-    pub fn IsNull(self: QJsonValueRef) bool {
+    pub fn isNull(self: QJsonValueRef) bool {
         return qtc.QJsonValueRef_IsNull(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isBool` instead
+    ///
+    pub const IsBool = isBool;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#isBool)
     ///
@@ -1002,9 +1328,13 @@ pub const QJsonValueRef = extern struct {
     ///
     /// ` self: QJsonValueRef `
     ///
-    pub fn IsBool(self: QJsonValueRef) bool {
+    pub fn isBool(self: QJsonValueRef) bool {
         return qtc.QJsonValueRef_IsBool(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDouble` instead
+    ///
+    pub const IsDouble = isDouble;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#isDouble)
     ///
@@ -1012,9 +1342,13 @@ pub const QJsonValueRef = extern struct {
     ///
     /// ` self: QJsonValueRef `
     ///
-    pub fn IsDouble(self: QJsonValueRef) bool {
+    pub fn isDouble(self: QJsonValueRef) bool {
         return qtc.QJsonValueRef_IsDouble(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isString` instead
+    ///
+    pub const IsString = isString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#isString)
     ///
@@ -1022,9 +1356,13 @@ pub const QJsonValueRef = extern struct {
     ///
     /// ` self: QJsonValueRef `
     ///
-    pub fn IsString(self: QJsonValueRef) bool {
+    pub fn isString(self: QJsonValueRef) bool {
         return qtc.QJsonValueRef_IsString(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isArray` instead
+    ///
+    pub const IsArray = isArray;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#isArray)
     ///
@@ -1032,9 +1370,13 @@ pub const QJsonValueRef = extern struct {
     ///
     /// ` self: QJsonValueRef `
     ///
-    pub fn IsArray(self: QJsonValueRef) bool {
+    pub fn isArray(self: QJsonValueRef) bool {
         return qtc.QJsonValueRef_IsArray(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isObject` instead
+    ///
+    pub const IsObject = isObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#isObject)
     ///
@@ -1042,9 +1384,13 @@ pub const QJsonValueRef = extern struct {
     ///
     /// ` self: QJsonValueRef `
     ///
-    pub fn IsObject(self: QJsonValueRef) bool {
+    pub fn isObject(self: QJsonValueRef) bool {
         return qtc.QJsonValueRef_IsObject(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isUndefined` instead
+    ///
+    pub const IsUndefined = isUndefined;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#isUndefined)
     ///
@@ -1052,9 +1398,13 @@ pub const QJsonValueRef = extern struct {
     ///
     /// ` self: QJsonValueRef `
     ///
-    pub fn IsUndefined(self: QJsonValueRef) bool {
+    pub fn isUndefined(self: QJsonValueRef) bool {
         return qtc.QJsonValueRef_IsUndefined(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toBool` instead
+    ///
+    pub const ToBool = toBool;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#toBool)
     ///
@@ -1062,9 +1412,13 @@ pub const QJsonValueRef = extern struct {
     ///
     /// ` self: QJsonValueRef `
     ///
-    pub fn ToBool(self: QJsonValueRef) bool {
+    pub fn toBool(self: QJsonValueRef) bool {
         return qtc.QJsonValueRef_ToBool(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toInt` instead
+    ///
+    pub const ToInt = toInt;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#toInt)
     ///
@@ -1072,9 +1426,13 @@ pub const QJsonValueRef = extern struct {
     ///
     /// ` self: QJsonValueRef `
     ///
-    pub fn ToInt(self: QJsonValueRef) i32 {
+    pub fn toInt(self: QJsonValueRef) i32 {
         return qtc.QJsonValueRef_ToInt(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toInteger` instead
+    ///
+    pub const ToInteger = toInteger;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#toInteger)
     ///
@@ -1082,9 +1440,13 @@ pub const QJsonValueRef = extern struct {
     ///
     /// ` self: QJsonValueRef `
     ///
-    pub fn ToInteger(self: QJsonValueRef) i64 {
+    pub fn toInteger(self: QJsonValueRef) i64 {
         return qtc.QJsonValueRef_ToInteger(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toDouble` instead
+    ///
+    pub const ToDouble = toDouble;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#toDouble)
     ///
@@ -1092,9 +1454,13 @@ pub const QJsonValueRef = extern struct {
     ///
     /// ` self: QJsonValueRef `
     ///
-    pub fn ToDouble(self: QJsonValueRef) f64 {
+    pub fn toDouble(self: QJsonValueRef) f64 {
         return qtc.QJsonValueRef_ToDouble(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toString` instead
+    ///
+    pub const ToString = toString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#toString)
     ///
@@ -1104,13 +1470,17 @@ pub const QJsonValueRef = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToString(self: QJsonValueRef, allocator: std.mem.Allocator) []const u8 {
+    pub fn toString(self: QJsonValueRef, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QJsonValueRef_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QJsonValueRef.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QJsonValueRef.toString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `toArray` instead
+    ///
+    pub const ToArray = toArray;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#toArray)
     ///
@@ -1118,9 +1488,13 @@ pub const QJsonValueRef = extern struct {
     ///
     /// ` self: QJsonValueRef `
     ///
-    pub fn ToArray(self: QJsonValueRef) QJsonArray {
+    pub fn toArray(self: QJsonValueRef) QJsonArray {
         return .{ .ptr = qtc.QJsonValueRef_ToArray(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toObject` instead
+    ///
+    pub const ToObject = toObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#toObject)
     ///
@@ -1128,9 +1502,13 @@ pub const QJsonValueRef = extern struct {
     ///
     /// ` self: QJsonValueRef `
     ///
-    pub fn ToObject(self: QJsonValueRef) QJsonObject {
+    pub fn toObject(self: QJsonValueRef) QJsonObject {
         return .{ .ptr = qtc.QJsonValueRef_ToObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorSubscript` instead
+    ///
+    pub const OperatorSubscript = operatorSubscript;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#operator-5b-5d)
     ///
@@ -1140,13 +1518,17 @@ pub const QJsonValueRef = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn OperatorSubscript(self: QJsonValueRef, key: []const u8) QJsonValue {
+    pub fn operatorSubscript(self: QJsonValueRef, key: []const u8) QJsonValue {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
         return .{ .ptr = qtc.QJsonValueRef_OperatorSubscript(@ptrCast(self.ptr), key_str) };
     }
+
+    /// ### DEPRECATED: Use `operatorSubscript2` instead
+    ///
+    pub const OperatorSubscript2 = operatorSubscript2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#operator-5b-5d)
     ///
@@ -1156,13 +1538,17 @@ pub const QJsonValueRef = extern struct {
     ///
     /// ` key: []u8 `
     ///
-    pub fn OperatorSubscript2(self: QJsonValueRef, key: []u8) QJsonValue {
+    pub fn operatorSubscript2(self: QJsonValueRef, key: []u8) QJsonValue {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
         return .{ .ptr = qtc.QJsonValueRef_OperatorSubscript2(@ptrCast(self.ptr), key_str) };
     }
+
+    /// ### DEPRECATED: Use `operatorSubscript3` instead
+    ///
+    pub const OperatorSubscript3 = operatorSubscript3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#operator-5b-5d)
     ///
@@ -1172,9 +1558,13 @@ pub const QJsonValueRef = extern struct {
     ///
     /// ` i: isize `
     ///
-    pub fn OperatorSubscript3(self: QJsonValueRef, i: isize) QJsonValue {
+    pub fn operatorSubscript3(self: QJsonValueRef, i: isize) QJsonValue {
         return .{ .ptr = qtc.QJsonValueRef_OperatorSubscript3(@ptrCast(self.ptr), @bitCast(i)) };
     }
+
+    /// ### DEPRECATED: Use `toBool1` instead
+    ///
+    pub const ToBool1 = toBool1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#toBool)
     ///
@@ -1184,9 +1574,13 @@ pub const QJsonValueRef = extern struct {
     ///
     /// ` defaultValue: bool `
     ///
-    pub fn ToBool1(self: QJsonValueRef, defaultValue: bool) bool {
+    pub fn toBool1(self: QJsonValueRef, defaultValue: bool) bool {
         return qtc.QJsonValueRef_ToBool1(@ptrCast(self.ptr), defaultValue);
     }
+
+    /// ### DEPRECATED: Use `toInt1` instead
+    ///
+    pub const ToInt1 = toInt1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#toInt)
     ///
@@ -1196,9 +1590,13 @@ pub const QJsonValueRef = extern struct {
     ///
     /// ` defaultValue: i32 `
     ///
-    pub fn ToInt1(self: QJsonValueRef, defaultValue: i32) i32 {
+    pub fn toInt1(self: QJsonValueRef, defaultValue: i32) i32 {
         return qtc.QJsonValueRef_ToInt1(@ptrCast(self.ptr), @bitCast(defaultValue));
     }
+
+    /// ### DEPRECATED: Use `toInteger1` instead
+    ///
+    pub const ToInteger1 = toInteger1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#toInteger)
     ///
@@ -1208,9 +1606,13 @@ pub const QJsonValueRef = extern struct {
     ///
     /// ` defaultValue: i64 `
     ///
-    pub fn ToInteger1(self: QJsonValueRef, defaultValue: i64) i64 {
+    pub fn toInteger1(self: QJsonValueRef, defaultValue: i64) i64 {
         return qtc.QJsonValueRef_ToInteger1(@ptrCast(self.ptr), @bitCast(defaultValue));
     }
+
+    /// ### DEPRECATED: Use `toDouble1` instead
+    ///
+    pub const ToDouble1 = toDouble1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#toDouble)
     ///
@@ -1220,9 +1622,13 @@ pub const QJsonValueRef = extern struct {
     ///
     /// ` defaultValue: f64 `
     ///
-    pub fn ToDouble1(self: QJsonValueRef, defaultValue: f64) f64 {
+    pub fn toDouble1(self: QJsonValueRef, defaultValue: f64) f64 {
         return qtc.QJsonValueRef_ToDouble1(@ptrCast(self.ptr), @bitCast(defaultValue));
     }
+
+    /// ### DEPRECATED: Use `toString1` instead
+    ///
+    pub const ToString1 = toString1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#toString)
     ///
@@ -1234,31 +1640,31 @@ pub const QJsonValueRef = extern struct {
     ///
     /// ` defaultValue: []const u8 `
     ///
-    pub fn ToString1(self: QJsonValueRef, allocator: std.mem.Allocator, defaultValue: []const u8) []const u8 {
+    pub fn toString1(self: QJsonValueRef, allocator: std.mem.Allocator, defaultValue: []const u8) []const u8 {
         const defaultValue_str = qtc.libqt_string{
             .len = defaultValue.len,
             .data = defaultValue.ptr,
         };
         var _str = qtc.QJsonValueRef_ToString1(@ptrCast(self.ptr), defaultValue_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QJsonValueRef.ToString1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QJsonValueRef.toString1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#dtor.QJsonValueRef)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QJsonValueRef `
     ///
-    pub fn Delete(self: QJsonValueRef) void {
+    pub fn delete(self: QJsonValueRef) void {
         qtc.QJsonValueRef_Delete(@ptrCast(self.ptr));
     }
 };

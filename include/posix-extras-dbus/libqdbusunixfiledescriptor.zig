@@ -11,32 +11,48 @@ pub const QDBusUnixFileDescriptor = extern struct {
 
     pub const _is_QDBusUnixFileDescriptor = {};
 
-    /// New constructs a new QDBusUnixFileDescriptor object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QDBusUnixFileDescriptor {
+    pub const New = new;
+
+    /// Allocate a new QDBusUnixFileDescriptor object in C++ memory
+    ///
+    pub fn new() QDBusUnixFileDescriptor {
         return .{ .ptr = qtc.QDBusUnixFileDescriptor_new() };
     }
 
-    /// New2 constructs a new QDBusUnixFileDescriptor object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QDBusUnixFileDescriptor object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` fileDescriptor: i32 `
+    /// ` _fileDescriptor: i32 `
     ///
-    pub fn New2(fileDescriptor: i32) QDBusUnixFileDescriptor {
-        return .{ .ptr = qtc.QDBusUnixFileDescriptor_new2(@bitCast(fileDescriptor)) };
+    pub fn new2(_fileDescriptor: i32) QDBusUnixFileDescriptor {
+        return .{ .ptr = qtc.QDBusUnixFileDescriptor_new2(@bitCast(_fileDescriptor)) };
     }
 
-    /// New3 constructs a new QDBusUnixFileDescriptor object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QDBusUnixFileDescriptor object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QDBusUnixFileDescriptor `
     ///
-    pub fn New3(other: anytype) QDBusUnixFileDescriptor {
+    pub fn new3(other: anytype) QDBusUnixFileDescriptor {
         comptime _ = @TypeOf(other)._is_QDBusUnixFileDescriptor;
         return .{ .ptr = qtc.QDBusUnixFileDescriptor_new3(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusunixfiledescriptor.html#operator-eq)
     ///
@@ -46,10 +62,14 @@ pub const QDBusUnixFileDescriptor = extern struct {
     ///
     /// ` other: QDBusUnixFileDescriptor `
     ///
-    pub fn OperatorAssign(self: QDBusUnixFileDescriptor, other: anytype) void {
+    pub fn operatorAssign(self: QDBusUnixFileDescriptor, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QDBusUnixFileDescriptor;
         qtc.QDBusUnixFileDescriptor_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusunixfiledescriptor.html#swap)
     ///
@@ -59,10 +79,14 @@ pub const QDBusUnixFileDescriptor = extern struct {
     ///
     /// ` other: QDBusUnixFileDescriptor `
     ///
-    pub fn Swap(self: QDBusUnixFileDescriptor, other: anytype) void {
+    pub fn swap(self: QDBusUnixFileDescriptor, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QDBusUnixFileDescriptor;
         qtc.QDBusUnixFileDescriptor_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusunixfiledescriptor.html#isValid)
     ///
@@ -70,9 +94,13 @@ pub const QDBusUnixFileDescriptor = extern struct {
     ///
     /// ` self: QDBusUnixFileDescriptor `
     ///
-    pub fn IsValid(self: QDBusUnixFileDescriptor) bool {
+    pub fn isValid(self: QDBusUnixFileDescriptor) bool {
         return qtc.QDBusUnixFileDescriptor_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `fileDescriptor` instead
+    ///
+    pub const FileDescriptor = fileDescriptor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusunixfiledescriptor.html#fileDescriptor)
     ///
@@ -80,9 +108,13 @@ pub const QDBusUnixFileDescriptor = extern struct {
     ///
     /// ` self: QDBusUnixFileDescriptor `
     ///
-    pub fn FileDescriptor(self: QDBusUnixFileDescriptor) i32 {
+    pub fn fileDescriptor(self: QDBusUnixFileDescriptor) i32 {
         return qtc.QDBusUnixFileDescriptor_FileDescriptor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFileDescriptor` instead
+    ///
+    pub const SetFileDescriptor = setFileDescriptor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusunixfiledescriptor.html#setFileDescriptor)
     ///
@@ -90,11 +122,15 @@ pub const QDBusUnixFileDescriptor = extern struct {
     ///
     /// ` self: QDBusUnixFileDescriptor `
     ///
-    /// ` fileDescriptor: i32 `
+    /// ` _fileDescriptor: i32 `
     ///
-    pub fn SetFileDescriptor(self: QDBusUnixFileDescriptor, fileDescriptor: i32) void {
-        qtc.QDBusUnixFileDescriptor_SetFileDescriptor(@ptrCast(self.ptr), @bitCast(fileDescriptor));
+    pub fn setFileDescriptor(self: QDBusUnixFileDescriptor, _fileDescriptor: i32) void {
+        qtc.QDBusUnixFileDescriptor_SetFileDescriptor(@ptrCast(self.ptr), @bitCast(_fileDescriptor));
     }
+
+    /// ### DEPRECATED: Use `giveFileDescriptor` instead
+    ///
+    pub const GiveFileDescriptor = giveFileDescriptor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusunixfiledescriptor.html#giveFileDescriptor)
     ///
@@ -102,11 +138,15 @@ pub const QDBusUnixFileDescriptor = extern struct {
     ///
     /// ` self: QDBusUnixFileDescriptor `
     ///
-    /// ` fileDescriptor: i32 `
+    /// ` _fileDescriptor: i32 `
     ///
-    pub fn GiveFileDescriptor(self: QDBusUnixFileDescriptor, fileDescriptor: i32) void {
-        qtc.QDBusUnixFileDescriptor_GiveFileDescriptor(@ptrCast(self.ptr), @bitCast(fileDescriptor));
+    pub fn giveFileDescriptor(self: QDBusUnixFileDescriptor, _fileDescriptor: i32) void {
+        qtc.QDBusUnixFileDescriptor_GiveFileDescriptor(@ptrCast(self.ptr), @bitCast(_fileDescriptor));
     }
+
+    /// ### DEPRECATED: Use `takeFileDescriptor` instead
+    ///
+    pub const TakeFileDescriptor = takeFileDescriptor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusunixfiledescriptor.html#takeFileDescriptor)
     ///
@@ -114,29 +154,33 @@ pub const QDBusUnixFileDescriptor = extern struct {
     ///
     /// ` self: QDBusUnixFileDescriptor `
     ///
-    pub fn TakeFileDescriptor(self: QDBusUnixFileDescriptor) i32 {
+    pub fn takeFileDescriptor(self: QDBusUnixFileDescriptor) i32 {
         return qtc.QDBusUnixFileDescriptor_TakeFileDescriptor(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `isSupported` instead
+    ///
+    pub const IsSupported = isSupported;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusunixfiledescriptor.html#isSupported)
     ///
-    pub fn IsSupported() bool {
+    pub fn isSupported() bool {
         return qtc.QDBusUnixFileDescriptor_IsSupported();
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusunixfiledescriptor.html#dtor.QDBusUnixFileDescriptor)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDBusUnixFileDescriptor `
     ///
-    pub fn Delete(self: QDBusUnixFileDescriptor) void {
+    pub fn delete(self: QDBusUnixFileDescriptor) void {
         qtc.QDBusUnixFileDescriptor_Delete(@ptrCast(self.ptr));
     }
 };

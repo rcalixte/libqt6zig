@@ -12,11 +12,19 @@ pub const QDesignerSettingsInterface = extern struct {
 
     pub const _is_QDesignerSettingsInterface = {};
 
-    /// New constructs a new QDesignerSettingsInterface object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QDesignerSettingsInterface {
+    pub const New = new;
+
+    /// Allocate a new QDesignerSettingsInterface object in C++ memory
+    ///
+    pub fn new() QDesignerSettingsInterface {
         return .{ .ptr = qtc.QDesignerSettingsInterface_new() };
     }
+
+    /// ### DEPRECATED: Use `beginGroup` instead
+    ///
+    pub const BeginGroup = beginGroup;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignersettingsinterface.html#beginGroup)
     ///
@@ -26,13 +34,17 @@ pub const QDesignerSettingsInterface = extern struct {
     ///
     /// ` prefix: []const u8 `
     ///
-    pub fn BeginGroup(self: QDesignerSettingsInterface, prefix: []const u8) void {
+    pub fn beginGroup(self: QDesignerSettingsInterface, prefix: []const u8) void {
         const prefix_str = qtc.libqt_string{
             .len = prefix.len,
             .data = prefix.ptr,
         };
         qtc.QDesignerSettingsInterface_BeginGroup(@ptrCast(self.ptr), prefix_str);
     }
+
+    /// ### DEPRECATED: Use `onBeginGroup` instead
+    ///
+    pub const OnBeginGroup = onBeginGroup;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignersettingsinterface.html#beginGroup)
     ///
@@ -44,13 +56,13 @@ pub const QDesignerSettingsInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerSettingsInterface, prefix: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnBeginGroup(self: QDesignerSettingsInterface, callback: *const fn (QDesignerSettingsInterface, [*:0]const u8) callconv(.c) void) void {
+    pub fn onBeginGroup(self: QDesignerSettingsInterface, callback: *const fn (QDesignerSettingsInterface, [*:0]const u8) callconv(.c) void) void {
         qtc.QDesignerSettingsInterface_OnBeginGroup(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperBeginGroup` instead
+    /// ### DEPRECATED: Use `superBeginGroup` instead
     ///
-    pub const QBaseBeginGroup = SuperBeginGroup;
+    pub const SuperBeginGroup = superBeginGroup;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignersettingsinterface.html#beginGroup)
     ///
@@ -62,7 +74,7 @@ pub const QDesignerSettingsInterface = extern struct {
     ///
     /// ` prefix: []const u8 `
     ///
-    pub fn SuperBeginGroup(self: QDesignerSettingsInterface, prefix: []const u8) void {
+    pub fn superBeginGroup(self: QDesignerSettingsInterface, prefix: []const u8) void {
         const prefix_str = qtc.libqt_string{
             .len = prefix.len,
             .data = prefix.ptr,
@@ -70,15 +82,23 @@ pub const QDesignerSettingsInterface = extern struct {
         qtc.QDesignerSettingsInterface_SuperBeginGroup(@ptrCast(self.ptr), prefix_str);
     }
 
+    /// ### DEPRECATED: Use `endGroup` instead
+    ///
+    pub const EndGroup = endGroup;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignersettingsinterface.html#endGroup)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerSettingsInterface `
     ///
-    pub fn EndGroup(self: QDesignerSettingsInterface) void {
+    pub fn endGroup(self: QDesignerSettingsInterface) void {
         qtc.QDesignerSettingsInterface_EndGroup(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEndGroup` instead
+    ///
+    pub const OnEndGroup = onEndGroup;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignersettingsinterface.html#endGroup)
     ///
@@ -90,13 +110,13 @@ pub const QDesignerSettingsInterface = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndGroup(self: QDesignerSettingsInterface, callback: *const fn () callconv(.c) void) void {
+    pub fn onEndGroup(self: QDesignerSettingsInterface, callback: *const fn () callconv(.c) void) void {
         qtc.QDesignerSettingsInterface_OnEndGroup(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEndGroup` instead
+    /// ### DEPRECATED: Use `superEndGroup` instead
     ///
-    pub const QBaseEndGroup = SuperEndGroup;
+    pub const SuperEndGroup = superEndGroup;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignersettingsinterface.html#endGroup)
     ///
@@ -106,9 +126,13 @@ pub const QDesignerSettingsInterface = extern struct {
     ///
     /// ` self: QDesignerSettingsInterface `
     ///
-    pub fn SuperEndGroup(self: QDesignerSettingsInterface) void {
+    pub fn superEndGroup(self: QDesignerSettingsInterface) void {
         qtc.QDesignerSettingsInterface_SuperEndGroup(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `contains` instead
+    ///
+    pub const Contains = contains;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignersettingsinterface.html#contains)
     ///
@@ -118,13 +142,17 @@ pub const QDesignerSettingsInterface = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn Contains(self: QDesignerSettingsInterface, key: []const u8) bool {
+    pub fn contains(self: QDesignerSettingsInterface, key: []const u8) bool {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
         return qtc.QDesignerSettingsInterface_Contains(@ptrCast(self.ptr), key_str);
     }
+
+    /// ### DEPRECATED: Use `onContains` instead
+    ///
+    pub const OnContains = onContains;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignersettingsinterface.html#contains)
     ///
@@ -136,13 +164,13 @@ pub const QDesignerSettingsInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerSettingsInterface, key: [*:0]const u8) callconv(.c) bool `
     ///
-    pub fn OnContains(self: QDesignerSettingsInterface, callback: *const fn (QDesignerSettingsInterface, [*:0]const u8) callconv(.c) bool) void {
+    pub fn onContains(self: QDesignerSettingsInterface, callback: *const fn (QDesignerSettingsInterface, [*:0]const u8) callconv(.c) bool) void {
         qtc.QDesignerSettingsInterface_OnContains(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperContains` instead
+    /// ### DEPRECATED: Use `superContains` instead
     ///
-    pub const QBaseContains = SuperContains;
+    pub const SuperContains = superContains;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignersettingsinterface.html#contains)
     ///
@@ -154,13 +182,17 @@ pub const QDesignerSettingsInterface = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn SuperContains(self: QDesignerSettingsInterface, key: []const u8) bool {
+    pub fn superContains(self: QDesignerSettingsInterface, key: []const u8) bool {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
         return qtc.QDesignerSettingsInterface_SuperContains(@ptrCast(self.ptr), key_str);
     }
+
+    /// ### DEPRECATED: Use `setValue` instead
+    ///
+    pub const SetValue = setValue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignersettingsinterface.html#setValue)
     ///
@@ -170,16 +202,20 @@ pub const QDesignerSettingsInterface = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    /// ` value: QVariant `
+    /// ` _value: QVariant `
     ///
-    pub fn SetValue(self: QDesignerSettingsInterface, key: []const u8, value: anytype) void {
+    pub fn setValue(self: QDesignerSettingsInterface, key: []const u8, _value: anytype) void {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
-        comptime _ = @TypeOf(value)._is_QVariant;
-        qtc.QDesignerSettingsInterface_SetValue(@ptrCast(self.ptr), key_str, @ptrCast(value.ptr));
+        comptime _ = @TypeOf(_value)._is_QVariant;
+        qtc.QDesignerSettingsInterface_SetValue(@ptrCast(self.ptr), key_str, @ptrCast(_value.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetValue` instead
+    ///
+    pub const OnSetValue = onSetValue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignersettingsinterface.html#setValue)
     ///
@@ -191,13 +227,13 @@ pub const QDesignerSettingsInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerSettingsInterface, key: [*:0]const u8, value: QVariant) callconv(.c) void `
     ///
-    pub fn OnSetValue(self: QDesignerSettingsInterface, callback: *const fn (QDesignerSettingsInterface, [*:0]const u8, QVariant) callconv(.c) void) void {
+    pub fn onSetValue(self: QDesignerSettingsInterface, callback: *const fn (QDesignerSettingsInterface, [*:0]const u8, QVariant) callconv(.c) void) void {
         qtc.QDesignerSettingsInterface_OnSetValue(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetValue` instead
+    /// ### DEPRECATED: Use `superSetValue` instead
     ///
-    pub const QBaseSetValue = SuperSetValue;
+    pub const SuperSetValue = superSetValue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignersettingsinterface.html#setValue)
     ///
@@ -209,16 +245,20 @@ pub const QDesignerSettingsInterface = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    /// ` value: QVariant `
+    /// ` _value: QVariant `
     ///
-    pub fn SuperSetValue(self: QDesignerSettingsInterface, key: []const u8, value: anytype) void {
+    pub fn superSetValue(self: QDesignerSettingsInterface, key: []const u8, _value: anytype) void {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
-        comptime _ = @TypeOf(value)._is_QVariant;
-        qtc.QDesignerSettingsInterface_SuperSetValue(@ptrCast(self.ptr), key_str, @ptrCast(value.ptr));
+        comptime _ = @TypeOf(_value)._is_QVariant;
+        qtc.QDesignerSettingsInterface_SuperSetValue(@ptrCast(self.ptr), key_str, @ptrCast(_value.ptr));
     }
+
+    /// ### DEPRECATED: Use `value` instead
+    ///
+    pub const Value = value;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignersettingsinterface.html#value)
     ///
@@ -230,7 +270,7 @@ pub const QDesignerSettingsInterface = extern struct {
     ///
     /// ` defaultValue: QVariant `
     ///
-    pub fn Value(self: QDesignerSettingsInterface, key: []const u8, defaultValue: anytype) QVariant {
+    pub fn value(self: QDesignerSettingsInterface, key: []const u8, defaultValue: anytype) QVariant {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -238,6 +278,10 @@ pub const QDesignerSettingsInterface = extern struct {
         comptime _ = @TypeOf(defaultValue)._is_QVariant;
         return .{ .ptr = qtc.QDesignerSettingsInterface_Value(@ptrCast(self.ptr), key_str, @ptrCast(defaultValue.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onValue` instead
+    ///
+    pub const OnValue = onValue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignersettingsinterface.html#value)
     ///
@@ -251,13 +295,13 @@ pub const QDesignerSettingsInterface = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnValue(self: QDesignerSettingsInterface, callback: *const fn (QDesignerSettingsInterface, [*:0]const u8, QVariant) callconv(.c) QVariant) void {
+    pub fn onValue(self: QDesignerSettingsInterface, callback: *const fn (QDesignerSettingsInterface, [*:0]const u8, QVariant) callconv(.c) QVariant) void {
         qtc.QDesignerSettingsInterface_OnValue(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperValue` instead
+    /// ### DEPRECATED: Use `superValue` instead
     ///
-    pub const QBaseValue = SuperValue;
+    pub const SuperValue = superValue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignersettingsinterface.html#value)
     ///
@@ -271,7 +315,7 @@ pub const QDesignerSettingsInterface = extern struct {
     ///
     /// ` defaultValue: QVariant `
     ///
-    pub fn SuperValue(self: QDesignerSettingsInterface, key: []const u8, defaultValue: anytype) QVariant {
+    pub fn superValue(self: QDesignerSettingsInterface, key: []const u8, defaultValue: anytype) QVariant {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -279,6 +323,10 @@ pub const QDesignerSettingsInterface = extern struct {
         comptime _ = @TypeOf(defaultValue)._is_QVariant;
         return .{ .ptr = qtc.QDesignerSettingsInterface_SuperValue(@ptrCast(self.ptr), key_str, @ptrCast(defaultValue.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `remove` instead
+    ///
+    pub const Remove = remove;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignersettingsinterface.html#remove)
     ///
@@ -288,13 +336,17 @@ pub const QDesignerSettingsInterface = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn Remove(self: QDesignerSettingsInterface, key: []const u8) void {
+    pub fn remove(self: QDesignerSettingsInterface, key: []const u8) void {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
         qtc.QDesignerSettingsInterface_Remove(@ptrCast(self.ptr), key_str);
     }
+
+    /// ### DEPRECATED: Use `onRemove` instead
+    ///
+    pub const OnRemove = onRemove;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignersettingsinterface.html#remove)
     ///
@@ -306,13 +358,13 @@ pub const QDesignerSettingsInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerSettingsInterface, key: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnRemove(self: QDesignerSettingsInterface, callback: *const fn (QDesignerSettingsInterface, [*:0]const u8) callconv(.c) void) void {
+    pub fn onRemove(self: QDesignerSettingsInterface, callback: *const fn (QDesignerSettingsInterface, [*:0]const u8) callconv(.c) void) void {
         qtc.QDesignerSettingsInterface_OnRemove(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperRemove` instead
+    /// ### DEPRECATED: Use `superRemove` instead
     ///
-    pub const QBaseRemove = SuperRemove;
+    pub const SuperRemove = superRemove;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignersettingsinterface.html#remove)
     ///
@@ -324,7 +376,7 @@ pub const QDesignerSettingsInterface = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn SuperRemove(self: QDesignerSettingsInterface, key: []const u8) void {
+    pub fn superRemove(self: QDesignerSettingsInterface, key: []const u8) void {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -332,19 +384,19 @@ pub const QDesignerSettingsInterface = extern struct {
         qtc.QDesignerSettingsInterface_SuperRemove(@ptrCast(self.ptr), key_str);
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignersettingsinterface.html#dtor.QDesignerSettingsInterface)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDesignerSettingsInterface `
     ///
-    pub fn Delete(self: QDesignerSettingsInterface) void {
+    pub fn delete(self: QDesignerSettingsInterface) void {
         qtc.QDesignerSettingsInterface_Delete(@ptrCast(self.ptr));
     }
 };

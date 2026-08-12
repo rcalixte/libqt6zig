@@ -13,40 +13,55 @@ pub const QStaticPlugin = extern struct {
 
     pub const _is_QStaticPlugin = {};
 
-    /// New constructs a new QStaticPlugin object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QStaticPlugin object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QStaticPlugin `
     ///
-    pub fn New(other: anytype) QStaticPlugin {
+    pub fn new(other: anytype) QStaticPlugin {
         comptime _ = @TypeOf(other)._is_QStaticPlugin;
         return .{ .ptr = qtc.QStaticPlugin_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new QStaticPlugin object and invalidates the source QStaticPlugin object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QStaticPlugin object and invalidate the source QStaticPlugin object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QStaticPlugin `
     ///
-    pub fn New2(other: anytype) QStaticPlugin {
+    pub fn new2(other: anytype) QStaticPlugin {
         comptime _ = @TypeOf(other)._is_QStaticPlugin;
         return .{ .ptr = qtc.QStaticPlugin_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QStaticPlugin object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QStaticPlugin object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QStaticPlugin `
     ///
-    pub fn New3(param1: anytype) QStaticPlugin {
+    pub fn new3(param1: anytype) QStaticPlugin {
         comptime _ = @TypeOf(param1)._is_QStaticPlugin;
         return .{ .ptr = qtc.QStaticPlugin_new3(@ptrCast(param1.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -54,11 +69,14 @@ pub const QStaticPlugin = extern struct {
     ///
     /// ` other: QStaticPlugin `
     ///
-    pub fn CopyAssign(self: QStaticPlugin, other: QStaticPlugin) void {
+    pub fn copyAssign(self: QStaticPlugin, other: QStaticPlugin) void {
         qtc.QStaticPlugin_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -66,9 +84,13 @@ pub const QStaticPlugin = extern struct {
     ///
     /// ` other: QStaticPlugin `
     ///
-    pub fn MoveAssign(self: QStaticPlugin, other: QStaticPlugin) void {
+    pub fn moveAssign(self: QStaticPlugin, other: QStaticPlugin) void {
         qtc.QStaticPlugin_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `instance` instead
+    ///
+    pub const Instance = instance;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstaticplugin.html#instance-var)
     ///
@@ -80,9 +102,13 @@ pub const QStaticPlugin = extern struct {
     ///
     /// ` ?*const fn () callconv(.c) QObject `
     ///
-    pub fn Instance(self: QStaticPlugin) ?*const fn () callconv(.c) QObject {
+    pub fn instance(self: QStaticPlugin) ?*const fn () callconv(.c) QObject {
         return @ptrFromInt(@as(usize, @bitCast(qtc.QStaticPlugin_Instance(@ptrCast(self.ptr)))));
     }
+
+    /// ### DEPRECATED: Use `setInstance` instead
+    ///
+    pub const SetInstance = setInstance;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstaticplugin.html#instance-var)
     ///
@@ -90,11 +116,15 @@ pub const QStaticPlugin = extern struct {
     ///
     /// ` self: QStaticPlugin `
     ///
-    /// ` instance: *const fn () callconv(.c) QObject `
+    /// ` _instance: *const fn () callconv(.c) QObject `
     ///
-    pub fn SetInstance(self: QStaticPlugin, instance: *const fn () callconv(.c) QObject) void {
-        qtc.QStaticPlugin_SetInstance(@ptrCast(self.ptr), @bitCast(@intFromPtr(instance)));
+    pub fn setInstance(self: QStaticPlugin, _instance: *const fn () callconv(.c) QObject) void {
+        qtc.QStaticPlugin_SetInstance(@ptrCast(self.ptr), @bitCast(@intFromPtr(_instance)));
     }
+
+    /// ### DEPRECATED: Use `metaData` instead
+    ///
+    pub const MetaData = metaData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstaticplugin.html#metaData)
     ///
@@ -102,23 +132,23 @@ pub const QStaticPlugin = extern struct {
     ///
     /// ` self: QStaticPlugin `
     ///
-    pub fn MetaData(self: QStaticPlugin) QJsonObject {
+    pub fn metaData(self: QStaticPlugin) QJsonObject {
         return .{ .ptr = qtc.QStaticPlugin_MetaData(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstaticplugin.html#dtor.QStaticPlugin)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QStaticPlugin `
     ///
-    pub fn Delete(self: QStaticPlugin) void {
+    pub fn delete(self: QStaticPlugin) void {
         qtc.QStaticPlugin_Delete(@ptrCast(self.ptr));
     }
 };

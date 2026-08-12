@@ -14,24 +14,36 @@ pub const SignOn__SessionData = extern struct {
 
     pub const _is_SignOn__SessionData = {};
 
-    /// New constructs a new SignOn::SessionData object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() SignOn__SessionData {
+    pub const New = new;
+
+    /// Allocate a new SignOn::SessionData object in C++ memory
+    ///
+    pub fn new() SignOn__SessionData {
         return .{ .ptr = qtc.SignOn__SessionData_new() };
     }
 
-    /// New2 constructs a new SignOn::SessionData object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new SignOn::SessionData object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: SignOn__SessionData `
     ///
-    pub fn New2(other: anytype) SignOn__SessionData {
+    pub fn new2(other: anytype) SignOn__SessionData {
         comptime _ = @TypeOf(other)._is_SignOn__SessionData;
         return .{ .ptr = qtc.SignOn__SessionData_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new SignOn::SessionData object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new SignOn::SessionData object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -39,11 +51,11 @@ pub const SignOn__SessionData = extern struct {
     ///
     /// ` data: ArrayMap_constu8_QVariant `
     ///
-    pub fn New3(allocator: std.mem.Allocator, data: ArrayMap_constu8_QVariant) SignOn__SessionData {
+    pub fn new3(allocator: std.mem.Allocator, data: ArrayMap_constu8_QVariant) SignOn__SessionData {
         const data_count = data.count();
-        const data_keys = allocator.alloc(qtc.libqt_string, data_count) catch @panic("SignOn__SessionData.New3: Memory allocation failed");
+        const data_keys = allocator.alloc(qtc.libqt_string, data_count) catch @panic("SignOn__SessionData.new3: Memory allocation failed");
         defer allocator.free(data_keys);
-        const data_values = allocator.alloc(QtC.QVariant, data_count) catch @panic("SignOn__SessionData.New3: Memory allocation failed");
+        const data_values = allocator.alloc(QtC.QVariant, data_count) catch @panic("SignOn__SessionData.new3: Memory allocation failed");
         defer allocator.free(data_values);
         var i: usize = 0;
         var data_it = data.iterator();
@@ -63,18 +75,9 @@ pub const SignOn__SessionData = extern struct {
         return .{ .ptr = qtc.SignOn__SessionData_new3(data_map) };
     }
 
-    /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
+    /// ### DEPRECATED: Use `operatorAssign` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: SignOn__SessionData `
-    ///
-    /// ` other: SignOn__SessionData `
-    ///
-    pub fn OperatorAssign(self: SignOn__SessionData, other: anytype) void {
-        comptime _ = @TypeOf(other)._is_SignOn__SessionData;
-        qtc.SignOn__SessionData_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
-    }
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
     ///
@@ -84,10 +87,31 @@ pub const SignOn__SessionData = extern struct {
     ///
     /// ` other: SignOn__SessionData `
     ///
-    pub fn OperatorPlusAssign(self: SignOn__SessionData, other: anytype) SignOn__SessionData {
+    pub fn operatorAssign(self: SignOn__SessionData, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_SignOn__SessionData;
+        qtc.SignOn__SessionData_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
+    }
+
+    /// ### DEPRECATED: Use `operatorPlusAssign` instead
+    ///
+    pub const OperatorPlusAssign = operatorPlusAssign;
+
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: SignOn__SessionData `
+    ///
+    /// ` other: SignOn__SessionData `
+    ///
+    pub fn operatorPlusAssign(self: SignOn__SessionData, other: anytype) SignOn__SessionData {
         comptime _ = @TypeOf(other)._is_SignOn__SessionData;
         return .{ .ptr = qtc.SignOn__SessionData_OperatorPlusAssign(@ptrCast(self.ptr), @ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `propertyNames` instead
+    ///
+    pub const PropertyNames = propertyNames;
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
     ///
@@ -97,7 +121,7 @@ pub const SignOn__SessionData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PropertyNames(self: SignOn__SessionData, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn propertyNames(self: SignOn__SessionData, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.SignOn__SessionData_PropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -105,15 +129,19 @@ pub const SignOn__SessionData = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("SignOn__SessionData.PropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("SignOn__SessionData.propertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("SignOn__SessionData.PropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("SignOn__SessionData.propertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `getProperty` instead
+    ///
+    pub const GetProperty = getProperty;
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
     ///
@@ -123,7 +151,7 @@ pub const SignOn__SessionData = extern struct {
     ///
     /// ` propertyName: []const u8 `
     ///
-    pub fn GetProperty(self: SignOn__SessionData, propertyName: []const u8) QVariant {
+    pub fn getProperty(self: SignOn__SessionData, propertyName: []const u8) QVariant {
         const propertyName_str = qtc.libqt_string{
             .len = propertyName.len,
             .data = propertyName.ptr,
@@ -131,31 +159,9 @@ pub const SignOn__SessionData = extern struct {
         return .{ .ptr = qtc.SignOn__SessionData_GetProperty(@ptrCast(self.ptr), propertyName_str) };
     }
 
-    /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
+    /// ### DEPRECATED: Use `getAccessControlTokens` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: SignOn__SessionData `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn GetAccessControlTokens(self: SignOn__SessionData, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.SignOn__SessionData_GetAccessControlTokens(@ptrCast(self.ptr));
-        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
-        defer {
-            for (0.._arr.len) |i|
-                qtc.libqt_string_free(@ptrCast(&_str[i]));
-            qtc.libqt_free(_arr.data);
-        }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("SignOn__SessionData.GetAccessControlTokens: Memory allocation failed");
-        for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("SignOn__SessionData.GetAccessControlTokens: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[i] = _buf;
-        }
-        return _ret;
-    }
+    pub const GetAccessControlTokens = getAccessControlTokens;
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
     ///
@@ -165,10 +171,40 @@ pub const SignOn__SessionData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToMap(self: SignOn__SessionData, allocator: std.mem.Allocator) ArrayMap_constu8_QVariant {
+    pub fn getAccessControlTokens(self: SignOn__SessionData, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.SignOn__SessionData_GetAccessControlTokens(@ptrCast(self.ptr));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        defer {
+            for (0.._arr.len) |i|
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
+            qtc.libqt_free(_arr.data);
+        }
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("SignOn__SessionData.getAccessControlTokens: Memory allocation failed");
+        for (0.._arr.len) |i| {
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("SignOn__SessionData.getAccessControlTokens: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
+            _ret[i] = _buf;
+        }
+        return _ret;
+    }
+
+    /// ### DEPRECATED: Use `toMap` instead
+    ///
+    pub const ToMap = toMap;
+
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: SignOn__SessionData `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn toMap(self: SignOn__SessionData, allocator: std.mem.Allocator) ArrayMap_constu8_QVariant {
         const _map: qtc.libqt_map = qtc.SignOn__SessionData_ToMap(@ptrCast(self.ptr));
         var _ret: ArrayMap_constu8_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("SignOn__SessionData.ToMap: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("SignOn__SessionData.toMap: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
@@ -182,13 +218,17 @@ pub const SignOn__SessionData = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("SignOn__SessionData.ToMap: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("SignOn__SessionData.toMap: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
             _ret.putAssumeCapacity(_entry_slice, .{ .ptr = @ptrCast(_value) });
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setSecret` instead
+    ///
+    pub const SetSecret = setSecret;
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
     ///
@@ -198,7 +238,7 @@ pub const SignOn__SessionData = extern struct {
     ///
     /// ` value: []const u8 `
     ///
-    pub fn SetSecret(self: SignOn__SessionData, value: []const u8) void {
+    pub fn setSecret(self: SignOn__SessionData, value: []const u8) void {
         const value_str = qtc.libqt_string{
             .len = value.len,
             .data = value.ptr,
@@ -222,6 +262,10 @@ pub const SignOn__SessionData = extern struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `setUserName` instead
+    ///
+    pub const SetUserName = setUserName;
+
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
     ///
     /// ## Parameter(s):
@@ -230,7 +274,7 @@ pub const SignOn__SessionData = extern struct {
     ///
     /// ` value: []const u8 `
     ///
-    pub fn SetUserName(self: SignOn__SessionData, value: []const u8) void {
+    pub fn setUserName(self: SignOn__SessionData, value: []const u8) void {
         const value_str = qtc.libqt_string{
             .len = value.len,
             .data = value.ptr,
@@ -254,6 +298,10 @@ pub const SignOn__SessionData = extern struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `setRealm` instead
+    ///
+    pub const SetRealm = setRealm;
+
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
     ///
     /// ## Parameter(s):
@@ -262,7 +310,7 @@ pub const SignOn__SessionData = extern struct {
     ///
     /// ` value: []const u8 `
     ///
-    pub fn SetRealm(self: SignOn__SessionData, value: []const u8) void {
+    pub fn setRealm(self: SignOn__SessionData, value: []const u8) void {
         const value_str = qtc.libqt_string{
             .len = value.len,
             .data = value.ptr,
@@ -286,6 +334,10 @@ pub const SignOn__SessionData = extern struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `setNetworkProxy` instead
+    ///
+    pub const SetNetworkProxy = setNetworkProxy;
+
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
     ///
     /// ## Parameter(s):
@@ -294,7 +346,7 @@ pub const SignOn__SessionData = extern struct {
     ///
     /// ` value: []const u8 `
     ///
-    pub fn SetNetworkProxy(self: SignOn__SessionData, value: []const u8) void {
+    pub fn setNetworkProxy(self: SignOn__SessionData, value: []const u8) void {
         const value_str = qtc.libqt_string{
             .len = value.len,
             .data = value.ptr,
@@ -318,6 +370,10 @@ pub const SignOn__SessionData = extern struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `setUiPolicy` instead
+    ///
+    pub const SetUiPolicy = setUiPolicy;
+
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
     ///
     /// ## Parameter(s):
@@ -326,7 +382,7 @@ pub const SignOn__SessionData = extern struct {
     ///
     /// ` value: *const i32 `
     ///
-    pub fn SetUiPolicy(self: SignOn__SessionData, value: *const i32) void {
+    pub fn setUiPolicy(self: SignOn__SessionData, value: *const i32) void {
         qtc.SignOn__SessionData_SetUiPolicy(@ptrCast(self.ptr), @ptrCast(value));
     }
 
@@ -340,6 +396,10 @@ pub const SignOn__SessionData = extern struct {
         return qtc.SignOn__SessionData_UiPolicy(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setCaption` instead
+    ///
+    pub const SetCaption = setCaption;
+
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
     ///
     /// ## Parameter(s):
@@ -348,7 +408,7 @@ pub const SignOn__SessionData = extern struct {
     ///
     /// ` value: []const u8 `
     ///
-    pub fn SetCaption(self: SignOn__SessionData, value: []const u8) void {
+    pub fn setCaption(self: SignOn__SessionData, value: []const u8) void {
         const value_str = qtc.libqt_string{
             .len = value.len,
             .data = value.ptr,
@@ -372,6 +432,10 @@ pub const SignOn__SessionData = extern struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `setNetworkTimeout` instead
+    ///
+    pub const SetNetworkTimeout = setNetworkTimeout;
+
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
     ///
     /// ## Parameter(s):
@@ -380,7 +444,7 @@ pub const SignOn__SessionData = extern struct {
     ///
     /// ` value: *const u32 `
     ///
-    pub fn SetNetworkTimeout(self: SignOn__SessionData, value: *const u32) void {
+    pub fn setNetworkTimeout(self: SignOn__SessionData, value: *const u32) void {
         qtc.SignOn__SessionData_SetNetworkTimeout(@ptrCast(self.ptr), @ptrCast(value));
     }
 
@@ -394,6 +458,10 @@ pub const SignOn__SessionData = extern struct {
         return qtc.SignOn__SessionData_NetworkTimeout(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setWindowId` instead
+    ///
+    pub const SetWindowId = setWindowId;
+
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
     ///
     /// ## Parameter(s):
@@ -402,7 +470,7 @@ pub const SignOn__SessionData = extern struct {
     ///
     /// ` value: *const u32 `
     ///
-    pub fn SetWindowId(self: SignOn__SessionData, value: *const u32) void {
+    pub fn setWindowId(self: SignOn__SessionData, value: *const u32) void {
         qtc.SignOn__SessionData_SetWindowId(@ptrCast(self.ptr), @ptrCast(value));
     }
 
@@ -416,6 +484,10 @@ pub const SignOn__SessionData = extern struct {
         return qtc.SignOn__SessionData_WindowId(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setRenewToken` instead
+    ///
+    pub const SetRenewToken = setRenewToken;
+
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
     ///
     /// ## Parameter(s):
@@ -424,7 +496,7 @@ pub const SignOn__SessionData = extern struct {
     ///
     /// ` value: *bool `
     ///
-    pub fn SetRenewToken(self: SignOn__SessionData, value: *const bool) void {
+    pub fn setRenewToken(self: SignOn__SessionData, value: *const bool) void {
         qtc.SignOn__SessionData_SetRenewToken(@ptrCast(self.ptr), @ptrCast(value));
     }
 
@@ -438,19 +510,19 @@ pub const SignOn__SessionData = extern struct {
         return qtc.SignOn__SessionData_RenewToken(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: SignOn__SessionData `
     ///
-    pub fn Delete(self: SignOn__SessionData) void {
+    pub fn delete(self: SignOn__SessionData) void {
         qtc.SignOn__SessionData_Delete(@ptrCast(self.ptr));
     }
 };

@@ -16,35 +16,50 @@ pub const QFontDatabase = extern struct {
 
     pub const _is_QFontDatabase = {};
 
-    /// New constructs a new QFontDatabase object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QFontDatabase object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QFontDatabase `
     ///
-    pub fn New(other: anytype) QFontDatabase {
+    pub fn new(other: anytype) QFontDatabase {
         comptime _ = @TypeOf(other)._is_QFontDatabase;
         return .{ .ptr = qtc.QFontDatabase_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new QFontDatabase object and invalidates the source QFontDatabase object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QFontDatabase object and invalidate the source QFontDatabase object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QFontDatabase `
     ///
-    pub fn New2(other: anytype) QFontDatabase {
+    pub fn new2(other: anytype) QFontDatabase {
         comptime _ = @TypeOf(other)._is_QFontDatabase;
         return .{ .ptr = qtc.QFontDatabase_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QFontDatabase object.
+    /// ### DEPRECATED: Use `new3` instead
     ///
-    pub fn New3() QFontDatabase {
+    pub const New3 = new3;
+
+    /// Allocate a new QFontDatabase object in C++ memory
+    ///
+    pub fn new3() QFontDatabase {
         return .{ .ptr = qtc.QFontDatabase_new3() };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -52,11 +67,14 @@ pub const QFontDatabase = extern struct {
     ///
     /// ` other: QFontDatabase `
     ///
-    pub fn CopyAssign(self: QFontDatabase, other: QFontDatabase) void {
+    pub fn copyAssign(self: QFontDatabase, other: QFontDatabase) void {
         qtc.QFontDatabase_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -64,9 +82,13 @@ pub const QFontDatabase = extern struct {
     ///
     /// ` other: QFontDatabase `
     ///
-    pub fn MoveAssign(self: QFontDatabase, other: QFontDatabase) void {
+    pub fn moveAssign(self: QFontDatabase, other: QFontDatabase) void {
         qtc.QFontDatabase_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `standardSizes` instead
+    ///
+    pub const StandardSizes = standardSizes;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#standardSizes)
     ///
@@ -74,14 +96,18 @@ pub const QFontDatabase = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StandardSizes(allocator: std.mem.Allocator) []i32 {
+    pub fn standardSizes(allocator: std.mem.Allocator) []i32 {
         const _arr: qtc.libqt_list = qtc.QFontDatabase_StandardSizes();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QFontDatabase.StandardSizes: Memory allocation failed");
-        const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QFontDatabase.standardSizes: Memory allocation failed");
+        const _data_val: [*]i32 = @ptrCast(@alignCast(_arr.data));
+        @memcpy(_ret, _data_val[0.._arr.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `writingSystems` instead
+    ///
+    pub const WritingSystems = writingSystems;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#writingSystems)
     ///
@@ -93,14 +119,18 @@ pub const QFontDatabase = extern struct {
     ///
     /// ` []qfontdatabase_enums.WritingSystem `
     ///
-    pub fn WritingSystems(allocator: std.mem.Allocator) []i32 {
+    pub fn writingSystems(allocator: std.mem.Allocator) []i32 {
         const _arr: qtc.libqt_list = qtc.QFontDatabase_WritingSystems();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QFontDatabase.WritingSystems: Memory allocation failed");
-        const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QFontDatabase.writingSystems: Memory allocation failed");
+        const _data_val: [*]i32 = @ptrCast(@alignCast(_arr.data));
+        @memcpy(_ret, _data_val[0.._arr.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `writingSystems2` instead
+    ///
+    pub const WritingSystems2 = writingSystems2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#writingSystems)
     ///
@@ -114,18 +144,22 @@ pub const QFontDatabase = extern struct {
     ///
     /// ` []qfontdatabase_enums.WritingSystem `
     ///
-    pub fn WritingSystems2(allocator: std.mem.Allocator, family: []const u8) []i32 {
+    pub fn writingSystems2(allocator: std.mem.Allocator, family: []const u8) []i32 {
         const family_str = qtc.libqt_string{
             .len = family.len,
             .data = family.ptr,
         };
         const _arr: qtc.libqt_list = qtc.QFontDatabase_WritingSystems2(family_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QFontDatabase.WritingSystems2: Memory allocation failed");
-        const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QFontDatabase.writingSystems2: Memory allocation failed");
+        const _data_val: [*]i32 = @ptrCast(@alignCast(_arr.data));
+        @memcpy(_ret, _data_val[0.._arr.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `families` instead
+    ///
+    pub const Families = families;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#families)
     ///
@@ -133,7 +167,7 @@ pub const QFontDatabase = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Families(allocator: std.mem.Allocator) []const []const u8 {
+    pub fn families(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QFontDatabase_Families();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -141,15 +175,19 @@ pub const QFontDatabase = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QFontDatabase.Families: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QFontDatabase.families: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QFontDatabase.Families: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QFontDatabase.families: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `styles` instead
+    ///
+    pub const Styles = styles;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#styles)
     ///
@@ -159,7 +197,7 @@ pub const QFontDatabase = extern struct {
     ///
     /// ` family: []const u8 `
     ///
-    pub fn Styles(allocator: std.mem.Allocator, family: []const u8) []const []const u8 {
+    pub fn styles(allocator: std.mem.Allocator, family: []const u8) []const []const u8 {
         const family_str = qtc.libqt_string{
             .len = family.len,
             .data = family.ptr,
@@ -171,15 +209,19 @@ pub const QFontDatabase = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QFontDatabase.Styles: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QFontDatabase.styles: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QFontDatabase.Styles: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QFontDatabase.styles: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `pointSizes` instead
+    ///
+    pub const PointSizes = pointSizes;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#pointSizes)
     ///
@@ -189,18 +231,22 @@ pub const QFontDatabase = extern struct {
     ///
     /// ` family: []const u8 `
     ///
-    pub fn PointSizes(allocator: std.mem.Allocator, family: []const u8) []i32 {
+    pub fn pointSizes(allocator: std.mem.Allocator, family: []const u8) []i32 {
         const family_str = qtc.libqt_string{
             .len = family.len,
             .data = family.ptr,
         };
         const _arr: qtc.libqt_list = qtc.QFontDatabase_PointSizes(family_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QFontDatabase.PointSizes: Memory allocation failed");
-        const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QFontDatabase.pointSizes: Memory allocation failed");
+        const _data_val: [*]i32 = @ptrCast(@alignCast(_arr.data));
+        @memcpy(_ret, _data_val[0.._arr.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `smoothSizes` instead
+    ///
+    pub const SmoothSizes = smoothSizes;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#smoothSizes)
     ///
@@ -212,7 +258,7 @@ pub const QFontDatabase = extern struct {
     ///
     /// ` style: []const u8 `
     ///
-    pub fn SmoothSizes(allocator: std.mem.Allocator, family: []const u8, style: []const u8) []i32 {
+    pub fn smoothSizes(allocator: std.mem.Allocator, family: []const u8, style: []const u8) []i32 {
         const family_str = qtc.libqt_string{
             .len = family.len,
             .data = family.ptr,
@@ -223,11 +269,15 @@ pub const QFontDatabase = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QFontDatabase_SmoothSizes(family_str, style_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QFontDatabase.SmoothSizes: Memory allocation failed");
-        const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QFontDatabase.smoothSizes: Memory allocation failed");
+        const _data_val: [*]i32 = @ptrCast(@alignCast(_arr.data));
+        @memcpy(_ret, _data_val[0.._arr.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `styleString` instead
+    ///
+    pub const StyleString = styleString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#styleString)
     ///
@@ -235,16 +285,20 @@ pub const QFontDatabase = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn StyleString(allocator: std.mem.Allocator, font: anytype) []const u8 {
-        comptime _ = @TypeOf(font)._is_QFont;
-        var _str = qtc.QFontDatabase_StyleString(@ptrCast(font.ptr));
+    pub fn styleString(allocator: std.mem.Allocator, _font: anytype) []const u8 {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        var _str = qtc.QFontDatabase_StyleString(@ptrCast(_font.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontDatabase.StyleString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontDatabase.styleString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `styleString2` instead
+    ///
+    pub const StyleString2 = styleString2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#styleString)
     ///
@@ -254,14 +308,18 @@ pub const QFontDatabase = extern struct {
     ///
     /// ` fontInfo: QFontInfo `
     ///
-    pub fn StyleString2(allocator: std.mem.Allocator, fontInfo: anytype) []const u8 {
+    pub fn styleString2(allocator: std.mem.Allocator, fontInfo: anytype) []const u8 {
         comptime _ = @TypeOf(fontInfo)._is_QFontInfo;
         var _str = qtc.QFontDatabase_StyleString2(@ptrCast(fontInfo.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontDatabase.StyleString2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontDatabase.styleString2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#font)
     ///
@@ -273,7 +331,7 @@ pub const QFontDatabase = extern struct {
     ///
     /// ` pointSize: i32 `
     ///
-    pub fn Font(family: []const u8, style: []const u8, pointSize: i32) QFont {
+    pub fn font(family: []const u8, style: []const u8, pointSize: i32) QFont {
         const family_str = qtc.libqt_string{
             .len = family.len,
             .data = family.ptr,
@@ -285,13 +343,17 @@ pub const QFontDatabase = extern struct {
         return .{ .ptr = qtc.QFontDatabase_Font(family_str, style_str, @bitCast(pointSize)) };
     }
 
+    /// ### DEPRECATED: Use `isBitmapScalable` instead
+    ///
+    pub const IsBitmapScalable = isBitmapScalable;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#isBitmapScalable)
     ///
     /// ## Parameter(s):
     ///
     /// ` family: []const u8 `
     ///
-    pub fn IsBitmapScalable(family: []const u8) bool {
+    pub fn isBitmapScalable(family: []const u8) bool {
         const family_str = qtc.libqt_string{
             .len = family.len,
             .data = family.ptr,
@@ -299,13 +361,17 @@ pub const QFontDatabase = extern struct {
         return qtc.QFontDatabase_IsBitmapScalable(family_str);
     }
 
+    /// ### DEPRECATED: Use `isSmoothlyScalable` instead
+    ///
+    pub const IsSmoothlyScalable = isSmoothlyScalable;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#isSmoothlyScalable)
     ///
     /// ## Parameter(s):
     ///
     /// ` family: []const u8 `
     ///
-    pub fn IsSmoothlyScalable(family: []const u8) bool {
+    pub fn isSmoothlyScalable(family: []const u8) bool {
         const family_str = qtc.libqt_string{
             .len = family.len,
             .data = family.ptr,
@@ -313,13 +379,17 @@ pub const QFontDatabase = extern struct {
         return qtc.QFontDatabase_IsSmoothlyScalable(family_str);
     }
 
+    /// ### DEPRECATED: Use `isScalable` instead
+    ///
+    pub const IsScalable = isScalable;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#isScalable)
     ///
     /// ## Parameter(s):
     ///
     /// ` family: []const u8 `
     ///
-    pub fn IsScalable(family: []const u8) bool {
+    pub fn isScalable(family: []const u8) bool {
         const family_str = qtc.libqt_string{
             .len = family.len,
             .data = family.ptr,
@@ -327,19 +397,27 @@ pub const QFontDatabase = extern struct {
         return qtc.QFontDatabase_IsScalable(family_str);
     }
 
+    /// ### DEPRECATED: Use `isFixedPitch` instead
+    ///
+    pub const IsFixedPitch = isFixedPitch;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#isFixedPitch)
     ///
     /// ## Parameter(s):
     ///
     /// ` family: []const u8 `
     ///
-    pub fn IsFixedPitch(family: []const u8) bool {
+    pub fn isFixedPitch(family: []const u8) bool {
         const family_str = qtc.libqt_string{
             .len = family.len,
             .data = family.ptr,
         };
         return qtc.QFontDatabase_IsFixedPitch(family_str);
     }
+
+    /// ### DEPRECATED: Use `italic` instead
+    ///
+    pub const Italic = italic;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#italic)
     ///
@@ -349,7 +427,7 @@ pub const QFontDatabase = extern struct {
     ///
     /// ` style: []const u8 `
     ///
-    pub fn Italic(family: []const u8, style: []const u8) bool {
+    pub fn italic(family: []const u8, style: []const u8) bool {
         const family_str = qtc.libqt_string{
             .len = family.len,
             .data = family.ptr,
@@ -361,6 +439,10 @@ pub const QFontDatabase = extern struct {
         return qtc.QFontDatabase_Italic(family_str, style_str);
     }
 
+    /// ### DEPRECATED: Use `bold` instead
+    ///
+    pub const Bold = bold;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#bold)
     ///
     /// ## Parameter(s):
@@ -369,7 +451,7 @@ pub const QFontDatabase = extern struct {
     ///
     /// ` style: []const u8 `
     ///
-    pub fn Bold(family: []const u8, style: []const u8) bool {
+    pub fn bold(family: []const u8, style: []const u8) bool {
         const family_str = qtc.libqt_string{
             .len = family.len,
             .data = family.ptr,
@@ -381,6 +463,10 @@ pub const QFontDatabase = extern struct {
         return qtc.QFontDatabase_Bold(family_str, style_str);
     }
 
+    /// ### DEPRECATED: Use `weight` instead
+    ///
+    pub const Weight = weight;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#weight)
     ///
     /// ## Parameter(s):
@@ -389,7 +475,7 @@ pub const QFontDatabase = extern struct {
     ///
     /// ` style: []const u8 `
     ///
-    pub fn Weight(family: []const u8, style: []const u8) i32 {
+    pub fn weight(family: []const u8, style: []const u8) i32 {
         const family_str = qtc.libqt_string{
             .len = family.len,
             .data = family.ptr,
@@ -401,13 +487,17 @@ pub const QFontDatabase = extern struct {
         return qtc.QFontDatabase_Weight(family_str, style_str);
     }
 
+    /// ### DEPRECATED: Use `hasFamily` instead
+    ///
+    pub const HasFamily = hasFamily;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#hasFamily)
     ///
     /// ## Parameter(s):
     ///
     /// ` family: []const u8 `
     ///
-    pub fn HasFamily(family: []const u8) bool {
+    pub fn hasFamily(family: []const u8) bool {
         const family_str = qtc.libqt_string{
             .len = family.len,
             .data = family.ptr,
@@ -415,19 +505,27 @@ pub const QFontDatabase = extern struct {
         return qtc.QFontDatabase_HasFamily(family_str);
     }
 
+    /// ### DEPRECATED: Use `isPrivateFamily` instead
+    ///
+    pub const IsPrivateFamily = isPrivateFamily;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#isPrivateFamily)
     ///
     /// ## Parameter(s):
     ///
     /// ` family: []const u8 `
     ///
-    pub fn IsPrivateFamily(family: []const u8) bool {
+    pub fn isPrivateFamily(family: []const u8) bool {
         const family_str = qtc.libqt_string{
             .len = family.len,
             .data = family.ptr,
         };
         return qtc.QFontDatabase_IsPrivateFamily(family_str);
     }
+
+    /// ### DEPRECATED: Use `writingSystemName` instead
+    ///
+    pub const WritingSystemName = writingSystemName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#writingSystemName)
     ///
@@ -437,13 +535,17 @@ pub const QFontDatabase = extern struct {
     ///
     /// ` writingSystem: qfontdatabase_enums.WritingSystem `
     ///
-    pub fn WritingSystemName(allocator: std.mem.Allocator, writingSystem: i32) []const u8 {
+    pub fn writingSystemName(allocator: std.mem.Allocator, writingSystem: i32) []const u8 {
         var _str = qtc.QFontDatabase_WritingSystemName(@bitCast(writingSystem));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontDatabase.WritingSystemName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontDatabase.writingSystemName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `writingSystemSample` instead
+    ///
+    pub const WritingSystemSample = writingSystemSample;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#writingSystemSample)
     ///
@@ -453,13 +555,17 @@ pub const QFontDatabase = extern struct {
     ///
     /// ` writingSystem: qfontdatabase_enums.WritingSystem `
     ///
-    pub fn WritingSystemSample(allocator: std.mem.Allocator, writingSystem: i32) []const u8 {
+    pub fn writingSystemSample(allocator: std.mem.Allocator, writingSystem: i32) []const u8 {
         var _str = qtc.QFontDatabase_WritingSystemSample(@bitCast(writingSystem));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontDatabase.WritingSystemSample: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontDatabase.writingSystemSample: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addApplicationFont` instead
+    ///
+    pub const AddApplicationFont = addApplicationFont;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#addApplicationFont)
     ///
@@ -467,7 +573,7 @@ pub const QFontDatabase = extern struct {
     ///
     /// ` fileName: []const u8 `
     ///
-    pub fn AddApplicationFont(fileName: []const u8) i32 {
+    pub fn addApplicationFont(fileName: []const u8) i32 {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -475,19 +581,27 @@ pub const QFontDatabase = extern struct {
         return qtc.QFontDatabase_AddApplicationFont(fileName_str);
     }
 
+    /// ### DEPRECATED: Use `addApplicationFontFromData` instead
+    ///
+    pub const AddApplicationFontFromData = addApplicationFontFromData;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#addApplicationFontFromData)
     ///
     /// ## Parameter(s):
     ///
     /// ` fontData: []u8 `
     ///
-    pub fn AddApplicationFontFromData(fontData: []u8) i32 {
+    pub fn addApplicationFontFromData(fontData: []u8) i32 {
         const fontData_str = qtc.libqt_string{
             .len = fontData.len,
             .data = fontData.ptr,
         };
         return qtc.QFontDatabase_AddApplicationFontFromData(fontData_str);
     }
+
+    /// ### DEPRECATED: Use `applicationFontFamilies` instead
+    ///
+    pub const ApplicationFontFamilies = applicationFontFamilies;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#applicationFontFamilies)
     ///
@@ -497,7 +611,7 @@ pub const QFontDatabase = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ApplicationFontFamilies(allocator: std.mem.Allocator, id: i32) []const []const u8 {
+    pub fn applicationFontFamilies(allocator: std.mem.Allocator, id: i32) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QFontDatabase_ApplicationFontFamilies(@bitCast(id));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -505,15 +619,19 @@ pub const QFontDatabase = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QFontDatabase.ApplicationFontFamilies: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QFontDatabase.applicationFontFamilies: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QFontDatabase.ApplicationFontFamilies: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QFontDatabase.applicationFontFamilies: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `removeApplicationFont` instead
+    ///
+    pub const RemoveApplicationFont = removeApplicationFont;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#removeApplicationFont)
     ///
@@ -521,15 +639,23 @@ pub const QFontDatabase = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn RemoveApplicationFont(id: i32) bool {
+    pub fn removeApplicationFont(id: i32) bool {
         return qtc.QFontDatabase_RemoveApplicationFont(@bitCast(id));
     }
 
+    /// ### DEPRECATED: Use `removeAllApplicationFonts` instead
+    ///
+    pub const RemoveAllApplicationFonts = removeAllApplicationFonts;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#removeAllApplicationFonts)
     ///
-    pub fn RemoveAllApplicationFonts() bool {
+    pub fn removeAllApplicationFonts() bool {
         return qtc.QFontDatabase_RemoveAllApplicationFonts();
     }
+
+    /// ### DEPRECATED: Use `addApplicationFallbackFontFamily` instead
+    ///
+    pub const AddApplicationFallbackFontFamily = addApplicationFallbackFontFamily;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#addApplicationFallbackFontFamily)
     ///
@@ -539,13 +665,17 @@ pub const QFontDatabase = extern struct {
     ///
     /// ` familyName: []const u8 `
     ///
-    pub fn AddApplicationFallbackFontFamily(script: i32, familyName: []const u8) void {
+    pub fn addApplicationFallbackFontFamily(script: i32, familyName: []const u8) void {
         const familyName_str = qtc.libqt_string{
             .len = familyName.len,
             .data = familyName.ptr,
         };
         qtc.QFontDatabase_AddApplicationFallbackFontFamily(@bitCast(script), familyName_str);
     }
+
+    /// ### DEPRECATED: Use `removeApplicationFallbackFontFamily` instead
+    ///
+    pub const RemoveApplicationFallbackFontFamily = removeApplicationFallbackFontFamily;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#removeApplicationFallbackFontFamily)
     ///
@@ -555,13 +685,17 @@ pub const QFontDatabase = extern struct {
     ///
     /// ` familyName: []const u8 `
     ///
-    pub fn RemoveApplicationFallbackFontFamily(script: i32, familyName: []const u8) bool {
+    pub fn removeApplicationFallbackFontFamily(script: i32, familyName: []const u8) bool {
         const familyName_str = qtc.libqt_string{
             .len = familyName.len,
             .data = familyName.ptr,
         };
         return qtc.QFontDatabase_RemoveApplicationFallbackFontFamily(@bitCast(script), familyName_str);
     }
+
+    /// ### DEPRECATED: Use `setApplicationFallbackFontFamilies` instead
+    ///
+    pub const SetApplicationFallbackFontFamilies = setApplicationFallbackFontFamilies;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#setApplicationFallbackFontFamilies)
     ///
@@ -573,13 +707,13 @@ pub const QFontDatabase = extern struct {
     ///
     /// ` familyNames: []const []const u8 `
     ///
-    pub fn SetApplicationFallbackFontFamilies(allocator: std.mem.Allocator, param1: i32, familyNames: []const []const u8) void {
-        const familyNames_arr = allocator.alloc(qtc.libqt_string, familyNames.len) catch @panic("QFontDatabase.SetApplicationFallbackFontFamilies: Memory allocation failed");
+    pub fn setApplicationFallbackFontFamilies(allocator: std.mem.Allocator, param1: i32, familyNames: []const []const u8) void {
+        const familyNames_arr = allocator.alloc(qtc.libqt_string, familyNames.len) catch @panic("QFontDatabase.setApplicationFallbackFontFamilies: Memory allocation failed");
         defer allocator.free(familyNames_arr);
-        for (familyNames, 0..familyNames.len) |item, i|
+        for (familyNames, 0..familyNames.len) |str_item, i|
             familyNames_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const familyNames_list = qtc.libqt_list{
             .len = familyNames.len,
@@ -587,6 +721,10 @@ pub const QFontDatabase = extern struct {
         };
         qtc.QFontDatabase_SetApplicationFallbackFontFamilies(@bitCast(param1), familyNames_list);
     }
+
+    /// ### DEPRECATED: Use `applicationFallbackFontFamilies` instead
+    ///
+    pub const ApplicationFallbackFontFamilies = applicationFallbackFontFamilies;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#applicationFallbackFontFamilies)
     ///
@@ -596,7 +734,7 @@ pub const QFontDatabase = extern struct {
     ///
     /// ` script: qchar_enums.Script `
     ///
-    pub fn ApplicationFallbackFontFamilies(allocator: std.mem.Allocator, script: i32) []const []const u8 {
+    pub fn applicationFallbackFontFamilies(allocator: std.mem.Allocator, script: i32) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QFontDatabase_ApplicationFallbackFontFamilies(@bitCast(script));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -604,15 +742,19 @@ pub const QFontDatabase = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QFontDatabase.ApplicationFallbackFontFamilies: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QFontDatabase.applicationFallbackFontFamilies: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QFontDatabase.ApplicationFallbackFontFamilies: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QFontDatabase.applicationFallbackFontFamilies: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `systemFont` instead
+    ///
+    pub const SystemFont = systemFont;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#systemFont)
     ///
@@ -620,9 +762,13 @@ pub const QFontDatabase = extern struct {
     ///
     /// ` typeVal: qfontdatabase_enums.SystemFont `
     ///
-    pub fn SystemFont(typeVal: i32) QFont {
+    pub fn systemFont(typeVal: i32) QFont {
         return .{ .ptr = qtc.QFontDatabase_SystemFont(@bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `families1` instead
+    ///
+    pub const Families1 = families1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#families)
     ///
@@ -632,7 +778,7 @@ pub const QFontDatabase = extern struct {
     ///
     /// ` writingSystem: qfontdatabase_enums.WritingSystem `
     ///
-    pub fn Families1(allocator: std.mem.Allocator, writingSystem: i32) []const []const u8 {
+    pub fn families1(allocator: std.mem.Allocator, writingSystem: i32) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QFontDatabase_Families1(@bitCast(writingSystem));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -640,15 +786,19 @@ pub const QFontDatabase = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QFontDatabase.Families1: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QFontDatabase.families1: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QFontDatabase.Families1: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QFontDatabase.families1: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `pointSizes2` instead
+    ///
+    pub const PointSizes2 = pointSizes2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#pointSizes)
     ///
@@ -660,7 +810,7 @@ pub const QFontDatabase = extern struct {
     ///
     /// ` style: []const u8 `
     ///
-    pub fn PointSizes2(allocator: std.mem.Allocator, family: []const u8, style: []const u8) []i32 {
+    pub fn pointSizes2(allocator: std.mem.Allocator, family: []const u8, style: []const u8) []i32 {
         const family_str = qtc.libqt_string{
             .len = family.len,
             .data = family.ptr,
@@ -671,11 +821,15 @@ pub const QFontDatabase = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QFontDatabase_PointSizes2(family_str, style_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QFontDatabase.PointSizes2: Memory allocation failed");
-        const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QFontDatabase.pointSizes2: Memory allocation failed");
+        const _data_val: [*]i32 = @ptrCast(@alignCast(_arr.data));
+        @memcpy(_ret, _data_val[0.._arr.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isBitmapScalable2` instead
+    ///
+    pub const IsBitmapScalable2 = isBitmapScalable2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#isBitmapScalable)
     ///
@@ -685,7 +839,7 @@ pub const QFontDatabase = extern struct {
     ///
     /// ` style: []const u8 `
     ///
-    pub fn IsBitmapScalable2(family: []const u8, style: []const u8) bool {
+    pub fn isBitmapScalable2(family: []const u8, style: []const u8) bool {
         const family_str = qtc.libqt_string{
             .len = family.len,
             .data = family.ptr,
@@ -697,6 +851,10 @@ pub const QFontDatabase = extern struct {
         return qtc.QFontDatabase_IsBitmapScalable2(family_str, style_str);
     }
 
+    /// ### DEPRECATED: Use `isSmoothlyScalable2` instead
+    ///
+    pub const IsSmoothlyScalable2 = isSmoothlyScalable2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#isSmoothlyScalable)
     ///
     /// ## Parameter(s):
@@ -705,7 +863,7 @@ pub const QFontDatabase = extern struct {
     ///
     /// ` style: []const u8 `
     ///
-    pub fn IsSmoothlyScalable2(family: []const u8, style: []const u8) bool {
+    pub fn isSmoothlyScalable2(family: []const u8, style: []const u8) bool {
         const family_str = qtc.libqt_string{
             .len = family.len,
             .data = family.ptr,
@@ -717,6 +875,10 @@ pub const QFontDatabase = extern struct {
         return qtc.QFontDatabase_IsSmoothlyScalable2(family_str, style_str);
     }
 
+    /// ### DEPRECATED: Use `isScalable2` instead
+    ///
+    pub const IsScalable2 = isScalable2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#isScalable)
     ///
     /// ## Parameter(s):
@@ -725,7 +887,7 @@ pub const QFontDatabase = extern struct {
     ///
     /// ` style: []const u8 `
     ///
-    pub fn IsScalable2(family: []const u8, style: []const u8) bool {
+    pub fn isScalable2(family: []const u8, style: []const u8) bool {
         const family_str = qtc.libqt_string{
             .len = family.len,
             .data = family.ptr,
@@ -737,6 +899,10 @@ pub const QFontDatabase = extern struct {
         return qtc.QFontDatabase_IsScalable2(family_str, style_str);
     }
 
+    /// ### DEPRECATED: Use `isFixedPitch2` instead
+    ///
+    pub const IsFixedPitch2 = isFixedPitch2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#isFixedPitch)
     ///
     /// ## Parameter(s):
@@ -745,7 +911,7 @@ pub const QFontDatabase = extern struct {
     ///
     /// ` style: []const u8 `
     ///
-    pub fn IsFixedPitch2(family: []const u8, style: []const u8) bool {
+    pub fn isFixedPitch2(family: []const u8, style: []const u8) bool {
         const family_str = qtc.libqt_string{
             .len = family.len,
             .data = family.ptr,
@@ -757,19 +923,19 @@ pub const QFontDatabase = extern struct {
         return qtc.QFontDatabase_IsFixedPitch2(family_str, style_str);
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#dtor.QFontDatabase)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QFontDatabase `
     ///
-    pub fn Delete(self: QFontDatabase) void {
+    pub fn delete(self: QFontDatabase) void {
         qtc.QFontDatabase_Delete(@ptrCast(self.ptr));
     }
 };

@@ -12,29 +12,41 @@ pub const QBluetoothAddress = extern struct {
 
     pub const _is_QBluetoothAddress = {};
 
-    /// New constructs a new QBluetoothAddress object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QBluetoothAddress {
+    pub const New = new;
+
+    /// Allocate a new QBluetoothAddress object in C++ memory
+    ///
+    pub fn new() QBluetoothAddress {
         return .{ .ptr = qtc.QBluetoothAddress_new() };
     }
 
-    /// New2 constructs a new QBluetoothAddress object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QBluetoothAddress object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` address: u64 `
     ///
-    pub fn New2(address: u64) QBluetoothAddress {
+    pub fn new2(address: u64) QBluetoothAddress {
         return .{ .ptr = qtc.QBluetoothAddress_new2(@bitCast(address)) };
     }
 
-    /// New3 constructs a new QBluetoothAddress object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QBluetoothAddress object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` address: []const u8 `
     ///
-    pub fn New3(address: []const u8) QBluetoothAddress {
+    pub fn new3(address: []const u8) QBluetoothAddress {
         const address_str = qtc.libqt_string{
             .len = address.len,
             .data = address.ptr,
@@ -42,16 +54,24 @@ pub const QBluetoothAddress = extern struct {
         return .{ .ptr = qtc.QBluetoothAddress_new3(address_str) };
     }
 
-    /// New4 constructs a new QBluetoothAddress object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QBluetoothAddress object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QBluetoothAddress `
     ///
-    pub fn New4(other: anytype) QBluetoothAddress {
+    pub fn new4(other: anytype) QBluetoothAddress {
         comptime _ = @TypeOf(other)._is_QBluetoothAddress;
         return .{ .ptr = qtc.QBluetoothAddress_new4(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothaddress.html#operator-eq)
     ///
@@ -61,10 +81,14 @@ pub const QBluetoothAddress = extern struct {
     ///
     /// ` other: QBluetoothAddress `
     ///
-    pub fn OperatorAssign(self: QBluetoothAddress, other: anytype) void {
+    pub fn operatorAssign(self: QBluetoothAddress, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QBluetoothAddress;
         qtc.QBluetoothAddress_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `isNull` instead
+    ///
+    pub const IsNull = isNull;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothaddress.html#isNull)
     ///
@@ -72,9 +96,13 @@ pub const QBluetoothAddress = extern struct {
     ///
     /// ` self: QBluetoothAddress `
     ///
-    pub fn IsNull(self: QBluetoothAddress) bool {
+    pub fn isNull(self: QBluetoothAddress) bool {
         return qtc.QBluetoothAddress_IsNull(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothaddress.html#clear)
     ///
@@ -82,9 +110,13 @@ pub const QBluetoothAddress = extern struct {
     ///
     /// ` self: QBluetoothAddress `
     ///
-    pub fn Clear(self: QBluetoothAddress) void {
+    pub fn clear(self: QBluetoothAddress) void {
         qtc.QBluetoothAddress_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toUInt64` instead
+    ///
+    pub const ToUInt64 = toUInt64;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothaddress.html#toUInt64)
     ///
@@ -92,9 +124,13 @@ pub const QBluetoothAddress = extern struct {
     ///
     /// ` self: QBluetoothAddress `
     ///
-    pub fn ToUInt64(self: QBluetoothAddress) u64 {
+    pub fn toUInt64(self: QBluetoothAddress) u64 {
         return qtc.QBluetoothAddress_ToUInt64(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toString` instead
+    ///
+    pub const ToString = toString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothaddress.html#toString)
     ///
@@ -104,27 +140,27 @@ pub const QBluetoothAddress = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToString(self: QBluetoothAddress, allocator: std.mem.Allocator) []const u8 {
+    pub fn toString(self: QBluetoothAddress, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QBluetoothAddress_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBluetoothAddress.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBluetoothAddress.toString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothaddress.html#dtor.QBluetoothAddress)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QBluetoothAddress `
     ///
-    pub fn Delete(self: QBluetoothAddress) void {
+    pub fn delete(self: QBluetoothAddress) void {
         qtc.QBluetoothAddress_Delete(@ptrCast(self.ptr));
     }
 };

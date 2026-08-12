@@ -42,22 +42,34 @@ pub const KFileItemDelegate = extern struct {
     pub const _is_QAbstractItemDelegate = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new KFileItemDelegate object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KFileItemDelegate {
+    pub const New = new;
+
+    /// Allocate a new KFileItemDelegate object in C++ memory
+    ///
+    pub fn new() KFileItemDelegate {
         return .{ .ptr = qtc.KFileItemDelegate_new() };
     }
 
-    /// New2 constructs a new KFileItemDelegate object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KFileItemDelegate object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) KFileItemDelegate {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.KFileItemDelegate_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) KFileItemDelegate {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.KFileItemDelegate_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -65,9 +77,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` self: KFileItemDelegate `
     ///
-    pub fn MetaObject(self: KFileItemDelegate) QMetaObject {
+    pub fn metaObject(self: KFileItemDelegate) QMetaObject {
         return .{ .ptr = qtc.KFileItemDelegate_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -79,13 +95,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KFileItemDelegate, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KFileItemDelegate, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KFileItemDelegate_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -95,9 +111,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` self: KFileItemDelegate `
     ///
-    pub fn SuperMetaObject(self: KFileItemDelegate) QMetaObject {
+    pub fn superMetaObject(self: KFileItemDelegate) QMetaObject {
         return .{ .ptr = qtc.KFileItemDelegate_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -105,10 +125,14 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KFileItemDelegate, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KFileItemDelegate, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KFileItemDelegate_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -118,13 +142,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: KFileItemDelegate, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KFileItemDelegate_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -134,10 +158,14 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KFileItemDelegate, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KFileItemDelegate, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KFileItemDelegate_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -149,9 +177,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KFileItemDelegate, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KFileItemDelegate, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KFileItemDelegate_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -161,13 +193,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: KFileItemDelegate, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KFileItemDelegate_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -181,9 +213,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KFileItemDelegate, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KFileItemDelegate, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KFileItemDelegate_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -193,14 +229,18 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItemDelegate.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItemDelegate.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#sizeHint)
     ///
@@ -212,11 +252,15 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SizeHint(self: KFileItemDelegate, option: anytype, index: anytype) QSize {
+    pub fn sizeHint(self: KFileItemDelegate, option: anytype, index: anytype) QSize {
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.KFileItemDelegate_SizeHint(@ptrCast(self.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#sizeHint)
     ///
@@ -230,13 +274,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, QStyleOptionViewItem, QModelIndex) callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, QStyleOptionViewItem, QModelIndex) callconv(.c) QSize) void {
         qtc.KFileItemDelegate_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#sizeHint)
     ///
@@ -250,11 +294,15 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SuperSizeHint(self: KFileItemDelegate, option: anytype, index: anytype) QSize {
+    pub fn superSizeHint(self: KFileItemDelegate, option: anytype, index: anytype) QSize {
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.KFileItemDelegate_SuperSizeHint(@ptrCast(self.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `paint` instead
+    ///
+    pub const Paint = paint;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#paint)
     ///
@@ -268,12 +316,16 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn Paint(self: KFileItemDelegate, painter: anytype, option: anytype, index: anytype) void {
+    pub fn paint(self: KFileItemDelegate, painter: anytype, option: anytype, index: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.KFileItemDelegate_Paint(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaint` instead
+    ///
+    pub const OnPaint = onPaint;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#paint)
     ///
@@ -285,13 +337,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: KFileItemDelegate, painter: QPainter, option: QStyleOptionViewItem, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnPaint(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, QPainter, QStyleOptionViewItem, QModelIndex) callconv(.c) void) void {
+    pub fn onPaint(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, QPainter, QStyleOptionViewItem, QModelIndex) callconv(.c) void) void {
         qtc.KFileItemDelegate_OnPaint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPaint` instead
+    /// ### DEPRECATED: Use `superPaint` instead
     ///
-    pub const QBasePaint = SuperPaint;
+    pub const SuperPaint = superPaint;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#paint)
     ///
@@ -307,12 +359,16 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SuperPaint(self: KFileItemDelegate, painter: anytype, option: anytype, index: anytype) void {
+    pub fn superPaint(self: KFileItemDelegate, painter: anytype, option: anytype, index: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.KFileItemDelegate_SuperPaint(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `createEditor` instead
+    ///
+    pub const CreateEditor = createEditor;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#createEditor)
     ///
@@ -320,18 +376,22 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` self: KFileItemDelegate `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
     /// ` option: QStyleOptionViewItem `
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn CreateEditor(self: KFileItemDelegate, parent: anytype, option: anytype, index: anytype) QWidget {
-        comptime _ = @TypeOf(parent)._is_QWidget;
+    pub fn createEditor(self: KFileItemDelegate, _parent: anytype, option: anytype, index: anytype) QWidget {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         comptime _ = @TypeOf(index)._is_QModelIndex;
-        return .{ .ptr = qtc.KFileItemDelegate_CreateEditor(@ptrCast(self.ptr), @ptrCast(parent.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr)) };
+        return .{ .ptr = qtc.KFileItemDelegate_CreateEditor(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onCreateEditor` instead
+    ///
+    pub const OnCreateEditor = onCreateEditor;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#createEditor)
     ///
@@ -343,13 +403,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: KFileItemDelegate, parent: QWidget, option: QStyleOptionViewItem, index: QModelIndex) callconv(.c) QWidget `
     ///
-    pub fn OnCreateEditor(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, QWidget, QStyleOptionViewItem, QModelIndex) callconv(.c) QWidget) void {
+    pub fn onCreateEditor(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, QWidget, QStyleOptionViewItem, QModelIndex) callconv(.c) QWidget) void {
         qtc.KFileItemDelegate_OnCreateEditor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCreateEditor` instead
+    /// ### DEPRECATED: Use `superCreateEditor` instead
     ///
-    pub const QBaseCreateEditor = SuperCreateEditor;
+    pub const SuperCreateEditor = superCreateEditor;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#createEditor)
     ///
@@ -359,18 +419,22 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` self: KFileItemDelegate `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
     /// ` option: QStyleOptionViewItem `
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SuperCreateEditor(self: KFileItemDelegate, parent: anytype, option: anytype, index: anytype) QWidget {
-        comptime _ = @TypeOf(parent)._is_QWidget;
+    pub fn superCreateEditor(self: KFileItemDelegate, _parent: anytype, option: anytype, index: anytype) QWidget {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         comptime _ = @TypeOf(index)._is_QModelIndex;
-        return .{ .ptr = qtc.KFileItemDelegate_SuperCreateEditor(@ptrCast(self.ptr), @ptrCast(parent.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr)) };
+        return .{ .ptr = qtc.KFileItemDelegate_SuperCreateEditor(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `editorEvent` instead
+    ///
+    pub const EditorEvent = editorEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#editorEvent)
     ///
@@ -378,7 +442,7 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` self: KFileItemDelegate `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
     /// ` model: QAbstractItemModel `
     ///
@@ -386,13 +450,17 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn EditorEvent(self: KFileItemDelegate, event: anytype, model: anytype, option: anytype, index: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
+    pub fn editorEvent(self: KFileItemDelegate, _event: anytype, model: anytype, option: anytype, index: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
         comptime _ = @TypeOf(model)._is_QAbstractItemModel;
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         comptime _ = @TypeOf(index)._is_QModelIndex;
-        return qtc.KFileItemDelegate_EditorEvent(@ptrCast(self.ptr), @ptrCast(event.ptr), @ptrCast(model.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr));
+        return qtc.KFileItemDelegate_EditorEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr), @ptrCast(model.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEditorEvent` instead
+    ///
+    pub const OnEditorEvent = onEditorEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#editorEvent)
     ///
@@ -404,13 +472,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: KFileItemDelegate, event: QEvent, model: QAbstractItemModel, option: QStyleOptionViewItem, index: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnEditorEvent(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, QEvent, QAbstractItemModel, QStyleOptionViewItem, QModelIndex) callconv(.c) bool) void {
+    pub fn onEditorEvent(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, QEvent, QAbstractItemModel, QStyleOptionViewItem, QModelIndex) callconv(.c) bool) void {
         qtc.KFileItemDelegate_OnEditorEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEditorEvent` instead
+    /// ### DEPRECATED: Use `superEditorEvent` instead
     ///
-    pub const QBaseEditorEvent = SuperEditorEvent;
+    pub const SuperEditorEvent = superEditorEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#editorEvent)
     ///
@@ -420,7 +488,7 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` self: KFileItemDelegate `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
     /// ` model: QAbstractItemModel `
     ///
@@ -428,13 +496,17 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SuperEditorEvent(self: KFileItemDelegate, event: anytype, model: anytype, option: anytype, index: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
+    pub fn superEditorEvent(self: KFileItemDelegate, _event: anytype, model: anytype, option: anytype, index: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
         comptime _ = @TypeOf(model)._is_QAbstractItemModel;
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         comptime _ = @TypeOf(index)._is_QModelIndex;
-        return qtc.KFileItemDelegate_SuperEditorEvent(@ptrCast(self.ptr), @ptrCast(event.ptr), @ptrCast(model.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr));
+        return qtc.KFileItemDelegate_SuperEditorEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr), @ptrCast(model.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEditorData` instead
+    ///
+    pub const SetEditorData = setEditorData;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setEditorData)
     ///
@@ -446,11 +518,15 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SetEditorData(self: KFileItemDelegate, editor: anytype, index: anytype) void {
+    pub fn setEditorData(self: KFileItemDelegate, editor: anytype, index: anytype) void {
         comptime _ = @TypeOf(editor)._is_QWidget;
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.KFileItemDelegate_SetEditorData(@ptrCast(self.ptr), @ptrCast(editor.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetEditorData` instead
+    ///
+    pub const OnSetEditorData = onSetEditorData;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setEditorData)
     ///
@@ -462,13 +538,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: KFileItemDelegate, editor: QWidget, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnSetEditorData(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, QWidget, QModelIndex) callconv(.c) void) void {
+    pub fn onSetEditorData(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, QWidget, QModelIndex) callconv(.c) void) void {
         qtc.KFileItemDelegate_OnSetEditorData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetEditorData` instead
+    /// ### DEPRECATED: Use `superSetEditorData` instead
     ///
-    pub const QBaseSetEditorData = SuperSetEditorData;
+    pub const SuperSetEditorData = superSetEditorData;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setEditorData)
     ///
@@ -482,11 +558,15 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SuperSetEditorData(self: KFileItemDelegate, editor: anytype, index: anytype) void {
+    pub fn superSetEditorData(self: KFileItemDelegate, editor: anytype, index: anytype) void {
         comptime _ = @TypeOf(editor)._is_QWidget;
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.KFileItemDelegate_SuperSetEditorData(@ptrCast(self.ptr), @ptrCast(editor.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `setModelData` instead
+    ///
+    pub const SetModelData = setModelData;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setModelData)
     ///
@@ -500,12 +580,16 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SetModelData(self: KFileItemDelegate, editor: anytype, model: anytype, index: anytype) void {
+    pub fn setModelData(self: KFileItemDelegate, editor: anytype, model: anytype, index: anytype) void {
         comptime _ = @TypeOf(editor)._is_QWidget;
         comptime _ = @TypeOf(model)._is_QAbstractItemModel;
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.KFileItemDelegate_SetModelData(@ptrCast(self.ptr), @ptrCast(editor.ptr), @ptrCast(model.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetModelData` instead
+    ///
+    pub const OnSetModelData = onSetModelData;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setModelData)
     ///
@@ -517,13 +601,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: KFileItemDelegate, editor: QWidget, model: QAbstractItemModel, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnSetModelData(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, QWidget, QAbstractItemModel, QModelIndex) callconv(.c) void) void {
+    pub fn onSetModelData(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, QWidget, QAbstractItemModel, QModelIndex) callconv(.c) void) void {
         qtc.KFileItemDelegate_OnSetModelData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetModelData` instead
+    /// ### DEPRECATED: Use `superSetModelData` instead
     ///
-    pub const QBaseSetModelData = SuperSetModelData;
+    pub const SuperSetModelData = superSetModelData;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setModelData)
     ///
@@ -539,12 +623,16 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SuperSetModelData(self: KFileItemDelegate, editor: anytype, model: anytype, index: anytype) void {
+    pub fn superSetModelData(self: KFileItemDelegate, editor: anytype, model: anytype, index: anytype) void {
         comptime _ = @TypeOf(editor)._is_QWidget;
         comptime _ = @TypeOf(model)._is_QAbstractItemModel;
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.KFileItemDelegate_SuperSetModelData(@ptrCast(self.ptr), @ptrCast(editor.ptr), @ptrCast(model.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateEditorGeometry` instead
+    ///
+    pub const UpdateEditorGeometry = updateEditorGeometry;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#updateEditorGeometry)
     ///
@@ -558,12 +646,16 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn UpdateEditorGeometry(self: KFileItemDelegate, editor: anytype, option: anytype, index: anytype) void {
+    pub fn updateEditorGeometry(self: KFileItemDelegate, editor: anytype, option: anytype, index: anytype) void {
         comptime _ = @TypeOf(editor)._is_QWidget;
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.KFileItemDelegate_UpdateEditorGeometry(@ptrCast(self.ptr), @ptrCast(editor.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `onUpdateEditorGeometry` instead
+    ///
+    pub const OnUpdateEditorGeometry = onUpdateEditorGeometry;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#updateEditorGeometry)
     ///
@@ -575,13 +667,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: KFileItemDelegate, editor: QWidget, option: QStyleOptionViewItem, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnUpdateEditorGeometry(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, QWidget, QStyleOptionViewItem, QModelIndex) callconv(.c) void) void {
+    pub fn onUpdateEditorGeometry(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, QWidget, QStyleOptionViewItem, QModelIndex) callconv(.c) void) void {
         qtc.KFileItemDelegate_OnUpdateEditorGeometry(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateEditorGeometry` instead
+    /// ### DEPRECATED: Use `superUpdateEditorGeometry` instead
     ///
-    pub const QBaseUpdateEditorGeometry = SuperUpdateEditorGeometry;
+    pub const SuperUpdateEditorGeometry = superUpdateEditorGeometry;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#updateEditorGeometry)
     ///
@@ -597,12 +689,16 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SuperUpdateEditorGeometry(self: KFileItemDelegate, editor: anytype, option: anytype, index: anytype) void {
+    pub fn superUpdateEditorGeometry(self: KFileItemDelegate, editor: anytype, option: anytype, index: anytype) void {
         comptime _ = @TypeOf(editor)._is_QWidget;
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.KFileItemDelegate_SuperUpdateEditorGeometry(@ptrCast(self.ptr), @ptrCast(editor.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `setShowInformation` instead
+    ///
+    pub const SetShowInformation = setShowInformation;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setShowInformation)
     ///
@@ -612,13 +708,17 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` list: []kfileitemdelegate_enums.Information `
     ///
-    pub fn SetShowInformation(self: KFileItemDelegate, list: []i32) void {
+    pub fn setShowInformation(self: KFileItemDelegate, list: []i32) void {
         const list_list = qtc.libqt_list{
             .len = list.len,
             .data = list.ptr,
         };
         qtc.KFileItemDelegate_SetShowInformation(@ptrCast(self.ptr), list_list);
     }
+
+    /// ### DEPRECATED: Use `setShowInformation2` instead
+    ///
+    pub const SetShowInformation2 = setShowInformation2;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setShowInformation)
     ///
@@ -628,9 +728,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` information: kfileitemdelegate_enums.Information `
     ///
-    pub fn SetShowInformation2(self: KFileItemDelegate, information: i32) void {
+    pub fn setShowInformation2(self: KFileItemDelegate, information: i32) void {
         qtc.KFileItemDelegate_SetShowInformation2(@ptrCast(self.ptr), @bitCast(information));
     }
+
+    /// ### DEPRECATED: Use `showInformation` instead
+    ///
+    pub const ShowInformation = showInformation;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#showInformation)
     ///
@@ -644,14 +748,18 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` []kfileitemdelegate_enums.Information `
     ///
-    pub fn ShowInformation(self: KFileItemDelegate, allocator: std.mem.Allocator) []i32 {
+    pub fn showInformation(self: KFileItemDelegate, allocator: std.mem.Allocator) []i32 {
         const _arr: qtc.libqt_list = qtc.KFileItemDelegate_ShowInformation(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("KFileItemDelegate.ShowInformation: Memory allocation failed");
-        const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("KFileItemDelegate.showInformation: Memory allocation failed");
+        const _data_val: [*]i32 = @ptrCast(@alignCast(_arr.data));
+        @memcpy(_ret, _data_val[0.._arr.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setShadowColor` instead
+    ///
+    pub const SetShadowColor = setShadowColor;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setShadowColor)
     ///
@@ -661,10 +769,14 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn SetShadowColor(self: KFileItemDelegate, color: anytype) void {
+    pub fn setShadowColor(self: KFileItemDelegate, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.KFileItemDelegate_SetShadowColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
+
+    /// ### DEPRECATED: Use `shadowColor` instead
+    ///
+    pub const ShadowColor = shadowColor;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#shadowColor)
     ///
@@ -672,9 +784,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` self: KFileItemDelegate `
     ///
-    pub fn ShadowColor(self: KFileItemDelegate) QColor {
+    pub fn shadowColor(self: KFileItemDelegate) QColor {
         return .{ .ptr = qtc.KFileItemDelegate_ShadowColor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setShadowOffset` instead
+    ///
+    pub const SetShadowOffset = setShadowOffset;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setShadowOffset)
     ///
@@ -684,10 +800,14 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` offset: QPointF `
     ///
-    pub fn SetShadowOffset(self: KFileItemDelegate, offset: anytype) void {
+    pub fn setShadowOffset(self: KFileItemDelegate, offset: anytype) void {
         comptime _ = @TypeOf(offset)._is_QPointF;
         qtc.KFileItemDelegate_SetShadowOffset(@ptrCast(self.ptr), @ptrCast(offset.ptr));
     }
+
+    /// ### DEPRECATED: Use `shadowOffset` instead
+    ///
+    pub const ShadowOffset = shadowOffset;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#shadowOffset)
     ///
@@ -695,9 +815,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` self: KFileItemDelegate `
     ///
-    pub fn ShadowOffset(self: KFileItemDelegate) QPointF {
+    pub fn shadowOffset(self: KFileItemDelegate) QPointF {
         return .{ .ptr = qtc.KFileItemDelegate_ShadowOffset(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setShadowBlur` instead
+    ///
+    pub const SetShadowBlur = setShadowBlur;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setShadowBlur)
     ///
@@ -707,9 +831,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` radius: f64 `
     ///
-    pub fn SetShadowBlur(self: KFileItemDelegate, radius: f64) void {
+    pub fn setShadowBlur(self: KFileItemDelegate, radius: f64) void {
         qtc.KFileItemDelegate_SetShadowBlur(@ptrCast(self.ptr), @bitCast(radius));
     }
+
+    /// ### DEPRECATED: Use `shadowBlur` instead
+    ///
+    pub const ShadowBlur = shadowBlur;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#shadowBlur)
     ///
@@ -717,9 +845,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` self: KFileItemDelegate `
     ///
-    pub fn ShadowBlur(self: KFileItemDelegate) f64 {
+    pub fn shadowBlur(self: KFileItemDelegate) f64 {
         return qtc.KFileItemDelegate_ShadowBlur(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setMaximumSize)
     ///
@@ -729,10 +861,14 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` size: QSize `
     ///
-    pub fn SetMaximumSize(self: KFileItemDelegate, size: anytype) void {
+    pub fn setMaximumSize(self: KFileItemDelegate, size: anytype) void {
         comptime _ = @TypeOf(size)._is_QSize;
         qtc.KFileItemDelegate_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(size.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#maximumSize)
     ///
@@ -740,9 +876,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` self: KFileItemDelegate `
     ///
-    pub fn MaximumSize(self: KFileItemDelegate) QSize {
+    pub fn maximumSize(self: KFileItemDelegate) QSize {
         return .{ .ptr = qtc.KFileItemDelegate_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setShowToolTipWhenElided` instead
+    ///
+    pub const SetShowToolTipWhenElided = setShowToolTipWhenElided;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setShowToolTipWhenElided)
     ///
@@ -752,9 +892,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` showToolTip: bool `
     ///
-    pub fn SetShowToolTipWhenElided(self: KFileItemDelegate, showToolTip: bool) void {
+    pub fn setShowToolTipWhenElided(self: KFileItemDelegate, showToolTip: bool) void {
         qtc.KFileItemDelegate_SetShowToolTipWhenElided(@ptrCast(self.ptr), showToolTip);
     }
+
+    /// ### DEPRECATED: Use `showToolTipWhenElided` instead
+    ///
+    pub const ShowToolTipWhenElided = showToolTipWhenElided;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#showToolTipWhenElided)
     ///
@@ -762,9 +906,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` self: KFileItemDelegate `
     ///
-    pub fn ShowToolTipWhenElided(self: KFileItemDelegate) bool {
+    pub fn showToolTipWhenElided(self: KFileItemDelegate) bool {
         return qtc.KFileItemDelegate_ShowToolTipWhenElided(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `iconRect` instead
+    ///
+    pub const IconRect = iconRect;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#iconRect)
     ///
@@ -776,11 +924,15 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn IconRect(self: KFileItemDelegate, option: anytype, index: anytype) QRect {
+    pub fn iconRect(self: KFileItemDelegate, option: anytype, index: anytype) QRect {
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.KFileItemDelegate_IconRect(@ptrCast(self.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWrapMode` instead
+    ///
+    pub const SetWrapMode = setWrapMode;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setWrapMode)
     ///
@@ -788,11 +940,15 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` self: KFileItemDelegate `
     ///
-    /// ` wrapMode: qtextoption_enums.WrapMode `
+    /// ` _wrapMode: qtextoption_enums.WrapMode `
     ///
-    pub fn SetWrapMode(self: KFileItemDelegate, wrapMode: i32) void {
-        qtc.KFileItemDelegate_SetWrapMode(@ptrCast(self.ptr), @bitCast(wrapMode));
+    pub fn setWrapMode(self: KFileItemDelegate, _wrapMode: i32) void {
+        qtc.KFileItemDelegate_SetWrapMode(@ptrCast(self.ptr), @bitCast(_wrapMode));
     }
+
+    /// ### DEPRECATED: Use `wrapMode` instead
+    ///
+    pub const WrapMode = wrapMode;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#wrapMode)
     ///
@@ -804,9 +960,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` qtextoption_enums.WrapMode `
     ///
-    pub fn WrapMode(self: KFileItemDelegate) i32 {
+    pub fn wrapMode(self: KFileItemDelegate) i32 {
         return qtc.KFileItemDelegate_WrapMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setJobTransfersVisible` instead
+    ///
+    pub const SetJobTransfersVisible = setJobTransfersVisible;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setJobTransfersVisible)
     ///
@@ -814,11 +974,15 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` self: KFileItemDelegate `
     ///
-    /// ` jobTransfersVisible: bool `
+    /// ` _jobTransfersVisible: bool `
     ///
-    pub fn SetJobTransfersVisible(self: KFileItemDelegate, jobTransfersVisible: bool) void {
-        qtc.KFileItemDelegate_SetJobTransfersVisible(@ptrCast(self.ptr), jobTransfersVisible);
+    pub fn setJobTransfersVisible(self: KFileItemDelegate, _jobTransfersVisible: bool) void {
+        qtc.KFileItemDelegate_SetJobTransfersVisible(@ptrCast(self.ptr), _jobTransfersVisible);
     }
+
+    /// ### DEPRECATED: Use `jobTransfersVisible` instead
+    ///
+    pub const JobTransfersVisible = jobTransfersVisible;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#jobTransfersVisible)
     ///
@@ -826,9 +990,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` self: KFileItemDelegate `
     ///
-    pub fn JobTransfersVisible(self: KFileItemDelegate) bool {
+    pub fn jobTransfersVisible(self: KFileItemDelegate) bool {
         return qtc.KFileItemDelegate_JobTransfersVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#eventFilter)
     ///
@@ -838,13 +1006,17 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` object: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KFileItemDelegate, object: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KFileItemDelegate, object: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(object)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KFileItemDelegate_EventFilter(@ptrCast(self.ptr), @ptrCast(object.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KFileItemDelegate_EventFilter(@ptrCast(self.ptr), @ptrCast(object.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#eventFilter)
     ///
@@ -856,13 +1028,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: KFileItemDelegate, object: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, QObject, QEvent) callconv(.c) bool) void {
         qtc.KFileItemDelegate_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#eventFilter)
     ///
@@ -874,13 +1046,17 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` object: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: KFileItemDelegate, object: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: KFileItemDelegate, object: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(object)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KFileItemDelegate_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(object.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KFileItemDelegate_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(object.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `selectionEmblemRect` instead
+    ///
+    pub const SelectionEmblemRect = selectionEmblemRect;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#selectionEmblemRect)
     ///
@@ -888,9 +1064,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` self: KFileItemDelegate `
     ///
-    pub fn SelectionEmblemRect(self: KFileItemDelegate) QRect {
+    pub fn selectionEmblemRect(self: KFileItemDelegate) QRect {
         return .{ .ptr = qtc.KFileItemDelegate_SelectionEmblemRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSelectionEmblemRect` instead
+    ///
+    pub const SetSelectionEmblemRect = setSelectionEmblemRect;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setSelectionEmblemRect)
     ///
@@ -902,10 +1082,14 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` iconSize: i32 `
     ///
-    pub fn SetSelectionEmblemRect(self: KFileItemDelegate, rect: anytype, iconSize: i32) void {
+    pub fn setSelectionEmblemRect(self: KFileItemDelegate, rect: anytype, iconSize: i32) void {
         comptime _ = @TypeOf(rect)._is_QRect;
         qtc.KFileItemDelegate_SetSelectionEmblemRect(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(iconSize));
     }
+
+    /// ### DEPRECATED: Use `fileItem` instead
+    ///
+    pub const FileItem = fileItem;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#fileItem)
     ///
@@ -915,10 +1099,14 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn FileItem(self: KFileItemDelegate, index: anytype) KFileItem {
+    pub fn fileItem(self: KFileItemDelegate, index: anytype) KFileItem {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.KFileItemDelegate_FileItem(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `helpEvent` instead
+    ///
+    pub const HelpEvent = helpEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#helpEvent)
     ///
@@ -926,7 +1114,7 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` self: KFileItemDelegate `
     ///
-    /// ` event: QHelpEvent `
+    /// ` _event: QHelpEvent `
     ///
     /// ` view: QAbstractItemView `
     ///
@@ -934,13 +1122,17 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn HelpEvent(self: KFileItemDelegate, event: anytype, view: anytype, option: anytype, index: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QHelpEvent;
+    pub fn helpEvent(self: KFileItemDelegate, _event: anytype, view: anytype, option: anytype, index: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QHelpEvent;
         comptime _ = @TypeOf(view)._is_QAbstractItemView;
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         comptime _ = @TypeOf(index)._is_QModelIndex;
-        return qtc.KFileItemDelegate_HelpEvent(@ptrCast(self.ptr), @ptrCast(event.ptr), @ptrCast(view.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr));
+        return qtc.KFileItemDelegate_HelpEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr), @ptrCast(view.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHelpEvent` instead
+    ///
+    pub const OnHelpEvent = onHelpEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#helpEvent)
     ///
@@ -952,13 +1144,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: KFileItemDelegate, event: QHelpEvent, view: QAbstractItemView, option: QStyleOptionViewItem, index: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnHelpEvent(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, QHelpEvent, QAbstractItemView, QStyleOptionViewItem, QModelIndex) callconv(.c) bool) void {
+    pub fn onHelpEvent(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, QHelpEvent, QAbstractItemView, QStyleOptionViewItem, QModelIndex) callconv(.c) bool) void {
         qtc.KFileItemDelegate_OnHelpEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperHelpEvent` instead
+    /// ### DEPRECATED: Use `superHelpEvent` instead
     ///
-    pub const QBaseHelpEvent = SuperHelpEvent;
+    pub const SuperHelpEvent = superHelpEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#helpEvent)
     ///
@@ -968,7 +1160,7 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` self: KFileItemDelegate `
     ///
-    /// ` event: QHelpEvent `
+    /// ` _event: QHelpEvent `
     ///
     /// ` view: QAbstractItemView `
     ///
@@ -976,13 +1168,17 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SuperHelpEvent(self: KFileItemDelegate, event: anytype, view: anytype, option: anytype, index: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QHelpEvent;
+    pub fn superHelpEvent(self: KFileItemDelegate, _event: anytype, view: anytype, option: anytype, index: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QHelpEvent;
         comptime _ = @TypeOf(view)._is_QAbstractItemView;
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         comptime _ = @TypeOf(index)._is_QModelIndex;
-        return qtc.KFileItemDelegate_SuperHelpEvent(@ptrCast(self.ptr), @ptrCast(event.ptr), @ptrCast(view.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr));
+        return qtc.KFileItemDelegate_SuperHelpEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr), @ptrCast(view.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `shape` instead
+    ///
+    pub const Shape = shape;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#shape)
     ///
@@ -994,11 +1190,15 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn Shape(self: KFileItemDelegate, option: anytype, index: anytype) QRegion {
+    pub fn shape(self: KFileItemDelegate, option: anytype, index: anytype) QRegion {
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.KFileItemDelegate_Shape(@ptrCast(self.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1010,15 +1210,19 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItemDelegate.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItemDelegate.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1032,16 +1236,20 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItemDelegate.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItemDelegate.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `commitData` instead
+    ///
+    pub const CommitData = commitData;
+
     /// Inherited from QAbstractItemDelegate
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#commitData)
@@ -1052,11 +1260,15 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` editor: QWidget `
     ///
-    pub fn CommitData(self: KFileItemDelegate, editor: anytype) void {
+    pub fn commitData(self: KFileItemDelegate, editor: anytype) void {
         comptime _ = @TypeOf(editor)._is_QWidget;
         qtc.QAbstractItemDelegate_CommitData(@ptrCast(self.ptr), @ptrCast(editor.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCommitData` instead
+    ///
+    pub const OnCommitData = onCommitData;
+
     /// Inherited from QAbstractItemDelegate
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#commitData)
@@ -1067,9 +1279,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: KFileItemDelegate, editor: QWidget) callconv(.c) void `
     ///
-    pub fn OnCommitData(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, QWidget) callconv(.c) void) void {
+    pub fn onCommitData(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, QWidget) callconv(.c) void) void {
         qtc.QAbstractItemDelegate_Connect_CommitData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEditor` instead
+    ///
+    pub const CloseEditor = closeEditor;
 
     /// Inherited from QAbstractItemDelegate
     ///
@@ -1081,10 +1297,14 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` editor: QWidget `
     ///
-    pub fn CloseEditor(self: KFileItemDelegate, editor: anytype) void {
+    pub fn closeEditor(self: KFileItemDelegate, editor: anytype) void {
         comptime _ = @TypeOf(editor)._is_QWidget;
         qtc.QAbstractItemDelegate_CloseEditor(@ptrCast(self.ptr), @ptrCast(editor.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEditor` instead
+    ///
+    pub const OnCloseEditor = onCloseEditor;
 
     /// Inherited from QAbstractItemDelegate
     ///
@@ -1096,9 +1316,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: KFileItemDelegate, editor: QWidget) callconv(.c) void `
     ///
-    pub fn OnCloseEditor(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, QWidget) callconv(.c) void) void {
+    pub fn onCloseEditor(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, QWidget) callconv(.c) void) void {
         qtc.QAbstractItemDelegate_Connect_CloseEditor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sizeHintChanged` instead
+    ///
+    pub const SizeHintChanged = sizeHintChanged;
 
     /// Inherited from QAbstractItemDelegate
     ///
@@ -1110,10 +1334,14 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` param1: QModelIndex `
     ///
-    pub fn SizeHintChanged(self: KFileItemDelegate, param1: anytype) void {
+    pub fn sizeHintChanged(self: KFileItemDelegate, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QModelIndex;
         qtc.QAbstractItemDelegate_SizeHintChanged(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSizeHintChanged` instead
+    ///
+    pub const OnSizeHintChanged = onSizeHintChanged;
 
     /// Inherited from QAbstractItemDelegate
     ///
@@ -1125,9 +1353,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: KFileItemDelegate, param1: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnSizeHintChanged(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, QModelIndex) callconv(.c) void) void {
+    pub fn onSizeHintChanged(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, QModelIndex) callconv(.c) void) void {
         qtc.QAbstractItemDelegate_Connect_SizeHintChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEditor2` instead
+    ///
+    pub const CloseEditor2 = closeEditor2;
 
     /// Inherited from QAbstractItemDelegate
     ///
@@ -1141,10 +1373,14 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` hint: qabstractitemdelegate_enums.EndEditHint `
     ///
-    pub fn CloseEditor2(self: KFileItemDelegate, editor: anytype, hint: i32) void {
+    pub fn closeEditor2(self: KFileItemDelegate, editor: anytype, hint: i32) void {
         comptime _ = @TypeOf(editor)._is_QWidget;
         qtc.QAbstractItemDelegate_CloseEditor2(@ptrCast(self.ptr), @ptrCast(editor.ptr), @bitCast(hint));
     }
+
+    /// ### DEPRECATED: Use `onCloseEditor2` instead
+    ///
+    pub const OnCloseEditor2 = onCloseEditor2;
 
     /// Inherited from QAbstractItemDelegate
     ///
@@ -1156,9 +1392,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: KFileItemDelegate, editor: QWidget, hint: qabstractitemdelegate_enums.EndEditHint) callconv(.c) void `
     ///
-    pub fn OnCloseEditor2(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, QWidget, i32) callconv(.c) void) void {
+    pub fn onCloseEditor2(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, QWidget, i32) callconv(.c) void) void {
         qtc.QAbstractItemDelegate_Connect_CloseEditor2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -1170,13 +1410,17 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KFileItemDelegate, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KFileItemDelegate, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItemDelegate.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItemDelegate.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -1188,13 +1432,17 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KFileItemDelegate, name: []const u8) void {
+    pub fn setObjectName(self: KFileItemDelegate, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -1204,9 +1452,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` self: KFileItemDelegate `
     ///
-    pub fn IsWidgetType(self: KFileItemDelegate) bool {
+    pub fn isWidgetType(self: KFileItemDelegate) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -1216,9 +1468,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` self: KFileItemDelegate `
     ///
-    pub fn IsWindowType(self: KFileItemDelegate) bool {
+    pub fn isWindowType(self: KFileItemDelegate) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -1228,9 +1484,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` self: KFileItemDelegate `
     ///
-    pub fn IsQuickItemType(self: KFileItemDelegate) bool {
+    pub fn isQuickItemType(self: KFileItemDelegate) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -1240,9 +1500,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` self: KFileItemDelegate `
     ///
-    pub fn SignalsBlocked(self: KFileItemDelegate) bool {
+    pub fn signalsBlocked(self: KFileItemDelegate) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -1254,9 +1518,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KFileItemDelegate, b: bool) bool {
+    pub fn blockSignals(self: KFileItemDelegate, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -1266,9 +1534,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` self: KFileItemDelegate `
     ///
-    pub fn Thread(self: KFileItemDelegate) QThread {
+    pub fn thread(self: KFileItemDelegate) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -1278,12 +1550,16 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` self: KFileItemDelegate `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KFileItemDelegate, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KFileItemDelegate, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -1295,9 +1571,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KFileItemDelegate, interval: i32) i32 {
+    pub fn startTimer(self: KFileItemDelegate, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -1309,9 +1589,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KFileItemDelegate, time: i64) i32 {
+    pub fn startTimer2(self: KFileItemDelegate, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -1323,9 +1607,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KFileItemDelegate, id: i32) void {
+    pub fn killTimer(self: KFileItemDelegate, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -1337,9 +1625,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KFileItemDelegate, id: i32) void {
+    pub fn killTimer2(self: KFileItemDelegate, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -1351,15 +1643,19 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KFileItemDelegate, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KFileItemDelegate, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KFileItemDelegate.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KFileItemDelegate.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -1369,12 +1665,16 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` self: KFileItemDelegate `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: KFileItemDelegate, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: KFileItemDelegate, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1386,10 +1686,14 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KFileItemDelegate, filterObj: anytype) void {
+    pub fn installEventFilter(self: KFileItemDelegate, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1401,10 +1705,14 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KFileItemDelegate, obj: anytype) void {
+    pub fn removeEventFilter(self: KFileItemDelegate, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -1412,7 +1720,7 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1420,13 +1728,17 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -1434,7 +1746,7 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1442,13 +1754,17 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1458,18 +1774,22 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` self: KFileItemDelegate `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KFileItemDelegate, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KFileItemDelegate, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1477,7 +1797,7 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1485,13 +1805,17 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1499,7 +1823,7 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1507,13 +1831,17 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1523,9 +1851,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` self: KFileItemDelegate `
     ///
-    pub fn Disconnect3(self: KFileItemDelegate) bool {
+    pub fn disconnect3(self: KFileItemDelegate) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1537,10 +1869,14 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KFileItemDelegate, receiver: anytype) bool {
+    pub fn disconnect4(self: KFileItemDelegate, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1550,10 +1886,14 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1563,9 +1903,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` self: KFileItemDelegate `
     ///
-    pub fn DumpObjectTree(self: KFileItemDelegate) void {
+    pub fn dumpObjectTree(self: KFileItemDelegate) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1575,9 +1919,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` self: KFileItemDelegate `
     ///
-    pub fn DumpObjectInfo(self: KFileItemDelegate) void {
+    pub fn dumpObjectInfo(self: KFileItemDelegate) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1591,11 +1939,15 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KFileItemDelegate, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KFileItemDelegate, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1607,10 +1959,14 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KFileItemDelegate, name: [:0]const u8) QVariant {
+    pub fn property(self: KFileItemDelegate, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1622,7 +1978,7 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KFileItemDelegate, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KFileItemDelegate, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1630,27 +1986,19 @@ pub const KFileItemDelegate = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KFileItemDelegate.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KFileItemDelegate.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KFileItemDelegate.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KFileItemDelegate.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFileItemDelegate `
-    ///
-    pub fn BindingStorage(self: KFileItemDelegate) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1660,9 +2008,29 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` self: KFileItemDelegate `
     ///
-    pub fn BindingStorage2(self: KFileItemDelegate) QBindingStorage {
+    pub fn bindingStorage(self: KFileItemDelegate) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KFileItemDelegate `
+    ///
+    pub fn bindingStorage2(self: KFileItemDelegate) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1672,9 +2040,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` self: KFileItemDelegate `
     ///
-    pub fn Destroyed(self: KFileItemDelegate) void {
+    pub fn destroyed(self: KFileItemDelegate) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1686,9 +2058,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: KFileItemDelegate) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate) callconv(.c) void) void {
+    pub fn onDestroyed(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1698,9 +2074,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` self: KFileItemDelegate `
     ///
-    pub fn Parent(self: KFileItemDelegate) QObject {
+    pub fn parent(self: KFileItemDelegate) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1712,10 +2092,14 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KFileItemDelegate, classname: [:0]const u8) bool {
+    pub fn inherits(self: KFileItemDelegate, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1725,9 +2109,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` self: KFileItemDelegate `
     ///
-    pub fn DeleteLater(self: KFileItemDelegate) void {
+    pub fn deleteLater(self: KFileItemDelegate) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1741,9 +2129,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KFileItemDelegate, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KFileItemDelegate, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1757,9 +2149,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KFileItemDelegate, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KFileItemDelegate, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1767,7 +2163,7 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1777,13 +2173,17 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1791,7 +2191,7 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1801,13 +2201,17 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1817,7 +2221,7 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` self: KFileItemDelegate `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1825,12 +2229,16 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KFileItemDelegate, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KFileItemDelegate, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1842,10 +2250,14 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KFileItemDelegate, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KFileItemDelegate, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1859,11 +2271,15 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KFileItemDelegate, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KFileItemDelegate, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1879,13 +2295,17 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KFileItemDelegate, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KFileItemDelegate, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1898,11 +2318,15 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KFileItemDelegate, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KFileItemDelegate, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1914,10 +2338,14 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KFileItemDelegate, param1: anytype) void {
+    pub fn destroyed1(self: KFileItemDelegate, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1929,9 +2357,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: KFileItemDelegate, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroyEditor` instead
+    ///
+    pub const DestroyEditor = destroyEditor;
 
     /// Inherited from QAbstractItemDelegate
     ///
@@ -1947,15 +2379,15 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn DestroyEditor(self: KFileItemDelegate, editor: anytype, index: anytype) void {
+    pub fn destroyEditor(self: KFileItemDelegate, editor: anytype, index: anytype) void {
         comptime _ = @TypeOf(editor)._is_QWidget;
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.KFileItemDelegate_DestroyEditor(@ptrCast(self.ptr), @ptrCast(editor.ptr), @ptrCast(index.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroyEditor` instead
+    /// ### DEPRECATED: Use `superDestroyEditor` instead
     ///
-    pub const QBaseDestroyEditor = SuperDestroyEditor;
+    pub const SuperDestroyEditor = superDestroyEditor;
 
     /// Inherited from QAbstractItemDelegate
     ///
@@ -1971,11 +2403,15 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SuperDestroyEditor(self: KFileItemDelegate, editor: anytype, index: anytype) void {
+    pub fn superDestroyEditor(self: KFileItemDelegate, editor: anytype, index: anytype) void {
         comptime _ = @TypeOf(editor)._is_QWidget;
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.KFileItemDelegate_SuperDestroyEditor(@ptrCast(self.ptr), @ptrCast(editor.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyEditor` instead
+    ///
+    pub const OnDestroyEditor = onDestroyEditor;
 
     /// Inherited from QAbstractItemDelegate
     ///
@@ -1989,9 +2425,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: KFileItemDelegate, editor: QWidget, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnDestroyEditor(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, QWidget, QModelIndex) callconv(.c) void) void {
+    pub fn onDestroyEditor(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, QWidget, QModelIndex) callconv(.c) void) void {
         qtc.KFileItemDelegate_OnDestroyEditor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingRoles` instead
+    ///
+    pub const PaintingRoles = paintingRoles;
 
     /// Inherited from QAbstractItemDelegate
     ///
@@ -2005,18 +2445,18 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PaintingRoles(self: KFileItemDelegate, allocator: std.mem.Allocator) []i32 {
+    pub fn paintingRoles(self: KFileItemDelegate, allocator: std.mem.Allocator) []i32 {
         const _arr: qtc.libqt_list = qtc.KFileItemDelegate_PaintingRoles(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("KFileItemDelegate.PaintingRoles: Memory allocation failed");
-        const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("KFileItemDelegate.paintingRoles: Memory allocation failed");
+        const _data_val: [*]i32 = @ptrCast(@alignCast(_arr.data));
+        @memcpy(_ret, _data_val[0.._arr.len]);
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `SuperPaintingRoles` instead
+    /// ### DEPRECATED: Use `superPaintingRoles` instead
     ///
-    pub const QBasePaintingRoles = SuperPaintingRoles;
+    pub const SuperPaintingRoles = superPaintingRoles;
 
     /// Inherited from QAbstractItemDelegate
     ///
@@ -2030,14 +2470,18 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperPaintingRoles(self: KFileItemDelegate, allocator: std.mem.Allocator) []i32 {
+    pub fn superPaintingRoles(self: KFileItemDelegate, allocator: std.mem.Allocator) []i32 {
         const _arr: qtc.libqt_list = qtc.KFileItemDelegate_SuperPaintingRoles(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("KFileItemDelegate.PaintingRoles: Memory allocation failed");
-        const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("KFileItemDelegate.paintingRoles: Memory allocation failed");
+        const _data_val: [*]i32 = @ptrCast(@alignCast(_arr.data));
+        @memcpy(_ret, _data_val[0.._arr.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onPaintingRoles` instead
+    ///
+    pub const OnPaintingRoles = onPaintingRoles;
 
     /// Inherited from QAbstractItemDelegate
     ///
@@ -2057,9 +2501,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` C ABI representation of []i32 `
     ///
-    pub fn OnPaintingRoles(self: KFileItemDelegate, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+    pub fn onPaintingRoles(self: KFileItemDelegate, callback: *const fn () callconv(.c) qtc.libqt_list) void {
         qtc.KFileItemDelegate_OnPaintingRoles(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -2071,16 +2519,16 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` self: KFileItemDelegate `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: KFileItemDelegate, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KFileItemDelegate_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: KFileItemDelegate, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KFileItemDelegate_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -2092,12 +2540,16 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` self: KFileItemDelegate `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: KFileItemDelegate, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KFileItemDelegate_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: KFileItemDelegate, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KFileItemDelegate_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -2111,9 +2563,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: KFileItemDelegate, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, QEvent) callconv(.c) bool) void {
         qtc.KFileItemDelegate_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -2125,16 +2581,16 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` self: KFileItemDelegate `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KFileItemDelegate, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KFileItemDelegate_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KFileItemDelegate, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KFileItemDelegate_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -2146,12 +2602,16 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` self: KFileItemDelegate `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KFileItemDelegate, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KFileItemDelegate_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KFileItemDelegate, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KFileItemDelegate_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -2165,9 +2625,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: KFileItemDelegate, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, QTimerEvent) callconv(.c) void) void {
         qtc.KFileItemDelegate_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -2179,16 +2643,16 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` self: KFileItemDelegate `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KFileItemDelegate, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KFileItemDelegate_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KFileItemDelegate, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KFileItemDelegate_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2200,12 +2664,16 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` self: KFileItemDelegate `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KFileItemDelegate, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KFileItemDelegate_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KFileItemDelegate, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KFileItemDelegate_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2219,9 +2687,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: KFileItemDelegate, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, QChildEvent) callconv(.c) void) void {
         qtc.KFileItemDelegate_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -2233,16 +2705,16 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` self: KFileItemDelegate `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KFileItemDelegate, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KFileItemDelegate_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KFileItemDelegate, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KFileItemDelegate_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2254,12 +2726,16 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` self: KFileItemDelegate `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KFileItemDelegate, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KFileItemDelegate_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KFileItemDelegate, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KFileItemDelegate_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2273,9 +2749,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: KFileItemDelegate, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, QEvent) callconv(.c) void) void {
         qtc.KFileItemDelegate_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -2289,14 +2769,14 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KFileItemDelegate, signal: anytype) void {
+    pub fn connectNotify(self: KFileItemDelegate, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KFileItemDelegate_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2310,11 +2790,15 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KFileItemDelegate, signal: anytype) void {
+    pub fn superConnectNotify(self: KFileItemDelegate, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KFileItemDelegate_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -2327,9 +2811,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: KFileItemDelegate, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, QMetaMethod) callconv(.c) void) void {
         qtc.KFileItemDelegate_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2343,14 +2831,14 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KFileItemDelegate, signal: anytype) void {
+    pub fn disconnectNotify(self: KFileItemDelegate, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KFileItemDelegate_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2364,10 +2852,14 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KFileItemDelegate, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KFileItemDelegate, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KFileItemDelegate_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2381,9 +2873,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: KFileItemDelegate, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, QMetaMethod) callconv(.c) void) void {
         qtc.KFileItemDelegate_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -2395,13 +2891,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` self: KFileItemDelegate `
     ///
-    pub fn Sender(self: KFileItemDelegate) QObject {
+    pub fn sender(self: KFileItemDelegate) QObject {
         return .{ .ptr = qtc.KFileItemDelegate_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -2413,9 +2909,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` self: KFileItemDelegate `
     ///
-    pub fn SuperSender(self: KFileItemDelegate) QObject {
+    pub fn superSender(self: KFileItemDelegate) QObject {
         return .{ .ptr = qtc.KFileItemDelegate_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -2429,9 +2929,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KFileItemDelegate, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KFileItemDelegate, callback: *const fn () callconv(.c) QObject) void {
         qtc.KFileItemDelegate_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2443,13 +2947,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` self: KFileItemDelegate `
     ///
-    pub fn SenderSignalIndex(self: KFileItemDelegate) i32 {
+    pub fn senderSignalIndex(self: KFileItemDelegate) i32 {
         return qtc.KFileItemDelegate_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2461,9 +2965,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` self: KFileItemDelegate `
     ///
-    pub fn SuperSenderSignalIndex(self: KFileItemDelegate) i32 {
+    pub fn superSenderSignalIndex(self: KFileItemDelegate) i32 {
         return qtc.KFileItemDelegate_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2477,9 +2985,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KFileItemDelegate, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KFileItemDelegate, callback: *const fn () callconv(.c) i32) void {
         qtc.KFileItemDelegate_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -2493,14 +3005,14 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KFileItemDelegate, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KFileItemDelegate, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KFileItemDelegate_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -2514,10 +3026,14 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KFileItemDelegate, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KFileItemDelegate, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KFileItemDelegate_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -2531,9 +3047,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: KFileItemDelegate, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, [*:0]const u8) callconv(.c) i32) void {
         qtc.KFileItemDelegate_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2547,14 +3067,14 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KFileItemDelegate, signal: anytype) bool {
+    pub fn isSignalConnected(self: KFileItemDelegate, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KFileItemDelegate_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2568,10 +3088,14 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KFileItemDelegate, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KFileItemDelegate, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KFileItemDelegate_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2585,9 +3109,13 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: KFileItemDelegate, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, QMetaMethod) callconv(.c) bool) void {
         qtc.KFileItemDelegate_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -2601,23 +3129,23 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: KFileItemDelegate, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#dtor.KFileItemDelegate)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KFileItemDelegate `
     ///
-    pub fn Delete(self: KFileItemDelegate) void {
+    pub fn delete(self: KFileItemDelegate) void {
         qtc.KFileItemDelegate_Delete(@ptrCast(self.ptr));
     }
 };

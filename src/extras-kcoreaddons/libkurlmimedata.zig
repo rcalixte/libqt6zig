@@ -16,6 +16,10 @@ pub const KUrlMimeData = extern struct {
 
     pub const _is_KUrlMimeData = {};
 
+    /// ### DEPRECATED: Use `setUrls` instead
+    ///
+    pub const SetUrls = setUrls;
+
     /// ### [Upstream resources](https://api.kde.org/kurlmimedata.html#setUrls)
     ///
     /// ## Parameter(s):
@@ -26,7 +30,7 @@ pub const KUrlMimeData = extern struct {
     ///
     /// ` mimeData: QMimeData `
     ///
-    pub fn SetUrls(urls: []QUrl, mostLocalUrls: []QUrl, mimeData: anytype) void {
+    pub fn setUrls(urls: []QUrl, mostLocalUrls: []QUrl, mimeData: anytype) void {
         const urls_list = qtc.libqt_list{
             .len = urls.len,
             .data = @ptrCast(urls.ptr),
@@ -39,16 +43,24 @@ pub const KUrlMimeData = extern struct {
         qtc.KUrlMimeData_SetUrls(urls_list, mostLocalUrls_list, @ptrCast(mimeData.ptr));
     }
 
+    /// ### DEPRECATED: Use `exportUrlsToPortal` instead
+    ///
+    pub const ExportUrlsToPortal = exportUrlsToPortal;
+
     /// ### [Upstream resources](https://api.kde.org/kurlmimedata.html#exportUrlsToPortal)
     ///
     /// ## Parameter(s):
     ///
     /// ` mimeData: QMimeData `
     ///
-    pub fn ExportUrlsToPortal(mimeData: anytype) bool {
+    pub fn exportUrlsToPortal(mimeData: anytype) bool {
         comptime _ = @TypeOf(mimeData)._is_QMimeData;
         return qtc.KUrlMimeData_ExportUrlsToPortal(@ptrCast(mimeData.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMetaData` instead
+    ///
+    pub const SetMetaData = setMetaData;
 
     /// ### [Upstream resources](https://api.kde.org/kurlmimedata.html#setMetaData)
     ///
@@ -60,11 +72,11 @@ pub const KUrlMimeData = extern struct {
     ///
     /// ` mimeData: QMimeData `
     ///
-    pub fn SetMetaData(allocator: std.mem.Allocator, metaData: ArrayMap_constu8_constu8, mimeData: anytype) void {
+    pub fn setMetaData(allocator: std.mem.Allocator, metaData: ArrayMap_constu8_constu8, mimeData: anytype) void {
         const metaData_count = metaData.count();
-        const metaData_keys = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("KUrlMimeData.SetMetaData: Memory allocation failed");
+        const metaData_keys = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("KUrlMimeData.setMetaData: Memory allocation failed");
         defer allocator.free(metaData_keys);
-        const metaData_values = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("KUrlMimeData.SetMetaData: Memory allocation failed");
+        const metaData_values = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("KUrlMimeData.setMetaData: Memory allocation failed");
         defer allocator.free(metaData_values);
         var i: usize = 0;
         var metaData_it = metaData.iterator();
@@ -89,13 +101,17 @@ pub const KUrlMimeData = extern struct {
         qtc.KUrlMimeData_SetMetaData(metaData_map, @ptrCast(mimeData.ptr));
     }
 
+    /// ### DEPRECATED: Use `mimeDataTypes` instead
+    ///
+    pub const MimeDataTypes = mimeDataTypes;
+
     /// ### [Upstream resources](https://api.kde.org/kurlmimedata.html#mimeDataTypes)
     ///
     /// ## Parameter(s):
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimeDataTypes(allocator: std.mem.Allocator) []const []const u8 {
+    pub fn mimeDataTypes(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KUrlMimeData_MimeDataTypes();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -103,15 +119,19 @@ pub const KUrlMimeData = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUrlMimeData.MimeDataTypes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUrlMimeData.mimeDataTypes: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUrlMimeData.MimeDataTypes: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KUrlMimeData.mimeDataTypes: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `urlsFromMimeData` instead
+    ///
+    pub const UrlsFromMimeData = urlsFromMimeData;
 
     /// ### [Upstream resources](https://api.kde.org/kurlmimedata.html#urlsFromMimeData)
     ///
@@ -125,12 +145,12 @@ pub const KUrlMimeData = extern struct {
     ///
     /// ` metaData: ArrayMap_constu8_constu8 `
     ///
-    pub fn UrlsFromMimeData(allocator: std.mem.Allocator, mimeData: anytype, decodeOptions: i32, metaData: ArrayMap_constu8_constu8) []QUrl {
+    pub fn urlsFromMimeData(allocator: std.mem.Allocator, mimeData: anytype, decodeOptions: i32, metaData: ArrayMap_constu8_constu8) []QUrl {
         comptime _ = @TypeOf(mimeData)._is_QMimeData;
         const metaData_count = metaData.count();
-        const metaData_keys = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("KUrlMimeData.UrlsFromMimeData: Memory allocation failed");
+        const metaData_keys = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("KUrlMimeData.urlsFromMimeData: Memory allocation failed");
         defer allocator.free(metaData_keys);
-        const metaData_values = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("KUrlMimeData.UrlsFromMimeData: Memory allocation failed");
+        const metaData_values = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("KUrlMimeData.urlsFromMimeData: Memory allocation failed");
         defer allocator.free(metaData_values);
         var i: usize = 0;
         var metaData_it = metaData.iterator();
@@ -153,10 +173,10 @@ pub const KUrlMimeData = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.KUrlMimeData_UrlsFromMimeData(@ptrCast(mimeData.ptr), @bitCast(decodeOptions), &metaData_map);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("KUrlMimeData.UrlsFromMimeData: Memory allocation failed");
-        const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("KUrlMimeData.urlsFromMimeData: Memory allocation failed");
+        const _data_val: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 };

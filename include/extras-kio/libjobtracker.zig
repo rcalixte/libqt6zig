@@ -12,11 +12,19 @@ pub const KIO = extern struct {
 
     pub const _is_KIO = {};
 
+    /// ### DEPRECATED: Use `getJobTracker` instead
+    ///
+    pub const GetJobTracker = getJobTracker;
+
     /// ### [Upstream resources](https://api.kde.org/kio.html#getJobTracker)
     ///
-    pub fn GetJobTracker() KJobTrackerInterface {
+    pub fn getJobTracker() KJobTrackerInterface {
         return .{ .ptr = qtc.KIO_GetJobTracker() };
     }
+
+    /// ### DEPRECATED: Use `setJobTracker` instead
+    ///
+    pub const SetJobTracker = setJobTracker;
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#setJobTracker)
     ///
@@ -24,7 +32,7 @@ pub const KIO = extern struct {
     ///
     /// ` tracker: KJobTrackerInterface `
     ///
-    pub fn SetJobTracker(tracker: anytype) void {
+    pub fn setJobTracker(tracker: anytype) void {
         comptime _ = @TypeOf(tracker)._is_KJobTrackerInterface;
         qtc.KIO_SetJobTracker(@ptrCast(tracker.ptr));
     }

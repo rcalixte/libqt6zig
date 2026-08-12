@@ -12,22 +12,34 @@ pub const Attica__RemoteAccount = extern struct {
 
     pub const _is_Attica__RemoteAccount = {};
 
-    /// New constructs a new Attica::RemoteAccount object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() Attica__RemoteAccount {
+    pub const New = new;
+
+    /// Allocate a new Attica::RemoteAccount object in C++ memory
+    ///
+    pub fn new() Attica__RemoteAccount {
         return .{ .ptr = qtc.Attica__RemoteAccount_new() };
     }
 
-    /// New2 constructs a new Attica::RemoteAccount object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new Attica::RemoteAccount object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: Attica__RemoteAccount `
     ///
-    pub fn New2(other: anytype) Attica__RemoteAccount {
+    pub fn new2(other: anytype) Attica__RemoteAccount {
         comptime _ = @TypeOf(other)._is_Attica__RemoteAccount;
         return .{ .ptr = qtc.Attica__RemoteAccount_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://api.kde.org/attica-remoteaccount.html#operator-eq)
     ///
@@ -37,10 +49,14 @@ pub const Attica__RemoteAccount = extern struct {
     ///
     /// ` other: Attica__RemoteAccount `
     ///
-    pub fn OperatorAssign(self: Attica__RemoteAccount, other: anytype) void {
+    pub fn operatorAssign(self: Attica__RemoteAccount, other: anytype) void {
         comptime _ = @TypeOf(other)._is_Attica__RemoteAccount;
         qtc.Attica__RemoteAccount_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `setId` instead
+    ///
+    pub const SetId = setId;
 
     /// ### [Upstream resources](https://api.kde.org/attica-remoteaccount.html#setId)
     ///
@@ -48,15 +64,19 @@ pub const Attica__RemoteAccount = extern struct {
     ///
     /// ` self: Attica__RemoteAccount `
     ///
-    /// ` id: []const u8 `
+    /// ` _id: []const u8 `
     ///
-    pub fn SetId(self: Attica__RemoteAccount, id: []const u8) void {
+    pub fn setId(self: Attica__RemoteAccount, _id: []const u8) void {
         const id_str = qtc.libqt_string{
-            .len = id.len,
-            .data = id.ptr,
+            .len = _id.len,
+            .data = _id.ptr,
         };
         qtc.Attica__RemoteAccount_SetId(@ptrCast(self.ptr), id_str);
     }
+
+    /// ### DEPRECATED: Use `id` instead
+    ///
+    pub const Id = id;
 
     /// ### [Upstream resources](https://api.kde.org/attica-remoteaccount.html#id)
     ///
@@ -66,13 +86,17 @@ pub const Attica__RemoteAccount = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Id(self: Attica__RemoteAccount, allocator: std.mem.Allocator) []const u8 {
+    pub fn id(self: Attica__RemoteAccount, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__RemoteAccount_Id(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__RemoteAccount.Id: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__RemoteAccount.id: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setType` instead
+    ///
+    pub const SetType = setType;
 
     /// ### [Upstream resources](https://api.kde.org/attica-remoteaccount.html#setType)
     ///
@@ -82,13 +106,19 @@ pub const Attica__RemoteAccount = extern struct {
     ///
     /// ` typeVal: []const u8 `
     ///
-    pub fn SetType(self: Attica__RemoteAccount, typeVal: []const u8) void {
+    pub fn setType(self: Attica__RemoteAccount, typeVal: []const u8) void {
         const typeVal_str = qtc.libqt_string{
             .len = typeVal.len,
             .data = typeVal.ptr,
         };
         qtc.Attica__RemoteAccount_SetType(@ptrCast(self.ptr), typeVal_str);
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://api.kde.org/attica-remoteaccount.html#type)
     ///
@@ -98,13 +128,17 @@ pub const Attica__RemoteAccount = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Type(self: Attica__RemoteAccount, allocator: std.mem.Allocator) []const u8 {
+    pub fn type0(self: Attica__RemoteAccount, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__RemoteAccount_Type(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__RemoteAccount.Type: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__RemoteAccount.type0: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setRemoteServiceId` instead
+    ///
+    pub const SetRemoteServiceId = setRemoteServiceId;
 
     /// ### [Upstream resources](https://api.kde.org/attica-remoteaccount.html#setRemoteServiceId)
     ///
@@ -112,15 +146,19 @@ pub const Attica__RemoteAccount = extern struct {
     ///
     /// ` self: Attica__RemoteAccount `
     ///
-    /// ` remoteServiceId: []const u8 `
+    /// ` _remoteServiceId: []const u8 `
     ///
-    pub fn SetRemoteServiceId(self: Attica__RemoteAccount, remoteServiceId: []const u8) void {
+    pub fn setRemoteServiceId(self: Attica__RemoteAccount, _remoteServiceId: []const u8) void {
         const remoteServiceId_str = qtc.libqt_string{
-            .len = remoteServiceId.len,
-            .data = remoteServiceId.ptr,
+            .len = _remoteServiceId.len,
+            .data = _remoteServiceId.ptr,
         };
         qtc.Attica__RemoteAccount_SetRemoteServiceId(@ptrCast(self.ptr), remoteServiceId_str);
     }
+
+    /// ### DEPRECATED: Use `remoteServiceId` instead
+    ///
+    pub const RemoteServiceId = remoteServiceId;
 
     /// ### [Upstream resources](https://api.kde.org/attica-remoteaccount.html#remoteServiceId)
     ///
@@ -130,13 +168,17 @@ pub const Attica__RemoteAccount = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn RemoteServiceId(self: Attica__RemoteAccount, allocator: std.mem.Allocator) []const u8 {
+    pub fn remoteServiceId(self: Attica__RemoteAccount, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__RemoteAccount_RemoteServiceId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__RemoteAccount.RemoteServiceId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__RemoteAccount.remoteServiceId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setData` instead
+    ///
+    pub const SetData = setData;
 
     /// ### [Upstream resources](https://api.kde.org/attica-remoteaccount.html#setData)
     ///
@@ -144,15 +186,19 @@ pub const Attica__RemoteAccount = extern struct {
     ///
     /// ` self: Attica__RemoteAccount `
     ///
-    /// ` data: []const u8 `
+    /// ` _data: []const u8 `
     ///
-    pub fn SetData(self: Attica__RemoteAccount, data: []const u8) void {
+    pub fn setData(self: Attica__RemoteAccount, _data: []const u8) void {
         const data_str = qtc.libqt_string{
-            .len = data.len,
-            .data = data.ptr,
+            .len = _data.len,
+            .data = _data.ptr,
         };
         qtc.Attica__RemoteAccount_SetData(@ptrCast(self.ptr), data_str);
     }
+
+    /// ### DEPRECATED: Use `data` instead
+    ///
+    pub const Data = data;
 
     /// ### [Upstream resources](https://api.kde.org/attica-remoteaccount.html#data)
     ///
@@ -162,13 +208,17 @@ pub const Attica__RemoteAccount = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Data(self: Attica__RemoteAccount, allocator: std.mem.Allocator) []const u8 {
+    pub fn data(self: Attica__RemoteAccount, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__RemoteAccount_Data(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__RemoteAccount.Data: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__RemoteAccount.data: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setLogin` instead
+    ///
+    pub const SetLogin = setLogin;
 
     /// ### [Upstream resources](https://api.kde.org/attica-remoteaccount.html#setLogin)
     ///
@@ -176,15 +226,19 @@ pub const Attica__RemoteAccount = extern struct {
     ///
     /// ` self: Attica__RemoteAccount `
     ///
-    /// ` login: []const u8 `
+    /// ` _login: []const u8 `
     ///
-    pub fn SetLogin(self: Attica__RemoteAccount, login: []const u8) void {
+    pub fn setLogin(self: Attica__RemoteAccount, _login: []const u8) void {
         const login_str = qtc.libqt_string{
-            .len = login.len,
-            .data = login.ptr,
+            .len = _login.len,
+            .data = _login.ptr,
         };
         qtc.Attica__RemoteAccount_SetLogin(@ptrCast(self.ptr), login_str);
     }
+
+    /// ### DEPRECATED: Use `login` instead
+    ///
+    pub const Login = login;
 
     /// ### [Upstream resources](https://api.kde.org/attica-remoteaccount.html#login)
     ///
@@ -194,13 +248,17 @@ pub const Attica__RemoteAccount = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Login(self: Attica__RemoteAccount, allocator: std.mem.Allocator) []const u8 {
+    pub fn login(self: Attica__RemoteAccount, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__RemoteAccount_Login(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__RemoteAccount.Login: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__RemoteAccount.login: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setPassword` instead
+    ///
+    pub const SetPassword = setPassword;
 
     /// ### [Upstream resources](https://api.kde.org/attica-remoteaccount.html#setPassword)
     ///
@@ -208,15 +266,19 @@ pub const Attica__RemoteAccount = extern struct {
     ///
     /// ` self: Attica__RemoteAccount `
     ///
-    /// ` password: []const u8 `
+    /// ` _password: []const u8 `
     ///
-    pub fn SetPassword(self: Attica__RemoteAccount, password: []const u8) void {
+    pub fn setPassword(self: Attica__RemoteAccount, _password: []const u8) void {
         const password_str = qtc.libqt_string{
-            .len = password.len,
-            .data = password.ptr,
+            .len = _password.len,
+            .data = _password.ptr,
         };
         qtc.Attica__RemoteAccount_SetPassword(@ptrCast(self.ptr), password_str);
     }
+
+    /// ### DEPRECATED: Use `password` instead
+    ///
+    pub const Password = password;
 
     /// ### [Upstream resources](https://api.kde.org/attica-remoteaccount.html#password)
     ///
@@ -226,13 +288,17 @@ pub const Attica__RemoteAccount = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Password(self: Attica__RemoteAccount, allocator: std.mem.Allocator) []const u8 {
+    pub fn password(self: Attica__RemoteAccount, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__RemoteAccount_Password(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__RemoteAccount.Password: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__RemoteAccount.password: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://api.kde.org/attica-remoteaccount.html#isValid)
     ///
@@ -240,21 +306,21 @@ pub const Attica__RemoteAccount = extern struct {
     ///
     /// ` self: Attica__RemoteAccount `
     ///
-    pub fn IsValid(self: Attica__RemoteAccount) bool {
+    pub fn isValid(self: Attica__RemoteAccount) bool {
         return qtc.Attica__RemoteAccount_IsValid(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Attica__RemoteAccount `
     ///
-    pub fn Delete(self: Attica__RemoteAccount) void {
+    pub fn delete(self: Attica__RemoteAccount) void {
         qtc.Attica__RemoteAccount_Delete(@ptrCast(self.ptr));
     }
 };

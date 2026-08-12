@@ -15,29 +15,40 @@ pub const KRecentDocument = extern struct {
 
     pub const _is_KRecentDocument = {};
 
-    /// New constructs a new KRecentDocument object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KRecentDocument object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: KRecentDocument `
     ///
-    pub fn New(other: anytype) KRecentDocument {
+    pub fn new(other: anytype) KRecentDocument {
         comptime _ = @TypeOf(other)._is_KRecentDocument;
         return .{ .ptr = qtc.KRecentDocument_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new KRecentDocument object and invalidates the source KRecentDocument object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KRecentDocument object and invalidate the source KRecentDocument object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: KRecentDocument `
     ///
-    pub fn New2(other: anytype) KRecentDocument {
+    pub fn new2(other: anytype) KRecentDocument {
         comptime _ = @TypeOf(other)._is_KRecentDocument;
         return .{ .ptr = qtc.KRecentDocument_new2(@ptrCast(other.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -45,11 +56,14 @@ pub const KRecentDocument = extern struct {
     ///
     /// ` other: KRecentDocument `
     ///
-    pub fn CopyAssign(self: KRecentDocument, other: KRecentDocument) void {
+    pub fn copyAssign(self: KRecentDocument, other: KRecentDocument) void {
         qtc.KRecentDocument_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -57,9 +71,13 @@ pub const KRecentDocument = extern struct {
     ///
     /// ` other: KRecentDocument `
     ///
-    pub fn MoveAssign(self: KRecentDocument, other: KRecentDocument) void {
+    pub fn moveAssign(self: KRecentDocument, other: KRecentDocument) void {
         qtc.KRecentDocument_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `recentUrls` instead
+    ///
+    pub const RecentUrls = recentUrls;
 
     /// ### [Upstream resources](https://api.kde.org/krecentdocument.html#recentUrls)
     ///
@@ -67,15 +85,19 @@ pub const KRecentDocument = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn RecentUrls(allocator: std.mem.Allocator) []QUrl {
+    pub fn recentUrls(allocator: std.mem.Allocator) []QUrl {
         const _arr: qtc.libqt_list = qtc.KRecentDocument_RecentUrls();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("KRecentDocument.RecentUrls: Memory allocation failed");
-        const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("KRecentDocument.recentUrls: Memory allocation failed");
+        const _data_val: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `add` instead
+    ///
+    pub const Add = add;
 
     /// ### [Upstream resources](https://api.kde.org/krecentdocument.html#add)
     ///
@@ -83,10 +105,14 @@ pub const KRecentDocument = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn Add(url: anytype) void {
+    pub fn add(url: anytype) void {
         comptime _ = @TypeOf(url)._is_QUrl;
         qtc.KRecentDocument_Add(@ptrCast(url.ptr));
     }
+
+    /// ### DEPRECATED: Use `add2` instead
+    ///
+    pub const Add2 = add2;
 
     /// ### [Upstream resources](https://api.kde.org/krecentdocument.html#add)
     ///
@@ -96,7 +122,7 @@ pub const KRecentDocument = extern struct {
     ///
     /// ` groups: []krecentdocument_enums.RecentDocumentGroup `
     ///
-    pub fn Add2(url: anytype, groups: []i32) void {
+    pub fn add2(url: anytype, groups: []i32) void {
         comptime _ = @TypeOf(url)._is_QUrl;
         const groups_list = qtc.libqt_list{
             .len = groups.len,
@@ -105,6 +131,10 @@ pub const KRecentDocument = extern struct {
         qtc.KRecentDocument_Add2(@ptrCast(url.ptr), groups_list);
     }
 
+    /// ### DEPRECATED: Use `add3` instead
+    ///
+    pub const Add3 = add3;
+
     /// ### [Upstream resources](https://api.kde.org/krecentdocument.html#add)
     ///
     /// ## Parameter(s):
@@ -113,7 +143,7 @@ pub const KRecentDocument = extern struct {
     ///
     /// ` desktopEntryName: []const u8 `
     ///
-    pub fn Add3(url: anytype, desktopEntryName: []const u8) void {
+    pub fn add3(url: anytype, desktopEntryName: []const u8) void {
         comptime _ = @TypeOf(url)._is_QUrl;
         const desktopEntryName_str = qtc.libqt_string{
             .len = desktopEntryName.len,
@@ -121,6 +151,10 @@ pub const KRecentDocument = extern struct {
         };
         qtc.KRecentDocument_Add3(@ptrCast(url.ptr), desktopEntryName_str);
     }
+
+    /// ### DEPRECATED: Use `add4` instead
+    ///
+    pub const Add4 = add4;
 
     /// ### [Upstream resources](https://api.kde.org/krecentdocument.html#add)
     ///
@@ -132,7 +166,7 @@ pub const KRecentDocument = extern struct {
     ///
     /// ` groups: []krecentdocument_enums.RecentDocumentGroup `
     ///
-    pub fn Add4(url: anytype, desktopEntryName: []const u8, groups: []i32) void {
+    pub fn add4(url: anytype, desktopEntryName: []const u8, groups: []i32) void {
         comptime _ = @TypeOf(url)._is_QUrl;
         const desktopEntryName_str = qtc.libqt_string{
             .len = desktopEntryName.len,
@@ -145,16 +179,24 @@ pub const KRecentDocument = extern struct {
         qtc.KRecentDocument_Add4(@ptrCast(url.ptr), desktopEntryName_str, groups_list);
     }
 
+    /// ### DEPRECATED: Use `removeFile` instead
+    ///
+    pub const RemoveFile = removeFile;
+
     /// ### [Upstream resources](https://api.kde.org/krecentdocument.html#removeFile)
     ///
     /// ## Parameter(s):
     ///
     /// ` url: QUrl `
     ///
-    pub fn RemoveFile(url: anytype) void {
+    pub fn removeFile(url: anytype) void {
         comptime _ = @TypeOf(url)._is_QUrl;
         qtc.KRecentDocument_RemoveFile(@ptrCast(url.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeApplication` instead
+    ///
+    pub const RemoveApplication = removeApplication;
 
     /// ### [Upstream resources](https://api.kde.org/krecentdocument.html#removeApplication)
     ///
@@ -162,7 +204,7 @@ pub const KRecentDocument = extern struct {
     ///
     /// ` desktopEntryName: []const u8 `
     ///
-    pub fn RemoveApplication(desktopEntryName: []const u8) void {
+    pub fn removeApplication(desktopEntryName: []const u8) void {
         const desktopEntryName_str = qtc.libqt_string{
             .len = desktopEntryName.len,
             .data = desktopEntryName.ptr,
@@ -170,42 +212,54 @@ pub const KRecentDocument = extern struct {
         qtc.KRecentDocument_RemoveApplication(desktopEntryName_str);
     }
 
+    /// ### DEPRECATED: Use `removeBookmarksModifiedSince` instead
+    ///
+    pub const RemoveBookmarksModifiedSince = removeBookmarksModifiedSince;
+
     /// ### [Upstream resources](https://api.kde.org/krecentdocument.html#removeBookmarksModifiedSince)
     ///
     /// ## Parameter(s):
     ///
     /// ` since: QDateTime `
     ///
-    pub fn RemoveBookmarksModifiedSince(since: anytype) void {
+    pub fn removeBookmarksModifiedSince(since: anytype) void {
         comptime _ = @TypeOf(since)._is_QDateTime;
         qtc.KRecentDocument_RemoveBookmarksModifiedSince(@ptrCast(since.ptr));
     }
 
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
+
     /// ### [Upstream resources](https://api.kde.org/krecentdocument.html#clear)
     ///
-    pub fn Clear() void {
+    pub fn clear() void {
         qtc.KRecentDocument_Clear();
     }
 
+    /// ### DEPRECATED: Use `maximumItems` instead
+    ///
+    pub const MaximumItems = maximumItems;
+
     /// ### [Upstream resources](https://api.kde.org/krecentdocument.html#maximumItems)
     ///
-    pub fn MaximumItems() i32 {
+    pub fn maximumItems() i32 {
         return qtc.KRecentDocument_MaximumItems();
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/krecentdocument.html#dtor.KRecentDocument)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KRecentDocument `
     ///
-    pub fn Delete(self: KRecentDocument) void {
+    pub fn delete(self: KRecentDocument) void {
         qtc.KRecentDocument_Delete(@ptrCast(self.ptr));
     }
 };

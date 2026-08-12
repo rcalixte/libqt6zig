@@ -12,22 +12,34 @@ pub const Attica__BuildServiceJob = extern struct {
 
     pub const _is_Attica__BuildServiceJob = {};
 
-    /// New constructs a new Attica::BuildServiceJob object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() Attica__BuildServiceJob {
+    pub const New = new;
+
+    /// Allocate a new Attica::BuildServiceJob object in C++ memory
+    ///
+    pub fn new() Attica__BuildServiceJob {
         return .{ .ptr = qtc.Attica__BuildServiceJob_new() };
     }
 
-    /// New2 constructs a new Attica::BuildServiceJob object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new Attica::BuildServiceJob object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: Attica__BuildServiceJob `
     ///
-    pub fn New2(other: anytype) Attica__BuildServiceJob {
+    pub fn new2(other: anytype) Attica__BuildServiceJob {
         comptime _ = @TypeOf(other)._is_Attica__BuildServiceJob;
         return .{ .ptr = qtc.Attica__BuildServiceJob_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://api.kde.org/attica-buildservicejob.html#operator-eq)
     ///
@@ -37,10 +49,14 @@ pub const Attica__BuildServiceJob = extern struct {
     ///
     /// ` other: Attica__BuildServiceJob `
     ///
-    pub fn OperatorAssign(self: Attica__BuildServiceJob, other: anytype) void {
+    pub fn operatorAssign(self: Attica__BuildServiceJob, other: anytype) void {
         comptime _ = @TypeOf(other)._is_Attica__BuildServiceJob;
         qtc.Attica__BuildServiceJob_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `setId` instead
+    ///
+    pub const SetId = setId;
 
     /// ### [Upstream resources](https://api.kde.org/attica-buildservicejob.html#setId)
     ///
@@ -48,15 +64,19 @@ pub const Attica__BuildServiceJob = extern struct {
     ///
     /// ` self: Attica__BuildServiceJob `
     ///
-    /// ` id: []const u8 `
+    /// ` _id: []const u8 `
     ///
-    pub fn SetId(self: Attica__BuildServiceJob, id: []const u8) void {
+    pub fn setId(self: Attica__BuildServiceJob, _id: []const u8) void {
         const id_str = qtc.libqt_string{
-            .len = id.len,
-            .data = id.ptr,
+            .len = _id.len,
+            .data = _id.ptr,
         };
         qtc.Attica__BuildServiceJob_SetId(@ptrCast(self.ptr), id_str);
     }
+
+    /// ### DEPRECATED: Use `id` instead
+    ///
+    pub const Id = id;
 
     /// ### [Upstream resources](https://api.kde.org/attica-buildservicejob.html#id)
     ///
@@ -66,13 +86,17 @@ pub const Attica__BuildServiceJob = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Id(self: Attica__BuildServiceJob, allocator: std.mem.Allocator) []const u8 {
+    pub fn id(self: Attica__BuildServiceJob, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__BuildServiceJob_Id(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__BuildServiceJob.Id: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__BuildServiceJob.id: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setName` instead
+    ///
+    pub const SetName = setName;
 
     /// ### [Upstream resources](https://api.kde.org/attica-buildservicejob.html#setName)
     ///
@@ -80,15 +104,19 @@ pub const Attica__BuildServiceJob = extern struct {
     ///
     /// ` self: Attica__BuildServiceJob `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn SetName(self: Attica__BuildServiceJob, name: []const u8) void {
+    pub fn setName(self: Attica__BuildServiceJob, _name: []const u8) void {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         qtc.Attica__BuildServiceJob_SetName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://api.kde.org/attica-buildservicejob.html#name)
     ///
@@ -98,13 +126,17 @@ pub const Attica__BuildServiceJob = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: Attica__BuildServiceJob, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: Attica__BuildServiceJob, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__BuildServiceJob_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__BuildServiceJob.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__BuildServiceJob.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setUrl` instead
+    ///
+    pub const SetUrl = setUrl;
 
     /// ### [Upstream resources](https://api.kde.org/attica-buildservicejob.html#setUrl)
     ///
@@ -112,15 +144,19 @@ pub const Attica__BuildServiceJob = extern struct {
     ///
     /// ` self: Attica__BuildServiceJob `
     ///
-    /// ` url: []const u8 `
+    /// ` _url: []const u8 `
     ///
-    pub fn SetUrl(self: Attica__BuildServiceJob, url: []const u8) void {
+    pub fn setUrl(self: Attica__BuildServiceJob, _url: []const u8) void {
         const url_str = qtc.libqt_string{
-            .len = url.len,
-            .data = url.ptr,
+            .len = _url.len,
+            .data = _url.ptr,
         };
         qtc.Attica__BuildServiceJob_SetUrl(@ptrCast(self.ptr), url_str);
     }
+
+    /// ### DEPRECATED: Use `url` instead
+    ///
+    pub const Url = url;
 
     /// ### [Upstream resources](https://api.kde.org/attica-buildservicejob.html#url)
     ///
@@ -130,13 +166,17 @@ pub const Attica__BuildServiceJob = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Url(self: Attica__BuildServiceJob, allocator: std.mem.Allocator) []const u8 {
+    pub fn url(self: Attica__BuildServiceJob, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__BuildServiceJob_Url(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__BuildServiceJob.Url: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__BuildServiceJob.url: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setProjectId` instead
+    ///
+    pub const SetProjectId = setProjectId;
 
     /// ### [Upstream resources](https://api.kde.org/attica-buildservicejob.html#setProjectId)
     ///
@@ -144,15 +184,19 @@ pub const Attica__BuildServiceJob = extern struct {
     ///
     /// ` self: Attica__BuildServiceJob `
     ///
-    /// ` projectId: []const u8 `
+    /// ` _projectId: []const u8 `
     ///
-    pub fn SetProjectId(self: Attica__BuildServiceJob, projectId: []const u8) void {
+    pub fn setProjectId(self: Attica__BuildServiceJob, _projectId: []const u8) void {
         const projectId_str = qtc.libqt_string{
-            .len = projectId.len,
-            .data = projectId.ptr,
+            .len = _projectId.len,
+            .data = _projectId.ptr,
         };
         qtc.Attica__BuildServiceJob_SetProjectId(@ptrCast(self.ptr), projectId_str);
     }
+
+    /// ### DEPRECATED: Use `projectId` instead
+    ///
+    pub const ProjectId = projectId;
 
     /// ### [Upstream resources](https://api.kde.org/attica-buildservicejob.html#projectId)
     ///
@@ -162,13 +206,17 @@ pub const Attica__BuildServiceJob = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ProjectId(self: Attica__BuildServiceJob, allocator: std.mem.Allocator) []const u8 {
+    pub fn projectId(self: Attica__BuildServiceJob, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__BuildServiceJob_ProjectId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__BuildServiceJob.ProjectId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__BuildServiceJob.projectId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setBuildServiceId` instead
+    ///
+    pub const SetBuildServiceId = setBuildServiceId;
 
     /// ### [Upstream resources](https://api.kde.org/attica-buildservicejob.html#setBuildServiceId)
     ///
@@ -176,15 +224,19 @@ pub const Attica__BuildServiceJob = extern struct {
     ///
     /// ` self: Attica__BuildServiceJob `
     ///
-    /// ` buildServiceId: []const u8 `
+    /// ` _buildServiceId: []const u8 `
     ///
-    pub fn SetBuildServiceId(self: Attica__BuildServiceJob, buildServiceId: []const u8) void {
+    pub fn setBuildServiceId(self: Attica__BuildServiceJob, _buildServiceId: []const u8) void {
         const buildServiceId_str = qtc.libqt_string{
-            .len = buildServiceId.len,
-            .data = buildServiceId.ptr,
+            .len = _buildServiceId.len,
+            .data = _buildServiceId.ptr,
         };
         qtc.Attica__BuildServiceJob_SetBuildServiceId(@ptrCast(self.ptr), buildServiceId_str);
     }
+
+    /// ### DEPRECATED: Use `buildServiceId` instead
+    ///
+    pub const BuildServiceId = buildServiceId;
 
     /// ### [Upstream resources](https://api.kde.org/attica-buildservicejob.html#buildServiceId)
     ///
@@ -194,13 +246,17 @@ pub const Attica__BuildServiceJob = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn BuildServiceId(self: Attica__BuildServiceJob, allocator: std.mem.Allocator) []const u8 {
+    pub fn buildServiceId(self: Attica__BuildServiceJob, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__BuildServiceJob_BuildServiceId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__BuildServiceJob.BuildServiceId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__BuildServiceJob.buildServiceId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setMessage` instead
+    ///
+    pub const SetMessage = setMessage;
 
     /// ### [Upstream resources](https://api.kde.org/attica-buildservicejob.html#setMessage)
     ///
@@ -208,15 +264,19 @@ pub const Attica__BuildServiceJob = extern struct {
     ///
     /// ` self: Attica__BuildServiceJob `
     ///
-    /// ` message: []const u8 `
+    /// ` _message: []const u8 `
     ///
-    pub fn SetMessage(self: Attica__BuildServiceJob, message: []const u8) void {
+    pub fn setMessage(self: Attica__BuildServiceJob, _message: []const u8) void {
         const message_str = qtc.libqt_string{
-            .len = message.len,
-            .data = message.ptr,
+            .len = _message.len,
+            .data = _message.ptr,
         };
         qtc.Attica__BuildServiceJob_SetMessage(@ptrCast(self.ptr), message_str);
     }
+
+    /// ### DEPRECATED: Use `message` instead
+    ///
+    pub const Message = message;
 
     /// ### [Upstream resources](https://api.kde.org/attica-buildservicejob.html#message)
     ///
@@ -226,13 +286,17 @@ pub const Attica__BuildServiceJob = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Message(self: Attica__BuildServiceJob, allocator: std.mem.Allocator) []const u8 {
+    pub fn message(self: Attica__BuildServiceJob, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__BuildServiceJob_Message(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__BuildServiceJob.Message: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__BuildServiceJob.message: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setTarget` instead
+    ///
+    pub const SetTarget = setTarget;
 
     /// ### [Upstream resources](https://api.kde.org/attica-buildservicejob.html#setTarget)
     ///
@@ -240,15 +304,19 @@ pub const Attica__BuildServiceJob = extern struct {
     ///
     /// ` self: Attica__BuildServiceJob `
     ///
-    /// ` target: []const u8 `
+    /// ` _target: []const u8 `
     ///
-    pub fn SetTarget(self: Attica__BuildServiceJob, target: []const u8) void {
+    pub fn setTarget(self: Attica__BuildServiceJob, _target: []const u8) void {
         const target_str = qtc.libqt_string{
-            .len = target.len,
-            .data = target.ptr,
+            .len = _target.len,
+            .data = _target.ptr,
         };
         qtc.Attica__BuildServiceJob_SetTarget(@ptrCast(self.ptr), target_str);
     }
+
+    /// ### DEPRECATED: Use `target` instead
+    ///
+    pub const Target = target;
 
     /// ### [Upstream resources](https://api.kde.org/attica-buildservicejob.html#target)
     ///
@@ -258,13 +326,17 @@ pub const Attica__BuildServiceJob = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Target(self: Attica__BuildServiceJob, allocator: std.mem.Allocator) []const u8 {
+    pub fn target(self: Attica__BuildServiceJob, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__BuildServiceJob_Target(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__BuildServiceJob.Target: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__BuildServiceJob.target: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setProgress` instead
+    ///
+    pub const SetProgress = setProgress;
 
     /// ### [Upstream resources](https://api.kde.org/attica-buildservicejob.html#setProgress)
     ///
@@ -272,11 +344,15 @@ pub const Attica__BuildServiceJob = extern struct {
     ///
     /// ` self: Attica__BuildServiceJob `
     ///
-    /// ` progress: f64 `
+    /// ` _progress: f64 `
     ///
-    pub fn SetProgress(self: Attica__BuildServiceJob, progress: f64) void {
-        qtc.Attica__BuildServiceJob_SetProgress(@ptrCast(self.ptr), progress);
+    pub fn setProgress(self: Attica__BuildServiceJob, _progress: f64) void {
+        qtc.Attica__BuildServiceJob_SetProgress(@ptrCast(self.ptr), _progress);
     }
+
+    /// ### DEPRECATED: Use `progress` instead
+    ///
+    pub const Progress = progress;
 
     /// ### [Upstream resources](https://api.kde.org/attica-buildservicejob.html#progress)
     ///
@@ -284,9 +360,13 @@ pub const Attica__BuildServiceJob = extern struct {
     ///
     /// ` self: Attica__BuildServiceJob `
     ///
-    pub fn Progress(self: Attica__BuildServiceJob) f64 {
+    pub fn progress(self: Attica__BuildServiceJob) f64 {
         return qtc.Attica__BuildServiceJob_Progress(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatus` instead
+    ///
+    pub const SetStatus = setStatus;
 
     /// ### [Upstream resources](https://api.kde.org/attica-buildservicejob.html#setStatus)
     ///
@@ -296,9 +376,13 @@ pub const Attica__BuildServiceJob = extern struct {
     ///
     /// ` status: i32 `
     ///
-    pub fn SetStatus(self: Attica__BuildServiceJob, status: i32) void {
+    pub fn setStatus(self: Attica__BuildServiceJob, status: i32) void {
         qtc.Attica__BuildServiceJob_SetStatus(@ptrCast(self.ptr), @bitCast(status));
     }
+
+    /// ### DEPRECATED: Use `isRunning` instead
+    ///
+    pub const IsRunning = isRunning;
 
     /// ### [Upstream resources](https://api.kde.org/attica-buildservicejob.html#isRunning)
     ///
@@ -306,9 +390,13 @@ pub const Attica__BuildServiceJob = extern struct {
     ///
     /// ` self: Attica__BuildServiceJob `
     ///
-    pub fn IsRunning(self: Attica__BuildServiceJob) bool {
+    pub fn isRunning(self: Attica__BuildServiceJob) bool {
         return qtc.Attica__BuildServiceJob_IsRunning(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isCompleted` instead
+    ///
+    pub const IsCompleted = isCompleted;
 
     /// ### [Upstream resources](https://api.kde.org/attica-buildservicejob.html#isCompleted)
     ///
@@ -316,9 +404,13 @@ pub const Attica__BuildServiceJob = extern struct {
     ///
     /// ` self: Attica__BuildServiceJob `
     ///
-    pub fn IsCompleted(self: Attica__BuildServiceJob) bool {
+    pub fn isCompleted(self: Attica__BuildServiceJob) bool {
         return qtc.Attica__BuildServiceJob_IsCompleted(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFailed` instead
+    ///
+    pub const IsFailed = isFailed;
 
     /// ### [Upstream resources](https://api.kde.org/attica-buildservicejob.html#isFailed)
     ///
@@ -326,9 +418,13 @@ pub const Attica__BuildServiceJob = extern struct {
     ///
     /// ` self: Attica__BuildServiceJob `
     ///
-    pub fn IsFailed(self: Attica__BuildServiceJob) bool {
+    pub fn isFailed(self: Attica__BuildServiceJob) bool {
         return qtc.Attica__BuildServiceJob_IsFailed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://api.kde.org/attica-buildservicejob.html#isValid)
     ///
@@ -336,21 +432,21 @@ pub const Attica__BuildServiceJob = extern struct {
     ///
     /// ` self: Attica__BuildServiceJob `
     ///
-    pub fn IsValid(self: Attica__BuildServiceJob) bool {
+    pub fn isValid(self: Attica__BuildServiceJob) bool {
         return qtc.Attica__BuildServiceJob_IsValid(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Attica__BuildServiceJob `
     ///
-    pub fn Delete(self: Attica__BuildServiceJob) void {
+    pub fn delete(self: Attica__BuildServiceJob) void {
         qtc.Attica__BuildServiceJob_Delete(@ptrCast(self.ptr));
     }
 };

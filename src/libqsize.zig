@@ -14,35 +14,51 @@ pub const QSize = extern struct {
 
     pub const _is_QSize = {};
 
-    /// New constructs a new QSize object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QSize object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QSize `
     ///
-    pub fn New(other: anytype) QSize {
+    pub fn new(other: anytype) QSize {
         comptime _ = @TypeOf(other)._is_QSize;
         return .{ .ptr = qtc.QSize_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new QSize object and invalidates the source QSize object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QSize object and invalidate the source QSize object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QSize `
     ///
-    pub fn New2(other: anytype) QSize {
+    pub fn new2(other: anytype) QSize {
         comptime _ = @TypeOf(other)._is_QSize;
         return .{ .ptr = qtc.QSize_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QSize object.
+    /// ### DEPRECATED: Use `new3` instead
     ///
-    pub fn New3() QSize {
+    pub const New3 = new3;
+
+    /// Allocate a new QSize object in C++ memory
+    ///
+    pub fn new3() QSize {
         return .{ .ptr = qtc.QSize_new3() };
     }
 
-    /// New4 constructs a new QSize object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QSize object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -50,22 +66,29 @@ pub const QSize = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn New4(w: i32, h: i32) QSize {
+    pub fn new4(w: i32, h: i32) QSize {
         return .{ .ptr = qtc.QSize_new4(@bitCast(w), @bitCast(h)) };
     }
 
-    /// New5 constructs a new QSize object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QSize object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QSize `
     ///
-    pub fn New5(param1: anytype) QSize {
+    pub fn new5(param1: anytype) QSize {
         comptime _ = @TypeOf(param1)._is_QSize;
         return .{ .ptr = qtc.QSize_new5(@ptrCast(param1.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -73,11 +96,14 @@ pub const QSize = extern struct {
     ///
     /// ` other: QSize `
     ///
-    pub fn CopyAssign(self: QSize, other: QSize) void {
+    pub fn copyAssign(self: QSize, other: QSize) void {
         qtc.QSize_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -85,9 +111,13 @@ pub const QSize = extern struct {
     ///
     /// ` other: QSize `
     ///
-    pub fn MoveAssign(self: QSize, other: QSize) void {
+    pub fn moveAssign(self: QSize, other: QSize) void {
         qtc.QSize_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `isNull` instead
+    ///
+    pub const IsNull = isNull;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsize.html#isNull)
     ///
@@ -95,9 +125,13 @@ pub const QSize = extern struct {
     ///
     /// ` self: QSize `
     ///
-    pub fn IsNull(self: QSize) bool {
+    pub fn isNull(self: QSize) bool {
         return qtc.QSize_IsNull(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEmpty` instead
+    ///
+    pub const IsEmpty = isEmpty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsize.html#isEmpty)
     ///
@@ -105,9 +139,13 @@ pub const QSize = extern struct {
     ///
     /// ` self: QSize `
     ///
-    pub fn IsEmpty(self: QSize) bool {
+    pub fn isEmpty(self: QSize) bool {
         return qtc.QSize_IsEmpty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsize.html#isValid)
     ///
@@ -115,9 +153,13 @@ pub const QSize = extern struct {
     ///
     /// ` self: QSize `
     ///
-    pub fn IsValid(self: QSize) bool {
+    pub fn isValid(self: QSize) bool {
         return qtc.QSize_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsize.html#width)
     ///
@@ -125,9 +167,13 @@ pub const QSize = extern struct {
     ///
     /// ` self: QSize `
     ///
-    pub fn Width(self: QSize) i32 {
+    pub fn width(self: QSize) i32 {
         return qtc.QSize_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsize.html#height)
     ///
@@ -135,9 +181,13 @@ pub const QSize = extern struct {
     ///
     /// ` self: QSize `
     ///
-    pub fn Height(self: QSize) i32 {
+    pub fn height(self: QSize) i32 {
         return qtc.QSize_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWidth` instead
+    ///
+    pub const SetWidth = setWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsize.html#setWidth)
     ///
@@ -147,9 +197,13 @@ pub const QSize = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetWidth(self: QSize, w: i32) void {
+    pub fn setWidth(self: QSize, w: i32) void {
         qtc.QSize_SetWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setHeight` instead
+    ///
+    pub const SetHeight = setHeight;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsize.html#setHeight)
     ///
@@ -159,9 +213,13 @@ pub const QSize = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetHeight(self: QSize, h: i32) void {
+    pub fn setHeight(self: QSize, h: i32) void {
         qtc.QSize_SetHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `transpose` instead
+    ///
+    pub const Transpose = transpose;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsize.html#transpose)
     ///
@@ -169,9 +227,13 @@ pub const QSize = extern struct {
     ///
     /// ` self: QSize `
     ///
-    pub fn Transpose(self: QSize) void {
+    pub fn transpose(self: QSize) void {
         qtc.QSize_Transpose(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `transposed` instead
+    ///
+    pub const Transposed = transposed;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsize.html#transposed)
     ///
@@ -179,9 +241,13 @@ pub const QSize = extern struct {
     ///
     /// ` self: QSize `
     ///
-    pub fn Transposed(self: QSize) QSize {
+    pub fn transposed(self: QSize) QSize {
         return .{ .ptr = qtc.QSize_Transposed(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `scale` instead
+    ///
+    pub const Scale = scale;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsize.html#scale)
     ///
@@ -195,9 +261,13 @@ pub const QSize = extern struct {
     ///
     /// ` mode: qnamespace_enums.AspectRatioMode `
     ///
-    pub fn Scale(self: QSize, w: i32, h: i32, mode: i32) void {
+    pub fn scale(self: QSize, w: i32, h: i32, mode: i32) void {
         qtc.QSize_Scale(@ptrCast(self.ptr), @bitCast(w), @bitCast(h), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `scale2` instead
+    ///
+    pub const Scale2 = scale2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsize.html#scale)
     ///
@@ -209,11 +279,15 @@ pub const QSize = extern struct {
     ///
     /// ` mode: qnamespace_enums.AspectRatioMode `
     ///
-    pub fn Scale2(self: QSize, s: anytype, mode: i32) void {
+    pub fn scale2(self: QSize, s: anytype, mode: i32) void {
         comptime _ = @TypeOf(s)._is_QSize;
         qtc.QSize_Scale2(@ptrCast(self.ptr), @ptrCast(s.ptr), @bitCast(mode));
     }
 
+    /// ### DEPRECATED: Use `scaled` instead
+    ///
+    pub const Scaled = scaled;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsize.html#scaled)
     ///
     /// ## Parameter(s):
@@ -226,9 +300,13 @@ pub const QSize = extern struct {
     ///
     /// ` mode: qnamespace_enums.AspectRatioMode `
     ///
-    pub fn Scaled(self: QSize, w: i32, h: i32, mode: i32) QSize {
+    pub fn scaled(self: QSize, w: i32, h: i32, mode: i32) QSize {
         return .{ .ptr = qtc.QSize_Scaled(@ptrCast(self.ptr), @bitCast(w), @bitCast(h), @bitCast(mode)) };
     }
+
+    /// ### DEPRECATED: Use `scaled2` instead
+    ///
+    pub const Scaled2 = scaled2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsize.html#scaled)
     ///
@@ -240,10 +318,14 @@ pub const QSize = extern struct {
     ///
     /// ` mode: qnamespace_enums.AspectRatioMode `
     ///
-    pub fn Scaled2(self: QSize, s: anytype, mode: i32) QSize {
+    pub fn scaled2(self: QSize, s: anytype, mode: i32) QSize {
         comptime _ = @TypeOf(s)._is_QSize;
         return .{ .ptr = qtc.QSize_Scaled2(@ptrCast(self.ptr), @ptrCast(s.ptr), @bitCast(mode)) };
     }
+
+    /// ### DEPRECATED: Use `expandedTo` instead
+    ///
+    pub const ExpandedTo = expandedTo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsize.html#expandedTo)
     ///
@@ -253,10 +335,14 @@ pub const QSize = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn ExpandedTo(self: QSize, param1: anytype) QSize {
+    pub fn expandedTo(self: QSize, param1: anytype) QSize {
         comptime _ = @TypeOf(param1)._is_QSize;
         return .{ .ptr = qtc.QSize_ExpandedTo(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `boundedTo` instead
+    ///
+    pub const BoundedTo = boundedTo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsize.html#boundedTo)
     ///
@@ -266,10 +352,14 @@ pub const QSize = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn BoundedTo(self: QSize, param1: anytype) QSize {
+    pub fn boundedTo(self: QSize, param1: anytype) QSize {
         comptime _ = @TypeOf(param1)._is_QSize;
         return .{ .ptr = qtc.QSize_BoundedTo(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grownBy` instead
+    ///
+    pub const GrownBy = grownBy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsize.html#grownBy)
     ///
@@ -279,10 +369,14 @@ pub const QSize = extern struct {
     ///
     /// ` m: QMargins `
     ///
-    pub fn GrownBy(self: QSize, m: anytype) QSize {
+    pub fn grownBy(self: QSize, m: anytype) QSize {
         comptime _ = @TypeOf(m)._is_QMargins;
         return .{ .ptr = qtc.QSize_GrownBy(@ptrCast(self.ptr), @ptrCast(m.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `shrunkBy` instead
+    ///
+    pub const ShrunkBy = shrunkBy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsize.html#shrunkBy)
     ///
@@ -292,10 +386,14 @@ pub const QSize = extern struct {
     ///
     /// ` m: QMargins `
     ///
-    pub fn ShrunkBy(self: QSize, m: anytype) QSize {
+    pub fn shrunkBy(self: QSize, m: anytype) QSize {
         comptime _ = @TypeOf(m)._is_QMargins;
         return .{ .ptr = qtc.QSize_ShrunkBy(@ptrCast(self.ptr), @ptrCast(m.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `rwidth` instead
+    ///
+    pub const Rwidth = rwidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsize.html#rwidth)
     ///
@@ -303,9 +401,13 @@ pub const QSize = extern struct {
     ///
     /// ` self: QSize `
     ///
-    pub fn Rwidth(self: QSize) ?*i32 {
+    pub fn rwidth(self: QSize) ?*i32 {
         return @ptrCast(qtc.QSize_Rwidth(@ptrCast(self.ptr)));
     }
+
+    /// ### DEPRECATED: Use `rheight` instead
+    ///
+    pub const Rheight = rheight;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsize.html#rheight)
     ///
@@ -313,9 +415,13 @@ pub const QSize = extern struct {
     ///
     /// ` self: QSize `
     ///
-    pub fn Rheight(self: QSize) ?*i32 {
+    pub fn rheight(self: QSize) ?*i32 {
         return @ptrCast(qtc.QSize_Rheight(@ptrCast(self.ptr)));
     }
+
+    /// ### DEPRECATED: Use `operatorPlusAssign` instead
+    ///
+    pub const OperatorPlusAssign = operatorPlusAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsize.html#operator-2b-eq)
     ///
@@ -325,10 +431,14 @@ pub const QSize = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn OperatorPlusAssign(self: QSize, param1: anytype) QSize {
+    pub fn operatorPlusAssign(self: QSize, param1: anytype) QSize {
         comptime _ = @TypeOf(param1)._is_QSize;
         return .{ .ptr = qtc.QSize_OperatorPlusAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMinusAssign` instead
+    ///
+    pub const OperatorMinusAssign = operatorMinusAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsize.html#operator--eq)
     ///
@@ -338,10 +448,14 @@ pub const QSize = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn OperatorMinusAssign(self: QSize, param1: anytype) QSize {
+    pub fn operatorMinusAssign(self: QSize, param1: anytype) QSize {
         comptime _ = @TypeOf(param1)._is_QSize;
         return .{ .ptr = qtc.QSize_OperatorMinusAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMultiplyAssign` instead
+    ///
+    pub const OperatorMultiplyAssign = operatorMultiplyAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsize.html#operator-2a-eq)
     ///
@@ -351,9 +465,13 @@ pub const QSize = extern struct {
     ///
     /// ` c: f64 `
     ///
-    pub fn OperatorMultiplyAssign(self: QSize, c: f64) QSize {
+    pub fn operatorMultiplyAssign(self: QSize, c: f64) QSize {
         return .{ .ptr = qtc.QSize_OperatorMultiplyAssign(@ptrCast(self.ptr), @bitCast(c)) };
     }
+
+    /// ### DEPRECATED: Use `operatorDivideAssign` instead
+    ///
+    pub const OperatorDivideAssign = operatorDivideAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsize.html#operator-2f-eq)
     ///
@@ -363,9 +481,13 @@ pub const QSize = extern struct {
     ///
     /// ` c: f64 `
     ///
-    pub fn OperatorDivideAssign(self: QSize, c: f64) QSize {
+    pub fn operatorDivideAssign(self: QSize, c: f64) QSize {
         return .{ .ptr = qtc.QSize_OperatorDivideAssign(@ptrCast(self.ptr), @bitCast(c)) };
     }
+
+    /// ### DEPRECATED: Use `toSizeF` instead
+    ///
+    pub const ToSizeF = toSizeF;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsize.html#toSizeF)
     ///
@@ -373,23 +495,23 @@ pub const QSize = extern struct {
     ///
     /// ` self: QSize `
     ///
-    pub fn ToSizeF(self: QSize) QSizeF {
+    pub fn toSizeF(self: QSize) QSizeF {
         return .{ .ptr = qtc.QSize_ToSizeF(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsize.html#dtor.QSize)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QSize `
     ///
-    pub fn Delete(self: QSize) void {
+    pub fn delete(self: QSize) void {
         qtc.QSize_Delete(@ptrCast(self.ptr));
     }
 };
@@ -404,46 +526,66 @@ pub const QSizeF = extern struct {
 
     pub const _is_QSizeF = {};
 
-    /// New constructs a new QSizeF object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QSizeF object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QSizeF `
     ///
-    pub fn New(other: anytype) QSizeF {
+    pub fn new(other: anytype) QSizeF {
         comptime _ = @TypeOf(other)._is_QSizeF;
         return .{ .ptr = qtc.QSizeF_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new QSizeF object and invalidates the source QSizeF object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QSizeF object and invalidate the source QSizeF object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QSizeF `
     ///
-    pub fn New2(other: anytype) QSizeF {
+    pub fn new2(other: anytype) QSizeF {
         comptime _ = @TypeOf(other)._is_QSizeF;
         return .{ .ptr = qtc.QSizeF_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QSizeF object.
+    /// ### DEPRECATED: Use `new3` instead
     ///
-    pub fn New3() QSizeF {
+    pub const New3 = new3;
+
+    /// Allocate a new QSizeF object in C++ memory
+    ///
+    pub fn new3() QSizeF {
         return .{ .ptr = qtc.QSizeF_new3() };
     }
 
-    /// New4 constructs a new QSizeF object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QSizeF object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` sz: QSize `
     ///
-    pub fn New4(sz: anytype) QSizeF {
+    pub fn new4(sz: anytype) QSizeF {
         comptime _ = @TypeOf(sz)._is_QSize;
         return .{ .ptr = qtc.QSizeF_new4(@ptrCast(sz.ptr)) };
     }
 
-    /// New5 constructs a new QSizeF object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QSizeF object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -451,22 +593,29 @@ pub const QSizeF = extern struct {
     ///
     /// ` h: f64 `
     ///
-    pub fn New5(w: f64, h: f64) QSizeF {
+    pub fn new5(w: f64, h: f64) QSizeF {
         return .{ .ptr = qtc.QSizeF_new5(@bitCast(w), @bitCast(h)) };
     }
 
-    /// New6 constructs a new QSizeF object.
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new QSizeF object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QSizeF `
     ///
-    pub fn New6(param1: anytype) QSizeF {
+    pub fn new6(param1: anytype) QSizeF {
         comptime _ = @TypeOf(param1)._is_QSizeF;
         return .{ .ptr = qtc.QSizeF_new6(@ptrCast(param1.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -474,11 +623,14 @@ pub const QSizeF = extern struct {
     ///
     /// ` other: QSizeF `
     ///
-    pub fn CopyAssign(self: QSizeF, other: QSizeF) void {
+    pub fn copyAssign(self: QSizeF, other: QSizeF) void {
         qtc.QSizeF_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -486,9 +638,13 @@ pub const QSizeF = extern struct {
     ///
     /// ` other: QSizeF `
     ///
-    pub fn MoveAssign(self: QSizeF, other: QSizeF) void {
+    pub fn moveAssign(self: QSizeF, other: QSizeF) void {
         qtc.QSizeF_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `isNull` instead
+    ///
+    pub const IsNull = isNull;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#isNull)
     ///
@@ -496,9 +652,13 @@ pub const QSizeF = extern struct {
     ///
     /// ` self: QSizeF `
     ///
-    pub fn IsNull(self: QSizeF) bool {
+    pub fn isNull(self: QSizeF) bool {
         return qtc.QSizeF_IsNull(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEmpty` instead
+    ///
+    pub const IsEmpty = isEmpty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#isEmpty)
     ///
@@ -506,9 +666,13 @@ pub const QSizeF = extern struct {
     ///
     /// ` self: QSizeF `
     ///
-    pub fn IsEmpty(self: QSizeF) bool {
+    pub fn isEmpty(self: QSizeF) bool {
         return qtc.QSizeF_IsEmpty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#isValid)
     ///
@@ -516,9 +680,13 @@ pub const QSizeF = extern struct {
     ///
     /// ` self: QSizeF `
     ///
-    pub fn IsValid(self: QSizeF) bool {
+    pub fn isValid(self: QSizeF) bool {
         return qtc.QSizeF_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#width)
     ///
@@ -526,9 +694,13 @@ pub const QSizeF = extern struct {
     ///
     /// ` self: QSizeF `
     ///
-    pub fn Width(self: QSizeF) f64 {
+    pub fn width(self: QSizeF) f64 {
         return qtc.QSizeF_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#height)
     ///
@@ -536,9 +708,13 @@ pub const QSizeF = extern struct {
     ///
     /// ` self: QSizeF `
     ///
-    pub fn Height(self: QSizeF) f64 {
+    pub fn height(self: QSizeF) f64 {
         return qtc.QSizeF_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWidth` instead
+    ///
+    pub const SetWidth = setWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#setWidth)
     ///
@@ -548,9 +724,13 @@ pub const QSizeF = extern struct {
     ///
     /// ` w: f64 `
     ///
-    pub fn SetWidth(self: QSizeF, w: f64) void {
+    pub fn setWidth(self: QSizeF, w: f64) void {
         qtc.QSizeF_SetWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setHeight` instead
+    ///
+    pub const SetHeight = setHeight;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#setHeight)
     ///
@@ -560,9 +740,13 @@ pub const QSizeF = extern struct {
     ///
     /// ` h: f64 `
     ///
-    pub fn SetHeight(self: QSizeF, h: f64) void {
+    pub fn setHeight(self: QSizeF, h: f64) void {
         qtc.QSizeF_SetHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `transpose` instead
+    ///
+    pub const Transpose = transpose;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#transpose)
     ///
@@ -570,9 +754,13 @@ pub const QSizeF = extern struct {
     ///
     /// ` self: QSizeF `
     ///
-    pub fn Transpose(self: QSizeF) void {
+    pub fn transpose(self: QSizeF) void {
         qtc.QSizeF_Transpose(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `transposed` instead
+    ///
+    pub const Transposed = transposed;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#transposed)
     ///
@@ -580,9 +768,13 @@ pub const QSizeF = extern struct {
     ///
     /// ` self: QSizeF `
     ///
-    pub fn Transposed(self: QSizeF) QSizeF {
+    pub fn transposed(self: QSizeF) QSizeF {
         return .{ .ptr = qtc.QSizeF_Transposed(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `scale` instead
+    ///
+    pub const Scale = scale;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#scale)
     ///
@@ -596,9 +788,13 @@ pub const QSizeF = extern struct {
     ///
     /// ` mode: qnamespace_enums.AspectRatioMode `
     ///
-    pub fn Scale(self: QSizeF, w: f64, h: f64, mode: i32) void {
+    pub fn scale(self: QSizeF, w: f64, h: f64, mode: i32) void {
         qtc.QSizeF_Scale(@ptrCast(self.ptr), @bitCast(w), @bitCast(h), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `scale2` instead
+    ///
+    pub const Scale2 = scale2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#scale)
     ///
@@ -610,11 +806,15 @@ pub const QSizeF = extern struct {
     ///
     /// ` mode: qnamespace_enums.AspectRatioMode `
     ///
-    pub fn Scale2(self: QSizeF, s: anytype, mode: i32) void {
+    pub fn scale2(self: QSizeF, s: anytype, mode: i32) void {
         comptime _ = @TypeOf(s)._is_QSizeF;
         qtc.QSizeF_Scale2(@ptrCast(self.ptr), @ptrCast(s.ptr), @bitCast(mode));
     }
 
+    /// ### DEPRECATED: Use `scaled` instead
+    ///
+    pub const Scaled = scaled;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#scaled)
     ///
     /// ## Parameter(s):
@@ -627,9 +827,13 @@ pub const QSizeF = extern struct {
     ///
     /// ` mode: qnamespace_enums.AspectRatioMode `
     ///
-    pub fn Scaled(self: QSizeF, w: f64, h: f64, mode: i32) QSizeF {
+    pub fn scaled(self: QSizeF, w: f64, h: f64, mode: i32) QSizeF {
         return .{ .ptr = qtc.QSizeF_Scaled(@ptrCast(self.ptr), @bitCast(w), @bitCast(h), @bitCast(mode)) };
     }
+
+    /// ### DEPRECATED: Use `scaled2` instead
+    ///
+    pub const Scaled2 = scaled2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#scaled)
     ///
@@ -641,10 +845,14 @@ pub const QSizeF = extern struct {
     ///
     /// ` mode: qnamespace_enums.AspectRatioMode `
     ///
-    pub fn Scaled2(self: QSizeF, s: anytype, mode: i32) QSizeF {
+    pub fn scaled2(self: QSizeF, s: anytype, mode: i32) QSizeF {
         comptime _ = @TypeOf(s)._is_QSizeF;
         return .{ .ptr = qtc.QSizeF_Scaled2(@ptrCast(self.ptr), @ptrCast(s.ptr), @bitCast(mode)) };
     }
+
+    /// ### DEPRECATED: Use `expandedTo` instead
+    ///
+    pub const ExpandedTo = expandedTo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#expandedTo)
     ///
@@ -654,10 +862,14 @@ pub const QSizeF = extern struct {
     ///
     /// ` param1: QSizeF `
     ///
-    pub fn ExpandedTo(self: QSizeF, param1: anytype) QSizeF {
+    pub fn expandedTo(self: QSizeF, param1: anytype) QSizeF {
         comptime _ = @TypeOf(param1)._is_QSizeF;
         return .{ .ptr = qtc.QSizeF_ExpandedTo(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `boundedTo` instead
+    ///
+    pub const BoundedTo = boundedTo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#boundedTo)
     ///
@@ -667,10 +879,14 @@ pub const QSizeF = extern struct {
     ///
     /// ` param1: QSizeF `
     ///
-    pub fn BoundedTo(self: QSizeF, param1: anytype) QSizeF {
+    pub fn boundedTo(self: QSizeF, param1: anytype) QSizeF {
         comptime _ = @TypeOf(param1)._is_QSizeF;
         return .{ .ptr = qtc.QSizeF_BoundedTo(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grownBy` instead
+    ///
+    pub const GrownBy = grownBy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#grownBy)
     ///
@@ -680,10 +896,14 @@ pub const QSizeF = extern struct {
     ///
     /// ` m: QMarginsF `
     ///
-    pub fn GrownBy(self: QSizeF, m: anytype) QSizeF {
+    pub fn grownBy(self: QSizeF, m: anytype) QSizeF {
         comptime _ = @TypeOf(m)._is_QMarginsF;
         return .{ .ptr = qtc.QSizeF_GrownBy(@ptrCast(self.ptr), @ptrCast(m.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `shrunkBy` instead
+    ///
+    pub const ShrunkBy = shrunkBy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#shrunkBy)
     ///
@@ -693,10 +913,14 @@ pub const QSizeF = extern struct {
     ///
     /// ` m: QMarginsF `
     ///
-    pub fn ShrunkBy(self: QSizeF, m: anytype) QSizeF {
+    pub fn shrunkBy(self: QSizeF, m: anytype) QSizeF {
         comptime _ = @TypeOf(m)._is_QMarginsF;
         return .{ .ptr = qtc.QSizeF_ShrunkBy(@ptrCast(self.ptr), @ptrCast(m.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `rwidth` instead
+    ///
+    pub const Rwidth = rwidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#rwidth)
     ///
@@ -704,9 +928,13 @@ pub const QSizeF = extern struct {
     ///
     /// ` self: QSizeF `
     ///
-    pub fn Rwidth(self: QSizeF) ?*f64 {
+    pub fn rwidth(self: QSizeF) ?*f64 {
         return @ptrCast(qtc.QSizeF_Rwidth(@ptrCast(self.ptr)));
     }
+
+    /// ### DEPRECATED: Use `rheight` instead
+    ///
+    pub const Rheight = rheight;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#rheight)
     ///
@@ -714,9 +942,13 @@ pub const QSizeF = extern struct {
     ///
     /// ` self: QSizeF `
     ///
-    pub fn Rheight(self: QSizeF) ?*f64 {
+    pub fn rheight(self: QSizeF) ?*f64 {
         return @ptrCast(qtc.QSizeF_Rheight(@ptrCast(self.ptr)));
     }
+
+    /// ### DEPRECATED: Use `operatorPlusAssign` instead
+    ///
+    pub const OperatorPlusAssign = operatorPlusAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#operator-2b-eq)
     ///
@@ -726,10 +958,14 @@ pub const QSizeF = extern struct {
     ///
     /// ` param1: QSizeF `
     ///
-    pub fn OperatorPlusAssign(self: QSizeF, param1: anytype) QSizeF {
+    pub fn operatorPlusAssign(self: QSizeF, param1: anytype) QSizeF {
         comptime _ = @TypeOf(param1)._is_QSizeF;
         return .{ .ptr = qtc.QSizeF_OperatorPlusAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMinusAssign` instead
+    ///
+    pub const OperatorMinusAssign = operatorMinusAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#operator--eq)
     ///
@@ -739,10 +975,14 @@ pub const QSizeF = extern struct {
     ///
     /// ` param1: QSizeF `
     ///
-    pub fn OperatorMinusAssign(self: QSizeF, param1: anytype) QSizeF {
+    pub fn operatorMinusAssign(self: QSizeF, param1: anytype) QSizeF {
         comptime _ = @TypeOf(param1)._is_QSizeF;
         return .{ .ptr = qtc.QSizeF_OperatorMinusAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMultiplyAssign` instead
+    ///
+    pub const OperatorMultiplyAssign = operatorMultiplyAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#operator-2a-eq)
     ///
@@ -752,9 +992,13 @@ pub const QSizeF = extern struct {
     ///
     /// ` c: f64 `
     ///
-    pub fn OperatorMultiplyAssign(self: QSizeF, c: f64) QSizeF {
+    pub fn operatorMultiplyAssign(self: QSizeF, c: f64) QSizeF {
         return .{ .ptr = qtc.QSizeF_OperatorMultiplyAssign(@ptrCast(self.ptr), @bitCast(c)) };
     }
+
+    /// ### DEPRECATED: Use `operatorDivideAssign` instead
+    ///
+    pub const OperatorDivideAssign = operatorDivideAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#operator-2f-eq)
     ///
@@ -764,9 +1008,13 @@ pub const QSizeF = extern struct {
     ///
     /// ` c: f64 `
     ///
-    pub fn OperatorDivideAssign(self: QSizeF, c: f64) QSizeF {
+    pub fn operatorDivideAssign(self: QSizeF, c: f64) QSizeF {
         return .{ .ptr = qtc.QSizeF_OperatorDivideAssign(@ptrCast(self.ptr), @bitCast(c)) };
     }
+
+    /// ### DEPRECATED: Use `toSize` instead
+    ///
+    pub const ToSize = toSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#toSize)
     ///
@@ -774,23 +1022,23 @@ pub const QSizeF = extern struct {
     ///
     /// ` self: QSizeF `
     ///
-    pub fn ToSize(self: QSizeF) QSize {
+    pub fn toSize(self: QSizeF) QSize {
         return .{ .ptr = qtc.QSizeF_ToSize(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#dtor.QSizeF)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QSizeF `
     ///
-    pub fn Delete(self: QSizeF) void {
+    pub fn delete(self: QSizeF) void {
         qtc.QSizeF_Delete(@ptrCast(self.ptr));
     }
 };

@@ -40,22 +40,34 @@ pub const QNetworkAccessManager = extern struct {
     pub const _is_QNetworkAccessManager = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QNetworkAccessManager object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QNetworkAccessManager {
+    pub const New = new;
+
+    /// Allocate a new QNetworkAccessManager object in C++ memory
+    ///
+    pub fn new() QNetworkAccessManager {
         return .{ .ptr = qtc.QNetworkAccessManager_new() };
     }
 
-    /// New2 constructs a new QNetworkAccessManager object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QNetworkAccessManager object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) QNetworkAccessManager {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QNetworkAccessManager_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) QNetworkAccessManager {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QNetworkAccessManager_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -63,9 +75,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    pub fn MetaObject(self: QNetworkAccessManager) QMetaObject {
+    pub fn metaObject(self: QNetworkAccessManager) QMetaObject {
         return .{ .ptr = qtc.QNetworkAccessManager_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -77,13 +93,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QNetworkAccessManager, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QNetworkAccessManager, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QNetworkAccessManager_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -93,9 +109,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    pub fn SuperMetaObject(self: QNetworkAccessManager) QMetaObject {
+    pub fn superMetaObject(self: QNetworkAccessManager) QMetaObject {
         return .{ .ptr = qtc.QNetworkAccessManager_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -103,10 +123,14 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QNetworkAccessManager, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QNetworkAccessManager, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QNetworkAccessManager_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -116,13 +140,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` callback: *const fn (self: QNetworkAccessManager, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QNetworkAccessManager, callback: *const fn (QNetworkAccessManager, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QNetworkAccessManager, callback: *const fn (QNetworkAccessManager, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QNetworkAccessManager_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -132,10 +156,14 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QNetworkAccessManager, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QNetworkAccessManager, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QNetworkAccessManager_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -147,9 +175,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QNetworkAccessManager, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QNetworkAccessManager, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QNetworkAccessManager_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -159,13 +191,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` callback: *const fn (self: QNetworkAccessManager, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QNetworkAccessManager, callback: *const fn (QNetworkAccessManager, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QNetworkAccessManager, callback: *const fn (QNetworkAccessManager, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QNetworkAccessManager_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -179,9 +211,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QNetworkAccessManager, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QNetworkAccessManager, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QNetworkAccessManager_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -191,14 +227,18 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QNetworkAccessManager.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QNetworkAccessManager.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `supportedSchemes` instead
+    ///
+    pub const SupportedSchemes = supportedSchemes;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#supportedSchemes)
     ///
@@ -208,7 +248,7 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SupportedSchemes(self: QNetworkAccessManager, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn supportedSchemes(self: QNetworkAccessManager, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QNetworkAccessManager_SupportedSchemes(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -216,15 +256,19 @@ pub const QNetworkAccessManager = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QNetworkAccessManager.SupportedSchemes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QNetworkAccessManager.supportedSchemes: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QNetworkAccessManager.SupportedSchemes: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QNetworkAccessManager.supportedSchemes: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onSupportedSchemes` instead
+    ///
+    pub const OnSupportedSchemes = onSupportedSchemes;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#supportedSchemes)
     ///
@@ -238,13 +282,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnSupportedSchemes(self: QNetworkAccessManager, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
+    pub fn onSupportedSchemes(self: QNetworkAccessManager, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.QNetworkAccessManager_OnSupportedSchemes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSupportedSchemes` instead
+    /// ### DEPRECATED: Use `superSupportedSchemes` instead
     ///
-    pub const QBaseSupportedSchemes = SuperSupportedSchemes;
+    pub const SuperSupportedSchemes = superSupportedSchemes;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#supportedSchemes)
     ///
@@ -256,7 +300,7 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperSupportedSchemes(self: QNetworkAccessManager, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn superSupportedSchemes(self: QNetworkAccessManager, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QNetworkAccessManager_SuperSupportedSchemes(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -264,15 +308,19 @@ pub const QNetworkAccessManager = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QNetworkAccessManager.SupportedSchemes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QNetworkAccessManager.supportedSchemes: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QNetworkAccessManager.SupportedSchemes: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QNetworkAccessManager.supportedSchemes: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `clearAccessCache` instead
+    ///
+    pub const ClearAccessCache = clearAccessCache;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#clearAccessCache)
     ///
@@ -280,9 +328,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    pub fn ClearAccessCache(self: QNetworkAccessManager) void {
+    pub fn clearAccessCache(self: QNetworkAccessManager) void {
         qtc.QNetworkAccessManager_ClearAccessCache(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearConnectionCache` instead
+    ///
+    pub const ClearConnectionCache = clearConnectionCache;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#clearConnectionCache)
     ///
@@ -290,9 +342,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    pub fn ClearConnectionCache(self: QNetworkAccessManager) void {
+    pub fn clearConnectionCache(self: QNetworkAccessManager) void {
         qtc.QNetworkAccessManager_ClearConnectionCache(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `proxy` instead
+    ///
+    pub const Proxy = proxy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#proxy)
     ///
@@ -300,9 +356,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    pub fn Proxy(self: QNetworkAccessManager) QNetworkProxy {
+    pub fn proxy(self: QNetworkAccessManager) QNetworkProxy {
         return .{ .ptr = qtc.QNetworkAccessManager_Proxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setProxy` instead
+    ///
+    pub const SetProxy = setProxy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#setProxy)
     ///
@@ -310,12 +370,16 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    /// ` proxy: QNetworkProxy `
+    /// ` _proxy: QNetworkProxy `
     ///
-    pub fn SetProxy(self: QNetworkAccessManager, proxy: anytype) void {
-        comptime _ = @TypeOf(proxy)._is_QNetworkProxy;
-        qtc.QNetworkAccessManager_SetProxy(@ptrCast(self.ptr), @ptrCast(proxy.ptr));
+    pub fn setProxy(self: QNetworkAccessManager, _proxy: anytype) void {
+        comptime _ = @TypeOf(_proxy)._is_QNetworkProxy;
+        qtc.QNetworkAccessManager_SetProxy(@ptrCast(self.ptr), @ptrCast(_proxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `proxyFactory` instead
+    ///
+    pub const ProxyFactory = proxyFactory;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#proxyFactory)
     ///
@@ -323,9 +387,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    pub fn ProxyFactory(self: QNetworkAccessManager) QNetworkProxyFactory {
+    pub fn proxyFactory(self: QNetworkAccessManager) QNetworkProxyFactory {
         return .{ .ptr = qtc.QNetworkAccessManager_ProxyFactory(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setProxyFactory` instead
+    ///
+    pub const SetProxyFactory = setProxyFactory;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#setProxyFactory)
     ///
@@ -335,10 +403,14 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` factory: QNetworkProxyFactory `
     ///
-    pub fn SetProxyFactory(self: QNetworkAccessManager, factory: anytype) void {
+    pub fn setProxyFactory(self: QNetworkAccessManager, factory: anytype) void {
         comptime _ = @TypeOf(factory)._is_QNetworkProxyFactory;
         qtc.QNetworkAccessManager_SetProxyFactory(@ptrCast(self.ptr), @ptrCast(factory.ptr));
     }
+
+    /// ### DEPRECATED: Use `cache` instead
+    ///
+    pub const Cache = cache;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#cache)
     ///
@@ -346,9 +418,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    pub fn Cache(self: QNetworkAccessManager) QAbstractNetworkCache {
+    pub fn cache(self: QNetworkAccessManager) QAbstractNetworkCache {
         return .{ .ptr = qtc.QNetworkAccessManager_Cache(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCache` instead
+    ///
+    pub const SetCache = setCache;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#setCache)
     ///
@@ -356,12 +432,16 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    /// ` cache: QAbstractNetworkCache `
+    /// ` _cache: QAbstractNetworkCache `
     ///
-    pub fn SetCache(self: QNetworkAccessManager, cache: anytype) void {
-        comptime _ = @TypeOf(cache)._is_QAbstractNetworkCache;
-        qtc.QNetworkAccessManager_SetCache(@ptrCast(self.ptr), @ptrCast(cache.ptr));
+    pub fn setCache(self: QNetworkAccessManager, _cache: anytype) void {
+        comptime _ = @TypeOf(_cache)._is_QAbstractNetworkCache;
+        qtc.QNetworkAccessManager_SetCache(@ptrCast(self.ptr), @ptrCast(_cache.ptr));
     }
+
+    /// ### DEPRECATED: Use `cookieJar` instead
+    ///
+    pub const CookieJar = cookieJar;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#cookieJar)
     ///
@@ -369,9 +449,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    pub fn CookieJar(self: QNetworkAccessManager) QNetworkCookieJar {
+    pub fn cookieJar(self: QNetworkAccessManager) QNetworkCookieJar {
         return .{ .ptr = qtc.QNetworkAccessManager_CookieJar(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCookieJar` instead
+    ///
+    pub const SetCookieJar = setCookieJar;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#setCookieJar)
     ///
@@ -379,12 +463,16 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    /// ` cookieJar: QNetworkCookieJar `
+    /// ` _cookieJar: QNetworkCookieJar `
     ///
-    pub fn SetCookieJar(self: QNetworkAccessManager, cookieJar: anytype) void {
-        comptime _ = @TypeOf(cookieJar)._is_QNetworkCookieJar;
-        qtc.QNetworkAccessManager_SetCookieJar(@ptrCast(self.ptr), @ptrCast(cookieJar.ptr));
+    pub fn setCookieJar(self: QNetworkAccessManager, _cookieJar: anytype) void {
+        comptime _ = @TypeOf(_cookieJar)._is_QNetworkCookieJar;
+        qtc.QNetworkAccessManager_SetCookieJar(@ptrCast(self.ptr), @ptrCast(_cookieJar.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStrictTransportSecurityEnabled` instead
+    ///
+    pub const SetStrictTransportSecurityEnabled = setStrictTransportSecurityEnabled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#setStrictTransportSecurityEnabled)
     ///
@@ -394,9 +482,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetStrictTransportSecurityEnabled(self: QNetworkAccessManager, enabled: bool) void {
+    pub fn setStrictTransportSecurityEnabled(self: QNetworkAccessManager, enabled: bool) void {
         qtc.QNetworkAccessManager_SetStrictTransportSecurityEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `isStrictTransportSecurityEnabled` instead
+    ///
+    pub const IsStrictTransportSecurityEnabled = isStrictTransportSecurityEnabled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#isStrictTransportSecurityEnabled)
     ///
@@ -404,9 +496,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    pub fn IsStrictTransportSecurityEnabled(self: QNetworkAccessManager) bool {
+    pub fn isStrictTransportSecurityEnabled(self: QNetworkAccessManager) bool {
         return qtc.QNetworkAccessManager_IsStrictTransportSecurityEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `enableStrictTransportSecurityStore` instead
+    ///
+    pub const EnableStrictTransportSecurityStore = enableStrictTransportSecurityStore;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#enableStrictTransportSecurityStore)
     ///
@@ -416,9 +512,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn EnableStrictTransportSecurityStore(self: QNetworkAccessManager, enabled: bool) void {
+    pub fn enableStrictTransportSecurityStore(self: QNetworkAccessManager, enabled: bool) void {
         qtc.QNetworkAccessManager_EnableStrictTransportSecurityStore(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `isStrictTransportSecurityStoreEnabled` instead
+    ///
+    pub const IsStrictTransportSecurityStoreEnabled = isStrictTransportSecurityStoreEnabled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#isStrictTransportSecurityStoreEnabled)
     ///
@@ -426,9 +526,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    pub fn IsStrictTransportSecurityStoreEnabled(self: QNetworkAccessManager) bool {
+    pub fn isStrictTransportSecurityStoreEnabled(self: QNetworkAccessManager) bool {
         return qtc.QNetworkAccessManager_IsStrictTransportSecurityStoreEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `addStrictTransportSecurityHosts` instead
+    ///
+    pub const AddStrictTransportSecurityHosts = addStrictTransportSecurityHosts;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#addStrictTransportSecurityHosts)
     ///
@@ -438,13 +542,17 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` knownHosts: []QHstsPolicy `
     ///
-    pub fn AddStrictTransportSecurityHosts(self: QNetworkAccessManager, knownHosts: []QHstsPolicy) void {
+    pub fn addStrictTransportSecurityHosts(self: QNetworkAccessManager, knownHosts: []QHstsPolicy) void {
         const knownHosts_list = qtc.libqt_list{
             .len = knownHosts.len,
             .data = @ptrCast(knownHosts.ptr),
         };
         qtc.QNetworkAccessManager_AddStrictTransportSecurityHosts(@ptrCast(self.ptr), knownHosts_list);
     }
+
+    /// ### DEPRECATED: Use `strictTransportSecurityHosts` instead
+    ///
+    pub const StrictTransportSecurityHosts = strictTransportSecurityHosts;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#strictTransportSecurityHosts)
     ///
@@ -454,15 +562,19 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StrictTransportSecurityHosts(self: QNetworkAccessManager, allocator: std.mem.Allocator) []QHstsPolicy {
+    pub fn strictTransportSecurityHosts(self: QNetworkAccessManager, allocator: std.mem.Allocator) []QHstsPolicy {
         const _arr: qtc.libqt_list = qtc.QNetworkAccessManager_StrictTransportSecurityHosts(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QHstsPolicy, _arr.len) catch @panic("QNetworkAccessManager.StrictTransportSecurityHosts: Memory allocation failed");
-        const _data: [*]QtC.QHstsPolicy = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QHstsPolicy, _arr.len) catch @panic("QNetworkAccessManager.strictTransportSecurityHosts: Memory allocation failed");
+        const _data_val: [*]QtC.QHstsPolicy = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `head` instead
+    ///
+    pub const Head = head;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#head)
     ///
@@ -472,10 +584,14 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` request: QNetworkRequest `
     ///
-    pub fn Head(self: QNetworkAccessManager, request: anytype) QNetworkReply {
+    pub fn head(self: QNetworkAccessManager, request: anytype) QNetworkReply {
         comptime _ = @TypeOf(request)._is_QNetworkRequest;
         return .{ .ptr = qtc.QNetworkAccessManager_Head(@ptrCast(self.ptr), @ptrCast(request.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `get` instead
+    ///
+    pub const Get = get;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#get)
     ///
@@ -485,10 +601,14 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` request: QNetworkRequest `
     ///
-    pub fn Get(self: QNetworkAccessManager, request: anytype) QNetworkReply {
+    pub fn get(self: QNetworkAccessManager, request: anytype) QNetworkReply {
         comptime _ = @TypeOf(request)._is_QNetworkRequest;
         return .{ .ptr = qtc.QNetworkAccessManager_Get(@ptrCast(self.ptr), @ptrCast(request.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `get2` instead
+    ///
+    pub const Get2 = get2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#get)
     ///
@@ -500,11 +620,15 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` data: QIODevice `
     ///
-    pub fn Get2(self: QNetworkAccessManager, request: anytype, data: anytype) QNetworkReply {
+    pub fn get2(self: QNetworkAccessManager, request: anytype, data: anytype) QNetworkReply {
         comptime _ = @TypeOf(request)._is_QNetworkRequest;
         comptime _ = @TypeOf(data)._is_QIODevice;
         return .{ .ptr = qtc.QNetworkAccessManager_Get2(@ptrCast(self.ptr), @ptrCast(request.ptr), @ptrCast(data.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `get3` instead
+    ///
+    pub const Get3 = get3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#get)
     ///
@@ -516,7 +640,7 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` data: []u8 `
     ///
-    pub fn Get3(self: QNetworkAccessManager, request: anytype, data: []u8) QNetworkReply {
+    pub fn get3(self: QNetworkAccessManager, request: anytype, data: []u8) QNetworkReply {
         comptime _ = @TypeOf(request)._is_QNetworkRequest;
         const data_str = qtc.libqt_string{
             .len = data.len,
@@ -525,6 +649,10 @@ pub const QNetworkAccessManager = extern struct {
         return .{ .ptr = qtc.QNetworkAccessManager_Get3(@ptrCast(self.ptr), @ptrCast(request.ptr), data_str) };
     }
 
+    /// ### DEPRECATED: Use `post` instead
+    ///
+    pub const Post = post;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#post)
     ///
     /// ## Parameter(s):
@@ -535,11 +663,15 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` data: QIODevice `
     ///
-    pub fn Post(self: QNetworkAccessManager, request: anytype, data: anytype) QNetworkReply {
+    pub fn post(self: QNetworkAccessManager, request: anytype, data: anytype) QNetworkReply {
         comptime _ = @TypeOf(request)._is_QNetworkRequest;
         comptime _ = @TypeOf(data)._is_QIODevice;
         return .{ .ptr = qtc.QNetworkAccessManager_Post(@ptrCast(self.ptr), @ptrCast(request.ptr), @ptrCast(data.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `post2` instead
+    ///
+    pub const Post2 = post2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#post)
     ///
@@ -551,7 +683,7 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` data: []u8 `
     ///
-    pub fn Post2(self: QNetworkAccessManager, request: anytype, data: []u8) QNetworkReply {
+    pub fn post2(self: QNetworkAccessManager, request: anytype, data: []u8) QNetworkReply {
         comptime _ = @TypeOf(request)._is_QNetworkRequest;
         const data_str = qtc.libqt_string{
             .len = data.len,
@@ -560,6 +692,10 @@ pub const QNetworkAccessManager = extern struct {
         return .{ .ptr = qtc.QNetworkAccessManager_Post2(@ptrCast(self.ptr), @ptrCast(request.ptr), data_str) };
     }
 
+    /// ### DEPRECATED: Use `put` instead
+    ///
+    pub const Put = put;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#put)
     ///
     /// ## Parameter(s):
@@ -570,11 +706,15 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` data: QIODevice `
     ///
-    pub fn Put(self: QNetworkAccessManager, request: anytype, data: anytype) QNetworkReply {
+    pub fn put(self: QNetworkAccessManager, request: anytype, data: anytype) QNetworkReply {
         comptime _ = @TypeOf(request)._is_QNetworkRequest;
         comptime _ = @TypeOf(data)._is_QIODevice;
         return .{ .ptr = qtc.QNetworkAccessManager_Put(@ptrCast(self.ptr), @ptrCast(request.ptr), @ptrCast(data.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `put2` instead
+    ///
+    pub const Put2 = put2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#put)
     ///
@@ -586,7 +726,7 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` data: []u8 `
     ///
-    pub fn Put2(self: QNetworkAccessManager, request: anytype, data: []u8) QNetworkReply {
+    pub fn put2(self: QNetworkAccessManager, request: anytype, data: []u8) QNetworkReply {
         comptime _ = @TypeOf(request)._is_QNetworkRequest;
         const data_str = qtc.libqt_string{
             .len = data.len,
@@ -594,6 +734,10 @@ pub const QNetworkAccessManager = extern struct {
         };
         return .{ .ptr = qtc.QNetworkAccessManager_Put2(@ptrCast(self.ptr), @ptrCast(request.ptr), data_str) };
     }
+
+    /// ### DEPRECATED: Use `deleteResource` instead
+    ///
+    pub const DeleteResource = deleteResource;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#deleteResource)
     ///
@@ -603,10 +747,14 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` request: QNetworkRequest `
     ///
-    pub fn DeleteResource(self: QNetworkAccessManager, request: anytype) QNetworkReply {
+    pub fn deleteResource(self: QNetworkAccessManager, request: anytype) QNetworkReply {
         comptime _ = @TypeOf(request)._is_QNetworkRequest;
         return .{ .ptr = qtc.QNetworkAccessManager_DeleteResource(@ptrCast(self.ptr), @ptrCast(request.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `sendCustomRequest` instead
+    ///
+    pub const SendCustomRequest = sendCustomRequest;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#sendCustomRequest)
     ///
@@ -618,7 +766,7 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` verb: []u8 `
     ///
-    pub fn SendCustomRequest(self: QNetworkAccessManager, request: anytype, verb: []u8) QNetworkReply {
+    pub fn sendCustomRequest(self: QNetworkAccessManager, request: anytype, verb: []u8) QNetworkReply {
         comptime _ = @TypeOf(request)._is_QNetworkRequest;
         const verb_str = qtc.libqt_string{
             .len = verb.len,
@@ -626,6 +774,10 @@ pub const QNetworkAccessManager = extern struct {
         };
         return .{ .ptr = qtc.QNetworkAccessManager_SendCustomRequest(@ptrCast(self.ptr), @ptrCast(request.ptr), verb_str) };
     }
+
+    /// ### DEPRECATED: Use `sendCustomRequest2` instead
+    ///
+    pub const SendCustomRequest2 = sendCustomRequest2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#sendCustomRequest)
     ///
@@ -639,7 +791,7 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` data: []u8 `
     ///
-    pub fn SendCustomRequest2(self: QNetworkAccessManager, request: anytype, verb: []u8, data: []u8) QNetworkReply {
+    pub fn sendCustomRequest2(self: QNetworkAccessManager, request: anytype, verb: []u8, data: []u8) QNetworkReply {
         comptime _ = @TypeOf(request)._is_QNetworkRequest;
         const verb_str = qtc.libqt_string{
             .len = verb.len,
@@ -652,6 +804,10 @@ pub const QNetworkAccessManager = extern struct {
         return .{ .ptr = qtc.QNetworkAccessManager_SendCustomRequest2(@ptrCast(self.ptr), @ptrCast(request.ptr), verb_str, data_str) };
     }
 
+    /// ### DEPRECATED: Use `post4` instead
+    ///
+    pub const Post4 = post4;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#post)
     ///
     /// ## Parameter(s):
@@ -662,11 +818,15 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` multiPart: QHttpMultiPart `
     ///
-    pub fn Post4(self: QNetworkAccessManager, request: anytype, multiPart: anytype) QNetworkReply {
+    pub fn post4(self: QNetworkAccessManager, request: anytype, multiPart: anytype) QNetworkReply {
         comptime _ = @TypeOf(request)._is_QNetworkRequest;
         comptime _ = @TypeOf(multiPart)._is_QHttpMultiPart;
         return .{ .ptr = qtc.QNetworkAccessManager_Post4(@ptrCast(self.ptr), @ptrCast(request.ptr), @ptrCast(multiPart.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `put4` instead
+    ///
+    pub const Put4 = put4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#put)
     ///
@@ -678,11 +838,15 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` multiPart: QHttpMultiPart `
     ///
-    pub fn Put4(self: QNetworkAccessManager, request: anytype, multiPart: anytype) QNetworkReply {
+    pub fn put4(self: QNetworkAccessManager, request: anytype, multiPart: anytype) QNetworkReply {
         comptime _ = @TypeOf(request)._is_QNetworkRequest;
         comptime _ = @TypeOf(multiPart)._is_QHttpMultiPart;
         return .{ .ptr = qtc.QNetworkAccessManager_Put4(@ptrCast(self.ptr), @ptrCast(request.ptr), @ptrCast(multiPart.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `sendCustomRequest3` instead
+    ///
+    pub const SendCustomRequest3 = sendCustomRequest3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#sendCustomRequest)
     ///
@@ -696,7 +860,7 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` multiPart: QHttpMultiPart `
     ///
-    pub fn SendCustomRequest3(self: QNetworkAccessManager, request: anytype, verb: []u8, multiPart: anytype) QNetworkReply {
+    pub fn sendCustomRequest3(self: QNetworkAccessManager, request: anytype, verb: []u8, multiPart: anytype) QNetworkReply {
         comptime _ = @TypeOf(request)._is_QNetworkRequest;
         const verb_str = qtc.libqt_string{
             .len = verb.len,
@@ -706,6 +870,10 @@ pub const QNetworkAccessManager = extern struct {
         return .{ .ptr = qtc.QNetworkAccessManager_SendCustomRequest3(@ptrCast(self.ptr), @ptrCast(request.ptr), verb_str, @ptrCast(multiPart.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `connectToHostEncrypted` instead
+    ///
+    pub const ConnectToHostEncrypted = connectToHostEncrypted;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#connectToHostEncrypted)
     ///
     /// ## Parameter(s):
@@ -714,13 +882,17 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` hostName: []const u8 `
     ///
-    pub fn ConnectToHostEncrypted(self: QNetworkAccessManager, hostName: []const u8) void {
+    pub fn connectToHostEncrypted(self: QNetworkAccessManager, hostName: []const u8) void {
         const hostName_str = qtc.libqt_string{
             .len = hostName.len,
             .data = hostName.ptr,
         };
         qtc.QNetworkAccessManager_ConnectToHostEncrypted(@ptrCast(self.ptr), hostName_str);
     }
+
+    /// ### DEPRECATED: Use `connectToHostEncrypted2` instead
+    ///
+    pub const ConnectToHostEncrypted2 = connectToHostEncrypted2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#connectToHostEncrypted)
     ///
@@ -736,7 +908,7 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` peerName: []const u8 `
     ///
-    pub fn ConnectToHostEncrypted2(self: QNetworkAccessManager, hostName: []const u8, port: u16, sslConfiguration: anytype, peerName: []const u8) void {
+    pub fn connectToHostEncrypted2(self: QNetworkAccessManager, hostName: []const u8, port: u16, sslConfiguration: anytype, peerName: []const u8) void {
         const hostName_str = qtc.libqt_string{
             .len = hostName.len,
             .data = hostName.ptr,
@@ -749,6 +921,10 @@ pub const QNetworkAccessManager = extern struct {
         qtc.QNetworkAccessManager_ConnectToHostEncrypted2(@ptrCast(self.ptr), hostName_str, @bitCast(port), @ptrCast(sslConfiguration.ptr), peerName_str);
     }
 
+    /// ### DEPRECATED: Use `connectToHost` instead
+    ///
+    pub const ConnectToHost = connectToHost;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#connectToHost)
     ///
     /// ## Parameter(s):
@@ -757,13 +933,17 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` hostName: []const u8 `
     ///
-    pub fn ConnectToHost(self: QNetworkAccessManager, hostName: []const u8) void {
+    pub fn connectToHost(self: QNetworkAccessManager, hostName: []const u8) void {
         const hostName_str = qtc.libqt_string{
             .len = hostName.len,
             .data = hostName.ptr,
         };
         qtc.QNetworkAccessManager_ConnectToHost(@ptrCast(self.ptr), hostName_str);
     }
+
+    /// ### DEPRECATED: Use `setRedirectPolicy` instead
+    ///
+    pub const SetRedirectPolicy = setRedirectPolicy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#setRedirectPolicy)
     ///
@@ -773,9 +953,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` policy: qnetworkrequest_enums.RedirectPolicy `
     ///
-    pub fn SetRedirectPolicy(self: QNetworkAccessManager, policy: i32) void {
+    pub fn setRedirectPolicy(self: QNetworkAccessManager, policy: i32) void {
         qtc.QNetworkAccessManager_SetRedirectPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `redirectPolicy` instead
+    ///
+    pub const RedirectPolicy = redirectPolicy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#redirectPolicy)
     ///
@@ -787,9 +971,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` qnetworkrequest_enums.RedirectPolicy `
     ///
-    pub fn RedirectPolicy(self: QNetworkAccessManager) i32 {
+    pub fn redirectPolicy(self: QNetworkAccessManager) i32 {
         return qtc.QNetworkAccessManager_RedirectPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoDeleteReplies` instead
+    ///
+    pub const AutoDeleteReplies = autoDeleteReplies;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#autoDeleteReplies)
     ///
@@ -797,9 +985,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    pub fn AutoDeleteReplies(self: QNetworkAccessManager) bool {
+    pub fn autoDeleteReplies(self: QNetworkAccessManager) bool {
         return qtc.QNetworkAccessManager_AutoDeleteReplies(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoDeleteReplies` instead
+    ///
+    pub const SetAutoDeleteReplies = setAutoDeleteReplies;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#setAutoDeleteReplies)
     ///
@@ -809,9 +1001,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` autoDelete: bool `
     ///
-    pub fn SetAutoDeleteReplies(self: QNetworkAccessManager, autoDelete: bool) void {
+    pub fn setAutoDeleteReplies(self: QNetworkAccessManager, autoDelete: bool) void {
         qtc.QNetworkAccessManager_SetAutoDeleteReplies(@ptrCast(self.ptr), autoDelete);
     }
+
+    /// ### DEPRECATED: Use `transferTimeout` instead
+    ///
+    pub const TransferTimeout = transferTimeout;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#transferTimeout)
     ///
@@ -819,9 +1015,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    pub fn TransferTimeout(self: QNetworkAccessManager) i32 {
+    pub fn transferTimeout(self: QNetworkAccessManager) i32 {
         return qtc.QNetworkAccessManager_TransferTimeout(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTransferTimeout` instead
+    ///
+    pub const SetTransferTimeout = setTransferTimeout;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#setTransferTimeout)
     ///
@@ -831,9 +1031,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` timeout: i32 `
     ///
-    pub fn SetTransferTimeout(self: QNetworkAccessManager, timeout: i32) void {
+    pub fn setTransferTimeout(self: QNetworkAccessManager, timeout: i32) void {
         qtc.QNetworkAccessManager_SetTransferTimeout(@ptrCast(self.ptr), @bitCast(timeout));
     }
+
+    /// ### DEPRECATED: Use `transferTimeoutAsDuration` instead
+    ///
+    pub const TransferTimeoutAsDuration = transferTimeoutAsDuration;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#transferTimeoutAsDuration)
     ///
@@ -845,9 +1049,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` i64 of milliseconds `
     ///
-    pub fn TransferTimeoutAsDuration(self: QNetworkAccessManager) i64 {
+    pub fn transferTimeoutAsDuration(self: QNetworkAccessManager) i64 {
         return qtc.QNetworkAccessManager_TransferTimeoutAsDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTransferTimeout2` instead
+    ///
+    pub const SetTransferTimeout2 = setTransferTimeout2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#setTransferTimeout)
     ///
@@ -855,9 +1063,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    pub fn SetTransferTimeout2(self: QNetworkAccessManager) void {
+    pub fn setTransferTimeout2(self: QNetworkAccessManager) void {
         qtc.QNetworkAccessManager_SetTransferTimeout2(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `proxyAuthenticationRequired` instead
+    ///
+    pub const ProxyAuthenticationRequired = proxyAuthenticationRequired;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#proxyAuthenticationRequired)
     ///
@@ -865,15 +1077,19 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    /// ` proxy: QNetworkProxy `
+    /// ` _proxy: QNetworkProxy `
     ///
     /// ` authenticator: QAuthenticator `
     ///
-    pub fn ProxyAuthenticationRequired(self: QNetworkAccessManager, proxy: anytype, authenticator: anytype) void {
-        comptime _ = @TypeOf(proxy)._is_QNetworkProxy;
+    pub fn proxyAuthenticationRequired(self: QNetworkAccessManager, _proxy: anytype, authenticator: anytype) void {
+        comptime _ = @TypeOf(_proxy)._is_QNetworkProxy;
         comptime _ = @TypeOf(authenticator)._is_QAuthenticator;
-        qtc.QNetworkAccessManager_ProxyAuthenticationRequired(@ptrCast(self.ptr), @ptrCast(proxy.ptr), @ptrCast(authenticator.ptr));
+        qtc.QNetworkAccessManager_ProxyAuthenticationRequired(@ptrCast(self.ptr), @ptrCast(_proxy.ptr), @ptrCast(authenticator.ptr));
     }
+
+    /// ### DEPRECATED: Use `onProxyAuthenticationRequired` instead
+    ///
+    pub const OnProxyAuthenticationRequired = onProxyAuthenticationRequired;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#proxyAuthenticationRequired)
     ///
@@ -883,9 +1099,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` callback: *const fn (self: QNetworkAccessManager, proxy: QNetworkProxy, authenticator: QAuthenticator) callconv(.c) void `
     ///
-    pub fn OnProxyAuthenticationRequired(self: QNetworkAccessManager, callback: *const fn (QNetworkAccessManager, QNetworkProxy, QAuthenticator) callconv(.c) void) void {
+    pub fn onProxyAuthenticationRequired(self: QNetworkAccessManager, callback: *const fn (QNetworkAccessManager, QNetworkProxy, QAuthenticator) callconv(.c) void) void {
         qtc.QNetworkAccessManager_Connect_ProxyAuthenticationRequired(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `authenticationRequired` instead
+    ///
+    pub const AuthenticationRequired = authenticationRequired;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#authenticationRequired)
     ///
@@ -897,11 +1117,15 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` authenticator: QAuthenticator `
     ///
-    pub fn AuthenticationRequired(self: QNetworkAccessManager, reply: anytype, authenticator: anytype) void {
+    pub fn authenticationRequired(self: QNetworkAccessManager, reply: anytype, authenticator: anytype) void {
         comptime _ = @TypeOf(reply)._is_QNetworkReply;
         comptime _ = @TypeOf(authenticator)._is_QAuthenticator;
         qtc.QNetworkAccessManager_AuthenticationRequired(@ptrCast(self.ptr), @ptrCast(reply.ptr), @ptrCast(authenticator.ptr));
     }
+
+    /// ### DEPRECATED: Use `onAuthenticationRequired` instead
+    ///
+    pub const OnAuthenticationRequired = onAuthenticationRequired;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#authenticationRequired)
     ///
@@ -911,9 +1135,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` callback: *const fn (self: QNetworkAccessManager, reply: QNetworkReply, authenticator: QAuthenticator) callconv(.c) void `
     ///
-    pub fn OnAuthenticationRequired(self: QNetworkAccessManager, callback: *const fn (QNetworkAccessManager, QNetworkReply, QAuthenticator) callconv(.c) void) void {
+    pub fn onAuthenticationRequired(self: QNetworkAccessManager, callback: *const fn (QNetworkAccessManager, QNetworkReply, QAuthenticator) callconv(.c) void) void {
         qtc.QNetworkAccessManager_Connect_AuthenticationRequired(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `finished` instead
+    ///
+    pub const Finished = finished;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#finished)
     ///
@@ -923,11 +1151,15 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` reply: QNetworkReply `
     ///
-    pub fn Finished(self: QNetworkAccessManager, reply: anytype) void {
+    pub fn finished(self: QNetworkAccessManager, reply: anytype) void {
         comptime _ = @TypeOf(reply)._is_QNetworkReply;
         qtc.QNetworkAccessManager_Finished(@ptrCast(self.ptr), @ptrCast(reply.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFinished` instead
+    ///
+    pub const OnFinished = onFinished;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#finished)
     ///
     /// ## Parameters:
@@ -936,9 +1168,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` callback: *const fn (self: QNetworkAccessManager, reply: QNetworkReply) callconv(.c) void `
     ///
-    pub fn OnFinished(self: QNetworkAccessManager, callback: *const fn (QNetworkAccessManager, QNetworkReply) callconv(.c) void) void {
+    pub fn onFinished(self: QNetworkAccessManager, callback: *const fn (QNetworkAccessManager, QNetworkReply) callconv(.c) void) void {
         qtc.QNetworkAccessManager_Connect_Finished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `encrypted` instead
+    ///
+    pub const Encrypted = encrypted;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#encrypted)
     ///
@@ -948,10 +1184,14 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` reply: QNetworkReply `
     ///
-    pub fn Encrypted(self: QNetworkAccessManager, reply: anytype) void {
+    pub fn encrypted(self: QNetworkAccessManager, reply: anytype) void {
         comptime _ = @TypeOf(reply)._is_QNetworkReply;
         qtc.QNetworkAccessManager_Encrypted(@ptrCast(self.ptr), @ptrCast(reply.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEncrypted` instead
+    ///
+    pub const OnEncrypted = onEncrypted;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#encrypted)
     ///
@@ -961,9 +1201,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` callback: *const fn (self: QNetworkAccessManager, reply: QNetworkReply) callconv(.c) void `
     ///
-    pub fn OnEncrypted(self: QNetworkAccessManager, callback: *const fn (QNetworkAccessManager, QNetworkReply) callconv(.c) void) void {
+    pub fn onEncrypted(self: QNetworkAccessManager, callback: *const fn (QNetworkAccessManager, QNetworkReply) callconv(.c) void) void {
         qtc.QNetworkAccessManager_Connect_Encrypted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sslErrors` instead
+    ///
+    pub const SslErrors = sslErrors;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#sslErrors)
     ///
@@ -975,7 +1219,7 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` errors: []QSslError `
     ///
-    pub fn SslErrors(self: QNetworkAccessManager, reply: anytype, errors: []QSslError) void {
+    pub fn sslErrors(self: QNetworkAccessManager, reply: anytype, errors: []QSslError) void {
         comptime _ = @TypeOf(reply)._is_QNetworkReply;
         const errors_list = qtc.libqt_list{
             .len = errors.len,
@@ -983,6 +1227,10 @@ pub const QNetworkAccessManager = extern struct {
         };
         qtc.QNetworkAccessManager_SslErrors(@ptrCast(self.ptr), @ptrCast(reply.ptr), errors_list);
     }
+
+    /// ### DEPRECATED: Use `onSslErrors` instead
+    ///
+    pub const OnSslErrors = onSslErrors;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#sslErrors)
     ///
@@ -992,9 +1240,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` callback: *const fn (self: QNetworkAccessManager, reply: QNetworkReply, errors: qtc.libqt_list ([]QSslError)) callconv(.c) void `
     ///
-    pub fn OnSslErrors(self: QNetworkAccessManager, callback: *const fn (QNetworkAccessManager, QNetworkReply, qtc.libqt_list) callconv(.c) void) void {
+    pub fn onSslErrors(self: QNetworkAccessManager, callback: *const fn (QNetworkAccessManager, QNetworkReply, qtc.libqt_list) callconv(.c) void) void {
         qtc.QNetworkAccessManager_Connect_SslErrors(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `preSharedKeyAuthenticationRequired` instead
+    ///
+    pub const PreSharedKeyAuthenticationRequired = preSharedKeyAuthenticationRequired;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#preSharedKeyAuthenticationRequired)
     ///
@@ -1006,11 +1258,15 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` authenticator: QSslPreSharedKeyAuthenticator `
     ///
-    pub fn PreSharedKeyAuthenticationRequired(self: QNetworkAccessManager, reply: anytype, authenticator: anytype) void {
+    pub fn preSharedKeyAuthenticationRequired(self: QNetworkAccessManager, reply: anytype, authenticator: anytype) void {
         comptime _ = @TypeOf(reply)._is_QNetworkReply;
         comptime _ = @TypeOf(authenticator)._is_QSslPreSharedKeyAuthenticator;
         qtc.QNetworkAccessManager_PreSharedKeyAuthenticationRequired(@ptrCast(self.ptr), @ptrCast(reply.ptr), @ptrCast(authenticator.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPreSharedKeyAuthenticationRequired` instead
+    ///
+    pub const OnPreSharedKeyAuthenticationRequired = onPreSharedKeyAuthenticationRequired;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#preSharedKeyAuthenticationRequired)
     ///
@@ -1020,9 +1276,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` callback: *const fn (self: QNetworkAccessManager, reply: QNetworkReply, authenticator: QSslPreSharedKeyAuthenticator) callconv(.c) void `
     ///
-    pub fn OnPreSharedKeyAuthenticationRequired(self: QNetworkAccessManager, callback: *const fn (QNetworkAccessManager, QNetworkReply, QSslPreSharedKeyAuthenticator) callconv(.c) void) void {
+    pub fn onPreSharedKeyAuthenticationRequired(self: QNetworkAccessManager, callback: *const fn (QNetworkAccessManager, QNetworkReply, QSslPreSharedKeyAuthenticator) callconv(.c) void) void {
         qtc.QNetworkAccessManager_Connect_PreSharedKeyAuthenticationRequired(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `createRequest` instead
+    ///
+    pub const CreateRequest = createRequest;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#createRequest)
     ///
@@ -1036,11 +1296,15 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` outgoingData: QIODevice `
     ///
-    pub fn CreateRequest(self: QNetworkAccessManager, op: i32, request: anytype, outgoingData: anytype) QNetworkReply {
+    pub fn createRequest(self: QNetworkAccessManager, op: i32, request: anytype, outgoingData: anytype) QNetworkReply {
         comptime _ = @TypeOf(request)._is_QNetworkRequest;
         comptime _ = @TypeOf(outgoingData)._is_QIODevice;
         return .{ .ptr = qtc.QNetworkAccessManager_CreateRequest(@ptrCast(self.ptr), @bitCast(op), @ptrCast(request.ptr), @ptrCast(outgoingData.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onCreateRequest` instead
+    ///
+    pub const OnCreateRequest = onCreateRequest;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#createRequest)
     ///
@@ -1052,13 +1316,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` callback: *const fn (self: QNetworkAccessManager, op: qnetworkaccessmanager_enums.Operation, request: QNetworkRequest, outgoingData: QIODevice) callconv(.c) QNetworkReply `
     ///
-    pub fn OnCreateRequest(self: QNetworkAccessManager, callback: *const fn (QNetworkAccessManager, i32, QNetworkRequest, QIODevice) callconv(.c) QNetworkReply) void {
+    pub fn onCreateRequest(self: QNetworkAccessManager, callback: *const fn (QNetworkAccessManager, i32, QNetworkRequest, QIODevice) callconv(.c) QNetworkReply) void {
         qtc.QNetworkAccessManager_OnCreateRequest(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCreateRequest` instead
+    /// ### DEPRECATED: Use `superCreateRequest` instead
     ///
-    pub const QBaseCreateRequest = SuperCreateRequest;
+    pub const SuperCreateRequest = superCreateRequest;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#createRequest)
     ///
@@ -1074,11 +1338,15 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` outgoingData: QIODevice `
     ///
-    pub fn SuperCreateRequest(self: QNetworkAccessManager, op: i32, request: anytype, outgoingData: anytype) QNetworkReply {
+    pub fn superCreateRequest(self: QNetworkAccessManager, op: i32, request: anytype, outgoingData: anytype) QNetworkReply {
         comptime _ = @TypeOf(request)._is_QNetworkRequest;
         comptime _ = @TypeOf(outgoingData)._is_QIODevice;
         return .{ .ptr = qtc.QNetworkAccessManager_SuperCreateRequest(@ptrCast(self.ptr), @bitCast(op), @ptrCast(request.ptr), @ptrCast(outgoingData.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `supportedSchemesImplementation` instead
+    ///
+    pub const SupportedSchemesImplementation = supportedSchemesImplementation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#supportedSchemesImplementation)
     ///
@@ -1088,7 +1356,7 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SupportedSchemesImplementation(self: QNetworkAccessManager, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn supportedSchemesImplementation(self: QNetworkAccessManager, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QNetworkAccessManager_SupportedSchemesImplementation(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1096,15 +1364,19 @@ pub const QNetworkAccessManager = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QNetworkAccessManager.SupportedSchemesImplementation: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QNetworkAccessManager.supportedSchemesImplementation: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QNetworkAccessManager.SupportedSchemesImplementation: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QNetworkAccessManager.supportedSchemesImplementation: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onSupportedSchemesImplementation` instead
+    ///
+    pub const OnSupportedSchemesImplementation = onSupportedSchemesImplementation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#supportedSchemesImplementation)
     ///
@@ -1118,13 +1390,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnSupportedSchemesImplementation(self: QNetworkAccessManager, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
+    pub fn onSupportedSchemesImplementation(self: QNetworkAccessManager, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.QNetworkAccessManager_OnSupportedSchemesImplementation(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSupportedSchemesImplementation` instead
+    /// ### DEPRECATED: Use `superSupportedSchemesImplementation` instead
     ///
-    pub const QBaseSupportedSchemesImplementation = SuperSupportedSchemesImplementation;
+    pub const SuperSupportedSchemesImplementation = superSupportedSchemesImplementation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#supportedSchemesImplementation)
     ///
@@ -1136,7 +1408,7 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperSupportedSchemesImplementation(self: QNetworkAccessManager, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn superSupportedSchemesImplementation(self: QNetworkAccessManager, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QNetworkAccessManager_SuperSupportedSchemesImplementation(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1144,15 +1416,19 @@ pub const QNetworkAccessManager = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QNetworkAccessManager.SupportedSchemesImplementation: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QNetworkAccessManager.supportedSchemesImplementation: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QNetworkAccessManager.SupportedSchemesImplementation: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QNetworkAccessManager.supportedSchemesImplementation: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1164,15 +1440,19 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QNetworkAccessManager.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QNetworkAccessManager.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1186,15 +1466,19 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QNetworkAccessManager.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QNetworkAccessManager.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `enableStrictTransportSecurityStore2` instead
+    ///
+    pub const EnableStrictTransportSecurityStore2 = enableStrictTransportSecurityStore2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#enableStrictTransportSecurityStore)
     ///
@@ -1206,13 +1490,17 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` storeDir: []const u8 `
     ///
-    pub fn EnableStrictTransportSecurityStore2(self: QNetworkAccessManager, enabled: bool, storeDir: []const u8) void {
+    pub fn enableStrictTransportSecurityStore2(self: QNetworkAccessManager, enabled: bool, storeDir: []const u8) void {
         const storeDir_str = qtc.libqt_string{
             .len = storeDir.len,
             .data = storeDir.ptr,
         };
         qtc.QNetworkAccessManager_EnableStrictTransportSecurityStore2(@ptrCast(self.ptr), enabled, storeDir_str);
     }
+
+    /// ### DEPRECATED: Use `sendCustomRequest32` instead
+    ///
+    pub const SendCustomRequest32 = sendCustomRequest32;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#sendCustomRequest)
     ///
@@ -1226,7 +1514,7 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` data: QIODevice `
     ///
-    pub fn SendCustomRequest32(self: QNetworkAccessManager, request: anytype, verb: []u8, data: anytype) QNetworkReply {
+    pub fn sendCustomRequest32(self: QNetworkAccessManager, request: anytype, verb: []u8, data: anytype) QNetworkReply {
         comptime _ = @TypeOf(request)._is_QNetworkRequest;
         const verb_str = qtc.libqt_string{
             .len = verb.len,
@@ -1235,6 +1523,10 @@ pub const QNetworkAccessManager = extern struct {
         comptime _ = @TypeOf(data)._is_QIODevice;
         return .{ .ptr = qtc.QNetworkAccessManager_SendCustomRequest32(@ptrCast(self.ptr), @ptrCast(request.ptr), verb_str, @ptrCast(data.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connectToHostEncrypted22` instead
+    ///
+    pub const ConnectToHostEncrypted22 = connectToHostEncrypted22;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#connectToHostEncrypted)
     ///
@@ -1246,13 +1538,17 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` port: u16 `
     ///
-    pub fn ConnectToHostEncrypted22(self: QNetworkAccessManager, hostName: []const u8, port: u16) void {
+    pub fn connectToHostEncrypted22(self: QNetworkAccessManager, hostName: []const u8, port: u16) void {
         const hostName_str = qtc.libqt_string{
             .len = hostName.len,
             .data = hostName.ptr,
         };
         qtc.QNetworkAccessManager_ConnectToHostEncrypted22(@ptrCast(self.ptr), hostName_str, @bitCast(port));
     }
+
+    /// ### DEPRECATED: Use `connectToHostEncrypted3` instead
+    ///
+    pub const ConnectToHostEncrypted3 = connectToHostEncrypted3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#connectToHostEncrypted)
     ///
@@ -1266,7 +1562,7 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` sslConfiguration: QSslConfiguration `
     ///
-    pub fn ConnectToHostEncrypted3(self: QNetworkAccessManager, hostName: []const u8, port: u16, sslConfiguration: anytype) void {
+    pub fn connectToHostEncrypted3(self: QNetworkAccessManager, hostName: []const u8, port: u16, sslConfiguration: anytype) void {
         const hostName_str = qtc.libqt_string{
             .len = hostName.len,
             .data = hostName.ptr,
@@ -1274,6 +1570,10 @@ pub const QNetworkAccessManager = extern struct {
         comptime _ = @TypeOf(sslConfiguration)._is_QSslConfiguration;
         qtc.QNetworkAccessManager_ConnectToHostEncrypted3(@ptrCast(self.ptr), hostName_str, @bitCast(port), @ptrCast(sslConfiguration.ptr));
     }
+
+    /// ### DEPRECATED: Use `connectToHost2` instead
+    ///
+    pub const ConnectToHost2 = connectToHost2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#connectToHost)
     ///
@@ -1285,13 +1585,17 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` port: u16 `
     ///
-    pub fn ConnectToHost2(self: QNetworkAccessManager, hostName: []const u8, port: u16) void {
+    pub fn connectToHost2(self: QNetworkAccessManager, hostName: []const u8, port: u16) void {
         const hostName_str = qtc.libqt_string{
             .len = hostName.len,
             .data = hostName.ptr,
         };
         qtc.QNetworkAccessManager_ConnectToHost2(@ptrCast(self.ptr), hostName_str, @bitCast(port));
     }
+
+    /// ### DEPRECATED: Use `setTransferTimeout1` instead
+    ///
+    pub const SetTransferTimeout1 = setTransferTimeout1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#setTransferTimeout)
     ///
@@ -1301,9 +1605,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` duration: i64 of milliseconds `
     ///
-    pub fn SetTransferTimeout1(self: QNetworkAccessManager, duration: i64) void {
+    pub fn setTransferTimeout1(self: QNetworkAccessManager, duration: i64) void {
         qtc.QNetworkAccessManager_SetTransferTimeout1(@ptrCast(self.ptr), @bitCast(duration));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -1315,13 +1623,17 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QNetworkAccessManager, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QNetworkAccessManager, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QNetworkAccessManager.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QNetworkAccessManager.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -1333,13 +1645,17 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QNetworkAccessManager, name: []const u8) void {
+    pub fn setObjectName(self: QNetworkAccessManager, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -1349,9 +1665,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    pub fn IsWidgetType(self: QNetworkAccessManager) bool {
+    pub fn isWidgetType(self: QNetworkAccessManager) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -1361,9 +1681,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    pub fn IsWindowType(self: QNetworkAccessManager) bool {
+    pub fn isWindowType(self: QNetworkAccessManager) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -1373,9 +1697,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    pub fn IsQuickItemType(self: QNetworkAccessManager) bool {
+    pub fn isQuickItemType(self: QNetworkAccessManager) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -1385,9 +1713,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    pub fn SignalsBlocked(self: QNetworkAccessManager) bool {
+    pub fn signalsBlocked(self: QNetworkAccessManager) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -1399,9 +1731,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QNetworkAccessManager, b: bool) bool {
+    pub fn blockSignals(self: QNetworkAccessManager, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -1411,9 +1747,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    pub fn Thread(self: QNetworkAccessManager) QThread {
+    pub fn thread(self: QNetworkAccessManager) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -1423,12 +1763,16 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QNetworkAccessManager, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QNetworkAccessManager, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -1440,9 +1784,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QNetworkAccessManager, interval: i32) i32 {
+    pub fn startTimer(self: QNetworkAccessManager, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -1454,9 +1802,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QNetworkAccessManager, time: i64) i32 {
+    pub fn startTimer2(self: QNetworkAccessManager, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -1468,9 +1820,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QNetworkAccessManager, id: i32) void {
+    pub fn killTimer(self: QNetworkAccessManager, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -1482,9 +1838,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QNetworkAccessManager, id: i32) void {
+    pub fn killTimer2(self: QNetworkAccessManager, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -1496,15 +1856,19 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QNetworkAccessManager, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QNetworkAccessManager, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QNetworkAccessManager.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QNetworkAccessManager.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -1514,12 +1878,16 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QNetworkAccessManager, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QNetworkAccessManager, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1531,10 +1899,14 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QNetworkAccessManager, filterObj: anytype) void {
+    pub fn installEventFilter(self: QNetworkAccessManager, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1546,10 +1918,14 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QNetworkAccessManager, obj: anytype) void {
+    pub fn removeEventFilter(self: QNetworkAccessManager, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -1557,7 +1933,7 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1565,13 +1941,17 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -1579,7 +1959,7 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1587,13 +1967,17 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1603,18 +1987,22 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QNetworkAccessManager, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QNetworkAccessManager, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1622,7 +2010,7 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1630,13 +2018,17 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1644,7 +2036,7 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1652,13 +2044,17 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1668,9 +2064,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    pub fn Disconnect3(self: QNetworkAccessManager) bool {
+    pub fn disconnect3(self: QNetworkAccessManager) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1682,10 +2082,14 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QNetworkAccessManager, receiver: anytype) bool {
+    pub fn disconnect4(self: QNetworkAccessManager, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1695,10 +2099,14 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1708,9 +2116,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    pub fn DumpObjectTree(self: QNetworkAccessManager) void {
+    pub fn dumpObjectTree(self: QNetworkAccessManager) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1720,9 +2132,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    pub fn DumpObjectInfo(self: QNetworkAccessManager) void {
+    pub fn dumpObjectInfo(self: QNetworkAccessManager) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1736,11 +2152,15 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QNetworkAccessManager, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QNetworkAccessManager, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1752,10 +2172,14 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QNetworkAccessManager, name: [:0]const u8) QVariant {
+    pub fn property(self: QNetworkAccessManager, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1767,7 +2191,7 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QNetworkAccessManager, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QNetworkAccessManager, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1775,27 +2199,19 @@ pub const QNetworkAccessManager = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QNetworkAccessManager.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QNetworkAccessManager.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QNetworkAccessManager.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QNetworkAccessManager.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QNetworkAccessManager `
-    ///
-    pub fn BindingStorage(self: QNetworkAccessManager) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1805,9 +2221,29 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    pub fn BindingStorage2(self: QNetworkAccessManager) QBindingStorage {
+    pub fn bindingStorage(self: QNetworkAccessManager) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QNetworkAccessManager `
+    ///
+    pub fn bindingStorage2(self: QNetworkAccessManager) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1817,9 +2253,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    pub fn Destroyed(self: QNetworkAccessManager) void {
+    pub fn destroyed(self: QNetworkAccessManager) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1831,9 +2271,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` callback: *const fn (self: QNetworkAccessManager) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QNetworkAccessManager, callback: *const fn (QNetworkAccessManager) callconv(.c) void) void {
+    pub fn onDestroyed(self: QNetworkAccessManager, callback: *const fn (QNetworkAccessManager) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1843,9 +2287,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    pub fn Parent(self: QNetworkAccessManager) QObject {
+    pub fn parent(self: QNetworkAccessManager) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1857,10 +2305,14 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QNetworkAccessManager, classname: [:0]const u8) bool {
+    pub fn inherits(self: QNetworkAccessManager, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1870,9 +2322,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    pub fn DeleteLater(self: QNetworkAccessManager) void {
+    pub fn deleteLater(self: QNetworkAccessManager) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1886,9 +2342,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QNetworkAccessManager, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QNetworkAccessManager, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1902,9 +2362,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QNetworkAccessManager, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QNetworkAccessManager, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1912,7 +2376,7 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1922,13 +2386,17 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1936,7 +2404,7 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1946,13 +2414,17 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1962,7 +2434,7 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1970,12 +2442,16 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QNetworkAccessManager, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QNetworkAccessManager, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1987,10 +2463,14 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QNetworkAccessManager, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QNetworkAccessManager, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -2004,11 +2484,15 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QNetworkAccessManager, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QNetworkAccessManager, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -2024,13 +2508,17 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QNetworkAccessManager, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QNetworkAccessManager, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -2043,11 +2531,15 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QNetworkAccessManager, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QNetworkAccessManager, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -2059,10 +2551,14 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QNetworkAccessManager, param1: anytype) void {
+    pub fn destroyed1(self: QNetworkAccessManager, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -2074,9 +2570,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` callback: *const fn (self: QNetworkAccessManager, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QNetworkAccessManager, callback: *const fn (QNetworkAccessManager, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QNetworkAccessManager, callback: *const fn (QNetworkAccessManager, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -2088,16 +2588,16 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QNetworkAccessManager, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QNetworkAccessManager_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QNetworkAccessManager, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QNetworkAccessManager_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -2109,12 +2609,16 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QNetworkAccessManager, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QNetworkAccessManager_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QNetworkAccessManager, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QNetworkAccessManager_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -2128,9 +2632,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` callback: *const fn (self: QNetworkAccessManager, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QNetworkAccessManager, callback: *const fn (QNetworkAccessManager, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QNetworkAccessManager, callback: *const fn (QNetworkAccessManager, QEvent) callconv(.c) bool) void {
         qtc.QNetworkAccessManager_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -2144,17 +2652,17 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QNetworkAccessManager, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QNetworkAccessManager, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QNetworkAccessManager_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QNetworkAccessManager_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2168,13 +2676,17 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QNetworkAccessManager, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QNetworkAccessManager, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QNetworkAccessManager_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QNetworkAccessManager_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2188,9 +2700,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` callback: *const fn (self: QNetworkAccessManager, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QNetworkAccessManager, callback: *const fn (QNetworkAccessManager, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QNetworkAccessManager, callback: *const fn (QNetworkAccessManager, QObject, QEvent) callconv(.c) bool) void {
         qtc.QNetworkAccessManager_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -2202,16 +2718,16 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QNetworkAccessManager, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QNetworkAccessManager_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QNetworkAccessManager, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QNetworkAccessManager_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -2223,12 +2739,16 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QNetworkAccessManager, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QNetworkAccessManager_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QNetworkAccessManager, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QNetworkAccessManager_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -2242,9 +2762,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` callback: *const fn (self: QNetworkAccessManager, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QNetworkAccessManager, callback: *const fn (QNetworkAccessManager, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QNetworkAccessManager, callback: *const fn (QNetworkAccessManager, QTimerEvent) callconv(.c) void) void {
         qtc.QNetworkAccessManager_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -2256,16 +2780,16 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QNetworkAccessManager, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QNetworkAccessManager_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QNetworkAccessManager, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QNetworkAccessManager_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2277,12 +2801,16 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QNetworkAccessManager, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QNetworkAccessManager_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QNetworkAccessManager, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QNetworkAccessManager_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2296,9 +2824,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` callback: *const fn (self: QNetworkAccessManager, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QNetworkAccessManager, callback: *const fn (QNetworkAccessManager, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QNetworkAccessManager, callback: *const fn (QNetworkAccessManager, QChildEvent) callconv(.c) void) void {
         qtc.QNetworkAccessManager_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -2310,16 +2842,16 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QNetworkAccessManager, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QNetworkAccessManager_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QNetworkAccessManager, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QNetworkAccessManager_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2331,12 +2863,16 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QNetworkAccessManager, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QNetworkAccessManager_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QNetworkAccessManager, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QNetworkAccessManager_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2350,9 +2886,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` callback: *const fn (self: QNetworkAccessManager, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QNetworkAccessManager, callback: *const fn (QNetworkAccessManager, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QNetworkAccessManager, callback: *const fn (QNetworkAccessManager, QEvent) callconv(.c) void) void {
         qtc.QNetworkAccessManager_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -2366,14 +2906,14 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QNetworkAccessManager, signal: anytype) void {
+    pub fn connectNotify(self: QNetworkAccessManager, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QNetworkAccessManager_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2387,11 +2927,15 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QNetworkAccessManager, signal: anytype) void {
+    pub fn superConnectNotify(self: QNetworkAccessManager, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QNetworkAccessManager_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -2404,9 +2948,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` callback: *const fn (self: QNetworkAccessManager, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QNetworkAccessManager, callback: *const fn (QNetworkAccessManager, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QNetworkAccessManager, callback: *const fn (QNetworkAccessManager, QMetaMethod) callconv(.c) void) void {
         qtc.QNetworkAccessManager_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2420,14 +2968,14 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QNetworkAccessManager, signal: anytype) void {
+    pub fn disconnectNotify(self: QNetworkAccessManager, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QNetworkAccessManager_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2441,10 +2989,14 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QNetworkAccessManager, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QNetworkAccessManager, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QNetworkAccessManager_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2458,9 +3010,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` callback: *const fn (self: QNetworkAccessManager, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QNetworkAccessManager, callback: *const fn (QNetworkAccessManager, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QNetworkAccessManager, callback: *const fn (QNetworkAccessManager, QMetaMethod) callconv(.c) void) void {
         qtc.QNetworkAccessManager_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -2472,13 +3028,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    pub fn Sender(self: QNetworkAccessManager) QObject {
+    pub fn sender(self: QNetworkAccessManager) QObject {
         return .{ .ptr = qtc.QNetworkAccessManager_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -2490,9 +3046,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    pub fn SuperSender(self: QNetworkAccessManager) QObject {
+    pub fn superSender(self: QNetworkAccessManager) QObject {
         return .{ .ptr = qtc.QNetworkAccessManager_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -2506,9 +3066,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QNetworkAccessManager, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QNetworkAccessManager, callback: *const fn () callconv(.c) QObject) void {
         qtc.QNetworkAccessManager_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2520,13 +3084,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    pub fn SenderSignalIndex(self: QNetworkAccessManager) i32 {
+    pub fn senderSignalIndex(self: QNetworkAccessManager) i32 {
         return qtc.QNetworkAccessManager_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2538,9 +3102,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    pub fn SuperSenderSignalIndex(self: QNetworkAccessManager) i32 {
+    pub fn superSenderSignalIndex(self: QNetworkAccessManager) i32 {
         return qtc.QNetworkAccessManager_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2554,9 +3122,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QNetworkAccessManager, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QNetworkAccessManager, callback: *const fn () callconv(.c) i32) void {
         qtc.QNetworkAccessManager_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -2570,14 +3142,14 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QNetworkAccessManager, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QNetworkAccessManager, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QNetworkAccessManager_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -2591,10 +3163,14 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QNetworkAccessManager, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QNetworkAccessManager, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QNetworkAccessManager_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -2608,9 +3184,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` callback: *const fn (self: QNetworkAccessManager, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QNetworkAccessManager, callback: *const fn (QNetworkAccessManager, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QNetworkAccessManager, callback: *const fn (QNetworkAccessManager, [*:0]const u8) callconv(.c) i32) void {
         qtc.QNetworkAccessManager_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2624,14 +3204,14 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QNetworkAccessManager, signal: anytype) bool {
+    pub fn isSignalConnected(self: QNetworkAccessManager, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QNetworkAccessManager_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2645,10 +3225,14 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QNetworkAccessManager, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QNetworkAccessManager, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QNetworkAccessManager_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2662,9 +3246,13 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` callback: *const fn (self: QNetworkAccessManager, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QNetworkAccessManager, callback: *const fn (QNetworkAccessManager, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QNetworkAccessManager, callback: *const fn (QNetworkAccessManager, QMetaMethod) callconv(.c) bool) void {
         qtc.QNetworkAccessManager_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -2678,23 +3266,23 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` callback: *const fn (self: QNetworkAccessManager, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QNetworkAccessManager, callback: *const fn (QNetworkAccessManager, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QNetworkAccessManager, callback: *const fn (QNetworkAccessManager, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#dtor.QNetworkAccessManager)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QNetworkAccessManager `
     ///
-    pub fn Delete(self: QNetworkAccessManager) void {
+    pub fn delete(self: QNetworkAccessManager) void {
         qtc.QNetworkAccessManager_Delete(@ptrCast(self.ptr));
     }
 };

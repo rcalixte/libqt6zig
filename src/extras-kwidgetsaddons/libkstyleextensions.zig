@@ -13,6 +13,10 @@ pub const KStyleExtensions = extern struct {
 
     pub const _is_KStyleExtensions = {};
 
+    /// ### DEPRECATED: Use `customControlElement` instead
+    ///
+    pub const CustomControlElement = customControlElement;
+
     /// ### [Upstream resources](https://api.kde.org/kstyleextensions.html#customControlElement)
     ///
     /// ## Parameter(s):
@@ -25,7 +29,7 @@ pub const KStyleExtensions = extern struct {
     ///
     /// ` qstyle_enums.ControlElement `
     ///
-    pub fn CustomControlElement(element: []const u8, widget: anytype) i32 {
+    pub fn customControlElement(element: []const u8, widget: anytype) i32 {
         const element_str = qtc.libqt_string{
             .len = element.len,
             .data = element.ptr,
@@ -33,6 +37,10 @@ pub const KStyleExtensions = extern struct {
         comptime _ = @TypeOf(widget)._is_QWidget;
         return qtc.KStyleExtensions_CustomControlElement(element_str, @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `customStyleHint` instead
+    ///
+    pub const CustomStyleHint = customStyleHint;
 
     /// ### [Upstream resources](https://api.kde.org/kstyleextensions.html#customStyleHint)
     ///
@@ -46,7 +54,7 @@ pub const KStyleExtensions = extern struct {
     ///
     /// ` qstyle_enums.StyleHint `
     ///
-    pub fn CustomStyleHint(element: []const u8, widget: anytype) i32 {
+    pub fn customStyleHint(element: []const u8, widget: anytype) i32 {
         const element_str = qtc.libqt_string{
             .len = element.len,
             .data = element.ptr,
@@ -54,6 +62,10 @@ pub const KStyleExtensions = extern struct {
         comptime _ = @TypeOf(widget)._is_QWidget;
         return qtc.KStyleExtensions_CustomStyleHint(element_str, @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `customSubElement` instead
+    ///
+    pub const CustomSubElement = customSubElement;
 
     /// ### [Upstream resources](https://api.kde.org/kstyleextensions.html#customSubElement)
     ///
@@ -67,7 +79,7 @@ pub const KStyleExtensions = extern struct {
     ///
     /// ` qstyle_enums.SubElement `
     ///
-    pub fn CustomSubElement(element: []const u8, widget: anytype) i32 {
+    pub fn customSubElement(element: []const u8, widget: anytype) i32 {
         const element_str = qtc.libqt_string{
             .len = element.len,
             .data = element.ptr,

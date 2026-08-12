@@ -33,19 +33,27 @@ pub const KIconLoader = extern struct {
     pub const _is_KIconLoader = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new KIconLoader object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KIconLoader {
+    pub const New = new;
+
+    /// Allocate a new KIconLoader object in C++ memory
+    ///
+    pub fn new() KIconLoader {
         return .{ .ptr = qtc.KIconLoader_new() };
     }
 
-    /// New2 constructs a new KIconLoader object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KIconLoader object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` appname: []const u8 `
     ///
-    pub fn New2(appname: []const u8) KIconLoader {
+    pub fn new2(appname: []const u8) KIconLoader {
         const appname_str = qtc.libqt_string{
             .len = appname.len,
             .data = appname.ptr,
@@ -53,7 +61,11 @@ pub const KIconLoader = extern struct {
         return .{ .ptr = qtc.KIconLoader_new2(appname_str) };
     }
 
-    /// New3 constructs a new KIconLoader object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new KIconLoader object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -63,17 +75,17 @@ pub const KIconLoader = extern struct {
     ///
     /// ` extraSearchPaths: []const []const u8 `
     ///
-    pub fn New3(allocator: std.mem.Allocator, appname: []const u8, extraSearchPaths: []const []const u8) KIconLoader {
+    pub fn new3(allocator: std.mem.Allocator, appname: []const u8, extraSearchPaths: []const []const u8) KIconLoader {
         const appname_str = qtc.libqt_string{
             .len = appname.len,
             .data = appname.ptr,
         };
-        const extraSearchPaths_arr = allocator.alloc(qtc.libqt_string, extraSearchPaths.len) catch @panic("KIconLoader.New3: Memory allocation failed");
+        const extraSearchPaths_arr = allocator.alloc(qtc.libqt_string, extraSearchPaths.len) catch @panic("KIconLoader.new3: Memory allocation failed");
         defer allocator.free(extraSearchPaths_arr);
-        for (extraSearchPaths, 0..extraSearchPaths.len) |item, i|
+        for (extraSearchPaths, 0..extraSearchPaths.len) |str_item, i|
             extraSearchPaths_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const extraSearchPaths_list = qtc.libqt_list{
             .len = extraSearchPaths.len,
@@ -82,7 +94,11 @@ pub const KIconLoader = extern struct {
         return .{ .ptr = qtc.KIconLoader_new3(appname_str, extraSearchPaths_list) };
     }
 
-    /// New4 constructs a new KIconLoader object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new KIconLoader object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -92,27 +108,31 @@ pub const KIconLoader = extern struct {
     ///
     /// ` extraSearchPaths: []const []const u8 `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New4(allocator: std.mem.Allocator, appname: []const u8, extraSearchPaths: []const []const u8, parent: anytype) KIconLoader {
+    pub fn new4(allocator: std.mem.Allocator, appname: []const u8, extraSearchPaths: []const []const u8, _parent: anytype) KIconLoader {
         const appname_str = qtc.libqt_string{
             .len = appname.len,
             .data = appname.ptr,
         };
-        const extraSearchPaths_arr = allocator.alloc(qtc.libqt_string, extraSearchPaths.len) catch @panic("KIconLoader.New4: Memory allocation failed");
+        const extraSearchPaths_arr = allocator.alloc(qtc.libqt_string, extraSearchPaths.len) catch @panic("KIconLoader.new4: Memory allocation failed");
         defer allocator.free(extraSearchPaths_arr);
-        for (extraSearchPaths, 0..extraSearchPaths.len) |item, i|
+        for (extraSearchPaths, 0..extraSearchPaths.len) |str_item, i|
             extraSearchPaths_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const extraSearchPaths_list = qtc.libqt_list{
             .len = extraSearchPaths.len,
             .data = extraSearchPaths_arr.ptr,
         };
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.KIconLoader_new4(appname_str, extraSearchPaths_list, @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.KIconLoader_new4(appname_str, extraSearchPaths_list, @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -120,9 +140,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` self: KIconLoader `
     ///
-    pub fn MetaObject(self: KIconLoader) QMetaObject {
+    pub fn metaObject(self: KIconLoader) QMetaObject {
         return .{ .ptr = qtc.KIconLoader_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -134,13 +158,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KIconLoader, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KIconLoader, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KIconLoader_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -150,9 +174,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` self: KIconLoader `
     ///
-    pub fn SuperMetaObject(self: KIconLoader) QMetaObject {
+    pub fn superMetaObject(self: KIconLoader) QMetaObject {
         return .{ .ptr = qtc.KIconLoader_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -160,10 +188,14 @@ pub const KIconLoader = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KIconLoader, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KIconLoader, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KIconLoader_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -173,13 +205,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` callback: *const fn (self: KIconLoader, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KIconLoader, callback: *const fn (KIconLoader, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KIconLoader, callback: *const fn (KIconLoader, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KIconLoader_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -189,10 +221,14 @@ pub const KIconLoader = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KIconLoader, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KIconLoader, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KIconLoader_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -204,9 +240,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KIconLoader, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KIconLoader, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KIconLoader_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -216,13 +256,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` callback: *const fn (self: KIconLoader, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KIconLoader, callback: *const fn (KIconLoader, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KIconLoader, callback: *const fn (KIconLoader, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KIconLoader_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -236,9 +276,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KIconLoader, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KIconLoader, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KIconLoader_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -248,20 +292,28 @@ pub const KIconLoader = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconLoader.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconLoader.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `global` instead
+    ///
+    pub const Global = global;
+
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#global)
     ///
-    pub fn Global() KIconLoader {
+    pub fn global() KIconLoader {
         return .{ .ptr = qtc.KIconLoader_Global() };
     }
+
+    /// ### DEPRECATED: Use `addAppDir` instead
+    ///
+    pub const AddAppDir = addAppDir;
 
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#addAppDir)
     ///
@@ -271,13 +323,17 @@ pub const KIconLoader = extern struct {
     ///
     /// ` appname: []const u8 `
     ///
-    pub fn AddAppDir(self: KIconLoader, appname: []const u8) void {
+    pub fn addAppDir(self: KIconLoader, appname: []const u8) void {
         const appname_str = qtc.libqt_string{
             .len = appname.len,
             .data = appname.ptr,
         };
         qtc.KIconLoader_AddAppDir(@ptrCast(self.ptr), appname_str);
     }
+
+    /// ### DEPRECATED: Use `loadIcon` instead
+    ///
+    pub const LoadIcon = loadIcon;
 
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#loadIcon)
     ///
@@ -289,13 +345,17 @@ pub const KIconLoader = extern struct {
     ///
     /// ` group: kiconloader_enums.Group `
     ///
-    pub fn LoadIcon(self: KIconLoader, name: []const u8, group: i32) QPixmap {
+    pub fn loadIcon(self: KIconLoader, name: []const u8, group: i32) QPixmap {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         return .{ .ptr = qtc.KIconLoader_LoadIcon(@ptrCast(self.ptr), name_str, @bitCast(group)) };
     }
+
+    /// ### DEPRECATED: Use `loadMimeTypeIcon` instead
+    ///
+    pub const LoadMimeTypeIcon = loadMimeTypeIcon;
 
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#loadMimeTypeIcon)
     ///
@@ -307,13 +367,17 @@ pub const KIconLoader = extern struct {
     ///
     /// ` group: kiconloader_enums.Group `
     ///
-    pub fn LoadMimeTypeIcon(self: KIconLoader, iconName: []const u8, group: i32) QPixmap {
+    pub fn loadMimeTypeIcon(self: KIconLoader, iconName: []const u8, group: i32) QPixmap {
         const iconName_str = qtc.libqt_string{
             .len = iconName.len,
             .data = iconName.ptr,
         };
         return .{ .ptr = qtc.KIconLoader_LoadMimeTypeIcon(@ptrCast(self.ptr), iconName_str, @bitCast(group)) };
     }
+
+    /// ### DEPRECATED: Use `iconPath` instead
+    ///
+    pub const IconPath = iconPath;
 
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#iconPath)
     ///
@@ -327,17 +391,21 @@ pub const KIconLoader = extern struct {
     ///
     /// ` group_or_size: i32 `
     ///
-    pub fn IconPath(self: KIconLoader, allocator: std.mem.Allocator, name: []const u8, group_or_size: i32) []const u8 {
+    pub fn iconPath(self: KIconLoader, allocator: std.mem.Allocator, name: []const u8, group_or_size: i32) []const u8 {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         var _str = qtc.KIconLoader_IconPath(@ptrCast(self.ptr), name_str, @bitCast(group_or_size));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconLoader.IconPath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconLoader.iconPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `iconPath2` instead
+    ///
+    pub const IconPath2 = iconPath2;
 
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#iconPath)
     ///
@@ -355,17 +423,21 @@ pub const KIconLoader = extern struct {
     ///
     /// ` scale: f64 `
     ///
-    pub fn IconPath2(self: KIconLoader, allocator: std.mem.Allocator, name: []const u8, group_or_size: i32, canReturnNull: bool, scale: f64) []const u8 {
+    pub fn iconPath2(self: KIconLoader, allocator: std.mem.Allocator, name: []const u8, group_or_size: i32, canReturnNull: bool, scale: f64) []const u8 {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         var _str = qtc.KIconLoader_IconPath2(@ptrCast(self.ptr), name_str, @bitCast(group_or_size), canReturnNull, @bitCast(scale));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconLoader.IconPath2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconLoader.iconPath2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `loadMovie` instead
+    ///
+    pub const LoadMovie = loadMovie;
 
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#loadMovie)
     ///
@@ -377,13 +449,17 @@ pub const KIconLoader = extern struct {
     ///
     /// ` group: kiconloader_enums.Group `
     ///
-    pub fn LoadMovie(self: KIconLoader, name: []const u8, group: i32) QMovie {
+    pub fn loadMovie(self: KIconLoader, name: []const u8, group: i32) QMovie {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         return .{ .ptr = qtc.KIconLoader_LoadMovie(@ptrCast(self.ptr), name_str, @bitCast(group)) };
     }
+
+    /// ### DEPRECATED: Use `moviePath` instead
+    ///
+    pub const MoviePath = moviePath;
 
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#moviePath)
     ///
@@ -397,17 +473,21 @@ pub const KIconLoader = extern struct {
     ///
     /// ` group: kiconloader_enums.Group `
     ///
-    pub fn MoviePath(self: KIconLoader, allocator: std.mem.Allocator, name: []const u8, group: i32) []const u8 {
+    pub fn moviePath(self: KIconLoader, allocator: std.mem.Allocator, name: []const u8, group: i32) []const u8 {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         var _str = qtc.KIconLoader_MoviePath(@ptrCast(self.ptr), name_str, @bitCast(group));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconLoader.MoviePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconLoader.moviePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `loadAnimated` instead
+    ///
+    pub const LoadAnimated = loadAnimated;
 
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#loadAnimated)
     ///
@@ -421,7 +501,7 @@ pub const KIconLoader = extern struct {
     ///
     /// ` group: kiconloader_enums.Group `
     ///
-    pub fn LoadAnimated(self: KIconLoader, allocator: std.mem.Allocator, name: []const u8, group: i32) []const []const u8 {
+    pub fn loadAnimated(self: KIconLoader, allocator: std.mem.Allocator, name: []const u8, group: i32) []const []const u8 {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -433,15 +513,19 @@ pub const KIconLoader = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KIconLoader.LoadAnimated: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KIconLoader.loadAnimated: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KIconLoader.LoadAnimated: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KIconLoader.loadAnimated: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `queryIcons` instead
+    ///
+    pub const QueryIcons = queryIcons;
 
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#queryIcons)
     ///
@@ -451,7 +535,7 @@ pub const KIconLoader = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QueryIcons(self: KIconLoader, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn queryIcons(self: KIconLoader, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KIconLoader_QueryIcons(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -459,15 +543,19 @@ pub const KIconLoader = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KIconLoader.QueryIcons: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KIconLoader.queryIcons: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KIconLoader.QueryIcons: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KIconLoader.queryIcons: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `queryIcons2` instead
+    ///
+    pub const QueryIcons2 = queryIcons2;
 
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#queryIcons)
     ///
@@ -479,7 +567,7 @@ pub const KIconLoader = extern struct {
     ///
     /// ` group_or_size: i32 `
     ///
-    pub fn QueryIcons2(self: KIconLoader, allocator: std.mem.Allocator, group_or_size: i32) []const []const u8 {
+    pub fn queryIcons2(self: KIconLoader, allocator: std.mem.Allocator, group_or_size: i32) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KIconLoader_QueryIcons2(@ptrCast(self.ptr), @bitCast(group_or_size));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -487,15 +575,19 @@ pub const KIconLoader = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KIconLoader.QueryIcons2: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KIconLoader.queryIcons2: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KIconLoader.QueryIcons2: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KIconLoader.queryIcons2: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `queryIconsByContext` instead
+    ///
+    pub const QueryIconsByContext = queryIconsByContext;
 
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#queryIconsByContext)
     ///
@@ -507,7 +599,7 @@ pub const KIconLoader = extern struct {
     ///
     /// ` group_or_size: i32 `
     ///
-    pub fn QueryIconsByContext(self: KIconLoader, allocator: std.mem.Allocator, group_or_size: i32) []const []const u8 {
+    pub fn queryIconsByContext(self: KIconLoader, allocator: std.mem.Allocator, group_or_size: i32) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KIconLoader_QueryIconsByContext(@ptrCast(self.ptr), @bitCast(group_or_size));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -515,15 +607,19 @@ pub const KIconLoader = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KIconLoader.QueryIconsByContext: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KIconLoader.queryIconsByContext: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KIconLoader.QueryIconsByContext: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KIconLoader.queryIconsByContext: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `hasContext` instead
+    ///
+    pub const HasContext = hasContext;
 
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#hasContext)
     ///
@@ -533,9 +629,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` context: kiconloader_enums.Context `
     ///
-    pub fn HasContext(self: KIconLoader, context: i32) bool {
+    pub fn hasContext(self: KIconLoader, context: i32) bool {
         return qtc.KIconLoader_HasContext(@ptrCast(self.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `queryIconsByDir` instead
+    ///
+    pub const QueryIconsByDir = queryIconsByDir;
 
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#queryIconsByDir)
     ///
@@ -547,7 +647,7 @@ pub const KIconLoader = extern struct {
     ///
     /// ` iconsDir: []const u8 `
     ///
-    pub fn QueryIconsByDir(self: KIconLoader, allocator: std.mem.Allocator, iconsDir: []const u8) []const []const u8 {
+    pub fn queryIconsByDir(self: KIconLoader, allocator: std.mem.Allocator, iconsDir: []const u8) []const []const u8 {
         const iconsDir_str = qtc.libqt_string{
             .len = iconsDir.len,
             .data = iconsDir.ptr,
@@ -559,15 +659,19 @@ pub const KIconLoader = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KIconLoader.QueryIconsByDir: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KIconLoader.queryIconsByDir: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KIconLoader.QueryIconsByDir: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KIconLoader.queryIconsByDir: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `searchPaths` instead
+    ///
+    pub const SearchPaths = searchPaths;
 
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#searchPaths)
     ///
@@ -577,7 +681,7 @@ pub const KIconLoader = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SearchPaths(self: KIconLoader, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn searchPaths(self: KIconLoader, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KIconLoader_SearchPaths(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -585,15 +689,19 @@ pub const KIconLoader = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KIconLoader.SearchPaths: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KIconLoader.searchPaths: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KIconLoader.SearchPaths: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KIconLoader.searchPaths: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `currentSize` instead
+    ///
+    pub const CurrentSize = currentSize;
 
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#currentSize)
     ///
@@ -603,9 +711,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` group: kiconloader_enums.Group `
     ///
-    pub fn CurrentSize(self: KIconLoader, group: i32) i32 {
+    pub fn currentSize(self: KIconLoader, group: i32) i32 {
         return qtc.KIconLoader_CurrentSize(@ptrCast(self.ptr), @bitCast(group));
     }
+
+    /// ### DEPRECATED: Use `theme` instead
+    ///
+    pub const Theme = theme;
 
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#theme)
     ///
@@ -613,9 +725,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` self: KIconLoader `
     ///
-    pub fn Theme(self: KIconLoader) KIconTheme {
+    pub fn theme(self: KIconLoader) KIconTheme {
         return .{ .ptr = qtc.KIconLoader_Theme(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `iconEffect` instead
+    ///
+    pub const IconEffect = iconEffect;
 
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#iconEffect)
     ///
@@ -623,9 +739,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` self: KIconLoader `
     ///
-    pub fn IconEffect(self: KIconLoader) KIconEffect {
+    pub fn iconEffect(self: KIconLoader) KIconEffect {
         return .{ .ptr = qtc.KIconLoader_IconEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `reconfigure` instead
+    ///
+    pub const Reconfigure = reconfigure;
 
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#reconfigure)
     ///
@@ -635,7 +755,7 @@ pub const KIconLoader = extern struct {
     ///
     /// ` appname: []const u8 `
     ///
-    pub fn Reconfigure(self: KIconLoader, appname: []const u8) void {
+    pub fn reconfigure(self: KIconLoader, appname: []const u8) void {
         const appname_str = qtc.libqt_string{
             .len = appname.len,
             .data = appname.ptr,
@@ -643,11 +763,19 @@ pub const KIconLoader = extern struct {
         qtc.KIconLoader_Reconfigure(@ptrCast(self.ptr), appname_str);
     }
 
+    /// ### DEPRECATED: Use `unknown` instead
+    ///
+    pub const Unknown = unknown;
+
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#unknown)
     ///
-    pub fn Unknown() QPixmap {
+    pub fn unknown() QPixmap {
         return .{ .ptr = qtc.KIconLoader_Unknown() };
     }
+
+    /// ### DEPRECATED: Use `drawOverlays` instead
+    ///
+    pub const DrawOverlays = drawOverlays;
 
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#drawOverlays)
     ///
@@ -663,13 +791,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` group: kiconloader_enums.Group `
     ///
-    pub fn DrawOverlays(self: KIconLoader, allocator: std.mem.Allocator, overlays: []const []const u8, pixmap: anytype, group: i32) void {
-        const overlays_arr = allocator.alloc(qtc.libqt_string, overlays.len) catch @panic("KIconLoader.DrawOverlays: Memory allocation failed");
+    pub fn drawOverlays(self: KIconLoader, allocator: std.mem.Allocator, overlays: []const []const u8, pixmap: anytype, group: i32) void {
+        const overlays_arr = allocator.alloc(qtc.libqt_string, overlays.len) catch @panic("KIconLoader.drawOverlays: Memory allocation failed");
         defer allocator.free(overlays_arr);
-        for (overlays, 0..overlays.len) |item, i|
+        for (overlays, 0..overlays.len) |str_item, i|
             overlays_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const overlays_list = qtc.libqt_list{
             .len = overlays.len,
@@ -679,6 +807,10 @@ pub const KIconLoader = extern struct {
         qtc.KIconLoader_DrawOverlays(@ptrCast(self.ptr), overlays_list, @ptrCast(pixmap.ptr), @bitCast(group));
     }
 
+    /// ### DEPRECATED: Use `hasIcon` instead
+    ///
+    pub const HasIcon = hasIcon;
+
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#hasIcon)
     ///
     /// ## Parameter(s):
@@ -687,13 +819,17 @@ pub const KIconLoader = extern struct {
     ///
     /// ` iconName: []const u8 `
     ///
-    pub fn HasIcon(self: KIconLoader, iconName: []const u8) bool {
+    pub fn hasIcon(self: KIconLoader, iconName: []const u8) bool {
         const iconName_str = qtc.libqt_string{
             .len = iconName.len,
             .data = iconName.ptr,
         };
         return qtc.KIconLoader_HasIcon(@ptrCast(self.ptr), iconName_str);
     }
+
+    /// ### DEPRECATED: Use `setCustomPalette` instead
+    ///
+    pub const SetCustomPalette = setCustomPalette;
 
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#setCustomPalette)
     ///
@@ -703,10 +839,14 @@ pub const KIconLoader = extern struct {
     ///
     /// ` palette: QPalette `
     ///
-    pub fn SetCustomPalette(self: KIconLoader, palette: anytype) void {
+    pub fn setCustomPalette(self: KIconLoader, palette: anytype) void {
         comptime _ = @TypeOf(palette)._is_QPalette;
         qtc.KIconLoader_SetCustomPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `customPalette` instead
+    ///
+    pub const CustomPalette = customPalette;
 
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#customPalette)
     ///
@@ -714,9 +854,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` self: KIconLoader `
     ///
-    pub fn CustomPalette(self: KIconLoader) QPalette {
+    pub fn customPalette(self: KIconLoader) QPalette {
         return .{ .ptr = qtc.KIconLoader_CustomPalette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `resetPalette` instead
+    ///
+    pub const ResetPalette = resetPalette;
 
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#resetPalette)
     ///
@@ -724,9 +868,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` self: KIconLoader `
     ///
-    pub fn ResetPalette(self: KIconLoader) void {
+    pub fn resetPalette(self: KIconLoader) void {
         qtc.KIconLoader_ResetPalette(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasCustomPalette` instead
+    ///
+    pub const HasCustomPalette = hasCustomPalette;
 
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#hasCustomPalette)
     ///
@@ -734,9 +882,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` self: KIconLoader `
     ///
-    pub fn HasCustomPalette(self: KIconLoader) bool {
+    pub fn hasCustomPalette(self: KIconLoader) bool {
         return qtc.KIconLoader_HasCustomPalette(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `newIconLoader` instead
+    ///
+    pub const NewIconLoader = newIconLoader;
 
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#newIconLoader)
     ///
@@ -744,9 +896,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` self: KIconLoader `
     ///
-    pub fn NewIconLoader(self: KIconLoader) void {
+    pub fn newIconLoader(self: KIconLoader) void {
         qtc.KIconLoader_NewIconLoader(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `emitChange` instead
+    ///
+    pub const EmitChange = emitChange;
 
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#emitChange)
     ///
@@ -754,9 +910,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` group: kiconloader_enums.Group `
     ///
-    pub fn EmitChange(group: i32) void {
+    pub fn emitChange(group: i32) void {
         qtc.KIconLoader_EmitChange(@bitCast(group));
     }
+
+    /// ### DEPRECATED: Use `iconLoaderSettingsChanged` instead
+    ///
+    pub const IconLoaderSettingsChanged = iconLoaderSettingsChanged;
 
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#iconLoaderSettingsChanged)
     ///
@@ -764,9 +924,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` self: KIconLoader `
     ///
-    pub fn IconLoaderSettingsChanged(self: KIconLoader) void {
+    pub fn iconLoaderSettingsChanged(self: KIconLoader) void {
         qtc.KIconLoader_IconLoaderSettingsChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIconLoaderSettingsChanged` instead
+    ///
+    pub const OnIconLoaderSettingsChanged = onIconLoaderSettingsChanged;
 
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#iconLoaderSettingsChanged)
     ///
@@ -776,9 +940,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` callback: *const fn (self: KIconLoader) callconv(.c) void `
     ///
-    pub fn OnIconLoaderSettingsChanged(self: KIconLoader, callback: *const fn (KIconLoader) callconv(.c) void) void {
+    pub fn onIconLoaderSettingsChanged(self: KIconLoader, callback: *const fn (KIconLoader) callconv(.c) void) void {
         qtc.KIconLoader_Connect_IconLoaderSettingsChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `iconChanged` instead
+    ///
+    pub const IconChanged = iconChanged;
 
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#iconChanged)
     ///
@@ -788,9 +956,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` group: i32 `
     ///
-    pub fn IconChanged(self: KIconLoader, group: i32) void {
+    pub fn iconChanged(self: KIconLoader, group: i32) void {
         qtc.KIconLoader_IconChanged(@ptrCast(self.ptr), @bitCast(group));
     }
+
+    /// ### DEPRECATED: Use `onIconChanged` instead
+    ///
+    pub const OnIconChanged = onIconChanged;
 
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#iconChanged)
     ///
@@ -800,9 +972,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` callback: *const fn (self: KIconLoader, group: i32) callconv(.c) void `
     ///
-    pub fn OnIconChanged(self: KIconLoader, callback: *const fn (KIconLoader, i32) callconv(.c) void) void {
+    pub fn onIconChanged(self: KIconLoader, callback: *const fn (KIconLoader, i32) callconv(.c) void) void {
         qtc.KIconLoader_Connect_IconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -814,15 +990,19 @@ pub const KIconLoader = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconLoader.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconLoader.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -836,15 +1016,19 @@ pub const KIconLoader = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconLoader.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconLoader.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAppDir2` instead
+    ///
+    pub const AddAppDir2 = addAppDir2;
 
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#addAppDir)
     ///
@@ -856,7 +1040,7 @@ pub const KIconLoader = extern struct {
     ///
     /// ` themeBaseDir: []const u8 `
     ///
-    pub fn AddAppDir2(self: KIconLoader, appname: []const u8, themeBaseDir: []const u8) void {
+    pub fn addAppDir2(self: KIconLoader, appname: []const u8, themeBaseDir: []const u8) void {
         const appname_str = qtc.libqt_string{
             .len = appname.len,
             .data = appname.ptr,
@@ -868,6 +1052,10 @@ pub const KIconLoader = extern struct {
         qtc.KIconLoader_AddAppDir2(@ptrCast(self.ptr), appname_str, themeBaseDir_str);
     }
 
+    /// ### DEPRECATED: Use `loadIcon3` instead
+    ///
+    pub const LoadIcon3 = loadIcon3;
+
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#loadIcon)
     ///
     /// ## Parameter(s):
@@ -880,13 +1068,17 @@ pub const KIconLoader = extern struct {
     ///
     /// ` size: i32 `
     ///
-    pub fn LoadIcon3(self: KIconLoader, name: []const u8, group: i32, size: i32) QPixmap {
+    pub fn loadIcon3(self: KIconLoader, name: []const u8, group: i32, size: i32) QPixmap {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         return .{ .ptr = qtc.KIconLoader_LoadIcon3(@ptrCast(self.ptr), name_str, @bitCast(group), @bitCast(size)) };
     }
+
+    /// ### DEPRECATED: Use `loadIcon4` instead
+    ///
+    pub const LoadIcon4 = loadIcon4;
 
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#loadIcon)
     ///
@@ -902,13 +1094,17 @@ pub const KIconLoader = extern struct {
     ///
     /// ` state: i32 `
     ///
-    pub fn LoadIcon4(self: KIconLoader, name: []const u8, group: i32, size: i32, state: i32) QPixmap {
+    pub fn loadIcon4(self: KIconLoader, name: []const u8, group: i32, size: i32, state: i32) QPixmap {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         return .{ .ptr = qtc.KIconLoader_LoadIcon4(@ptrCast(self.ptr), name_str, @bitCast(group), @bitCast(size), @bitCast(state)) };
     }
+
+    /// ### DEPRECATED: Use `loadIcon5` instead
+    ///
+    pub const LoadIcon5 = loadIcon5;
 
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#loadIcon)
     ///
@@ -928,17 +1124,17 @@ pub const KIconLoader = extern struct {
     ///
     /// ` overlays: []const []const u8 `
     ///
-    pub fn LoadIcon5(self: KIconLoader, allocator: std.mem.Allocator, name: []const u8, group: i32, size: i32, state: i32, overlays: []const []const u8) QPixmap {
+    pub fn loadIcon5(self: KIconLoader, allocator: std.mem.Allocator, name: []const u8, group: i32, size: i32, state: i32, overlays: []const []const u8) QPixmap {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        const overlays_arr = allocator.alloc(qtc.libqt_string, overlays.len) catch @panic("KIconLoader.LoadIcon5: Memory allocation failed");
+        const overlays_arr = allocator.alloc(qtc.libqt_string, overlays.len) catch @panic("KIconLoader.loadIcon5: Memory allocation failed");
         defer allocator.free(overlays_arr);
-        for (overlays, 0..overlays.len) |item, i|
+        for (overlays, 0..overlays.len) |str_item, i|
             overlays_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const overlays_list = qtc.libqt_list{
             .len = overlays.len,
@@ -947,6 +1143,10 @@ pub const KIconLoader = extern struct {
         return .{ .ptr = qtc.KIconLoader_LoadIcon5(@ptrCast(self.ptr), name_str, @bitCast(group), @bitCast(size), @bitCast(state), overlays_list) };
     }
 
+    /// ### DEPRECATED: Use `loadMimeTypeIcon3` instead
+    ///
+    pub const LoadMimeTypeIcon3 = loadMimeTypeIcon3;
+
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#loadMimeTypeIcon)
     ///
     /// ## Parameter(s):
@@ -959,13 +1159,17 @@ pub const KIconLoader = extern struct {
     ///
     /// ` size: i32 `
     ///
-    pub fn LoadMimeTypeIcon3(self: KIconLoader, iconName: []const u8, group: i32, size: i32) QPixmap {
+    pub fn loadMimeTypeIcon3(self: KIconLoader, iconName: []const u8, group: i32, size: i32) QPixmap {
         const iconName_str = qtc.libqt_string{
             .len = iconName.len,
             .data = iconName.ptr,
         };
         return .{ .ptr = qtc.KIconLoader_LoadMimeTypeIcon3(@ptrCast(self.ptr), iconName_str, @bitCast(group), @bitCast(size)) };
     }
+
+    /// ### DEPRECATED: Use `loadMimeTypeIcon4` instead
+    ///
+    pub const LoadMimeTypeIcon4 = loadMimeTypeIcon4;
 
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#loadMimeTypeIcon)
     ///
@@ -981,13 +1185,17 @@ pub const KIconLoader = extern struct {
     ///
     /// ` state: i32 `
     ///
-    pub fn LoadMimeTypeIcon4(self: KIconLoader, iconName: []const u8, group: i32, size: i32, state: i32) QPixmap {
+    pub fn loadMimeTypeIcon4(self: KIconLoader, iconName: []const u8, group: i32, size: i32, state: i32) QPixmap {
         const iconName_str = qtc.libqt_string{
             .len = iconName.len,
             .data = iconName.ptr,
         };
         return .{ .ptr = qtc.KIconLoader_LoadMimeTypeIcon4(@ptrCast(self.ptr), iconName_str, @bitCast(group), @bitCast(size), @bitCast(state)) };
     }
+
+    /// ### DEPRECATED: Use `loadMimeTypeIcon5` instead
+    ///
+    pub const LoadMimeTypeIcon5 = loadMimeTypeIcon5;
 
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#loadMimeTypeIcon)
     ///
@@ -1007,17 +1215,17 @@ pub const KIconLoader = extern struct {
     ///
     /// ` overlays: []const []const u8 `
     ///
-    pub fn LoadMimeTypeIcon5(self: KIconLoader, allocator: std.mem.Allocator, iconName: []const u8, group: i32, size: i32, state: i32, overlays: []const []const u8) QPixmap {
+    pub fn loadMimeTypeIcon5(self: KIconLoader, allocator: std.mem.Allocator, iconName: []const u8, group: i32, size: i32, state: i32, overlays: []const []const u8) QPixmap {
         const iconName_str = qtc.libqt_string{
             .len = iconName.len,
             .data = iconName.ptr,
         };
-        const overlays_arr = allocator.alloc(qtc.libqt_string, overlays.len) catch @panic("KIconLoader.LoadMimeTypeIcon5: Memory allocation failed");
+        const overlays_arr = allocator.alloc(qtc.libqt_string, overlays.len) catch @panic("KIconLoader.loadMimeTypeIcon5: Memory allocation failed");
         defer allocator.free(overlays_arr);
-        for (overlays, 0..overlays.len) |item, i|
+        for (overlays, 0..overlays.len) |str_item, i|
             overlays_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const overlays_list = qtc.libqt_list{
             .len = overlays.len,
@@ -1025,6 +1233,10 @@ pub const KIconLoader = extern struct {
         };
         return .{ .ptr = qtc.KIconLoader_LoadMimeTypeIcon5(@ptrCast(self.ptr), iconName_str, @bitCast(group), @bitCast(size), @bitCast(state), overlays_list) };
     }
+
+    /// ### DEPRECATED: Use `iconPath3` instead
+    ///
+    pub const IconPath3 = iconPath3;
 
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#iconPath)
     ///
@@ -1040,17 +1252,21 @@ pub const KIconLoader = extern struct {
     ///
     /// ` canReturnNull: bool `
     ///
-    pub fn IconPath3(self: KIconLoader, allocator: std.mem.Allocator, name: []const u8, group_or_size: i32, canReturnNull: bool) []const u8 {
+    pub fn iconPath3(self: KIconLoader, allocator: std.mem.Allocator, name: []const u8, group_or_size: i32, canReturnNull: bool) []const u8 {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         var _str = qtc.KIconLoader_IconPath3(@ptrCast(self.ptr), name_str, @bitCast(group_or_size), canReturnNull);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconLoader.IconPath3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconLoader.iconPath3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `loadMovie3` instead
+    ///
+    pub const LoadMovie3 = loadMovie3;
 
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#loadMovie)
     ///
@@ -1064,7 +1280,7 @@ pub const KIconLoader = extern struct {
     ///
     /// ` size: i32 `
     ///
-    pub fn LoadMovie3(self: KIconLoader, name: []const u8, group: i32, size: i32) QMovie {
+    pub fn loadMovie3(self: KIconLoader, name: []const u8, group: i32, size: i32) QMovie {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1072,6 +1288,10 @@ pub const KIconLoader = extern struct {
         return .{ .ptr = qtc.KIconLoader_LoadMovie3(@ptrCast(self.ptr), name_str, @bitCast(group), @bitCast(size)) };
     }
 
+    /// ### DEPRECATED: Use `loadMovie4` instead
+    ///
+    pub const LoadMovie4 = loadMovie4;
+
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#loadMovie)
     ///
     /// ## Parameter(s):
@@ -1084,16 +1304,20 @@ pub const KIconLoader = extern struct {
     ///
     /// ` size: i32 `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn LoadMovie4(self: KIconLoader, name: []const u8, group: i32, size: i32, parent: anytype) QMovie {
+    pub fn loadMovie4(self: KIconLoader, name: []const u8, group: i32, size: i32, _parent: anytype) QMovie {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.KIconLoader_LoadMovie4(@ptrCast(self.ptr), name_str, @bitCast(group), @bitCast(size), @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.KIconLoader_LoadMovie4(@ptrCast(self.ptr), name_str, @bitCast(group), @bitCast(size), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moviePath3` instead
+    ///
+    pub const MoviePath3 = moviePath3;
 
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#moviePath)
     ///
@@ -1109,17 +1333,21 @@ pub const KIconLoader = extern struct {
     ///
     /// ` size: i32 `
     ///
-    pub fn MoviePath3(self: KIconLoader, allocator: std.mem.Allocator, name: []const u8, group: i32, size: i32) []const u8 {
+    pub fn moviePath3(self: KIconLoader, allocator: std.mem.Allocator, name: []const u8, group: i32, size: i32) []const u8 {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         var _str = qtc.KIconLoader_MoviePath3(@ptrCast(self.ptr), name_str, @bitCast(group), @bitCast(size));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconLoader.MoviePath3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconLoader.moviePath3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `loadAnimated3` instead
+    ///
+    pub const LoadAnimated3 = loadAnimated3;
 
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#loadAnimated)
     ///
@@ -1135,7 +1363,7 @@ pub const KIconLoader = extern struct {
     ///
     /// ` size: i32 `
     ///
-    pub fn LoadAnimated3(self: KIconLoader, allocator: std.mem.Allocator, name: []const u8, group: i32, size: i32) []const []const u8 {
+    pub fn loadAnimated3(self: KIconLoader, allocator: std.mem.Allocator, name: []const u8, group: i32, size: i32) []const []const u8 {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1147,15 +1375,19 @@ pub const KIconLoader = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KIconLoader.LoadAnimated3: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KIconLoader.loadAnimated3: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KIconLoader.LoadAnimated3: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KIconLoader.loadAnimated3: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `queryIcons22` instead
+    ///
+    pub const QueryIcons22 = queryIcons22;
 
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#queryIcons)
     ///
@@ -1169,7 +1401,7 @@ pub const KIconLoader = extern struct {
     ///
     /// ` context: kiconloader_enums.Context `
     ///
-    pub fn QueryIcons22(self: KIconLoader, allocator: std.mem.Allocator, group_or_size: i32, context: i32) []const []const u8 {
+    pub fn queryIcons22(self: KIconLoader, allocator: std.mem.Allocator, group_or_size: i32, context: i32) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KIconLoader_QueryIcons22(@ptrCast(self.ptr), @bitCast(group_or_size), @bitCast(context));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1177,15 +1409,19 @@ pub const KIconLoader = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KIconLoader.QueryIcons22: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KIconLoader.queryIcons22: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KIconLoader.QueryIcons22: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KIconLoader.queryIcons22: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `queryIconsByContext2` instead
+    ///
+    pub const QueryIconsByContext2 = queryIconsByContext2;
 
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#queryIconsByContext)
     ///
@@ -1199,7 +1435,7 @@ pub const KIconLoader = extern struct {
     ///
     /// ` context: kiconloader_enums.Context `
     ///
-    pub fn QueryIconsByContext2(self: KIconLoader, allocator: std.mem.Allocator, group_or_size: i32, context: i32) []const []const u8 {
+    pub fn queryIconsByContext2(self: KIconLoader, allocator: std.mem.Allocator, group_or_size: i32, context: i32) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KIconLoader_QueryIconsByContext2(@ptrCast(self.ptr), @bitCast(group_or_size), @bitCast(context));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1207,15 +1443,19 @@ pub const KIconLoader = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KIconLoader.QueryIconsByContext2: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KIconLoader.queryIconsByContext2: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KIconLoader.QueryIconsByContext2: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KIconLoader.queryIconsByContext2: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `reconfigure2` instead
+    ///
+    pub const Reconfigure2 = reconfigure2;
 
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#reconfigure)
     ///
@@ -1229,17 +1469,17 @@ pub const KIconLoader = extern struct {
     ///
     /// ` extraSearchPaths: []const []const u8 `
     ///
-    pub fn Reconfigure2(self: KIconLoader, allocator: std.mem.Allocator, appname: []const u8, extraSearchPaths: []const []const u8) void {
+    pub fn reconfigure2(self: KIconLoader, allocator: std.mem.Allocator, appname: []const u8, extraSearchPaths: []const []const u8) void {
         const appname_str = qtc.libqt_string{
             .len = appname.len,
             .data = appname.ptr,
         };
-        const extraSearchPaths_arr = allocator.alloc(qtc.libqt_string, extraSearchPaths.len) catch @panic("KIconLoader.Reconfigure2: Memory allocation failed");
+        const extraSearchPaths_arr = allocator.alloc(qtc.libqt_string, extraSearchPaths.len) catch @panic("KIconLoader.reconfigure2: Memory allocation failed");
         defer allocator.free(extraSearchPaths_arr);
-        for (extraSearchPaths, 0..extraSearchPaths.len) |item, i|
+        for (extraSearchPaths, 0..extraSearchPaths.len) |str_item, i|
             extraSearchPaths_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const extraSearchPaths_list = qtc.libqt_list{
             .len = extraSearchPaths.len,
@@ -1247,6 +1487,10 @@ pub const KIconLoader = extern struct {
         };
         qtc.KIconLoader_Reconfigure2(@ptrCast(self.ptr), appname_str, extraSearchPaths_list);
     }
+
+    /// ### DEPRECATED: Use `drawOverlays4` instead
+    ///
+    pub const DrawOverlays4 = drawOverlays4;
 
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#drawOverlays)
     ///
@@ -1264,13 +1508,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` state: i32 `
     ///
-    pub fn DrawOverlays4(self: KIconLoader, allocator: std.mem.Allocator, overlays: []const []const u8, pixmap: anytype, group: i32, state: i32) void {
-        const overlays_arr = allocator.alloc(qtc.libqt_string, overlays.len) catch @panic("KIconLoader.DrawOverlays4: Memory allocation failed");
+    pub fn drawOverlays4(self: KIconLoader, allocator: std.mem.Allocator, overlays: []const []const u8, pixmap: anytype, group: i32, state: i32) void {
+        const overlays_arr = allocator.alloc(qtc.libqt_string, overlays.len) catch @panic("KIconLoader.drawOverlays4: Memory allocation failed");
         defer allocator.free(overlays_arr);
-        for (overlays, 0..overlays.len) |item, i|
+        for (overlays, 0..overlays.len) |str_item, i|
             overlays_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const overlays_list = qtc.libqt_list{
             .len = overlays.len,
@@ -1279,6 +1523,10 @@ pub const KIconLoader = extern struct {
         comptime _ = @TypeOf(pixmap)._is_QPixmap;
         qtc.KIconLoader_DrawOverlays4(@ptrCast(self.ptr), overlays_list, @ptrCast(pixmap.ptr), @bitCast(group), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -1290,13 +1538,17 @@ pub const KIconLoader = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KIconLoader, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KIconLoader, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconLoader.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconLoader.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -1308,13 +1560,17 @@ pub const KIconLoader = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KIconLoader, name: []const u8) void {
+    pub fn setObjectName(self: KIconLoader, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -1324,9 +1580,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` self: KIconLoader `
     ///
-    pub fn IsWidgetType(self: KIconLoader) bool {
+    pub fn isWidgetType(self: KIconLoader) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -1336,9 +1596,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` self: KIconLoader `
     ///
-    pub fn IsWindowType(self: KIconLoader) bool {
+    pub fn isWindowType(self: KIconLoader) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -1348,9 +1612,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` self: KIconLoader `
     ///
-    pub fn IsQuickItemType(self: KIconLoader) bool {
+    pub fn isQuickItemType(self: KIconLoader) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -1360,9 +1628,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` self: KIconLoader `
     ///
-    pub fn SignalsBlocked(self: KIconLoader) bool {
+    pub fn signalsBlocked(self: KIconLoader) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -1374,9 +1646,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KIconLoader, b: bool) bool {
+    pub fn blockSignals(self: KIconLoader, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -1386,9 +1662,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` self: KIconLoader `
     ///
-    pub fn Thread(self: KIconLoader) QThread {
+    pub fn thread(self: KIconLoader) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -1398,12 +1678,16 @@ pub const KIconLoader = extern struct {
     ///
     /// ` self: KIconLoader `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KIconLoader, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KIconLoader, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -1415,9 +1699,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KIconLoader, interval: i32) i32 {
+    pub fn startTimer(self: KIconLoader, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -1429,9 +1717,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KIconLoader, time: i64) i32 {
+    pub fn startTimer2(self: KIconLoader, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -1443,9 +1735,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KIconLoader, id: i32) void {
+    pub fn killTimer(self: KIconLoader, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -1457,9 +1753,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KIconLoader, id: i32) void {
+    pub fn killTimer2(self: KIconLoader, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -1471,15 +1771,19 @@ pub const KIconLoader = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KIconLoader, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KIconLoader, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KIconLoader.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KIconLoader.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -1489,12 +1793,16 @@ pub const KIconLoader = extern struct {
     ///
     /// ` self: KIconLoader `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: KIconLoader, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: KIconLoader, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1506,10 +1814,14 @@ pub const KIconLoader = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KIconLoader, filterObj: anytype) void {
+    pub fn installEventFilter(self: KIconLoader, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1521,10 +1833,14 @@ pub const KIconLoader = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KIconLoader, obj: anytype) void {
+    pub fn removeEventFilter(self: KIconLoader, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -1532,7 +1848,7 @@ pub const KIconLoader = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1540,13 +1856,17 @@ pub const KIconLoader = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -1554,7 +1874,7 @@ pub const KIconLoader = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1562,13 +1882,17 @@ pub const KIconLoader = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1578,18 +1902,22 @@ pub const KIconLoader = extern struct {
     ///
     /// ` self: KIconLoader `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KIconLoader, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KIconLoader, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1597,7 +1925,7 @@ pub const KIconLoader = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1605,13 +1933,17 @@ pub const KIconLoader = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1619,7 +1951,7 @@ pub const KIconLoader = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1627,13 +1959,17 @@ pub const KIconLoader = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1643,9 +1979,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` self: KIconLoader `
     ///
-    pub fn Disconnect3(self: KIconLoader) bool {
+    pub fn disconnect3(self: KIconLoader) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1657,10 +1997,14 @@ pub const KIconLoader = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KIconLoader, receiver: anytype) bool {
+    pub fn disconnect4(self: KIconLoader, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1670,10 +2014,14 @@ pub const KIconLoader = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1683,9 +2031,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` self: KIconLoader `
     ///
-    pub fn DumpObjectTree(self: KIconLoader) void {
+    pub fn dumpObjectTree(self: KIconLoader) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1695,9 +2047,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` self: KIconLoader `
     ///
-    pub fn DumpObjectInfo(self: KIconLoader) void {
+    pub fn dumpObjectInfo(self: KIconLoader) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1711,11 +2067,15 @@ pub const KIconLoader = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KIconLoader, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KIconLoader, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1727,10 +2087,14 @@ pub const KIconLoader = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KIconLoader, name: [:0]const u8) QVariant {
+    pub fn property(self: KIconLoader, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1742,7 +2106,7 @@ pub const KIconLoader = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KIconLoader, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KIconLoader, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1750,27 +2114,19 @@ pub const KIconLoader = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KIconLoader.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KIconLoader.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KIconLoader.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KIconLoader.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KIconLoader `
-    ///
-    pub fn BindingStorage(self: KIconLoader) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1780,9 +2136,29 @@ pub const KIconLoader = extern struct {
     ///
     /// ` self: KIconLoader `
     ///
-    pub fn BindingStorage2(self: KIconLoader) QBindingStorage {
+    pub fn bindingStorage(self: KIconLoader) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KIconLoader `
+    ///
+    pub fn bindingStorage2(self: KIconLoader) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1792,9 +2168,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` self: KIconLoader `
     ///
-    pub fn Destroyed(self: KIconLoader) void {
+    pub fn destroyed(self: KIconLoader) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1806,9 +2186,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` callback: *const fn (self: KIconLoader) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KIconLoader, callback: *const fn (KIconLoader) callconv(.c) void) void {
+    pub fn onDestroyed(self: KIconLoader, callback: *const fn (KIconLoader) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1818,9 +2202,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` self: KIconLoader `
     ///
-    pub fn Parent(self: KIconLoader) QObject {
+    pub fn parent(self: KIconLoader) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1832,10 +2220,14 @@ pub const KIconLoader = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KIconLoader, classname: [:0]const u8) bool {
+    pub fn inherits(self: KIconLoader, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1845,9 +2237,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` self: KIconLoader `
     ///
-    pub fn DeleteLater(self: KIconLoader) void {
+    pub fn deleteLater(self: KIconLoader) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1861,9 +2257,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KIconLoader, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KIconLoader, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1877,9 +2277,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KIconLoader, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KIconLoader, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1887,7 +2291,7 @@ pub const KIconLoader = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1897,13 +2301,17 @@ pub const KIconLoader = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1911,7 +2319,7 @@ pub const KIconLoader = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1921,13 +2329,17 @@ pub const KIconLoader = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1937,7 +2349,7 @@ pub const KIconLoader = extern struct {
     ///
     /// ` self: KIconLoader `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1945,12 +2357,16 @@ pub const KIconLoader = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KIconLoader, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KIconLoader, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1962,10 +2378,14 @@ pub const KIconLoader = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KIconLoader, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KIconLoader, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1979,11 +2399,15 @@ pub const KIconLoader = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KIconLoader, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KIconLoader, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1999,13 +2423,17 @@ pub const KIconLoader = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KIconLoader, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KIconLoader, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -2018,11 +2446,15 @@ pub const KIconLoader = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KIconLoader, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KIconLoader, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -2034,10 +2466,14 @@ pub const KIconLoader = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KIconLoader, param1: anytype) void {
+    pub fn destroyed1(self: KIconLoader, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -2049,9 +2485,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` callback: *const fn (self: KIconLoader, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KIconLoader, callback: *const fn (KIconLoader, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KIconLoader, callback: *const fn (KIconLoader, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -2063,16 +2503,16 @@ pub const KIconLoader = extern struct {
     ///
     /// ` self: KIconLoader `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: KIconLoader, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KIconLoader_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: KIconLoader, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KIconLoader_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -2084,12 +2524,16 @@ pub const KIconLoader = extern struct {
     ///
     /// ` self: KIconLoader `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: KIconLoader, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KIconLoader_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: KIconLoader, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KIconLoader_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -2103,9 +2547,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` callback: *const fn (self: KIconLoader, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KIconLoader, callback: *const fn (KIconLoader, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KIconLoader, callback: *const fn (KIconLoader, QEvent) callconv(.c) bool) void {
         qtc.KIconLoader_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -2119,17 +2567,17 @@ pub const KIconLoader = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KIconLoader, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KIconLoader, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KIconLoader_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KIconLoader_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2143,13 +2591,17 @@ pub const KIconLoader = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: KIconLoader, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: KIconLoader, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KIconLoader_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KIconLoader_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2163,9 +2615,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` callback: *const fn (self: KIconLoader, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KIconLoader, callback: *const fn (KIconLoader, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KIconLoader, callback: *const fn (KIconLoader, QObject, QEvent) callconv(.c) bool) void {
         qtc.KIconLoader_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -2177,16 +2633,16 @@ pub const KIconLoader = extern struct {
     ///
     /// ` self: KIconLoader `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KIconLoader, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KIconLoader_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KIconLoader, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KIconLoader_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -2198,12 +2654,16 @@ pub const KIconLoader = extern struct {
     ///
     /// ` self: KIconLoader `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KIconLoader, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KIconLoader_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KIconLoader, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KIconLoader_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -2217,9 +2677,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` callback: *const fn (self: KIconLoader, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KIconLoader, callback: *const fn (KIconLoader, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KIconLoader, callback: *const fn (KIconLoader, QTimerEvent) callconv(.c) void) void {
         qtc.KIconLoader_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -2231,16 +2695,16 @@ pub const KIconLoader = extern struct {
     ///
     /// ` self: KIconLoader `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KIconLoader, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KIconLoader_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KIconLoader, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KIconLoader_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2252,12 +2716,16 @@ pub const KIconLoader = extern struct {
     ///
     /// ` self: KIconLoader `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KIconLoader, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KIconLoader_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KIconLoader, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KIconLoader_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2271,9 +2739,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` callback: *const fn (self: KIconLoader, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KIconLoader, callback: *const fn (KIconLoader, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KIconLoader, callback: *const fn (KIconLoader, QChildEvent) callconv(.c) void) void {
         qtc.KIconLoader_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -2285,16 +2757,16 @@ pub const KIconLoader = extern struct {
     ///
     /// ` self: KIconLoader `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KIconLoader, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KIconLoader_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KIconLoader, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KIconLoader_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2306,12 +2778,16 @@ pub const KIconLoader = extern struct {
     ///
     /// ` self: KIconLoader `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KIconLoader, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KIconLoader_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KIconLoader, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KIconLoader_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2325,9 +2801,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` callback: *const fn (self: KIconLoader, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KIconLoader, callback: *const fn (KIconLoader, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KIconLoader, callback: *const fn (KIconLoader, QEvent) callconv(.c) void) void {
         qtc.KIconLoader_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -2341,14 +2821,14 @@ pub const KIconLoader = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KIconLoader, signal: anytype) void {
+    pub fn connectNotify(self: KIconLoader, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KIconLoader_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2362,11 +2842,15 @@ pub const KIconLoader = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KIconLoader, signal: anytype) void {
+    pub fn superConnectNotify(self: KIconLoader, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KIconLoader_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -2379,9 +2863,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` callback: *const fn (self: KIconLoader, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KIconLoader, callback: *const fn (KIconLoader, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KIconLoader, callback: *const fn (KIconLoader, QMetaMethod) callconv(.c) void) void {
         qtc.KIconLoader_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2395,14 +2883,14 @@ pub const KIconLoader = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KIconLoader, signal: anytype) void {
+    pub fn disconnectNotify(self: KIconLoader, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KIconLoader_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2416,10 +2904,14 @@ pub const KIconLoader = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KIconLoader, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KIconLoader, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KIconLoader_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2433,9 +2925,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` callback: *const fn (self: KIconLoader, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KIconLoader, callback: *const fn (KIconLoader, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KIconLoader, callback: *const fn (KIconLoader, QMetaMethod) callconv(.c) void) void {
         qtc.KIconLoader_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -2447,13 +2943,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` self: KIconLoader `
     ///
-    pub fn Sender(self: KIconLoader) QObject {
+    pub fn sender(self: KIconLoader) QObject {
         return .{ .ptr = qtc.KIconLoader_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -2465,9 +2961,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` self: KIconLoader `
     ///
-    pub fn SuperSender(self: KIconLoader) QObject {
+    pub fn superSender(self: KIconLoader) QObject {
         return .{ .ptr = qtc.KIconLoader_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -2481,9 +2981,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KIconLoader, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KIconLoader, callback: *const fn () callconv(.c) QObject) void {
         qtc.KIconLoader_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2495,13 +2999,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` self: KIconLoader `
     ///
-    pub fn SenderSignalIndex(self: KIconLoader) i32 {
+    pub fn senderSignalIndex(self: KIconLoader) i32 {
         return qtc.KIconLoader_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2513,9 +3017,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` self: KIconLoader `
     ///
-    pub fn SuperSenderSignalIndex(self: KIconLoader) i32 {
+    pub fn superSenderSignalIndex(self: KIconLoader) i32 {
         return qtc.KIconLoader_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2529,9 +3037,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KIconLoader, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KIconLoader, callback: *const fn () callconv(.c) i32) void {
         qtc.KIconLoader_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -2545,14 +3057,14 @@ pub const KIconLoader = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KIconLoader, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KIconLoader, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KIconLoader_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -2566,10 +3078,14 @@ pub const KIconLoader = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KIconLoader, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KIconLoader, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KIconLoader_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -2583,9 +3099,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` callback: *const fn (self: KIconLoader, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KIconLoader, callback: *const fn (KIconLoader, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KIconLoader, callback: *const fn (KIconLoader, [*:0]const u8) callconv(.c) i32) void {
         qtc.KIconLoader_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2599,14 +3119,14 @@ pub const KIconLoader = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KIconLoader, signal: anytype) bool {
+    pub fn isSignalConnected(self: KIconLoader, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KIconLoader_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2620,10 +3140,14 @@ pub const KIconLoader = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KIconLoader, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KIconLoader, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KIconLoader_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2637,9 +3161,13 @@ pub const KIconLoader = extern struct {
     ///
     /// ` callback: *const fn (self: KIconLoader, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KIconLoader, callback: *const fn (KIconLoader, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KIconLoader, callback: *const fn (KIconLoader, QMetaMethod) callconv(.c) bool) void {
         qtc.KIconLoader_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -2653,23 +3181,23 @@ pub const KIconLoader = extern struct {
     ///
     /// ` callback: *const fn (self: KIconLoader, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KIconLoader, callback: *const fn (KIconLoader, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KIconLoader, callback: *const fn (KIconLoader, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kiconloader.html#dtor.KIconLoader)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KIconLoader `
     ///
-    pub fn Delete(self: KIconLoader) void {
+    pub fn delete(self: KIconLoader) void {
         qtc.KIconLoader_Delete(@ptrCast(self.ptr));
     }
 };
@@ -2684,6 +3212,10 @@ pub const KDE = extern struct {
 
     pub const _is_KDE = {};
 
+    /// ### DEPRECATED: Use `icon` instead
+    ///
+    pub const Icon = icon;
+
     /// ### [Upstream resources](https://api.kde.org/kde.html#icon)
     ///
     /// ## Parameter(s):
@@ -2692,7 +3224,7 @@ pub const KDE = extern struct {
     ///
     /// ` iconLoader: KIconLoader `
     ///
-    pub fn Icon(iconName: []const u8, iconLoader: anytype) QIcon {
+    pub fn icon(iconName: []const u8, iconLoader: anytype) QIcon {
         const iconName_str = qtc.libqt_string{
             .len = iconName.len,
             .data = iconName.ptr,
@@ -2700,6 +3232,10 @@ pub const KDE = extern struct {
         comptime _ = @TypeOf(iconLoader)._is_KIconLoader;
         return .{ .ptr = qtc.KDE_Icon(iconName_str, @ptrCast(iconLoader.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `icon2` instead
+    ///
+    pub const Icon2 = icon2;
 
     /// ### [Upstream resources](https://api.kde.org/kde.html#icon)
     ///
@@ -2711,7 +3247,7 @@ pub const KDE = extern struct {
     ///
     /// ` iconLoader: KIconLoader `
     ///
-    pub fn Icon2(iconName: []const u8, colors: anytype, iconLoader: anytype) QIcon {
+    pub fn icon2(iconName: []const u8, colors: anytype, iconLoader: anytype) QIcon {
         const iconName_str = qtc.libqt_string{
             .len = iconName.len,
             .data = iconName.ptr,
@@ -2720,6 +3256,10 @@ pub const KDE = extern struct {
         comptime _ = @TypeOf(iconLoader)._is_KIconLoader;
         return .{ .ptr = qtc.KDE_Icon2(iconName_str, @ptrCast(colors.ptr), @ptrCast(iconLoader.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `icon3` instead
+    ///
+    pub const Icon3 = icon3;
 
     /// ### [Upstream resources](https://api.kde.org/kde.html#icon)
     ///
@@ -2733,17 +3273,17 @@ pub const KDE = extern struct {
     ///
     /// ` iconLoader: KIconLoader `
     ///
-    pub fn Icon3(allocator: std.mem.Allocator, iconName: []const u8, overlays: []const []const u8, iconLoader: anytype) QIcon {
+    pub fn icon3(allocator: std.mem.Allocator, iconName: []const u8, overlays: []const []const u8, iconLoader: anytype) QIcon {
         const iconName_str = qtc.libqt_string{
             .len = iconName.len,
             .data = iconName.ptr,
         };
-        const overlays_arr = allocator.alloc(qtc.libqt_string, overlays.len) catch @panic("KDE.Icon3: Memory allocation failed");
+        const overlays_arr = allocator.alloc(qtc.libqt_string, overlays.len) catch @panic("KDE.icon3: Memory allocation failed");
         defer allocator.free(overlays_arr);
-        for (overlays, 0..overlays.len) |item, i|
+        for (overlays, 0..overlays.len) |str_item, i|
             overlays_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const overlays_list = qtc.libqt_list{
             .len = overlays.len,

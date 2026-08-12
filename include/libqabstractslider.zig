@@ -80,22 +80,34 @@ pub const QAbstractSlider = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new QAbstractSlider object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QAbstractSlider object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) QAbstractSlider {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QAbstractSlider_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) QAbstractSlider {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QAbstractSlider_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new QAbstractSlider object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() QAbstractSlider {
+    pub const New2 = new2;
+
+    /// Allocate a new QAbstractSlider object in C++ memory
+    ///
+    pub fn new2() QAbstractSlider {
         return .{ .ptr = qtc.QAbstractSlider_new2() };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -103,9 +115,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn MetaObject(self: QAbstractSlider) QMetaObject {
+    pub fn metaObject(self: QAbstractSlider) QMetaObject {
         return .{ .ptr = qtc.QAbstractSlider_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -117,13 +133,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QAbstractSlider, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QAbstractSlider, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QAbstractSlider_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -133,9 +149,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn SuperMetaObject(self: QAbstractSlider) QMetaObject {
+    pub fn superMetaObject(self: QAbstractSlider) QMetaObject {
         return .{ .ptr = qtc.QAbstractSlider_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -143,10 +163,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QAbstractSlider, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QAbstractSlider, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QAbstractSlider_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -156,13 +180,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QAbstractSlider, callback: *const fn (QAbstractSlider, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QAbstractSlider, callback: *const fn (QAbstractSlider, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QAbstractSlider_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -172,10 +196,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QAbstractSlider, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QAbstractSlider, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QAbstractSlider_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -187,9 +215,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QAbstractSlider, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QAbstractSlider, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QAbstractSlider_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -199,13 +231,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QAbstractSlider, callback: *const fn (QAbstractSlider, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QAbstractSlider, callback: *const fn (QAbstractSlider, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QAbstractSlider_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -219,9 +251,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QAbstractSlider, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QAbstractSlider, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QAbstractSlider_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -231,14 +267,18 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSlider.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSlider.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `orientation` instead
+    ///
+    pub const Orientation = orientation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#orientation)
     ///
@@ -250,9 +290,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` qnamespace_enums.Orientation `
     ///
-    pub fn Orientation(self: QAbstractSlider) i32 {
+    pub fn orientation(self: QAbstractSlider) i32 {
         return qtc.QAbstractSlider_Orientation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimum` instead
+    ///
+    pub const SetMinimum = setMinimum;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setMinimum)
     ///
@@ -260,11 +304,15 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` minimum: i32 `
+    /// ` _minimum: i32 `
     ///
-    pub fn SetMinimum(self: QAbstractSlider, minimum: i32) void {
-        qtc.QAbstractSlider_SetMinimum(@ptrCast(self.ptr), @bitCast(minimum));
+    pub fn setMinimum(self: QAbstractSlider, _minimum: i32) void {
+        qtc.QAbstractSlider_SetMinimum(@ptrCast(self.ptr), @bitCast(_minimum));
     }
+
+    /// ### DEPRECATED: Use `minimum` instead
+    ///
+    pub const Minimum = minimum;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#minimum)
     ///
@@ -272,9 +320,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn Minimum(self: QAbstractSlider) i32 {
+    pub fn minimum(self: QAbstractSlider) i32 {
         return qtc.QAbstractSlider_Minimum(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximum` instead
+    ///
+    pub const SetMaximum = setMaximum;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setMaximum)
     ///
@@ -282,11 +334,15 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` maximum: i32 `
+    /// ` _maximum: i32 `
     ///
-    pub fn SetMaximum(self: QAbstractSlider, maximum: i32) void {
-        qtc.QAbstractSlider_SetMaximum(@ptrCast(self.ptr), @bitCast(maximum));
+    pub fn setMaximum(self: QAbstractSlider, _maximum: i32) void {
+        qtc.QAbstractSlider_SetMaximum(@ptrCast(self.ptr), @bitCast(_maximum));
     }
+
+    /// ### DEPRECATED: Use `maximum` instead
+    ///
+    pub const Maximum = maximum;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#maximum)
     ///
@@ -294,9 +350,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn Maximum(self: QAbstractSlider) i32 {
+    pub fn maximum(self: QAbstractSlider) i32 {
         return qtc.QAbstractSlider_Maximum(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSingleStep` instead
+    ///
+    pub const SetSingleStep = setSingleStep;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setSingleStep)
     ///
@@ -304,11 +364,15 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` singleStep: i32 `
+    /// ` _singleStep: i32 `
     ///
-    pub fn SetSingleStep(self: QAbstractSlider, singleStep: i32) void {
-        qtc.QAbstractSlider_SetSingleStep(@ptrCast(self.ptr), @bitCast(singleStep));
+    pub fn setSingleStep(self: QAbstractSlider, _singleStep: i32) void {
+        qtc.QAbstractSlider_SetSingleStep(@ptrCast(self.ptr), @bitCast(_singleStep));
     }
+
+    /// ### DEPRECATED: Use `singleStep` instead
+    ///
+    pub const SingleStep = singleStep;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#singleStep)
     ///
@@ -316,9 +380,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn SingleStep(self: QAbstractSlider) i32 {
+    pub fn singleStep(self: QAbstractSlider) i32 {
         return qtc.QAbstractSlider_SingleStep(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPageStep` instead
+    ///
+    pub const SetPageStep = setPageStep;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setPageStep)
     ///
@@ -326,11 +394,15 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` pageStep: i32 `
+    /// ` _pageStep: i32 `
     ///
-    pub fn SetPageStep(self: QAbstractSlider, pageStep: i32) void {
-        qtc.QAbstractSlider_SetPageStep(@ptrCast(self.ptr), @bitCast(pageStep));
+    pub fn setPageStep(self: QAbstractSlider, _pageStep: i32) void {
+        qtc.QAbstractSlider_SetPageStep(@ptrCast(self.ptr), @bitCast(_pageStep));
     }
+
+    /// ### DEPRECATED: Use `pageStep` instead
+    ///
+    pub const PageStep = pageStep;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#pageStep)
     ///
@@ -338,9 +410,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn PageStep(self: QAbstractSlider) i32 {
+    pub fn pageStep(self: QAbstractSlider) i32 {
         return qtc.QAbstractSlider_PageStep(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTracking` instead
+    ///
+    pub const SetTracking = setTracking;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setTracking)
     ///
@@ -350,9 +426,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTracking(self: QAbstractSlider, enable: bool) void {
+    pub fn setTracking(self: QAbstractSlider, enable: bool) void {
         qtc.QAbstractSlider_SetTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTracking` instead
+    ///
+    pub const HasTracking = hasTracking;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#hasTracking)
     ///
@@ -360,9 +440,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn HasTracking(self: QAbstractSlider) bool {
+    pub fn hasTracking(self: QAbstractSlider) bool {
         return qtc.QAbstractSlider_HasTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSliderDown` instead
+    ///
+    pub const SetSliderDown = setSliderDown;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setSliderDown)
     ///
@@ -372,9 +456,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` sliderDown: bool `
     ///
-    pub fn SetSliderDown(self: QAbstractSlider, sliderDown: bool) void {
+    pub fn setSliderDown(self: QAbstractSlider, sliderDown: bool) void {
         qtc.QAbstractSlider_SetSliderDown(@ptrCast(self.ptr), sliderDown);
     }
+
+    /// ### DEPRECATED: Use `isSliderDown` instead
+    ///
+    pub const IsSliderDown = isSliderDown;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#isSliderDown)
     ///
@@ -382,9 +470,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn IsSliderDown(self: QAbstractSlider) bool {
+    pub fn isSliderDown(self: QAbstractSlider) bool {
         return qtc.QAbstractSlider_IsSliderDown(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSliderPosition` instead
+    ///
+    pub const SetSliderPosition = setSliderPosition;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setSliderPosition)
     ///
@@ -392,11 +484,15 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` sliderPosition: i32 `
+    /// ` _sliderPosition: i32 `
     ///
-    pub fn SetSliderPosition(self: QAbstractSlider, sliderPosition: i32) void {
-        qtc.QAbstractSlider_SetSliderPosition(@ptrCast(self.ptr), @bitCast(sliderPosition));
+    pub fn setSliderPosition(self: QAbstractSlider, _sliderPosition: i32) void {
+        qtc.QAbstractSlider_SetSliderPosition(@ptrCast(self.ptr), @bitCast(_sliderPosition));
     }
+
+    /// ### DEPRECATED: Use `sliderPosition` instead
+    ///
+    pub const SliderPosition = sliderPosition;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#sliderPosition)
     ///
@@ -404,9 +500,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn SliderPosition(self: QAbstractSlider) i32 {
+    pub fn sliderPosition(self: QAbstractSlider) i32 {
         return qtc.QAbstractSlider_SliderPosition(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInvertedAppearance` instead
+    ///
+    pub const SetInvertedAppearance = setInvertedAppearance;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setInvertedAppearance)
     ///
@@ -414,11 +514,15 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` invertedAppearance: bool `
+    /// ` _invertedAppearance: bool `
     ///
-    pub fn SetInvertedAppearance(self: QAbstractSlider, invertedAppearance: bool) void {
-        qtc.QAbstractSlider_SetInvertedAppearance(@ptrCast(self.ptr), invertedAppearance);
+    pub fn setInvertedAppearance(self: QAbstractSlider, _invertedAppearance: bool) void {
+        qtc.QAbstractSlider_SetInvertedAppearance(@ptrCast(self.ptr), _invertedAppearance);
     }
+
+    /// ### DEPRECATED: Use `invertedAppearance` instead
+    ///
+    pub const InvertedAppearance = invertedAppearance;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#invertedAppearance)
     ///
@@ -426,9 +530,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn InvertedAppearance(self: QAbstractSlider) bool {
+    pub fn invertedAppearance(self: QAbstractSlider) bool {
         return qtc.QAbstractSlider_InvertedAppearance(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInvertedControls` instead
+    ///
+    pub const SetInvertedControls = setInvertedControls;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setInvertedControls)
     ///
@@ -436,11 +544,15 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` invertedControls: bool `
+    /// ` _invertedControls: bool `
     ///
-    pub fn SetInvertedControls(self: QAbstractSlider, invertedControls: bool) void {
-        qtc.QAbstractSlider_SetInvertedControls(@ptrCast(self.ptr), invertedControls);
+    pub fn setInvertedControls(self: QAbstractSlider, _invertedControls: bool) void {
+        qtc.QAbstractSlider_SetInvertedControls(@ptrCast(self.ptr), _invertedControls);
     }
+
+    /// ### DEPRECATED: Use `invertedControls` instead
+    ///
+    pub const InvertedControls = invertedControls;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#invertedControls)
     ///
@@ -448,9 +560,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn InvertedControls(self: QAbstractSlider) bool {
+    pub fn invertedControls(self: QAbstractSlider) bool {
         return qtc.QAbstractSlider_InvertedControls(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `value` instead
+    ///
+    pub const Value = value;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#value)
     ///
@@ -458,9 +574,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn Value(self: QAbstractSlider) i32 {
+    pub fn value(self: QAbstractSlider) i32 {
         return qtc.QAbstractSlider_Value(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `triggerAction` instead
+    ///
+    pub const TriggerAction = triggerAction;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#triggerAction)
     ///
@@ -470,9 +590,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` action: qabstractslider_enums.SliderAction `
     ///
-    pub fn TriggerAction(self: QAbstractSlider, action: i32) void {
+    pub fn triggerAction(self: QAbstractSlider, action: i32) void {
         qtc.QAbstractSlider_TriggerAction(@ptrCast(self.ptr), @bitCast(action));
     }
+
+    /// ### DEPRECATED: Use `setValue` instead
+    ///
+    pub const SetValue = setValue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setValue)
     ///
@@ -480,11 +604,15 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` value: i32 `
+    /// ` _value: i32 `
     ///
-    pub fn SetValue(self: QAbstractSlider, value: i32) void {
-        qtc.QAbstractSlider_SetValue(@ptrCast(self.ptr), @bitCast(value));
+    pub fn setValue(self: QAbstractSlider, _value: i32) void {
+        qtc.QAbstractSlider_SetValue(@ptrCast(self.ptr), @bitCast(_value));
     }
+
+    /// ### DEPRECATED: Use `setOrientation` instead
+    ///
+    pub const SetOrientation = setOrientation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setOrientation)
     ///
@@ -492,11 +620,15 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` orientation: qnamespace_enums.Orientation `
+    /// ` _orientation: qnamespace_enums.Orientation `
     ///
-    pub fn SetOrientation(self: QAbstractSlider, orientation: i32) void {
-        qtc.QAbstractSlider_SetOrientation(@ptrCast(self.ptr), @bitCast(orientation));
+    pub fn setOrientation(self: QAbstractSlider, _orientation: i32) void {
+        qtc.QAbstractSlider_SetOrientation(@ptrCast(self.ptr), @bitCast(_orientation));
     }
+
+    /// ### DEPRECATED: Use `setRange` instead
+    ///
+    pub const SetRange = setRange;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setRange)
     ///
@@ -508,9 +640,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` max: i32 `
     ///
-    pub fn SetRange(self: QAbstractSlider, min: i32, max: i32) void {
+    pub fn setRange(self: QAbstractSlider, min: i32, max: i32) void {
         qtc.QAbstractSlider_SetRange(@ptrCast(self.ptr), @bitCast(min), @bitCast(max));
     }
+
+    /// ### DEPRECATED: Use `valueChanged` instead
+    ///
+    pub const ValueChanged = valueChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#valueChanged)
     ///
@@ -518,11 +654,15 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` value: i32 `
+    /// ` _value: i32 `
     ///
-    pub fn ValueChanged(self: QAbstractSlider, value: i32) void {
-        qtc.QAbstractSlider_ValueChanged(@ptrCast(self.ptr), @bitCast(value));
+    pub fn valueChanged(self: QAbstractSlider, _value: i32) void {
+        qtc.QAbstractSlider_ValueChanged(@ptrCast(self.ptr), @bitCast(_value));
     }
+
+    /// ### DEPRECATED: Use `onValueChanged` instead
+    ///
+    pub const OnValueChanged = onValueChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#valueChanged)
     ///
@@ -532,9 +672,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, value: i32) callconv(.c) void `
     ///
-    pub fn OnValueChanged(self: QAbstractSlider, callback: *const fn (QAbstractSlider, i32) callconv(.c) void) void {
+    pub fn onValueChanged(self: QAbstractSlider, callback: *const fn (QAbstractSlider, i32) callconv(.c) void) void {
         qtc.QAbstractSlider_Connect_ValueChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sliderPressed` instead
+    ///
+    pub const SliderPressed = sliderPressed;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#sliderPressed)
     ///
@@ -542,9 +686,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn SliderPressed(self: QAbstractSlider) void {
+    pub fn sliderPressed(self: QAbstractSlider) void {
         qtc.QAbstractSlider_SliderPressed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSliderPressed` instead
+    ///
+    pub const OnSliderPressed = onSliderPressed;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#sliderPressed)
     ///
@@ -554,9 +702,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider) callconv(.c) void `
     ///
-    pub fn OnSliderPressed(self: QAbstractSlider, callback: *const fn (QAbstractSlider) callconv(.c) void) void {
+    pub fn onSliderPressed(self: QAbstractSlider, callback: *const fn (QAbstractSlider) callconv(.c) void) void {
         qtc.QAbstractSlider_Connect_SliderPressed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sliderMoved` instead
+    ///
+    pub const SliderMoved = sliderMoved;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#sliderMoved)
     ///
@@ -566,9 +718,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` position: i32 `
     ///
-    pub fn SliderMoved(self: QAbstractSlider, position: i32) void {
+    pub fn sliderMoved(self: QAbstractSlider, position: i32) void {
         qtc.QAbstractSlider_SliderMoved(@ptrCast(self.ptr), @bitCast(position));
     }
+
+    /// ### DEPRECATED: Use `onSliderMoved` instead
+    ///
+    pub const OnSliderMoved = onSliderMoved;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#sliderMoved)
     ///
@@ -578,9 +734,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, position: i32) callconv(.c) void `
     ///
-    pub fn OnSliderMoved(self: QAbstractSlider, callback: *const fn (QAbstractSlider, i32) callconv(.c) void) void {
+    pub fn onSliderMoved(self: QAbstractSlider, callback: *const fn (QAbstractSlider, i32) callconv(.c) void) void {
         qtc.QAbstractSlider_Connect_SliderMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sliderReleased` instead
+    ///
+    pub const SliderReleased = sliderReleased;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#sliderReleased)
     ///
@@ -588,9 +748,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn SliderReleased(self: QAbstractSlider) void {
+    pub fn sliderReleased(self: QAbstractSlider) void {
         qtc.QAbstractSlider_SliderReleased(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSliderReleased` instead
+    ///
+    pub const OnSliderReleased = onSliderReleased;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#sliderReleased)
     ///
@@ -600,9 +764,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider) callconv(.c) void `
     ///
-    pub fn OnSliderReleased(self: QAbstractSlider, callback: *const fn (QAbstractSlider) callconv(.c) void) void {
+    pub fn onSliderReleased(self: QAbstractSlider, callback: *const fn (QAbstractSlider) callconv(.c) void) void {
         qtc.QAbstractSlider_Connect_SliderReleased(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `rangeChanged` instead
+    ///
+    pub const RangeChanged = rangeChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#rangeChanged)
     ///
@@ -614,9 +782,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` max: i32 `
     ///
-    pub fn RangeChanged(self: QAbstractSlider, min: i32, max: i32) void {
+    pub fn rangeChanged(self: QAbstractSlider, min: i32, max: i32) void {
         qtc.QAbstractSlider_RangeChanged(@ptrCast(self.ptr), @bitCast(min), @bitCast(max));
     }
+
+    /// ### DEPRECATED: Use `onRangeChanged` instead
+    ///
+    pub const OnRangeChanged = onRangeChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#rangeChanged)
     ///
@@ -626,9 +798,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, min: i32, max: i32) callconv(.c) void `
     ///
-    pub fn OnRangeChanged(self: QAbstractSlider, callback: *const fn (QAbstractSlider, i32, i32) callconv(.c) void) void {
+    pub fn onRangeChanged(self: QAbstractSlider, callback: *const fn (QAbstractSlider, i32, i32) callconv(.c) void) void {
         qtc.QAbstractSlider_Connect_RangeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionTriggered` instead
+    ///
+    pub const ActionTriggered = actionTriggered;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#actionTriggered)
     ///
@@ -638,9 +814,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` action: i32 `
     ///
-    pub fn ActionTriggered(self: QAbstractSlider, action: i32) void {
+    pub fn actionTriggered(self: QAbstractSlider, action: i32) void {
         qtc.QAbstractSlider_ActionTriggered(@ptrCast(self.ptr), @bitCast(action));
     }
+
+    /// ### DEPRECATED: Use `onActionTriggered` instead
+    ///
+    pub const OnActionTriggered = onActionTriggered;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#actionTriggered)
     ///
@@ -650,9 +830,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, action: i32) callconv(.c) void `
     ///
-    pub fn OnActionTriggered(self: QAbstractSlider, callback: *const fn (QAbstractSlider, i32) callconv(.c) void) void {
+    pub fn onActionTriggered(self: QAbstractSlider, callback: *const fn (QAbstractSlider, i32) callconv(.c) void) void {
         qtc.QAbstractSlider_Connect_ActionTriggered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#event)
     ///
@@ -662,10 +846,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn Event(self: QAbstractSlider, e: anytype) bool {
+    pub fn event(self: QAbstractSlider, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.QAbstractSlider_Event(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#event)
     ///
@@ -677,13 +865,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, e: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QEvent) callconv(.c) bool) void {
         qtc.QAbstractSlider_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#event)
     ///
@@ -695,10 +883,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn SuperEvent(self: QAbstractSlider, e: anytype) bool {
+    pub fn superEvent(self: QAbstractSlider, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.QAbstractSlider_SuperEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `setRepeatAction` instead
+    ///
+    pub const SetRepeatAction = setRepeatAction;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setRepeatAction)
     ///
@@ -708,9 +900,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` action: qabstractslider_enums.SliderAction `
     ///
-    pub fn SetRepeatAction(self: QAbstractSlider, action: i32) void {
+    pub fn setRepeatAction(self: QAbstractSlider, action: i32) void {
         qtc.QAbstractSlider_SetRepeatAction(@ptrCast(self.ptr), @bitCast(action));
     }
+
+    /// ### DEPRECATED: Use `onSetRepeatAction` instead
+    ///
+    pub const OnSetRepeatAction = onSetRepeatAction;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setRepeatAction)
     ///
@@ -722,13 +918,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, action: qabstractslider_enums.SliderAction) callconv(.c) void `
     ///
-    pub fn OnSetRepeatAction(self: QAbstractSlider, callback: *const fn (QAbstractSlider, i32) callconv(.c) void) void {
+    pub fn onSetRepeatAction(self: QAbstractSlider, callback: *const fn (QAbstractSlider, i32) callconv(.c) void) void {
         qtc.QAbstractSlider_OnSetRepeatAction(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetRepeatAction` instead
+    /// ### DEPRECATED: Use `superSetRepeatAction` instead
     ///
-    pub const QBaseSetRepeatAction = SuperSetRepeatAction;
+    pub const SuperSetRepeatAction = superSetRepeatAction;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setRepeatAction)
     ///
@@ -740,9 +936,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` action: qabstractslider_enums.SliderAction `
     ///
-    pub fn SuperSetRepeatAction(self: QAbstractSlider, action: i32) void {
+    pub fn superSetRepeatAction(self: QAbstractSlider, action: i32) void {
         qtc.QAbstractSlider_SuperSetRepeatAction(@ptrCast(self.ptr), @bitCast(action));
     }
+
+    /// ### DEPRECATED: Use `repeatAction` instead
+    ///
+    pub const RepeatAction = repeatAction;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#repeatAction)
     ///
@@ -754,9 +954,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` qabstractslider_enums.SliderAction `
     ///
-    pub fn RepeatAction(self: QAbstractSlider) i32 {
+    pub fn repeatAction(self: QAbstractSlider) i32 {
         return qtc.QAbstractSlider_RepeatAction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onRepeatAction` instead
+    ///
+    pub const OnRepeatAction = onRepeatAction;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#repeatAction)
     ///
@@ -768,13 +972,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnRepeatAction(self: QAbstractSlider, callback: *const fn () callconv(.c) i32) void {
+    pub fn onRepeatAction(self: QAbstractSlider, callback: *const fn () callconv(.c) i32) void {
         qtc.QAbstractSlider_OnRepeatAction(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperRepeatAction` instead
+    /// ### DEPRECATED: Use `superRepeatAction` instead
     ///
-    pub const QBaseRepeatAction = SuperRepeatAction;
+    pub const SuperRepeatAction = superRepeatAction;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#repeatAction)
     ///
@@ -788,9 +992,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` qabstractslider_enums.SliderAction `
     ///
-    pub fn SuperRepeatAction(self: QAbstractSlider) i32 {
+    pub fn superRepeatAction(self: QAbstractSlider) i32 {
         return qtc.QAbstractSlider_SuperRepeatAction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `sliderChange` instead
+    ///
+    pub const SliderChange = sliderChange;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#sliderChange)
     ///
@@ -800,9 +1008,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` change: qabstractslider_enums.SliderChange `
     ///
-    pub fn SliderChange(self: QAbstractSlider, change: i32) void {
+    pub fn sliderChange(self: QAbstractSlider, change: i32) void {
         qtc.QAbstractSlider_SliderChange(@ptrCast(self.ptr), @bitCast(change));
     }
+
+    /// ### DEPRECATED: Use `onSliderChange` instead
+    ///
+    pub const OnSliderChange = onSliderChange;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#sliderChange)
     ///
@@ -814,13 +1026,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, change: qabstractslider_enums.SliderChange) callconv(.c) void `
     ///
-    pub fn OnSliderChange(self: QAbstractSlider, callback: *const fn (QAbstractSlider, i32) callconv(.c) void) void {
+    pub fn onSliderChange(self: QAbstractSlider, callback: *const fn (QAbstractSlider, i32) callconv(.c) void) void {
         qtc.QAbstractSlider_OnSliderChange(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSliderChange` instead
+    /// ### DEPRECATED: Use `superSliderChange` instead
     ///
-    pub const QBaseSliderChange = SuperSliderChange;
+    pub const SuperSliderChange = superSliderChange;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#sliderChange)
     ///
@@ -832,9 +1044,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` change: qabstractslider_enums.SliderChange `
     ///
-    pub fn SuperSliderChange(self: QAbstractSlider, change: i32) void {
+    pub fn superSliderChange(self: QAbstractSlider, change: i32) void {
         qtc.QAbstractSlider_SuperSliderChange(@ptrCast(self.ptr), @bitCast(change));
     }
+
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#keyPressEvent)
     ///
@@ -844,10 +1060,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` ev: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: QAbstractSlider, ev: anytype) void {
+    pub fn keyPressEvent(self: QAbstractSlider, ev: anytype) void {
         comptime _ = @TypeOf(ev)._is_QKeyEvent;
         qtc.QAbstractSlider_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#keyPressEvent)
     ///
@@ -859,13 +1079,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, ev: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QKeyEvent) callconv(.c) void) void {
         qtc.QAbstractSlider_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#keyPressEvent)
     ///
@@ -877,10 +1097,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` ev: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: QAbstractSlider, ev: anytype) void {
+    pub fn superKeyPressEvent(self: QAbstractSlider, ev: anytype) void {
         comptime _ = @TypeOf(ev)._is_QKeyEvent;
         qtc.QAbstractSlider_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#timerEvent)
     ///
@@ -890,10 +1114,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` param1: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QAbstractSlider, param1: anytype) void {
+    pub fn timerEvent(self: QAbstractSlider, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QTimerEvent;
         qtc.QAbstractSlider_TimerEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#timerEvent)
     ///
@@ -905,13 +1133,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, param1: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QTimerEvent) callconv(.c) void) void {
         qtc.QAbstractSlider_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#timerEvent)
     ///
@@ -923,10 +1151,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` param1: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QAbstractSlider, param1: anytype) void {
+    pub fn superTimerEvent(self: QAbstractSlider, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QTimerEvent;
         qtc.QAbstractSlider_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#wheelEvent)
     ///
@@ -936,10 +1168,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` e: QWheelEvent `
     ///
-    pub fn WheelEvent(self: QAbstractSlider, e: anytype) void {
+    pub fn wheelEvent(self: QAbstractSlider, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QWheelEvent;
         qtc.QAbstractSlider_WheelEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#wheelEvent)
     ///
@@ -951,13 +1187,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, e: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QWheelEvent) callconv(.c) void) void {
         qtc.QAbstractSlider_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#wheelEvent)
     ///
@@ -969,10 +1205,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` e: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: QAbstractSlider, e: anytype) void {
+    pub fn superWheelEvent(self: QAbstractSlider, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QWheelEvent;
         qtc.QAbstractSlider_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#changeEvent)
     ///
@@ -982,10 +1222,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn ChangeEvent(self: QAbstractSlider, e: anytype) void {
+    pub fn changeEvent(self: QAbstractSlider, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QEvent;
         qtc.QAbstractSlider_ChangeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#changeEvent)
     ///
@@ -997,13 +1241,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, e: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QEvent) callconv(.c) void) void {
         qtc.QAbstractSlider_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#changeEvent)
     ///
@@ -1015,10 +1259,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn SuperChangeEvent(self: QAbstractSlider, e: anytype) void {
+    pub fn superChangeEvent(self: QAbstractSlider, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QEvent;
         qtc.QAbstractSlider_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1030,15 +1278,19 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSlider.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSlider.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1052,15 +1304,19 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSlider.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSlider.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setRepeatAction2` instead
+    ///
+    pub const SetRepeatAction2 = setRepeatAction2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setRepeatAction)
     ///
@@ -1072,9 +1328,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` thresholdTime: i32 `
     ///
-    pub fn SetRepeatAction2(self: QAbstractSlider, action: i32, thresholdTime: i32) void {
+    pub fn setRepeatAction2(self: QAbstractSlider, action: i32, thresholdTime: i32) void {
         qtc.QAbstractSlider_SetRepeatAction2(@ptrCast(self.ptr), @bitCast(action), @bitCast(thresholdTime));
     }
+
+    /// ### DEPRECATED: Use `onSetRepeatAction2` instead
+    ///
+    pub const OnSetRepeatAction2 = onSetRepeatAction2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setRepeatAction)
     ///
@@ -1086,13 +1346,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, action: qabstractslider_enums.SliderAction, thresholdTime: i32) callconv(.c) void `
     ///
-    pub fn OnSetRepeatAction2(self: QAbstractSlider, callback: *const fn (QAbstractSlider, i32, i32) callconv(.c) void) void {
+    pub fn onSetRepeatAction2(self: QAbstractSlider, callback: *const fn (QAbstractSlider, i32, i32) callconv(.c) void) void {
         qtc.QAbstractSlider_OnSetRepeatAction2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetRepeatAction2` instead
+    /// ### DEPRECATED: Use `superSetRepeatAction2` instead
     ///
-    pub const QBaseSetRepeatAction2 = SuperSetRepeatAction2;
+    pub const SuperSetRepeatAction2 = superSetRepeatAction2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setRepeatAction)
     ///
@@ -1106,9 +1366,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` thresholdTime: i32 `
     ///
-    pub fn SuperSetRepeatAction2(self: QAbstractSlider, action: i32, thresholdTime: i32) void {
+    pub fn superSetRepeatAction2(self: QAbstractSlider, action: i32, thresholdTime: i32) void {
         qtc.QAbstractSlider_SuperSetRepeatAction2(@ptrCast(self.ptr), @bitCast(action), @bitCast(thresholdTime));
     }
+
+    /// ### DEPRECATED: Use `setRepeatAction3` instead
+    ///
+    pub const SetRepeatAction3 = setRepeatAction3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setRepeatAction)
     ///
@@ -1122,9 +1386,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` repeatTime: i32 `
     ///
-    pub fn SetRepeatAction3(self: QAbstractSlider, action: i32, thresholdTime: i32, repeatTime: i32) void {
+    pub fn setRepeatAction3(self: QAbstractSlider, action: i32, thresholdTime: i32, repeatTime: i32) void {
         qtc.QAbstractSlider_SetRepeatAction3(@ptrCast(self.ptr), @bitCast(action), @bitCast(thresholdTime), @bitCast(repeatTime));
     }
+
+    /// ### DEPRECATED: Use `onSetRepeatAction3` instead
+    ///
+    pub const OnSetRepeatAction3 = onSetRepeatAction3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setRepeatAction)
     ///
@@ -1136,13 +1404,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, action: qabstractslider_enums.SliderAction, thresholdTime: i32, repeatTime: i32) callconv(.c) void `
     ///
-    pub fn OnSetRepeatAction3(self: QAbstractSlider, callback: *const fn (QAbstractSlider, i32, i32, i32) callconv(.c) void) void {
+    pub fn onSetRepeatAction3(self: QAbstractSlider, callback: *const fn (QAbstractSlider, i32, i32, i32) callconv(.c) void) void {
         qtc.QAbstractSlider_OnSetRepeatAction3(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetRepeatAction3` instead
+    /// ### DEPRECATED: Use `superSetRepeatAction3` instead
     ///
-    pub const QBaseSetRepeatAction3 = SuperSetRepeatAction3;
+    pub const SuperSetRepeatAction3 = superSetRepeatAction3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setRepeatAction)
     ///
@@ -1158,9 +1426,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` repeatTime: i32 `
     ///
-    pub fn SuperSetRepeatAction3(self: QAbstractSlider, action: i32, thresholdTime: i32, repeatTime: i32) void {
+    pub fn superSetRepeatAction3(self: QAbstractSlider, action: i32, thresholdTime: i32, repeatTime: i32) void {
         qtc.QAbstractSlider_SuperSetRepeatAction3(@ptrCast(self.ptr), @bitCast(action), @bitCast(thresholdTime), @bitCast(repeatTime));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -1170,9 +1442,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn WinId(self: QAbstractSlider) usize {
+    pub fn winId(self: QAbstractSlider) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -1182,9 +1458,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn CreateWinId(self: QAbstractSlider) void {
+    pub fn createWinId(self: QAbstractSlider) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -1194,9 +1474,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn InternalWinId(self: QAbstractSlider) usize {
+    pub fn internalWinId(self: QAbstractSlider) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -1206,9 +1490,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn EffectiveWinId(self: QAbstractSlider) usize {
+    pub fn effectiveWinId(self: QAbstractSlider) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -1218,9 +1506,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn Style(self: QAbstractSlider) QStyle {
+    pub fn style(self: QAbstractSlider) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -1230,12 +1522,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: QAbstractSlider, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: QAbstractSlider, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -1245,9 +1541,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn IsTopLevel(self: QAbstractSlider) bool {
+    pub fn isTopLevel(self: QAbstractSlider) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -1257,9 +1557,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn IsWindow(self: QAbstractSlider) bool {
+    pub fn isWindow(self: QAbstractSlider) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -1269,9 +1573,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn IsModal(self: QAbstractSlider) bool {
+    pub fn isModal(self: QAbstractSlider) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -1285,9 +1593,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: QAbstractSlider) i32 {
+    pub fn windowModality(self: QAbstractSlider) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -1297,11 +1609,15 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: QAbstractSlider, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: QAbstractSlider, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1311,9 +1627,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn IsEnabled(self: QAbstractSlider) bool {
+    pub fn isEnabled(self: QAbstractSlider) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -1325,10 +1645,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: QAbstractSlider, param1: anytype) bool {
+    pub fn isEnabledTo(self: QAbstractSlider, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1340,9 +1664,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: QAbstractSlider, enabled: bool) void {
+    pub fn setEnabled(self: QAbstractSlider, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -1354,9 +1682,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: QAbstractSlider, disabled: bool) void {
+    pub fn setDisabled(self: QAbstractSlider, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -1368,9 +1700,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: QAbstractSlider, windowModified: bool) void {
+    pub fn setWindowModified(self: QAbstractSlider, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1380,9 +1716,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn FrameGeometry(self: QAbstractSlider) QRect {
+    pub fn frameGeometry(self: QAbstractSlider) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -1392,9 +1732,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn Geometry(self: QAbstractSlider) QRect {
+    pub fn geometry(self: QAbstractSlider) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1404,9 +1748,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn NormalGeometry(self: QAbstractSlider) QRect {
+    pub fn normalGeometry(self: QAbstractSlider) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -1416,9 +1764,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn X(self: QAbstractSlider) i32 {
+    pub fn x(self: QAbstractSlider) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -1428,9 +1780,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn Y(self: QAbstractSlider) i32 {
+    pub fn y(self: QAbstractSlider) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -1440,9 +1796,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn Pos(self: QAbstractSlider) QPoint {
+    pub fn pos(self: QAbstractSlider) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -1452,9 +1812,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn FrameSize(self: QAbstractSlider) QSize {
+    pub fn frameSize(self: QAbstractSlider) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -1464,9 +1828,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn Size(self: QAbstractSlider) QSize {
+    pub fn size(self: QAbstractSlider) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -1476,9 +1844,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn Width(self: QAbstractSlider) i32 {
+    pub fn width(self: QAbstractSlider) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -1488,9 +1860,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn Height(self: QAbstractSlider) i32 {
+    pub fn height(self: QAbstractSlider) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -1500,9 +1876,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn Rect(self: QAbstractSlider) QRect {
+    pub fn rect(self: QAbstractSlider) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -1512,9 +1892,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn ChildrenRect(self: QAbstractSlider) QRect {
+    pub fn childrenRect(self: QAbstractSlider) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -1524,9 +1908,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn ChildrenRegion(self: QAbstractSlider) QRegion {
+    pub fn childrenRegion(self: QAbstractSlider) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1536,9 +1924,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn MinimumSize(self: QAbstractSlider) QSize {
+    pub fn minimumSize(self: QAbstractSlider) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1548,9 +1940,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn MaximumSize(self: QAbstractSlider) QSize {
+    pub fn maximumSize(self: QAbstractSlider) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1560,9 +1956,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn MinimumWidth(self: QAbstractSlider) i32 {
+    pub fn minimumWidth(self: QAbstractSlider) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1572,9 +1972,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn MinimumHeight(self: QAbstractSlider) i32 {
+    pub fn minimumHeight(self: QAbstractSlider) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1584,9 +1988,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn MaximumWidth(self: QAbstractSlider) i32 {
+    pub fn maximumWidth(self: QAbstractSlider) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1596,9 +2004,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn MaximumHeight(self: QAbstractSlider) i32 {
+    pub fn maximumHeight(self: QAbstractSlider) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1608,12 +2020,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: QAbstractSlider, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: QAbstractSlider, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1627,9 +2043,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: QAbstractSlider, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: QAbstractSlider, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1639,12 +2059,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: QAbstractSlider, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: QAbstractSlider, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1658,9 +2082,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: QAbstractSlider, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: QAbstractSlider, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1672,9 +2100,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: QAbstractSlider, minw: i32) void {
+    pub fn setMinimumWidth(self: QAbstractSlider, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1686,9 +2118,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: QAbstractSlider, minh: i32) void {
+    pub fn setMinimumHeight(self: QAbstractSlider, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1700,9 +2136,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: QAbstractSlider, maxw: i32) void {
+    pub fn setMaximumWidth(self: QAbstractSlider, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1714,9 +2154,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: QAbstractSlider, maxh: i32) void {
+    pub fn setMaximumHeight(self: QAbstractSlider, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1726,9 +2170,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn SizeIncrement(self: QAbstractSlider) QSize {
+    pub fn sizeIncrement(self: QAbstractSlider) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1738,12 +2186,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: QAbstractSlider, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: QAbstractSlider, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -1757,9 +2209,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: QAbstractSlider, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: QAbstractSlider, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -1769,9 +2225,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn BaseSize(self: QAbstractSlider) QSize {
+    pub fn baseSize(self: QAbstractSlider) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -1781,12 +2241,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: QAbstractSlider, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: QAbstractSlider, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -1800,9 +2264,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: QAbstractSlider, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: QAbstractSlider, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -1814,10 +2282,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: QAbstractSlider, fixedSize: anytype) void {
+    pub fn setFixedSize(self: QAbstractSlider, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -1831,9 +2303,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: QAbstractSlider, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: QAbstractSlider, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -1845,9 +2321,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: QAbstractSlider, w: i32) void {
+    pub fn setFixedWidth(self: QAbstractSlider, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -1859,9 +2339,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: QAbstractSlider, h: i32) void {
+    pub fn setFixedHeight(self: QAbstractSlider, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -1873,11 +2357,15 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: QAbstractSlider, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: QAbstractSlider, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -1888,11 +2376,15 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: QAbstractSlider, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: QAbstractSlider, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1903,11 +2395,15 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: QAbstractSlider, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: QAbstractSlider, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1918,11 +2414,15 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: QAbstractSlider, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: QAbstractSlider, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1933,11 +2433,15 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: QAbstractSlider, param1: anytype) QPointF {
+    pub fn mapToParent(self: QAbstractSlider, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1948,10 +2452,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: QAbstractSlider, param1: anytype) QPoint {
+    pub fn mapToParent2(self: QAbstractSlider, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -1963,10 +2471,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: QAbstractSlider, param1: anytype) QPointF {
+    pub fn mapFromParent(self: QAbstractSlider, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -1978,10 +2490,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: QAbstractSlider, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: QAbstractSlider, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -1995,12 +2511,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: QAbstractSlider, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: QAbstractSlider, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -2013,11 +2533,15 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: QAbstractSlider, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: QAbstractSlider, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -2031,11 +2555,15 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: QAbstractSlider, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: QAbstractSlider, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -2049,11 +2577,15 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: QAbstractSlider, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: QAbstractSlider, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -2063,9 +2595,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn Window(self: QAbstractSlider) QWidget {
+    pub fn window(self: QAbstractSlider) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -2075,9 +2611,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn NativeParentWidget(self: QAbstractSlider) QWidget {
+    pub fn nativeParentWidget(self: QAbstractSlider) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -2087,9 +2627,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn TopLevelWidget(self: QAbstractSlider) QWidget {
+    pub fn topLevelWidget(self: QAbstractSlider) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -2099,9 +2643,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn Palette(self: QAbstractSlider) QPalette {
+    pub fn palette(self: QAbstractSlider) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -2111,12 +2659,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: QAbstractSlider, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: QAbstractSlider, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2126,11 +2678,15 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: QAbstractSlider, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: QAbstractSlider, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2144,9 +2700,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: QAbstractSlider) i32 {
+    pub fn backgroundRole(self: QAbstractSlider) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2156,11 +2716,15 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: QAbstractSlider, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: QAbstractSlider, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2174,9 +2738,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: QAbstractSlider) i32 {
+    pub fn foregroundRole(self: QAbstractSlider) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -2186,9 +2754,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn Font(self: QAbstractSlider) QFont {
+    pub fn font(self: QAbstractSlider) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -2198,12 +2770,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: QAbstractSlider, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: QAbstractSlider, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -2213,9 +2789,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn FontMetrics(self: QAbstractSlider) QFontMetrics {
+    pub fn fontMetrics(self: QAbstractSlider) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -2225,9 +2805,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn FontInfo(self: QAbstractSlider) QFontInfo {
+    pub fn fontInfo(self: QAbstractSlider) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -2237,9 +2821,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn Cursor(self: QAbstractSlider) QCursor {
+    pub fn cursor(self: QAbstractSlider) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -2249,12 +2837,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: QAbstractSlider, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: QAbstractSlider, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -2264,9 +2856,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn UnsetCursor(self: QAbstractSlider) void {
+    pub fn unsetCursor(self: QAbstractSlider) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2278,9 +2874,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: QAbstractSlider, enable: bool) void {
+    pub fn setMouseTracking(self: QAbstractSlider, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2290,9 +2890,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn HasMouseTracking(self: QAbstractSlider) bool {
+    pub fn hasMouseTracking(self: QAbstractSlider) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -2302,9 +2906,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn UnderMouse(self: QAbstractSlider) bool {
+    pub fn underMouse(self: QAbstractSlider) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2316,9 +2924,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: QAbstractSlider, enable: bool) void {
+    pub fn setTabletTracking(self: QAbstractSlider, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2328,24 +2940,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn HasTabletTracking(self: QAbstractSlider) bool {
+    pub fn hasTabletTracking(self: QAbstractSlider) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractSlider `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: QAbstractSlider, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -2355,12 +2956,35 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: QAbstractSlider, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: QAbstractSlider, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QAbstractSlider `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: QAbstractSlider, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -2370,9 +2994,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn Mask(self: QAbstractSlider) QRegion {
+    pub fn mask(self: QAbstractSlider) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -2382,9 +3010,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn ClearMask(self: QAbstractSlider) void {
+    pub fn clearMask(self: QAbstractSlider) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -2396,10 +3028,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: QAbstractSlider, target: anytype) void {
+    pub fn render(self: QAbstractSlider, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -2411,10 +3047,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: QAbstractSlider, painter: anytype) void {
+    pub fn render2(self: QAbstractSlider, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -2424,9 +3064,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn Grab(self: QAbstractSlider) QPixmap {
+    pub fn grab(self: QAbstractSlider) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2436,9 +3080,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn GraphicsEffect(self: QAbstractSlider) QGraphicsEffect {
+    pub fn graphicsEffect(self: QAbstractSlider) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2450,10 +3098,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: QAbstractSlider, effect: anytype) void {
+    pub fn setGraphicsEffect(self: QAbstractSlider, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2465,9 +3117,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: QAbstractSlider, typeVal: i32) void {
+    pub fn grabGesture(self: QAbstractSlider, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2479,9 +3135,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: QAbstractSlider, typeVal: i32) void {
+    pub fn ungrabGesture(self: QAbstractSlider, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2491,15 +3151,19 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: QAbstractSlider, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: QAbstractSlider, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2509,15 +3173,19 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: QAbstractSlider, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: QAbstractSlider, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2529,13 +3197,17 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: QAbstractSlider, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: QAbstractSlider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSlider.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSlider.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2547,13 +3219,17 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: QAbstractSlider, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: QAbstractSlider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSlider.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSlider.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2565,10 +3241,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: QAbstractSlider, icon: anytype) void {
+    pub fn setWindowIcon(self: QAbstractSlider, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2578,9 +3258,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn WindowIcon(self: QAbstractSlider) QIcon {
+    pub fn windowIcon(self: QAbstractSlider) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2590,15 +3274,19 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: QAbstractSlider, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: QAbstractSlider, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2610,13 +3298,17 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: QAbstractSlider, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: QAbstractSlider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSlider.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSlider.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -2626,15 +3318,19 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: QAbstractSlider, windowRole: []const u8) void {
+    pub fn setWindowRole(self: QAbstractSlider, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -2646,13 +3342,17 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: QAbstractSlider, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: QAbstractSlider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSlider.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSlider.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2664,13 +3364,17 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: QAbstractSlider, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: QAbstractSlider, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2682,13 +3386,17 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: QAbstractSlider, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: QAbstractSlider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSlider.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSlider.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2700,9 +3408,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: QAbstractSlider, level: f64) void {
+    pub fn setWindowOpacity(self: QAbstractSlider, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2712,9 +3424,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn WindowOpacity(self: QAbstractSlider) f64 {
+    pub fn windowOpacity(self: QAbstractSlider) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -2724,9 +3440,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn IsWindowModified(self: QAbstractSlider) bool {
+    pub fn isWindowModified(self: QAbstractSlider) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -2736,15 +3456,19 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: QAbstractSlider, toolTip: []const u8) void {
+    pub fn setToolTip(self: QAbstractSlider, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -2756,13 +3480,17 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: QAbstractSlider, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: QAbstractSlider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSlider.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSlider.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2774,9 +3502,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: QAbstractSlider, msec: i32) void {
+    pub fn setToolTipDuration(self: QAbstractSlider, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2786,9 +3518,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn ToolTipDuration(self: QAbstractSlider) i32 {
+    pub fn toolTipDuration(self: QAbstractSlider) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -2798,15 +3534,19 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: QAbstractSlider, statusTip: []const u8) void {
+    pub fn setStatusTip(self: QAbstractSlider, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -2818,13 +3558,17 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: QAbstractSlider, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: QAbstractSlider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSlider.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSlider.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2834,15 +3578,19 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: QAbstractSlider, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: QAbstractSlider, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2854,13 +3602,17 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: QAbstractSlider, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: QAbstractSlider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSlider.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSlider.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2872,13 +3624,17 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: QAbstractSlider, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: QAbstractSlider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSlider.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSlider.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2890,13 +3646,17 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: QAbstractSlider, name: []const u8) void {
+    pub fn setAccessibleName(self: QAbstractSlider, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2908,13 +3668,17 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: QAbstractSlider, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: QAbstractSlider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSlider.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSlider.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2926,13 +3690,17 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: QAbstractSlider, description: []const u8) void {
+    pub fn setAccessibleDescription(self: QAbstractSlider, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2944,9 +3712,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: QAbstractSlider, direction: i32) void {
+    pub fn setLayoutDirection(self: QAbstractSlider, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2960,9 +3732,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: QAbstractSlider) i32 {
+    pub fn layoutDirection(self: QAbstractSlider) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2972,9 +3748,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn UnsetLayoutDirection(self: QAbstractSlider) void {
+    pub fn unsetLayoutDirection(self: QAbstractSlider) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -2984,12 +3764,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: QAbstractSlider, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: QAbstractSlider, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -2999,9 +3783,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn Locale(self: QAbstractSlider) QLocale {
+    pub fn locale(self: QAbstractSlider) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -3011,9 +3799,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn UnsetLocale(self: QAbstractSlider) void {
+    pub fn unsetLocale(self: QAbstractSlider) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -3023,9 +3815,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn IsRightToLeft(self: QAbstractSlider) bool {
+    pub fn isRightToLeft(self: QAbstractSlider) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -3035,9 +3831,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn IsLeftToRight(self: QAbstractSlider) bool {
+    pub fn isLeftToRight(self: QAbstractSlider) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -3047,9 +3847,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn SetFocus(self: QAbstractSlider) void {
+    pub fn setFocus(self: QAbstractSlider) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -3059,9 +3863,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn IsActiveWindow(self: QAbstractSlider) bool {
+    pub fn isActiveWindow(self: QAbstractSlider) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -3071,9 +3879,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn ActivateWindow(self: QAbstractSlider) void {
+    pub fn activateWindow(self: QAbstractSlider) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -3083,9 +3895,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn ClearFocus(self: QAbstractSlider) void {
+    pub fn clearFocus(self: QAbstractSlider) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -3097,9 +3913,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: QAbstractSlider, reason: i32) void {
+    pub fn setFocus2(self: QAbstractSlider, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3113,9 +3933,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: QAbstractSlider) i32 {
+    pub fn focusPolicy(self: QAbstractSlider) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3127,9 +3951,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: QAbstractSlider, policy: i32) void {
+    pub fn setFocusPolicy(self: QAbstractSlider, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -3139,9 +3967,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn HasFocus(self: QAbstractSlider) bool {
+    pub fn hasFocus(self: QAbstractSlider) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -3153,11 +3985,15 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3167,12 +4003,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: QAbstractSlider, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: QAbstractSlider, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3182,9 +4022,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn FocusProxy(self: QAbstractSlider) QWidget {
+    pub fn focusProxy(self: QAbstractSlider) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3198,9 +4042,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: QAbstractSlider) i32 {
+    pub fn contextMenuPolicy(self: QAbstractSlider) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3212,9 +4060,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: QAbstractSlider, policy: i32) void {
+    pub fn setContextMenuPolicy(self: QAbstractSlider, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -3224,9 +4076,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn GrabMouse(self: QAbstractSlider) void {
+    pub fn grabMouse(self: QAbstractSlider) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -3238,10 +4094,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: QAbstractSlider, param1: anytype) void {
+    pub fn grabMouse2(self: QAbstractSlider, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -3251,9 +4111,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn ReleaseMouse(self: QAbstractSlider) void {
+    pub fn releaseMouse(self: QAbstractSlider) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3263,9 +4127,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn GrabKeyboard(self: QAbstractSlider) void {
+    pub fn grabKeyboard(self: QAbstractSlider) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3275,9 +4143,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn ReleaseKeyboard(self: QAbstractSlider) void {
+    pub fn releaseKeyboard(self: QAbstractSlider) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3289,10 +4161,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: QAbstractSlider, key: anytype) i32 {
+    pub fn grabShortcut(self: QAbstractSlider, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3304,9 +4180,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: QAbstractSlider, id: i32) void {
+    pub fn releaseShortcut(self: QAbstractSlider, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3318,9 +4198,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: QAbstractSlider, id: i32) void {
+    pub fn setShortcutEnabled(self: QAbstractSlider, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -3332,25 +4216,37 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: QAbstractSlider, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: QAbstractSlider, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3360,9 +4256,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn UpdatesEnabled(self: QAbstractSlider) bool {
+    pub fn updatesEnabled(self: QAbstractSlider) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3374,9 +4274,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: QAbstractSlider, enable: bool) void {
+    pub fn setUpdatesEnabled(self: QAbstractSlider, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -3386,9 +4290,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn GraphicsProxyWidget(self: QAbstractSlider) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: QAbstractSlider) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -3398,9 +4306,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn Update(self: QAbstractSlider) void {
+    pub fn update(self: QAbstractSlider) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -3410,9 +4322,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn Repaint(self: QAbstractSlider) void {
+    pub fn repaint(self: QAbstractSlider) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -3422,17 +4338,21 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: QAbstractSlider, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: QAbstractSlider, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -3444,11 +4364,15 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: QAbstractSlider, param1: anytype) void {
+    pub fn update3(self: QAbstractSlider, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -3459,10 +4383,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: QAbstractSlider, param1: anytype) void {
+    pub fn update4(self: QAbstractSlider, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -3472,17 +4400,21 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: QAbstractSlider, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: QAbstractSlider, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -3494,10 +4426,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: QAbstractSlider, param1: anytype) void {
+    pub fn repaint3(self: QAbstractSlider, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -3509,10 +4445,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: QAbstractSlider, param1: anytype) void {
+    pub fn repaint4(self: QAbstractSlider, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -3524,9 +4464,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: QAbstractSlider, hidden: bool) void {
+    pub fn setHidden(self: QAbstractSlider, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -3536,9 +4480,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn Show(self: QAbstractSlider) void {
+    pub fn show(self: QAbstractSlider) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -3548,9 +4496,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn Hide(self: QAbstractSlider) void {
+    pub fn hide(self: QAbstractSlider) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3560,9 +4512,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn ShowMinimized(self: QAbstractSlider) void {
+    pub fn showMinimized(self: QAbstractSlider) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3572,9 +4528,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn ShowMaximized(self: QAbstractSlider) void {
+    pub fn showMaximized(self: QAbstractSlider) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3584,9 +4544,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn ShowFullScreen(self: QAbstractSlider) void {
+    pub fn showFullScreen(self: QAbstractSlider) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -3596,9 +4560,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn ShowNormal(self: QAbstractSlider) void {
+    pub fn showNormal(self: QAbstractSlider) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -3608,9 +4576,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn Close(self: QAbstractSlider) bool {
+    pub fn close(self: QAbstractSlider) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -3620,9 +4592,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn Raise(self: QAbstractSlider) void {
+    pub fn raise(self: QAbstractSlider) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -3632,9 +4608,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn Lower(self: QAbstractSlider) void {
+    pub fn lower(self: QAbstractSlider) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -3646,10 +4626,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: QAbstractSlider, param1: anytype) void {
+    pub fn stackUnder(self: QAbstractSlider, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -3659,13 +4643,17 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: QAbstractSlider, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: QAbstractSlider, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -3677,10 +4665,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: QAbstractSlider, param1: anytype) void {
+    pub fn move2(self: QAbstractSlider, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -3694,9 +4686,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: QAbstractSlider, w: i32, h: i32) void {
+    pub fn resize(self: QAbstractSlider, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -3708,10 +4704,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: QAbstractSlider, param1: anytype) void {
+    pub fn resize2(self: QAbstractSlider, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3721,17 +4721,21 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: QAbstractSlider, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: QAbstractSlider, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -3741,12 +4745,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: QAbstractSlider, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: QAbstractSlider, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3758,13 +4766,17 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: QAbstractSlider, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: QAbstractSlider, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QAbstractSlider.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QAbstractSlider.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3774,15 +4786,19 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: QAbstractSlider, geometry: []u8) bool {
+    pub fn restoreGeometry(self: QAbstractSlider, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -3792,9 +4808,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn AdjustSize(self: QAbstractSlider) void {
+    pub fn adjustSize(self: QAbstractSlider) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -3804,9 +4824,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn IsVisible(self: QAbstractSlider) bool {
+    pub fn isVisible(self: QAbstractSlider) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -3818,10 +4842,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: QAbstractSlider, param1: anytype) bool {
+    pub fn isVisibleTo(self: QAbstractSlider, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -3831,9 +4859,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn IsHidden(self: QAbstractSlider) bool {
+    pub fn isHidden(self: QAbstractSlider) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3843,9 +4875,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn IsMinimized(self: QAbstractSlider) bool {
+    pub fn isMinimized(self: QAbstractSlider) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3855,9 +4891,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn IsMaximized(self: QAbstractSlider) bool {
+    pub fn isMaximized(self: QAbstractSlider) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3867,9 +4907,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn IsFullScreen(self: QAbstractSlider) bool {
+    pub fn isFullScreen(self: QAbstractSlider) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -3883,9 +4927,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: QAbstractSlider) i32 {
+    pub fn windowState(self: QAbstractSlider) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3897,9 +4945,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: QAbstractSlider, state: i32) void {
+    pub fn setWindowState(self: QAbstractSlider, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3911,9 +4963,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: QAbstractSlider, state: i32) void {
+    pub fn overrideWindowState(self: QAbstractSlider, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3923,9 +4979,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn SizePolicy(self: QAbstractSlider) QSizePolicy {
+    pub fn sizePolicy(self: QAbstractSlider) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3935,12 +4995,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: QAbstractSlider, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: QAbstractSlider, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -3954,9 +5018,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: QAbstractSlider, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: QAbstractSlider, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -3966,9 +5034,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn VisibleRegion(self: QAbstractSlider) QRegion {
+    pub fn visibleRegion(self: QAbstractSlider) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3986,9 +5058,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: QAbstractSlider, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: QAbstractSlider, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -4000,10 +5076,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: QAbstractSlider, margins: anytype) void {
+    pub fn setContentsMargins2(self: QAbstractSlider, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -4013,9 +5093,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn ContentsMargins(self: QAbstractSlider) QMargins {
+    pub fn contentsMargins(self: QAbstractSlider) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -4025,9 +5109,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn ContentsRect(self: QAbstractSlider) QRect {
+    pub fn contentsRect(self: QAbstractSlider) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -4037,9 +5125,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn Layout(self: QAbstractSlider) QLayout {
+    pub fn layout(self: QAbstractSlider) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -4049,12 +5141,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: QAbstractSlider, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: QAbstractSlider, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4064,24 +5160,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn UpdateGeometry(self: QAbstractSlider) void {
+    pub fn updateGeometry(self: QAbstractSlider) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractSlider `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: QAbstractSlider, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -4091,14 +5176,37 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: QAbstractSlider, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QAbstractSlider `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: QAbstractSlider, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: QAbstractSlider, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -4112,9 +5220,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: QAbstractSlider, dx: i32, dy: i32) void {
+    pub fn scroll(self: QAbstractSlider, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -4130,10 +5242,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: QAbstractSlider, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: QAbstractSlider, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -4143,9 +5259,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn FocusWidget(self: QAbstractSlider) QWidget {
+    pub fn focusWidget(self: QAbstractSlider) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4155,9 +5275,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn NextInFocusChain(self: QAbstractSlider) QWidget {
+    pub fn nextInFocusChain(self: QAbstractSlider) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4167,9 +5291,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn PreviousInFocusChain(self: QAbstractSlider) QWidget {
+    pub fn previousInFocusChain(self: QAbstractSlider) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4179,9 +5307,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn AcceptDrops(self: QAbstractSlider) bool {
+    pub fn acceptDrops(self: QAbstractSlider) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4193,9 +5325,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: QAbstractSlider, on: bool) void {
+    pub fn setAcceptDrops(self: QAbstractSlider, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -4207,10 +5343,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: QAbstractSlider, action: anytype) void {
+    pub fn addAction(self: QAbstractSlider, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -4220,15 +5360,19 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: QAbstractSlider, actions: []QAction) void {
+    pub fn addActions(self: QAbstractSlider, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -4240,16 +5384,20 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: QAbstractSlider, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: QAbstractSlider, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -4263,11 +5411,15 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: QAbstractSlider, before: anytype, action: anytype) void {
+    pub fn insertAction(self: QAbstractSlider, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -4279,10 +5431,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: QAbstractSlider, action: anytype) void {
+    pub fn removeAction(self: QAbstractSlider, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -4294,15 +5450,19 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: QAbstractSlider, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: QAbstractSlider, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QAbstractSlider.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QAbstractSlider.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -4314,13 +5474,17 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: QAbstractSlider, text: []const u8) QAction {
+    pub fn addAction2(self: QAbstractSlider, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -4334,7 +5498,7 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: QAbstractSlider, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: QAbstractSlider, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -4343,6 +5507,10 @@ pub const QAbstractSlider = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -4355,7 +5523,7 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: QAbstractSlider, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: QAbstractSlider, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -4363,6 +5531,10 @@ pub const QAbstractSlider = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -4378,7 +5550,7 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: QAbstractSlider, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: QAbstractSlider, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -4388,6 +5560,10 @@ pub const QAbstractSlider = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -4396,9 +5572,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn ParentWidget(self: QAbstractSlider) QWidget {
+    pub fn parentWidget(self: QAbstractSlider) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4410,9 +5590,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: QAbstractSlider, typeVal: i32) void {
+    pub fn setWindowFlags(self: QAbstractSlider, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4426,9 +5610,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: QAbstractSlider) i32 {
+    pub fn windowFlags(self: QAbstractSlider) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -4440,9 +5628,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: QAbstractSlider, param1: i32) void {
+    pub fn setWindowFlag(self: QAbstractSlider, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4454,9 +5646,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: QAbstractSlider, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: QAbstractSlider, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -4470,9 +5666,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: QAbstractSlider) i32 {
+    pub fn windowType(self: QAbstractSlider) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -4482,9 +5682,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -4494,13 +5698,17 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: QAbstractSlider, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: QAbstractSlider, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -4512,10 +5720,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: QAbstractSlider, p: anytype) QWidget {
+    pub fn childAt2(self: QAbstractSlider, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -4527,10 +5739,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: QAbstractSlider, p: anytype) QWidget {
+    pub fn childAt3(self: QAbstractSlider, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4542,9 +5758,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: QAbstractSlider, param1: i32) void {
+    pub fn setAttribute(self: QAbstractSlider, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4556,9 +5776,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: QAbstractSlider, param1: i32) bool {
+    pub fn testAttribute(self: QAbstractSlider, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -4568,9 +5792,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn EnsurePolished(self: QAbstractSlider) void {
+    pub fn ensurePolished(self: QAbstractSlider) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -4582,10 +5810,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: QAbstractSlider, child: anytype) bool {
+    pub fn isAncestorOf(self: QAbstractSlider, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4595,9 +5827,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn AutoFillBackground(self: QAbstractSlider) bool {
+    pub fn autoFillBackground(self: QAbstractSlider) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4609,9 +5845,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: QAbstractSlider, enabled: bool) void {
+    pub fn setAutoFillBackground(self: QAbstractSlider, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -4621,9 +5861,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn BackingStore(self: QAbstractSlider) QBackingStore {
+    pub fn backingStore(self: QAbstractSlider) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -4633,9 +5877,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn WindowHandle(self: QAbstractSlider) QWindow {
+    pub fn windowHandle(self: QAbstractSlider) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -4645,9 +5893,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn Screen(self: QAbstractSlider) QScreen {
+    pub fn screen(self: QAbstractSlider) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -4657,12 +5909,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: QAbstractSlider, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: QAbstractSlider, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -4670,12 +5926,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4687,13 +5947,17 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: QAbstractSlider, title: []const u8) void {
+    pub fn windowTitleChanged(self: QAbstractSlider, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4705,9 +5969,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: QAbstractSlider, callback: *const fn (QAbstractSlider, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: QAbstractSlider, callback: *const fn (QAbstractSlider, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4719,10 +5987,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: QAbstractSlider, icon: anytype) void {
+    pub fn windowIconChanged(self: QAbstractSlider, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4734,9 +6006,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4748,13 +6024,17 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: QAbstractSlider, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: QAbstractSlider, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4766,9 +6046,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: QAbstractSlider, callback: *const fn (QAbstractSlider, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: QAbstractSlider, callback: *const fn (QAbstractSlider, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4778,12 +6062,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: QAbstractSlider, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: QAbstractSlider, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4795,9 +6083,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4811,9 +6103,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: QAbstractSlider) i32 {
+    pub fn inputMethodHints(self: QAbstractSlider) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4825,9 +6121,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: QAbstractSlider, hints: i32) void {
+    pub fn setInputMethodHints(self: QAbstractSlider, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -4841,11 +6141,15 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: QAbstractSlider, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: QAbstractSlider, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -4861,13 +6165,17 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: QAbstractSlider, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: QAbstractSlider, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -4884,12 +6192,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: QAbstractSlider, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: QAbstractSlider, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -4903,11 +6215,15 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: QAbstractSlider, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: QAbstractSlider, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -4923,12 +6239,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: QAbstractSlider, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: QAbstractSlider, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -4946,12 +6266,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: QAbstractSlider, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: QAbstractSlider, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -4963,10 +6287,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: QAbstractSlider, rectangle: anytype) QPixmap {
+    pub fn grab1(self: QAbstractSlider, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -4980,9 +6308,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: QAbstractSlider, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: QAbstractSlider, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -4996,10 +6328,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: QAbstractSlider, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: QAbstractSlider, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -5013,9 +6349,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: QAbstractSlider, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: QAbstractSlider, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -5029,9 +6369,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: QAbstractSlider, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: QAbstractSlider, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -5045,9 +6389,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: QAbstractSlider, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: QAbstractSlider, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -5061,25 +6409,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: QAbstractSlider, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: QAbstractSlider, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -5087,17 +6423,41 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -5109,13 +6469,17 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QAbstractSlider, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QAbstractSlider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSlider.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSlider.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -5127,13 +6491,17 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QAbstractSlider, name: []const u8) void {
+    pub fn setObjectName(self: QAbstractSlider, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -5143,9 +6511,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn IsWidgetType(self: QAbstractSlider) bool {
+    pub fn isWidgetType(self: QAbstractSlider) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -5155,9 +6527,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn IsWindowType(self: QAbstractSlider) bool {
+    pub fn isWindowType(self: QAbstractSlider) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -5167,9 +6543,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn IsQuickItemType(self: QAbstractSlider) bool {
+    pub fn isQuickItemType(self: QAbstractSlider) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -5179,9 +6559,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn SignalsBlocked(self: QAbstractSlider) bool {
+    pub fn signalsBlocked(self: QAbstractSlider) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -5193,9 +6577,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QAbstractSlider, b: bool) bool {
+    pub fn blockSignals(self: QAbstractSlider, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -5205,9 +6593,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn Thread(self: QAbstractSlider) QThread {
+    pub fn thread(self: QAbstractSlider) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -5217,12 +6609,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QAbstractSlider, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QAbstractSlider, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -5234,9 +6630,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QAbstractSlider, interval: i32) i32 {
+    pub fn startTimer(self: QAbstractSlider, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -5248,9 +6648,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QAbstractSlider, time: i64) i32 {
+    pub fn startTimer2(self: QAbstractSlider, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -5262,9 +6666,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QAbstractSlider, id: i32) void {
+    pub fn killTimer(self: QAbstractSlider, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -5276,9 +6684,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QAbstractSlider, id: i32) void {
+    pub fn killTimer2(self: QAbstractSlider, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -5290,15 +6702,19 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QAbstractSlider, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QAbstractSlider, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QAbstractSlider.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QAbstractSlider.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5310,10 +6726,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QAbstractSlider, filterObj: anytype) void {
+    pub fn installEventFilter(self: QAbstractSlider, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5325,10 +6745,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QAbstractSlider, obj: anytype) void {
+    pub fn removeEventFilter(self: QAbstractSlider, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -5336,7 +6760,7 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5344,13 +6768,17 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -5358,7 +6786,7 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5366,13 +6794,17 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -5382,18 +6814,22 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QAbstractSlider, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QAbstractSlider, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -5401,7 +6837,7 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5409,13 +6845,17 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -5423,7 +6863,7 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5431,13 +6871,17 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -5447,9 +6891,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn Disconnect3(self: QAbstractSlider) bool {
+    pub fn disconnect3(self: QAbstractSlider) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -5461,10 +6909,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QAbstractSlider, receiver: anytype) bool {
+    pub fn disconnect4(self: QAbstractSlider, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -5474,10 +6926,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -5487,9 +6943,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn DumpObjectTree(self: QAbstractSlider) void {
+    pub fn dumpObjectTree(self: QAbstractSlider) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -5499,9 +6959,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn DumpObjectInfo(self: QAbstractSlider) void {
+    pub fn dumpObjectInfo(self: QAbstractSlider) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -5513,13 +6977,17 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QVariant `
+    /// ` _value: QVariant `
     ///
-    pub fn SetProperty(self: QAbstractSlider, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QAbstractSlider, name: [:0]const u8, _value: anytype) bool {
         const name_Cstring = name.ptr;
-        comptime _ = @TypeOf(value)._is_QVariant;
-        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
+        comptime _ = @TypeOf(_value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(_value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -5531,10 +6999,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QAbstractSlider, name: [:0]const u8) QVariant {
+    pub fn property(self: QAbstractSlider, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -5546,7 +7018,7 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QAbstractSlider, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QAbstractSlider, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -5554,27 +7026,19 @@ pub const QAbstractSlider = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QAbstractSlider.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QAbstractSlider.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QAbstractSlider.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QAbstractSlider.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractSlider `
-    ///
-    pub fn BindingStorage(self: QAbstractSlider) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -5584,9 +7048,29 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn BindingStorage2(self: QAbstractSlider) QBindingStorage {
+    pub fn bindingStorage(self: QAbstractSlider) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QAbstractSlider `
+    ///
+    pub fn bindingStorage2(self: QAbstractSlider) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -5596,9 +7080,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn Destroyed(self: QAbstractSlider) void {
+    pub fn destroyed(self: QAbstractSlider) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -5610,9 +7098,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QAbstractSlider, callback: *const fn (QAbstractSlider) callconv(.c) void) void {
+    pub fn onDestroyed(self: QAbstractSlider, callback: *const fn (QAbstractSlider) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -5622,9 +7114,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn Parent(self: QAbstractSlider) QObject {
+    pub fn parent(self: QAbstractSlider) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -5636,10 +7132,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QAbstractSlider, classname: [:0]const u8) bool {
+    pub fn inherits(self: QAbstractSlider, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -5649,9 +7149,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn DeleteLater(self: QAbstractSlider) void {
+    pub fn deleteLater(self: QAbstractSlider) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -5665,9 +7169,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QAbstractSlider, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QAbstractSlider, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -5681,9 +7189,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QAbstractSlider, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QAbstractSlider, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -5691,7 +7203,7 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5701,13 +7213,17 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -5715,7 +7231,7 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5725,13 +7241,17 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -5741,7 +7261,7 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5749,12 +7269,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QAbstractSlider, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QAbstractSlider, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -5766,10 +7290,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QAbstractSlider, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QAbstractSlider, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -5783,11 +7311,15 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QAbstractSlider, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QAbstractSlider, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -5803,13 +7335,17 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QAbstractSlider, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QAbstractSlider, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -5822,11 +7358,15 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QAbstractSlider, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QAbstractSlider, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -5838,10 +7378,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QAbstractSlider, param1: anytype) void {
+    pub fn destroyed1(self: QAbstractSlider, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -5853,9 +7397,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -5865,9 +7413,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn PaintingActive(self: QAbstractSlider) bool {
+    pub fn paintingActive(self: QAbstractSlider) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5877,9 +7429,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn WidthMM(self: QAbstractSlider) i32 {
+    pub fn widthMM(self: QAbstractSlider) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5889,9 +7445,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn HeightMM(self: QAbstractSlider) i32 {
+    pub fn heightMM(self: QAbstractSlider) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5901,9 +7461,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn LogicalDpiX(self: QAbstractSlider) i32 {
+    pub fn logicalDpiX(self: QAbstractSlider) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5913,9 +7477,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn LogicalDpiY(self: QAbstractSlider) i32 {
+    pub fn logicalDpiY(self: QAbstractSlider) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5925,9 +7493,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn PhysicalDpiX(self: QAbstractSlider) i32 {
+    pub fn physicalDpiX(self: QAbstractSlider) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5937,9 +7509,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn PhysicalDpiY(self: QAbstractSlider) i32 {
+    pub fn physicalDpiY(self: QAbstractSlider) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -5949,9 +7525,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn DevicePixelRatio(self: QAbstractSlider) f64 {
+    pub fn devicePixelRatio(self: QAbstractSlider) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5961,9 +7541,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn DevicePixelRatioF(self: QAbstractSlider) f64 {
+    pub fn devicePixelRatioF(self: QAbstractSlider) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -5973,9 +7557,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn ColorCount(self: QAbstractSlider) i32 {
+    pub fn colorCount(self: QAbstractSlider) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -5985,17 +7573,25 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn Depth(self: QAbstractSlider) i32 {
+    pub fn depth(self: QAbstractSlider) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -6003,13 +7599,17 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    /// ` value: f64 `
+    /// ` _value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, _value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(_value));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -6021,13 +7621,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn DevType(self: QAbstractSlider) i32 {
+    pub fn devType(self: QAbstractSlider) i32 {
         return qtc.QAbstractSlider_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -6039,9 +7639,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn SuperDevType(self: QAbstractSlider) i32 {
+    pub fn superDevType(self: QAbstractSlider) i32 {
         return qtc.QAbstractSlider_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -6055,9 +7659,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: QAbstractSlider, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QAbstractSlider, callback: *const fn () callconv(.c) i32) void {
         qtc.QAbstractSlider_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -6071,13 +7679,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: QAbstractSlider, visible: bool) void {
+    pub fn setVisible(self: QAbstractSlider, visible: bool) void {
         qtc.QAbstractSlider_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -6091,9 +7699,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: QAbstractSlider, visible: bool) void {
+    pub fn superSetVisible(self: QAbstractSlider, visible: bool) void {
         qtc.QAbstractSlider_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -6107,10 +7719,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: QAbstractSlider, callback: *const fn (QAbstractSlider, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: QAbstractSlider, callback: *const fn (QAbstractSlider, bool) callconv(.c) void) void {
         qtc.QAbstractSlider_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
@@ -6121,13 +7737,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn SizeHint(self: QAbstractSlider) QSize {
+    pub fn sizeHint(self: QAbstractSlider) QSize {
         return .{ .ptr = qtc.QAbstractSlider_SizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -6139,10 +7755,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn SuperSizeHint(self: QAbstractSlider) QSize {
+    pub fn superSizeHint(self: QAbstractSlider) QSize {
         return .{ .ptr = qtc.QAbstractSlider_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
@@ -6157,9 +7777,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: QAbstractSlider, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QAbstractSlider, callback: *const fn () callconv(.c) QSize) void {
         qtc.QAbstractSlider_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -6171,13 +7795,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn MinimumSizeHint(self: QAbstractSlider) QSize {
+    pub fn minimumSizeHint(self: QAbstractSlider) QSize {
         return .{ .ptr = qtc.QAbstractSlider_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -6189,9 +7813,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn SuperMinimumSizeHint(self: QAbstractSlider) QSize {
+    pub fn superMinimumSizeHint(self: QAbstractSlider) QSize {
         return .{ .ptr = qtc.QAbstractSlider_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -6207,9 +7835,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: QAbstractSlider, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QAbstractSlider, callback: *const fn () callconv(.c) QSize) void {
         qtc.QAbstractSlider_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6223,13 +7855,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: QAbstractSlider, param1: i32) i32 {
+    pub fn heightForWidth(self: QAbstractSlider, param1: i32) i32 {
         return qtc.QAbstractSlider_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6243,9 +7875,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: QAbstractSlider, param1: i32) i32 {
+    pub fn superHeightForWidth(self: QAbstractSlider, param1: i32) i32 {
         return qtc.QAbstractSlider_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6259,9 +7895,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: QAbstractSlider, callback: *const fn (QAbstractSlider, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: QAbstractSlider, callback: *const fn (QAbstractSlider, i32) callconv(.c) i32) void {
         qtc.QAbstractSlider_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6273,13 +7913,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn HasHeightForWidth(self: QAbstractSlider) bool {
+    pub fn hasHeightForWidth(self: QAbstractSlider) bool {
         return qtc.QAbstractSlider_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6291,9 +7931,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn SuperHasHeightForWidth(self: QAbstractSlider) bool {
+    pub fn superHasHeightForWidth(self: QAbstractSlider) bool {
         return qtc.QAbstractSlider_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6307,9 +7951,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: QAbstractSlider, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QAbstractSlider, callback: *const fn () callconv(.c) bool) void {
         qtc.QAbstractSlider_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6321,13 +7969,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn PaintEngine(self: QAbstractSlider) QPaintEngine {
+    pub fn paintEngine(self: QAbstractSlider) QPaintEngine {
         return .{ .ptr = qtc.QAbstractSlider_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6339,9 +7987,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn SuperPaintEngine(self: QAbstractSlider) QPaintEngine {
+    pub fn superPaintEngine(self: QAbstractSlider) QPaintEngine {
         return .{ .ptr = qtc.QAbstractSlider_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6355,10 +8007,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: QAbstractSlider, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QAbstractSlider, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.QAbstractSlider_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
@@ -6369,16 +8025,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QAbstractSlider_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mousePressEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QAbstractSlider_MousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6390,12 +8046,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QAbstractSlider_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMousePressEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QAbstractSlider_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6409,10 +8069,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QMouseEvent) callconv(.c) void) void {
         qtc.QAbstractSlider_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
@@ -6423,16 +8087,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QAbstractSlider_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseReleaseEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QAbstractSlider_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6444,12 +8108,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QAbstractSlider_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseReleaseEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QAbstractSlider_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6463,10 +8131,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QMouseEvent) callconv(.c) void) void {
         qtc.QAbstractSlider_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -6477,16 +8149,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QAbstractSlider_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QAbstractSlider_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -6498,12 +8170,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QAbstractSlider_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QAbstractSlider_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -6517,10 +8193,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QMouseEvent) callconv(.c) void) void {
         qtc.QAbstractSlider_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -6531,16 +8211,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QAbstractSlider_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QAbstractSlider_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6552,12 +8232,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QAbstractSlider_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QAbstractSlider_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6571,9 +8255,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QMouseEvent) callconv(.c) void) void {
         qtc.QAbstractSlider_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6585,16 +8273,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QAbstractSlider_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QAbstractSlider_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6606,12 +8294,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QAbstractSlider_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QAbstractSlider_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6625,10 +8317,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QKeyEvent) callconv(.c) void) void {
         qtc.QAbstractSlider_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -6639,16 +8335,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QAbstractSlider_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QAbstractSlider_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6660,12 +8356,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QAbstractSlider_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QAbstractSlider_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6679,10 +8379,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QFocusEvent) callconv(.c) void) void {
         qtc.QAbstractSlider_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -6693,16 +8397,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QAbstractSlider_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QAbstractSlider_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6714,12 +8418,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QAbstractSlider_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QAbstractSlider_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6733,9 +8441,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QFocusEvent) callconv(.c) void) void {
         qtc.QAbstractSlider_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6747,16 +8459,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.QAbstractSlider_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.QAbstractSlider_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6768,12 +8480,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.QAbstractSlider_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.QAbstractSlider_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6787,9 +8503,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QEnterEvent) callconv(.c) void) void {
         qtc.QAbstractSlider_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6801,16 +8521,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QAbstractSlider_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QAbstractSlider_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6822,12 +8542,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QAbstractSlider_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QAbstractSlider_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6841,9 +8565,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QEvent) callconv(.c) void) void {
         qtc.QAbstractSlider_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6855,16 +8583,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn PaintEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.QAbstractSlider_PaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn paintEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.QAbstractSlider_PaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6876,12 +8604,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.QAbstractSlider_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superPaintEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.QAbstractSlider_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6895,9 +8627,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, event: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QPaintEvent) callconv(.c) void) void {
         qtc.QAbstractSlider_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6909,16 +8645,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.QAbstractSlider_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.QAbstractSlider_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6930,12 +8666,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.QAbstractSlider_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.QAbstractSlider_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6949,9 +8689,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QMoveEvent) callconv(.c) void) void {
         qtc.QAbstractSlider_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6963,16 +8707,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.QAbstractSlider_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn resizeEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.QAbstractSlider_ResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6984,12 +8728,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.QAbstractSlider_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superResizeEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.QAbstractSlider_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7003,9 +8751,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QResizeEvent) callconv(.c) void) void {
         qtc.QAbstractSlider_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7017,16 +8769,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.QAbstractSlider_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.QAbstractSlider_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7038,12 +8790,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.QAbstractSlider_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.QAbstractSlider_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7057,9 +8813,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QCloseEvent) callconv(.c) void) void {
         qtc.QAbstractSlider_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -7071,16 +8831,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.QAbstractSlider_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn contextMenuEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.QAbstractSlider_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -7092,12 +8852,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.QAbstractSlider_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superContextMenuEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.QAbstractSlider_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -7111,9 +8875,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, event: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QContextMenuEvent) callconv(.c) void) void {
         qtc.QAbstractSlider_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7125,16 +8893,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.QAbstractSlider_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.QAbstractSlider_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7146,12 +8914,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.QAbstractSlider_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.QAbstractSlider_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7165,9 +8937,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QTabletEvent) callconv(.c) void) void {
         qtc.QAbstractSlider_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7179,16 +8955,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.QAbstractSlider_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.QAbstractSlider_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7200,12 +8976,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.QAbstractSlider_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.QAbstractSlider_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7219,9 +8999,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QActionEvent) callconv(.c) void) void {
         qtc.QAbstractSlider_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7233,16 +9017,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.QAbstractSlider_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.QAbstractSlider_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7254,12 +9038,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.QAbstractSlider_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.QAbstractSlider_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7273,9 +9061,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QDragEnterEvent) callconv(.c) void) void {
         qtc.QAbstractSlider_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7287,16 +9079,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.QAbstractSlider_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.QAbstractSlider_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7308,12 +9100,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.QAbstractSlider_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.QAbstractSlider_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7327,9 +9123,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QDragMoveEvent) callconv(.c) void) void {
         qtc.QAbstractSlider_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7341,16 +9141,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.QAbstractSlider_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.QAbstractSlider_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7362,12 +9162,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.QAbstractSlider_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.QAbstractSlider_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7381,9 +9185,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QDragLeaveEvent) callconv(.c) void) void {
         qtc.QAbstractSlider_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7395,16 +9203,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.QAbstractSlider_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.QAbstractSlider_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7416,12 +9224,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.QAbstractSlider_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.QAbstractSlider_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7435,9 +9247,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QDropEvent) callconv(.c) void) void {
         qtc.QAbstractSlider_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QWidget
     ///
@@ -7449,16 +9265,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn ShowEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.QAbstractSlider_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn showEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.QAbstractSlider_ShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -7470,12 +9286,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.QAbstractSlider_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superShowEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.QAbstractSlider_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -7489,9 +9309,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QShowEvent) callconv(.c) void) void {
         qtc.QAbstractSlider_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7503,16 +9327,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.QAbstractSlider_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.QAbstractSlider_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7524,12 +9348,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.QAbstractSlider_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.QAbstractSlider_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7543,9 +9371,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QHideEvent) callconv(.c) void) void {
         qtc.QAbstractSlider_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7563,7 +9395,7 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: QAbstractSlider, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: QAbstractSlider, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -7571,9 +9403,9 @@ pub const QAbstractSlider = extern struct {
         return qtc.QAbstractSlider_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7591,13 +9423,17 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: QAbstractSlider, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: QAbstractSlider, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.QAbstractSlider_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7611,9 +9447,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QAbstractSlider_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -7627,13 +9467,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: QAbstractSlider, param1: i32) i32 {
+    pub fn metric(self: QAbstractSlider, param1: i32) i32 {
         return qtc.QAbstractSlider_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -7647,9 +9487,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: QAbstractSlider, param1: i32) i32 {
+    pub fn superMetric(self: QAbstractSlider, param1: i32) i32 {
         return qtc.QAbstractSlider_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -7663,9 +9507,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: QAbstractSlider, callback: *const fn (QAbstractSlider, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: QAbstractSlider, callback: *const fn (QAbstractSlider, i32) callconv(.c) i32) void {
         qtc.QAbstractSlider_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -7679,14 +9527,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: QAbstractSlider, painter: anytype) void {
+    pub fn initPainter(self: QAbstractSlider, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QAbstractSlider_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7700,10 +9548,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: QAbstractSlider, painter: anytype) void {
+    pub fn superInitPainter(self: QAbstractSlider, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QAbstractSlider_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7717,9 +9569,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QPainter) callconv(.c) void) void {
         qtc.QAbstractSlider_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -7733,14 +9589,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: QAbstractSlider, offset: anytype) QPaintDevice {
+    pub fn redirected(self: QAbstractSlider, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QAbstractSlider_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7754,10 +9610,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: QAbstractSlider, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: QAbstractSlider, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QAbstractSlider_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7771,9 +9631,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QPoint) callconv(.c) QPaintDevice) void {
         qtc.QAbstractSlider_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7785,13 +9649,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn SharedPainter(self: QAbstractSlider) QPainter {
+    pub fn sharedPainter(self: QAbstractSlider) QPainter {
         return .{ .ptr = qtc.QAbstractSlider_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7803,9 +9667,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn SuperSharedPainter(self: QAbstractSlider) QPainter {
+    pub fn superSharedPainter(self: QAbstractSlider) QPainter {
         return .{ .ptr = qtc.QAbstractSlider_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7819,9 +9687,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: QAbstractSlider, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QAbstractSlider, callback: *const fn () callconv(.c) QPainter) void {
         qtc.QAbstractSlider_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7835,14 +9707,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: QAbstractSlider, param1: anytype) void {
+    pub fn inputMethodEvent(self: QAbstractSlider, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.QAbstractSlider_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7856,10 +9728,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: QAbstractSlider, param1: anytype) void {
+    pub fn superInputMethodEvent(self: QAbstractSlider, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.QAbstractSlider_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7873,9 +9749,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QInputMethodEvent) callconv(.c) void) void {
         qtc.QAbstractSlider_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7889,13 +9769,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: QAbstractSlider, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: QAbstractSlider, param1: i32) QVariant {
         return .{ .ptr = qtc.QAbstractSlider_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7909,9 +9789,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: QAbstractSlider, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: QAbstractSlider, param1: i32) QVariant {
         return .{ .ptr = qtc.QAbstractSlider_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7927,9 +9811,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: QAbstractSlider, callback: *const fn (QAbstractSlider, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: QAbstractSlider, callback: *const fn (QAbstractSlider, i32) callconv(.c) QVariant) void {
         qtc.QAbstractSlider_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7943,13 +9831,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: QAbstractSlider, next: bool) bool {
+    pub fn focusNextPrevChild(self: QAbstractSlider, next: bool) bool {
         return qtc.QAbstractSlider_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7963,9 +9851,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: QAbstractSlider, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: QAbstractSlider, next: bool) bool {
         return qtc.QAbstractSlider_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7979,9 +9871,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: QAbstractSlider, callback: *const fn (QAbstractSlider, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: QAbstractSlider, callback: *const fn (QAbstractSlider, bool) callconv(.c) bool) void {
         qtc.QAbstractSlider_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -7995,17 +9891,17 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QAbstractSlider, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QAbstractSlider, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QAbstractSlider_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QAbstractSlider_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -8019,13 +9915,17 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QAbstractSlider, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QAbstractSlider, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QAbstractSlider_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QAbstractSlider_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -8039,9 +9939,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QObject, QEvent) callconv(.c) bool) void {
         qtc.QAbstractSlider_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -8053,16 +9957,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QAbstractSlider_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QAbstractSlider_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8074,12 +9978,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QAbstractSlider_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QAbstractSlider_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8093,9 +10001,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QChildEvent) callconv(.c) void) void {
         qtc.QAbstractSlider_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -8107,16 +10019,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QAbstractSlider_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QAbstractSlider_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8128,12 +10040,16 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QAbstractSlider, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QAbstractSlider_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QAbstractSlider, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QAbstractSlider_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8147,9 +10063,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QEvent) callconv(.c) void) void {
         qtc.QAbstractSlider_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -8163,14 +10083,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QAbstractSlider, signal: anytype) void {
+    pub fn connectNotify(self: QAbstractSlider, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QAbstractSlider_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8184,11 +10104,15 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QAbstractSlider, signal: anytype) void {
+    pub fn superConnectNotify(self: QAbstractSlider, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QAbstractSlider_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -8201,9 +10125,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QMetaMethod) callconv(.c) void) void {
         qtc.QAbstractSlider_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8217,14 +10145,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QAbstractSlider, signal: anytype) void {
+    pub fn disconnectNotify(self: QAbstractSlider, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QAbstractSlider_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8238,10 +10166,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QAbstractSlider, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QAbstractSlider, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QAbstractSlider_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8255,10 +10187,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QMetaMethod) callconv(.c) void) void {
         qtc.QAbstractSlider_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8269,13 +10205,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn UpdateMicroFocus(self: QAbstractSlider) void {
+    pub fn updateMicroFocus(self: QAbstractSlider) void {
         qtc.QAbstractSlider_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -8287,10 +10223,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn SuperUpdateMicroFocus(self: QAbstractSlider) void {
+    pub fn superUpdateMicroFocus(self: QAbstractSlider) void {
         qtc.QAbstractSlider_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8303,10 +10243,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: QAbstractSlider, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: QAbstractSlider, callback: *const fn () callconv(.c) void) void {
         qtc.QAbstractSlider_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8317,13 +10261,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn Create(self: QAbstractSlider) void {
+    pub fn create(self: QAbstractSlider) void {
         qtc.QAbstractSlider_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -8335,10 +10279,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn SuperCreate(self: QAbstractSlider) void {
+    pub fn superCreate(self: QAbstractSlider) void {
         qtc.QAbstractSlider_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8351,9 +10299,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: QAbstractSlider, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: QAbstractSlider, callback: *const fn () callconv(.c) void) void {
         qtc.QAbstractSlider_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -8365,13 +10317,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn Destroy(self: QAbstractSlider) void {
+    pub fn destroy(self: QAbstractSlider) void {
         qtc.QAbstractSlider_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8383,9 +10335,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn SuperDestroy(self: QAbstractSlider) void {
+    pub fn superDestroy(self: QAbstractSlider) void {
         qtc.QAbstractSlider_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8399,10 +10355,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: QAbstractSlider, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: QAbstractSlider, callback: *const fn () callconv(.c) void) void {
         qtc.QAbstractSlider_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8413,13 +10373,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn FocusNextChild(self: QAbstractSlider) bool {
+    pub fn focusNextChild(self: QAbstractSlider) bool {
         return qtc.QAbstractSlider_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -8431,10 +10391,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn SuperFocusNextChild(self: QAbstractSlider) bool {
+    pub fn superFocusNextChild(self: QAbstractSlider) bool {
         return qtc.QAbstractSlider_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8447,9 +10411,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: QAbstractSlider, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: QAbstractSlider, callback: *const fn () callconv(.c) bool) void {
         qtc.QAbstractSlider_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8461,13 +10429,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn FocusPreviousChild(self: QAbstractSlider) bool {
+    pub fn focusPreviousChild(self: QAbstractSlider) bool {
         return qtc.QAbstractSlider_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8479,9 +10447,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn SuperFocusPreviousChild(self: QAbstractSlider) bool {
+    pub fn superFocusPreviousChild(self: QAbstractSlider) bool {
         return qtc.QAbstractSlider_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8495,9 +10467,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: QAbstractSlider, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: QAbstractSlider, callback: *const fn () callconv(.c) bool) void {
         qtc.QAbstractSlider_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -8509,13 +10485,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn Sender(self: QAbstractSlider) QObject {
+    pub fn sender(self: QAbstractSlider) QObject {
         return .{ .ptr = qtc.QAbstractSlider_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -8527,9 +10503,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn SuperSender(self: QAbstractSlider) QObject {
+    pub fn superSender(self: QAbstractSlider) QObject {
         return .{ .ptr = qtc.QAbstractSlider_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -8543,9 +10523,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QAbstractSlider, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QAbstractSlider, callback: *const fn () callconv(.c) QObject) void {
         qtc.QAbstractSlider_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8557,13 +10541,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn SenderSignalIndex(self: QAbstractSlider) i32 {
+    pub fn senderSignalIndex(self: QAbstractSlider) i32 {
         return qtc.QAbstractSlider_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8575,9 +10559,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn SuperSenderSignalIndex(self: QAbstractSlider) i32 {
+    pub fn superSenderSignalIndex(self: QAbstractSlider) i32 {
         return qtc.QAbstractSlider_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8591,9 +10579,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QAbstractSlider, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QAbstractSlider, callback: *const fn () callconv(.c) i32) void {
         qtc.QAbstractSlider_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -8607,14 +10599,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QAbstractSlider, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QAbstractSlider, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QAbstractSlider_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -8628,10 +10620,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QAbstractSlider, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QAbstractSlider, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QAbstractSlider_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -8645,9 +10641,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QAbstractSlider, callback: *const fn (QAbstractSlider, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QAbstractSlider, callback: *const fn (QAbstractSlider, [*:0]const u8) callconv(.c) i32) void {
         qtc.QAbstractSlider_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8661,14 +10661,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QAbstractSlider, signal: anytype) bool {
+    pub fn isSignalConnected(self: QAbstractSlider, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QAbstractSlider_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8682,10 +10682,14 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QAbstractSlider, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QAbstractSlider, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QAbstractSlider_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8699,9 +10703,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QMetaMethod) callconv(.c) bool) void {
         qtc.QAbstractSlider_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8717,13 +10725,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: QAbstractSlider, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: QAbstractSlider, metricA: i32, metricB: i32) f64 {
         return qtc.QAbstractSlider_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8739,9 +10747,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: QAbstractSlider, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: QAbstractSlider, metricA: i32, metricB: i32) f64 {
         return qtc.QAbstractSlider_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8755,9 +10767,13 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: QAbstractSlider, callback: *const fn (QAbstractSlider, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: QAbstractSlider, callback: *const fn (QAbstractSlider, i32, i32) callconv(.c) f64) void {
         qtc.QAbstractSlider_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -8771,23 +10787,23 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSlider, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QAbstractSlider, callback: *const fn (QAbstractSlider, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QAbstractSlider, callback: *const fn (QAbstractSlider, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#dtor.QAbstractSlider)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QAbstractSlider `
     ///
-    pub fn Delete(self: QAbstractSlider) void {
+    pub fn delete(self: QAbstractSlider) void {
         qtc.QAbstractSlider_Delete(@ptrCast(self.ptr));
     }
 };

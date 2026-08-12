@@ -16,56 +16,76 @@ pub const QSqlIndex = extern struct {
     pub const _is_QSqlIndex = {};
     pub const _is_QSqlRecord = {};
 
-    /// New constructs a new QSqlIndex object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QSqlIndex {
+    pub const New = new;
+
+    /// Allocate a new QSqlIndex object in C++ memory
+    ///
+    pub fn new() QSqlIndex {
         return .{ .ptr = qtc.QSqlIndex_new() };
     }
 
-    /// New2 constructs a new QSqlIndex object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QSqlIndex object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QSqlIndex `
     ///
-    pub fn New2(other: anytype) QSqlIndex {
+    pub fn new2(other: anytype) QSqlIndex {
         comptime _ = @TypeOf(other)._is_QSqlIndex;
         return .{ .ptr = qtc.QSqlIndex_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QSqlIndex object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QSqlIndex object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` cursorName: []const u8 `
+    /// ` _cursorName: []const u8 `
     ///
-    pub fn New3(cursorName: []const u8) QSqlIndex {
+    pub fn new3(_cursorName: []const u8) QSqlIndex {
         const cursorName_str = qtc.libqt_string{
-            .len = cursorName.len,
-            .data = cursorName.ptr,
+            .len = _cursorName.len,
+            .data = _cursorName.ptr,
         };
         return .{ .ptr = qtc.QSqlIndex_new3(cursorName_str) };
     }
 
-    /// New4 constructs a new QSqlIndex object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QSqlIndex object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` cursorName: []const u8 `
+    /// ` _cursorName: []const u8 `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn New4(cursorName: []const u8, name: []const u8) QSqlIndex {
+    pub fn new4(_cursorName: []const u8, _name: []const u8) QSqlIndex {
         const cursorName_str = qtc.libqt_string{
-            .len = cursorName.len,
-            .data = cursorName.ptr,
+            .len = _cursorName.len,
+            .data = _cursorName.ptr,
         };
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         return .{ .ptr = qtc.QSqlIndex_new4(cursorName_str, name_str) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlindex.html#operator-eq)
     ///
@@ -75,10 +95,14 @@ pub const QSqlIndex = extern struct {
     ///
     /// ` other: QSqlIndex `
     ///
-    pub fn OperatorAssign(self: QSqlIndex, other: anytype) void {
+    pub fn operatorAssign(self: QSqlIndex, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QSqlIndex;
         qtc.QSqlIndex_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlindex.html#swap)
     ///
@@ -88,10 +112,14 @@ pub const QSqlIndex = extern struct {
     ///
     /// ` other: QSqlIndex `
     ///
-    pub fn Swap(self: QSqlIndex, other: anytype) void {
+    pub fn swap(self: QSqlIndex, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QSqlIndex;
         qtc.QSqlIndex_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCursorName` instead
+    ///
+    pub const SetCursorName = setCursorName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlindex.html#setCursorName)
     ///
@@ -99,15 +127,19 @@ pub const QSqlIndex = extern struct {
     ///
     /// ` self: QSqlIndex `
     ///
-    /// ` cursorName: []const u8 `
+    /// ` _cursorName: []const u8 `
     ///
-    pub fn SetCursorName(self: QSqlIndex, cursorName: []const u8) void {
+    pub fn setCursorName(self: QSqlIndex, _cursorName: []const u8) void {
         const cursorName_str = qtc.libqt_string{
-            .len = cursorName.len,
-            .data = cursorName.ptr,
+            .len = _cursorName.len,
+            .data = _cursorName.ptr,
         };
         qtc.QSqlIndex_SetCursorName(@ptrCast(self.ptr), cursorName_str);
     }
+
+    /// ### DEPRECATED: Use `cursorName` instead
+    ///
+    pub const CursorName = cursorName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlindex.html#cursorName)
     ///
@@ -117,13 +149,17 @@ pub const QSqlIndex = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CursorName(self: QSqlIndex, allocator: std.mem.Allocator) []const u8 {
+    pub fn cursorName(self: QSqlIndex, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSqlIndex_CursorName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlIndex.CursorName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlIndex.cursorName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setName` instead
+    ///
+    pub const SetName = setName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlindex.html#setName)
     ///
@@ -131,15 +167,19 @@ pub const QSqlIndex = extern struct {
     ///
     /// ` self: QSqlIndex `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn SetName(self: QSqlIndex, name: []const u8) void {
+    pub fn setName(self: QSqlIndex, _name: []const u8) void {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         qtc.QSqlIndex_SetName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlindex.html#name)
     ///
@@ -149,26 +189,17 @@ pub const QSqlIndex = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: QSqlIndex, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: QSqlIndex, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSqlIndex_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlIndex.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlIndex.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlindex.html#append)
+    /// ### DEPRECATED: Use `append` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSqlIndex `
-    ///
-    /// ` field: QSqlField `
-    ///
-    pub fn Append(self: QSqlIndex, field: anytype) void {
-        comptime _ = @TypeOf(field)._is_QSqlField;
-        qtc.QSqlIndex_Append(@ptrCast(self.ptr), @ptrCast(field.ptr));
-    }
+    pub const Append = append;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlindex.html#append)
     ///
@@ -176,14 +207,35 @@ pub const QSqlIndex = extern struct {
     ///
     /// ` self: QSqlIndex `
     ///
-    /// ` field: QSqlField `
+    /// ` _field: QSqlField `
+    ///
+    pub fn append(self: QSqlIndex, _field: anytype) void {
+        comptime _ = @TypeOf(_field)._is_QSqlField;
+        qtc.QSqlIndex_Append(@ptrCast(self.ptr), @ptrCast(_field.ptr));
+    }
+
+    /// ### DEPRECATED: Use `append2` instead
+    ///
+    pub const Append2 = append2;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlindex.html#append)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QSqlIndex `
+    ///
+    /// ` _field: QSqlField `
     ///
     /// ` desc: bool `
     ///
-    pub fn Append2(self: QSqlIndex, field: anytype, desc: bool) void {
-        comptime _ = @TypeOf(field)._is_QSqlField;
-        qtc.QSqlIndex_Append2(@ptrCast(self.ptr), @ptrCast(field.ptr), desc);
+    pub fn append2(self: QSqlIndex, _field: anytype, desc: bool) void {
+        comptime _ = @TypeOf(_field)._is_QSqlField;
+        qtc.QSqlIndex_Append2(@ptrCast(self.ptr), @ptrCast(_field.ptr), desc);
     }
+
+    /// ### DEPRECATED: Use `isDescending` instead
+    ///
+    pub const IsDescending = isDescending;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlindex.html#isDescending)
     ///
@@ -193,9 +245,13 @@ pub const QSqlIndex = extern struct {
     ///
     /// ` i: i32 `
     ///
-    pub fn IsDescending(self: QSqlIndex, i: i32) bool {
+    pub fn isDescending(self: QSqlIndex, i: i32) bool {
         return qtc.QSqlIndex_IsDescending(@ptrCast(self.ptr), @bitCast(i));
     }
+
+    /// ### DEPRECATED: Use `setDescending` instead
+    ///
+    pub const SetDescending = setDescending;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlindex.html#setDescending)
     ///
@@ -207,9 +263,13 @@ pub const QSqlIndex = extern struct {
     ///
     /// ` desc: bool `
     ///
-    pub fn SetDescending(self: QSqlIndex, i: i32, desc: bool) void {
+    pub fn setDescending(self: QSqlIndex, i: i32, desc: bool) void {
         qtc.QSqlIndex_SetDescending(@ptrCast(self.ptr), @bitCast(i), desc);
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// Inherited from QSqlRecord
     ///
@@ -221,10 +281,14 @@ pub const QSqlIndex = extern struct {
     ///
     /// ` other: QSqlRecord `
     ///
-    pub fn OperatorEqual(self: QSqlIndex, other: anytype) bool {
+    pub fn operatorEqual(self: QSqlIndex, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QSqlRecord;
         return qtc.QSqlRecord_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// Inherited from QSqlRecord
     ///
@@ -236,11 +300,15 @@ pub const QSqlIndex = extern struct {
     ///
     /// ` other: QSqlRecord `
     ///
-    pub fn OperatorNotEqual(self: QSqlIndex, other: anytype) bool {
+    pub fn operatorNotEqual(self: QSqlIndex, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QSqlRecord;
         return qtc.QSqlRecord_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
+    /// ### DEPRECATED: Use `value` instead
+    ///
+    pub const Value = value;
+
     /// Inherited from QSqlRecord
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlrecord.html#value)
@@ -251,9 +319,13 @@ pub const QSqlIndex = extern struct {
     ///
     /// ` i: i32 `
     ///
-    pub fn Value(self: QSqlIndex, i: i32) QVariant {
+    pub fn value(self: QSqlIndex, i: i32) QVariant {
         return .{ .ptr = qtc.QSqlRecord_Value(@ptrCast(self.ptr), @bitCast(i)) };
     }
+
+    /// ### DEPRECATED: Use `value2` instead
+    ///
+    pub const Value2 = value2;
 
     /// Inherited from QSqlRecord
     ///
@@ -263,16 +335,20 @@ pub const QSqlIndex = extern struct {
     ///
     /// ` self: QSqlIndex `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn Value2(self: QSqlIndex, name: []const u8) QVariant {
+    pub fn value2(self: QSqlIndex, _name: []const u8) QVariant {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         return .{ .ptr = qtc.QSqlRecord_Value2(@ptrCast(self.ptr), name_str) };
     }
 
+    /// ### DEPRECATED: Use `setValue` instead
+    ///
+    pub const SetValue = setValue;
+
     /// Inherited from QSqlRecord
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlrecord.html#setValue)
@@ -285,10 +361,14 @@ pub const QSqlIndex = extern struct {
     ///
     /// ` val: QVariant `
     ///
-    pub fn SetValue(self: QSqlIndex, i: i32, val: anytype) void {
+    pub fn setValue(self: QSqlIndex, i: i32, val: anytype) void {
         comptime _ = @TypeOf(val)._is_QVariant;
         qtc.QSqlRecord_SetValue(@ptrCast(self.ptr), @bitCast(i), @ptrCast(val.ptr));
     }
+
+    /// ### DEPRECATED: Use `setValue2` instead
+    ///
+    pub const SetValue2 = setValue2;
 
     /// Inherited from QSqlRecord
     ///
@@ -298,19 +378,23 @@ pub const QSqlIndex = extern struct {
     ///
     /// ` self: QSqlIndex `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
     /// ` val: QVariant `
     ///
-    pub fn SetValue2(self: QSqlIndex, name: []const u8, val: anytype) void {
+    pub fn setValue2(self: QSqlIndex, _name: []const u8, val: anytype) void {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         comptime _ = @TypeOf(val)._is_QVariant;
         qtc.QSqlRecord_SetValue2(@ptrCast(self.ptr), name_str, @ptrCast(val.ptr));
     }
 
+    /// ### DEPRECATED: Use `setNull` instead
+    ///
+    pub const SetNull = setNull;
+
     /// Inherited from QSqlRecord
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlrecord.html#setNull)
@@ -321,9 +405,13 @@ pub const QSqlIndex = extern struct {
     ///
     /// ` i: i32 `
     ///
-    pub fn SetNull(self: QSqlIndex, i: i32) void {
+    pub fn setNull(self: QSqlIndex, i: i32) void {
         qtc.QSqlRecord_SetNull(@ptrCast(self.ptr), @bitCast(i));
     }
+
+    /// ### DEPRECATED: Use `setNull2` instead
+    ///
+    pub const SetNull2 = setNull2;
 
     /// Inherited from QSqlRecord
     ///
@@ -333,16 +421,20 @@ pub const QSqlIndex = extern struct {
     ///
     /// ` self: QSqlIndex `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn SetNull2(self: QSqlIndex, name: []const u8) void {
+    pub fn setNull2(self: QSqlIndex, _name: []const u8) void {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         qtc.QSqlRecord_SetNull2(@ptrCast(self.ptr), name_str);
     }
 
+    /// ### DEPRECATED: Use `isNull` instead
+    ///
+    pub const IsNull = isNull;
+
     /// Inherited from QSqlRecord
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlrecord.html#isNull)
@@ -353,9 +445,13 @@ pub const QSqlIndex = extern struct {
     ///
     /// ` i: i32 `
     ///
-    pub fn IsNull(self: QSqlIndex, i: i32) bool {
+    pub fn isNull(self: QSqlIndex, i: i32) bool {
         return qtc.QSqlRecord_IsNull(@ptrCast(self.ptr), @bitCast(i));
     }
+
+    /// ### DEPRECATED: Use `isNull2` instead
+    ///
+    pub const IsNull2 = isNull2;
 
     /// Inherited from QSqlRecord
     ///
@@ -365,15 +461,19 @@ pub const QSqlIndex = extern struct {
     ///
     /// ` self: QSqlIndex `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn IsNull2(self: QSqlIndex, name: []const u8) bool {
+    pub fn isNull2(self: QSqlIndex, _name: []const u8) bool {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         return qtc.QSqlRecord_IsNull2(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `indexOf` instead
+    ///
+    pub const IndexOf = indexOf;
 
     /// Inherited from QSqlRecord
     ///
@@ -383,15 +483,19 @@ pub const QSqlIndex = extern struct {
     ///
     /// ` self: QSqlIndex `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn IndexOf(self: QSqlIndex, name: []const u8) i32 {
+    pub fn indexOf(self: QSqlIndex, _name: []const u8) i32 {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         return qtc.QSqlRecord_IndexOf(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `fieldName` instead
+    ///
+    pub const FieldName = fieldName;
 
     /// Inherited from QSqlRecord
     ///
@@ -405,14 +509,18 @@ pub const QSqlIndex = extern struct {
     ///
     /// ` i: i32 `
     ///
-    pub fn FieldName(self: QSqlIndex, allocator: std.mem.Allocator, i: i32) []const u8 {
+    pub fn fieldName(self: QSqlIndex, allocator: std.mem.Allocator, i: i32) []const u8 {
         var _str = qtc.QSqlRecord_FieldName(@ptrCast(self.ptr), @bitCast(i));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlIndex.FieldName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlIndex.fieldName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `field` instead
+    ///
+    pub const Field = field;
+
     /// Inherited from QSqlRecord
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlrecord.html#field)
@@ -423,9 +531,13 @@ pub const QSqlIndex = extern struct {
     ///
     /// ` i: i32 `
     ///
-    pub fn Field(self: QSqlIndex, i: i32) QSqlField {
+    pub fn field(self: QSqlIndex, i: i32) QSqlField {
         return .{ .ptr = qtc.QSqlRecord_Field(@ptrCast(self.ptr), @bitCast(i)) };
     }
+
+    /// ### DEPRECATED: Use `field2` instead
+    ///
+    pub const Field2 = field2;
 
     /// Inherited from QSqlRecord
     ///
@@ -435,16 +547,20 @@ pub const QSqlIndex = extern struct {
     ///
     /// ` self: QSqlIndex `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn Field2(self: QSqlIndex, name: []const u8) QSqlField {
+    pub fn field2(self: QSqlIndex, _name: []const u8) QSqlField {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         return .{ .ptr = qtc.QSqlRecord_Field2(@ptrCast(self.ptr), name_str) };
     }
 
+    /// ### DEPRECATED: Use `isGenerated` instead
+    ///
+    pub const IsGenerated = isGenerated;
+
     /// Inherited from QSqlRecord
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlrecord.html#isGenerated)
@@ -455,9 +571,13 @@ pub const QSqlIndex = extern struct {
     ///
     /// ` i: i32 `
     ///
-    pub fn IsGenerated(self: QSqlIndex, i: i32) bool {
+    pub fn isGenerated(self: QSqlIndex, i: i32) bool {
         return qtc.QSqlRecord_IsGenerated(@ptrCast(self.ptr), @bitCast(i));
     }
+
+    /// ### DEPRECATED: Use `isGenerated2` instead
+    ///
+    pub const IsGenerated2 = isGenerated2;
 
     /// Inherited from QSqlRecord
     ///
@@ -467,16 +587,20 @@ pub const QSqlIndex = extern struct {
     ///
     /// ` self: QSqlIndex `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn IsGenerated2(self: QSqlIndex, name: []const u8) bool {
+    pub fn isGenerated2(self: QSqlIndex, _name: []const u8) bool {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         return qtc.QSqlRecord_IsGenerated2(@ptrCast(self.ptr), name_str);
     }
 
+    /// ### DEPRECATED: Use `setGenerated` instead
+    ///
+    pub const SetGenerated = setGenerated;
+
     /// Inherited from QSqlRecord
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlrecord.html#setGenerated)
@@ -485,17 +609,21 @@ pub const QSqlIndex = extern struct {
     ///
     /// ` self: QSqlIndex `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
     /// ` generated: bool `
     ///
-    pub fn SetGenerated(self: QSqlIndex, name: []const u8, generated: bool) void {
+    pub fn setGenerated(self: QSqlIndex, _name: []const u8, generated: bool) void {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         qtc.QSqlRecord_SetGenerated(@ptrCast(self.ptr), name_str, generated);
     }
+
+    /// ### DEPRECATED: Use `setGenerated2` instead
+    ///
+    pub const SetGenerated2 = setGenerated2;
 
     /// Inherited from QSqlRecord
     ///
@@ -509,9 +637,13 @@ pub const QSqlIndex = extern struct {
     ///
     /// ` generated: bool `
     ///
-    pub fn SetGenerated2(self: QSqlIndex, i: i32, generated: bool) void {
+    pub fn setGenerated2(self: QSqlIndex, i: i32, generated: bool) void {
         qtc.QSqlRecord_SetGenerated2(@ptrCast(self.ptr), @bitCast(i), generated);
     }
+
+    /// ### DEPRECATED: Use `replace` instead
+    ///
+    pub const Replace = replace;
 
     /// Inherited from QSqlRecord
     ///
@@ -523,12 +655,16 @@ pub const QSqlIndex = extern struct {
     ///
     /// ` pos: i32 `
     ///
-    /// ` field: QSqlField `
+    /// ` _field: QSqlField `
     ///
-    pub fn Replace(self: QSqlIndex, pos: i32, field: anytype) void {
-        comptime _ = @TypeOf(field)._is_QSqlField;
-        qtc.QSqlRecord_Replace(@ptrCast(self.ptr), @bitCast(pos), @ptrCast(field.ptr));
+    pub fn replace(self: QSqlIndex, pos: i32, _field: anytype) void {
+        comptime _ = @TypeOf(_field)._is_QSqlField;
+        qtc.QSqlRecord_Replace(@ptrCast(self.ptr), @bitCast(pos), @ptrCast(_field.ptr));
     }
+
+    /// ### DEPRECATED: Use `insert` instead
+    ///
+    pub const Insert = insert;
 
     /// Inherited from QSqlRecord
     ///
@@ -540,12 +676,16 @@ pub const QSqlIndex = extern struct {
     ///
     /// ` pos: i32 `
     ///
-    /// ` field: QSqlField `
+    /// ` _field: QSqlField `
     ///
-    pub fn Insert(self: QSqlIndex, pos: i32, field: anytype) void {
-        comptime _ = @TypeOf(field)._is_QSqlField;
-        qtc.QSqlRecord_Insert(@ptrCast(self.ptr), @bitCast(pos), @ptrCast(field.ptr));
+    pub fn insert(self: QSqlIndex, pos: i32, _field: anytype) void {
+        comptime _ = @TypeOf(_field)._is_QSqlField;
+        qtc.QSqlRecord_Insert(@ptrCast(self.ptr), @bitCast(pos), @ptrCast(_field.ptr));
     }
+
+    /// ### DEPRECATED: Use `remove` instead
+    ///
+    pub const Remove = remove;
 
     /// Inherited from QSqlRecord
     ///
@@ -557,9 +697,13 @@ pub const QSqlIndex = extern struct {
     ///
     /// ` pos: i32 `
     ///
-    pub fn Remove(self: QSqlIndex, pos: i32) void {
+    pub fn remove(self: QSqlIndex, pos: i32) void {
         qtc.QSqlRecord_Remove(@ptrCast(self.ptr), @bitCast(pos));
     }
+
+    /// ### DEPRECATED: Use `isEmpty` instead
+    ///
+    pub const IsEmpty = isEmpty;
 
     /// Inherited from QSqlRecord
     ///
@@ -569,9 +713,13 @@ pub const QSqlIndex = extern struct {
     ///
     /// ` self: QSqlIndex `
     ///
-    pub fn IsEmpty(self: QSqlIndex) bool {
+    pub fn isEmpty(self: QSqlIndex) bool {
         return qtc.QSqlRecord_IsEmpty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `contains` instead
+    ///
+    pub const Contains = contains;
 
     /// Inherited from QSqlRecord
     ///
@@ -581,15 +729,19 @@ pub const QSqlIndex = extern struct {
     ///
     /// ` self: QSqlIndex `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn Contains(self: QSqlIndex, name: []const u8) bool {
+    pub fn contains(self: QSqlIndex, _name: []const u8) bool {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         return qtc.QSqlRecord_Contains(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// Inherited from QSqlRecord
     ///
@@ -599,9 +751,13 @@ pub const QSqlIndex = extern struct {
     ///
     /// ` self: QSqlIndex `
     ///
-    pub fn Clear(self: QSqlIndex) void {
+    pub fn clear(self: QSqlIndex) void {
         qtc.QSqlRecord_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearValues` instead
+    ///
+    pub const ClearValues = clearValues;
 
     /// Inherited from QSqlRecord
     ///
@@ -611,9 +767,13 @@ pub const QSqlIndex = extern struct {
     ///
     /// ` self: QSqlIndex `
     ///
-    pub fn ClearValues(self: QSqlIndex) void {
+    pub fn clearValues(self: QSqlIndex) void {
         qtc.QSqlRecord_ClearValues(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `count` instead
+    ///
+    pub const Count = count;
 
     /// Inherited from QSqlRecord
     ///
@@ -623,9 +783,13 @@ pub const QSqlIndex = extern struct {
     ///
     /// ` self: QSqlIndex `
     ///
-    pub fn Count(self: QSqlIndex) i32 {
+    pub fn count(self: QSqlIndex) i32 {
         return qtc.QSqlRecord_Count(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `keyValues` instead
+    ///
+    pub const KeyValues = keyValues;
 
     /// Inherited from QSqlRecord
     ///
@@ -637,24 +801,24 @@ pub const QSqlIndex = extern struct {
     ///
     /// ` keyFields: QSqlRecord `
     ///
-    pub fn KeyValues(self: QSqlIndex, keyFields: anytype) QSqlRecord {
+    pub fn keyValues(self: QSqlIndex, keyFields: anytype) QSqlRecord {
         comptime _ = @TypeOf(keyFields)._is_QSqlRecord;
         return .{ .ptr = qtc.QSqlRecord_KeyValues(@ptrCast(self.ptr), @ptrCast(keyFields.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlindex.html#dtor.QSqlIndex)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QSqlIndex `
     ///
-    pub fn Delete(self: QSqlIndex) void {
+    pub fn delete(self: QSqlIndex) void {
         qtc.QSqlIndex_Delete(@ptrCast(self.ptr));
     }
 };

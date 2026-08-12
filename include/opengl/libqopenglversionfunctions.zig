@@ -14,35 +14,51 @@ pub const QOpenGLVersionStatus = extern struct {
 
     pub const _is_QOpenGLVersionStatus = {};
 
-    /// New constructs a new QOpenGLVersionStatus object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QOpenGLVersionStatus object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QOpenGLVersionStatus `
     ///
-    pub fn New(other: anytype) QOpenGLVersionStatus {
+    pub fn new(other: anytype) QOpenGLVersionStatus {
         comptime _ = @TypeOf(other)._is_QOpenGLVersionStatus;
         return .{ .ptr = qtc.QOpenGLVersionStatus_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new QOpenGLVersionStatus object and invalidates the source QOpenGLVersionStatus object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QOpenGLVersionStatus object and invalidate the source QOpenGLVersionStatus object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QOpenGLVersionStatus `
     ///
-    pub fn New2(other: anytype) QOpenGLVersionStatus {
+    pub fn new2(other: anytype) QOpenGLVersionStatus {
         comptime _ = @TypeOf(other)._is_QOpenGLVersionStatus;
         return .{ .ptr = qtc.QOpenGLVersionStatus_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QOpenGLVersionStatus object.
+    /// ### DEPRECATED: Use `new3` instead
     ///
-    pub fn New3() QOpenGLVersionStatus {
+    pub const New3 = new3;
+
+    /// Allocate a new QOpenGLVersionStatus object in C++ memory
+    ///
+    pub fn new3() QOpenGLVersionStatus {
         return .{ .ptr = qtc.QOpenGLVersionStatus_new3() };
     }
 
-    /// New4 constructs a new QOpenGLVersionStatus object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QOpenGLVersionStatus object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -52,20 +68,28 @@ pub const QOpenGLVersionStatus = extern struct {
     ///
     /// ` functionStatus: qopenglversionfunctions_enums.OpenGLStatus `
     ///
-    pub fn New4(majorVersion: i32, minorVersion: i32, functionStatus: i32) QOpenGLVersionStatus {
+    pub fn new4(majorVersion: i32, minorVersion: i32, functionStatus: i32) QOpenGLVersionStatus {
         return .{ .ptr = qtc.QOpenGLVersionStatus_new4(@bitCast(majorVersion), @bitCast(minorVersion), @bitCast(functionStatus)) };
     }
 
-    /// New5 constructs a new QOpenGLVersionStatus object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QOpenGLVersionStatus object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QOpenGLVersionStatus `
     ///
-    pub fn New5(param1: anytype) QOpenGLVersionStatus {
+    pub fn new5(param1: anytype) QOpenGLVersionStatus {
         comptime _ = @TypeOf(param1)._is_QOpenGLVersionStatus;
         return .{ .ptr = qtc.QOpenGLVersionStatus_new5(@ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `version` instead
+    ///
+    pub const Version = version;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionstatus.html#version-var)
     ///
@@ -73,7 +97,7 @@ pub const QOpenGLVersionStatus = extern struct {
     ///
     /// ` self: QOpenGLVersionStatus `
     ///
-    pub fn Version(self: QOpenGLVersionStatus) Struct_i32_i32 {
+    pub fn version(self: QOpenGLVersionStatus) Struct_i32_i32 {
         const version_pair = qtc.QOpenGLVersionStatus_Version(@ptrCast(self.ptr));
         return .{
             .first = @bitCast(version_pair.first),
@@ -81,20 +105,28 @@ pub const QOpenGLVersionStatus = extern struct {
         };
     }
 
+    /// ### DEPRECATED: Use `setVersion` instead
+    ///
+    pub const SetVersion = setVersion;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionstatus.html#version-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QOpenGLVersionStatus `
     ///
-    /// ` version: Struct_i32_i32 `
+    /// ` _version: Struct_i32_i32 `
     ///
-    pub fn SetVersion(self: QOpenGLVersionStatus, version: Struct_i32_i32) void {
+    pub fn setVersion(self: QOpenGLVersionStatus, _version: Struct_i32_i32) void {
         qtc.QOpenGLVersionStatus_SetVersion(@ptrCast(self.ptr), .{
-            .first = @bitCast(version.first),
-            .second = @bitCast(version.second),
+            .first = @bitCast(_version.first),
+            .second = @bitCast(_version.second),
         });
     }
+
+    /// ### DEPRECATED: Use `status` instead
+    ///
+    pub const Status = status;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionstatus.html#status-var)
     ///
@@ -106,9 +138,13 @@ pub const QOpenGLVersionStatus = extern struct {
     ///
     /// ` qopenglversionfunctions_enums.OpenGLStatus `
     ///
-    pub fn Status(self: QOpenGLVersionStatus) i32 {
+    pub fn status(self: QOpenGLVersionStatus) i32 {
         return qtc.QOpenGLVersionStatus_Status(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatus` instead
+    ///
+    pub const SetStatus = setStatus;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionstatus.html#status-var)
     ///
@@ -116,11 +152,15 @@ pub const QOpenGLVersionStatus = extern struct {
     ///
     /// ` self: QOpenGLVersionStatus `
     ///
-    /// ` status: qopenglversionfunctions_enums.OpenGLStatus `
+    /// ` _status: qopenglversionfunctions_enums.OpenGLStatus `
     ///
-    pub fn SetStatus(self: QOpenGLVersionStatus, status: i32) void {
-        qtc.QOpenGLVersionStatus_SetStatus(@ptrCast(self.ptr), @bitCast(status));
+    pub fn setStatus(self: QOpenGLVersionStatus, _status: i32) void {
+        qtc.QOpenGLVersionStatus_SetStatus(@ptrCast(self.ptr), @bitCast(_status));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionstatus.html#operator-eq)
     ///
@@ -130,24 +170,24 @@ pub const QOpenGLVersionStatus = extern struct {
     ///
     /// ` param1: QOpenGLVersionStatus `
     ///
-    pub fn OperatorAssign(self: QOpenGLVersionStatus, param1: anytype) void {
+    pub fn operatorAssign(self: QOpenGLVersionStatus, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QOpenGLVersionStatus;
         qtc.QOpenGLVersionStatus_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionstatus.html#dtor.QOpenGLVersionStatus)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QOpenGLVersionStatus `
     ///
-    pub fn Delete(self: QOpenGLVersionStatus) void {
+    pub fn delete(self: QOpenGLVersionStatus) void {
         qtc.QOpenGLVersionStatus_Delete(@ptrCast(self.ptr));
     }
 };
@@ -162,42 +202,50 @@ pub const QOpenGLVersionFunctionsBackend = extern struct {
 
     pub const _is_QOpenGLVersionFunctionsBackend = {};
 
+    /// ### DEPRECATED: Use `context` instead
+    ///
+    pub const Context = context;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QOpenGLVersionFunctionsBackend `
     ///
-    pub fn Context(self: QOpenGLVersionFunctionsBackend) QOpenGLContext {
+    pub fn context(self: QOpenGLVersionFunctionsBackend) QOpenGLContext {
         return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setContext` instead
+    ///
+    pub const SetContext = setContext;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QOpenGLVersionFunctionsBackend `
     ///
-    /// ` context: QOpenGLContext `
+    /// ` _context: QOpenGLContext `
     ///
-    pub fn SetContext(self: QOpenGLVersionFunctionsBackend, context: anytype) void {
-        comptime _ = @TypeOf(context)._is_QOpenGLContext;
-        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(context.ptr));
+    pub fn setContext(self: QOpenGLVersionFunctionsBackend, _context: anytype) void {
+        comptime _ = @TypeOf(_context)._is_QOpenGLContext;
+        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(_context.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#dtor.QOpenGLVersionFunctionsBackend)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QOpenGLVersionFunctionsBackend `
     ///
-    pub fn Delete(self: QOpenGLVersionFunctionsBackend) void {
+    pub fn delete(self: QOpenGLVersionFunctionsBackend) void {
         qtc.QOpenGLVersionFunctionsBackend_Delete(@ptrCast(self.ptr));
     }
 };
@@ -212,41 +260,49 @@ pub const QOpenGLVersionFunctionsStorage = extern struct {
 
     pub const _is_QOpenGLVersionFunctionsStorage = {};
 
+    /// ### DEPRECATED: Use `backends` instead
+    ///
+    pub const Backends = backends;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsstorage.html#backends-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QOpenGLVersionFunctionsStorage `
     ///
-    pub fn Backends(self: QOpenGLVersionFunctionsStorage) *QtC.QOpenGLVersionFunctionsBackend {
+    pub fn backends(self: QOpenGLVersionFunctionsStorage) *QtC.QOpenGLVersionFunctionsBackend {
         return qtc.QOpenGLVersionFunctionsStorage_Backends(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setBackends` instead
+    ///
+    pub const SetBackends = setBackends;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsstorage.html#backends-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QOpenGLVersionFunctionsStorage `
     ///
-    /// ` backends: *QOpenGLVersionFunctionsBackend.ptr `
+    /// ` _backends: *QOpenGLVersionFunctionsBackend.ptr `
     ///
-    pub fn SetBackends(self: QOpenGLVersionFunctionsStorage, backends: *?*anyopaque) void {
-        qtc.QOpenGLVersionFunctionsStorage_SetBackends(@ptrCast(self.ptr), @ptrCast(backends));
+    pub fn setBackends(self: QOpenGLVersionFunctionsStorage, _backends: *?*anyopaque) void {
+        qtc.QOpenGLVersionFunctionsStorage_SetBackends(@ptrCast(self.ptr), @ptrCast(_backends));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsstorage.html#dtor.QOpenGLVersionFunctionsStorage)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QOpenGLVersionFunctionsStorage `
     ///
-    pub fn Delete(self: QOpenGLVersionFunctionsStorage) void {
+    pub fn delete(self: QOpenGLVersionFunctionsStorage) void {
         qtc.QOpenGLVersionFunctionsStorage_Delete(@ptrCast(self.ptr));
     }
 };
@@ -261,29 +317,33 @@ pub const QAbstractOpenGLFunctions = extern struct {
 
     pub const _is_QAbstractOpenGLFunctions = {};
 
+    /// ### DEPRECATED: Use `initializeOpenGLFunctions` instead
+    ///
+    pub const InitializeOpenGLFunctions = initializeOpenGLFunctions;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractopenglfunctions.html#initializeOpenGLFunctions)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAbstractOpenGLFunctions `
     ///
-    pub fn InitializeOpenGLFunctions(self: QAbstractOpenGLFunctions) bool {
+    pub fn initializeOpenGLFunctions(self: QAbstractOpenGLFunctions) bool {
         return qtc.QAbstractOpenGLFunctions_InitializeOpenGLFunctions(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractopenglfunctions.html#dtor.QAbstractOpenGLFunctions)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QAbstractOpenGLFunctions `
     ///
-    pub fn Delete(self: QAbstractOpenGLFunctions) void {
+    pub fn delete(self: QAbstractOpenGLFunctions) void {
         qtc.QAbstractOpenGLFunctions_Delete(@ptrCast(self.ptr));
     }
 };
@@ -299,17 +359,9 @@ pub const QOpenGLFunctions_1_0_CoreBackend = extern struct {
     pub const _is_QOpenGLFunctions_1_0_CoreBackend = {};
     pub const _is_QOpenGLVersionFunctionsBackend = {};
 
-    /// Inherited from QOpenGLVersionFunctionsBackend
+    /// ### DEPRECATED: Use `context` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLFunctions_1_0_CoreBackend `
-    ///
-    pub fn Context(self: QOpenGLFunctions_1_0_CoreBackend) QOpenGLContext {
-        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
-    }
+    pub const Context = context;
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
@@ -319,11 +371,27 @@ pub const QOpenGLFunctions_1_0_CoreBackend = extern struct {
     ///
     /// ` self: QOpenGLFunctions_1_0_CoreBackend `
     ///
-    /// ` context: QOpenGLContext `
+    pub fn context(self: QOpenGLFunctions_1_0_CoreBackend) QOpenGLContext {
+        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `setContext` instead
     ///
-    pub fn SetContext(self: QOpenGLFunctions_1_0_CoreBackend, context: anytype) void {
-        comptime _ = @TypeOf(context)._is_QOpenGLContext;
-        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(context.ptr));
+    pub const SetContext = setContext;
+
+    /// Inherited from QOpenGLVersionFunctionsBackend
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QOpenGLFunctions_1_0_CoreBackend `
+    ///
+    /// ` _context: QOpenGLContext `
+    ///
+    pub fn setContext(self: QOpenGLFunctions_1_0_CoreBackend, _context: anytype) void {
+        comptime _ = @TypeOf(_context)._is_QOpenGLContext;
+        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(_context.ptr));
     }
 };
 
@@ -338,17 +406,9 @@ pub const QOpenGLFunctions_1_1_CoreBackend = extern struct {
     pub const _is_QOpenGLFunctions_1_1_CoreBackend = {};
     pub const _is_QOpenGLVersionFunctionsBackend = {};
 
-    /// Inherited from QOpenGLVersionFunctionsBackend
+    /// ### DEPRECATED: Use `context` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLFunctions_1_1_CoreBackend `
-    ///
-    pub fn Context(self: QOpenGLFunctions_1_1_CoreBackend) QOpenGLContext {
-        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
-    }
+    pub const Context = context;
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
@@ -358,11 +418,27 @@ pub const QOpenGLFunctions_1_1_CoreBackend = extern struct {
     ///
     /// ` self: QOpenGLFunctions_1_1_CoreBackend `
     ///
-    /// ` context: QOpenGLContext `
+    pub fn context(self: QOpenGLFunctions_1_1_CoreBackend) QOpenGLContext {
+        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `setContext` instead
     ///
-    pub fn SetContext(self: QOpenGLFunctions_1_1_CoreBackend, context: anytype) void {
-        comptime _ = @TypeOf(context)._is_QOpenGLContext;
-        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(context.ptr));
+    pub const SetContext = setContext;
+
+    /// Inherited from QOpenGLVersionFunctionsBackend
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QOpenGLFunctions_1_1_CoreBackend `
+    ///
+    /// ` _context: QOpenGLContext `
+    ///
+    pub fn setContext(self: QOpenGLFunctions_1_1_CoreBackend, _context: anytype) void {
+        comptime _ = @TypeOf(_context)._is_QOpenGLContext;
+        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(_context.ptr));
     }
 };
 
@@ -377,17 +453,9 @@ pub const QOpenGLFunctions_1_2_CoreBackend = extern struct {
     pub const _is_QOpenGLFunctions_1_2_CoreBackend = {};
     pub const _is_QOpenGLVersionFunctionsBackend = {};
 
-    /// Inherited from QOpenGLVersionFunctionsBackend
+    /// ### DEPRECATED: Use `context` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLFunctions_1_2_CoreBackend `
-    ///
-    pub fn Context(self: QOpenGLFunctions_1_2_CoreBackend) QOpenGLContext {
-        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
-    }
+    pub const Context = context;
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
@@ -397,11 +465,27 @@ pub const QOpenGLFunctions_1_2_CoreBackend = extern struct {
     ///
     /// ` self: QOpenGLFunctions_1_2_CoreBackend `
     ///
-    /// ` context: QOpenGLContext `
+    pub fn context(self: QOpenGLFunctions_1_2_CoreBackend) QOpenGLContext {
+        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `setContext` instead
     ///
-    pub fn SetContext(self: QOpenGLFunctions_1_2_CoreBackend, context: anytype) void {
-        comptime _ = @TypeOf(context)._is_QOpenGLContext;
-        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(context.ptr));
+    pub const SetContext = setContext;
+
+    /// Inherited from QOpenGLVersionFunctionsBackend
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QOpenGLFunctions_1_2_CoreBackend `
+    ///
+    /// ` _context: QOpenGLContext `
+    ///
+    pub fn setContext(self: QOpenGLFunctions_1_2_CoreBackend, _context: anytype) void {
+        comptime _ = @TypeOf(_context)._is_QOpenGLContext;
+        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(_context.ptr));
     }
 };
 
@@ -416,17 +500,9 @@ pub const QOpenGLFunctions_1_3_CoreBackend = extern struct {
     pub const _is_QOpenGLFunctions_1_3_CoreBackend = {};
     pub const _is_QOpenGLVersionFunctionsBackend = {};
 
-    /// Inherited from QOpenGLVersionFunctionsBackend
+    /// ### DEPRECATED: Use `context` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLFunctions_1_3_CoreBackend `
-    ///
-    pub fn Context(self: QOpenGLFunctions_1_3_CoreBackend) QOpenGLContext {
-        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
-    }
+    pub const Context = context;
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
@@ -436,11 +512,27 @@ pub const QOpenGLFunctions_1_3_CoreBackend = extern struct {
     ///
     /// ` self: QOpenGLFunctions_1_3_CoreBackend `
     ///
-    /// ` context: QOpenGLContext `
+    pub fn context(self: QOpenGLFunctions_1_3_CoreBackend) QOpenGLContext {
+        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `setContext` instead
     ///
-    pub fn SetContext(self: QOpenGLFunctions_1_3_CoreBackend, context: anytype) void {
-        comptime _ = @TypeOf(context)._is_QOpenGLContext;
-        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(context.ptr));
+    pub const SetContext = setContext;
+
+    /// Inherited from QOpenGLVersionFunctionsBackend
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QOpenGLFunctions_1_3_CoreBackend `
+    ///
+    /// ` _context: QOpenGLContext `
+    ///
+    pub fn setContext(self: QOpenGLFunctions_1_3_CoreBackend, _context: anytype) void {
+        comptime _ = @TypeOf(_context)._is_QOpenGLContext;
+        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(_context.ptr));
     }
 };
 
@@ -455,17 +547,9 @@ pub const QOpenGLFunctions_1_4_CoreBackend = extern struct {
     pub const _is_QOpenGLFunctions_1_4_CoreBackend = {};
     pub const _is_QOpenGLVersionFunctionsBackend = {};
 
-    /// Inherited from QOpenGLVersionFunctionsBackend
+    /// ### DEPRECATED: Use `context` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLFunctions_1_4_CoreBackend `
-    ///
-    pub fn Context(self: QOpenGLFunctions_1_4_CoreBackend) QOpenGLContext {
-        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
-    }
+    pub const Context = context;
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
@@ -475,11 +559,27 @@ pub const QOpenGLFunctions_1_4_CoreBackend = extern struct {
     ///
     /// ` self: QOpenGLFunctions_1_4_CoreBackend `
     ///
-    /// ` context: QOpenGLContext `
+    pub fn context(self: QOpenGLFunctions_1_4_CoreBackend) QOpenGLContext {
+        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `setContext` instead
     ///
-    pub fn SetContext(self: QOpenGLFunctions_1_4_CoreBackend, context: anytype) void {
-        comptime _ = @TypeOf(context)._is_QOpenGLContext;
-        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(context.ptr));
+    pub const SetContext = setContext;
+
+    /// Inherited from QOpenGLVersionFunctionsBackend
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QOpenGLFunctions_1_4_CoreBackend `
+    ///
+    /// ` _context: QOpenGLContext `
+    ///
+    pub fn setContext(self: QOpenGLFunctions_1_4_CoreBackend, _context: anytype) void {
+        comptime _ = @TypeOf(_context)._is_QOpenGLContext;
+        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(_context.ptr));
     }
 };
 
@@ -494,17 +594,9 @@ pub const QOpenGLFunctions_1_5_CoreBackend = extern struct {
     pub const _is_QOpenGLFunctions_1_5_CoreBackend = {};
     pub const _is_QOpenGLVersionFunctionsBackend = {};
 
-    /// Inherited from QOpenGLVersionFunctionsBackend
+    /// ### DEPRECATED: Use `context` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLFunctions_1_5_CoreBackend `
-    ///
-    pub fn Context(self: QOpenGLFunctions_1_5_CoreBackend) QOpenGLContext {
-        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
-    }
+    pub const Context = context;
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
@@ -514,11 +606,27 @@ pub const QOpenGLFunctions_1_5_CoreBackend = extern struct {
     ///
     /// ` self: QOpenGLFunctions_1_5_CoreBackend `
     ///
-    /// ` context: QOpenGLContext `
+    pub fn context(self: QOpenGLFunctions_1_5_CoreBackend) QOpenGLContext {
+        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `setContext` instead
     ///
-    pub fn SetContext(self: QOpenGLFunctions_1_5_CoreBackend, context: anytype) void {
-        comptime _ = @TypeOf(context)._is_QOpenGLContext;
-        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(context.ptr));
+    pub const SetContext = setContext;
+
+    /// Inherited from QOpenGLVersionFunctionsBackend
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QOpenGLFunctions_1_5_CoreBackend `
+    ///
+    /// ` _context: QOpenGLContext `
+    ///
+    pub fn setContext(self: QOpenGLFunctions_1_5_CoreBackend, _context: anytype) void {
+        comptime _ = @TypeOf(_context)._is_QOpenGLContext;
+        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(_context.ptr));
     }
 };
 
@@ -533,17 +641,9 @@ pub const QOpenGLFunctions_2_0_CoreBackend = extern struct {
     pub const _is_QOpenGLFunctions_2_0_CoreBackend = {};
     pub const _is_QOpenGLVersionFunctionsBackend = {};
 
-    /// Inherited from QOpenGLVersionFunctionsBackend
+    /// ### DEPRECATED: Use `context` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLFunctions_2_0_CoreBackend `
-    ///
-    pub fn Context(self: QOpenGLFunctions_2_0_CoreBackend) QOpenGLContext {
-        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
-    }
+    pub const Context = context;
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
@@ -553,11 +653,27 @@ pub const QOpenGLFunctions_2_0_CoreBackend = extern struct {
     ///
     /// ` self: QOpenGLFunctions_2_0_CoreBackend `
     ///
-    /// ` context: QOpenGLContext `
+    pub fn context(self: QOpenGLFunctions_2_0_CoreBackend) QOpenGLContext {
+        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `setContext` instead
     ///
-    pub fn SetContext(self: QOpenGLFunctions_2_0_CoreBackend, context: anytype) void {
-        comptime _ = @TypeOf(context)._is_QOpenGLContext;
-        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(context.ptr));
+    pub const SetContext = setContext;
+
+    /// Inherited from QOpenGLVersionFunctionsBackend
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QOpenGLFunctions_2_0_CoreBackend `
+    ///
+    /// ` _context: QOpenGLContext `
+    ///
+    pub fn setContext(self: QOpenGLFunctions_2_0_CoreBackend, _context: anytype) void {
+        comptime _ = @TypeOf(_context)._is_QOpenGLContext;
+        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(_context.ptr));
     }
 };
 
@@ -572,17 +688,9 @@ pub const QOpenGLFunctions_2_1_CoreBackend = extern struct {
     pub const _is_QOpenGLFunctions_2_1_CoreBackend = {};
     pub const _is_QOpenGLVersionFunctionsBackend = {};
 
-    /// Inherited from QOpenGLVersionFunctionsBackend
+    /// ### DEPRECATED: Use `context` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLFunctions_2_1_CoreBackend `
-    ///
-    pub fn Context(self: QOpenGLFunctions_2_1_CoreBackend) QOpenGLContext {
-        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
-    }
+    pub const Context = context;
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
@@ -592,11 +700,27 @@ pub const QOpenGLFunctions_2_1_CoreBackend = extern struct {
     ///
     /// ` self: QOpenGLFunctions_2_1_CoreBackend `
     ///
-    /// ` context: QOpenGLContext `
+    pub fn context(self: QOpenGLFunctions_2_1_CoreBackend) QOpenGLContext {
+        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `setContext` instead
     ///
-    pub fn SetContext(self: QOpenGLFunctions_2_1_CoreBackend, context: anytype) void {
-        comptime _ = @TypeOf(context)._is_QOpenGLContext;
-        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(context.ptr));
+    pub const SetContext = setContext;
+
+    /// Inherited from QOpenGLVersionFunctionsBackend
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QOpenGLFunctions_2_1_CoreBackend `
+    ///
+    /// ` _context: QOpenGLContext `
+    ///
+    pub fn setContext(self: QOpenGLFunctions_2_1_CoreBackend, _context: anytype) void {
+        comptime _ = @TypeOf(_context)._is_QOpenGLContext;
+        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(_context.ptr));
     }
 };
 
@@ -611,17 +735,9 @@ pub const QOpenGLFunctions_3_0_CoreBackend = extern struct {
     pub const _is_QOpenGLFunctions_3_0_CoreBackend = {};
     pub const _is_QOpenGLVersionFunctionsBackend = {};
 
-    /// Inherited from QOpenGLVersionFunctionsBackend
+    /// ### DEPRECATED: Use `context` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLFunctions_3_0_CoreBackend `
-    ///
-    pub fn Context(self: QOpenGLFunctions_3_0_CoreBackend) QOpenGLContext {
-        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
-    }
+    pub const Context = context;
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
@@ -631,11 +747,27 @@ pub const QOpenGLFunctions_3_0_CoreBackend = extern struct {
     ///
     /// ` self: QOpenGLFunctions_3_0_CoreBackend `
     ///
-    /// ` context: QOpenGLContext `
+    pub fn context(self: QOpenGLFunctions_3_0_CoreBackend) QOpenGLContext {
+        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `setContext` instead
     ///
-    pub fn SetContext(self: QOpenGLFunctions_3_0_CoreBackend, context: anytype) void {
-        comptime _ = @TypeOf(context)._is_QOpenGLContext;
-        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(context.ptr));
+    pub const SetContext = setContext;
+
+    /// Inherited from QOpenGLVersionFunctionsBackend
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QOpenGLFunctions_3_0_CoreBackend `
+    ///
+    /// ` _context: QOpenGLContext `
+    ///
+    pub fn setContext(self: QOpenGLFunctions_3_0_CoreBackend, _context: anytype) void {
+        comptime _ = @TypeOf(_context)._is_QOpenGLContext;
+        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(_context.ptr));
     }
 };
 
@@ -650,17 +782,9 @@ pub const QOpenGLFunctions_3_1_CoreBackend = extern struct {
     pub const _is_QOpenGLFunctions_3_1_CoreBackend = {};
     pub const _is_QOpenGLVersionFunctionsBackend = {};
 
-    /// Inherited from QOpenGLVersionFunctionsBackend
+    /// ### DEPRECATED: Use `context` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLFunctions_3_1_CoreBackend `
-    ///
-    pub fn Context(self: QOpenGLFunctions_3_1_CoreBackend) QOpenGLContext {
-        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
-    }
+    pub const Context = context;
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
@@ -670,11 +794,27 @@ pub const QOpenGLFunctions_3_1_CoreBackend = extern struct {
     ///
     /// ` self: QOpenGLFunctions_3_1_CoreBackend `
     ///
-    /// ` context: QOpenGLContext `
+    pub fn context(self: QOpenGLFunctions_3_1_CoreBackend) QOpenGLContext {
+        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `setContext` instead
     ///
-    pub fn SetContext(self: QOpenGLFunctions_3_1_CoreBackend, context: anytype) void {
-        comptime _ = @TypeOf(context)._is_QOpenGLContext;
-        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(context.ptr));
+    pub const SetContext = setContext;
+
+    /// Inherited from QOpenGLVersionFunctionsBackend
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QOpenGLFunctions_3_1_CoreBackend `
+    ///
+    /// ` _context: QOpenGLContext `
+    ///
+    pub fn setContext(self: QOpenGLFunctions_3_1_CoreBackend, _context: anytype) void {
+        comptime _ = @TypeOf(_context)._is_QOpenGLContext;
+        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(_context.ptr));
     }
 };
 
@@ -689,17 +829,9 @@ pub const QOpenGLFunctions_3_2_CoreBackend = extern struct {
     pub const _is_QOpenGLFunctions_3_2_CoreBackend = {};
     pub const _is_QOpenGLVersionFunctionsBackend = {};
 
-    /// Inherited from QOpenGLVersionFunctionsBackend
+    /// ### DEPRECATED: Use `context` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLFunctions_3_2_CoreBackend `
-    ///
-    pub fn Context(self: QOpenGLFunctions_3_2_CoreBackend) QOpenGLContext {
-        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
-    }
+    pub const Context = context;
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
@@ -709,11 +841,27 @@ pub const QOpenGLFunctions_3_2_CoreBackend = extern struct {
     ///
     /// ` self: QOpenGLFunctions_3_2_CoreBackend `
     ///
-    /// ` context: QOpenGLContext `
+    pub fn context(self: QOpenGLFunctions_3_2_CoreBackend) QOpenGLContext {
+        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `setContext` instead
     ///
-    pub fn SetContext(self: QOpenGLFunctions_3_2_CoreBackend, context: anytype) void {
-        comptime _ = @TypeOf(context)._is_QOpenGLContext;
-        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(context.ptr));
+    pub const SetContext = setContext;
+
+    /// Inherited from QOpenGLVersionFunctionsBackend
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QOpenGLFunctions_3_2_CoreBackend `
+    ///
+    /// ` _context: QOpenGLContext `
+    ///
+    pub fn setContext(self: QOpenGLFunctions_3_2_CoreBackend, _context: anytype) void {
+        comptime _ = @TypeOf(_context)._is_QOpenGLContext;
+        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(_context.ptr));
     }
 };
 
@@ -728,17 +876,9 @@ pub const QOpenGLFunctions_3_3_CoreBackend = extern struct {
     pub const _is_QOpenGLFunctions_3_3_CoreBackend = {};
     pub const _is_QOpenGLVersionFunctionsBackend = {};
 
-    /// Inherited from QOpenGLVersionFunctionsBackend
+    /// ### DEPRECATED: Use `context` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLFunctions_3_3_CoreBackend `
-    ///
-    pub fn Context(self: QOpenGLFunctions_3_3_CoreBackend) QOpenGLContext {
-        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
-    }
+    pub const Context = context;
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
@@ -748,11 +888,27 @@ pub const QOpenGLFunctions_3_3_CoreBackend = extern struct {
     ///
     /// ` self: QOpenGLFunctions_3_3_CoreBackend `
     ///
-    /// ` context: QOpenGLContext `
+    pub fn context(self: QOpenGLFunctions_3_3_CoreBackend) QOpenGLContext {
+        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `setContext` instead
     ///
-    pub fn SetContext(self: QOpenGLFunctions_3_3_CoreBackend, context: anytype) void {
-        comptime _ = @TypeOf(context)._is_QOpenGLContext;
-        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(context.ptr));
+    pub const SetContext = setContext;
+
+    /// Inherited from QOpenGLVersionFunctionsBackend
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QOpenGLFunctions_3_3_CoreBackend `
+    ///
+    /// ` _context: QOpenGLContext `
+    ///
+    pub fn setContext(self: QOpenGLFunctions_3_3_CoreBackend, _context: anytype) void {
+        comptime _ = @TypeOf(_context)._is_QOpenGLContext;
+        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(_context.ptr));
     }
 };
 
@@ -767,17 +923,9 @@ pub const QOpenGLFunctions_4_0_CoreBackend = extern struct {
     pub const _is_QOpenGLFunctions_4_0_CoreBackend = {};
     pub const _is_QOpenGLVersionFunctionsBackend = {};
 
-    /// Inherited from QOpenGLVersionFunctionsBackend
+    /// ### DEPRECATED: Use `context` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLFunctions_4_0_CoreBackend `
-    ///
-    pub fn Context(self: QOpenGLFunctions_4_0_CoreBackend) QOpenGLContext {
-        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
-    }
+    pub const Context = context;
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
@@ -787,11 +935,27 @@ pub const QOpenGLFunctions_4_0_CoreBackend = extern struct {
     ///
     /// ` self: QOpenGLFunctions_4_0_CoreBackend `
     ///
-    /// ` context: QOpenGLContext `
+    pub fn context(self: QOpenGLFunctions_4_0_CoreBackend) QOpenGLContext {
+        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `setContext` instead
     ///
-    pub fn SetContext(self: QOpenGLFunctions_4_0_CoreBackend, context: anytype) void {
-        comptime _ = @TypeOf(context)._is_QOpenGLContext;
-        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(context.ptr));
+    pub const SetContext = setContext;
+
+    /// Inherited from QOpenGLVersionFunctionsBackend
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QOpenGLFunctions_4_0_CoreBackend `
+    ///
+    /// ` _context: QOpenGLContext `
+    ///
+    pub fn setContext(self: QOpenGLFunctions_4_0_CoreBackend, _context: anytype) void {
+        comptime _ = @TypeOf(_context)._is_QOpenGLContext;
+        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(_context.ptr));
     }
 };
 
@@ -806,17 +970,9 @@ pub const QOpenGLFunctions_4_1_CoreBackend = extern struct {
     pub const _is_QOpenGLFunctions_4_1_CoreBackend = {};
     pub const _is_QOpenGLVersionFunctionsBackend = {};
 
-    /// Inherited from QOpenGLVersionFunctionsBackend
+    /// ### DEPRECATED: Use `context` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLFunctions_4_1_CoreBackend `
-    ///
-    pub fn Context(self: QOpenGLFunctions_4_1_CoreBackend) QOpenGLContext {
-        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
-    }
+    pub const Context = context;
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
@@ -826,11 +982,27 @@ pub const QOpenGLFunctions_4_1_CoreBackend = extern struct {
     ///
     /// ` self: QOpenGLFunctions_4_1_CoreBackend `
     ///
-    /// ` context: QOpenGLContext `
+    pub fn context(self: QOpenGLFunctions_4_1_CoreBackend) QOpenGLContext {
+        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `setContext` instead
     ///
-    pub fn SetContext(self: QOpenGLFunctions_4_1_CoreBackend, context: anytype) void {
-        comptime _ = @TypeOf(context)._is_QOpenGLContext;
-        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(context.ptr));
+    pub const SetContext = setContext;
+
+    /// Inherited from QOpenGLVersionFunctionsBackend
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QOpenGLFunctions_4_1_CoreBackend `
+    ///
+    /// ` _context: QOpenGLContext `
+    ///
+    pub fn setContext(self: QOpenGLFunctions_4_1_CoreBackend, _context: anytype) void {
+        comptime _ = @TypeOf(_context)._is_QOpenGLContext;
+        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(_context.ptr));
     }
 };
 
@@ -845,17 +1017,9 @@ pub const QOpenGLFunctions_4_2_CoreBackend = extern struct {
     pub const _is_QOpenGLFunctions_4_2_CoreBackend = {};
     pub const _is_QOpenGLVersionFunctionsBackend = {};
 
-    /// Inherited from QOpenGLVersionFunctionsBackend
+    /// ### DEPRECATED: Use `context` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLFunctions_4_2_CoreBackend `
-    ///
-    pub fn Context(self: QOpenGLFunctions_4_2_CoreBackend) QOpenGLContext {
-        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
-    }
+    pub const Context = context;
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
@@ -865,11 +1029,27 @@ pub const QOpenGLFunctions_4_2_CoreBackend = extern struct {
     ///
     /// ` self: QOpenGLFunctions_4_2_CoreBackend `
     ///
-    /// ` context: QOpenGLContext `
+    pub fn context(self: QOpenGLFunctions_4_2_CoreBackend) QOpenGLContext {
+        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `setContext` instead
     ///
-    pub fn SetContext(self: QOpenGLFunctions_4_2_CoreBackend, context: anytype) void {
-        comptime _ = @TypeOf(context)._is_QOpenGLContext;
-        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(context.ptr));
+    pub const SetContext = setContext;
+
+    /// Inherited from QOpenGLVersionFunctionsBackend
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QOpenGLFunctions_4_2_CoreBackend `
+    ///
+    /// ` _context: QOpenGLContext `
+    ///
+    pub fn setContext(self: QOpenGLFunctions_4_2_CoreBackend, _context: anytype) void {
+        comptime _ = @TypeOf(_context)._is_QOpenGLContext;
+        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(_context.ptr));
     }
 };
 
@@ -884,17 +1064,9 @@ pub const QOpenGLFunctions_4_3_CoreBackend = extern struct {
     pub const _is_QOpenGLFunctions_4_3_CoreBackend = {};
     pub const _is_QOpenGLVersionFunctionsBackend = {};
 
-    /// Inherited from QOpenGLVersionFunctionsBackend
+    /// ### DEPRECATED: Use `context` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLFunctions_4_3_CoreBackend `
-    ///
-    pub fn Context(self: QOpenGLFunctions_4_3_CoreBackend) QOpenGLContext {
-        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
-    }
+    pub const Context = context;
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
@@ -904,11 +1076,27 @@ pub const QOpenGLFunctions_4_3_CoreBackend = extern struct {
     ///
     /// ` self: QOpenGLFunctions_4_3_CoreBackend `
     ///
-    /// ` context: QOpenGLContext `
+    pub fn context(self: QOpenGLFunctions_4_3_CoreBackend) QOpenGLContext {
+        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `setContext` instead
     ///
-    pub fn SetContext(self: QOpenGLFunctions_4_3_CoreBackend, context: anytype) void {
-        comptime _ = @TypeOf(context)._is_QOpenGLContext;
-        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(context.ptr));
+    pub const SetContext = setContext;
+
+    /// Inherited from QOpenGLVersionFunctionsBackend
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QOpenGLFunctions_4_3_CoreBackend `
+    ///
+    /// ` _context: QOpenGLContext `
+    ///
+    pub fn setContext(self: QOpenGLFunctions_4_3_CoreBackend, _context: anytype) void {
+        comptime _ = @TypeOf(_context)._is_QOpenGLContext;
+        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(_context.ptr));
     }
 };
 
@@ -923,17 +1111,9 @@ pub const QOpenGLFunctions_4_4_CoreBackend = extern struct {
     pub const _is_QOpenGLFunctions_4_4_CoreBackend = {};
     pub const _is_QOpenGLVersionFunctionsBackend = {};
 
-    /// Inherited from QOpenGLVersionFunctionsBackend
+    /// ### DEPRECATED: Use `context` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLFunctions_4_4_CoreBackend `
-    ///
-    pub fn Context(self: QOpenGLFunctions_4_4_CoreBackend) QOpenGLContext {
-        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
-    }
+    pub const Context = context;
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
@@ -943,11 +1123,27 @@ pub const QOpenGLFunctions_4_4_CoreBackend = extern struct {
     ///
     /// ` self: QOpenGLFunctions_4_4_CoreBackend `
     ///
-    /// ` context: QOpenGLContext `
+    pub fn context(self: QOpenGLFunctions_4_4_CoreBackend) QOpenGLContext {
+        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `setContext` instead
     ///
-    pub fn SetContext(self: QOpenGLFunctions_4_4_CoreBackend, context: anytype) void {
-        comptime _ = @TypeOf(context)._is_QOpenGLContext;
-        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(context.ptr));
+    pub const SetContext = setContext;
+
+    /// Inherited from QOpenGLVersionFunctionsBackend
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QOpenGLFunctions_4_4_CoreBackend `
+    ///
+    /// ` _context: QOpenGLContext `
+    ///
+    pub fn setContext(self: QOpenGLFunctions_4_4_CoreBackend, _context: anytype) void {
+        comptime _ = @TypeOf(_context)._is_QOpenGLContext;
+        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(_context.ptr));
     }
 };
 
@@ -962,17 +1158,9 @@ pub const QOpenGLFunctions_4_5_CoreBackend = extern struct {
     pub const _is_QOpenGLFunctions_4_5_CoreBackend = {};
     pub const _is_QOpenGLVersionFunctionsBackend = {};
 
-    /// Inherited from QOpenGLVersionFunctionsBackend
+    /// ### DEPRECATED: Use `context` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLFunctions_4_5_CoreBackend `
-    ///
-    pub fn Context(self: QOpenGLFunctions_4_5_CoreBackend) QOpenGLContext {
-        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
-    }
+    pub const Context = context;
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
@@ -982,11 +1170,27 @@ pub const QOpenGLFunctions_4_5_CoreBackend = extern struct {
     ///
     /// ` self: QOpenGLFunctions_4_5_CoreBackend `
     ///
-    /// ` context: QOpenGLContext `
+    pub fn context(self: QOpenGLFunctions_4_5_CoreBackend) QOpenGLContext {
+        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `setContext` instead
     ///
-    pub fn SetContext(self: QOpenGLFunctions_4_5_CoreBackend, context: anytype) void {
-        comptime _ = @TypeOf(context)._is_QOpenGLContext;
-        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(context.ptr));
+    pub const SetContext = setContext;
+
+    /// Inherited from QOpenGLVersionFunctionsBackend
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QOpenGLFunctions_4_5_CoreBackend `
+    ///
+    /// ` _context: QOpenGLContext `
+    ///
+    pub fn setContext(self: QOpenGLFunctions_4_5_CoreBackend, _context: anytype) void {
+        comptime _ = @TypeOf(_context)._is_QOpenGLContext;
+        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(_context.ptr));
     }
 };
 
@@ -1001,17 +1205,9 @@ pub const QOpenGLFunctions_1_0_DeprecatedBackend = extern struct {
     pub const _is_QOpenGLFunctions_1_0_DeprecatedBackend = {};
     pub const _is_QOpenGLVersionFunctionsBackend = {};
 
-    /// Inherited from QOpenGLVersionFunctionsBackend
+    /// ### DEPRECATED: Use `context` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLFunctions_1_0_DeprecatedBackend `
-    ///
-    pub fn Context(self: QOpenGLFunctions_1_0_DeprecatedBackend) QOpenGLContext {
-        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
-    }
+    pub const Context = context;
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
@@ -1021,11 +1217,27 @@ pub const QOpenGLFunctions_1_0_DeprecatedBackend = extern struct {
     ///
     /// ` self: QOpenGLFunctions_1_0_DeprecatedBackend `
     ///
-    /// ` context: QOpenGLContext `
+    pub fn context(self: QOpenGLFunctions_1_0_DeprecatedBackend) QOpenGLContext {
+        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `setContext` instead
     ///
-    pub fn SetContext(self: QOpenGLFunctions_1_0_DeprecatedBackend, context: anytype) void {
-        comptime _ = @TypeOf(context)._is_QOpenGLContext;
-        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(context.ptr));
+    pub const SetContext = setContext;
+
+    /// Inherited from QOpenGLVersionFunctionsBackend
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QOpenGLFunctions_1_0_DeprecatedBackend `
+    ///
+    /// ` _context: QOpenGLContext `
+    ///
+    pub fn setContext(self: QOpenGLFunctions_1_0_DeprecatedBackend, _context: anytype) void {
+        comptime _ = @TypeOf(_context)._is_QOpenGLContext;
+        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(_context.ptr));
     }
 };
 
@@ -1040,17 +1252,9 @@ pub const QOpenGLFunctions_1_1_DeprecatedBackend = extern struct {
     pub const _is_QOpenGLFunctions_1_1_DeprecatedBackend = {};
     pub const _is_QOpenGLVersionFunctionsBackend = {};
 
-    /// Inherited from QOpenGLVersionFunctionsBackend
+    /// ### DEPRECATED: Use `context` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLFunctions_1_1_DeprecatedBackend `
-    ///
-    pub fn Context(self: QOpenGLFunctions_1_1_DeprecatedBackend) QOpenGLContext {
-        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
-    }
+    pub const Context = context;
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
@@ -1060,11 +1264,27 @@ pub const QOpenGLFunctions_1_1_DeprecatedBackend = extern struct {
     ///
     /// ` self: QOpenGLFunctions_1_1_DeprecatedBackend `
     ///
-    /// ` context: QOpenGLContext `
+    pub fn context(self: QOpenGLFunctions_1_1_DeprecatedBackend) QOpenGLContext {
+        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `setContext` instead
     ///
-    pub fn SetContext(self: QOpenGLFunctions_1_1_DeprecatedBackend, context: anytype) void {
-        comptime _ = @TypeOf(context)._is_QOpenGLContext;
-        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(context.ptr));
+    pub const SetContext = setContext;
+
+    /// Inherited from QOpenGLVersionFunctionsBackend
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QOpenGLFunctions_1_1_DeprecatedBackend `
+    ///
+    /// ` _context: QOpenGLContext `
+    ///
+    pub fn setContext(self: QOpenGLFunctions_1_1_DeprecatedBackend, _context: anytype) void {
+        comptime _ = @TypeOf(_context)._is_QOpenGLContext;
+        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(_context.ptr));
     }
 };
 
@@ -1079,17 +1299,9 @@ pub const QOpenGLFunctions_1_2_DeprecatedBackend = extern struct {
     pub const _is_QOpenGLFunctions_1_2_DeprecatedBackend = {};
     pub const _is_QOpenGLVersionFunctionsBackend = {};
 
-    /// Inherited from QOpenGLVersionFunctionsBackend
+    /// ### DEPRECATED: Use `context` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLFunctions_1_2_DeprecatedBackend `
-    ///
-    pub fn Context(self: QOpenGLFunctions_1_2_DeprecatedBackend) QOpenGLContext {
-        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
-    }
+    pub const Context = context;
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
@@ -1099,11 +1311,27 @@ pub const QOpenGLFunctions_1_2_DeprecatedBackend = extern struct {
     ///
     /// ` self: QOpenGLFunctions_1_2_DeprecatedBackend `
     ///
-    /// ` context: QOpenGLContext `
+    pub fn context(self: QOpenGLFunctions_1_2_DeprecatedBackend) QOpenGLContext {
+        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `setContext` instead
     ///
-    pub fn SetContext(self: QOpenGLFunctions_1_2_DeprecatedBackend, context: anytype) void {
-        comptime _ = @TypeOf(context)._is_QOpenGLContext;
-        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(context.ptr));
+    pub const SetContext = setContext;
+
+    /// Inherited from QOpenGLVersionFunctionsBackend
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QOpenGLFunctions_1_2_DeprecatedBackend `
+    ///
+    /// ` _context: QOpenGLContext `
+    ///
+    pub fn setContext(self: QOpenGLFunctions_1_2_DeprecatedBackend, _context: anytype) void {
+        comptime _ = @TypeOf(_context)._is_QOpenGLContext;
+        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(_context.ptr));
     }
 };
 
@@ -1118,17 +1346,9 @@ pub const QOpenGLFunctions_1_3_DeprecatedBackend = extern struct {
     pub const _is_QOpenGLFunctions_1_3_DeprecatedBackend = {};
     pub const _is_QOpenGLVersionFunctionsBackend = {};
 
-    /// Inherited from QOpenGLVersionFunctionsBackend
+    /// ### DEPRECATED: Use `context` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLFunctions_1_3_DeprecatedBackend `
-    ///
-    pub fn Context(self: QOpenGLFunctions_1_3_DeprecatedBackend) QOpenGLContext {
-        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
-    }
+    pub const Context = context;
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
@@ -1138,11 +1358,27 @@ pub const QOpenGLFunctions_1_3_DeprecatedBackend = extern struct {
     ///
     /// ` self: QOpenGLFunctions_1_3_DeprecatedBackend `
     ///
-    /// ` context: QOpenGLContext `
+    pub fn context(self: QOpenGLFunctions_1_3_DeprecatedBackend) QOpenGLContext {
+        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `setContext` instead
     ///
-    pub fn SetContext(self: QOpenGLFunctions_1_3_DeprecatedBackend, context: anytype) void {
-        comptime _ = @TypeOf(context)._is_QOpenGLContext;
-        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(context.ptr));
+    pub const SetContext = setContext;
+
+    /// Inherited from QOpenGLVersionFunctionsBackend
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QOpenGLFunctions_1_3_DeprecatedBackend `
+    ///
+    /// ` _context: QOpenGLContext `
+    ///
+    pub fn setContext(self: QOpenGLFunctions_1_3_DeprecatedBackend, _context: anytype) void {
+        comptime _ = @TypeOf(_context)._is_QOpenGLContext;
+        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(_context.ptr));
     }
 };
 
@@ -1157,17 +1393,9 @@ pub const QOpenGLFunctions_1_4_DeprecatedBackend = extern struct {
     pub const _is_QOpenGLFunctions_1_4_DeprecatedBackend = {};
     pub const _is_QOpenGLVersionFunctionsBackend = {};
 
-    /// Inherited from QOpenGLVersionFunctionsBackend
+    /// ### DEPRECATED: Use `context` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLFunctions_1_4_DeprecatedBackend `
-    ///
-    pub fn Context(self: QOpenGLFunctions_1_4_DeprecatedBackend) QOpenGLContext {
-        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
-    }
+    pub const Context = context;
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
@@ -1177,11 +1405,27 @@ pub const QOpenGLFunctions_1_4_DeprecatedBackend = extern struct {
     ///
     /// ` self: QOpenGLFunctions_1_4_DeprecatedBackend `
     ///
-    /// ` context: QOpenGLContext `
+    pub fn context(self: QOpenGLFunctions_1_4_DeprecatedBackend) QOpenGLContext {
+        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `setContext` instead
     ///
-    pub fn SetContext(self: QOpenGLFunctions_1_4_DeprecatedBackend, context: anytype) void {
-        comptime _ = @TypeOf(context)._is_QOpenGLContext;
-        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(context.ptr));
+    pub const SetContext = setContext;
+
+    /// Inherited from QOpenGLVersionFunctionsBackend
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QOpenGLFunctions_1_4_DeprecatedBackend `
+    ///
+    /// ` _context: QOpenGLContext `
+    ///
+    pub fn setContext(self: QOpenGLFunctions_1_4_DeprecatedBackend, _context: anytype) void {
+        comptime _ = @TypeOf(_context)._is_QOpenGLContext;
+        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(_context.ptr));
     }
 };
 
@@ -1196,17 +1440,9 @@ pub const QOpenGLFunctions_2_0_DeprecatedBackend = extern struct {
     pub const _is_QOpenGLFunctions_2_0_DeprecatedBackend = {};
     pub const _is_QOpenGLVersionFunctionsBackend = {};
 
-    /// Inherited from QOpenGLVersionFunctionsBackend
+    /// ### DEPRECATED: Use `context` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLFunctions_2_0_DeprecatedBackend `
-    ///
-    pub fn Context(self: QOpenGLFunctions_2_0_DeprecatedBackend) QOpenGLContext {
-        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
-    }
+    pub const Context = context;
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
@@ -1216,11 +1452,27 @@ pub const QOpenGLFunctions_2_0_DeprecatedBackend = extern struct {
     ///
     /// ` self: QOpenGLFunctions_2_0_DeprecatedBackend `
     ///
-    /// ` context: QOpenGLContext `
+    pub fn context(self: QOpenGLFunctions_2_0_DeprecatedBackend) QOpenGLContext {
+        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `setContext` instead
     ///
-    pub fn SetContext(self: QOpenGLFunctions_2_0_DeprecatedBackend, context: anytype) void {
-        comptime _ = @TypeOf(context)._is_QOpenGLContext;
-        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(context.ptr));
+    pub const SetContext = setContext;
+
+    /// Inherited from QOpenGLVersionFunctionsBackend
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QOpenGLFunctions_2_0_DeprecatedBackend `
+    ///
+    /// ` _context: QOpenGLContext `
+    ///
+    pub fn setContext(self: QOpenGLFunctions_2_0_DeprecatedBackend, _context: anytype) void {
+        comptime _ = @TypeOf(_context)._is_QOpenGLContext;
+        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(_context.ptr));
     }
 };
 
@@ -1235,17 +1487,9 @@ pub const QOpenGLFunctions_3_0_DeprecatedBackend = extern struct {
     pub const _is_QOpenGLFunctions_3_0_DeprecatedBackend = {};
     pub const _is_QOpenGLVersionFunctionsBackend = {};
 
-    /// Inherited from QOpenGLVersionFunctionsBackend
+    /// ### DEPRECATED: Use `context` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLFunctions_3_0_DeprecatedBackend `
-    ///
-    pub fn Context(self: QOpenGLFunctions_3_0_DeprecatedBackend) QOpenGLContext {
-        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
-    }
+    pub const Context = context;
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
@@ -1255,11 +1499,27 @@ pub const QOpenGLFunctions_3_0_DeprecatedBackend = extern struct {
     ///
     /// ` self: QOpenGLFunctions_3_0_DeprecatedBackend `
     ///
-    /// ` context: QOpenGLContext `
+    pub fn context(self: QOpenGLFunctions_3_0_DeprecatedBackend) QOpenGLContext {
+        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `setContext` instead
     ///
-    pub fn SetContext(self: QOpenGLFunctions_3_0_DeprecatedBackend, context: anytype) void {
-        comptime _ = @TypeOf(context)._is_QOpenGLContext;
-        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(context.ptr));
+    pub const SetContext = setContext;
+
+    /// Inherited from QOpenGLVersionFunctionsBackend
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QOpenGLFunctions_3_0_DeprecatedBackend `
+    ///
+    /// ` _context: QOpenGLContext `
+    ///
+    pub fn setContext(self: QOpenGLFunctions_3_0_DeprecatedBackend, _context: anytype) void {
+        comptime _ = @TypeOf(_context)._is_QOpenGLContext;
+        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(_context.ptr));
     }
 };
 
@@ -1274,17 +1534,9 @@ pub const QOpenGLFunctions_3_3_DeprecatedBackend = extern struct {
     pub const _is_QOpenGLFunctions_3_3_DeprecatedBackend = {};
     pub const _is_QOpenGLVersionFunctionsBackend = {};
 
-    /// Inherited from QOpenGLVersionFunctionsBackend
+    /// ### DEPRECATED: Use `context` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLFunctions_3_3_DeprecatedBackend `
-    ///
-    pub fn Context(self: QOpenGLFunctions_3_3_DeprecatedBackend) QOpenGLContext {
-        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
-    }
+    pub const Context = context;
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
@@ -1294,11 +1546,27 @@ pub const QOpenGLFunctions_3_3_DeprecatedBackend = extern struct {
     ///
     /// ` self: QOpenGLFunctions_3_3_DeprecatedBackend `
     ///
-    /// ` context: QOpenGLContext `
+    pub fn context(self: QOpenGLFunctions_3_3_DeprecatedBackend) QOpenGLContext {
+        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `setContext` instead
     ///
-    pub fn SetContext(self: QOpenGLFunctions_3_3_DeprecatedBackend, context: anytype) void {
-        comptime _ = @TypeOf(context)._is_QOpenGLContext;
-        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(context.ptr));
+    pub const SetContext = setContext;
+
+    /// Inherited from QOpenGLVersionFunctionsBackend
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QOpenGLFunctions_3_3_DeprecatedBackend `
+    ///
+    /// ` _context: QOpenGLContext `
+    ///
+    pub fn setContext(self: QOpenGLFunctions_3_3_DeprecatedBackend, _context: anytype) void {
+        comptime _ = @TypeOf(_context)._is_QOpenGLContext;
+        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(_context.ptr));
     }
 };
 
@@ -1313,17 +1581,9 @@ pub const QOpenGLFunctions_4_5_DeprecatedBackend = extern struct {
     pub const _is_QOpenGLFunctions_4_5_DeprecatedBackend = {};
     pub const _is_QOpenGLVersionFunctionsBackend = {};
 
-    /// Inherited from QOpenGLVersionFunctionsBackend
+    /// ### DEPRECATED: Use `context` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLFunctions_4_5_DeprecatedBackend `
-    ///
-    pub fn Context(self: QOpenGLFunctions_4_5_DeprecatedBackend) QOpenGLContext {
-        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
-    }
+    pub const Context = context;
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
@@ -1333,11 +1593,27 @@ pub const QOpenGLFunctions_4_5_DeprecatedBackend = extern struct {
     ///
     /// ` self: QOpenGLFunctions_4_5_DeprecatedBackend `
     ///
-    /// ` context: QOpenGLContext `
+    pub fn context(self: QOpenGLFunctions_4_5_DeprecatedBackend) QOpenGLContext {
+        return .{ .ptr = qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `setContext` instead
     ///
-    pub fn SetContext(self: QOpenGLFunctions_4_5_DeprecatedBackend, context: anytype) void {
-        comptime _ = @TypeOf(context)._is_QOpenGLContext;
-        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(context.ptr));
+    pub const SetContext = setContext;
+
+    /// Inherited from QOpenGLVersionFunctionsBackend
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QOpenGLFunctions_4_5_DeprecatedBackend `
+    ///
+    /// ` _context: QOpenGLContext `
+    ///
+    pub fn setContext(self: QOpenGLFunctions_4_5_DeprecatedBackend, _context: anytype) void {
+        comptime _ = @TypeOf(_context)._is_QOpenGLContext;
+        qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self.ptr), @ptrCast(_context.ptr));
     }
 };
 
@@ -1365,29 +1641,33 @@ pub const QOpenGLFunctions_1_0_CoreBackend__Functions = extern struct {
         return @ptrFromInt(@as(usize, @bitCast(qtc.QOpenGLFunctions_1_0_CoreBackend__Functions_IsEnabled(@ptrCast(self.ptr)))));
     }
 
+    /// ### DEPRECATED: Use `setIsEnabled` instead
+    ///
+    pub const SetIsEnabled = setIsEnabled;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-0-corebackend-functions.html#IsEnabled-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QOpenGLFunctions_1_0_CoreBackend__Functions `
     ///
-    /// ` isEnabled: *const fn (funcparam1: u32) callconv(.c) u8 `
+    /// ` _IsEnabled: *const fn (funcparam1: u32) callconv(.c) u8 `
     ///
-    pub fn SetIsEnabled(self: QOpenGLFunctions_1_0_CoreBackend__Functions, isEnabled: *const fn (u32) callconv(.c) u8) void {
-        qtc.QOpenGLFunctions_1_0_CoreBackend__Functions_SetIsEnabled(@ptrCast(self.ptr), @bitCast(@intFromPtr(isEnabled)));
+    pub fn setIsEnabled(self: QOpenGLFunctions_1_0_CoreBackend__Functions, _IsEnabled: *const fn (u32) callconv(.c) u8) void {
+        qtc.QOpenGLFunctions_1_0_CoreBackend__Functions_SetIsEnabled(@ptrCast(self.ptr), @bitCast(@intFromPtr(_IsEnabled)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QOpenGLFunctions_1_0_CoreBackend__Functions `
     ///
-    pub fn Delete(self: QOpenGLFunctions_1_0_CoreBackend__Functions) void {
+    pub fn delete(self: QOpenGLFunctions_1_0_CoreBackend__Functions) void {
         qtc.QOpenGLFunctions_1_0_CoreBackend__Functions_Delete(@ptrCast(self.ptr));
     }
 };
@@ -1416,29 +1696,33 @@ pub const QOpenGLFunctions_1_1_CoreBackend__Functions = extern struct {
         return @ptrFromInt(@as(usize, @bitCast(qtc.QOpenGLFunctions_1_1_CoreBackend__Functions_IsTexture(@ptrCast(self.ptr)))));
     }
 
+    /// ### DEPRECATED: Use `setIsTexture` instead
+    ///
+    pub const SetIsTexture = setIsTexture;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-1-corebackend-functions.html#IsTexture-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QOpenGLFunctions_1_1_CoreBackend__Functions `
     ///
-    /// ` isTexture: *const fn (funcparam1: u32) callconv(.c) u8 `
+    /// ` _IsTexture: *const fn (funcparam1: u32) callconv(.c) u8 `
     ///
-    pub fn SetIsTexture(self: QOpenGLFunctions_1_1_CoreBackend__Functions, isTexture: *const fn (u32) callconv(.c) u8) void {
-        qtc.QOpenGLFunctions_1_1_CoreBackend__Functions_SetIsTexture(@ptrCast(self.ptr), @bitCast(@intFromPtr(isTexture)));
+    pub fn setIsTexture(self: QOpenGLFunctions_1_1_CoreBackend__Functions, _IsTexture: *const fn (u32) callconv(.c) u8) void {
+        qtc.QOpenGLFunctions_1_1_CoreBackend__Functions_SetIsTexture(@ptrCast(self.ptr), @bitCast(@intFromPtr(_IsTexture)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QOpenGLFunctions_1_1_CoreBackend__Functions `
     ///
-    pub fn Delete(self: QOpenGLFunctions_1_1_CoreBackend__Functions) void {
+    pub fn delete(self: QOpenGLFunctions_1_1_CoreBackend__Functions) void {
         qtc.QOpenGLFunctions_1_1_CoreBackend__Functions_Delete(@ptrCast(self.ptr));
     }
 };
@@ -1467,16 +1751,20 @@ pub const QOpenGLFunctions_1_5_CoreBackend__Functions = extern struct {
         return @ptrFromInt(@as(usize, @bitCast(qtc.QOpenGLFunctions_1_5_CoreBackend__Functions_UnmapBuffer(@ptrCast(self.ptr)))));
     }
 
+    /// ### DEPRECATED: Use `setUnmapBuffer` instead
+    ///
+    pub const SetUnmapBuffer = setUnmapBuffer;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-5-corebackend-functions.html#UnmapBuffer-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QOpenGLFunctions_1_5_CoreBackend__Functions `
     ///
-    /// ` unmapBuffer: *const fn (funcparam1: u32) callconv(.c) u8 `
+    /// ` _UnmapBuffer: *const fn (funcparam1: u32) callconv(.c) u8 `
     ///
-    pub fn SetUnmapBuffer(self: QOpenGLFunctions_1_5_CoreBackend__Functions, unmapBuffer: *const fn (u32) callconv(.c) u8) void {
-        qtc.QOpenGLFunctions_1_5_CoreBackend__Functions_SetUnmapBuffer(@ptrCast(self.ptr), @bitCast(@intFromPtr(unmapBuffer)));
+    pub fn setUnmapBuffer(self: QOpenGLFunctions_1_5_CoreBackend__Functions, _UnmapBuffer: *const fn (u32) callconv(.c) u8) void {
+        qtc.QOpenGLFunctions_1_5_CoreBackend__Functions_SetUnmapBuffer(@ptrCast(self.ptr), @bitCast(@intFromPtr(_UnmapBuffer)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-5-corebackend-functions.html#IsBuffer-var)
@@ -1493,16 +1781,20 @@ pub const QOpenGLFunctions_1_5_CoreBackend__Functions = extern struct {
         return @ptrFromInt(@as(usize, @bitCast(qtc.QOpenGLFunctions_1_5_CoreBackend__Functions_IsBuffer(@ptrCast(self.ptr)))));
     }
 
+    /// ### DEPRECATED: Use `setIsBuffer` instead
+    ///
+    pub const SetIsBuffer = setIsBuffer;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-5-corebackend-functions.html#IsBuffer-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QOpenGLFunctions_1_5_CoreBackend__Functions `
     ///
-    /// ` isBuffer: *const fn (funcparam1: u32) callconv(.c) u8 `
+    /// ` _IsBuffer: *const fn (funcparam1: u32) callconv(.c) u8 `
     ///
-    pub fn SetIsBuffer(self: QOpenGLFunctions_1_5_CoreBackend__Functions, isBuffer: *const fn (u32) callconv(.c) u8) void {
-        qtc.QOpenGLFunctions_1_5_CoreBackend__Functions_SetIsBuffer(@ptrCast(self.ptr), @bitCast(@intFromPtr(isBuffer)));
+    pub fn setIsBuffer(self: QOpenGLFunctions_1_5_CoreBackend__Functions, _IsBuffer: *const fn (u32) callconv(.c) u8) void {
+        qtc.QOpenGLFunctions_1_5_CoreBackend__Functions_SetIsBuffer(@ptrCast(self.ptr), @bitCast(@intFromPtr(_IsBuffer)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-5-corebackend-functions.html#IsQuery-var)
@@ -1519,29 +1811,33 @@ pub const QOpenGLFunctions_1_5_CoreBackend__Functions = extern struct {
         return @ptrFromInt(@as(usize, @bitCast(qtc.QOpenGLFunctions_1_5_CoreBackend__Functions_IsQuery(@ptrCast(self.ptr)))));
     }
 
+    /// ### DEPRECATED: Use `setIsQuery` instead
+    ///
+    pub const SetIsQuery = setIsQuery;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-5-corebackend-functions.html#IsQuery-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QOpenGLFunctions_1_5_CoreBackend__Functions `
     ///
-    /// ` isQuery: *const fn (funcparam1: u32) callconv(.c) u8 `
+    /// ` _IsQuery: *const fn (funcparam1: u32) callconv(.c) u8 `
     ///
-    pub fn SetIsQuery(self: QOpenGLFunctions_1_5_CoreBackend__Functions, isQuery: *const fn (u32) callconv(.c) u8) void {
-        qtc.QOpenGLFunctions_1_5_CoreBackend__Functions_SetIsQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(isQuery)));
+    pub fn setIsQuery(self: QOpenGLFunctions_1_5_CoreBackend__Functions, _IsQuery: *const fn (u32) callconv(.c) u8) void {
+        qtc.QOpenGLFunctions_1_5_CoreBackend__Functions_SetIsQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(_IsQuery)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QOpenGLFunctions_1_5_CoreBackend__Functions `
     ///
-    pub fn Delete(self: QOpenGLFunctions_1_5_CoreBackend__Functions) void {
+    pub fn delete(self: QOpenGLFunctions_1_5_CoreBackend__Functions) void {
         qtc.QOpenGLFunctions_1_5_CoreBackend__Functions_Delete(@ptrCast(self.ptr));
     }
 };
@@ -1570,16 +1866,20 @@ pub const QOpenGLFunctions_2_0_CoreBackend__Functions = extern struct {
         return @ptrFromInt(@as(usize, @bitCast(qtc.QOpenGLFunctions_2_0_CoreBackend__Functions_IsShader(@ptrCast(self.ptr)))));
     }
 
+    /// ### DEPRECATED: Use `setIsShader` instead
+    ///
+    pub const SetIsShader = setIsShader;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-2-0-corebackend-functions.html#IsShader-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QOpenGLFunctions_2_0_CoreBackend__Functions `
     ///
-    /// ` isShader: *const fn (funcparam1: u32) callconv(.c) u8 `
+    /// ` _IsShader: *const fn (funcparam1: u32) callconv(.c) u8 `
     ///
-    pub fn SetIsShader(self: QOpenGLFunctions_2_0_CoreBackend__Functions, isShader: *const fn (u32) callconv(.c) u8) void {
-        qtc.QOpenGLFunctions_2_0_CoreBackend__Functions_SetIsShader(@ptrCast(self.ptr), @bitCast(@intFromPtr(isShader)));
+    pub fn setIsShader(self: QOpenGLFunctions_2_0_CoreBackend__Functions, _IsShader: *const fn (u32) callconv(.c) u8) void {
+        qtc.QOpenGLFunctions_2_0_CoreBackend__Functions_SetIsShader(@ptrCast(self.ptr), @bitCast(@intFromPtr(_IsShader)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-2-0-corebackend-functions.html#IsProgram-var)
@@ -1596,16 +1896,20 @@ pub const QOpenGLFunctions_2_0_CoreBackend__Functions = extern struct {
         return @ptrFromInt(@as(usize, @bitCast(qtc.QOpenGLFunctions_2_0_CoreBackend__Functions_IsProgram(@ptrCast(self.ptr)))));
     }
 
+    /// ### DEPRECATED: Use `setIsProgram` instead
+    ///
+    pub const SetIsProgram = setIsProgram;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-2-0-corebackend-functions.html#IsProgram-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QOpenGLFunctions_2_0_CoreBackend__Functions `
     ///
-    /// ` isProgram: *const fn (funcparam1: u32) callconv(.c) u8 `
+    /// ` _IsProgram: *const fn (funcparam1: u32) callconv(.c) u8 `
     ///
-    pub fn SetIsProgram(self: QOpenGLFunctions_2_0_CoreBackend__Functions, isProgram: *const fn (u32) callconv(.c) u8) void {
-        qtc.QOpenGLFunctions_2_0_CoreBackend__Functions_SetIsProgram(@ptrCast(self.ptr), @bitCast(@intFromPtr(isProgram)));
+    pub fn setIsProgram(self: QOpenGLFunctions_2_0_CoreBackend__Functions, _IsProgram: *const fn (u32) callconv(.c) u8) void {
+        qtc.QOpenGLFunctions_2_0_CoreBackend__Functions_SetIsProgram(@ptrCast(self.ptr), @bitCast(@intFromPtr(_IsProgram)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-2-0-corebackend-functions.html#CreateShader-var)
@@ -1622,16 +1926,20 @@ pub const QOpenGLFunctions_2_0_CoreBackend__Functions = extern struct {
         return @ptrFromInt(@as(usize, @bitCast(qtc.QOpenGLFunctions_2_0_CoreBackend__Functions_CreateShader(@ptrCast(self.ptr)))));
     }
 
+    /// ### DEPRECATED: Use `setCreateShader` instead
+    ///
+    pub const SetCreateShader = setCreateShader;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-2-0-corebackend-functions.html#CreateShader-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QOpenGLFunctions_2_0_CoreBackend__Functions `
     ///
-    /// ` createShader: *const fn (funcparam1: u32) callconv(.c) u32 `
+    /// ` _CreateShader: *const fn (funcparam1: u32) callconv(.c) u32 `
     ///
-    pub fn SetCreateShader(self: QOpenGLFunctions_2_0_CoreBackend__Functions, createShader: *const fn (u32) callconv(.c) u32) void {
-        qtc.QOpenGLFunctions_2_0_CoreBackend__Functions_SetCreateShader(@ptrCast(self.ptr), @bitCast(@intFromPtr(createShader)));
+    pub fn setCreateShader(self: QOpenGLFunctions_2_0_CoreBackend__Functions, _CreateShader: *const fn (u32) callconv(.c) u32) void {
+        qtc.QOpenGLFunctions_2_0_CoreBackend__Functions_SetCreateShader(@ptrCast(self.ptr), @bitCast(@intFromPtr(_CreateShader)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-2-0-corebackend-functions.html#CreateProgram-var)
@@ -1648,29 +1956,33 @@ pub const QOpenGLFunctions_2_0_CoreBackend__Functions = extern struct {
         return @ptrFromInt(@as(usize, @bitCast(qtc.QOpenGLFunctions_2_0_CoreBackend__Functions_CreateProgram(@ptrCast(self.ptr)))));
     }
 
+    /// ### DEPRECATED: Use `setCreateProgram` instead
+    ///
+    pub const SetCreateProgram = setCreateProgram;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-2-0-corebackend-functions.html#CreateProgram-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QOpenGLFunctions_2_0_CoreBackend__Functions `
     ///
-    /// ` createProgram: *const fn () callconv(.c) u32 `
+    /// ` _CreateProgram: *const fn () callconv(.c) u32 `
     ///
-    pub fn SetCreateProgram(self: QOpenGLFunctions_2_0_CoreBackend__Functions, createProgram: *const fn () callconv(.c) u32) void {
-        qtc.QOpenGLFunctions_2_0_CoreBackend__Functions_SetCreateProgram(@ptrCast(self.ptr), @bitCast(@intFromPtr(createProgram)));
+    pub fn setCreateProgram(self: QOpenGLFunctions_2_0_CoreBackend__Functions, _CreateProgram: *const fn () callconv(.c) u32) void {
+        qtc.QOpenGLFunctions_2_0_CoreBackend__Functions_SetCreateProgram(@ptrCast(self.ptr), @bitCast(@intFromPtr(_CreateProgram)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QOpenGLFunctions_2_0_CoreBackend__Functions `
     ///
-    pub fn Delete(self: QOpenGLFunctions_2_0_CoreBackend__Functions) void {
+    pub fn delete(self: QOpenGLFunctions_2_0_CoreBackend__Functions) void {
         qtc.QOpenGLFunctions_2_0_CoreBackend__Functions_Delete(@ptrCast(self.ptr));
     }
 };
@@ -1699,16 +2011,20 @@ pub const QOpenGLFunctions_3_0_CoreBackend__Functions = extern struct {
         return @ptrFromInt(@as(usize, @bitCast(qtc.QOpenGLFunctions_3_0_CoreBackend__Functions_IsVertexArray(@ptrCast(self.ptr)))));
     }
 
+    /// ### DEPRECATED: Use `setIsVertexArray` instead
+    ///
+    pub const SetIsVertexArray = setIsVertexArray;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-3-0-corebackend-functions.html#IsVertexArray-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QOpenGLFunctions_3_0_CoreBackend__Functions `
     ///
-    /// ` isVertexArray: *const fn (funcparam1: u32) callconv(.c) u8 `
+    /// ` _IsVertexArray: *const fn (funcparam1: u32) callconv(.c) u8 `
     ///
-    pub fn SetIsVertexArray(self: QOpenGLFunctions_3_0_CoreBackend__Functions, isVertexArray: *const fn (u32) callconv(.c) u8) void {
-        qtc.QOpenGLFunctions_3_0_CoreBackend__Functions_SetIsVertexArray(@ptrCast(self.ptr), @bitCast(@intFromPtr(isVertexArray)));
+    pub fn setIsVertexArray(self: QOpenGLFunctions_3_0_CoreBackend__Functions, _IsVertexArray: *const fn (u32) callconv(.c) u8) void {
+        qtc.QOpenGLFunctions_3_0_CoreBackend__Functions_SetIsVertexArray(@ptrCast(self.ptr), @bitCast(@intFromPtr(_IsVertexArray)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-3-0-corebackend-functions.html#IsFramebuffer-var)
@@ -1725,16 +2041,20 @@ pub const QOpenGLFunctions_3_0_CoreBackend__Functions = extern struct {
         return @ptrFromInt(@as(usize, @bitCast(qtc.QOpenGLFunctions_3_0_CoreBackend__Functions_IsFramebuffer(@ptrCast(self.ptr)))));
     }
 
+    /// ### DEPRECATED: Use `setIsFramebuffer` instead
+    ///
+    pub const SetIsFramebuffer = setIsFramebuffer;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-3-0-corebackend-functions.html#IsFramebuffer-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QOpenGLFunctions_3_0_CoreBackend__Functions `
     ///
-    /// ` isFramebuffer: *const fn (funcparam1: u32) callconv(.c) u8 `
+    /// ` _IsFramebuffer: *const fn (funcparam1: u32) callconv(.c) u8 `
     ///
-    pub fn SetIsFramebuffer(self: QOpenGLFunctions_3_0_CoreBackend__Functions, isFramebuffer: *const fn (u32) callconv(.c) u8) void {
-        qtc.QOpenGLFunctions_3_0_CoreBackend__Functions_SetIsFramebuffer(@ptrCast(self.ptr), @bitCast(@intFromPtr(isFramebuffer)));
+    pub fn setIsFramebuffer(self: QOpenGLFunctions_3_0_CoreBackend__Functions, _IsFramebuffer: *const fn (u32) callconv(.c) u8) void {
+        qtc.QOpenGLFunctions_3_0_CoreBackend__Functions_SetIsFramebuffer(@ptrCast(self.ptr), @bitCast(@intFromPtr(_IsFramebuffer)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-3-0-corebackend-functions.html#IsRenderbuffer-var)
@@ -1751,16 +2071,20 @@ pub const QOpenGLFunctions_3_0_CoreBackend__Functions = extern struct {
         return @ptrFromInt(@as(usize, @bitCast(qtc.QOpenGLFunctions_3_0_CoreBackend__Functions_IsRenderbuffer(@ptrCast(self.ptr)))));
     }
 
+    /// ### DEPRECATED: Use `setIsRenderbuffer` instead
+    ///
+    pub const SetIsRenderbuffer = setIsRenderbuffer;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-3-0-corebackend-functions.html#IsRenderbuffer-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QOpenGLFunctions_3_0_CoreBackend__Functions `
     ///
-    /// ` isRenderbuffer: *const fn (funcparam1: u32) callconv(.c) u8 `
+    /// ` _IsRenderbuffer: *const fn (funcparam1: u32) callconv(.c) u8 `
     ///
-    pub fn SetIsRenderbuffer(self: QOpenGLFunctions_3_0_CoreBackend__Functions, isRenderbuffer: *const fn (u32) callconv(.c) u8) void {
-        qtc.QOpenGLFunctions_3_0_CoreBackend__Functions_SetIsRenderbuffer(@ptrCast(self.ptr), @bitCast(@intFromPtr(isRenderbuffer)));
+    pub fn setIsRenderbuffer(self: QOpenGLFunctions_3_0_CoreBackend__Functions, _IsRenderbuffer: *const fn (u32) callconv(.c) u8) void {
+        qtc.QOpenGLFunctions_3_0_CoreBackend__Functions_SetIsRenderbuffer(@ptrCast(self.ptr), @bitCast(@intFromPtr(_IsRenderbuffer)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-3-0-corebackend-functions.html#IsEnabledi-var)
@@ -1777,29 +2101,33 @@ pub const QOpenGLFunctions_3_0_CoreBackend__Functions = extern struct {
         return @ptrFromInt(@as(usize, @bitCast(qtc.QOpenGLFunctions_3_0_CoreBackend__Functions_IsEnabledi(@ptrCast(self.ptr)))));
     }
 
+    /// ### DEPRECATED: Use `setIsEnabledi` instead
+    ///
+    pub const SetIsEnabledi = setIsEnabledi;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-3-0-corebackend-functions.html#IsEnabledi-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QOpenGLFunctions_3_0_CoreBackend__Functions `
     ///
-    /// ` isEnabledi: *const fn (funcparam1: u32, funcparam2: u32) callconv(.c) u8 `
+    /// ` _IsEnabledi: *const fn (funcparam1: u32, funcparam2: u32) callconv(.c) u8 `
     ///
-    pub fn SetIsEnabledi(self: QOpenGLFunctions_3_0_CoreBackend__Functions, isEnabledi: *const fn (u32, u32) callconv(.c) u8) void {
-        qtc.QOpenGLFunctions_3_0_CoreBackend__Functions_SetIsEnabledi(@ptrCast(self.ptr), @bitCast(@intFromPtr(isEnabledi)));
+    pub fn setIsEnabledi(self: QOpenGLFunctions_3_0_CoreBackend__Functions, _IsEnabledi: *const fn (u32, u32) callconv(.c) u8) void {
+        qtc.QOpenGLFunctions_3_0_CoreBackend__Functions_SetIsEnabledi(@ptrCast(self.ptr), @bitCast(@intFromPtr(_IsEnabledi)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QOpenGLFunctions_3_0_CoreBackend__Functions `
     ///
-    pub fn Delete(self: QOpenGLFunctions_3_0_CoreBackend__Functions) void {
+    pub fn delete(self: QOpenGLFunctions_3_0_CoreBackend__Functions) void {
         qtc.QOpenGLFunctions_3_0_CoreBackend__Functions_Delete(@ptrCast(self.ptr));
     }
 };
@@ -1828,29 +2156,33 @@ pub const QOpenGLFunctions_3_3_CoreBackend__Functions = extern struct {
         return @ptrFromInt(@as(usize, @bitCast(qtc.QOpenGLFunctions_3_3_CoreBackend__Functions_IsSampler(@ptrCast(self.ptr)))));
     }
 
+    /// ### DEPRECATED: Use `setIsSampler` instead
+    ///
+    pub const SetIsSampler = setIsSampler;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-3-3-corebackend-functions.html#IsSampler-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QOpenGLFunctions_3_3_CoreBackend__Functions `
     ///
-    /// ` isSampler: *const fn (funcparam1: u32) callconv(.c) u8 `
+    /// ` _IsSampler: *const fn (funcparam1: u32) callconv(.c) u8 `
     ///
-    pub fn SetIsSampler(self: QOpenGLFunctions_3_3_CoreBackend__Functions, isSampler: *const fn (u32) callconv(.c) u8) void {
-        qtc.QOpenGLFunctions_3_3_CoreBackend__Functions_SetIsSampler(@ptrCast(self.ptr), @bitCast(@intFromPtr(isSampler)));
+    pub fn setIsSampler(self: QOpenGLFunctions_3_3_CoreBackend__Functions, _IsSampler: *const fn (u32) callconv(.c) u8) void {
+        qtc.QOpenGLFunctions_3_3_CoreBackend__Functions_SetIsSampler(@ptrCast(self.ptr), @bitCast(@intFromPtr(_IsSampler)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QOpenGLFunctions_3_3_CoreBackend__Functions `
     ///
-    pub fn Delete(self: QOpenGLFunctions_3_3_CoreBackend__Functions) void {
+    pub fn delete(self: QOpenGLFunctions_3_3_CoreBackend__Functions) void {
         qtc.QOpenGLFunctions_3_3_CoreBackend__Functions_Delete(@ptrCast(self.ptr));
     }
 };
@@ -1879,29 +2211,33 @@ pub const QOpenGLFunctions_4_0_CoreBackend__Functions = extern struct {
         return @ptrFromInt(@as(usize, @bitCast(qtc.QOpenGLFunctions_4_0_CoreBackend__Functions_IsTransformFeedback(@ptrCast(self.ptr)))));
     }
 
+    /// ### DEPRECATED: Use `setIsTransformFeedback` instead
+    ///
+    pub const SetIsTransformFeedback = setIsTransformFeedback;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-0-corebackend-functions.html#IsTransformFeedback-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QOpenGLFunctions_4_0_CoreBackend__Functions `
     ///
-    /// ` isTransformFeedback: *const fn (funcparam1: u32) callconv(.c) u8 `
+    /// ` _IsTransformFeedback: *const fn (funcparam1: u32) callconv(.c) u8 `
     ///
-    pub fn SetIsTransformFeedback(self: QOpenGLFunctions_4_0_CoreBackend__Functions, isTransformFeedback: *const fn (u32) callconv(.c) u8) void {
-        qtc.QOpenGLFunctions_4_0_CoreBackend__Functions_SetIsTransformFeedback(@ptrCast(self.ptr), @bitCast(@intFromPtr(isTransformFeedback)));
+    pub fn setIsTransformFeedback(self: QOpenGLFunctions_4_0_CoreBackend__Functions, _IsTransformFeedback: *const fn (u32) callconv(.c) u8) void {
+        qtc.QOpenGLFunctions_4_0_CoreBackend__Functions_SetIsTransformFeedback(@ptrCast(self.ptr), @bitCast(@intFromPtr(_IsTransformFeedback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QOpenGLFunctions_4_0_CoreBackend__Functions `
     ///
-    pub fn Delete(self: QOpenGLFunctions_4_0_CoreBackend__Functions) void {
+    pub fn delete(self: QOpenGLFunctions_4_0_CoreBackend__Functions) void {
         qtc.QOpenGLFunctions_4_0_CoreBackend__Functions_Delete(@ptrCast(self.ptr));
     }
 };
@@ -1930,29 +2266,33 @@ pub const QOpenGLFunctions_4_1_CoreBackend__Functions = extern struct {
         return @ptrFromInt(@as(usize, @bitCast(qtc.QOpenGLFunctions_4_1_CoreBackend__Functions_IsProgramPipeline(@ptrCast(self.ptr)))));
     }
 
+    /// ### DEPRECATED: Use `setIsProgramPipeline` instead
+    ///
+    pub const SetIsProgramPipeline = setIsProgramPipeline;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-1-corebackend-functions.html#IsProgramPipeline-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QOpenGLFunctions_4_1_CoreBackend__Functions `
     ///
-    /// ` isProgramPipeline: *const fn (funcparam1: u32) callconv(.c) u8 `
+    /// ` _IsProgramPipeline: *const fn (funcparam1: u32) callconv(.c) u8 `
     ///
-    pub fn SetIsProgramPipeline(self: QOpenGLFunctions_4_1_CoreBackend__Functions, isProgramPipeline: *const fn (u32) callconv(.c) u8) void {
-        qtc.QOpenGLFunctions_4_1_CoreBackend__Functions_SetIsProgramPipeline(@ptrCast(self.ptr), @bitCast(@intFromPtr(isProgramPipeline)));
+    pub fn setIsProgramPipeline(self: QOpenGLFunctions_4_1_CoreBackend__Functions, _IsProgramPipeline: *const fn (u32) callconv(.c) u8) void {
+        qtc.QOpenGLFunctions_4_1_CoreBackend__Functions_SetIsProgramPipeline(@ptrCast(self.ptr), @bitCast(@intFromPtr(_IsProgramPipeline)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QOpenGLFunctions_4_1_CoreBackend__Functions `
     ///
-    pub fn Delete(self: QOpenGLFunctions_4_1_CoreBackend__Functions) void {
+    pub fn delete(self: QOpenGLFunctions_4_1_CoreBackend__Functions) void {
         qtc.QOpenGLFunctions_4_1_CoreBackend__Functions_Delete(@ptrCast(self.ptr));
     }
 };
@@ -1981,29 +2321,33 @@ pub const QOpenGLFunctions_4_5_CoreBackend__Functions = extern struct {
         return @ptrFromInt(@as(usize, @bitCast(qtc.QOpenGLFunctions_4_5_CoreBackend__Functions_UnmapNamedBuffer(@ptrCast(self.ptr)))));
     }
 
+    /// ### DEPRECATED: Use `setUnmapNamedBuffer` instead
+    ///
+    pub const SetUnmapNamedBuffer = setUnmapNamedBuffer;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-5-corebackend-functions.html#UnmapNamedBuffer-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QOpenGLFunctions_4_5_CoreBackend__Functions `
     ///
-    /// ` unmapNamedBuffer: *const fn (funcparam1: u32) callconv(.c) u8 `
+    /// ` _UnmapNamedBuffer: *const fn (funcparam1: u32) callconv(.c) u8 `
     ///
-    pub fn SetUnmapNamedBuffer(self: QOpenGLFunctions_4_5_CoreBackend__Functions, unmapNamedBuffer: *const fn (u32) callconv(.c) u8) void {
-        qtc.QOpenGLFunctions_4_5_CoreBackend__Functions_SetUnmapNamedBuffer(@ptrCast(self.ptr), @bitCast(@intFromPtr(unmapNamedBuffer)));
+    pub fn setUnmapNamedBuffer(self: QOpenGLFunctions_4_5_CoreBackend__Functions, _UnmapNamedBuffer: *const fn (u32) callconv(.c) u8) void {
+        qtc.QOpenGLFunctions_4_5_CoreBackend__Functions_SetUnmapNamedBuffer(@ptrCast(self.ptr), @bitCast(@intFromPtr(_UnmapNamedBuffer)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QOpenGLFunctions_4_5_CoreBackend__Functions `
     ///
-    pub fn Delete(self: QOpenGLFunctions_4_5_CoreBackend__Functions) void {
+    pub fn delete(self: QOpenGLFunctions_4_5_CoreBackend__Functions) void {
         qtc.QOpenGLFunctions_4_5_CoreBackend__Functions_Delete(@ptrCast(self.ptr));
     }
 };
@@ -2032,16 +2376,20 @@ pub const QOpenGLFunctions_1_0_DeprecatedBackend__Functions = extern struct {
         return @ptrFromInt(@as(usize, @bitCast(qtc.QOpenGLFunctions_1_0_DeprecatedBackend__Functions_IsList(@ptrCast(self.ptr)))));
     }
 
+    /// ### DEPRECATED: Use `setIsList` instead
+    ///
+    pub const SetIsList = setIsList;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-0-deprecatedbackend-functions.html#IsList-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QOpenGLFunctions_1_0_DeprecatedBackend__Functions `
     ///
-    /// ` isList: *const fn (funcparam1: u32) callconv(.c) u8 `
+    /// ` _IsList: *const fn (funcparam1: u32) callconv(.c) u8 `
     ///
-    pub fn SetIsList(self: QOpenGLFunctions_1_0_DeprecatedBackend__Functions, isList: *const fn (u32) callconv(.c) u8) void {
-        qtc.QOpenGLFunctions_1_0_DeprecatedBackend__Functions_SetIsList(@ptrCast(self.ptr), @bitCast(@intFromPtr(isList)));
+    pub fn setIsList(self: QOpenGLFunctions_1_0_DeprecatedBackend__Functions, _IsList: *const fn (u32) callconv(.c) u8) void {
+        qtc.QOpenGLFunctions_1_0_DeprecatedBackend__Functions_SetIsList(@ptrCast(self.ptr), @bitCast(@intFromPtr(_IsList)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-0-deprecatedbackend-functions.html#RenderMode-var)
@@ -2058,16 +2406,20 @@ pub const QOpenGLFunctions_1_0_DeprecatedBackend__Functions = extern struct {
         return @ptrFromInt(@as(usize, @bitCast(qtc.QOpenGLFunctions_1_0_DeprecatedBackend__Functions_RenderMode(@ptrCast(self.ptr)))));
     }
 
+    /// ### DEPRECATED: Use `setRenderMode` instead
+    ///
+    pub const SetRenderMode = setRenderMode;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-0-deprecatedbackend-functions.html#RenderMode-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QOpenGLFunctions_1_0_DeprecatedBackend__Functions `
     ///
-    /// ` renderMode: *const fn (funcparam1: u32) callconv(.c) i32 `
+    /// ` _RenderMode: *const fn (funcparam1: u32) callconv(.c) i32 `
     ///
-    pub fn SetRenderMode(self: QOpenGLFunctions_1_0_DeprecatedBackend__Functions, renderMode: *const fn (u32) callconv(.c) i32) void {
-        qtc.QOpenGLFunctions_1_0_DeprecatedBackend__Functions_SetRenderMode(@ptrCast(self.ptr), @bitCast(@intFromPtr(renderMode)));
+    pub fn setRenderMode(self: QOpenGLFunctions_1_0_DeprecatedBackend__Functions, _RenderMode: *const fn (u32) callconv(.c) i32) void {
+        qtc.QOpenGLFunctions_1_0_DeprecatedBackend__Functions_SetRenderMode(@ptrCast(self.ptr), @bitCast(@intFromPtr(_RenderMode)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-0-deprecatedbackend-functions.html#GenLists-var)
@@ -2084,29 +2436,33 @@ pub const QOpenGLFunctions_1_0_DeprecatedBackend__Functions = extern struct {
         return @ptrFromInt(@as(usize, @bitCast(qtc.QOpenGLFunctions_1_0_DeprecatedBackend__Functions_GenLists(@ptrCast(self.ptr)))));
     }
 
+    /// ### DEPRECATED: Use `setGenLists` instead
+    ///
+    pub const SetGenLists = setGenLists;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-0-deprecatedbackend-functions.html#GenLists-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QOpenGLFunctions_1_0_DeprecatedBackend__Functions `
     ///
-    /// ` genLists: *const fn (funcparam1: i32) callconv(.c) u32 `
+    /// ` _GenLists: *const fn (funcparam1: i32) callconv(.c) u32 `
     ///
-    pub fn SetGenLists(self: QOpenGLFunctions_1_0_DeprecatedBackend__Functions, genLists: *const fn (i32) callconv(.c) u32) void {
-        qtc.QOpenGLFunctions_1_0_DeprecatedBackend__Functions_SetGenLists(@ptrCast(self.ptr), @bitCast(@intFromPtr(genLists)));
+    pub fn setGenLists(self: QOpenGLFunctions_1_0_DeprecatedBackend__Functions, _GenLists: *const fn (i32) callconv(.c) u32) void {
+        qtc.QOpenGLFunctions_1_0_DeprecatedBackend__Functions_SetGenLists(@ptrCast(self.ptr), @bitCast(@intFromPtr(_GenLists)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QOpenGLFunctions_1_0_DeprecatedBackend__Functions `
     ///
-    pub fn Delete(self: QOpenGLFunctions_1_0_DeprecatedBackend__Functions) void {
+    pub fn delete(self: QOpenGLFunctions_1_0_DeprecatedBackend__Functions) void {
         qtc.QOpenGLFunctions_1_0_DeprecatedBackend__Functions_Delete(@ptrCast(self.ptr));
     }
 };

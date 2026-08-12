@@ -12,15 +12,23 @@ pub const KCursorSaver = extern struct {
 
     pub const _is_KCursorSaver = {};
 
-    /// New constructs a new KCursorSaver object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KCursorSaver object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` shape: qnamespace_enums.CursorShape `
     ///
-    pub fn New(shape: i32) KCursorSaver {
+    pub fn new(shape: i32) KCursorSaver {
         return .{ .ptr = qtc.KCursorSaver_new(@bitCast(shape)) };
     }
+
+    /// ### DEPRECATED: Use `restoreCursor` instead
+    ///
+    pub const RestoreCursor = restoreCursor;
 
     /// ### [Upstream resources](https://api.kde.org/kcursorsaver.html#restoreCursor)
     ///
@@ -28,23 +36,23 @@ pub const KCursorSaver = extern struct {
     ///
     /// ` self: KCursorSaver `
     ///
-    pub fn RestoreCursor(self: KCursorSaver) void {
+    pub fn restoreCursor(self: KCursorSaver) void {
         qtc.KCursorSaver_RestoreCursor(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kcursorsaver.html#dtor.KCursorSaver)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KCursorSaver `
     ///
-    pub fn Delete(self: KCursorSaver) void {
+    pub fn delete(self: KCursorSaver) void {
         qtc.KCursorSaver_Delete(@ptrCast(self.ptr));
     }
 };

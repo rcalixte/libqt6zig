@@ -13,29 +13,40 @@ pub const KAcceleratorManager = extern struct {
 
     pub const _is_KAcceleratorManager = {};
 
-    /// New constructs a new KAcceleratorManager object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KAcceleratorManager object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: KAcceleratorManager `
     ///
-    pub fn New(other: anytype) KAcceleratorManager {
+    pub fn new(other: anytype) KAcceleratorManager {
         comptime _ = @TypeOf(other)._is_KAcceleratorManager;
         return .{ .ptr = qtc.KAcceleratorManager_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new KAcceleratorManager object and invalidates the source KAcceleratorManager object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KAcceleratorManager object and invalidate the source KAcceleratorManager object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: KAcceleratorManager `
     ///
-    pub fn New2(other: anytype) KAcceleratorManager {
+    pub fn new2(other: anytype) KAcceleratorManager {
         comptime _ = @TypeOf(other)._is_KAcceleratorManager;
         return .{ .ptr = qtc.KAcceleratorManager_new2(@ptrCast(other.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -43,11 +54,14 @@ pub const KAcceleratorManager = extern struct {
     ///
     /// ` other: KAcceleratorManager `
     ///
-    pub fn CopyAssign(self: KAcceleratorManager, other: KAcceleratorManager) void {
+    pub fn copyAssign(self: KAcceleratorManager, other: KAcceleratorManager) void {
         qtc.KAcceleratorManager_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -55,9 +69,13 @@ pub const KAcceleratorManager = extern struct {
     ///
     /// ` other: KAcceleratorManager `
     ///
-    pub fn MoveAssign(self: KAcceleratorManager, other: KAcceleratorManager) void {
+    pub fn moveAssign(self: KAcceleratorManager, other: KAcceleratorManager) void {
         qtc.KAcceleratorManager_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `manage` instead
+    ///
+    pub const Manage = manage;
 
     /// ### [Upstream resources](https://api.kde.org/kacceleratormanager.html#manage)
     ///
@@ -65,10 +83,14 @@ pub const KAcceleratorManager = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn Manage(widget: anytype) void {
+    pub fn manage(widget: anytype) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.KAcceleratorManager_Manage(@ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `lastManage` instead
+    ///
+    pub const LastManage = lastManage;
 
     /// ### [Upstream resources](https://api.kde.org/kacceleratormanager.html#last_manage)
     ///
@@ -80,7 +102,7 @@ pub const KAcceleratorManager = extern struct {
     ///
     /// ` removed: []const u8 `
     ///
-    pub fn LastManage(added: []const u8, changed: []const u8, removed: []const u8) void {
+    pub fn lastManage(added: []const u8, changed: []const u8, removed: []const u8) void {
         const added_str = qtc.libqt_string{
             .len = added.len,
             .data = added.ptr,
@@ -96,16 +118,24 @@ pub const KAcceleratorManager = extern struct {
         qtc.KAcceleratorManager_LastManage(added_str, changed_str, removed_str);
     }
 
+    /// ### DEPRECATED: Use `setNoAccel` instead
+    ///
+    pub const SetNoAccel = setNoAccel;
+
     /// ### [Upstream resources](https://api.kde.org/kacceleratormanager.html#setNoAccel)
     ///
     /// ## Parameter(s):
     ///
     /// ` widget: QWidget `
     ///
-    pub fn SetNoAccel(widget: anytype) void {
+    pub fn setNoAccel(widget: anytype) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.KAcceleratorManager_SetNoAccel(@ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `addStandardActionNames` instead
+    ///
+    pub const AddStandardActionNames = addStandardActionNames;
 
     /// ### [Upstream resources](https://api.kde.org/kacceleratormanager.html#addStandardActionNames)
     ///
@@ -115,13 +145,13 @@ pub const KAcceleratorManager = extern struct {
     ///
     /// ` names: []const []const u8 `
     ///
-    pub fn AddStandardActionNames(allocator: std.mem.Allocator, names: []const []const u8) void {
-        const names_arr = allocator.alloc(qtc.libqt_string, names.len) catch @panic("KAcceleratorManager.AddStandardActionNames: Memory allocation failed");
+    pub fn addStandardActionNames(allocator: std.mem.Allocator, names: []const []const u8) void {
+        const names_arr = allocator.alloc(qtc.libqt_string, names.len) catch @panic("KAcceleratorManager.addStandardActionNames: Memory allocation failed");
         defer allocator.free(names_arr);
-        for (names, 0..names.len) |item, i|
+        for (names, 0..names.len) |str_item, i|
             names_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const names_list = qtc.libqt_list{
             .len = names.len,
@@ -129,6 +159,10 @@ pub const KAcceleratorManager = extern struct {
         };
         qtc.KAcceleratorManager_AddStandardActionNames(names_list);
     }
+
+    /// ### DEPRECATED: Use `manage2` instead
+    ///
+    pub const Manage2 = manage2;
 
     /// ### [Upstream resources](https://api.kde.org/kacceleratormanager.html#manage)
     ///
@@ -138,24 +172,24 @@ pub const KAcceleratorManager = extern struct {
     ///
     /// ` programmers_mode: bool `
     ///
-    pub fn Manage2(widget: anytype, programmers_mode: bool) void {
+    pub fn manage2(widget: anytype, programmers_mode: bool) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.KAcceleratorManager_Manage2(@ptrCast(widget.ptr), programmers_mode);
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kacceleratormanager.html#dtor.KAcceleratorManager)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KAcceleratorManager `
     ///
-    pub fn Delete(self: KAcceleratorManager) void {
+    pub fn delete(self: KAcceleratorManager) void {
         qtc.KAcceleratorManager_Delete(@ptrCast(self.ptr));
     }
 };

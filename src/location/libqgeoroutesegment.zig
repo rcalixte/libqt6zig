@@ -14,22 +14,34 @@ pub const QGeoRouteSegment = extern struct {
 
     pub const _is_QGeoRouteSegment = {};
 
-    /// New constructs a new QGeoRouteSegment object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QGeoRouteSegment {
+    pub const New = new;
+
+    /// Allocate a new QGeoRouteSegment object in C++ memory
+    ///
+    pub fn new() QGeoRouteSegment {
         return .{ .ptr = qtc.QGeoRouteSegment_new() };
     }
 
-    /// New2 constructs a new QGeoRouteSegment object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QGeoRouteSegment object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QGeoRouteSegment `
     ///
-    pub fn New2(other: anytype) QGeoRouteSegment {
+    pub fn new2(other: anytype) QGeoRouteSegment {
         comptime _ = @TypeOf(other)._is_QGeoRouteSegment;
         return .{ .ptr = qtc.QGeoRouteSegment_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutesegment.html#operator-eq)
     ///
@@ -39,10 +51,14 @@ pub const QGeoRouteSegment = extern struct {
     ///
     /// ` other: QGeoRouteSegment `
     ///
-    pub fn OperatorAssign(self: QGeoRouteSegment, other: anytype) void {
+    pub fn operatorAssign(self: QGeoRouteSegment, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QGeoRouteSegment;
         qtc.QGeoRouteSegment_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutesegment.html#swap)
     ///
@@ -52,10 +68,14 @@ pub const QGeoRouteSegment = extern struct {
     ///
     /// ` other: QGeoRouteSegment `
     ///
-    pub fn Swap(self: QGeoRouteSegment, other: anytype) void {
+    pub fn swap(self: QGeoRouteSegment, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QGeoRouteSegment;
         qtc.QGeoRouteSegment_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutesegment.html#isValid)
     ///
@@ -63,9 +83,13 @@ pub const QGeoRouteSegment = extern struct {
     ///
     /// ` self: QGeoRouteSegment `
     ///
-    pub fn IsValid(self: QGeoRouteSegment) bool {
+    pub fn isValid(self: QGeoRouteSegment) bool {
         return qtc.QGeoRouteSegment_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLegLastSegment` instead
+    ///
+    pub const IsLegLastSegment = isLegLastSegment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutesegment.html#isLegLastSegment)
     ///
@@ -73,9 +97,13 @@ pub const QGeoRouteSegment = extern struct {
     ///
     /// ` self: QGeoRouteSegment `
     ///
-    pub fn IsLegLastSegment(self: QGeoRouteSegment) bool {
+    pub fn isLegLastSegment(self: QGeoRouteSegment) bool {
         return qtc.QGeoRouteSegment_IsLegLastSegment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setNextRouteSegment` instead
+    ///
+    pub const SetNextRouteSegment = setNextRouteSegment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutesegment.html#setNextRouteSegment)
     ///
@@ -85,10 +113,14 @@ pub const QGeoRouteSegment = extern struct {
     ///
     /// ` routeSegment: QGeoRouteSegment `
     ///
-    pub fn SetNextRouteSegment(self: QGeoRouteSegment, routeSegment: anytype) void {
+    pub fn setNextRouteSegment(self: QGeoRouteSegment, routeSegment: anytype) void {
         comptime _ = @TypeOf(routeSegment)._is_QGeoRouteSegment;
         qtc.QGeoRouteSegment_SetNextRouteSegment(@ptrCast(self.ptr), @ptrCast(routeSegment.ptr));
     }
+
+    /// ### DEPRECATED: Use `nextRouteSegment` instead
+    ///
+    pub const NextRouteSegment = nextRouteSegment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutesegment.html#nextRouteSegment)
     ///
@@ -96,9 +128,13 @@ pub const QGeoRouteSegment = extern struct {
     ///
     /// ` self: QGeoRouteSegment `
     ///
-    pub fn NextRouteSegment(self: QGeoRouteSegment) QGeoRouteSegment {
+    pub fn nextRouteSegment(self: QGeoRouteSegment) QGeoRouteSegment {
         return .{ .ptr = qtc.QGeoRouteSegment_NextRouteSegment(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setTravelTime` instead
+    ///
+    pub const SetTravelTime = setTravelTime;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutesegment.html#setTravelTime)
     ///
@@ -108,9 +144,13 @@ pub const QGeoRouteSegment = extern struct {
     ///
     /// ` secs: i32 `
     ///
-    pub fn SetTravelTime(self: QGeoRouteSegment, secs: i32) void {
+    pub fn setTravelTime(self: QGeoRouteSegment, secs: i32) void {
         qtc.QGeoRouteSegment_SetTravelTime(@ptrCast(self.ptr), @bitCast(secs));
     }
+
+    /// ### DEPRECATED: Use `travelTime` instead
+    ///
+    pub const TravelTime = travelTime;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutesegment.html#travelTime)
     ///
@@ -118,9 +158,13 @@ pub const QGeoRouteSegment = extern struct {
     ///
     /// ` self: QGeoRouteSegment `
     ///
-    pub fn TravelTime(self: QGeoRouteSegment) i32 {
+    pub fn travelTime(self: QGeoRouteSegment) i32 {
         return qtc.QGeoRouteSegment_TravelTime(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDistance` instead
+    ///
+    pub const SetDistance = setDistance;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutesegment.html#setDistance)
     ///
@@ -128,11 +172,15 @@ pub const QGeoRouteSegment = extern struct {
     ///
     /// ` self: QGeoRouteSegment `
     ///
-    /// ` distance: f64 `
+    /// ` _distance: f64 `
     ///
-    pub fn SetDistance(self: QGeoRouteSegment, distance: f64) void {
-        qtc.QGeoRouteSegment_SetDistance(@ptrCast(self.ptr), @bitCast(distance));
+    pub fn setDistance(self: QGeoRouteSegment, _distance: f64) void {
+        qtc.QGeoRouteSegment_SetDistance(@ptrCast(self.ptr), @bitCast(_distance));
     }
+
+    /// ### DEPRECATED: Use `distance` instead
+    ///
+    pub const Distance = distance;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutesegment.html#distance)
     ///
@@ -140,9 +188,13 @@ pub const QGeoRouteSegment = extern struct {
     ///
     /// ` self: QGeoRouteSegment `
     ///
-    pub fn Distance(self: QGeoRouteSegment) f64 {
+    pub fn distance(self: QGeoRouteSegment) f64 {
         return qtc.QGeoRouteSegment_Distance(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPath` instead
+    ///
+    pub const SetPath = setPath;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutesegment.html#setPath)
     ///
@@ -150,15 +202,19 @@ pub const QGeoRouteSegment = extern struct {
     ///
     /// ` self: QGeoRouteSegment `
     ///
-    /// ` path: []QGeoCoordinate `
+    /// ` _path: []QGeoCoordinate `
     ///
-    pub fn SetPath(self: QGeoRouteSegment, path: []QGeoCoordinate) void {
+    pub fn setPath(self: QGeoRouteSegment, _path: []QGeoCoordinate) void {
         const path_list = qtc.libqt_list{
-            .len = path.len,
-            .data = @ptrCast(path.ptr),
+            .len = _path.len,
+            .data = @ptrCast(_path.ptr),
         };
         qtc.QGeoRouteSegment_SetPath(@ptrCast(self.ptr), path_list);
     }
+
+    /// ### DEPRECATED: Use `path` instead
+    ///
+    pub const Path = path;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutesegment.html#path)
     ///
@@ -168,15 +224,19 @@ pub const QGeoRouteSegment = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Path(self: QGeoRouteSegment, allocator: std.mem.Allocator) []QGeoCoordinate {
+    pub fn path(self: QGeoRouteSegment, allocator: std.mem.Allocator) []QGeoCoordinate {
         const _arr: qtc.libqt_list = qtc.QGeoRouteSegment_Path(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGeoCoordinate, _arr.len) catch @panic("QGeoRouteSegment.Path: Memory allocation failed");
-        const _data: [*]QtC.QGeoCoordinate = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QGeoCoordinate, _arr.len) catch @panic("QGeoRouteSegment.path: Memory allocation failed");
+        const _data_val: [*]QtC.QGeoCoordinate = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setManeuver` instead
+    ///
+    pub const SetManeuver = setManeuver;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutesegment.html#setManeuver)
     ///
@@ -184,12 +244,16 @@ pub const QGeoRouteSegment = extern struct {
     ///
     /// ` self: QGeoRouteSegment `
     ///
-    /// ` maneuver: QGeoManeuver `
+    /// ` _maneuver: QGeoManeuver `
     ///
-    pub fn SetManeuver(self: QGeoRouteSegment, maneuver: anytype) void {
-        comptime _ = @TypeOf(maneuver)._is_QGeoManeuver;
-        qtc.QGeoRouteSegment_SetManeuver(@ptrCast(self.ptr), @ptrCast(maneuver.ptr));
+    pub fn setManeuver(self: QGeoRouteSegment, _maneuver: anytype) void {
+        comptime _ = @TypeOf(_maneuver)._is_QGeoManeuver;
+        qtc.QGeoRouteSegment_SetManeuver(@ptrCast(self.ptr), @ptrCast(_maneuver.ptr));
     }
+
+    /// ### DEPRECATED: Use `maneuver` instead
+    ///
+    pub const Maneuver = maneuver;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutesegment.html#maneuver)
     ///
@@ -197,23 +261,23 @@ pub const QGeoRouteSegment = extern struct {
     ///
     /// ` self: QGeoRouteSegment `
     ///
-    pub fn Maneuver(self: QGeoRouteSegment) QGeoManeuver {
+    pub fn maneuver(self: QGeoRouteSegment) QGeoManeuver {
         return .{ .ptr = qtc.QGeoRouteSegment_Maneuver(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutesegment.html#dtor.QGeoRouteSegment)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QGeoRouteSegment `
     ///
-    pub fn Delete(self: QGeoRouteSegment) void {
+    pub fn delete(self: QGeoRouteSegment) void {
         qtc.QGeoRouteSegment_Delete(@ptrCast(self.ptr));
     }
 };

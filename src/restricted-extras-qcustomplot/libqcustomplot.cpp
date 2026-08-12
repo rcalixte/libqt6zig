@@ -40393,8 +40393,8 @@ void QCPColorMap_DrawLegendIcon(const QCPColorMap* self, QCPPainter* painter, co
     }
 }
 
-void QCPColorMap_SetData2(QCPColorMap* self, QCPColorMapData* data, bool copyVal) {
-    self->setData(data, copyVal);
+void QCPColorMap_SetData2(QCPColorMap* self, QCPColorMapData* data, bool copy) {
+    self->setData(data, copy);
 }
 
 void QCPColorMap_RescaleDataRange1(QCPColorMap* self, bool recalculateDataBounds) {

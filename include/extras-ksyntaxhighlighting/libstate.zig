@@ -11,22 +11,34 @@ pub const KSyntaxHighlighting__State = extern struct {
 
     pub const _is_KSyntaxHighlighting__State = {};
 
-    /// New constructs a new KSyntaxHighlighting::State object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KSyntaxHighlighting__State {
+    pub const New = new;
+
+    /// Allocate a new KSyntaxHighlighting::State object in C++ memory
+    ///
+    pub fn new() KSyntaxHighlighting__State {
         return .{ .ptr = qtc.KSyntaxHighlighting__State_new() };
     }
 
-    /// New2 constructs a new KSyntaxHighlighting::State object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KSyntaxHighlighting::State object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: KSyntaxHighlighting__State `
     ///
-    pub fn New2(other: anytype) KSyntaxHighlighting__State {
+    pub fn new2(other: anytype) KSyntaxHighlighting__State {
         comptime _ = @TypeOf(other)._is_KSyntaxHighlighting__State;
         return .{ .ptr = qtc.KSyntaxHighlighting__State_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-state.html#operator-eq)
     ///
@@ -36,10 +48,14 @@ pub const KSyntaxHighlighting__State = extern struct {
     ///
     /// ` rhs: KSyntaxHighlighting__State `
     ///
-    pub fn OperatorAssign(self: KSyntaxHighlighting__State, rhs: anytype) void {
+    pub fn operatorAssign(self: KSyntaxHighlighting__State, rhs: anytype) void {
         comptime _ = @TypeOf(rhs)._is_KSyntaxHighlighting__State;
         qtc.KSyntaxHighlighting__State_OperatorAssign(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-state.html#operator-eq-eq)
     ///
@@ -49,10 +65,14 @@ pub const KSyntaxHighlighting__State = extern struct {
     ///
     /// ` other: KSyntaxHighlighting__State `
     ///
-    pub fn OperatorEqual(self: KSyntaxHighlighting__State, other: anytype) bool {
+    pub fn operatorEqual(self: KSyntaxHighlighting__State, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_KSyntaxHighlighting__State;
         return qtc.KSyntaxHighlighting__State_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-state.html#operator-not-eq)
     ///
@@ -62,10 +82,14 @@ pub const KSyntaxHighlighting__State = extern struct {
     ///
     /// ` other: KSyntaxHighlighting__State `
     ///
-    pub fn OperatorNotEqual(self: KSyntaxHighlighting__State, other: anytype) bool {
+    pub fn operatorNotEqual(self: KSyntaxHighlighting__State, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_KSyntaxHighlighting__State;
         return qtc.KSyntaxHighlighting__State_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `indentationBasedFoldingEnabled` instead
+    ///
+    pub const IndentationBasedFoldingEnabled = indentationBasedFoldingEnabled;
 
     /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-state.html#indentationBasedFoldingEnabled)
     ///
@@ -73,21 +97,21 @@ pub const KSyntaxHighlighting__State = extern struct {
     ///
     /// ` self: KSyntaxHighlighting__State `
     ///
-    pub fn IndentationBasedFoldingEnabled(self: KSyntaxHighlighting__State) bool {
+    pub fn indentationBasedFoldingEnabled(self: KSyntaxHighlighting__State) bool {
         return qtc.KSyntaxHighlighting__State_IndentationBasedFoldingEnabled(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KSyntaxHighlighting__State `
     ///
-    pub fn Delete(self: KSyntaxHighlighting__State) void {
+    pub fn delete(self: KSyntaxHighlighting__State) void {
         qtc.KSyntaxHighlighting__State_Delete(@ptrCast(self.ptr));
     }
 };

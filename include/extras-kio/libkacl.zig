@@ -13,13 +13,17 @@ pub const KACL = extern struct {
 
     pub const _is_KACL = {};
 
-    /// New constructs a new KACL object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KACL object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` aclString: []const u8 `
     ///
-    pub fn New(aclString: []const u8) KACL {
+    pub fn new(aclString: []const u8) KACL {
         const aclString_str = qtc.libqt_string{
             .len = aclString.len,
             .data = aclString.ptr,
@@ -27,32 +31,48 @@ pub const KACL = extern struct {
         return .{ .ptr = qtc.KACL_new(aclString_str) };
     }
 
-    /// New2 constructs a new KACL object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KACL object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` rhs: KACL `
     ///
-    pub fn New2(rhs: anytype) KACL {
+    pub fn new2(rhs: anytype) KACL {
         comptime _ = @TypeOf(rhs)._is_KACL;
         return .{ .ptr = qtc.KACL_new2(@ptrCast(rhs.ptr)) };
     }
 
-    /// New3 constructs a new KACL object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new KACL object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` basicPermissions: u32 `
     ///
-    pub fn New3(basicPermissions: u32) KACL {
+    pub fn new3(basicPermissions: u32) KACL {
         return .{ .ptr = qtc.KACL_new3(basicPermissions) };
     }
 
-    /// New4 constructs a new KACL object.
+    /// ### DEPRECATED: Use `new4` instead
     ///
-    pub fn New4() KACL {
+    pub const New4 = new4;
+
+    /// Allocate a new KACL object in C++ memory
+    ///
+    pub fn new4() KACL {
         return .{ .ptr = qtc.KACL_new4() };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://api.kde.org/kacl.html#operator-eq)
     ///
@@ -62,10 +82,14 @@ pub const KACL = extern struct {
     ///
     /// ` rhs: KACL `
     ///
-    pub fn OperatorAssign(self: KACL, rhs: anytype) void {
+    pub fn operatorAssign(self: KACL, rhs: anytype) void {
         comptime _ = @TypeOf(rhs)._is_KACL;
         qtc.KACL_OperatorAssign(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// ### [Upstream resources](https://api.kde.org/kacl.html#operator-eq-eq)
     ///
@@ -75,10 +99,14 @@ pub const KACL = extern struct {
     ///
     /// ` rhs: KACL `
     ///
-    pub fn OperatorEqual(self: KACL, rhs: anytype) bool {
+    pub fn operatorEqual(self: KACL, rhs: anytype) bool {
         comptime _ = @TypeOf(rhs)._is_KACL;
         return qtc.KACL_OperatorEqual(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// ### [Upstream resources](https://api.kde.org/kacl.html#operator-not-eq)
     ///
@@ -88,10 +116,14 @@ pub const KACL = extern struct {
     ///
     /// ` rhs: KACL `
     ///
-    pub fn OperatorNotEqual(self: KACL, rhs: anytype) bool {
+    pub fn operatorNotEqual(self: KACL, rhs: anytype) bool {
         comptime _ = @TypeOf(rhs)._is_KACL;
         return qtc.KACL_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://api.kde.org/kacl.html#isValid)
     ///
@@ -99,9 +131,13 @@ pub const KACL = extern struct {
     ///
     /// ` self: KACL `
     ///
-    pub fn IsValid(self: KACL) bool {
+    pub fn isValid(self: KACL) bool {
         return qtc.KACL_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `ownerPermissions` instead
+    ///
+    pub const OwnerPermissions = ownerPermissions;
 
     /// ### [Upstream resources](https://api.kde.org/kacl.html#ownerPermissions)
     ///
@@ -109,9 +145,13 @@ pub const KACL = extern struct {
     ///
     /// ` self: KACL `
     ///
-    pub fn OwnerPermissions(self: KACL) u16 {
+    pub fn ownerPermissions(self: KACL) u16 {
         return qtc.KACL_OwnerPermissions(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setOwnerPermissions` instead
+    ///
+    pub const SetOwnerPermissions = setOwnerPermissions;
 
     /// ### [Upstream resources](https://api.kde.org/kacl.html#setOwnerPermissions)
     ///
@@ -119,11 +159,15 @@ pub const KACL = extern struct {
     ///
     /// ` self: KACL `
     ///
-    /// ` ownerPermissions: u16 `
+    /// ` _ownerPermissions: u16 `
     ///
-    pub fn SetOwnerPermissions(self: KACL, ownerPermissions: u16) bool {
-        return qtc.KACL_SetOwnerPermissions(@ptrCast(self.ptr), @bitCast(ownerPermissions));
+    pub fn setOwnerPermissions(self: KACL, _ownerPermissions: u16) bool {
+        return qtc.KACL_SetOwnerPermissions(@ptrCast(self.ptr), @bitCast(_ownerPermissions));
     }
+
+    /// ### DEPRECATED: Use `owningGroupPermissions` instead
+    ///
+    pub const OwningGroupPermissions = owningGroupPermissions;
 
     /// ### [Upstream resources](https://api.kde.org/kacl.html#owningGroupPermissions)
     ///
@@ -131,9 +175,13 @@ pub const KACL = extern struct {
     ///
     /// ` self: KACL `
     ///
-    pub fn OwningGroupPermissions(self: KACL) u16 {
+    pub fn owningGroupPermissions(self: KACL) u16 {
         return qtc.KACL_OwningGroupPermissions(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setOwningGroupPermissions` instead
+    ///
+    pub const SetOwningGroupPermissions = setOwningGroupPermissions;
 
     /// ### [Upstream resources](https://api.kde.org/kacl.html#setOwningGroupPermissions)
     ///
@@ -141,11 +189,15 @@ pub const KACL = extern struct {
     ///
     /// ` self: KACL `
     ///
-    /// ` owningGroupPermissions: u16 `
+    /// ` _owningGroupPermissions: u16 `
     ///
-    pub fn SetOwningGroupPermissions(self: KACL, owningGroupPermissions: u16) bool {
-        return qtc.KACL_SetOwningGroupPermissions(@ptrCast(self.ptr), @bitCast(owningGroupPermissions));
+    pub fn setOwningGroupPermissions(self: KACL, _owningGroupPermissions: u16) bool {
+        return qtc.KACL_SetOwningGroupPermissions(@ptrCast(self.ptr), @bitCast(_owningGroupPermissions));
     }
+
+    /// ### DEPRECATED: Use `othersPermissions` instead
+    ///
+    pub const OthersPermissions = othersPermissions;
 
     /// ### [Upstream resources](https://api.kde.org/kacl.html#othersPermissions)
     ///
@@ -153,9 +205,13 @@ pub const KACL = extern struct {
     ///
     /// ` self: KACL `
     ///
-    pub fn OthersPermissions(self: KACL) u16 {
+    pub fn othersPermissions(self: KACL) u16 {
         return qtc.KACL_OthersPermissions(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setOthersPermissions` instead
+    ///
+    pub const SetOthersPermissions = setOthersPermissions;
 
     /// ### [Upstream resources](https://api.kde.org/kacl.html#setOthersPermissions)
     ///
@@ -163,11 +219,15 @@ pub const KACL = extern struct {
     ///
     /// ` self: KACL `
     ///
-    /// ` othersPermissions: u16 `
+    /// ` _othersPermissions: u16 `
     ///
-    pub fn SetOthersPermissions(self: KACL, othersPermissions: u16) bool {
-        return qtc.KACL_SetOthersPermissions(@ptrCast(self.ptr), @bitCast(othersPermissions));
+    pub fn setOthersPermissions(self: KACL, _othersPermissions: u16) bool {
+        return qtc.KACL_SetOthersPermissions(@ptrCast(self.ptr), @bitCast(_othersPermissions));
     }
+
+    /// ### DEPRECATED: Use `basePermissions` instead
+    ///
+    pub const BasePermissions = basePermissions;
 
     /// ### [Upstream resources](https://api.kde.org/kacl.html#basePermissions)
     ///
@@ -175,9 +235,13 @@ pub const KACL = extern struct {
     ///
     /// ` self: KACL `
     ///
-    pub fn BasePermissions(self: KACL) u32 {
+    pub fn basePermissions(self: KACL) u32 {
         return @bitCast(qtc.KACL_BasePermissions(@ptrCast(self.ptr)));
     }
+
+    /// ### DEPRECATED: Use `isExtended` instead
+    ///
+    pub const IsExtended = isExtended;
 
     /// ### [Upstream resources](https://api.kde.org/kacl.html#isExtended)
     ///
@@ -185,9 +249,13 @@ pub const KACL = extern struct {
     ///
     /// ` self: KACL `
     ///
-    pub fn IsExtended(self: KACL) bool {
+    pub fn isExtended(self: KACL) bool {
         return qtc.KACL_IsExtended(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maskPermissions` instead
+    ///
+    pub const MaskPermissions = maskPermissions;
 
     /// ### [Upstream resources](https://api.kde.org/kacl.html#maskPermissions)
     ///
@@ -197,9 +265,13 @@ pub const KACL = extern struct {
     ///
     /// ` exists: *bool `
     ///
-    pub fn MaskPermissions(self: KACL, exists: *bool) u16 {
+    pub fn maskPermissions(self: KACL, exists: *bool) u16 {
         return qtc.KACL_MaskPermissions(@ptrCast(self.ptr), @ptrCast(exists));
     }
+
+    /// ### DEPRECATED: Use `setMaskPermissions` instead
+    ///
+    pub const SetMaskPermissions = setMaskPermissions;
 
     /// ### [Upstream resources](https://api.kde.org/kacl.html#setMaskPermissions)
     ///
@@ -207,11 +279,15 @@ pub const KACL = extern struct {
     ///
     /// ` self: KACL `
     ///
-    /// ` maskPermissions: u16 `
+    /// ` _maskPermissions: u16 `
     ///
-    pub fn SetMaskPermissions(self: KACL, maskPermissions: u16) bool {
-        return qtc.KACL_SetMaskPermissions(@ptrCast(self.ptr), @bitCast(maskPermissions));
+    pub fn setMaskPermissions(self: KACL, _maskPermissions: u16) bool {
+        return qtc.KACL_SetMaskPermissions(@ptrCast(self.ptr), @bitCast(_maskPermissions));
     }
+
+    /// ### DEPRECATED: Use `namedUserPermissions` instead
+    ///
+    pub const NamedUserPermissions = namedUserPermissions;
 
     /// ### [Upstream resources](https://api.kde.org/kacl.html#namedUserPermissions)
     ///
@@ -223,13 +299,17 @@ pub const KACL = extern struct {
     ///
     /// ` exists: *bool `
     ///
-    pub fn NamedUserPermissions(self: KACL, name: []const u8, exists: *bool) u16 {
+    pub fn namedUserPermissions(self: KACL, name: []const u8, exists: *bool) u16 {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         return qtc.KACL_NamedUserPermissions(@ptrCast(self.ptr), name_str, @ptrCast(exists));
     }
+
+    /// ### DEPRECATED: Use `setNamedUserPermissions` instead
+    ///
+    pub const SetNamedUserPermissions = setNamedUserPermissions;
 
     /// ### [Upstream resources](https://api.kde.org/kacl.html#setNamedUserPermissions)
     ///
@@ -241,13 +321,17 @@ pub const KACL = extern struct {
     ///
     /// ` param2: u16 `
     ///
-    pub fn SetNamedUserPermissions(self: KACL, name: []const u8, param2: u16) bool {
+    pub fn setNamedUserPermissions(self: KACL, name: []const u8, param2: u16) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         return qtc.KACL_SetNamedUserPermissions(@ptrCast(self.ptr), name_str, @bitCast(param2));
     }
+
+    /// ### DEPRECATED: Use `allUserPermissions` instead
+    ///
+    pub const AllUserPermissions = allUserPermissions;
 
     /// ### [Upstream resources](https://api.kde.org/kacl.html#allUserPermissions)
     ///
@@ -257,28 +341,32 @@ pub const KACL = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AllUserPermissions(self: KACL, allocator: std.mem.Allocator) []Struct_constu8_u16 {
+    pub fn allUserPermissions(self: KACL, allocator: std.mem.Allocator) []Struct_constu8_u16 {
         const _arr: qtc.libqt_list = qtc.KACL_AllUserPermissions(@ptrCast(self.ptr));
-        const _data: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
+        const _data_val: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
-                qtc.libqt_string_free(@ptrCast(@alignCast(_data[i].first)));
-                qtc.libqt_free(@ptrCast(@alignCast(_data[i].second)));
+                qtc.libqt_string_free(@ptrCast(@alignCast(_data_val[i].first)));
+                qtc.libqt_free(@ptrCast(@alignCast(_data_val[i].second)));
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc(Struct_constu8_u16, _arr.len) catch @panic("KACL.AllUserPermissions: Memory allocation failed");
+        const _ret = allocator.alloc(Struct_constu8_u16, _arr.len) catch @panic("KACL.allUserPermissions: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _first_str: *qtc.libqt_string = @ptrCast(@alignCast(_data[i].first));
-            const _first_slice = allocator.alloc(u8, _first_str.len) catch @panic("KACL.AllUserPermissions: Memory allocation failed");
+            const _first_str: *qtc.libqt_string = @ptrCast(@alignCast(_data_val[i].first));
+            const _first_slice = allocator.alloc(u8, _first_str.len) catch @panic("KACL.allUserPermissions: Memory allocation failed");
             @memcpy(_first_slice, _first_str.data[0.._first_str.len]);
             _ret[i] = Struct_constu8_u16{
                 .first = _first_slice,
-                .second = @as(*u16, @ptrCast(@alignCast(_data[i].second))).*,
+                .second = @as(*u16, @ptrCast(@alignCast(_data_val[i].second))).*,
             };
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `namedGroupPermissions` instead
+    ///
+    pub const NamedGroupPermissions = namedGroupPermissions;
 
     /// ### [Upstream resources](https://api.kde.org/kacl.html#namedGroupPermissions)
     ///
@@ -290,13 +378,17 @@ pub const KACL = extern struct {
     ///
     /// ` exists: *bool `
     ///
-    pub fn NamedGroupPermissions(self: KACL, name: []const u8, exists: *bool) u16 {
+    pub fn namedGroupPermissions(self: KACL, name: []const u8, exists: *bool) u16 {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         return qtc.KACL_NamedGroupPermissions(@ptrCast(self.ptr), name_str, @ptrCast(exists));
     }
+
+    /// ### DEPRECATED: Use `setNamedGroupPermissions` instead
+    ///
+    pub const SetNamedGroupPermissions = setNamedGroupPermissions;
 
     /// ### [Upstream resources](https://api.kde.org/kacl.html#setNamedGroupPermissions)
     ///
@@ -308,13 +400,17 @@ pub const KACL = extern struct {
     ///
     /// ` param2: u16 `
     ///
-    pub fn SetNamedGroupPermissions(self: KACL, name: []const u8, param2: u16) bool {
+    pub fn setNamedGroupPermissions(self: KACL, name: []const u8, param2: u16) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         return qtc.KACL_SetNamedGroupPermissions(@ptrCast(self.ptr), name_str, @bitCast(param2));
     }
+
+    /// ### DEPRECATED: Use `allGroupPermissions` instead
+    ///
+    pub const AllGroupPermissions = allGroupPermissions;
 
     /// ### [Upstream resources](https://api.kde.org/kacl.html#allGroupPermissions)
     ///
@@ -324,28 +420,32 @@ pub const KACL = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AllGroupPermissions(self: KACL, allocator: std.mem.Allocator) []Struct_constu8_u16 {
+    pub fn allGroupPermissions(self: KACL, allocator: std.mem.Allocator) []Struct_constu8_u16 {
         const _arr: qtc.libqt_list = qtc.KACL_AllGroupPermissions(@ptrCast(self.ptr));
-        const _data: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
+        const _data_val: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
-                qtc.libqt_string_free(@ptrCast(@alignCast(_data[i].first)));
-                qtc.libqt_free(@ptrCast(@alignCast(_data[i].second)));
+                qtc.libqt_string_free(@ptrCast(@alignCast(_data_val[i].first)));
+                qtc.libqt_free(@ptrCast(@alignCast(_data_val[i].second)));
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc(Struct_constu8_u16, _arr.len) catch @panic("KACL.AllGroupPermissions: Memory allocation failed");
+        const _ret = allocator.alloc(Struct_constu8_u16, _arr.len) catch @panic("KACL.allGroupPermissions: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _first_str: *qtc.libqt_string = @ptrCast(@alignCast(_data[i].first));
-            const _first_slice = allocator.alloc(u8, _first_str.len) catch @panic("KACL.AllGroupPermissions: Memory allocation failed");
+            const _first_str: *qtc.libqt_string = @ptrCast(@alignCast(_data_val[i].first));
+            const _first_slice = allocator.alloc(u8, _first_str.len) catch @panic("KACL.allGroupPermissions: Memory allocation failed");
             @memcpy(_first_slice, _first_str.data[0.._first_str.len]);
             _ret[i] = Struct_constu8_u16{
                 .first = _first_slice,
-                .second = @as(*u16, @ptrCast(@alignCast(_data[i].second))).*,
+                .second = @as(*u16, @ptrCast(@alignCast(_data_val[i].second))).*,
             };
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setACL` instead
+    ///
+    pub const SetACL = setACL;
 
     /// ### [Upstream resources](https://api.kde.org/kacl.html#setACL)
     ///
@@ -355,13 +455,17 @@ pub const KACL = extern struct {
     ///
     /// ` aclStr: []const u8 `
     ///
-    pub fn SetACL(self: KACL, aclStr: []const u8) bool {
+    pub fn setACL(self: KACL, aclStr: []const u8) bool {
         const aclStr_str = qtc.libqt_string{
             .len = aclStr.len,
             .data = aclStr.ptr,
         };
         return qtc.KACL_SetACL(@ptrCast(self.ptr), aclStr_str);
     }
+
+    /// ### DEPRECATED: Use `asString` instead
+    ///
+    pub const AsString = asString;
 
     /// ### [Upstream resources](https://api.kde.org/kacl.html#asString)
     ///
@@ -371,13 +475,17 @@ pub const KACL = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AsString(self: KACL, allocator: std.mem.Allocator) []const u8 {
+    pub fn asString(self: KACL, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KACL_AsString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KACL.AsString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KACL.asString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `virtualHook` instead
+    ///
+    pub const VirtualHook = virtualHook;
 
     /// ### [Upstream resources](https://api.kde.org/kacl.html#virtual_hook)
     ///
@@ -389,9 +497,13 @@ pub const KACL = extern struct {
     ///
     /// ` data: ?*anyopaque `
     ///
-    pub fn VirtualHook(self: KACL, id: i32, data: ?*anyopaque) void {
+    pub fn virtualHook(self: KACL, id: i32, data: ?*anyopaque) void {
         qtc.KACL_VirtualHook(@ptrCast(self.ptr), @bitCast(id), @ptrCast(data));
     }
+
+    /// ### DEPRECATED: Use `onVirtualHook` instead
+    ///
+    pub const OnVirtualHook = onVirtualHook;
 
     /// ### [Upstream resources](https://api.kde.org/kacl.html#virtual_hook)
     ///
@@ -403,13 +515,13 @@ pub const KACL = extern struct {
     ///
     /// ` callback: *const fn (self: KACL, id: i32, data: ?*anyopaque) callconv(.c) void `
     ///
-    pub fn OnVirtualHook(self: KACL, callback: *const fn (KACL, i32, ?*anyopaque) callconv(.c) void) void {
+    pub fn onVirtualHook(self: KACL, callback: *const fn (KACL, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.KACL_OnVirtualHook(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperVirtualHook` instead
+    /// ### DEPRECATED: Use `superVirtualHook` instead
     ///
-    pub const QBaseVirtualHook = SuperVirtualHook;
+    pub const SuperVirtualHook = superVirtualHook;
 
     /// ### [Upstream resources](https://api.kde.org/kacl.html#virtual_hook)
     ///
@@ -423,23 +535,23 @@ pub const KACL = extern struct {
     ///
     /// ` data: ?*anyopaque `
     ///
-    pub fn SuperVirtualHook(self: KACL, id: i32, data: ?*anyopaque) void {
+    pub fn superVirtualHook(self: KACL, id: i32, data: ?*anyopaque) void {
         qtc.KACL_SuperVirtualHook(@ptrCast(self.ptr), @bitCast(id), @ptrCast(data));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kacl.html#dtor.KACL)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KACL `
     ///
-    pub fn Delete(self: KACL) void {
+    pub fn delete(self: KACL) void {
         qtc.KACL_Delete(@ptrCast(self.ptr));
     }
 };

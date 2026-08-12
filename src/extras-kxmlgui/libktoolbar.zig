@@ -86,105 +86,133 @@ pub const KToolBar = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new KToolBar object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KToolBar object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) KToolBar {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KToolBar_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) KToolBar {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KToolBar_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new KToolBar object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KToolBar object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` objectName: []const u8 `
+    /// ` _objectName: []const u8 `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New2(objectName: []const u8, parent: anytype) KToolBar {
+    pub fn new2(_objectName: []const u8, _parent: anytype) KToolBar {
         const objectName_str = qtc.libqt_string{
-            .len = objectName.len,
-            .data = objectName.ptr,
+            .len = _objectName.len,
+            .data = _objectName.ptr,
         };
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KToolBar_new2(objectName_str, @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KToolBar_new2(objectName_str, @ptrCast(_parent.ptr)) };
     }
 
-    /// New3 constructs a new KToolBar object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new KToolBar object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` objectName: []const u8 `
+    /// ` _objectName: []const u8 `
     ///
     /// ` parentWindow: QMainWindow `
     ///
     /// ` area: qnamespace_enums.ToolBarArea `
     ///
-    pub fn New3(objectName: []const u8, parentWindow: anytype, area: i32) KToolBar {
+    pub fn new3(_objectName: []const u8, parentWindow: anytype, area: i32) KToolBar {
         const objectName_str = qtc.libqt_string{
-            .len = objectName.len,
-            .data = objectName.ptr,
+            .len = _objectName.len,
+            .data = _objectName.ptr,
         };
         comptime _ = @TypeOf(parentWindow)._is_QMainWindow;
         return .{ .ptr = qtc.KToolBar_new3(objectName_str, @ptrCast(parentWindow.ptr), @bitCast(area)) };
     }
 
-    /// New4 constructs a new KToolBar object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new KToolBar object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
     /// ` isMainToolBar: bool `
     ///
-    pub fn New4(parent: anytype, isMainToolBar: bool) KToolBar {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KToolBar_new4(@ptrCast(parent.ptr), isMainToolBar) };
+    pub fn new4(_parent: anytype, isMainToolBar: bool) KToolBar {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KToolBar_new4(@ptrCast(_parent.ptr), isMainToolBar) };
     }
 
-    /// New5 constructs a new KToolBar object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new KToolBar object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
     /// ` isMainToolBar: bool `
     ///
     /// ` readConfig: bool `
     ///
-    pub fn New5(parent: anytype, isMainToolBar: bool, readConfig: bool) KToolBar {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KToolBar_new5(@ptrCast(parent.ptr), isMainToolBar, readConfig) };
+    pub fn new5(_parent: anytype, isMainToolBar: bool, readConfig: bool) KToolBar {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KToolBar_new5(@ptrCast(_parent.ptr), isMainToolBar, readConfig) };
     }
 
-    /// New6 constructs a new KToolBar object.
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new KToolBar object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` objectName: []const u8 `
+    /// ` _objectName: []const u8 `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
     /// ` readConfig: bool `
     ///
-    pub fn New6(objectName: []const u8, parent: anytype, readConfig: bool) KToolBar {
+    pub fn new6(_objectName: []const u8, _parent: anytype, readConfig: bool) KToolBar {
         const objectName_str = qtc.libqt_string{
-            .len = objectName.len,
-            .data = objectName.ptr,
+            .len = _objectName.len,
+            .data = _objectName.ptr,
         };
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KToolBar_new6(objectName_str, @ptrCast(parent.ptr), readConfig) };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KToolBar_new6(objectName_str, @ptrCast(_parent.ptr), readConfig) };
     }
 
-    /// New7 constructs a new KToolBar object.
+    /// ### DEPRECATED: Use `new7` instead
+    ///
+    pub const New7 = new7;
+
+    /// Allocate a new KToolBar object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` objectName: []const u8 `
+    /// ` _objectName: []const u8 `
     ///
     /// ` parentWindow: QMainWindow `
     ///
@@ -192,20 +220,24 @@ pub const KToolBar = extern struct {
     ///
     /// ` newLine: bool `
     ///
-    pub fn New7(objectName: []const u8, parentWindow: anytype, area: i32, newLine: bool) KToolBar {
+    pub fn new7(_objectName: []const u8, parentWindow: anytype, area: i32, newLine: bool) KToolBar {
         const objectName_str = qtc.libqt_string{
-            .len = objectName.len,
-            .data = objectName.ptr,
+            .len = _objectName.len,
+            .data = _objectName.ptr,
         };
         comptime _ = @TypeOf(parentWindow)._is_QMainWindow;
         return .{ .ptr = qtc.KToolBar_new7(objectName_str, @ptrCast(parentWindow.ptr), @bitCast(area), newLine) };
     }
 
-    /// New8 constructs a new KToolBar object.
+    /// ### DEPRECATED: Use `new8` instead
+    ///
+    pub const New8 = new8;
+
+    /// Allocate a new KToolBar object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` objectName: []const u8 `
+    /// ` _objectName: []const u8 `
     ///
     /// ` parentWindow: QMainWindow `
     ///
@@ -215,20 +247,24 @@ pub const KToolBar = extern struct {
     ///
     /// ` isMainToolBar: bool `
     ///
-    pub fn New8(objectName: []const u8, parentWindow: anytype, area: i32, newLine: bool, isMainToolBar: bool) KToolBar {
+    pub fn new8(_objectName: []const u8, parentWindow: anytype, area: i32, newLine: bool, isMainToolBar: bool) KToolBar {
         const objectName_str = qtc.libqt_string{
-            .len = objectName.len,
-            .data = objectName.ptr,
+            .len = _objectName.len,
+            .data = _objectName.ptr,
         };
         comptime _ = @TypeOf(parentWindow)._is_QMainWindow;
         return .{ .ptr = qtc.KToolBar_new8(objectName_str, @ptrCast(parentWindow.ptr), @bitCast(area), newLine, isMainToolBar) };
     }
 
-    /// New9 constructs a new KToolBar object.
+    /// ### DEPRECATED: Use `new9` instead
+    ///
+    pub const New9 = new9;
+
+    /// Allocate a new KToolBar object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` objectName: []const u8 `
+    /// ` _objectName: []const u8 `
     ///
     /// ` parentWindow: QMainWindow `
     ///
@@ -240,14 +276,18 @@ pub const KToolBar = extern struct {
     ///
     /// ` readConfig: bool `
     ///
-    pub fn New9(objectName: []const u8, parentWindow: anytype, area: i32, newLine: bool, isMainToolBar: bool, readConfig: bool) KToolBar {
+    pub fn new9(_objectName: []const u8, parentWindow: anytype, area: i32, newLine: bool, isMainToolBar: bool, readConfig: bool) KToolBar {
         const objectName_str = qtc.libqt_string{
-            .len = objectName.len,
-            .data = objectName.ptr,
+            .len = _objectName.len,
+            .data = _objectName.ptr,
         };
         comptime _ = @TypeOf(parentWindow)._is_QMainWindow;
         return .{ .ptr = qtc.KToolBar_new9(objectName_str, @ptrCast(parentWindow.ptr), @bitCast(area), newLine, isMainToolBar, readConfig) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -255,9 +295,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn MetaObject(self: KToolBar) QMetaObject {
+    pub fn metaObject(self: KToolBar) QMetaObject {
         return .{ .ptr = qtc.KToolBar_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -269,13 +313,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KToolBar, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KToolBar, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KToolBar_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -285,9 +329,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn SuperMetaObject(self: KToolBar) QMetaObject {
+    pub fn superMetaObject(self: KToolBar) QMetaObject {
         return .{ .ptr = qtc.KToolBar_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -295,10 +343,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KToolBar, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KToolBar, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KToolBar_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -308,13 +360,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KToolBar, callback: *const fn (KToolBar, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KToolBar, callback: *const fn (KToolBar, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KToolBar_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -324,10 +376,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KToolBar, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KToolBar, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KToolBar_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -339,9 +395,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KToolBar, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KToolBar, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KToolBar_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -351,13 +411,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KToolBar, callback: *const fn (KToolBar, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KToolBar, callback: *const fn (KToolBar, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KToolBar_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -371,9 +431,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KToolBar, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KToolBar, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KToolBar_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -383,14 +447,18 @@ pub const KToolBar = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KToolBar.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KToolBar.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `mainWindow` instead
+    ///
+    pub const MainWindow = mainWindow;
 
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#mainWindow)
     ///
@@ -398,9 +466,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn MainWindow(self: KToolBar) KMainWindow {
+    pub fn mainWindow(self: KToolBar) KMainWindow {
         return .{ .ptr = qtc.KToolBar_MainWindow(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setIconDimensions` instead
+    ///
+    pub const SetIconDimensions = setIconDimensions;
 
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#setIconDimensions)
     ///
@@ -408,11 +480,15 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` size: i32 `
+    /// ` _size: i32 `
     ///
-    pub fn SetIconDimensions(self: KToolBar, size: i32) void {
-        qtc.KToolBar_SetIconDimensions(@ptrCast(self.ptr), @bitCast(size));
+    pub fn setIconDimensions(self: KToolBar, _size: i32) void {
+        qtc.KToolBar_SetIconDimensions(@ptrCast(self.ptr), @bitCast(_size));
     }
+
+    /// ### DEPRECATED: Use `iconSizeDefault` instead
+    ///
+    pub const IconSizeDefault = iconSizeDefault;
 
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#iconSizeDefault)
     ///
@@ -420,9 +496,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn IconSizeDefault(self: KToolBar) i32 {
+    pub fn iconSizeDefault(self: KToolBar) i32 {
         return qtc.KToolBar_IconSizeDefault(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveSettings` instead
+    ///
+    pub const SaveSettings = saveSettings;
 
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#saveSettings)
     ///
@@ -432,10 +512,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` cg: KConfigGroup `
     ///
-    pub fn SaveSettings(self: KToolBar, cg: anytype) void {
+    pub fn saveSettings(self: KToolBar, cg: anytype) void {
         comptime _ = @TypeOf(cg)._is_KConfigGroup;
         qtc.KToolBar_SaveSettings(@ptrCast(self.ptr), @ptrCast(cg.ptr));
     }
+
+    /// ### DEPRECATED: Use `applySettings` instead
+    ///
+    pub const ApplySettings = applySettings;
 
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#applySettings)
     ///
@@ -445,10 +529,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` cg: KConfigGroup `
     ///
-    pub fn ApplySettings(self: KToolBar, cg: anytype) void {
+    pub fn applySettings(self: KToolBar, cg: anytype) void {
         comptime _ = @TypeOf(cg)._is_KConfigGroup;
         qtc.KToolBar_ApplySettings(@ptrCast(self.ptr), @ptrCast(cg.ptr));
     }
+
+    /// ### DEPRECATED: Use `addXMLGUIClient` instead
+    ///
+    pub const AddXMLGUIClient = addXMLGUIClient;
 
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#addXMLGUIClient)
     ///
@@ -458,10 +546,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` client: KXMLGUIClient `
     ///
-    pub fn AddXMLGUIClient(self: KToolBar, client: anytype) void {
+    pub fn addXMLGUIClient(self: KToolBar, client: anytype) void {
         comptime _ = @TypeOf(client)._is_KXMLGUIClient;
         qtc.KToolBar_AddXMLGUIClient(@ptrCast(self.ptr), @ptrCast(client.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeXMLGUIClient` instead
+    ///
+    pub const RemoveXMLGUIClient = removeXMLGUIClient;
 
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#removeXMLGUIClient)
     ///
@@ -471,10 +563,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` client: KXMLGUIClient `
     ///
-    pub fn RemoveXMLGUIClient(self: KToolBar, client: anytype) void {
+    pub fn removeXMLGUIClient(self: KToolBar, client: anytype) void {
         comptime _ = @TypeOf(client)._is_KXMLGUIClient;
         qtc.KToolBar_RemoveXMLGUIClient(@ptrCast(self.ptr), @ptrCast(client.ptr));
     }
+
+    /// ### DEPRECATED: Use `loadState` instead
+    ///
+    pub const LoadState = loadState;
 
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#loadState)
     ///
@@ -484,10 +580,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` element: QDomElement `
     ///
-    pub fn LoadState(self: KToolBar, element: anytype) void {
+    pub fn loadState(self: KToolBar, element: anytype) void {
         comptime _ = @TypeOf(element)._is_QDomElement;
         qtc.KToolBar_LoadState(@ptrCast(self.ptr), @ptrCast(element.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveState` instead
+    ///
+    pub const SaveState = saveState;
 
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#saveState)
     ///
@@ -497,10 +597,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` element: QDomElement `
     ///
-    pub fn SaveState(self: KToolBar, element: anytype) void {
+    pub fn saveState(self: KToolBar, element: anytype) void {
         comptime _ = @TypeOf(element)._is_QDomElement;
         qtc.KToolBar_SaveState(@ptrCast(self.ptr), @ptrCast(element.ptr));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#eventFilter)
     ///
@@ -510,13 +614,17 @@ pub const KToolBar = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KToolBar, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KToolBar, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KToolBar_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KToolBar_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#eventFilter)
     ///
@@ -528,13 +636,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KToolBar, callback: *const fn (KToolBar, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KToolBar, callback: *const fn (KToolBar, QObject, QEvent) callconv(.c) bool) void {
         qtc.KToolBar_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#eventFilter)
     ///
@@ -546,19 +654,27 @@ pub const KToolBar = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: KToolBar, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: KToolBar, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KToolBar_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KToolBar_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `toolBarsEditable` instead
+    ///
+    pub const ToolBarsEditable = toolBarsEditable;
 
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#toolBarsEditable)
     ///
-    pub fn ToolBarsEditable() bool {
+    pub fn toolBarsEditable() bool {
         return qtc.KToolBar_ToolBarsEditable();
     }
+
+    /// ### DEPRECATED: Use `setToolBarsEditable` instead
+    ///
+    pub const SetToolBarsEditable = setToolBarsEditable;
 
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#setToolBarsEditable)
     ///
@@ -566,15 +682,23 @@ pub const KToolBar = extern struct {
     ///
     /// ` editable: bool `
     ///
-    pub fn SetToolBarsEditable(editable: bool) void {
+    pub fn setToolBarsEditable(editable: bool) void {
         qtc.KToolBar_SetToolBarsEditable(editable);
     }
 
+    /// ### DEPRECATED: Use `toolBarsLocked` instead
+    ///
+    pub const ToolBarsLocked = toolBarsLocked;
+
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#toolBarsLocked)
     ///
-    pub fn ToolBarsLocked() bool {
+    pub fn toolBarsLocked() bool {
         return qtc.KToolBar_ToolBarsLocked();
     }
+
+    /// ### DEPRECATED: Use `setToolBarsLocked` instead
+    ///
+    pub const SetToolBarsLocked = setToolBarsLocked;
 
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#setToolBarsLocked)
     ///
@@ -582,15 +706,23 @@ pub const KToolBar = extern struct {
     ///
     /// ` locked: bool `
     ///
-    pub fn SetToolBarsLocked(locked: bool) void {
+    pub fn setToolBarsLocked(locked: bool) void {
         qtc.KToolBar_SetToolBarsLocked(locked);
     }
 
+    /// ### DEPRECATED: Use `emitToolbarStyleChanged` instead
+    ///
+    pub const EmitToolbarStyleChanged = emitToolbarStyleChanged;
+
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#emitToolbarStyleChanged)
     ///
-    pub fn EmitToolbarStyleChanged() void {
+    pub fn emitToolbarStyleChanged() void {
         qtc.KToolBar_EmitToolbarStyleChanged();
     }
+
+    /// ### DEPRECATED: Use `slotMovableChanged` instead
+    ///
+    pub const SlotMovableChanged = slotMovableChanged;
 
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#slotMovableChanged)
     ///
@@ -600,9 +732,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` movable: bool `
     ///
-    pub fn SlotMovableChanged(self: KToolBar, movable: bool) void {
+    pub fn slotMovableChanged(self: KToolBar, movable: bool) void {
         qtc.KToolBar_SlotMovableChanged(@ptrCast(self.ptr), movable);
     }
+
+    /// ### DEPRECATED: Use `onSlotMovableChanged` instead
+    ///
+    pub const OnSlotMovableChanged = onSlotMovableChanged;
 
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#slotMovableChanged)
     ///
@@ -614,13 +750,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, movable: bool) callconv(.c) void `
     ///
-    pub fn OnSlotMovableChanged(self: KToolBar, callback: *const fn (KToolBar, bool) callconv(.c) void) void {
+    pub fn onSlotMovableChanged(self: KToolBar, callback: *const fn (KToolBar, bool) callconv(.c) void) void {
         qtc.KToolBar_OnSlotMovableChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSlotMovableChanged` instead
+    /// ### DEPRECATED: Use `superSlotMovableChanged` instead
     ///
-    pub const QBaseSlotMovableChanged = SuperSlotMovableChanged;
+    pub const SuperSlotMovableChanged = superSlotMovableChanged;
 
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#slotMovableChanged)
     ///
@@ -632,9 +768,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` movable: bool `
     ///
-    pub fn SuperSlotMovableChanged(self: KToolBar, movable: bool) void {
+    pub fn superSlotMovableChanged(self: KToolBar, movable: bool) void {
         qtc.KToolBar_SuperSlotMovableChanged(@ptrCast(self.ptr), movable);
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#contextMenuEvent)
     ///
@@ -644,10 +784,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: KToolBar, param1: anytype) void {
+    pub fn contextMenuEvent(self: KToolBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
         qtc.KToolBar_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#contextMenuEvent)
     ///
@@ -659,13 +803,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, param1: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: KToolBar, callback: *const fn (KToolBar, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: KToolBar, callback: *const fn (KToolBar, QContextMenuEvent) callconv(.c) void) void {
         qtc.KToolBar_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#contextMenuEvent)
     ///
@@ -677,10 +821,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: KToolBar, param1: anytype) void {
+    pub fn superContextMenuEvent(self: KToolBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
         qtc.KToolBar_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#actionEvent)
     ///
@@ -690,10 +838,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: QActionEvent `
     ///
-    pub fn ActionEvent(self: KToolBar, param1: anytype) void {
+    pub fn actionEvent(self: KToolBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QActionEvent;
         qtc.KToolBar_ActionEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#actionEvent)
     ///
@@ -705,13 +857,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, param1: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: KToolBar, callback: *const fn (KToolBar, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: KToolBar, callback: *const fn (KToolBar, QActionEvent) callconv(.c) void) void {
         qtc.KToolBar_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#actionEvent)
     ///
@@ -723,10 +875,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: KToolBar, param1: anytype) void {
+    pub fn superActionEvent(self: KToolBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QActionEvent;
         qtc.KToolBar_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#dragEnterEvent)
     ///
@@ -736,10 +892,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: KToolBar, param1: anytype) void {
+    pub fn dragEnterEvent(self: KToolBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QDragEnterEvent;
         qtc.KToolBar_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#dragEnterEvent)
     ///
@@ -751,13 +911,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, param1: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: KToolBar, callback: *const fn (KToolBar, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: KToolBar, callback: *const fn (KToolBar, QDragEnterEvent) callconv(.c) void) void {
         qtc.KToolBar_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#dragEnterEvent)
     ///
@@ -769,10 +929,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: KToolBar, param1: anytype) void {
+    pub fn superDragEnterEvent(self: KToolBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QDragEnterEvent;
         qtc.KToolBar_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#dragMoveEvent)
     ///
@@ -782,10 +946,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: KToolBar, param1: anytype) void {
+    pub fn dragMoveEvent(self: KToolBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QDragMoveEvent;
         qtc.KToolBar_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#dragMoveEvent)
     ///
@@ -797,13 +965,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, param1: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: KToolBar, callback: *const fn (KToolBar, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: KToolBar, callback: *const fn (KToolBar, QDragMoveEvent) callconv(.c) void) void {
         qtc.KToolBar_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#dragMoveEvent)
     ///
@@ -815,10 +983,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: KToolBar, param1: anytype) void {
+    pub fn superDragMoveEvent(self: KToolBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QDragMoveEvent;
         qtc.KToolBar_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#dragLeaveEvent)
     ///
@@ -828,10 +1000,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: KToolBar, param1: anytype) void {
+    pub fn dragLeaveEvent(self: KToolBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QDragLeaveEvent;
         qtc.KToolBar_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#dragLeaveEvent)
     ///
@@ -843,13 +1019,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, param1: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: KToolBar, callback: *const fn (KToolBar, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: KToolBar, callback: *const fn (KToolBar, QDragLeaveEvent) callconv(.c) void) void {
         qtc.KToolBar_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#dragLeaveEvent)
     ///
@@ -861,10 +1037,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: KToolBar, param1: anytype) void {
+    pub fn superDragLeaveEvent(self: KToolBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QDragLeaveEvent;
         qtc.KToolBar_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#dropEvent)
     ///
@@ -874,10 +1054,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: QDropEvent `
     ///
-    pub fn DropEvent(self: KToolBar, param1: anytype) void {
+    pub fn dropEvent(self: KToolBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QDropEvent;
         qtc.KToolBar_DropEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#dropEvent)
     ///
@@ -889,13 +1073,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, param1: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: KToolBar, callback: *const fn (KToolBar, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: KToolBar, callback: *const fn (KToolBar, QDropEvent) callconv(.c) void) void {
         qtc.KToolBar_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#dropEvent)
     ///
@@ -907,11 +1091,15 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: KToolBar, param1: anytype) void {
+    pub fn superDropEvent(self: KToolBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QDropEvent;
         qtc.KToolBar_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
+
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#mousePressEvent)
     ///
     /// ## Parameter(s):
@@ -920,11 +1108,15 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: KToolBar, param1: anytype) void {
+    pub fn mousePressEvent(self: KToolBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMouseEvent;
         qtc.KToolBar_MousePressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
+
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#mousePressEvent)
     ///
     /// Allows for overriding the related default method
@@ -935,13 +1127,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, param1: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: KToolBar, callback: *const fn (KToolBar, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: KToolBar, callback: *const fn (KToolBar, QMouseEvent) callconv(.c) void) void {
         qtc.KToolBar_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#mousePressEvent)
     ///
@@ -953,11 +1145,15 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: KToolBar, param1: anytype) void {
+    pub fn superMousePressEvent(self: KToolBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMouseEvent;
         qtc.KToolBar_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#mouseMoveEvent)
     ///
     /// ## Parameter(s):
@@ -966,11 +1162,15 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: KToolBar, param1: anytype) void {
+    pub fn mouseMoveEvent(self: KToolBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMouseEvent;
         qtc.KToolBar_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
+
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#mouseMoveEvent)
     ///
     /// Allows for overriding the related default method
@@ -981,13 +1181,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, param1: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: KToolBar, callback: *const fn (KToolBar, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: KToolBar, callback: *const fn (KToolBar, QMouseEvent) callconv(.c) void) void {
         qtc.KToolBar_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#mouseMoveEvent)
     ///
@@ -999,11 +1199,15 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: KToolBar, param1: anytype) void {
+    pub fn superMouseMoveEvent(self: KToolBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMouseEvent;
         qtc.KToolBar_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
+
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#mouseReleaseEvent)
     ///
     /// ## Parameter(s):
@@ -1012,10 +1216,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: KToolBar, param1: anytype) void {
+    pub fn mouseReleaseEvent(self: KToolBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMouseEvent;
         qtc.KToolBar_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#mouseReleaseEvent)
     ///
@@ -1027,13 +1235,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, param1: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: KToolBar, callback: *const fn (KToolBar, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: KToolBar, callback: *const fn (KToolBar, QMouseEvent) callconv(.c) void) void {
         qtc.KToolBar_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#mouseReleaseEvent)
     ///
@@ -1045,10 +1253,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: KToolBar, param1: anytype) void {
+    pub fn superMouseReleaseEvent(self: KToolBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMouseEvent;
         qtc.KToolBar_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1060,15 +1272,19 @@ pub const KToolBar = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KToolBar.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KToolBar.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1082,15 +1298,19 @@ pub const KToolBar = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KToolBar.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KToolBar.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setMovable` instead
+    ///
+    pub const SetMovable = setMovable;
 
     /// Inherited from QToolBar
     ///
@@ -1102,9 +1322,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` movable: bool `
     ///
-    pub fn SetMovable(self: KToolBar, movable: bool) void {
+    pub fn setMovable(self: KToolBar, movable: bool) void {
         qtc.QToolBar_SetMovable(@ptrCast(self.ptr), movable);
     }
+
+    /// ### DEPRECATED: Use `isMovable` instead
+    ///
+    pub const IsMovable = isMovable;
 
     /// Inherited from QToolBar
     ///
@@ -1114,9 +1338,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn IsMovable(self: KToolBar) bool {
+    pub fn isMovable(self: KToolBar) bool {
         return qtc.QToolBar_IsMovable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAllowedAreas` instead
+    ///
+    pub const SetAllowedAreas = setAllowedAreas;
 
     /// Inherited from QToolBar
     ///
@@ -1128,9 +1356,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` areas: flag of qnamespace_enums.ToolBarArea `
     ///
-    pub fn SetAllowedAreas(self: KToolBar, areas: i32) void {
+    pub fn setAllowedAreas(self: KToolBar, areas: i32) void {
         qtc.QToolBar_SetAllowedAreas(@ptrCast(self.ptr), @bitCast(areas));
     }
+
+    /// ### DEPRECATED: Use `allowedAreas` instead
+    ///
+    pub const AllowedAreas = allowedAreas;
 
     /// Inherited from QToolBar
     ///
@@ -1144,9 +1376,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` flag of qnamespace_enums.ToolBarArea `
     ///
-    pub fn AllowedAreas(self: KToolBar) i32 {
+    pub fn allowedAreas(self: KToolBar) i32 {
         return qtc.QToolBar_AllowedAreas(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAreaAllowed` instead
+    ///
+    pub const IsAreaAllowed = isAreaAllowed;
 
     /// Inherited from QToolBar
     ///
@@ -1158,9 +1394,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` area: qnamespace_enums.ToolBarArea `
     ///
-    pub fn IsAreaAllowed(self: KToolBar, area: i32) bool {
+    pub fn isAreaAllowed(self: KToolBar, area: i32) bool {
         return qtc.QToolBar_IsAreaAllowed(@ptrCast(self.ptr), @bitCast(area));
     }
+
+    /// ### DEPRECATED: Use `setOrientation` instead
+    ///
+    pub const SetOrientation = setOrientation;
 
     /// Inherited from QToolBar
     ///
@@ -1170,11 +1410,15 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` orientation: qnamespace_enums.Orientation `
+    /// ` _orientation: qnamespace_enums.Orientation `
     ///
-    pub fn SetOrientation(self: KToolBar, orientation: i32) void {
-        qtc.QToolBar_SetOrientation(@ptrCast(self.ptr), @bitCast(orientation));
+    pub fn setOrientation(self: KToolBar, _orientation: i32) void {
+        qtc.QToolBar_SetOrientation(@ptrCast(self.ptr), @bitCast(_orientation));
     }
+
+    /// ### DEPRECATED: Use `orientation` instead
+    ///
+    pub const Orientation = orientation;
 
     /// Inherited from QToolBar
     ///
@@ -1188,9 +1432,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` qnamespace_enums.Orientation `
     ///
-    pub fn Orientation(self: KToolBar) i32 {
+    pub fn orientation(self: KToolBar) i32 {
         return qtc.QToolBar_Orientation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// Inherited from QToolBar
     ///
@@ -1200,9 +1448,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn Clear(self: KToolBar) void {
+    pub fn clear(self: KToolBar) void {
         qtc.QToolBar_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `addSeparator` instead
+    ///
+    pub const AddSeparator = addSeparator;
 
     /// Inherited from QToolBar
     ///
@@ -1212,9 +1464,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn AddSeparator(self: KToolBar) QAction {
+    pub fn addSeparator(self: KToolBar) QAction {
         return .{ .ptr = qtc.QToolBar_AddSeparator(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `insertSeparator` instead
+    ///
+    pub const InsertSeparator = insertSeparator;
 
     /// Inherited from QToolBar
     ///
@@ -1226,10 +1482,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` before: QAction `
     ///
-    pub fn InsertSeparator(self: KToolBar, before: anytype) QAction {
+    pub fn insertSeparator(self: KToolBar, before: anytype) QAction {
         comptime _ = @TypeOf(before)._is_QAction;
         return .{ .ptr = qtc.QToolBar_InsertSeparator(@ptrCast(self.ptr), @ptrCast(before.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addWidget` instead
+    ///
+    pub const AddWidget = addWidget;
 
     /// Inherited from QToolBar
     ///
@@ -1241,10 +1501,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn AddWidget(self: KToolBar, widget: anytype) QAction {
+    pub fn addWidget(self: KToolBar, widget: anytype) QAction {
         comptime _ = @TypeOf(widget)._is_QWidget;
         return .{ .ptr = qtc.QToolBar_AddWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `insertWidget` instead
+    ///
+    pub const InsertWidget = insertWidget;
 
     /// Inherited from QToolBar
     ///
@@ -1258,11 +1522,15 @@ pub const KToolBar = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn InsertWidget(self: KToolBar, before: anytype, widget: anytype) QAction {
+    pub fn insertWidget(self: KToolBar, before: anytype, widget: anytype) QAction {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(widget)._is_QWidget;
         return .{ .ptr = qtc.QToolBar_InsertWidget(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(widget.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `actionGeometry` instead
+    ///
+    pub const ActionGeometry = actionGeometry;
 
     /// Inherited from QToolBar
     ///
@@ -1274,10 +1542,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn ActionGeometry(self: KToolBar, action: anytype) QRect {
+    pub fn actionGeometry(self: KToolBar, action: anytype) QRect {
         comptime _ = @TypeOf(action)._is_QAction;
         return .{ .ptr = qtc.QToolBar_ActionGeometry(@ptrCast(self.ptr), @ptrCast(action.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `actionAt` instead
+    ///
+    pub const ActionAt = actionAt;
 
     /// Inherited from QToolBar
     ///
@@ -1289,10 +1561,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ActionAt(self: KToolBar, p: anytype) QAction {
+    pub fn actionAt(self: KToolBar, p: anytype) QAction {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QToolBar_ActionAt(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `actionAt2` instead
+    ///
+    pub const ActionAt2 = actionAt2;
 
     /// Inherited from QToolBar
     ///
@@ -1302,13 +1578,17 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ActionAt2(self: KToolBar, x: i32, y: i32) QAction {
-        return .{ .ptr = qtc.QToolBar_ActionAt2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn actionAt2(self: KToolBar, _x: i32, _y: i32) QAction {
+        return .{ .ptr = qtc.QToolBar_ActionAt2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `toggleViewAction` instead
+    ///
+    pub const ToggleViewAction = toggleViewAction;
 
     /// Inherited from QToolBar
     ///
@@ -1318,9 +1598,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn ToggleViewAction(self: KToolBar) QAction {
+    pub fn toggleViewAction(self: KToolBar) QAction {
         return .{ .ptr = qtc.QToolBar_ToggleViewAction(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `iconSize` instead
+    ///
+    pub const IconSize = iconSize;
 
     /// Inherited from QToolBar
     ///
@@ -1330,9 +1614,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn IconSize(self: KToolBar) QSize {
+    pub fn iconSize(self: KToolBar) QSize {
         return .{ .ptr = qtc.QToolBar_IconSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toolButtonStyle` instead
+    ///
+    pub const ToolButtonStyle = toolButtonStyle;
 
     /// Inherited from QToolBar
     ///
@@ -1346,9 +1634,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` qnamespace_enums.ToolButtonStyle `
     ///
-    pub fn ToolButtonStyle(self: KToolBar) i32 {
+    pub fn toolButtonStyle(self: KToolBar) i32 {
         return qtc.QToolBar_ToolButtonStyle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widgetForAction` instead
+    ///
+    pub const WidgetForAction = widgetForAction;
 
     /// Inherited from QToolBar
     ///
@@ -1360,10 +1652,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn WidgetForAction(self: KToolBar, action: anytype) QWidget {
+    pub fn widgetForAction(self: KToolBar, action: anytype) QWidget {
         comptime _ = @TypeOf(action)._is_QAction;
         return .{ .ptr = qtc.QToolBar_WidgetForAction(@ptrCast(self.ptr), @ptrCast(action.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isFloatable` instead
+    ///
+    pub const IsFloatable = isFloatable;
 
     /// Inherited from QToolBar
     ///
@@ -1373,9 +1669,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn IsFloatable(self: KToolBar) bool {
+    pub fn isFloatable(self: KToolBar) bool {
         return qtc.QToolBar_IsFloatable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFloatable` instead
+    ///
+    pub const SetFloatable = setFloatable;
 
     /// Inherited from QToolBar
     ///
@@ -1387,9 +1687,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` floatable: bool `
     ///
-    pub fn SetFloatable(self: KToolBar, floatable: bool) void {
+    pub fn setFloatable(self: KToolBar, floatable: bool) void {
         qtc.QToolBar_SetFloatable(@ptrCast(self.ptr), floatable);
     }
+
+    /// ### DEPRECATED: Use `isFloating` instead
+    ///
+    pub const IsFloating = isFloating;
 
     /// Inherited from QToolBar
     ///
@@ -1399,9 +1703,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn IsFloating(self: KToolBar) bool {
+    pub fn isFloating(self: KToolBar) bool {
         return qtc.QToolBar_IsFloating(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setIconSize` instead
+    ///
+    pub const SetIconSize = setIconSize;
 
     /// Inherited from QToolBar
     ///
@@ -1411,12 +1719,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` iconSize: QSize `
+    /// ` _iconSize: QSize `
     ///
-    pub fn SetIconSize(self: KToolBar, iconSize: anytype) void {
-        comptime _ = @TypeOf(iconSize)._is_QSize;
-        qtc.QToolBar_SetIconSize(@ptrCast(self.ptr), @ptrCast(iconSize.ptr));
+    pub fn setIconSize(self: KToolBar, _iconSize: anytype) void {
+        comptime _ = @TypeOf(_iconSize)._is_QSize;
+        qtc.QToolBar_SetIconSize(@ptrCast(self.ptr), @ptrCast(_iconSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolButtonStyle` instead
+    ///
+    pub const SetToolButtonStyle = setToolButtonStyle;
 
     /// Inherited from QToolBar
     ///
@@ -1426,11 +1738,15 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` toolButtonStyle: qnamespace_enums.ToolButtonStyle `
+    /// ` _toolButtonStyle: qnamespace_enums.ToolButtonStyle `
     ///
-    pub fn SetToolButtonStyle(self: KToolBar, toolButtonStyle: i32) void {
-        qtc.QToolBar_SetToolButtonStyle(@ptrCast(self.ptr), @bitCast(toolButtonStyle));
+    pub fn setToolButtonStyle(self: KToolBar, _toolButtonStyle: i32) void {
+        qtc.QToolBar_SetToolButtonStyle(@ptrCast(self.ptr), @bitCast(_toolButtonStyle));
     }
+
+    /// ### DEPRECATED: Use `actionTriggered` instead
+    ///
+    pub const ActionTriggered = actionTriggered;
 
     /// Inherited from QToolBar
     ///
@@ -1442,10 +1758,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn ActionTriggered(self: KToolBar, action: anytype) void {
+    pub fn actionTriggered(self: KToolBar, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QToolBar_ActionTriggered(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionTriggered` instead
+    ///
+    pub const OnActionTriggered = onActionTriggered;
 
     /// Inherited from QToolBar
     ///
@@ -1457,9 +1777,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, action: QAction) callconv(.c) void `
     ///
-    pub fn OnActionTriggered(self: KToolBar, callback: *const fn (KToolBar, QAction) callconv(.c) void) void {
+    pub fn onActionTriggered(self: KToolBar, callback: *const fn (KToolBar, QAction) callconv(.c) void) void {
         qtc.QToolBar_Connect_ActionTriggered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `movableChanged` instead
+    ///
+    pub const MovableChanged = movableChanged;
 
     /// Inherited from QToolBar
     ///
@@ -1471,9 +1795,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` movable: bool `
     ///
-    pub fn MovableChanged(self: KToolBar, movable: bool) void {
+    pub fn movableChanged(self: KToolBar, movable: bool) void {
         qtc.QToolBar_MovableChanged(@ptrCast(self.ptr), movable);
     }
+
+    /// ### DEPRECATED: Use `onMovableChanged` instead
+    ///
+    pub const OnMovableChanged = onMovableChanged;
 
     /// Inherited from QToolBar
     ///
@@ -1485,9 +1813,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, movable: bool) callconv(.c) void `
     ///
-    pub fn OnMovableChanged(self: KToolBar, callback: *const fn (KToolBar, bool) callconv(.c) void) void {
+    pub fn onMovableChanged(self: KToolBar, callback: *const fn (KToolBar, bool) callconv(.c) void) void {
         qtc.QToolBar_Connect_MovableChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `allowedAreasChanged` instead
+    ///
+    pub const AllowedAreasChanged = allowedAreasChanged;
 
     /// Inherited from QToolBar
     ///
@@ -1497,11 +1829,15 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` allowedAreas: flag of qnamespace_enums.ToolBarArea `
+    /// ` _allowedAreas: flag of qnamespace_enums.ToolBarArea `
     ///
-    pub fn AllowedAreasChanged(self: KToolBar, allowedAreas: i32) void {
-        qtc.QToolBar_AllowedAreasChanged(@ptrCast(self.ptr), @bitCast(allowedAreas));
+    pub fn allowedAreasChanged(self: KToolBar, _allowedAreas: i32) void {
+        qtc.QToolBar_AllowedAreasChanged(@ptrCast(self.ptr), @bitCast(_allowedAreas));
     }
+
+    /// ### DEPRECATED: Use `onAllowedAreasChanged` instead
+    ///
+    pub const OnAllowedAreasChanged = onAllowedAreasChanged;
 
     /// Inherited from QToolBar
     ///
@@ -1513,9 +1849,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, allowedAreas: flag of qnamespace_enums.ToolBarArea) callconv(.c) void `
     ///
-    pub fn OnAllowedAreasChanged(self: KToolBar, callback: *const fn (KToolBar, i32) callconv(.c) void) void {
+    pub fn onAllowedAreasChanged(self: KToolBar, callback: *const fn (KToolBar, i32) callconv(.c) void) void {
         qtc.QToolBar_Connect_AllowedAreasChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `orientationChanged` instead
+    ///
+    pub const OrientationChanged = orientationChanged;
 
     /// Inherited from QToolBar
     ///
@@ -1525,11 +1865,15 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` orientation: qnamespace_enums.Orientation `
+    /// ` _orientation: qnamespace_enums.Orientation `
     ///
-    pub fn OrientationChanged(self: KToolBar, orientation: i32) void {
-        qtc.QToolBar_OrientationChanged(@ptrCast(self.ptr), @bitCast(orientation));
+    pub fn orientationChanged(self: KToolBar, _orientation: i32) void {
+        qtc.QToolBar_OrientationChanged(@ptrCast(self.ptr), @bitCast(_orientation));
     }
+
+    /// ### DEPRECATED: Use `onOrientationChanged` instead
+    ///
+    pub const OnOrientationChanged = onOrientationChanged;
 
     /// Inherited from QToolBar
     ///
@@ -1541,9 +1885,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, orientation: qnamespace_enums.Orientation) callconv(.c) void `
     ///
-    pub fn OnOrientationChanged(self: KToolBar, callback: *const fn (KToolBar, i32) callconv(.c) void) void {
+    pub fn onOrientationChanged(self: KToolBar, callback: *const fn (KToolBar, i32) callconv(.c) void) void {
         qtc.QToolBar_Connect_OrientationChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `iconSizeChanged` instead
+    ///
+    pub const IconSizeChanged = iconSizeChanged;
 
     /// Inherited from QToolBar
     ///
@@ -1553,12 +1901,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` iconSize: QSize `
+    /// ` _iconSize: QSize `
     ///
-    pub fn IconSizeChanged(self: KToolBar, iconSize: anytype) void {
-        comptime _ = @TypeOf(iconSize)._is_QSize;
-        qtc.QToolBar_IconSizeChanged(@ptrCast(self.ptr), @ptrCast(iconSize.ptr));
+    pub fn iconSizeChanged(self: KToolBar, _iconSize: anytype) void {
+        comptime _ = @TypeOf(_iconSize)._is_QSize;
+        qtc.QToolBar_IconSizeChanged(@ptrCast(self.ptr), @ptrCast(_iconSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIconSizeChanged` instead
+    ///
+    pub const OnIconSizeChanged = onIconSizeChanged;
 
     /// Inherited from QToolBar
     ///
@@ -1570,9 +1922,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, iconSize: QSize) callconv(.c) void `
     ///
-    pub fn OnIconSizeChanged(self: KToolBar, callback: *const fn (KToolBar, QSize) callconv(.c) void) void {
+    pub fn onIconSizeChanged(self: KToolBar, callback: *const fn (KToolBar, QSize) callconv(.c) void) void {
         qtc.QToolBar_Connect_IconSizeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `toolButtonStyleChanged` instead
+    ///
+    pub const ToolButtonStyleChanged = toolButtonStyleChanged;
 
     /// Inherited from QToolBar
     ///
@@ -1582,11 +1938,15 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` toolButtonStyle: qnamespace_enums.ToolButtonStyle `
+    /// ` _toolButtonStyle: qnamespace_enums.ToolButtonStyle `
     ///
-    pub fn ToolButtonStyleChanged(self: KToolBar, toolButtonStyle: i32) void {
-        qtc.QToolBar_ToolButtonStyleChanged(@ptrCast(self.ptr), @bitCast(toolButtonStyle));
+    pub fn toolButtonStyleChanged(self: KToolBar, _toolButtonStyle: i32) void {
+        qtc.QToolBar_ToolButtonStyleChanged(@ptrCast(self.ptr), @bitCast(_toolButtonStyle));
     }
+
+    /// ### DEPRECATED: Use `onToolButtonStyleChanged` instead
+    ///
+    pub const OnToolButtonStyleChanged = onToolButtonStyleChanged;
 
     /// Inherited from QToolBar
     ///
@@ -1598,9 +1958,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, toolButtonStyle: qnamespace_enums.ToolButtonStyle) callconv(.c) void `
     ///
-    pub fn OnToolButtonStyleChanged(self: KToolBar, callback: *const fn (KToolBar, i32) callconv(.c) void) void {
+    pub fn onToolButtonStyleChanged(self: KToolBar, callback: *const fn (KToolBar, i32) callconv(.c) void) void {
         qtc.QToolBar_Connect_ToolButtonStyleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `topLevelChanged` instead
+    ///
+    pub const TopLevelChanged = topLevelChanged;
 
     /// Inherited from QToolBar
     ///
@@ -1612,9 +1976,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` topLevel: bool `
     ///
-    pub fn TopLevelChanged(self: KToolBar, topLevel: bool) void {
+    pub fn topLevelChanged(self: KToolBar, topLevel: bool) void {
         qtc.QToolBar_TopLevelChanged(@ptrCast(self.ptr), topLevel);
     }
+
+    /// ### DEPRECATED: Use `onTopLevelChanged` instead
+    ///
+    pub const OnTopLevelChanged = onTopLevelChanged;
 
     /// Inherited from QToolBar
     ///
@@ -1626,9 +1994,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, topLevel: bool) callconv(.c) void `
     ///
-    pub fn OnTopLevelChanged(self: KToolBar, callback: *const fn (KToolBar, bool) callconv(.c) void) void {
+    pub fn onTopLevelChanged(self: KToolBar, callback: *const fn (KToolBar, bool) callconv(.c) void) void {
         qtc.QToolBar_Connect_TopLevelChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `visibilityChanged` instead
+    ///
+    pub const VisibilityChanged = visibilityChanged;
 
     /// Inherited from QToolBar
     ///
@@ -1640,9 +2012,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn VisibilityChanged(self: KToolBar, visible: bool) void {
+    pub fn visibilityChanged(self: KToolBar, visible: bool) void {
         qtc.QToolBar_VisibilityChanged(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onVisibilityChanged` instead
+    ///
+    pub const OnVisibilityChanged = onVisibilityChanged;
 
     /// Inherited from QToolBar
     ///
@@ -1654,9 +2030,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, visible: bool) callconv(.c) void `
     ///
-    pub fn OnVisibilityChanged(self: KToolBar, callback: *const fn (KToolBar, bool) callconv(.c) void) void {
+    pub fn onVisibilityChanged(self: KToolBar, callback: *const fn (KToolBar, bool) callconv(.c) void) void {
         qtc.QToolBar_Connect_VisibilityChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -1666,9 +2046,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn WinId(self: KToolBar) usize {
+    pub fn winId(self: KToolBar) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -1678,9 +2062,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn CreateWinId(self: KToolBar) void {
+    pub fn createWinId(self: KToolBar) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -1690,9 +2078,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn InternalWinId(self: KToolBar) usize {
+    pub fn internalWinId(self: KToolBar) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -1702,9 +2094,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn EffectiveWinId(self: KToolBar) usize {
+    pub fn effectiveWinId(self: KToolBar) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -1714,9 +2110,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn Style(self: KToolBar) QStyle {
+    pub fn style(self: KToolBar) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -1726,12 +2126,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: KToolBar, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: KToolBar, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -1741,9 +2145,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn IsTopLevel(self: KToolBar) bool {
+    pub fn isTopLevel(self: KToolBar) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -1753,9 +2161,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn IsWindow(self: KToolBar) bool {
+    pub fn isWindow(self: KToolBar) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -1765,9 +2177,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn IsModal(self: KToolBar) bool {
+    pub fn isModal(self: KToolBar) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -1781,9 +2197,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: KToolBar) i32 {
+    pub fn windowModality(self: KToolBar) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -1793,11 +2213,15 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: KToolBar, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: KToolBar, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1807,9 +2231,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn IsEnabled(self: KToolBar) bool {
+    pub fn isEnabled(self: KToolBar) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -1821,10 +2249,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: KToolBar, param1: anytype) bool {
+    pub fn isEnabledTo(self: KToolBar, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1836,9 +2268,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: KToolBar, enabled: bool) void {
+    pub fn setEnabled(self: KToolBar, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -1850,9 +2286,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: KToolBar, disabled: bool) void {
+    pub fn setDisabled(self: KToolBar, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -1864,9 +2304,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: KToolBar, windowModified: bool) void {
+    pub fn setWindowModified(self: KToolBar, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1876,9 +2320,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn FrameGeometry(self: KToolBar) QRect {
+    pub fn frameGeometry(self: KToolBar) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -1888,9 +2336,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn Geometry(self: KToolBar) QRect {
+    pub fn geometry(self: KToolBar) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1900,9 +2352,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn NormalGeometry(self: KToolBar) QRect {
+    pub fn normalGeometry(self: KToolBar) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -1912,9 +2368,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn X(self: KToolBar) i32 {
+    pub fn x(self: KToolBar) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -1924,9 +2384,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn Y(self: KToolBar) i32 {
+    pub fn y(self: KToolBar) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -1936,9 +2400,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn Pos(self: KToolBar) QPoint {
+    pub fn pos(self: KToolBar) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -1948,9 +2416,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn FrameSize(self: KToolBar) QSize {
+    pub fn frameSize(self: KToolBar) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -1960,9 +2432,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn Size(self: KToolBar) QSize {
+    pub fn size(self: KToolBar) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -1972,9 +2448,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn Width(self: KToolBar) i32 {
+    pub fn width(self: KToolBar) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -1984,9 +2464,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn Height(self: KToolBar) i32 {
+    pub fn height(self: KToolBar) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -1996,9 +2480,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn Rect(self: KToolBar) QRect {
+    pub fn rect(self: KToolBar) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -2008,9 +2496,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn ChildrenRect(self: KToolBar) QRect {
+    pub fn childrenRect(self: KToolBar) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -2020,9 +2512,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn ChildrenRegion(self: KToolBar) QRegion {
+    pub fn childrenRegion(self: KToolBar) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -2032,9 +2528,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn MinimumSize(self: KToolBar) QSize {
+    pub fn minimumSize(self: KToolBar) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -2044,9 +2544,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn MaximumSize(self: KToolBar) QSize {
+    pub fn maximumSize(self: KToolBar) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2056,9 +2560,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn MinimumWidth(self: KToolBar) i32 {
+    pub fn minimumWidth(self: KToolBar) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2068,9 +2576,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn MinimumHeight(self: KToolBar) i32 {
+    pub fn minimumHeight(self: KToolBar) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2080,9 +2592,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn MaximumWidth(self: KToolBar) i32 {
+    pub fn maximumWidth(self: KToolBar) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2092,9 +2608,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn MaximumHeight(self: KToolBar) i32 {
+    pub fn maximumHeight(self: KToolBar) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -2104,12 +2624,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: KToolBar, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: KToolBar, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -2123,9 +2647,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: KToolBar, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: KToolBar, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -2135,12 +2663,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: KToolBar, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: KToolBar, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -2154,9 +2686,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: KToolBar, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: KToolBar, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2168,9 +2704,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: KToolBar, minw: i32) void {
+    pub fn setMinimumWidth(self: KToolBar, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2182,9 +2722,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: KToolBar, minh: i32) void {
+    pub fn setMinimumHeight(self: KToolBar, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2196,9 +2740,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: KToolBar, maxw: i32) void {
+    pub fn setMaximumWidth(self: KToolBar, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2210,9 +2758,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: KToolBar, maxh: i32) void {
+    pub fn setMaximumHeight(self: KToolBar, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -2222,9 +2774,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn SizeIncrement(self: KToolBar) QSize {
+    pub fn sizeIncrement(self: KToolBar) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -2234,12 +2790,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: KToolBar, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: KToolBar, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -2253,9 +2813,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: KToolBar, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: KToolBar, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -2265,9 +2829,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn BaseSize(self: KToolBar) QSize {
+    pub fn baseSize(self: KToolBar) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -2277,12 +2845,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: KToolBar, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: KToolBar, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -2296,9 +2868,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: KToolBar, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: KToolBar, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -2310,10 +2886,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: KToolBar, fixedSize: anytype) void {
+    pub fn setFixedSize(self: KToolBar, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -2327,9 +2907,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: KToolBar, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: KToolBar, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -2341,9 +2925,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: KToolBar, w: i32) void {
+    pub fn setFixedWidth(self: KToolBar, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -2355,9 +2943,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: KToolBar, h: i32) void {
+    pub fn setFixedHeight(self: KToolBar, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -2369,11 +2961,15 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: KToolBar, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: KToolBar, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -2384,11 +2980,15 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: KToolBar, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: KToolBar, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -2399,11 +2999,15 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: KToolBar, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: KToolBar, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -2414,11 +3018,15 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: KToolBar, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: KToolBar, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -2429,11 +3037,15 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: KToolBar, param1: anytype) QPointF {
+    pub fn mapToParent(self: KToolBar, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -2444,10 +3056,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: KToolBar, param1: anytype) QPoint {
+    pub fn mapToParent2(self: KToolBar, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -2459,10 +3075,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: KToolBar, param1: anytype) QPointF {
+    pub fn mapFromParent(self: KToolBar, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -2474,10 +3094,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: KToolBar, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: KToolBar, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -2491,12 +3115,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: KToolBar, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: KToolBar, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -2509,11 +3137,15 @@ pub const KToolBar = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: KToolBar, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: KToolBar, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -2527,11 +3159,15 @@ pub const KToolBar = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: KToolBar, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: KToolBar, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -2545,11 +3181,15 @@ pub const KToolBar = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: KToolBar, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: KToolBar, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -2559,9 +3199,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn Window(self: KToolBar) QWidget {
+    pub fn window(self: KToolBar) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -2571,9 +3215,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn NativeParentWidget(self: KToolBar) QWidget {
+    pub fn nativeParentWidget(self: KToolBar) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -2583,9 +3231,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn TopLevelWidget(self: KToolBar) QWidget {
+    pub fn topLevelWidget(self: KToolBar) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -2595,9 +3247,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn Palette(self: KToolBar) QPalette {
+    pub fn palette(self: KToolBar) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -2607,12 +3263,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: KToolBar, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: KToolBar, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2622,11 +3282,15 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: KToolBar, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: KToolBar, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2640,9 +3304,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: KToolBar) i32 {
+    pub fn backgroundRole(self: KToolBar) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2652,11 +3320,15 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: KToolBar, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: KToolBar, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2670,9 +3342,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: KToolBar) i32 {
+    pub fn foregroundRole(self: KToolBar) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -2682,9 +3358,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn Font(self: KToolBar) QFont {
+    pub fn font(self: KToolBar) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -2694,12 +3374,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: KToolBar, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: KToolBar, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -2709,9 +3393,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn FontMetrics(self: KToolBar) QFontMetrics {
+    pub fn fontMetrics(self: KToolBar) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -2721,9 +3409,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn FontInfo(self: KToolBar) QFontInfo {
+    pub fn fontInfo(self: KToolBar) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -2733,9 +3425,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn Cursor(self: KToolBar) QCursor {
+    pub fn cursor(self: KToolBar) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -2745,12 +3441,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: KToolBar, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: KToolBar, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -2760,9 +3460,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn UnsetCursor(self: KToolBar) void {
+    pub fn unsetCursor(self: KToolBar) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2774,9 +3478,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: KToolBar, enable: bool) void {
+    pub fn setMouseTracking(self: KToolBar, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2786,9 +3494,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn HasMouseTracking(self: KToolBar) bool {
+    pub fn hasMouseTracking(self: KToolBar) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -2798,9 +3510,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn UnderMouse(self: KToolBar) bool {
+    pub fn underMouse(self: KToolBar) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2812,9 +3528,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: KToolBar, enable: bool) void {
+    pub fn setTabletTracking(self: KToolBar, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2824,24 +3544,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn HasTabletTracking(self: KToolBar) bool {
+    pub fn hasTabletTracking(self: KToolBar) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KToolBar `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: KToolBar, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -2851,12 +3560,35 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: KToolBar, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: KToolBar, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KToolBar `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: KToolBar, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -2866,9 +3598,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn Mask(self: KToolBar) QRegion {
+    pub fn mask(self: KToolBar) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -2878,9 +3614,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn ClearMask(self: KToolBar) void {
+    pub fn clearMask(self: KToolBar) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -2892,10 +3632,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: KToolBar, target: anytype) void {
+    pub fn render(self: KToolBar, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -2907,10 +3651,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: KToolBar, painter: anytype) void {
+    pub fn render2(self: KToolBar, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -2920,9 +3668,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn Grab(self: KToolBar) QPixmap {
+    pub fn grab(self: KToolBar) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2932,9 +3684,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn GraphicsEffect(self: KToolBar) QGraphicsEffect {
+    pub fn graphicsEffect(self: KToolBar) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2946,10 +3702,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: KToolBar, effect: anytype) void {
+    pub fn setGraphicsEffect(self: KToolBar, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2961,9 +3721,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: KToolBar, typeVal: i32) void {
+    pub fn grabGesture(self: KToolBar, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2975,9 +3739,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: KToolBar, typeVal: i32) void {
+    pub fn ungrabGesture(self: KToolBar, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2987,15 +3755,19 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: KToolBar, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: KToolBar, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -3005,15 +3777,19 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: KToolBar, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: KToolBar, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -3025,13 +3801,17 @@ pub const KToolBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: KToolBar, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: KToolBar, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KToolBar.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KToolBar.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -3043,13 +3823,17 @@ pub const KToolBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: KToolBar, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: KToolBar, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KToolBar.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KToolBar.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -3061,10 +3845,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: KToolBar, icon: anytype) void {
+    pub fn setWindowIcon(self: KToolBar, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -3074,9 +3862,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn WindowIcon(self: KToolBar) QIcon {
+    pub fn windowIcon(self: KToolBar) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -3086,15 +3878,19 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: KToolBar, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: KToolBar, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -3106,13 +3902,17 @@ pub const KToolBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: KToolBar, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: KToolBar, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KToolBar.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KToolBar.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -3122,15 +3922,19 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: KToolBar, windowRole: []const u8) void {
+    pub fn setWindowRole(self: KToolBar, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -3142,13 +3946,17 @@ pub const KToolBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: KToolBar, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: KToolBar, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KToolBar.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KToolBar.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -3160,13 +3968,17 @@ pub const KToolBar = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: KToolBar, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: KToolBar, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -3178,13 +3990,17 @@ pub const KToolBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: KToolBar, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: KToolBar, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KToolBar.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KToolBar.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -3196,9 +4012,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: KToolBar, level: f64) void {
+    pub fn setWindowOpacity(self: KToolBar, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -3208,9 +4028,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn WindowOpacity(self: KToolBar) f64 {
+    pub fn windowOpacity(self: KToolBar) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -3220,9 +4044,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn IsWindowModified(self: KToolBar) bool {
+    pub fn isWindowModified(self: KToolBar) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -3232,15 +4060,19 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: KToolBar, toolTip: []const u8) void {
+    pub fn setToolTip(self: KToolBar, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -3252,13 +4084,17 @@ pub const KToolBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: KToolBar, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: KToolBar, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KToolBar.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KToolBar.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -3270,9 +4106,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: KToolBar, msec: i32) void {
+    pub fn setToolTipDuration(self: KToolBar, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -3282,9 +4122,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn ToolTipDuration(self: KToolBar) i32 {
+    pub fn toolTipDuration(self: KToolBar) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -3294,15 +4138,19 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: KToolBar, statusTip: []const u8) void {
+    pub fn setStatusTip(self: KToolBar, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -3314,13 +4162,17 @@ pub const KToolBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: KToolBar, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: KToolBar, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KToolBar.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KToolBar.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -3330,15 +4182,19 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: KToolBar, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: KToolBar, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -3350,13 +4206,17 @@ pub const KToolBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: KToolBar, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: KToolBar, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KToolBar.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KToolBar.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -3368,13 +4228,17 @@ pub const KToolBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: KToolBar, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: KToolBar, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KToolBar.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KToolBar.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -3386,13 +4250,17 @@ pub const KToolBar = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: KToolBar, name: []const u8) void {
+    pub fn setAccessibleName(self: KToolBar, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -3404,13 +4272,17 @@ pub const KToolBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: KToolBar, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: KToolBar, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KToolBar.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KToolBar.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -3422,13 +4294,17 @@ pub const KToolBar = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: KToolBar, description: []const u8) void {
+    pub fn setAccessibleDescription(self: KToolBar, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3440,9 +4316,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: KToolBar, direction: i32) void {
+    pub fn setLayoutDirection(self: KToolBar, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3456,9 +4336,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: KToolBar) i32 {
+    pub fn layoutDirection(self: KToolBar) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3468,9 +4352,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn UnsetLayoutDirection(self: KToolBar) void {
+    pub fn unsetLayoutDirection(self: KToolBar) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -3480,12 +4368,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: KToolBar, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: KToolBar, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -3495,9 +4387,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn Locale(self: KToolBar) QLocale {
+    pub fn locale(self: KToolBar) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -3507,9 +4403,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn UnsetLocale(self: KToolBar) void {
+    pub fn unsetLocale(self: KToolBar) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -3519,9 +4419,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn IsRightToLeft(self: KToolBar) bool {
+    pub fn isRightToLeft(self: KToolBar) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -3531,9 +4435,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn IsLeftToRight(self: KToolBar) bool {
+    pub fn isLeftToRight(self: KToolBar) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -3543,9 +4451,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn SetFocus(self: KToolBar) void {
+    pub fn setFocus(self: KToolBar) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -3555,9 +4467,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn IsActiveWindow(self: KToolBar) bool {
+    pub fn isActiveWindow(self: KToolBar) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -3567,9 +4483,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn ActivateWindow(self: KToolBar) void {
+    pub fn activateWindow(self: KToolBar) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -3579,9 +4499,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn ClearFocus(self: KToolBar) void {
+    pub fn clearFocus(self: KToolBar) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -3593,9 +4517,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: KToolBar, reason: i32) void {
+    pub fn setFocus2(self: KToolBar, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3609,9 +4537,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: KToolBar) i32 {
+    pub fn focusPolicy(self: KToolBar) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3623,9 +4555,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: KToolBar, policy: i32) void {
+    pub fn setFocusPolicy(self: KToolBar, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -3635,9 +4571,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn HasFocus(self: KToolBar) bool {
+    pub fn hasFocus(self: KToolBar) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -3649,11 +4589,15 @@ pub const KToolBar = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3663,12 +4607,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: KToolBar, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: KToolBar, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3678,9 +4626,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn FocusProxy(self: KToolBar) QWidget {
+    pub fn focusProxy(self: KToolBar) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3694,9 +4646,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: KToolBar) i32 {
+    pub fn contextMenuPolicy(self: KToolBar) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3708,9 +4664,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: KToolBar, policy: i32) void {
+    pub fn setContextMenuPolicy(self: KToolBar, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -3720,9 +4680,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn GrabMouse(self: KToolBar) void {
+    pub fn grabMouse(self: KToolBar) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -3734,10 +4698,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: KToolBar, param1: anytype) void {
+    pub fn grabMouse2(self: KToolBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -3747,9 +4715,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn ReleaseMouse(self: KToolBar) void {
+    pub fn releaseMouse(self: KToolBar) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3759,9 +4731,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn GrabKeyboard(self: KToolBar) void {
+    pub fn grabKeyboard(self: KToolBar) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3771,9 +4747,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn ReleaseKeyboard(self: KToolBar) void {
+    pub fn releaseKeyboard(self: KToolBar) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3785,10 +4765,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: KToolBar, key: anytype) i32 {
+    pub fn grabShortcut(self: KToolBar, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3800,9 +4784,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: KToolBar, id: i32) void {
+    pub fn releaseShortcut(self: KToolBar, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3814,9 +4802,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: KToolBar, id: i32) void {
+    pub fn setShortcutEnabled(self: KToolBar, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -3828,25 +4820,37 @@ pub const KToolBar = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: KToolBar, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: KToolBar, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3856,9 +4860,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn UpdatesEnabled(self: KToolBar) bool {
+    pub fn updatesEnabled(self: KToolBar) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3870,9 +4878,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: KToolBar, enable: bool) void {
+    pub fn setUpdatesEnabled(self: KToolBar, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -3882,9 +4894,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn GraphicsProxyWidget(self: KToolBar) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: KToolBar) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -3894,9 +4910,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn Update(self: KToolBar) void {
+    pub fn update(self: KToolBar) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -3906,9 +4926,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn Repaint(self: KToolBar) void {
+    pub fn repaint(self: KToolBar) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -3918,17 +4942,21 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: KToolBar, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: KToolBar, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -3940,11 +4968,15 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: KToolBar, param1: anytype) void {
+    pub fn update3(self: KToolBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -3955,10 +4987,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: KToolBar, param1: anytype) void {
+    pub fn update4(self: KToolBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -3968,17 +5004,21 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: KToolBar, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: KToolBar, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -3990,10 +5030,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: KToolBar, param1: anytype) void {
+    pub fn repaint3(self: KToolBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -4005,10 +5049,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: KToolBar, param1: anytype) void {
+    pub fn repaint4(self: KToolBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -4020,9 +5068,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: KToolBar, hidden: bool) void {
+    pub fn setHidden(self: KToolBar, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -4032,9 +5084,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn Show(self: KToolBar) void {
+    pub fn show(self: KToolBar) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -4044,9 +5100,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn Hide(self: KToolBar) void {
+    pub fn hide(self: KToolBar) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -4056,9 +5116,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn ShowMinimized(self: KToolBar) void {
+    pub fn showMinimized(self: KToolBar) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -4068,9 +5132,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn ShowMaximized(self: KToolBar) void {
+    pub fn showMaximized(self: KToolBar) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -4080,9 +5148,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn ShowFullScreen(self: KToolBar) void {
+    pub fn showFullScreen(self: KToolBar) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -4092,9 +5164,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn ShowNormal(self: KToolBar) void {
+    pub fn showNormal(self: KToolBar) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -4104,9 +5180,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn Close(self: KToolBar) bool {
+    pub fn close(self: KToolBar) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -4116,9 +5196,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn Raise(self: KToolBar) void {
+    pub fn raise(self: KToolBar) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -4128,9 +5212,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn Lower(self: KToolBar) void {
+    pub fn lower(self: KToolBar) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -4142,10 +5230,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: KToolBar, param1: anytype) void {
+    pub fn stackUnder(self: KToolBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -4155,13 +5247,17 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: KToolBar, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: KToolBar, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -4173,10 +5269,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: KToolBar, param1: anytype) void {
+    pub fn move2(self: KToolBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -4190,9 +5290,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: KToolBar, w: i32, h: i32) void {
+    pub fn resize(self: KToolBar, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -4204,10 +5308,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: KToolBar, param1: anytype) void {
+    pub fn resize2(self: KToolBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4217,17 +5325,21 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: KToolBar, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: KToolBar, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -4237,12 +5349,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: KToolBar, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: KToolBar, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4254,13 +5370,17 @@ pub const KToolBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: KToolBar, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: KToolBar, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KToolBar.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KToolBar.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4270,15 +5390,19 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: KToolBar, geometry: []u8) bool {
+    pub fn restoreGeometry(self: KToolBar, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -4288,9 +5412,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn AdjustSize(self: KToolBar) void {
+    pub fn adjustSize(self: KToolBar) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -4300,9 +5428,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn IsVisible(self: KToolBar) bool {
+    pub fn isVisible(self: KToolBar) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -4314,10 +5446,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: KToolBar, param1: anytype) bool {
+    pub fn isVisibleTo(self: KToolBar, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -4327,9 +5463,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn IsHidden(self: KToolBar) bool {
+    pub fn isHidden(self: KToolBar) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -4339,9 +5479,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn IsMinimized(self: KToolBar) bool {
+    pub fn isMinimized(self: KToolBar) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -4351,9 +5495,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn IsMaximized(self: KToolBar) bool {
+    pub fn isMaximized(self: KToolBar) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -4363,9 +5511,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn IsFullScreen(self: KToolBar) bool {
+    pub fn isFullScreen(self: KToolBar) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -4379,9 +5531,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: KToolBar) i32 {
+    pub fn windowState(self: KToolBar) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -4393,9 +5549,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: KToolBar, state: i32) void {
+    pub fn setWindowState(self: KToolBar, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -4407,9 +5567,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: KToolBar, state: i32) void {
+    pub fn overrideWindowState(self: KToolBar, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -4419,9 +5583,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn SizePolicy(self: KToolBar) QSizePolicy {
+    pub fn sizePolicy(self: KToolBar) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -4431,12 +5599,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: KToolBar, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: KToolBar, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -4450,9 +5622,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: KToolBar, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: KToolBar, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -4462,9 +5638,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn VisibleRegion(self: KToolBar) QRegion {
+    pub fn visibleRegion(self: KToolBar) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -4482,9 +5662,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: KToolBar, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: KToolBar, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -4496,10 +5680,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: KToolBar, margins: anytype) void {
+    pub fn setContentsMargins2(self: KToolBar, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -4509,9 +5697,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn ContentsMargins(self: KToolBar) QMargins {
+    pub fn contentsMargins(self: KToolBar) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -4521,9 +5713,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn ContentsRect(self: KToolBar) QRect {
+    pub fn contentsRect(self: KToolBar) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -4533,9 +5729,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn Layout(self: KToolBar) QLayout {
+    pub fn layout(self: KToolBar) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -4545,12 +5745,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: KToolBar, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: KToolBar, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4560,24 +5764,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn UpdateGeometry(self: KToolBar) void {
+    pub fn updateGeometry(self: KToolBar) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KToolBar `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: KToolBar, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -4587,14 +5780,37 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: KToolBar, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KToolBar `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: KToolBar, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: KToolBar, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -4608,9 +5824,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: KToolBar, dx: i32, dy: i32) void {
+    pub fn scroll(self: KToolBar, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -4626,10 +5846,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: KToolBar, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: KToolBar, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -4639,9 +5863,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn FocusWidget(self: KToolBar) QWidget {
+    pub fn focusWidget(self: KToolBar) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4651,9 +5879,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn NextInFocusChain(self: KToolBar) QWidget {
+    pub fn nextInFocusChain(self: KToolBar) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4663,9 +5895,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn PreviousInFocusChain(self: KToolBar) QWidget {
+    pub fn previousInFocusChain(self: KToolBar) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4675,9 +5911,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn AcceptDrops(self: KToolBar) bool {
+    pub fn acceptDrops(self: KToolBar) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4689,9 +5929,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: KToolBar, on: bool) void {
+    pub fn setAcceptDrops(self: KToolBar, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -4703,10 +5947,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: KToolBar, action: anytype) void {
+    pub fn addAction(self: KToolBar, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -4716,15 +5964,19 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: KToolBar, actions: []QAction) void {
+    pub fn addActions(self: KToolBar, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -4736,16 +5988,20 @@ pub const KToolBar = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: KToolBar, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: KToolBar, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -4759,11 +6015,15 @@ pub const KToolBar = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: KToolBar, before: anytype, action: anytype) void {
+    pub fn insertAction(self: KToolBar, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -4775,10 +6035,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: KToolBar, action: anytype) void {
+    pub fn removeAction(self: KToolBar, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -4790,15 +6054,19 @@ pub const KToolBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: KToolBar, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: KToolBar, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KToolBar.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KToolBar.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -4810,13 +6078,17 @@ pub const KToolBar = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: KToolBar, text: []const u8) QAction {
+    pub fn addAction2(self: KToolBar, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -4830,7 +6102,7 @@ pub const KToolBar = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: KToolBar, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: KToolBar, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -4839,6 +6111,10 @@ pub const KToolBar = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -4851,7 +6127,7 @@ pub const KToolBar = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: KToolBar, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: KToolBar, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -4859,6 +6135,10 @@ pub const KToolBar = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -4874,7 +6154,7 @@ pub const KToolBar = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: KToolBar, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: KToolBar, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -4884,6 +6164,10 @@ pub const KToolBar = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -4892,9 +6176,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn ParentWidget(self: KToolBar) QWidget {
+    pub fn parentWidget(self: KToolBar) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4906,9 +6194,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: KToolBar, typeVal: i32) void {
+    pub fn setWindowFlags(self: KToolBar, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4922,9 +6214,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: KToolBar) i32 {
+    pub fn windowFlags(self: KToolBar) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -4936,9 +6232,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: KToolBar, param1: i32) void {
+    pub fn setWindowFlag(self: KToolBar, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4950,9 +6250,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: KToolBar, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: KToolBar, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -4966,9 +6270,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: KToolBar) i32 {
+    pub fn windowType(self: KToolBar) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -4978,9 +6286,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -4990,13 +6302,17 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: KToolBar, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: KToolBar, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -5008,10 +6324,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: KToolBar, p: anytype) QWidget {
+    pub fn childAt2(self: KToolBar, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -5023,10 +6343,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: KToolBar, p: anytype) QWidget {
+    pub fn childAt3(self: KToolBar, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -5038,9 +6362,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: KToolBar, param1: i32) void {
+    pub fn setAttribute(self: KToolBar, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -5052,9 +6380,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: KToolBar, param1: i32) bool {
+    pub fn testAttribute(self: KToolBar, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -5064,9 +6396,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn EnsurePolished(self: KToolBar) void {
+    pub fn ensurePolished(self: KToolBar) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -5078,10 +6414,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: KToolBar, child: anytype) bool {
+    pub fn isAncestorOf(self: KToolBar, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -5091,9 +6431,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn AutoFillBackground(self: KToolBar) bool {
+    pub fn autoFillBackground(self: KToolBar) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -5105,9 +6449,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: KToolBar, enabled: bool) void {
+    pub fn setAutoFillBackground(self: KToolBar, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -5117,9 +6465,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn BackingStore(self: KToolBar) QBackingStore {
+    pub fn backingStore(self: KToolBar) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -5129,9 +6481,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn WindowHandle(self: KToolBar) QWindow {
+    pub fn windowHandle(self: KToolBar) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -5141,9 +6497,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn Screen(self: KToolBar) QScreen {
+    pub fn screen(self: KToolBar) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -5153,12 +6513,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: KToolBar, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: KToolBar, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -5166,12 +6530,16 @@ pub const KToolBar = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -5183,13 +6551,17 @@ pub const KToolBar = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: KToolBar, title: []const u8) void {
+    pub fn windowTitleChanged(self: KToolBar, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -5201,9 +6573,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: KToolBar, callback: *const fn (KToolBar, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: KToolBar, callback: *const fn (KToolBar, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -5215,10 +6591,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: KToolBar, icon: anytype) void {
+    pub fn windowIconChanged(self: KToolBar, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -5230,9 +6610,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: KToolBar, callback: *const fn (KToolBar, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: KToolBar, callback: *const fn (KToolBar, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -5244,13 +6628,17 @@ pub const KToolBar = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: KToolBar, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: KToolBar, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -5262,9 +6650,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: KToolBar, callback: *const fn (KToolBar, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: KToolBar, callback: *const fn (KToolBar, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -5274,12 +6666,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: KToolBar, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: KToolBar, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -5291,9 +6687,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: KToolBar, callback: *const fn (KToolBar, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: KToolBar, callback: *const fn (KToolBar, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -5307,9 +6707,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: KToolBar) i32 {
+    pub fn inputMethodHints(self: KToolBar) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -5321,9 +6725,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: KToolBar, hints: i32) void {
+    pub fn setInputMethodHints(self: KToolBar, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -5337,11 +6745,15 @@ pub const KToolBar = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: KToolBar, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: KToolBar, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -5357,13 +6769,17 @@ pub const KToolBar = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: KToolBar, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: KToolBar, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -5380,12 +6796,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: KToolBar, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: KToolBar, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -5399,11 +6819,15 @@ pub const KToolBar = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: KToolBar, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: KToolBar, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -5419,12 +6843,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: KToolBar, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: KToolBar, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -5442,12 +6870,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: KToolBar, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: KToolBar, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -5459,10 +6891,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: KToolBar, rectangle: anytype) QPixmap {
+    pub fn grab1(self: KToolBar, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -5476,9 +6912,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: KToolBar, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: KToolBar, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -5492,10 +6932,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: KToolBar, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: KToolBar, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -5509,9 +6953,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: KToolBar, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: KToolBar, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -5525,9 +6973,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: KToolBar, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: KToolBar, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -5541,9 +6993,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: KToolBar, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: KToolBar, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -5557,25 +7013,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: KToolBar, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: KToolBar, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -5583,17 +7027,41 @@ pub const KToolBar = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -5605,13 +7073,17 @@ pub const KToolBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KToolBar, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KToolBar, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KToolBar.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KToolBar.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -5623,13 +7095,17 @@ pub const KToolBar = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KToolBar, name: []const u8) void {
+    pub fn setObjectName(self: KToolBar, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -5639,9 +7115,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn IsWidgetType(self: KToolBar) bool {
+    pub fn isWidgetType(self: KToolBar) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -5651,9 +7131,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn IsWindowType(self: KToolBar) bool {
+    pub fn isWindowType(self: KToolBar) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -5663,9 +7147,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn IsQuickItemType(self: KToolBar) bool {
+    pub fn isQuickItemType(self: KToolBar) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -5675,9 +7163,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn SignalsBlocked(self: KToolBar) bool {
+    pub fn signalsBlocked(self: KToolBar) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -5689,9 +7181,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KToolBar, b: bool) bool {
+    pub fn blockSignals(self: KToolBar, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -5701,9 +7197,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn Thread(self: KToolBar) QThread {
+    pub fn thread(self: KToolBar) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -5713,12 +7213,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KToolBar, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KToolBar, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -5730,9 +7234,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KToolBar, interval: i32) i32 {
+    pub fn startTimer(self: KToolBar, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -5744,9 +7252,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KToolBar, time: i64) i32 {
+    pub fn startTimer2(self: KToolBar, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -5758,9 +7270,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KToolBar, id: i32) void {
+    pub fn killTimer(self: KToolBar, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -5772,9 +7288,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KToolBar, id: i32) void {
+    pub fn killTimer2(self: KToolBar, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -5786,15 +7306,19 @@ pub const KToolBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KToolBar, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KToolBar, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KToolBar.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KToolBar.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5806,10 +7330,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KToolBar, filterObj: anytype) void {
+    pub fn installEventFilter(self: KToolBar, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5821,10 +7349,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KToolBar, obj: anytype) void {
+    pub fn removeEventFilter(self: KToolBar, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -5832,7 +7364,7 @@ pub const KToolBar = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5840,13 +7372,17 @@ pub const KToolBar = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -5854,7 +7390,7 @@ pub const KToolBar = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5862,13 +7398,17 @@ pub const KToolBar = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -5878,18 +7418,22 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KToolBar, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KToolBar, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -5897,7 +7441,7 @@ pub const KToolBar = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5905,13 +7449,17 @@ pub const KToolBar = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -5919,7 +7467,7 @@ pub const KToolBar = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5927,13 +7475,17 @@ pub const KToolBar = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -5943,9 +7495,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn Disconnect3(self: KToolBar) bool {
+    pub fn disconnect3(self: KToolBar) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -5957,10 +7513,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KToolBar, receiver: anytype) bool {
+    pub fn disconnect4(self: KToolBar, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -5970,10 +7530,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -5983,9 +7547,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn DumpObjectTree(self: KToolBar) void {
+    pub fn dumpObjectTree(self: KToolBar) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -5995,9 +7563,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn DumpObjectInfo(self: KToolBar) void {
+    pub fn dumpObjectInfo(self: KToolBar) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -6011,11 +7583,15 @@ pub const KToolBar = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KToolBar, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KToolBar, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -6027,10 +7603,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KToolBar, name: [:0]const u8) QVariant {
+    pub fn property(self: KToolBar, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -6042,7 +7622,7 @@ pub const KToolBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KToolBar, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KToolBar, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -6050,27 +7630,19 @@ pub const KToolBar = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KToolBar.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KToolBar.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KToolBar.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KToolBar.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KToolBar `
-    ///
-    pub fn BindingStorage(self: KToolBar) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -6080,9 +7652,29 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn BindingStorage2(self: KToolBar) QBindingStorage {
+    pub fn bindingStorage(self: KToolBar) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KToolBar `
+    ///
+    pub fn bindingStorage2(self: KToolBar) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -6092,9 +7684,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn Destroyed(self: KToolBar) void {
+    pub fn destroyed(self: KToolBar) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -6106,9 +7702,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KToolBar, callback: *const fn (KToolBar) callconv(.c) void) void {
+    pub fn onDestroyed(self: KToolBar, callback: *const fn (KToolBar) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -6118,9 +7718,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn Parent(self: KToolBar) QObject {
+    pub fn parent(self: KToolBar) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -6132,10 +7736,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KToolBar, classname: [:0]const u8) bool {
+    pub fn inherits(self: KToolBar, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -6145,9 +7753,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn DeleteLater(self: KToolBar) void {
+    pub fn deleteLater(self: KToolBar) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -6161,9 +7773,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KToolBar, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KToolBar, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -6177,9 +7793,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KToolBar, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KToolBar, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -6187,7 +7807,7 @@ pub const KToolBar = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6197,13 +7817,17 @@ pub const KToolBar = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -6211,7 +7835,7 @@ pub const KToolBar = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -6221,13 +7845,17 @@ pub const KToolBar = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -6237,7 +7865,7 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6245,12 +7873,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KToolBar, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KToolBar, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -6262,10 +7894,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KToolBar, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KToolBar, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -6279,11 +7915,15 @@ pub const KToolBar = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KToolBar, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KToolBar, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -6299,13 +7939,17 @@ pub const KToolBar = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KToolBar, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KToolBar, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -6318,11 +7962,15 @@ pub const KToolBar = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KToolBar, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KToolBar, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -6334,10 +7982,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KToolBar, param1: anytype) void {
+    pub fn destroyed1(self: KToolBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -6349,9 +8001,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KToolBar, callback: *const fn (KToolBar, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KToolBar, callback: *const fn (KToolBar, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -6361,9 +8017,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn PaintingActive(self: KToolBar) bool {
+    pub fn paintingActive(self: KToolBar) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -6373,9 +8033,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn WidthMM(self: KToolBar) i32 {
+    pub fn widthMM(self: KToolBar) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -6385,9 +8049,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn HeightMM(self: KToolBar) i32 {
+    pub fn heightMM(self: KToolBar) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -6397,9 +8065,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn LogicalDpiX(self: KToolBar) i32 {
+    pub fn logicalDpiX(self: KToolBar) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -6409,9 +8081,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn LogicalDpiY(self: KToolBar) i32 {
+    pub fn logicalDpiY(self: KToolBar) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -6421,9 +8097,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn PhysicalDpiX(self: KToolBar) i32 {
+    pub fn physicalDpiX(self: KToolBar) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -6433,9 +8113,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn PhysicalDpiY(self: KToolBar) i32 {
+    pub fn physicalDpiY(self: KToolBar) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -6445,9 +8129,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn DevicePixelRatio(self: KToolBar) f64 {
+    pub fn devicePixelRatio(self: KToolBar) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -6457,9 +8145,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn DevicePixelRatioF(self: KToolBar) f64 {
+    pub fn devicePixelRatioF(self: KToolBar) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -6469,9 +8161,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn ColorCount(self: KToolBar) i32 {
+    pub fn colorCount(self: KToolBar) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -6481,17 +8177,25 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn Depth(self: KToolBar) i32 {
+    pub fn depth(self: KToolBar) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -6499,13 +8203,17 @@ pub const KToolBar = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QToolBar
     ///
@@ -6517,16 +8225,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn ChangeEvent(self: KToolBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KToolBar_ChangeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn changeEvent(self: KToolBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KToolBar_ChangeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QToolBar
     ///
@@ -6538,12 +8246,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperChangeEvent(self: KToolBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KToolBar_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChangeEvent(self: KToolBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KToolBar_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QToolBar
     ///
@@ -6557,9 +8269,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: KToolBar, callback: *const fn (KToolBar, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: KToolBar, callback: *const fn (KToolBar, QEvent) callconv(.c) void) void {
         qtc.KToolBar_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QToolBar
     ///
@@ -6571,16 +8287,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn PaintEvent(self: KToolBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.KToolBar_PaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn paintEvent(self: KToolBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.KToolBar_PaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QToolBar
     ///
@@ -6592,12 +8308,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: KToolBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.KToolBar_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superPaintEvent(self: KToolBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.KToolBar_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QToolBar
     ///
@@ -6611,9 +8331,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, event: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: KToolBar, callback: *const fn (KToolBar, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: KToolBar, callback: *const fn (KToolBar, QPaintEvent) callconv(.c) void) void {
         qtc.KToolBar_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QToolBar
     ///
@@ -6625,16 +8349,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: KToolBar, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KToolBar_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: KToolBar, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KToolBar_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QToolBar
     ///
@@ -6646,12 +8370,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: KToolBar, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KToolBar_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: KToolBar, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KToolBar_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QToolBar
     ///
@@ -6665,9 +8393,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KToolBar, callback: *const fn (KToolBar, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KToolBar, callback: *const fn (KToolBar, QEvent) callconv(.c) bool) void {
         qtc.KToolBar_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initStyleOption` instead
+    ///
+    pub const InitStyleOption = initStyleOption;
 
     /// Inherited from QToolBar
     ///
@@ -6681,14 +8413,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` option: QStyleOptionToolBar `
     ///
-    pub fn InitStyleOption(self: KToolBar, option: anytype) void {
+    pub fn initStyleOption(self: KToolBar, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionToolBar;
         qtc.KToolBar_InitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    /// ### DEPRECATED: Use `superInitStyleOption` instead
     ///
-    pub const QBaseInitStyleOption = SuperInitStyleOption;
+    pub const SuperInitStyleOption = superInitStyleOption;
 
     /// Inherited from QToolBar
     ///
@@ -6702,10 +8434,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` option: QStyleOptionToolBar `
     ///
-    pub fn SuperInitStyleOption(self: KToolBar, option: anytype) void {
+    pub fn superInitStyleOption(self: KToolBar, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionToolBar;
         qtc.KToolBar_SuperInitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitStyleOption` instead
+    ///
+    pub const OnInitStyleOption = onInitStyleOption;
 
     /// Inherited from QToolBar
     ///
@@ -6719,9 +8455,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, option: QStyleOptionToolBar) callconv(.c) void `
     ///
-    pub fn OnInitStyleOption(self: KToolBar, callback: *const fn (KToolBar, QStyleOptionToolBar) callconv(.c) void) void {
+    pub fn onInitStyleOption(self: KToolBar, callback: *const fn (KToolBar, QStyleOptionToolBar) callconv(.c) void) void {
         qtc.KToolBar_OnInitStyleOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -6733,13 +8473,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn DevType(self: KToolBar) i32 {
+    pub fn devType(self: KToolBar) i32 {
         return qtc.KToolBar_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -6751,9 +8491,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn SuperDevType(self: KToolBar) i32 {
+    pub fn superDevType(self: KToolBar) i32 {
         return qtc.KToolBar_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -6767,9 +8511,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: KToolBar, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KToolBar, callback: *const fn () callconv(.c) i32) void {
         qtc.KToolBar_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -6783,13 +8531,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: KToolBar, visible: bool) void {
+    pub fn setVisible(self: KToolBar, visible: bool) void {
         qtc.KToolBar_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -6803,9 +8551,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: KToolBar, visible: bool) void {
+    pub fn superSetVisible(self: KToolBar, visible: bool) void {
         qtc.KToolBar_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -6819,10 +8571,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: KToolBar, callback: *const fn (KToolBar, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: KToolBar, callback: *const fn (KToolBar, bool) callconv(.c) void) void {
         qtc.KToolBar_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
@@ -6833,13 +8589,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn SizeHint(self: KToolBar) QSize {
+    pub fn sizeHint(self: KToolBar) QSize {
         return .{ .ptr = qtc.KToolBar_SizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -6851,10 +8607,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn SuperSizeHint(self: KToolBar) QSize {
+    pub fn superSizeHint(self: KToolBar) QSize {
         return .{ .ptr = qtc.KToolBar_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
@@ -6869,9 +8629,13 @@ pub const KToolBar = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: KToolBar, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KToolBar, callback: *const fn () callconv(.c) QSize) void {
         qtc.KToolBar_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -6883,13 +8647,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn MinimumSizeHint(self: KToolBar) QSize {
+    pub fn minimumSizeHint(self: KToolBar) QSize {
         return .{ .ptr = qtc.KToolBar_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -6901,9 +8665,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn SuperMinimumSizeHint(self: KToolBar) QSize {
+    pub fn superMinimumSizeHint(self: KToolBar) QSize {
         return .{ .ptr = qtc.KToolBar_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -6919,9 +8687,13 @@ pub const KToolBar = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: KToolBar, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KToolBar, callback: *const fn () callconv(.c) QSize) void {
         qtc.KToolBar_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6935,13 +8707,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: KToolBar, param1: i32) i32 {
+    pub fn heightForWidth(self: KToolBar, param1: i32) i32 {
         return qtc.KToolBar_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6955,9 +8727,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: KToolBar, param1: i32) i32 {
+    pub fn superHeightForWidth(self: KToolBar, param1: i32) i32 {
         return qtc.KToolBar_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6971,9 +8747,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: KToolBar, callback: *const fn (KToolBar, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: KToolBar, callback: *const fn (KToolBar, i32) callconv(.c) i32) void {
         qtc.KToolBar_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6985,13 +8765,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn HasHeightForWidth(self: KToolBar) bool {
+    pub fn hasHeightForWidth(self: KToolBar) bool {
         return qtc.KToolBar_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7003,9 +8783,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn SuperHasHeightForWidth(self: KToolBar) bool {
+    pub fn superHasHeightForWidth(self: KToolBar) bool {
         return qtc.KToolBar_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7019,9 +8803,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: KToolBar, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KToolBar, callback: *const fn () callconv(.c) bool) void {
         qtc.KToolBar_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -7033,13 +8821,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn PaintEngine(self: KToolBar) QPaintEngine {
+    pub fn paintEngine(self: KToolBar) QPaintEngine {
         return .{ .ptr = qtc.KToolBar_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -7051,9 +8839,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn SuperPaintEngine(self: KToolBar) QPaintEngine {
+    pub fn superPaintEngine(self: KToolBar) QPaintEngine {
         return .{ .ptr = qtc.KToolBar_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -7067,9 +8859,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: KToolBar, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KToolBar, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.KToolBar_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -7081,16 +8877,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: KToolBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KToolBar_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: KToolBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KToolBar_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -7102,12 +8898,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: KToolBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KToolBar_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: KToolBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KToolBar_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -7121,9 +8921,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: KToolBar, callback: *const fn (KToolBar, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: KToolBar, callback: *const fn (KToolBar, QMouseEvent) callconv(.c) void) void {
         qtc.KToolBar_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -7135,16 +8939,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: KToolBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KToolBar_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: KToolBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KToolBar_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -7156,12 +8960,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: KToolBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KToolBar_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: KToolBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KToolBar_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -7175,10 +8983,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: KToolBar, callback: *const fn (KToolBar, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: KToolBar, callback: *const fn (KToolBar, QWheelEvent) callconv(.c) void) void {
         qtc.KToolBar_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyPressEvent)
@@ -7189,16 +9001,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: KToolBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KToolBar_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyPressEvent(self: KToolBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KToolBar_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -7210,12 +9022,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: KToolBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KToolBar_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyPressEvent(self: KToolBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KToolBar_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -7229,10 +9045,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: KToolBar, callback: *const fn (KToolBar, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: KToolBar, callback: *const fn (KToolBar, QKeyEvent) callconv(.c) void) void {
         qtc.KToolBar_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
@@ -7243,16 +9063,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: KToolBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KToolBar_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: KToolBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KToolBar_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7264,12 +9084,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: KToolBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KToolBar_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: KToolBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KToolBar_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7283,10 +9107,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: KToolBar, callback: *const fn (KToolBar, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: KToolBar, callback: *const fn (KToolBar, QKeyEvent) callconv(.c) void) void {
         qtc.KToolBar_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -7297,16 +9125,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: KToolBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KToolBar_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: KToolBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KToolBar_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -7318,12 +9146,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: KToolBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KToolBar_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: KToolBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KToolBar_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -7337,10 +9169,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: KToolBar, callback: *const fn (KToolBar, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: KToolBar, callback: *const fn (KToolBar, QFocusEvent) callconv(.c) void) void {
         qtc.KToolBar_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -7351,16 +9187,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: KToolBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KToolBar_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: KToolBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KToolBar_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -7372,12 +9208,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: KToolBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KToolBar_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: KToolBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KToolBar_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -7391,9 +9231,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: KToolBar, callback: *const fn (KToolBar, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: KToolBar, callback: *const fn (KToolBar, QFocusEvent) callconv(.c) void) void {
         qtc.KToolBar_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7405,16 +9249,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: KToolBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KToolBar_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: KToolBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KToolBar_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7426,12 +9270,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: KToolBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KToolBar_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: KToolBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KToolBar_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7445,9 +9293,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: KToolBar, callback: *const fn (KToolBar, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: KToolBar, callback: *const fn (KToolBar, QEnterEvent) callconv(.c) void) void {
         qtc.KToolBar_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7459,16 +9311,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: KToolBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KToolBar_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: KToolBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KToolBar_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7480,12 +9332,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: KToolBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KToolBar_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: KToolBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KToolBar_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7499,9 +9355,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: KToolBar, callback: *const fn (KToolBar, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: KToolBar, callback: *const fn (KToolBar, QEvent) callconv(.c) void) void {
         qtc.KToolBar_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7513,16 +9373,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: KToolBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KToolBar_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: KToolBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KToolBar_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7534,12 +9394,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: KToolBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KToolBar_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: KToolBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KToolBar_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7553,9 +9417,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: KToolBar, callback: *const fn (KToolBar, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: KToolBar, callback: *const fn (KToolBar, QMoveEvent) callconv(.c) void) void {
         qtc.KToolBar_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7567,16 +9435,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: KToolBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.KToolBar_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn resizeEvent(self: KToolBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.KToolBar_ResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7588,12 +9456,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: KToolBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.KToolBar_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superResizeEvent(self: KToolBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.KToolBar_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7607,9 +9479,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: KToolBar, callback: *const fn (KToolBar, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: KToolBar, callback: *const fn (KToolBar, QResizeEvent) callconv(.c) void) void {
         qtc.KToolBar_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7621,16 +9497,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: KToolBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KToolBar_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: KToolBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KToolBar_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7642,12 +9518,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: KToolBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KToolBar_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: KToolBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KToolBar_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7661,9 +9541,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: KToolBar, callback: *const fn (KToolBar, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: KToolBar, callback: *const fn (KToolBar, QCloseEvent) callconv(.c) void) void {
         qtc.KToolBar_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7675,16 +9559,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: KToolBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KToolBar_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: KToolBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KToolBar_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7696,12 +9580,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: KToolBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KToolBar_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: KToolBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KToolBar_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7715,9 +9603,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: KToolBar, callback: *const fn (KToolBar, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: KToolBar, callback: *const fn (KToolBar, QTabletEvent) callconv(.c) void) void {
         qtc.KToolBar_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QWidget
     ///
@@ -7729,16 +9621,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn ShowEvent(self: KToolBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KToolBar_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn showEvent(self: KToolBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KToolBar_ShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -7750,12 +9642,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: KToolBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KToolBar_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superShowEvent(self: KToolBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KToolBar_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -7769,9 +9665,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: KToolBar, callback: *const fn (KToolBar, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: KToolBar, callback: *const fn (KToolBar, QShowEvent) callconv(.c) void) void {
         qtc.KToolBar_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7783,16 +9683,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: KToolBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KToolBar_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: KToolBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KToolBar_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7804,12 +9704,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: KToolBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KToolBar_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: KToolBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KToolBar_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7823,9 +9727,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: KToolBar, callback: *const fn (KToolBar, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: KToolBar, callback: *const fn (KToolBar, QHideEvent) callconv(.c) void) void {
         qtc.KToolBar_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7843,7 +9751,7 @@ pub const KToolBar = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: KToolBar, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: KToolBar, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -7851,9 +9759,9 @@ pub const KToolBar = extern struct {
         return qtc.KToolBar_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7871,13 +9779,17 @@ pub const KToolBar = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: KToolBar, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: KToolBar, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.KToolBar_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7891,9 +9803,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: KToolBar, callback: *const fn (KToolBar, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: KToolBar, callback: *const fn (KToolBar, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KToolBar_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -7907,13 +9823,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: KToolBar, param1: i32) i32 {
+    pub fn metric(self: KToolBar, param1: i32) i32 {
         return qtc.KToolBar_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -7927,9 +9843,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: KToolBar, param1: i32) i32 {
+    pub fn superMetric(self: KToolBar, param1: i32) i32 {
         return qtc.KToolBar_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -7943,9 +9863,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: KToolBar, callback: *const fn (KToolBar, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: KToolBar, callback: *const fn (KToolBar, i32) callconv(.c) i32) void {
         qtc.KToolBar_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -7959,14 +9883,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: KToolBar, painter: anytype) void {
+    pub fn initPainter(self: KToolBar, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KToolBar_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7980,10 +9904,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: KToolBar, painter: anytype) void {
+    pub fn superInitPainter(self: KToolBar, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KToolBar_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7997,9 +9925,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: KToolBar, callback: *const fn (KToolBar, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: KToolBar, callback: *const fn (KToolBar, QPainter) callconv(.c) void) void {
         qtc.KToolBar_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -8013,14 +9945,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: KToolBar, offset: anytype) QPaintDevice {
+    pub fn redirected(self: KToolBar, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KToolBar_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -8034,10 +9966,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: KToolBar, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: KToolBar, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KToolBar_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -8051,9 +9987,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: KToolBar, callback: *const fn (KToolBar, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: KToolBar, callback: *const fn (KToolBar, QPoint) callconv(.c) QPaintDevice) void {
         qtc.KToolBar_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8065,13 +10005,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn SharedPainter(self: KToolBar) QPainter {
+    pub fn sharedPainter(self: KToolBar) QPainter {
         return .{ .ptr = qtc.KToolBar_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8083,9 +10023,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn SuperSharedPainter(self: KToolBar) QPainter {
+    pub fn superSharedPainter(self: KToolBar) QPainter {
         return .{ .ptr = qtc.KToolBar_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8099,9 +10043,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: KToolBar, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KToolBar, callback: *const fn () callconv(.c) QPainter) void {
         qtc.KToolBar_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -8115,14 +10063,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: KToolBar, param1: anytype) void {
+    pub fn inputMethodEvent(self: KToolBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KToolBar_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -8136,10 +10084,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: KToolBar, param1: anytype) void {
+    pub fn superInputMethodEvent(self: KToolBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KToolBar_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -8153,9 +10105,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: KToolBar, callback: *const fn (KToolBar, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: KToolBar, callback: *const fn (KToolBar, QInputMethodEvent) callconv(.c) void) void {
         qtc.KToolBar_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -8169,13 +10125,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: KToolBar, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: KToolBar, param1: i32) QVariant {
         return .{ .ptr = qtc.KToolBar_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -8189,9 +10145,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: KToolBar, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: KToolBar, param1: i32) QVariant {
         return .{ .ptr = qtc.KToolBar_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -8207,9 +10167,13 @@ pub const KToolBar = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: KToolBar, callback: *const fn (KToolBar, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: KToolBar, callback: *const fn (KToolBar, i32) callconv(.c) QVariant) void {
         qtc.KToolBar_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8223,13 +10187,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: KToolBar, next: bool) bool {
+    pub fn focusNextPrevChild(self: KToolBar, next: bool) bool {
         return qtc.KToolBar_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8243,9 +10207,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: KToolBar, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: KToolBar, next: bool) bool {
         return qtc.KToolBar_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8259,9 +10227,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: KToolBar, callback: *const fn (KToolBar, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: KToolBar, callback: *const fn (KToolBar, bool) callconv(.c) bool) void {
         qtc.KToolBar_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -8273,16 +10245,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KToolBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KToolBar_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KToolBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KToolBar_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -8294,12 +10266,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KToolBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KToolBar_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KToolBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KToolBar_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -8313,9 +10289,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KToolBar, callback: *const fn (KToolBar, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KToolBar, callback: *const fn (KToolBar, QTimerEvent) callconv(.c) void) void {
         qtc.KToolBar_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -8327,16 +10307,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KToolBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KToolBar_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KToolBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KToolBar_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8348,12 +10328,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KToolBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KToolBar_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KToolBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KToolBar_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8367,9 +10351,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KToolBar, callback: *const fn (KToolBar, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KToolBar, callback: *const fn (KToolBar, QChildEvent) callconv(.c) void) void {
         qtc.KToolBar_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -8381,16 +10369,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KToolBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KToolBar_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KToolBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KToolBar_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8402,12 +10390,16 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KToolBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KToolBar_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KToolBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KToolBar_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8421,9 +10413,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KToolBar, callback: *const fn (KToolBar, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KToolBar, callback: *const fn (KToolBar, QEvent) callconv(.c) void) void {
         qtc.KToolBar_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -8437,14 +10433,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KToolBar, signal: anytype) void {
+    pub fn connectNotify(self: KToolBar, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KToolBar_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8458,11 +10454,15 @@ pub const KToolBar = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KToolBar, signal: anytype) void {
+    pub fn superConnectNotify(self: KToolBar, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KToolBar_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -8475,9 +10475,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KToolBar, callback: *const fn (KToolBar, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KToolBar, callback: *const fn (KToolBar, QMetaMethod) callconv(.c) void) void {
         qtc.KToolBar_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8491,14 +10495,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KToolBar, signal: anytype) void {
+    pub fn disconnectNotify(self: KToolBar, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KToolBar_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8512,10 +10516,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KToolBar, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KToolBar, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KToolBar_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8529,10 +10537,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KToolBar, callback: *const fn (KToolBar, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KToolBar, callback: *const fn (KToolBar, QMetaMethod) callconv(.c) void) void {
         qtc.KToolBar_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8543,13 +10555,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn UpdateMicroFocus(self: KToolBar) void {
+    pub fn updateMicroFocus(self: KToolBar) void {
         qtc.KToolBar_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -8561,10 +10573,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn SuperUpdateMicroFocus(self: KToolBar) void {
+    pub fn superUpdateMicroFocus(self: KToolBar) void {
         qtc.KToolBar_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8577,10 +10593,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: KToolBar, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: KToolBar, callback: *const fn () callconv(.c) void) void {
         qtc.KToolBar_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8591,13 +10611,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn Create(self: KToolBar) void {
+    pub fn create(self: KToolBar) void {
         qtc.KToolBar_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -8609,10 +10629,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn SuperCreate(self: KToolBar) void {
+    pub fn superCreate(self: KToolBar) void {
         qtc.KToolBar_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8625,9 +10649,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: KToolBar, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: KToolBar, callback: *const fn () callconv(.c) void) void {
         qtc.KToolBar_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -8639,13 +10667,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn Destroy(self: KToolBar) void {
+    pub fn destroy(self: KToolBar) void {
         qtc.KToolBar_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8657,9 +10685,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn SuperDestroy(self: KToolBar) void {
+    pub fn superDestroy(self: KToolBar) void {
         qtc.KToolBar_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8673,10 +10705,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: KToolBar, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: KToolBar, callback: *const fn () callconv(.c) void) void {
         qtc.KToolBar_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8687,13 +10723,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn FocusNextChild(self: KToolBar) bool {
+    pub fn focusNextChild(self: KToolBar) bool {
         return qtc.KToolBar_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -8705,10 +10741,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn SuperFocusNextChild(self: KToolBar) bool {
+    pub fn superFocusNextChild(self: KToolBar) bool {
         return qtc.KToolBar_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8721,9 +10761,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: KToolBar, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: KToolBar, callback: *const fn () callconv(.c) bool) void {
         qtc.KToolBar_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8735,13 +10779,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn FocusPreviousChild(self: KToolBar) bool {
+    pub fn focusPreviousChild(self: KToolBar) bool {
         return qtc.KToolBar_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8753,9 +10797,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn SuperFocusPreviousChild(self: KToolBar) bool {
+    pub fn superFocusPreviousChild(self: KToolBar) bool {
         return qtc.KToolBar_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8769,9 +10817,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: KToolBar, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: KToolBar, callback: *const fn () callconv(.c) bool) void {
         qtc.KToolBar_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -8783,13 +10835,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn Sender(self: KToolBar) QObject {
+    pub fn sender(self: KToolBar) QObject {
         return .{ .ptr = qtc.KToolBar_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -8801,9 +10853,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn SuperSender(self: KToolBar) QObject {
+    pub fn superSender(self: KToolBar) QObject {
         return .{ .ptr = qtc.KToolBar_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -8817,9 +10873,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KToolBar, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KToolBar, callback: *const fn () callconv(.c) QObject) void {
         qtc.KToolBar_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8831,13 +10891,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn SenderSignalIndex(self: KToolBar) i32 {
+    pub fn senderSignalIndex(self: KToolBar) i32 {
         return qtc.KToolBar_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8849,9 +10909,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` self: KToolBar `
     ///
-    pub fn SuperSenderSignalIndex(self: KToolBar) i32 {
+    pub fn superSenderSignalIndex(self: KToolBar) i32 {
         return qtc.KToolBar_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8865,9 +10929,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KToolBar, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KToolBar, callback: *const fn () callconv(.c) i32) void {
         qtc.KToolBar_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -8881,14 +10949,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KToolBar, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KToolBar, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KToolBar_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -8902,10 +10970,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KToolBar, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KToolBar, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KToolBar_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -8919,9 +10991,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KToolBar, callback: *const fn (KToolBar, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KToolBar, callback: *const fn (KToolBar, [*:0]const u8) callconv(.c) i32) void {
         qtc.KToolBar_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8935,14 +11011,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KToolBar, signal: anytype) bool {
+    pub fn isSignalConnected(self: KToolBar, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KToolBar_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8956,10 +11032,14 @@ pub const KToolBar = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KToolBar, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KToolBar, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KToolBar_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8973,9 +11053,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KToolBar, callback: *const fn (KToolBar, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KToolBar, callback: *const fn (KToolBar, QMetaMethod) callconv(.c) bool) void {
         qtc.KToolBar_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8991,13 +11075,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: KToolBar, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: KToolBar, metricA: i32, metricB: i32) f64 {
         return qtc.KToolBar_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9013,9 +11097,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: KToolBar, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: KToolBar, metricA: i32, metricB: i32) f64 {
         return qtc.KToolBar_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9029,9 +11117,13 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: KToolBar, callback: *const fn (KToolBar, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: KToolBar, callback: *const fn (KToolBar, i32, i32) callconv(.c) f64) void {
         qtc.KToolBar_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -9045,23 +11137,23 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn (self: KToolBar, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KToolBar, callback: *const fn (KToolBar, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KToolBar, callback: *const fn (KToolBar, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/ktoolbar.html#dtor.KToolBar)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KToolBar `
     ///
-    pub fn Delete(self: KToolBar) void {
+    pub fn delete(self: KToolBar) void {
         qtc.KToolBar_Delete(@ptrCast(self.ptr));
     }
 };

@@ -27,34 +27,50 @@ pub const QTimeLine = extern struct {
     pub const _is_QTimeLine = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QTimeLine object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QTimeLine {
+    pub const New = new;
+
+    /// Allocate a new QTimeLine object in C++ memory
+    ///
+    pub fn new() QTimeLine {
         return .{ .ptr = qtc.QTimeLine_new() };
     }
 
-    /// New2 constructs a new QTimeLine object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QTimeLine object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` duration: i32 `
+    /// ` _duration: i32 `
     ///
-    pub fn New2(duration: i32) QTimeLine {
-        return .{ .ptr = qtc.QTimeLine_new2(@bitCast(duration)) };
+    pub fn new2(_duration: i32) QTimeLine {
+        return .{ .ptr = qtc.QTimeLine_new2(@bitCast(_duration)) };
     }
 
-    /// New3 constructs a new QTimeLine object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QTimeLine object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` duration: i32 `
+    /// ` _duration: i32 `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New3(duration: i32, parent: anytype) QTimeLine {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QTimeLine_new3(@bitCast(duration), @ptrCast(parent.ptr)) };
+    pub fn new3(_duration: i32, _parent: anytype) QTimeLine {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QTimeLine_new3(@bitCast(_duration), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -62,9 +78,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` self: QTimeLine `
     ///
-    pub fn MetaObject(self: QTimeLine) QMetaObject {
+    pub fn metaObject(self: QTimeLine) QMetaObject {
         return .{ .ptr = qtc.QTimeLine_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -76,13 +96,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QTimeLine, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QTimeLine, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QTimeLine_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -92,9 +112,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` self: QTimeLine `
     ///
-    pub fn SuperMetaObject(self: QTimeLine) QMetaObject {
+    pub fn superMetaObject(self: QTimeLine) QMetaObject {
         return .{ .ptr = qtc.QTimeLine_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -102,10 +126,14 @@ pub const QTimeLine = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QTimeLine, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QTimeLine, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QTimeLine_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -115,13 +143,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` callback: *const fn (self: QTimeLine, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QTimeLine, callback: *const fn (QTimeLine, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QTimeLine, callback: *const fn (QTimeLine, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QTimeLine_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -131,10 +159,14 @@ pub const QTimeLine = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QTimeLine, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QTimeLine, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QTimeLine_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -146,9 +178,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QTimeLine, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QTimeLine, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QTimeLine_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -158,13 +194,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` callback: *const fn (self: QTimeLine, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QTimeLine, callback: *const fn (QTimeLine, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QTimeLine, callback: *const fn (QTimeLine, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QTimeLine_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -178,9 +214,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QTimeLine, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QTimeLine, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QTimeLine_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -190,14 +230,18 @@ pub const QTimeLine = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTimeLine.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTimeLine.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `state` instead
+    ///
+    pub const State = state;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#state)
     ///
@@ -209,9 +253,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` qtimeline_enums.State `
     ///
-    pub fn State(self: QTimeLine) i32 {
+    pub fn state(self: QTimeLine) i32 {
         return qtc.QTimeLine_State(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `loopCount` instead
+    ///
+    pub const LoopCount = loopCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#loopCount)
     ///
@@ -219,9 +267,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` self: QTimeLine `
     ///
-    pub fn LoopCount(self: QTimeLine) i32 {
+    pub fn loopCount(self: QTimeLine) i32 {
         return qtc.QTimeLine_LoopCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLoopCount` instead
+    ///
+    pub const SetLoopCount = setLoopCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#setLoopCount)
     ///
@@ -231,9 +283,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` count: i32 `
     ///
-    pub fn SetLoopCount(self: QTimeLine, count: i32) void {
+    pub fn setLoopCount(self: QTimeLine, count: i32) void {
         qtc.QTimeLine_SetLoopCount(@ptrCast(self.ptr), @bitCast(count));
     }
+
+    /// ### DEPRECATED: Use `direction` instead
+    ///
+    pub const Direction = direction;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#direction)
     ///
@@ -245,9 +301,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` qtimeline_enums.Direction `
     ///
-    pub fn Direction(self: QTimeLine) i32 {
+    pub fn direction(self: QTimeLine) i32 {
         return qtc.QTimeLine_Direction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDirection` instead
+    ///
+    pub const SetDirection = setDirection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#setDirection)
     ///
@@ -255,11 +315,15 @@ pub const QTimeLine = extern struct {
     ///
     /// ` self: QTimeLine `
     ///
-    /// ` direction: qtimeline_enums.Direction `
+    /// ` _direction: qtimeline_enums.Direction `
     ///
-    pub fn SetDirection(self: QTimeLine, direction: i32) void {
-        qtc.QTimeLine_SetDirection(@ptrCast(self.ptr), @bitCast(direction));
+    pub fn setDirection(self: QTimeLine, _direction: i32) void {
+        qtc.QTimeLine_SetDirection(@ptrCast(self.ptr), @bitCast(_direction));
     }
+
+    /// ### DEPRECATED: Use `duration` instead
+    ///
+    pub const Duration = duration;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#duration)
     ///
@@ -267,9 +331,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` self: QTimeLine `
     ///
-    pub fn Duration(self: QTimeLine) i32 {
+    pub fn duration(self: QTimeLine) i32 {
         return qtc.QTimeLine_Duration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDuration` instead
+    ///
+    pub const SetDuration = setDuration;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#setDuration)
     ///
@@ -277,11 +345,15 @@ pub const QTimeLine = extern struct {
     ///
     /// ` self: QTimeLine `
     ///
-    /// ` duration: i32 `
+    /// ` _duration: i32 `
     ///
-    pub fn SetDuration(self: QTimeLine, duration: i32) void {
-        qtc.QTimeLine_SetDuration(@ptrCast(self.ptr), @bitCast(duration));
+    pub fn setDuration(self: QTimeLine, _duration: i32) void {
+        qtc.QTimeLine_SetDuration(@ptrCast(self.ptr), @bitCast(_duration));
     }
+
+    /// ### DEPRECATED: Use `startFrame` instead
+    ///
+    pub const StartFrame = startFrame;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#startFrame)
     ///
@@ -289,9 +361,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` self: QTimeLine `
     ///
-    pub fn StartFrame(self: QTimeLine) i32 {
+    pub fn startFrame(self: QTimeLine) i32 {
         return qtc.QTimeLine_StartFrame(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStartFrame` instead
+    ///
+    pub const SetStartFrame = setStartFrame;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#setStartFrame)
     ///
@@ -301,9 +377,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` frame: i32 `
     ///
-    pub fn SetStartFrame(self: QTimeLine, frame: i32) void {
+    pub fn setStartFrame(self: QTimeLine, frame: i32) void {
         qtc.QTimeLine_SetStartFrame(@ptrCast(self.ptr), @bitCast(frame));
     }
+
+    /// ### DEPRECATED: Use `endFrame` instead
+    ///
+    pub const EndFrame = endFrame;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#endFrame)
     ///
@@ -311,9 +391,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` self: QTimeLine `
     ///
-    pub fn EndFrame(self: QTimeLine) i32 {
+    pub fn endFrame(self: QTimeLine) i32 {
         return qtc.QTimeLine_EndFrame(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEndFrame` instead
+    ///
+    pub const SetEndFrame = setEndFrame;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#setEndFrame)
     ///
@@ -323,9 +407,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` frame: i32 `
     ///
-    pub fn SetEndFrame(self: QTimeLine, frame: i32) void {
+    pub fn setEndFrame(self: QTimeLine, frame: i32) void {
         qtc.QTimeLine_SetEndFrame(@ptrCast(self.ptr), @bitCast(frame));
     }
+
+    /// ### DEPRECATED: Use `setFrameRange` instead
+    ///
+    pub const SetFrameRange = setFrameRange;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#setFrameRange)
     ///
@@ -333,13 +421,17 @@ pub const QTimeLine = extern struct {
     ///
     /// ` self: QTimeLine `
     ///
-    /// ` startFrame: i32 `
+    /// ` _startFrame: i32 `
     ///
-    /// ` endFrame: i32 `
+    /// ` _endFrame: i32 `
     ///
-    pub fn SetFrameRange(self: QTimeLine, startFrame: i32, endFrame: i32) void {
-        qtc.QTimeLine_SetFrameRange(@ptrCast(self.ptr), @bitCast(startFrame), @bitCast(endFrame));
+    pub fn setFrameRange(self: QTimeLine, _startFrame: i32, _endFrame: i32) void {
+        qtc.QTimeLine_SetFrameRange(@ptrCast(self.ptr), @bitCast(_startFrame), @bitCast(_endFrame));
     }
+
+    /// ### DEPRECATED: Use `updateInterval` instead
+    ///
+    pub const UpdateInterval = updateInterval;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#updateInterval)
     ///
@@ -347,9 +439,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` self: QTimeLine `
     ///
-    pub fn UpdateInterval(self: QTimeLine) i32 {
+    pub fn updateInterval(self: QTimeLine) i32 {
         return qtc.QTimeLine_UpdateInterval(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdateInterval` instead
+    ///
+    pub const SetUpdateInterval = setUpdateInterval;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#setUpdateInterval)
     ///
@@ -359,9 +455,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn SetUpdateInterval(self: QTimeLine, interval: i32) void {
+    pub fn setUpdateInterval(self: QTimeLine, interval: i32) void {
         qtc.QTimeLine_SetUpdateInterval(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `easingCurve` instead
+    ///
+    pub const EasingCurve = easingCurve;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#easingCurve)
     ///
@@ -369,9 +469,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` self: QTimeLine `
     ///
-    pub fn EasingCurve(self: QTimeLine) QEasingCurve {
+    pub fn easingCurve(self: QTimeLine) QEasingCurve {
         return .{ .ptr = qtc.QTimeLine_EasingCurve(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setEasingCurve` instead
+    ///
+    pub const SetEasingCurve = setEasingCurve;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#setEasingCurve)
     ///
@@ -381,10 +485,14 @@ pub const QTimeLine = extern struct {
     ///
     /// ` curve: QEasingCurve `
     ///
-    pub fn SetEasingCurve(self: QTimeLine, curve: anytype) void {
+    pub fn setEasingCurve(self: QTimeLine, curve: anytype) void {
         comptime _ = @TypeOf(curve)._is_QEasingCurve;
         qtc.QTimeLine_SetEasingCurve(@ptrCast(self.ptr), @ptrCast(curve.ptr));
     }
+
+    /// ### DEPRECATED: Use `currentTime` instead
+    ///
+    pub const CurrentTime = currentTime;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#currentTime)
     ///
@@ -392,9 +500,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` self: QTimeLine `
     ///
-    pub fn CurrentTime(self: QTimeLine) i32 {
+    pub fn currentTime(self: QTimeLine) i32 {
         return qtc.QTimeLine_CurrentTime(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `currentFrame` instead
+    ///
+    pub const CurrentFrame = currentFrame;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#currentFrame)
     ///
@@ -402,9 +514,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` self: QTimeLine `
     ///
-    pub fn CurrentFrame(self: QTimeLine) i32 {
+    pub fn currentFrame(self: QTimeLine) i32 {
         return qtc.QTimeLine_CurrentFrame(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `currentValue` instead
+    ///
+    pub const CurrentValue = currentValue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#currentValue)
     ///
@@ -412,9 +528,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` self: QTimeLine `
     ///
-    pub fn CurrentValue(self: QTimeLine) f64 {
+    pub fn currentValue(self: QTimeLine) f64 {
         return qtc.QTimeLine_CurrentValue(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `frameForTime` instead
+    ///
+    pub const FrameForTime = frameForTime;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#frameForTime)
     ///
@@ -424,9 +544,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn FrameForTime(self: QTimeLine, msec: i32) i32 {
+    pub fn frameForTime(self: QTimeLine, msec: i32) i32 {
         return qtc.QTimeLine_FrameForTime(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `valueForTime` instead
+    ///
+    pub const ValueForTime = valueForTime;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#valueForTime)
     ///
@@ -436,9 +560,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn ValueForTime(self: QTimeLine, msec: i32) f64 {
+    pub fn valueForTime(self: QTimeLine, msec: i32) f64 {
         return qtc.QTimeLine_ValueForTime(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `onValueForTime` instead
+    ///
+    pub const OnValueForTime = onValueForTime;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#valueForTime)
     ///
@@ -450,13 +578,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` callback: *const fn (self: QTimeLine, msec: i32) callconv(.c) f64 `
     ///
-    pub fn OnValueForTime(self: QTimeLine, callback: *const fn (QTimeLine, i32) callconv(.c) f64) void {
+    pub fn onValueForTime(self: QTimeLine, callback: *const fn (QTimeLine, i32) callconv(.c) f64) void {
         qtc.QTimeLine_OnValueForTime(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperValueForTime` instead
+    /// ### DEPRECATED: Use `superValueForTime` instead
     ///
-    pub const QBaseValueForTime = SuperValueForTime;
+    pub const SuperValueForTime = superValueForTime;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#valueForTime)
     ///
@@ -468,9 +596,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SuperValueForTime(self: QTimeLine, msec: i32) f64 {
+    pub fn superValueForTime(self: QTimeLine, msec: i32) f64 {
         return qtc.QTimeLine_SuperValueForTime(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `start` instead
+    ///
+    pub const Start = start;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#start)
     ///
@@ -478,9 +610,15 @@ pub const QTimeLine = extern struct {
     ///
     /// ` self: QTimeLine `
     ///
-    pub fn Start(self: QTimeLine) void {
+    pub fn start(self: QTimeLine) void {
         qtc.QTimeLine_Start(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `resume0` instead
+    ///
+    pub const Resume = resume0;
+
+    pub const @"resume" = resume0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#resume)
     ///
@@ -488,9 +626,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` self: QTimeLine `
     ///
-    pub fn Resume(self: QTimeLine) void {
+    pub fn resume0(self: QTimeLine) void {
         qtc.QTimeLine_Resume(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stop` instead
+    ///
+    pub const Stop = stop;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#stop)
     ///
@@ -498,9 +640,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` self: QTimeLine `
     ///
-    pub fn Stop(self: QTimeLine) void {
+    pub fn stop(self: QTimeLine) void {
         qtc.QTimeLine_Stop(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPaused` instead
+    ///
+    pub const SetPaused = setPaused;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#setPaused)
     ///
@@ -510,9 +656,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` paused: bool `
     ///
-    pub fn SetPaused(self: QTimeLine, paused: bool) void {
+    pub fn setPaused(self: QTimeLine, paused: bool) void {
         qtc.QTimeLine_SetPaused(@ptrCast(self.ptr), paused);
     }
+
+    /// ### DEPRECATED: Use `setCurrentTime` instead
+    ///
+    pub const SetCurrentTime = setCurrentTime;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#setCurrentTime)
     ///
@@ -522,9 +672,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetCurrentTime(self: QTimeLine, msec: i32) void {
+    pub fn setCurrentTime(self: QTimeLine, msec: i32) void {
         qtc.QTimeLine_SetCurrentTime(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toggleDirection` instead
+    ///
+    pub const ToggleDirection = toggleDirection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#toggleDirection)
     ///
@@ -532,9 +686,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` self: QTimeLine `
     ///
-    pub fn ToggleDirection(self: QTimeLine) void {
+    pub fn toggleDirection(self: QTimeLine) void {
         qtc.QTimeLine_ToggleDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#timerEvent)
     ///
@@ -542,12 +700,16 @@ pub const QTimeLine = extern struct {
     ///
     /// ` self: QTimeLine `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QTimeLine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QTimeLine_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QTimeLine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QTimeLine_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#timerEvent)
     ///
@@ -559,13 +721,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` callback: *const fn (self: QTimeLine, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QTimeLine, callback: *const fn (QTimeLine, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QTimeLine, callback: *const fn (QTimeLine, QTimerEvent) callconv(.c) void) void {
         qtc.QTimeLine_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#timerEvent)
     ///
@@ -575,12 +737,16 @@ pub const QTimeLine = extern struct {
     ///
     /// ` self: QTimeLine `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QTimeLine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QTimeLine_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QTimeLine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QTimeLine_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -592,15 +758,19 @@ pub const QTimeLine = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTimeLine.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTimeLine.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -614,15 +784,19 @@ pub const QTimeLine = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTimeLine.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTimeLine.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -634,13 +808,17 @@ pub const QTimeLine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QTimeLine, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QTimeLine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTimeLine.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTimeLine.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -652,13 +830,17 @@ pub const QTimeLine = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QTimeLine, name: []const u8) void {
+    pub fn setObjectName(self: QTimeLine, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -668,9 +850,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` self: QTimeLine `
     ///
-    pub fn IsWidgetType(self: QTimeLine) bool {
+    pub fn isWidgetType(self: QTimeLine) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -680,9 +866,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` self: QTimeLine `
     ///
-    pub fn IsWindowType(self: QTimeLine) bool {
+    pub fn isWindowType(self: QTimeLine) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -692,9 +882,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` self: QTimeLine `
     ///
-    pub fn IsQuickItemType(self: QTimeLine) bool {
+    pub fn isQuickItemType(self: QTimeLine) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -704,9 +898,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` self: QTimeLine `
     ///
-    pub fn SignalsBlocked(self: QTimeLine) bool {
+    pub fn signalsBlocked(self: QTimeLine) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -718,9 +916,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QTimeLine, b: bool) bool {
+    pub fn blockSignals(self: QTimeLine, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -730,9 +932,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` self: QTimeLine `
     ///
-    pub fn Thread(self: QTimeLine) QThread {
+    pub fn thread(self: QTimeLine) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -742,12 +948,16 @@ pub const QTimeLine = extern struct {
     ///
     /// ` self: QTimeLine `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QTimeLine, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QTimeLine, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -759,9 +969,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QTimeLine, interval: i32) i32 {
+    pub fn startTimer(self: QTimeLine, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -773,9 +987,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QTimeLine, time: i64) i32 {
+    pub fn startTimer2(self: QTimeLine, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -787,9 +1005,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QTimeLine, id: i32) void {
+    pub fn killTimer(self: QTimeLine, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -801,9 +1023,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QTimeLine, id: i32) void {
+    pub fn killTimer2(self: QTimeLine, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -815,15 +1041,19 @@ pub const QTimeLine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QTimeLine, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QTimeLine, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QTimeLine.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QTimeLine.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -833,12 +1063,16 @@ pub const QTimeLine = extern struct {
     ///
     /// ` self: QTimeLine `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QTimeLine, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QTimeLine, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -850,10 +1084,14 @@ pub const QTimeLine = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QTimeLine, filterObj: anytype) void {
+    pub fn installEventFilter(self: QTimeLine, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -865,10 +1103,14 @@ pub const QTimeLine = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QTimeLine, obj: anytype) void {
+    pub fn removeEventFilter(self: QTimeLine, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -876,7 +1118,7 @@ pub const QTimeLine = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -884,13 +1126,17 @@ pub const QTimeLine = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -898,7 +1144,7 @@ pub const QTimeLine = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -906,13 +1152,17 @@ pub const QTimeLine = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -922,18 +1172,22 @@ pub const QTimeLine = extern struct {
     ///
     /// ` self: QTimeLine `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QTimeLine, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QTimeLine, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -941,7 +1195,7 @@ pub const QTimeLine = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -949,13 +1203,17 @@ pub const QTimeLine = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -963,7 +1221,7 @@ pub const QTimeLine = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -971,13 +1229,17 @@ pub const QTimeLine = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -987,9 +1249,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` self: QTimeLine `
     ///
-    pub fn Disconnect3(self: QTimeLine) bool {
+    pub fn disconnect3(self: QTimeLine) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1001,10 +1267,14 @@ pub const QTimeLine = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QTimeLine, receiver: anytype) bool {
+    pub fn disconnect4(self: QTimeLine, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1014,10 +1284,14 @@ pub const QTimeLine = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1027,9 +1301,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` self: QTimeLine `
     ///
-    pub fn DumpObjectTree(self: QTimeLine) void {
+    pub fn dumpObjectTree(self: QTimeLine) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1039,9 +1317,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` self: QTimeLine `
     ///
-    pub fn DumpObjectInfo(self: QTimeLine) void {
+    pub fn dumpObjectInfo(self: QTimeLine) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1055,11 +1337,15 @@ pub const QTimeLine = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QTimeLine, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QTimeLine, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1071,10 +1357,14 @@ pub const QTimeLine = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QTimeLine, name: [:0]const u8) QVariant {
+    pub fn property(self: QTimeLine, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1086,7 +1376,7 @@ pub const QTimeLine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QTimeLine, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QTimeLine, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1094,27 +1384,19 @@ pub const QTimeLine = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QTimeLine.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QTimeLine.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QTimeLine.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QTimeLine.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTimeLine `
-    ///
-    pub fn BindingStorage(self: QTimeLine) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1124,9 +1406,29 @@ pub const QTimeLine = extern struct {
     ///
     /// ` self: QTimeLine `
     ///
-    pub fn BindingStorage2(self: QTimeLine) QBindingStorage {
+    pub fn bindingStorage(self: QTimeLine) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QTimeLine `
+    ///
+    pub fn bindingStorage2(self: QTimeLine) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1136,9 +1438,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` self: QTimeLine `
     ///
-    pub fn Destroyed(self: QTimeLine) void {
+    pub fn destroyed(self: QTimeLine) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1150,9 +1456,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` callback: *const fn (self: QTimeLine) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QTimeLine, callback: *const fn (QTimeLine) callconv(.c) void) void {
+    pub fn onDestroyed(self: QTimeLine, callback: *const fn (QTimeLine) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1162,9 +1472,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` self: QTimeLine `
     ///
-    pub fn Parent(self: QTimeLine) QObject {
+    pub fn parent(self: QTimeLine) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1176,10 +1490,14 @@ pub const QTimeLine = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QTimeLine, classname: [:0]const u8) bool {
+    pub fn inherits(self: QTimeLine, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1189,9 +1507,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` self: QTimeLine `
     ///
-    pub fn DeleteLater(self: QTimeLine) void {
+    pub fn deleteLater(self: QTimeLine) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1205,9 +1527,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QTimeLine, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QTimeLine, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1221,9 +1547,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QTimeLine, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QTimeLine, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1231,7 +1561,7 @@ pub const QTimeLine = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1241,13 +1571,17 @@ pub const QTimeLine = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1255,7 +1589,7 @@ pub const QTimeLine = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1265,13 +1599,17 @@ pub const QTimeLine = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1281,7 +1619,7 @@ pub const QTimeLine = extern struct {
     ///
     /// ` self: QTimeLine `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1289,12 +1627,16 @@ pub const QTimeLine = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QTimeLine, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QTimeLine, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1306,10 +1648,14 @@ pub const QTimeLine = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QTimeLine, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QTimeLine, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1323,11 +1669,15 @@ pub const QTimeLine = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QTimeLine, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QTimeLine, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1343,13 +1693,17 @@ pub const QTimeLine = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QTimeLine, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QTimeLine, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1362,11 +1716,15 @@ pub const QTimeLine = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QTimeLine, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QTimeLine, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1378,10 +1736,14 @@ pub const QTimeLine = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QTimeLine, param1: anytype) void {
+    pub fn destroyed1(self: QTimeLine, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1393,9 +1755,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` callback: *const fn (self: QTimeLine, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QTimeLine, callback: *const fn (QTimeLine, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QTimeLine, callback: *const fn (QTimeLine, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1407,16 +1773,16 @@ pub const QTimeLine = extern struct {
     ///
     /// ` self: QTimeLine `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QTimeLine, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QTimeLine_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QTimeLine, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QTimeLine_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1428,12 +1794,16 @@ pub const QTimeLine = extern struct {
     ///
     /// ` self: QTimeLine `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QTimeLine, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QTimeLine_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QTimeLine, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QTimeLine_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -1447,9 +1817,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` callback: *const fn (self: QTimeLine, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QTimeLine, callback: *const fn (QTimeLine, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QTimeLine, callback: *const fn (QTimeLine, QEvent) callconv(.c) bool) void {
         qtc.QTimeLine_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1463,17 +1837,17 @@ pub const QTimeLine = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QTimeLine, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QTimeLine, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QTimeLine_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QTimeLine_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1487,13 +1861,17 @@ pub const QTimeLine = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QTimeLine, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QTimeLine, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QTimeLine_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QTimeLine_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1507,9 +1885,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` callback: *const fn (self: QTimeLine, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QTimeLine, callback: *const fn (QTimeLine, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QTimeLine, callback: *const fn (QTimeLine, QObject, QEvent) callconv(.c) bool) void {
         qtc.QTimeLine_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -1521,16 +1903,16 @@ pub const QTimeLine = extern struct {
     ///
     /// ` self: QTimeLine `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QTimeLine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QTimeLine_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QTimeLine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QTimeLine_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1542,12 +1924,16 @@ pub const QTimeLine = extern struct {
     ///
     /// ` self: QTimeLine `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QTimeLine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QTimeLine_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QTimeLine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QTimeLine_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1561,9 +1947,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` callback: *const fn (self: QTimeLine, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QTimeLine, callback: *const fn (QTimeLine, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QTimeLine, callback: *const fn (QTimeLine, QChildEvent) callconv(.c) void) void {
         qtc.QTimeLine_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -1575,16 +1965,16 @@ pub const QTimeLine = extern struct {
     ///
     /// ` self: QTimeLine `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QTimeLine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QTimeLine_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QTimeLine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QTimeLine_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1596,12 +1986,16 @@ pub const QTimeLine = extern struct {
     ///
     /// ` self: QTimeLine `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QTimeLine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QTimeLine_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QTimeLine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QTimeLine_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1615,9 +2009,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` callback: *const fn (self: QTimeLine, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QTimeLine, callback: *const fn (QTimeLine, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QTimeLine, callback: *const fn (QTimeLine, QEvent) callconv(.c) void) void {
         qtc.QTimeLine_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -1631,14 +2029,14 @@ pub const QTimeLine = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QTimeLine, signal: anytype) void {
+    pub fn connectNotify(self: QTimeLine, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QTimeLine_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1652,11 +2050,15 @@ pub const QTimeLine = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QTimeLine, signal: anytype) void {
+    pub fn superConnectNotify(self: QTimeLine, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QTimeLine_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1669,9 +2071,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` callback: *const fn (self: QTimeLine, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QTimeLine, callback: *const fn (QTimeLine, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QTimeLine, callback: *const fn (QTimeLine, QMetaMethod) callconv(.c) void) void {
         qtc.QTimeLine_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1685,14 +2091,14 @@ pub const QTimeLine = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QTimeLine, signal: anytype) void {
+    pub fn disconnectNotify(self: QTimeLine, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QTimeLine_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1706,10 +2112,14 @@ pub const QTimeLine = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QTimeLine, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QTimeLine, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QTimeLine_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1723,9 +2133,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` callback: *const fn (self: QTimeLine, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QTimeLine, callback: *const fn (QTimeLine, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QTimeLine, callback: *const fn (QTimeLine, QMetaMethod) callconv(.c) void) void {
         qtc.QTimeLine_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -1737,13 +2151,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` self: QTimeLine `
     ///
-    pub fn Sender(self: QTimeLine) QObject {
+    pub fn sender(self: QTimeLine) QObject {
         return .{ .ptr = qtc.QTimeLine_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -1755,9 +2169,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` self: QTimeLine `
     ///
-    pub fn SuperSender(self: QTimeLine) QObject {
+    pub fn superSender(self: QTimeLine) QObject {
         return .{ .ptr = qtc.QTimeLine_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -1771,9 +2189,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QTimeLine, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QTimeLine, callback: *const fn () callconv(.c) QObject) void {
         qtc.QTimeLine_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1785,13 +2207,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` self: QTimeLine `
     ///
-    pub fn SenderSignalIndex(self: QTimeLine) i32 {
+    pub fn senderSignalIndex(self: QTimeLine) i32 {
         return qtc.QTimeLine_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1803,9 +2225,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` self: QTimeLine `
     ///
-    pub fn SuperSenderSignalIndex(self: QTimeLine) i32 {
+    pub fn superSenderSignalIndex(self: QTimeLine) i32 {
         return qtc.QTimeLine_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1819,9 +2245,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QTimeLine, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QTimeLine, callback: *const fn () callconv(.c) i32) void {
         qtc.QTimeLine_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -1835,14 +2265,14 @@ pub const QTimeLine = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QTimeLine, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QTimeLine, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QTimeLine_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -1856,10 +2286,14 @@ pub const QTimeLine = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QTimeLine, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QTimeLine, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QTimeLine_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -1873,9 +2307,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` callback: *const fn (self: QTimeLine, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QTimeLine, callback: *const fn (QTimeLine, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QTimeLine, callback: *const fn (QTimeLine, [*:0]const u8) callconv(.c) i32) void {
         qtc.QTimeLine_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1889,14 +2327,14 @@ pub const QTimeLine = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QTimeLine, signal: anytype) bool {
+    pub fn isSignalConnected(self: QTimeLine, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QTimeLine_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1910,10 +2348,14 @@ pub const QTimeLine = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QTimeLine, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QTimeLine, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QTimeLine_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1927,9 +2369,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` callback: *const fn (self: QTimeLine, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QTimeLine, callback: *const fn (QTimeLine, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QTimeLine, callback: *const fn (QTimeLine, QMetaMethod) callconv(.c) bool) void {
         qtc.QTimeLine_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onValueChanged` instead
+    ///
+    pub const OnValueChanged = onValueChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#valueChanged)
     ///
@@ -1941,9 +2387,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` callback: *const fn (self: QTimeLine, x: f64) callconv(.c) void `
     ///
-    pub fn OnValueChanged(self: QTimeLine, callback: *const fn (QTimeLine, f64) callconv(.c) void) void {
+    pub fn onValueChanged(self: QTimeLine, callback: *const fn (QTimeLine, f64) callconv(.c) void) void {
         qtc.QTimeLine_Connect_ValueChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onFrameChanged` instead
+    ///
+    pub const OnFrameChanged = onFrameChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#frameChanged)
     ///
@@ -1955,9 +2405,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` callback: *const fn (self: QTimeLine, param1: i32) callconv(.c) void `
     ///
-    pub fn OnFrameChanged(self: QTimeLine, callback: *const fn (QTimeLine, i32) callconv(.c) void) void {
+    pub fn onFrameChanged(self: QTimeLine, callback: *const fn (QTimeLine, i32) callconv(.c) void) void {
         qtc.QTimeLine_Connect_FrameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onStateChanged` instead
+    ///
+    pub const OnStateChanged = onStateChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#stateChanged)
     ///
@@ -1969,9 +2423,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` callback: *const fn (self: QTimeLine, newState: qtimeline_enums.State) callconv(.c) void `
     ///
-    pub fn OnStateChanged(self: QTimeLine, callback: *const fn (QTimeLine, i32) callconv(.c) void) void {
+    pub fn onStateChanged(self: QTimeLine, callback: *const fn (QTimeLine, i32) callconv(.c) void) void {
         qtc.QTimeLine_Connect_StateChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onFinished` instead
+    ///
+    pub const OnFinished = onFinished;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#finished)
     ///
@@ -1983,9 +2441,13 @@ pub const QTimeLine = extern struct {
     ///
     /// ` callback: *const fn (self: QTimeLine) callconv(.c) void `
     ///
-    pub fn OnFinished(self: QTimeLine, callback: *const fn (QTimeLine) callconv(.c) void) void {
+    pub fn onFinished(self: QTimeLine, callback: *const fn (QTimeLine) callconv(.c) void) void {
         qtc.QTimeLine_Connect_Finished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -1999,23 +2461,23 @@ pub const QTimeLine = extern struct {
     ///
     /// ` callback: *const fn (self: QTimeLine, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QTimeLine, callback: *const fn (QTimeLine, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QTimeLine, callback: *const fn (QTimeLine, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#dtor.QTimeLine)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QTimeLine `
     ///
-    pub fn Delete(self: QTimeLine) void {
+    pub fn delete(self: QTimeLine) void {
         qtc.QTimeLine_Delete(@ptrCast(self.ptr));
     }
 };

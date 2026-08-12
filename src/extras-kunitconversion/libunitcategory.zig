@@ -25,22 +25,34 @@ pub const KUnitConversion__UnitCategory = extern struct {
 
     pub const _is_KUnitConversion__UnitCategory = {};
 
-    /// New constructs a new KUnitConversion::UnitCategory object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KUnitConversion__UnitCategory {
+    pub const New = new;
+
+    /// Allocate a new KUnitConversion::UnitCategory object in C++ memory
+    ///
+    pub fn new() KUnitConversion__UnitCategory {
         return .{ .ptr = qtc.KUnitConversion__UnitCategory_new() };
     }
 
-    /// New2 constructs a new KUnitConversion::UnitCategory object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KUnitConversion::UnitCategory object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: KUnitConversion__UnitCategory `
     ///
-    pub fn New2(other: anytype) KUnitConversion__UnitCategory {
+    pub fn new2(other: anytype) KUnitConversion__UnitCategory {
         comptime _ = @TypeOf(other)._is_KUnitConversion__UnitCategory;
         return .{ .ptr = qtc.KUnitConversion__UnitCategory_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://api.kde.org/kunitconversion-unitcategory.html#operator-eq)
     ///
@@ -50,10 +62,14 @@ pub const KUnitConversion__UnitCategory = extern struct {
     ///
     /// ` other: KUnitConversion__UnitCategory `
     ///
-    pub fn OperatorAssign(self: KUnitConversion__UnitCategory, other: anytype) void {
+    pub fn operatorAssign(self: KUnitConversion__UnitCategory, other: anytype) void {
         comptime _ = @TypeOf(other)._is_KUnitConversion__UnitCategory;
         qtc.KUnitConversion__UnitCategory_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// ### [Upstream resources](https://api.kde.org/kunitconversion-unitcategory.html#operator-eq-eq)
     ///
@@ -63,10 +79,14 @@ pub const KUnitConversion__UnitCategory = extern struct {
     ///
     /// ` other: KUnitConversion__UnitCategory `
     ///
-    pub fn OperatorEqual(self: KUnitConversion__UnitCategory, other: anytype) bool {
+    pub fn operatorEqual(self: KUnitConversion__UnitCategory, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_KUnitConversion__UnitCategory;
         return qtc.KUnitConversion__UnitCategory_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// ### [Upstream resources](https://api.kde.org/kunitconversion-unitcategory.html#operator-not-eq)
     ///
@@ -76,10 +96,14 @@ pub const KUnitConversion__UnitCategory = extern struct {
     ///
     /// ` other: KUnitConversion__UnitCategory `
     ///
-    pub fn OperatorNotEqual(self: KUnitConversion__UnitCategory, other: anytype) bool {
+    pub fn operatorNotEqual(self: KUnitConversion__UnitCategory, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_KUnitConversion__UnitCategory;
         return qtc.KUnitConversion__UnitCategory_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `isNull` instead
+    ///
+    pub const IsNull = isNull;
 
     /// ### [Upstream resources](https://api.kde.org/kunitconversion-unitcategory.html#isNull)
     ///
@@ -87,9 +111,13 @@ pub const KUnitConversion__UnitCategory = extern struct {
     ///
     /// ` self: KUnitConversion__UnitCategory `
     ///
-    pub fn IsNull(self: KUnitConversion__UnitCategory) bool {
+    pub fn isNull(self: KUnitConversion__UnitCategory) bool {
         return qtc.KUnitConversion__UnitCategory_IsNull(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `id` instead
+    ///
+    pub const Id = id;
 
     /// ### [Upstream resources](https://api.kde.org/kunitconversion-unitcategory.html#id)
     ///
@@ -101,9 +129,13 @@ pub const KUnitConversion__UnitCategory = extern struct {
     ///
     /// ` unit_enums.CategoryId `
     ///
-    pub fn Id(self: KUnitConversion__UnitCategory) i32 {
+    pub fn id(self: KUnitConversion__UnitCategory) i32 {
         return qtc.KUnitConversion__UnitCategory_Id(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://api.kde.org/kunitconversion-unitcategory.html#name)
     ///
@@ -113,13 +145,17 @@ pub const KUnitConversion__UnitCategory = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: KUnitConversion__UnitCategory, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: KUnitConversion__UnitCategory, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KUnitConversion__UnitCategory_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUnitConversion__UnitCategory.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUnitConversion__UnitCategory.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `description` instead
+    ///
+    pub const Description = description;
 
     /// ### [Upstream resources](https://api.kde.org/kunitconversion-unitcategory.html#description)
     ///
@@ -129,13 +165,17 @@ pub const KUnitConversion__UnitCategory = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Description(self: KUnitConversion__UnitCategory, allocator: std.mem.Allocator) []const u8 {
+    pub fn description(self: KUnitConversion__UnitCategory, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KUnitConversion__UnitCategory_Description(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUnitConversion__UnitCategory.Description: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUnitConversion__UnitCategory.description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `defaultUnit` instead
+    ///
+    pub const DefaultUnit = defaultUnit;
 
     /// ### [Upstream resources](https://api.kde.org/kunitconversion-unitcategory.html#defaultUnit)
     ///
@@ -143,9 +183,13 @@ pub const KUnitConversion__UnitCategory = extern struct {
     ///
     /// ` self: KUnitConversion__UnitCategory `
     ///
-    pub fn DefaultUnit(self: KUnitConversion__UnitCategory) KUnitConversion__Unit {
+    pub fn defaultUnit(self: KUnitConversion__UnitCategory) KUnitConversion__Unit {
         return .{ .ptr = qtc.KUnitConversion__UnitCategory_DefaultUnit(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `hasUnit` instead
+    ///
+    pub const HasUnit = hasUnit;
 
     /// ### [Upstream resources](https://api.kde.org/kunitconversion-unitcategory.html#hasUnit)
     ///
@@ -153,15 +197,19 @@ pub const KUnitConversion__UnitCategory = extern struct {
     ///
     /// ` self: KUnitConversion__UnitCategory `
     ///
-    /// ` unit: []const u8 `
+    /// ` _unit: []const u8 `
     ///
-    pub fn HasUnit(self: KUnitConversion__UnitCategory, unit: []const u8) bool {
+    pub fn hasUnit(self: KUnitConversion__UnitCategory, _unit: []const u8) bool {
         const unit_str = qtc.libqt_string{
-            .len = unit.len,
-            .data = unit.ptr,
+            .len = _unit.len,
+            .data = _unit.ptr,
         };
         return qtc.KUnitConversion__UnitCategory_HasUnit(@ptrCast(self.ptr), unit_str);
     }
+
+    /// ### DEPRECATED: Use `unit` instead
+    ///
+    pub const Unit = unit;
 
     /// ### [Upstream resources](https://api.kde.org/kunitconversion-unitcategory.html#unit)
     ///
@@ -171,13 +219,17 @@ pub const KUnitConversion__UnitCategory = extern struct {
     ///
     /// ` s: []const u8 `
     ///
-    pub fn Unit(self: KUnitConversion__UnitCategory, s: []const u8) KUnitConversion__Unit {
+    pub fn unit(self: KUnitConversion__UnitCategory, s: []const u8) KUnitConversion__Unit {
         const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
         };
         return .{ .ptr = qtc.KUnitConversion__UnitCategory_Unit(@ptrCast(self.ptr), s_str) };
     }
+
+    /// ### DEPRECATED: Use `unit2` instead
+    ///
+    pub const Unit2 = unit2;
 
     /// ### [Upstream resources](https://api.kde.org/kunitconversion-unitcategory.html#unit)
     ///
@@ -187,9 +239,13 @@ pub const KUnitConversion__UnitCategory = extern struct {
     ///
     /// ` unitId: unit_enums.UnitId `
     ///
-    pub fn Unit2(self: KUnitConversion__UnitCategory, unitId: i32) KUnitConversion__Unit {
+    pub fn unit2(self: KUnitConversion__UnitCategory, unitId: i32) KUnitConversion__Unit {
         return .{ .ptr = qtc.KUnitConversion__UnitCategory_Unit2(@ptrCast(self.ptr), @bitCast(unitId)) };
     }
+
+    /// ### DEPRECATED: Use `units` instead
+    ///
+    pub const Units = units;
 
     /// ### [Upstream resources](https://api.kde.org/kunitconversion-unitcategory.html#units)
     ///
@@ -199,15 +255,19 @@ pub const KUnitConversion__UnitCategory = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Units(self: KUnitConversion__UnitCategory, allocator: std.mem.Allocator) []KUnitConversion__Unit {
+    pub fn units(self: KUnitConversion__UnitCategory, allocator: std.mem.Allocator) []KUnitConversion__Unit {
         const _arr: qtc.libqt_list = qtc.KUnitConversion__UnitCategory_Units(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KUnitConversion__Unit, _arr.len) catch @panic("KUnitConversion__UnitCategory.Units: Memory allocation failed");
-        const _data: [*]QtC.KUnitConversion__Unit = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(KUnitConversion__Unit, _arr.len) catch @panic("KUnitConversion__UnitCategory.units: Memory allocation failed");
+        const _data_val: [*]QtC.KUnitConversion__Unit = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `mostCommonUnits` instead
+    ///
+    pub const MostCommonUnits = mostCommonUnits;
 
     /// ### [Upstream resources](https://api.kde.org/kunitconversion-unitcategory.html#mostCommonUnits)
     ///
@@ -217,15 +277,19 @@ pub const KUnitConversion__UnitCategory = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MostCommonUnits(self: KUnitConversion__UnitCategory, allocator: std.mem.Allocator) []KUnitConversion__Unit {
+    pub fn mostCommonUnits(self: KUnitConversion__UnitCategory, allocator: std.mem.Allocator) []KUnitConversion__Unit {
         const _arr: qtc.libqt_list = qtc.KUnitConversion__UnitCategory_MostCommonUnits(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KUnitConversion__Unit, _arr.len) catch @panic("KUnitConversion__UnitCategory.MostCommonUnits: Memory allocation failed");
-        const _data: [*]QtC.KUnitConversion__Unit = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(KUnitConversion__Unit, _arr.len) catch @panic("KUnitConversion__UnitCategory.mostCommonUnits: Memory allocation failed");
+        const _data_val: [*]QtC.KUnitConversion__Unit = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `allUnits` instead
+    ///
+    pub const AllUnits = allUnits;
 
     /// ### [Upstream resources](https://api.kde.org/kunitconversion-unitcategory.html#allUnits)
     ///
@@ -235,7 +299,7 @@ pub const KUnitConversion__UnitCategory = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AllUnits(self: KUnitConversion__UnitCategory, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn allUnits(self: KUnitConversion__UnitCategory, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KUnitConversion__UnitCategory_AllUnits(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -243,15 +307,19 @@ pub const KUnitConversion__UnitCategory = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUnitConversion__UnitCategory.AllUnits: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUnitConversion__UnitCategory.allUnits: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUnitConversion__UnitCategory.AllUnits: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KUnitConversion__UnitCategory.allUnits: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `convert` instead
+    ///
+    pub const Convert = convert;
 
     /// ### [Upstream resources](https://api.kde.org/kunitconversion-unitcategory.html#convert)
     ///
@@ -261,10 +329,14 @@ pub const KUnitConversion__UnitCategory = extern struct {
     ///
     /// ` value: KUnitConversion__Value `
     ///
-    pub fn Convert(self: KUnitConversion__UnitCategory, value: anytype) KUnitConversion__Value {
+    pub fn convert(self: KUnitConversion__UnitCategory, value: anytype) KUnitConversion__Value {
         comptime _ = @TypeOf(value)._is_KUnitConversion__Value;
         return .{ .ptr = qtc.KUnitConversion__UnitCategory_Convert(@ptrCast(self.ptr), @ptrCast(value.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `convert2` instead
+    ///
+    pub const Convert2 = convert2;
 
     /// ### [Upstream resources](https://api.kde.org/kunitconversion-unitcategory.html#convert)
     ///
@@ -276,10 +348,14 @@ pub const KUnitConversion__UnitCategory = extern struct {
     ///
     /// ` toUnit: unit_enums.UnitId `
     ///
-    pub fn Convert2(self: KUnitConversion__UnitCategory, value: anytype, toUnit: i32) KUnitConversion__Value {
+    pub fn convert2(self: KUnitConversion__UnitCategory, value: anytype, toUnit: i32) KUnitConversion__Value {
         comptime _ = @TypeOf(value)._is_KUnitConversion__Value;
         return .{ .ptr = qtc.KUnitConversion__UnitCategory_Convert2(@ptrCast(self.ptr), @ptrCast(value.ptr), @bitCast(toUnit)) };
     }
+
+    /// ### DEPRECATED: Use `convert3` instead
+    ///
+    pub const Convert3 = convert3;
 
     /// ### [Upstream resources](https://api.kde.org/kunitconversion-unitcategory.html#convert)
     ///
@@ -291,11 +367,15 @@ pub const KUnitConversion__UnitCategory = extern struct {
     ///
     /// ` toUnit: KUnitConversion__Unit `
     ///
-    pub fn Convert3(self: KUnitConversion__UnitCategory, value: anytype, toUnit: anytype) KUnitConversion__Value {
+    pub fn convert3(self: KUnitConversion__UnitCategory, value: anytype, toUnit: anytype) KUnitConversion__Value {
         comptime _ = @TypeOf(value)._is_KUnitConversion__Value;
         comptime _ = @TypeOf(toUnit)._is_KUnitConversion__Unit;
         return .{ .ptr = qtc.KUnitConversion__UnitCategory_Convert3(@ptrCast(self.ptr), @ptrCast(value.ptr), @ptrCast(toUnit.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `hasOnlineConversionTable` instead
+    ///
+    pub const HasOnlineConversionTable = hasOnlineConversionTable;
 
     /// ### [Upstream resources](https://api.kde.org/kunitconversion-unitcategory.html#hasOnlineConversionTable)
     ///
@@ -303,9 +383,13 @@ pub const KUnitConversion__UnitCategory = extern struct {
     ///
     /// ` self: KUnitConversion__UnitCategory `
     ///
-    pub fn HasOnlineConversionTable(self: KUnitConversion__UnitCategory) bool {
+    pub fn hasOnlineConversionTable(self: KUnitConversion__UnitCategory) bool {
         return qtc.KUnitConversion__UnitCategory_HasOnlineConversionTable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `syncConversionTable` instead
+    ///
+    pub const SyncConversionTable = syncConversionTable;
 
     /// ### [Upstream resources](https://api.kde.org/kunitconversion-unitcategory.html#syncConversionTable)
     ///
@@ -313,9 +397,13 @@ pub const KUnitConversion__UnitCategory = extern struct {
     ///
     /// ` self: KUnitConversion__UnitCategory `
     ///
-    pub fn SyncConversionTable(self: KUnitConversion__UnitCategory) KUnitConversion__UpdateJob {
+    pub fn syncConversionTable(self: KUnitConversion__UnitCategory) KUnitConversion__UpdateJob {
         return .{ .ptr = qtc.KUnitConversion__UnitCategory_SyncConversionTable(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `convert22` instead
+    ///
+    pub const Convert22 = convert22;
 
     /// ### [Upstream resources](https://api.kde.org/kunitconversion-unitcategory.html#convert)
     ///
@@ -327,7 +415,7 @@ pub const KUnitConversion__UnitCategory = extern struct {
     ///
     /// ` toUnit: []const u8 `
     ///
-    pub fn Convert22(self: KUnitConversion__UnitCategory, value: anytype, toUnit: []const u8) KUnitConversion__Value {
+    pub fn convert22(self: KUnitConversion__UnitCategory, value: anytype, toUnit: []const u8) KUnitConversion__Value {
         comptime _ = @TypeOf(value)._is_KUnitConversion__Value;
         const toUnit_str = qtc.libqt_string{
             .len = toUnit.len,
@@ -335,6 +423,10 @@ pub const KUnitConversion__UnitCategory = extern struct {
         };
         return .{ .ptr = qtc.KUnitConversion__UnitCategory_Convert22(@ptrCast(self.ptr), @ptrCast(value.ptr), toUnit_str) };
     }
+
+    /// ### DEPRECATED: Use `syncConversionTable1` instead
+    ///
+    pub const SyncConversionTable1 = syncConversionTable1;
 
     /// ### [Upstream resources](https://api.kde.org/kunitconversion-unitcategory.html#syncConversionTable)
     ///
@@ -344,21 +436,21 @@ pub const KUnitConversion__UnitCategory = extern struct {
     ///
     /// ` updateSkipPeriod: i64 of seconds `
     ///
-    pub fn SyncConversionTable1(self: KUnitConversion__UnitCategory, updateSkipPeriod: i64) KUnitConversion__UpdateJob {
+    pub fn syncConversionTable1(self: KUnitConversion__UnitCategory, updateSkipPeriod: i64) KUnitConversion__UpdateJob {
         return .{ .ptr = qtc.KUnitConversion__UnitCategory_SyncConversionTable1(@ptrCast(self.ptr), @bitCast(updateSkipPeriod)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KUnitConversion__UnitCategory `
     ///
-    pub fn Delete(self: KUnitConversion__UnitCategory) void {
+    pub fn delete(self: KUnitConversion__UnitCategory) void {
         qtc.KUnitConversion__UnitCategory_Delete(@ptrCast(self.ptr));
     }
 };
@@ -374,15 +466,23 @@ pub const KUnitConversion__UpdateJob = extern struct {
     pub const _is_KUnitConversion__UpdateJob = {};
     pub const _is_QObject = {};
 
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KUnitConversion__UpdateJob `
     ///
-    pub fn MetaObject(self: KUnitConversion__UpdateJob) QMetaObject {
+    pub fn metaObject(self: KUnitConversion__UpdateJob) QMetaObject {
         return .{ .ptr = qtc.KUnitConversion__UpdateJob_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -390,10 +490,14 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KUnitConversion__UpdateJob, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KUnitConversion__UpdateJob, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KUnitConversion__UpdateJob_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -405,9 +509,13 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KUnitConversion__UpdateJob, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KUnitConversion__UpdateJob, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KUnitConversion__UpdateJob_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -417,14 +525,18 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUnitConversion__UpdateJob.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUnitConversion__UpdateJob.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `finished` instead
+    ///
+    pub const Finished = finished;
 
     /// ### [Upstream resources](https://api.kde.org/kunitconversion-updatejob.html#finished)
     ///
@@ -432,9 +544,13 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` self: KUnitConversion__UpdateJob `
     ///
-    pub fn Finished(self: KUnitConversion__UpdateJob) void {
+    pub fn finished(self: KUnitConversion__UpdateJob) void {
         qtc.KUnitConversion__UpdateJob_Finished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFinished` instead
+    ///
+    pub const OnFinished = onFinished;
 
     /// ### [Upstream resources](https://api.kde.org/kunitconversion-updatejob.html#finished)
     ///
@@ -444,9 +560,13 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` callback: *const fn (self: KUnitConversion__UpdateJob) callconv(.c) void `
     ///
-    pub fn OnFinished(self: KUnitConversion__UpdateJob, callback: *const fn (KUnitConversion__UpdateJob) callconv(.c) void) void {
+    pub fn onFinished(self: KUnitConversion__UpdateJob, callback: *const fn (KUnitConversion__UpdateJob) callconv(.c) void) void {
         qtc.KUnitConversion__UpdateJob_Connect_Finished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -458,15 +578,19 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUnitConversion__UpdateJob.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUnitConversion__UpdateJob.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -480,15 +604,19 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUnitConversion__UpdateJob.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUnitConversion__UpdateJob.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -498,12 +626,16 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` self: KUnitConversion__UpdateJob `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: KUnitConversion__UpdateJob, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QObject_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: KUnitConversion__UpdateJob, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QObject_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -515,13 +647,17 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KUnitConversion__UpdateJob, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KUnitConversion__UpdateJob, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -533,13 +669,17 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KUnitConversion__UpdateJob, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KUnitConversion__UpdateJob, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUnitConversion__UpdateJob.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUnitConversion__UpdateJob.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -549,15 +689,19 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` self: KUnitConversion__UpdateJob `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn SetObjectName(self: KUnitConversion__UpdateJob, name: []const u8) void {
+    pub fn setObjectName(self: KUnitConversion__UpdateJob, _name: []const u8) void {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -567,9 +711,13 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` self: KUnitConversion__UpdateJob `
     ///
-    pub fn IsWidgetType(self: KUnitConversion__UpdateJob) bool {
+    pub fn isWidgetType(self: KUnitConversion__UpdateJob) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -579,9 +727,13 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` self: KUnitConversion__UpdateJob `
     ///
-    pub fn IsWindowType(self: KUnitConversion__UpdateJob) bool {
+    pub fn isWindowType(self: KUnitConversion__UpdateJob) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -591,9 +743,13 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` self: KUnitConversion__UpdateJob `
     ///
-    pub fn IsQuickItemType(self: KUnitConversion__UpdateJob) bool {
+    pub fn isQuickItemType(self: KUnitConversion__UpdateJob) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -603,9 +759,13 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` self: KUnitConversion__UpdateJob `
     ///
-    pub fn SignalsBlocked(self: KUnitConversion__UpdateJob) bool {
+    pub fn signalsBlocked(self: KUnitConversion__UpdateJob) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -617,9 +777,13 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KUnitConversion__UpdateJob, b: bool) bool {
+    pub fn blockSignals(self: KUnitConversion__UpdateJob, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -629,9 +793,13 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` self: KUnitConversion__UpdateJob `
     ///
-    pub fn Thread(self: KUnitConversion__UpdateJob) QThread {
+    pub fn thread(self: KUnitConversion__UpdateJob) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -641,12 +809,16 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` self: KUnitConversion__UpdateJob `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KUnitConversion__UpdateJob, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KUnitConversion__UpdateJob, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -658,9 +830,13 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KUnitConversion__UpdateJob, interval: i32) i32 {
+    pub fn startTimer(self: KUnitConversion__UpdateJob, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -672,23 +848,13 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KUnitConversion__UpdateJob, time: i64) i32 {
+    pub fn startTimer2(self: KUnitConversion__UpdateJob, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `killTimer` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUnitConversion__UpdateJob `
-    ///
-    /// ` id: i32 `
-    ///
-    pub fn KillTimer(self: KUnitConversion__UpdateJob, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
-    }
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -698,11 +864,33 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` self: KUnitConversion__UpdateJob `
     ///
-    /// ` id: qnamespace_enums.TimerId `
+    /// ` _id: i32 `
     ///
-    pub fn KillTimer2(self: KUnitConversion__UpdateJob, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
+    pub fn killTimer(self: KUnitConversion__UpdateJob, _id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(_id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KUnitConversion__UpdateJob `
+    ///
+    /// ` _id: qnamespace_enums.TimerId `
+    ///
+    pub fn killTimer2(self: KUnitConversion__UpdateJob, _id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(_id));
+    }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -714,15 +902,19 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KUnitConversion__UpdateJob, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KUnitConversion__UpdateJob, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KUnitConversion__UpdateJob.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KUnitConversion__UpdateJob.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -732,12 +924,16 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` self: KUnitConversion__UpdateJob `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: KUnitConversion__UpdateJob, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: KUnitConversion__UpdateJob, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -749,10 +945,14 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KUnitConversion__UpdateJob, filterObj: anytype) void {
+    pub fn installEventFilter(self: KUnitConversion__UpdateJob, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -764,10 +964,14 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KUnitConversion__UpdateJob, obj: anytype) void {
+    pub fn removeEventFilter(self: KUnitConversion__UpdateJob, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -775,7 +979,7 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -783,13 +987,17 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -797,7 +1005,7 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -805,13 +1013,17 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -821,18 +1033,22 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` self: KUnitConversion__UpdateJob `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KUnitConversion__UpdateJob, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KUnitConversion__UpdateJob, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -840,7 +1056,7 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -848,13 +1064,17 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -862,7 +1082,7 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -870,13 +1090,17 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -886,9 +1110,13 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` self: KUnitConversion__UpdateJob `
     ///
-    pub fn Disconnect3(self: KUnitConversion__UpdateJob) bool {
+    pub fn disconnect3(self: KUnitConversion__UpdateJob) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -900,10 +1128,14 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KUnitConversion__UpdateJob, receiver: anytype) bool {
+    pub fn disconnect4(self: KUnitConversion__UpdateJob, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -913,10 +1145,14 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -926,9 +1162,13 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` self: KUnitConversion__UpdateJob `
     ///
-    pub fn DumpObjectTree(self: KUnitConversion__UpdateJob) void {
+    pub fn dumpObjectTree(self: KUnitConversion__UpdateJob) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -938,9 +1178,13 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` self: KUnitConversion__UpdateJob `
     ///
-    pub fn DumpObjectInfo(self: KUnitConversion__UpdateJob) void {
+    pub fn dumpObjectInfo(self: KUnitConversion__UpdateJob) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -950,15 +1194,19 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` self: KUnitConversion__UpdateJob `
     ///
-    /// ` name: [:0]const u8 `
+    /// ` _name: [:0]const u8 `
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KUnitConversion__UpdateJob, name: [:0]const u8, value: anytype) bool {
-        const name_Cstring = name.ptr;
+    pub fn setProperty(self: KUnitConversion__UpdateJob, _name: [:0]const u8, value: anytype) bool {
+        const name_Cstring = _name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -968,12 +1216,16 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` self: KUnitConversion__UpdateJob `
     ///
-    /// ` name: [:0]const u8 `
+    /// ` _name: [:0]const u8 `
     ///
-    pub fn Property(self: KUnitConversion__UpdateJob, name: [:0]const u8) QVariant {
-        const name_Cstring = name.ptr;
+    pub fn property(self: KUnitConversion__UpdateJob, _name: [:0]const u8) QVariant {
+        const name_Cstring = _name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -985,7 +1237,7 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KUnitConversion__UpdateJob, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KUnitConversion__UpdateJob, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -993,27 +1245,19 @@ pub const KUnitConversion__UpdateJob = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KUnitConversion__UpdateJob.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KUnitConversion__UpdateJob.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUnitConversion__UpdateJob.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KUnitConversion__UpdateJob.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUnitConversion__UpdateJob `
-    ///
-    pub fn BindingStorage(self: KUnitConversion__UpdateJob) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1023,9 +1267,29 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` self: KUnitConversion__UpdateJob `
     ///
-    pub fn BindingStorage2(self: KUnitConversion__UpdateJob) QBindingStorage {
+    pub fn bindingStorage(self: KUnitConversion__UpdateJob) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KUnitConversion__UpdateJob `
+    ///
+    pub fn bindingStorage2(self: KUnitConversion__UpdateJob) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1035,9 +1299,13 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` self: KUnitConversion__UpdateJob `
     ///
-    pub fn Destroyed(self: KUnitConversion__UpdateJob) void {
+    pub fn destroyed(self: KUnitConversion__UpdateJob) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1049,9 +1317,13 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` callback: *const fn (self: KUnitConversion__UpdateJob) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KUnitConversion__UpdateJob, callback: *const fn (KUnitConversion__UpdateJob) callconv(.c) void) void {
+    pub fn onDestroyed(self: KUnitConversion__UpdateJob, callback: *const fn (KUnitConversion__UpdateJob) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1061,9 +1333,13 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` self: KUnitConversion__UpdateJob `
     ///
-    pub fn Parent(self: KUnitConversion__UpdateJob) QObject {
+    pub fn parent(self: KUnitConversion__UpdateJob) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1075,10 +1351,14 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KUnitConversion__UpdateJob, classname: [:0]const u8) bool {
+    pub fn inherits(self: KUnitConversion__UpdateJob, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1088,9 +1368,13 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` self: KUnitConversion__UpdateJob `
     ///
-    pub fn DeleteLater(self: KUnitConversion__UpdateJob) void {
+    pub fn deleteLater(self: KUnitConversion__UpdateJob) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1104,9 +1388,13 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KUnitConversion__UpdateJob, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KUnitConversion__UpdateJob, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1120,9 +1408,13 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KUnitConversion__UpdateJob, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KUnitConversion__UpdateJob, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1130,7 +1422,7 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1140,13 +1432,17 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1154,7 +1450,7 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1164,13 +1460,17 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1180,7 +1480,7 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` self: KUnitConversion__UpdateJob `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1188,12 +1488,16 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KUnitConversion__UpdateJob, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KUnitConversion__UpdateJob, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1205,10 +1509,14 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KUnitConversion__UpdateJob, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KUnitConversion__UpdateJob, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1222,11 +1530,15 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KUnitConversion__UpdateJob, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KUnitConversion__UpdateJob, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1242,13 +1554,17 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KUnitConversion__UpdateJob, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KUnitConversion__UpdateJob, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1261,11 +1577,15 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KUnitConversion__UpdateJob, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KUnitConversion__UpdateJob, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1277,10 +1597,14 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KUnitConversion__UpdateJob, param1: anytype) void {
+    pub fn destroyed1(self: KUnitConversion__UpdateJob, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1292,9 +1616,13 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` callback: *const fn (self: KUnitConversion__UpdateJob, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KUnitConversion__UpdateJob, callback: *const fn (KUnitConversion__UpdateJob, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KUnitConversion__UpdateJob, callback: *const fn (KUnitConversion__UpdateJob, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -1308,21 +1636,21 @@ pub const KUnitConversion__UpdateJob = extern struct {
     ///
     /// ` callback: *const fn (self: KUnitConversion__UpdateJob, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KUnitConversion__UpdateJob, callback: *const fn (KUnitConversion__UpdateJob, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KUnitConversion__UpdateJob, callback: *const fn (KUnitConversion__UpdateJob, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KUnitConversion__UpdateJob `
     ///
-    pub fn Delete(self: KUnitConversion__UpdateJob) void {
+    pub fn delete(self: KUnitConversion__UpdateJob) void {
         qtc.KUnitConversion__UpdateJob_Delete(@ptrCast(self.ptr));
     }
 };

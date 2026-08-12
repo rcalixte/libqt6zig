@@ -12,22 +12,34 @@ pub const Attica__AccountBalance = extern struct {
 
     pub const _is_Attica__AccountBalance = {};
 
-    /// New constructs a new Attica::AccountBalance object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() Attica__AccountBalance {
+    pub const New = new;
+
+    /// Allocate a new Attica::AccountBalance object in C++ memory
+    ///
+    pub fn new() Attica__AccountBalance {
         return .{ .ptr = qtc.Attica__AccountBalance_new() };
     }
 
-    /// New2 constructs a new Attica::AccountBalance object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new Attica::AccountBalance object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: Attica__AccountBalance `
     ///
-    pub fn New2(other: anytype) Attica__AccountBalance {
+    pub fn new2(other: anytype) Attica__AccountBalance {
         comptime _ = @TypeOf(other)._is_Attica__AccountBalance;
         return .{ .ptr = qtc.Attica__AccountBalance_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://api.kde.org/attica-accountbalance.html#operator-eq)
     ///
@@ -37,10 +49,14 @@ pub const Attica__AccountBalance = extern struct {
     ///
     /// ` other: Attica__AccountBalance `
     ///
-    pub fn OperatorAssign(self: Attica__AccountBalance, other: anytype) void {
+    pub fn operatorAssign(self: Attica__AccountBalance, other: anytype) void {
         comptime _ = @TypeOf(other)._is_Attica__AccountBalance;
         qtc.Attica__AccountBalance_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCurrency` instead
+    ///
+    pub const SetCurrency = setCurrency;
 
     /// ### [Upstream resources](https://api.kde.org/attica-accountbalance.html#setCurrency)
     ///
@@ -48,15 +64,19 @@ pub const Attica__AccountBalance = extern struct {
     ///
     /// ` self: Attica__AccountBalance `
     ///
-    /// ` currency: []const u8 `
+    /// ` _currency: []const u8 `
     ///
-    pub fn SetCurrency(self: Attica__AccountBalance, currency: []const u8) void {
+    pub fn setCurrency(self: Attica__AccountBalance, _currency: []const u8) void {
         const currency_str = qtc.libqt_string{
-            .len = currency.len,
-            .data = currency.ptr,
+            .len = _currency.len,
+            .data = _currency.ptr,
         };
         qtc.Attica__AccountBalance_SetCurrency(@ptrCast(self.ptr), currency_str);
     }
+
+    /// ### DEPRECATED: Use `currency` instead
+    ///
+    pub const Currency = currency;
 
     /// ### [Upstream resources](https://api.kde.org/attica-accountbalance.html#currency)
     ///
@@ -66,13 +86,17 @@ pub const Attica__AccountBalance = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Currency(self: Attica__AccountBalance, allocator: std.mem.Allocator) []const u8 {
+    pub fn currency(self: Attica__AccountBalance, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__AccountBalance_Currency(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__AccountBalance.Currency: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__AccountBalance.currency: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setBalance` instead
+    ///
+    pub const SetBalance = setBalance;
 
     /// ### [Upstream resources](https://api.kde.org/attica-accountbalance.html#setBalance)
     ///
@@ -82,13 +106,17 @@ pub const Attica__AccountBalance = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetBalance(self: Attica__AccountBalance, name: []const u8) void {
+    pub fn setBalance(self: Attica__AccountBalance, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.Attica__AccountBalance_SetBalance(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `balance` instead
+    ///
+    pub const Balance = balance;
 
     /// ### [Upstream resources](https://api.kde.org/attica-accountbalance.html#balance)
     ///
@@ -98,25 +126,25 @@ pub const Attica__AccountBalance = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Balance(self: Attica__AccountBalance, allocator: std.mem.Allocator) []const u8 {
+    pub fn balance(self: Attica__AccountBalance, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__AccountBalance_Balance(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__AccountBalance.Balance: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__AccountBalance.balance: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Attica__AccountBalance `
     ///
-    pub fn Delete(self: Attica__AccountBalance) void {
+    pub fn delete(self: Attica__AccountBalance) void {
         qtc.Attica__AccountBalance_Delete(@ptrCast(self.ptr));
     }
 };

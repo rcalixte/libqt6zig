@@ -11,11 +11,19 @@ pub const QTextToSpeechPlugin = extern struct {
 
     pub const _is_QTextToSpeechPlugin = {};
 
-    /// New constructs a new QTextToSpeechPlugin object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QTextToSpeechPlugin {
+    pub const New = new;
+
+    /// Allocate a new QTextToSpeechPlugin object in C++ memory
+    ///
+    pub fn new() QTextToSpeechPlugin {
         return .{ .ptr = qtc.QTextToSpeechPlugin_new() };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechplugin.html#operator-eq)
     ///
@@ -25,24 +33,24 @@ pub const QTextToSpeechPlugin = extern struct {
     ///
     /// ` param1: QTextToSpeechPlugin `
     ///
-    pub fn OperatorAssign(self: QTextToSpeechPlugin, param1: anytype) void {
+    pub fn operatorAssign(self: QTextToSpeechPlugin, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QTextToSpeechPlugin;
         qtc.QTextToSpeechPlugin_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechplugin.html#dtor.QTextToSpeechPlugin)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QTextToSpeechPlugin `
     ///
-    pub fn Delete(self: QTextToSpeechPlugin) void {
+    pub fn delete(self: QTextToSpeechPlugin) void {
         qtc.QTextToSpeechPlugin_Delete(@ptrCast(self.ptr));
     }
 };
