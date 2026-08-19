@@ -78,7 +78,7 @@ func collectClassNames_Widget(u *UiWidget) []string {
 		if cw, ok := CustomWidgets[u.Class]; ok && !(ExtendedFlag && isExtendedClass(u.Class)) {
 			className = cw
 		}
-		ret = append(ret, u.Name+": qt6."+className)
+		ret = append(ret, u.Name+": qt6."+className+" = undefined")
 		WidgetMap[u.Name] = sanitizeLowerName(className)
 	}
 
@@ -89,7 +89,7 @@ func collectClassNames_Widget(u *UiWidget) []string {
 		ret = append(ret, collectClassNames_Layout(u.Layout)...)
 	}
 	for _, a := range u.Actions {
-		ret = append(ret, a.Name+": qt6.QAction")
+		ret = append(ret, a.Name+": qt6.QAction = undefined")
 		WidgetMap[a.Name] = "qaction"
 	}
 
@@ -100,7 +100,7 @@ func collectClassNames_Layout(l *UiLayout) []string {
 	var ret []string
 
 	if l.Name != "" {
-		ret = append(ret, l.Name+": qt6."+l.Class)
+		ret = append(ret, l.Name+": qt6."+l.Class+" = undefined")
 		WidgetMap[l.Name] = sanitizeLowerName(l.Class)
 	}
 
@@ -109,7 +109,7 @@ func collectClassNames_Layout(l *UiLayout) []string {
 			ret = append(ret, collectClassNames_Widget(li.Widget)...)
 		}
 		if li.Spacer != nil {
-			ret = append(ret, li.Spacer.Name+": qt6.QSpacerItem")
+			ret = append(ret, li.Spacer.Name+": qt6.QSpacerItem = undefined")
 		}
 		if li.Layout != nil {
 			ret = append(ret, collectClassNames_Layout(li.Layout)...)
@@ -913,6 +913,9 @@ func generateWidget(w UiWidget, parentName, parentClass string) (string, error) 
 	}
 
 	ret.WriteString("ui." + w.Name + ".setObjectName(" + strconv.Quote(w.Name) + ");\n")
+	if w.Name == GlobalContext {
+		ret.WriteString("ui." + w.Name + ".setParent(parent);\n")
+	}
 
 	if wClass == "QMenu" {
 		QMenus = append(QMenus, w.Name)
@@ -1475,27 +1478,22 @@ pub const ` + uClass + `Ui = struct {
 
 `)
 
+	var maybeAllocatorParamComment, maybeAllocatorParam string
 	if len(translateFunc) > 0 {
-		ret.WriteString(`/// Reapplies all text translations
-    pub fn retranslate(ui: *` + uClass + `Ui, allocator: std.mem.Allocator) void {
-    ` + strings.Join(translateFunc, "\n") + `
-    }`)
+		maybeAllocatorParamComment = "\n///\n/// ` allocator: std.mem.Allocator `"
+		maybeAllocatorParam = ", allocator: std.mem.Allocator"
 	}
 
 	ret.WriteString(`
-
-/// Destroys all the Qt objects for ` + uClass + `Ui and frees the allocated memory
-pub fn destroy(ui: *` + uClass + `Ui, allocator: std.mem.Allocator) void {
-    ui.` + u.Widget.Name + `.delete();
-    allocator.destroy(ui);
-}`)
-
-	ret.WriteString(`
-};
-
-/// Creates all the Qt objects for ` + uClass + `Ui
-pub fn create(allocator: std.mem.Allocator) !*` + uClass + `Ui {
-    var ui = try allocator.create(` + uClass + `Ui);
+/// Initialize all of the Qt objects for ` + uClass + `Ui
+///
+/// ## Parameters:
+///
+/// ` + "` ui: *" + uClass + "Ui `" + maybeAllocatorParamComment + `
+///
+/// ` + "` parent: QWidget ` (can be null)" + `
+///
+pub fn init(ui: *` + uClass + `Ui` + maybeAllocatorParam + `, parent: anytype) void {
 `)
 
 	ret.WriteString(strings.Join(newFuncBody, ""))
@@ -1567,8 +1565,25 @@ pub fn create(allocator: std.mem.Allocator) !*` + uClass + `Ui {
 	}
 
 	ret.WriteString(`
-    return ui;
+}
+
+/// If there is no parent widget, delete the main widget for
+/// ` + uClass + `Ui and the child Qt objects
+pub fn deinit(ui: *const ` + uClass + `Ui) void {
+    if (ui.` + u.Widget.Name + `.parentWidget().ptr == null)
+        ui.` + u.Widget.Name + `.delete();
 }`)
+
+	if len(translateFunc) > 0 {
+		ret.WriteString(`
+
+    /// Reapply all text translations
+    pub fn retranslate(ui: *const ` + uClass + `Ui, allocator: std.mem.Allocator) void {
+    ` + strings.Join(translateFunc, "\n") + `
+    }`)
+	}
+
+	ret.WriteString("\n};")
 
 	output := ret.String()
 

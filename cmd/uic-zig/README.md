@@ -11,9 +11,12 @@ full usage for more details.
 
 One key difference from the C++ and Python implementations is that rather than
 taking a widget-based parameter and forming it into the root of the target
-creation, the Zig setup function only takes an allocator as a parameter that
-stores the generated creation that is returned. This aims to facilitate more
-fine-grained control over how the created objects are managed from within Zig.
+object, the Zig setup function is in the object struct's namespace, taking an
+allocator as a parameter if necessary, and a nullable QWidget-based parameter
+for a widget to assign as a parent widget. If a widget is set as the parent,
+the `deinit` cleanup function becomes a no-op function. This approach aims to
+facilitate more fine-grained control over how the created objects are managed
+from within Zig.
 
 Example
 -------
